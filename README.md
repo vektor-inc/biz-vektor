@@ -1,7 +1,7 @@
-biz-vektor
-==========
-## Theme Name
 BizVektor
+==========
+Free WordPress Theme for business
+* * *
 ## Theme URI
 http://bizvektor.com
 ## Description
