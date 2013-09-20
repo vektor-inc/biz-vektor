@@ -283,16 +283,16 @@ add_action('save_post', 'save_custom_field_metaKeyword');
 
 function add_custom_field_metaKeyword(){
   if(function_exists('add_custom_field_metaKeyword')){
-    add_meta_box('div1', 'キーワード', 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
-    add_meta_box('div1', 'キーワード', 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
-    add_meta_box('div1', 'キーワード', 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
+    add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
+    add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
+    add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
   }
 }
 
 function insert_custom_field_metaKeyword(){
   global $post;
   echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
-  echo '<label class="hidden" for="metaKeyword">キーワード</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
+  echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
   echo '<p>このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）<br />';
   echo '※サイト全体に共通して設定するキーワードは<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">テーマオプション</a>から設定出来ます。</p>';
 }
