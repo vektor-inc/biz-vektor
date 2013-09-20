@@ -11,6 +11,6 @@ Vektor,Inc.
 ## Author URI
 http://www.vektor-inc.co.jp/
 ## Version
-0.9.2.0
+0.9.2.X
 ## License
 GNU General Public License
