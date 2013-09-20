@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* gMenuの系統でないページを表示しても崩れないようにactive ボタンのサイズは必ず他のボタンより大きくならなくてはならない */
+#gMenu .menu li { width:189px; text-align:center; }
+#gMenu .menu li.current_page_item,
+#gMenu .menu li.current_page_ancestor { width:193px; }

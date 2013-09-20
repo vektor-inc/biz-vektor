@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+@import "001_common.css";
+
+a	{ color:#007000; }
+
+.moreLink a,
+.btn.btnS a,
+.btn.btnM a,
+.btn.btnL a,
+#content p.btn.btnL input,
+input[type=button],
+input[type=submit],
+#searchform input[type=submit],
+p.form-submit input[type=submit],
+form#searchform input#searchsubmit,
+#content form input.wpcf7-submit,
+#confirm-button input	{ background-color:#007000;color:#f5f5f5; }
+
+.moreLink a:hover,
+.btn.btnS a:hover,
+.btn.btnM a:hover,
+.btn.btnL a:hover	{ background-color:#0c0; color:#f5f5f5;}
+
+#headerTop { border-top-color:#007000;}
+#header #headContact #headContactTel	{color:#007000;}
+
+#gMenu	{ border-top:2px solid #007000; }
+#gMenu h3.assistive-text,
+#gMenu .menu li.current_page_item a,
+#gMenu .menu li.current_page_ancestor a ,
+#gMenu .menu li.current-page-ancestor a ,
+#gMenu .menu li a:hover	{ background-color:#007000; border-right:1px solid #006300;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#007000), to(#006300));
+background: -moz-linear-gradient(#007000, #006300);
+background: linear-gradient(#007000, #006300);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#007000, EndColorStr=#006300)";
+-pie-background: linear-gradient(#007000, #006300);
+behavior: url(/wp-content/themes/biz-vektor/PIE.htc);
+}
+#gMenu .menu li.current_page_item a span,
+#gMenu .menu li.current_page_ancestor a span,
+#gMenu .menu li.current-page-ancestor a span,
+#gMenu .menu li a:hover span{ color:#99cc99; }
+
+#pageTitBnr	{ background-color:#007000; }
+
+#panList a	{ color:#007000; }
+#panList a:hover	{ color:#0c0; }
+
+#content h2,
+#content h1.contentTitle,
+#content h1.entryPostTitle { border-top:2px solid #007000;}
+#content h3	{ border-left-color:#007000;}
+#content h4,
+#content dt	{ color:#007000; }
+
+#content .infoList .infoCate a:hover	{ background-color:#007000; }
+
+#content .child_page_block h4 a	{ border-color:#007000; }
+#content .child_page_block h4 a:hover,
+#content .child_page_block p a:hover	{ color:#007000; }
+
+#content .childPageBox ul li.current_page_item li a	{ color:#007000; }
+
+#content .mainFootContact p.mainFootTxt span.mainFootTel	{ color:#007000; }
+#content .mainFootContact .mainFootBt a			{ background-color:#007000; }
+#content .mainFootContact .mainFootBt a:hover	{ background-color:#0c0; }
+
+#sideTower .localHead	{ border-top-color:#007000; }
+#sideTower li.sideBnr#sideContact a		{ background-color:#007000; }
+#sideTower li.sideBnr#sideContact a:hover	{ background-color:#0c0; }
+#sideTower .sideWidget h4	{ border-left-color:#007000; }
+
+#pagetop a	{ background-color:#007000; }
+#footMenu	{ background-color:#007000;border-top-color:#006300; }
+
+#topMainBnr	{ background-color:#007000; }
+
+#topPr .topPrInner h3	{ border-left-color:#007000 ; }
+#topPr .topPrInner p.moreLink a	{ background-color:#007000; }
+#topPr .topPrInner p.moreLink a:hover { background-color:#0c0; }
+
+#topMainBnrFrame a.slideFrame:hover	{border:4px solid #007000;}
+
+.paging span,
+.paging a	{ color:#007000;border:1px solid #007000; }
+.paging span.current,
+.paging a:hover	{ background-color:#007000; }

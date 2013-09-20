@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+/* @media 部分をそのまま貼り付けで@medhia をコメントアウト */
+
+/*-------------------------------------------*/
+/* コンテンツ推奨サイズより大きい場合
+/*-------------------------------------------*/
+#headerTop #site-description	{ line-height:150%;font-size:12px;}
+#header #site-title	{ padding-bottom:15px;float:left;}
+#header #headContact	{ float:right; text-align:right; }
+#header #headContact #headContactTxt,
+#header #headContact #headContactTime	{ font-size:12px;}
+#header #headContact #headContactTel	{ font-size:24px; }
+
+
+#main #container #content	{/* width:640px;margin:0px auto; */ }
+
+#content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
+#content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
+#content .mainFootContact .mainFootBt	{ float:right; }
+#content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
+#content .mainFootContact .mainFootBt a img	{ width:auto; }
+
+#topMainBnr { padding:15px 0; }
+
+#topPr { display:block; overflow:hidden; margin-bottom:25px; }
+#topPr .topPrOuter	{ padding-bottom:0px;border-bottom:none;}
+#topPr h3 a	{ color:#333; }
+#topPr #topPrLeft 	{ width:33%; text-align:left; float:left;display:block; overflow:visible; }
+#topPr #topPrCenter { width:33%; text-align:center;float:left;display:block; overflow:visible; }
+#topPr #topPrRight 	{ width:33%; text-align:right;float:right; display:block; overflow:visible; }
+#topPr #topPrLeft .topPrInner 	{ float:left; }
+#topPr #topPrCenter .topPrInner	{ margin:0px auto;}
+#topPr #topPrRight .topPrInner	{ float:right; }
+#topPr .topPrInner	{text-align:left;width:95%;}
+#topPr .topPrInner p	{ padding:0px; }
+#topPr .topPrInner p.topPrDescription	{ font-size:12px; }	
+#topPr .prImage	{ float:none;width:100%; margin-right:0px; }
+#topPr .prImage img { height:auto;width:100%; }
+#topPr .prImage img.imageWide	{ display:block;}
+#topPr .prImage img.imageSmall	{ display:none;}
+
+#topPr .topPrInner p.moreLink			{  }
+#topPr .topPrInner p.moreLink a			{ text-align:left; background:url(images/icon_try1_gray.gif) 5px 50% no-repeat #efefef !important;color:#666; width:auto; display:inline-block; padding:5px 15px 5px 20px; }
+#topPr .topPrInner p.moreLink a:hover { background-color:#e5e5e5 !important;  }
+
+#content .child_page_block	{ width:48% !important; }
+#content .child_page_block.layout_odd	{ float:left; clear:both; }
+#content .child_page_block p 	{ font-size:12px !important; line-height:133%; }
+
+/*-------------------------------------------*/
+/* pc iPad3より大きい場合
+/*-------------------------------------------*/
+body     {  font-size:87.5%;line-height:150%; }
+#gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
+#gMenu.itemClose .menu,
+#gMenu.itemOpen .menu	{ display:block; }
+#gMenu .menu		{ border-left:1px solid #ccc; border-top:none; }
+#gMenu .menu:after	{
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+#gMenu .assistive-text { position: absolute; left: -9000px; }
+#gMenu .menu li { float: left;width:auto;border-bottom:none; }
+#gMenu .menu li a	{ text-align:center;border-right:1px solid #ccc; }
+
+#gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:100;border-top:1px solid #ccc; position:absolute;width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
+#gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #ccc;width:200px; position:relative; }
+#gMenu .menu li:hover li a,
+#gMenu .menu li.current_page_item li a,
+#gMenu .menu li.current-menu-ancestor li a,
+#gMenu .menu li.current-page-ancestor li a,
+#gMenu .menu li.current_page_ancestor li a { background-color:#fff;
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#ffffff, EndColorStr=#ffffff)" !important;color:#4d4d4d;text-align:left;border-right:none;}
+#gMenu .menu li:hover li a:hover,
+#gMenu .menu li.current_page_item li a:hover,
+#gMenu .menu li.current-menu-ancestor li a:hover,
+#gMenu .menu li.current-page-ancestor li a:hover,
+#gMenu .menu li.current_page_ancestor li a { background-color:#f5f5f5;
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#f5f5f5, EndColorStr=#f5f5f5)" !important;}
+
+#gMenu .menu li:hover ul li ul	{ position:absolute;left:200px;top:10px; border-top:none;}
+#gMenu .menu li:hover ul li ul,
+#gMenu .menu li:hover ul li ul li	{ display:none; }
+#gMenu .menu li:hover ul li:hover ul,
+#gMenu .menu li:hover ul li:hover ul li	{display:block;}
+#gMenu .menu li:hover ul li:hover ul { border-top:1px solid #ccc; }
+
+
+#footerSiteMap .menu	{ font-size:12px; }
+#footerSiteMap .menu li	{ display:inline-block; }
+#footerSiteMap .menu li	a	{ background-position:left 3px;padding:0px 20px 4px 18px; }
+#footerSiteMap .menu li	li a	{ background-position:3px 3px;padding:0px 20px 0px 18px;font-size:11px;}
+#footerSiteMap .menu li	li li a	{ }
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:2px; padding-bottom:2px; }
+#footerSiteMap .menu li	li li a	{   background-position: 5px 3px; }
+
+#sitemapOuter	{ padding:20px 50px; }
+#content #sitemapPageList { float:left;width:49%; }
+#content #sitemapPostList { float:right;width:49%;margin-top:0px; }
+#content ul.linkList li a	{ padding:3px 15px; }
+
+
+#main #container #content.wide	{ width:850px; }
+/*-------------------------------------------*/
+/*	フルサイズ
+/*-------------------------------------------*/
+.innerBox,
+#gMenu #gMenuInner.innerBox	{ width:950px; margin:0px auto; }
+#main #container	{ padding-top:30px;}
+#main #container #content	{ float:left; width:640px; }
+#main #container #sideTower	{ float:right; width:220px;clear:none; }
+body.left-sidebar #main #container #content	{ float:right; }
+body.left-sidebar #main #container #sideTower	{ float:left; }
+
+body.home.one-column #main #container #content	{ float:none;width:100%; }
+body.home.one-column #main #container #sideTower	{ float:none; display:none; }
+
+form#searchform input#s	{width:120px; }
+form#searchform input#searchsubmit	{ width:20%; }
+
+#topMainBnrFrame	{ min-height:250px;} 
+#topMainBnrFrame	{ width:950px; }
+
+/*			.childPageBox
+/*-------------------------------------------*/
+#content .childPageBox { display:block; }
+#content .childPageBox{ margin-top:20px; border:1px solid #ccc; padding:0px;display:block; overflow:hidden; width:638px; margin-bottom:20px;}
+#content .childPageBox h4	{ font-weight:lighter;margin:15px 20px 10px; padding:0px 0px 3px; font-size:14px;}
+#content .childPageBox h4 a	{ text-decoration:none;color:#666 }
+#content .childPageBox ul 	{ margin:0px 20px 15px; padding:0px; display:block; overflow:hidden; font-size:85.7%; line-height:125%;}
+#content .childPageBox ul li	{ float:left; display:block; width:33%; list-style:none;margin:0px; }
+#content .childPageBox ul li a	{ background:url(images/icon_try1_gray.gif) left 7px no-repeat; padding:3px 5px 3px 10px; text-decoration:none; display:block; overflow:hidden;}
+#content .childPageBox ul li a:hover { background-image:url(images/icon_try1_red.gif); text-decoration:underline; }
+#content .childPageBox ul li ul	{ margin:0px; }
+#content .childPageBox ul li li		{ float:none;width:auto; }
+#content .childPageBox ul li li a	{ background:url(images/icon_try2_gray.gif) left 8px no-repeat; padding:3px 5px 3px 10px; text-decoration:none;margin-left:10px; }
+#content .childPageBox ul li li a:hover	{ background:url(images/icon_try2_red.gif) left 8px no-repeat; }
+#content .childPageBox ul li.current_page_item a	{ color:#666; }
+
+#footerSiteMap	{ width:640px;padding-top:0px; font-size:12px; }
+#footer dl#footerOutline	{ float:left; }
+
+#topMainBnr			{ width:100%; }
+#topMainBnr img		{ max-width:950px; }

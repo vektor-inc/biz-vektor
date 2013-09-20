@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BizVektor 1.0\n"
+"POT-Creation-Date: 2013-09-19 15:52+0900\n"
+"PO-Revision-Date: 2013-09-20 00:51+0900\n"
+"Last-Translator: \n"
+"Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
+"Language: Japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
+"X-Poedit-Basepath: C:\\Users\\i\\Dropbox\\Vektor,inc\\works\\00_WordPress_wp-"
+"content\\themes\\biz-vektor\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 503.php:19
+msgid "Maintenance is now working."
+msgstr "只今メンテナンス作業中です。"
+
+#: archive.php:19
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y年"
+
+#: archive.php:21
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "Y年n月"
+
+#: archive.php:19
+msgid "Yearly Archives: %s"
+msgstr "年別アーカイブ: %s"
+
+#: archive.php:21
+msgid "Monthly Archives: %s"
+msgstr "月別アーカイブ: %s"
+
+#: archive.php:25
+msgid "Tags : "
+msgstr "タグ : "
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "&laquo; Older Comments"
+msgstr "&laquo; 古いコメント"
+
+msgid "Newer Comments &raquo;"
+msgstr "新しいコメント &raquo;"
+
+#: front-page.php:25
+msgid "Posted on"
+msgstr "投稿日"
+
+#: front-page.php:26
+msgid "Category"
+msgstr "カテゴリー"
+
+#: front-page.php:38 page.php:16
+msgid "Edit"
+msgstr "編集"
+
+#: front-page.php:41
+msgid "Title display setting"
+msgstr "↑ タイトルの表示設定"
+
+#: front-page.php:44
+msgid "Change display page"
+msgstr "↑ 表示するページを変更する"
+
+#: functions.php:96
+msgid "Sidebar(Front page only)"
+msgstr "サイドバー（トップのみ）"
+
+#: functions.php:98
+msgid "This widget area display front page only."
+msgstr ""
+"トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
+"必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
+"ジェットを使用して、ソースコードを張り付けられます。サイドバーウィジェット"
+"（共通）の上に表示されます。"
+
+#: functions.php:105
+msgid "Sidebar(Post content only)"
+msgstr "サイドバー（投稿・問い合わせバナー上）"
+
+#: functions.php:107
+msgid ""
+"This widget area display post content only.It is displayed on the Contact "
+"banner."
+msgstr ""
+"投稿コンテンツのページにのみ表示されるウィジェットです。問い合わせバナーの上"
+"に表示されます。"
+
+#: functions.php:114
+msgid "Sidebar(All pages upper part)"
+msgstr "サイドバー（共通・上）"
+
+#: functions.php:116
+msgid ""
+"This widget area display all pages upper part.It is displayed on the "
+"facebook & twitter banner."
+msgstr ""
+"サイドバーに表示するウィジェットです。facebook,twitterバナーの上に表示されま"
+"す。"
+
+#: functions.php:123
+msgid "Sidebar(All pages under part)"
+msgstr "サイドバー（共通・下）"
+
+#: functions.php:125
+msgid ""
+"This widget area display all pages upper part.It is displayed under the "
+"facebook & twitter banner."
+msgstr ""
+"サイドバーに表示するウィジェットです。facebook,twitterバナーの下に表示されま"
+"す。"
+
+#: inc/theme-options-edit.php:5
+#, php-format
+msgid "%s Theme Options"
+msgstr "%s テーマオプション"

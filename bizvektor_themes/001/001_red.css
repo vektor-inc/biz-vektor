@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+@import "001_common.css";
+
+a	{ color:#c00; }
+
+.moreLink a,
+a.btn,
+.linkBtn.linkBtnS a,
+.linkBtn.linkBtnM a,
+.linkBtn.linkBtnL a,
+#content p.btn.btnL input,
+input[type=button],
+input[type=submit],
+#searchform input[type=submit],
+p.form-submit input[type=submit],
+form#searchform input#searchsubmit,
+#content form input.wpcf7-submit,
+#confirm-button input { background-color:#c00;color:#f5f5f5; }
+
+.moreLink a:hover,
+a.btn:hover,
+.linkBtn.linkBtnS a:hover,
+.linkBtn.linkBtnM a:hover,
+.linkBtn.linkBtnL a:hover	{ background-color:#f00; color:#f5f5f5;}
+
+#headerTop { border-top-color:#c00;}
+#header #headContact #headContactTel	{color:#c00;}
+
+#gMenu	{ border-top:2px solid #c00; position:relative; }
+#gMenu h3.assistive-text,
+#gMenu .menu li.current_page_item a,
+#gMenu .menu li.current_page_ancestor a,
+#gMenu .menu li.current-page-ancestor a,
+#gMenu .menu li a:hover	{ background-color:#c00; border-right:1px solid #900;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#c00), to(#900));
+background: -moz-linear-gradient(#c00, #900);
+background: linear-gradient(#c00, #900);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#cc0000, EndColorStr=#990000)";
+-pie-background: linear-gradient(#c00, #900);
+behavior: url(/wp-content/themes/biz-vektor/PIE.htc);
+}
+#gMenu .menu li.current_page_item a span,
+#gMenu .menu li.current_page_ancestor a span,
+#gMenu .menu li.current-page-ancestor a span,
+#gMenu .menu li a:hover span{ color:#FFCCCC; }
+
+#pageTitBnr	{ background-color:#c00; }
+
+#panList a	{ color:#c00; }
+#panList a:hover	{ color:#f00; }
+
+#content h2,
+#content h1.contentTitle,
+#content h1.entryPostTitle { border-top:2px solid #c00;}
+#content h3	{ border-left-color:#c00;}
+#content h4,
+#content dt	{ color:#c00; }
+
+#content .infoList .infoCate a:hover	{ background-color:#c00; }
+
+#content .child_page_block h4 a	{ border-color:#c00; }
+#content .child_page_block h4 a:hover,
+#content .child_page_block p a:hover	{ color:#c00; }
+
+#content .childPageBox ul li.current_page_item li a	{ color:#c00; }
+
+#content .mainFootContact p.mainFootTxt span.mainFootTel	{ color:#c00; }
+#content .mainFootContact .mainFootBt a			{ background-color:#c00; }
+#content .mainFootContact .mainFootBt a:hover	{ background-color:#f00; }
+
+#sideTower .localHead	{ border-top-color:#c00; }
+#sideTower li.sideBnr#sideContact a		{ background-color:#c00; }
+#sideTower li.sideBnr#sideContact a:hover	{ background-color:#f00; }
+#sideTower .sideWidget h4	{ border-left-color:#c00; }
+
+#pagetop a	{ background-color:#c00; }
+#footMenu	{ background-color:#c00;border-top-color:#900; }
+
+#topMainBnr	{ background-color:#c00; }
+
+#topPr .topPrInner h3	{ border-left-color:#c00 ; }
+#topPr .topPrInner p.moreLink a	{ background-color:#c00; }
+#topPr .topPrInner p.moreLink a:hover { background-color:#f00; }
+
+#topMainBnrFrame a.slideFrame:hover	{ border:4px solid #c00; }
+
+/*			.priceTable
+/*-------------------------------------------
+#content table.priceTable	{ font-size:100%; line-height:130%; }
+#content table.priceTable thead	th	{ background-color:#fcc; font-weight:bold; }
+#content table.priceTable th,
+#content table.priceTable td	{ border: 1px solid #f99;background-color:#ffeeee; }
+#content table.priceTable th	{ white-space:nowrap; background-color:#ffcccc; }
+#content table.priceTable td.priceValue	{ text-align:center; white-space:nowrap; }
+*/
+
+.paging span,
+.paging a	{ color:#c00;border:1px solid #c00; }
+.paging span.current,
+.paging a:hover	{ background-color:#c00; }

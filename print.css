@@ -1,0 +1,17 @@
+body { background: none !important; }
+#wrapper { clear: both !important; display: block !important; float: none !important; position: relative !important; }
+#header,
+#panList,
+#gMenu
+#pagetop,
+#sideTower,
+#footer	{ display:none; }
+#access,
+#branding img,
+#respond,
+.comment-edit-link,
+.edit-link,
+.navigation,
+.page-link,
+.widget-area { display: none !important; }
+#container { margin: 0; width: 100%; }

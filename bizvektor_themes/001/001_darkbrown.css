@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+@import "001_common.css";
+
+a	{ color:#361C00; }
+
+.moreLink a,
+.btn.btnS a,
+.btn.btnM a,
+.btn.btnL a,
+#content p.btn.btnL input,
+input[type=button],
+input[type=submit],
+#searchform input[type=submit],
+p.form-submit input[type=submit],
+form#searchform input#searchsubmit,
+#content form input.wpcf7-submit,
+#confirm-button input	{ background-color:#361C00;color:#f5f5f5; }
+
+.moreLink a:hover,
+.btn.btnS a:hover,
+.btn.btnM a:hover,
+.btn.btnL a:hover	{ background-color:#553411; color:#f5f5f5;}
+
+#headerTop { border-top-color:#361C00;}
+#header #headContact #headContactTel	{color:#361C00;}
+
+#gMenu	{ border-top:2px solid #361C00; }
+#gMenu h3.assistive-text,
+#gMenu .menu li.current_page_item a,
+#gMenu .menu li.current_page_ancestor a ,
+#gMenu .menu li.current-page-ancestor a ,
+#gMenu .menu li a:hover	{ background-color:#361C00; border-right:1px solid #4D2E0D; color:#e5e5e5;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4D2E0D), to(#3C1F00));
+background: -moz-linear-gradient(#4D2E0D, #3C1F00);
+background: linear-gradient(#4D2E0D, #3C1F00);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#4D2E0D, EndColorStr=#3C1F00)";
+-pie-background: linear-gradient(#4D2E0D, #3C1F00);
+behavior: url(/wp-content/themes/biz-vektor/PIE.htc);
+}
+#gMenu .menu li.current_page_item a span,
+#gMenu .menu li.current_page_ancestor a span,
+#gMenu .menu li.current-page-ancestor a span,
+#gMenu .menu li a:hover span{ color:#B5916A; }
+
+#pageTitBnr	{ background-color:#361C00; }
+
+#panList a	{ color:#361C00; }
+#panList a:hover	{ color:#553411; }
+
+#content h2,
+#content h1.contentTitle,
+#content h1.entryPostTitle { border-top:2px solid #361C00;}
+#content h3	{ border-left-color:#361C00;}
+#content h4,
+#content dt	{ color:#361C00; }
+
+#content .infoList .infoCate a:hover	{ background-color:#361C00; }
+
+#content .child_page_block h4 a	{ border-color:#361C00; }
+#content .child_page_block h4 a:hover,
+#content .child_page_block p a:hover	{ color:#361C00; }
+
+#content .childPageBox ul li.current_page_item li a	{ color:#361C00; }
+
+#content .mainFootContact p.mainFootTxt span.mainFootTel	{ color:#361C00; }
+#content .mainFootContact .mainFootBt a			{ background-color:#361C00; }
+#content .mainFootContact .mainFootBt a:hover	{ background-color:#553411; }
+
+#sideTower .localHead	{ border-top-color:#361C00; }
+#sideTower li.sideBnr#sideContact a		{ background-color:#361C00; }
+#sideTower li.sideBnr#sideContact a:hover	{ background-color:#553411; }
+#sideTower .sideWidget h4	{ border-left-color:#361C00; }
+
+#pagetop a	{ background-color:#361C00; }
+#footMenu	{ background-color:#361C00;border-top-color:#301A00; }
+
+#topMainBnr	{ background-color:#361C00; }
+
+#topPr .topPrInner h3	{ border-left-color:#361C00; }
+#topPr .topPrInner p.moreLink a	{ background-color:#361C00; }
+#topPr .topPrInner p.moreLink a:hover { background-color:#553411; }
+
+#pagetop a,
+#footMenu .menu li a	{ /*color:#A4998E;*/ color:#e5e5e5; }
+
+#footer,
+#siteBottom { background-color:#1E1914; }
+
+#topMainBnrFrame a.slideFrame:hover	{border:4px solid #361C00;}
+
+.paging span,
+.paging a	{ color:#361C00;border:1px solid #361C00; }
+.paging span.current,
+.paging a:hover	{ background-color:#361C00; }

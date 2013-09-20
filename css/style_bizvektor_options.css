@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+/* BizVektorOptions 0.1.1.0
+/*-------------------------------------------*/
+
+.leadTxt,
+#content p.leadTxt { font-size:2em;line-height: 150%; }
+
+/*			.qaItem
+/*-------------------------------------------*/
+#content dl.qaItem	{ display:block; overflow:hidden;border-bottom:1px dotted #ccc; padding:0px 0px 20px; margin:0px 0px 20px; width:100%; }
+#content dl.qaItem dt	{ margin-bottom:15px; background:url(../images/options/qaIconQ.gif) left top no-repeat; padding-left:32px; border:none; }
+#content dl.qaItem dd	{ margin-bottom:0px; background:url(../images/options/qaIconA.gif) left top no-repeat; padding-left:32px; }
+
+/*			.flowBox
+/*-------------------------------------------*/
+#content .flowBox 	{ padding-bottom:40px; margin-bottom:15px; display:block; overflow:hidden; background:url(../images/options/arrow_down.gif) center bottom no-repeat; }
+#content .flowBox.last	{ background:none; padding-bottom:0px; margin-bottom:0px; }
+#content .flowBox dl	{ display:block; overflow:hidden; padding:15px 20px; border:3px solid #e5e5e5; }
+#content .flowBox dl dt	{ border-bottom:1px dotted #ccc; margin-bottom:10px; font-size:1.2em; }
+#content .flowBox dl dd	{ margin-bottom:0px; }
+#content .flowBox dl dd h4	{ margin:0px;padding:0px; }
+#content .flowBox dl dd p	{ margin-bottom:10px; }
+#content .flowBox dl dd ul	{ margin-bottom:0px; }
+
+/*			trust-form
+/*-------------------------------------------*/
+#content #trust-form	{ width:100%; }
+
+/*			contactform7
+/*-------------------------------------------*/
+#content .wpcf7	{ margin-top:20px; }
+#content form span.wpcf7-form-control-wrap	{ position:relative; display:block; overflow:hidden; clear:both; /*回り込みをしている為*/ }
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item,
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item label	{ display:block; float:left; }
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:8px; padding-bottom:8px; }
+#content form span.wpcf7-not-valid-tip	{ position: relative; color: #fff; padding-left: 5px; position:relative; display:block; background-color:#F00;left:0px;top:8px; margin-bottom:8px; }
+#content form span.wpcf7-not-valid-tip::after {content: "";position: absolute;bottom: 100%;left: 30px;height: 0;width: 0;border: 10px solid transparent;border-bottom: 10px solid #F00;}
+#content form div.wpcf7-validation-errors	{ border:none; position: relative; color:#FFF; padding:7px; background-color:#F00; text-align:center; }
+#content form div.wpcf7-validation-errors::after {content: "";position: absolute;bottom: 100%;left: 30px;height: 0;width: 0;border: 10px solid transparent;border-bottom: 10px solid #F00;}
+#content .wpcf7 dl		{ display:block; overflow:hidden; border-bottom:1px dotted #ccc; }
+#content .wpcf7 dl dt	{ display:block; overflow:hidden; padding:10px 0;float:left; width:20%; color:#666; font-weight:lighter; }
+#content .wpcf7 dl dd	{ display:block; overflow:hidden; padding:10px;margin-bottom:0px; }

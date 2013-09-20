@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+/*-------------------------------------------*/
+/*			.socialSet 0.1.0.1
+/*-------------------------------------------*/
+#content #socialSet	{ display:block; overflow:visible; clear:both; padding-top:15px; /* hiddenだとポップアップが見えなくなる */ }
+#content #socialSet:before,
+#content #socialSet:after{ content: "."; display: table;　height: 0; font-size:0;clear: both; visibility:hidden; }
+#content #socialSet ul { margin:0px 0px 15px; }
+#content #socialSet ul li { display:block;float:left; overflow:visible; background:none; padding:0px; position:relative; }
+#content #socialSet ul li iframe	{ border:none; }
+#content #socialSet ul li img	{ border:none; }
+#content #socialSet ul li.sb_twitter	{width:110px;}
+#content #socialSet ul li.sb_google	{ width:80px; }
+#content #socialSet ul li.sb_hatena	{ width:70px; }
+#content #socialSet ul li.sb_facebook	{ position:relative; }
+#content #socialSet ul li.sb_facebook div.fb_iframe_widget	{}
+#content #socialSet ul li.sb_mixi		{ z-index:50;width:110px;}
+#content #socialSet ul li.sb_pocket		{ margin-left:5px;}
+#content #socialSet ul li.sb_line img	{ height:20px !important;/* 拡張テーマで #content img に !importantがかかっているものがあるため */width:auto; }

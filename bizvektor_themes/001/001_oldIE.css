@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+@import "../plain/plain_oldIE.css";
+
+#gMenu h3.assistive-text	{ background:none ;border-right:none; }
+#gMenu h3.assistive-text	{ -ms-filter:none;-pie-background:none;}
+#content table { font-size:12px;}
+/* common のmedia部分を貼り付けて@media関連を削除　*/
+
+
+#content .mainFootContact	{ width:600px; }
+#content .mainFoot	{width:628px;}
+
+#topPr	{ border-left:1px solid #ccc;margin-bottom:35px; }
+#topPr .topPrOuter	{ border-right:1px solid #ccc;margin-bottom:0px; }
+#topPr .topPrInner	{ padding:0px 17px; width:auto; }
+#topPr #topPrLeft .topPrInner,
+#topPr #topPrCenter .topPrInner,
+#topPr #topPrRight .topPrInner	{ float:none; }
+
+#headerTop	{ background-color:#f5f5f5; }
+#gMenu 	{ border-top-width:2px;border-top-style:solid; }
+#gMenu .menu	{border-left:1px solid #ccc;}
+#gMenu .menu li, 
+#gMenu .menu li.current_page_item,
+#gMenu .menu li.current_page_ancestor { 
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e5e5e5), to(#fff));
+background: -moz-linear-gradient(#e5e5e5, #fff);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#e5e5e5, EndColorStr=#ffffff)";
+-pie-background: linear-gradient(#e5e5e5, #fff);
+behavior: url(/wp-content/themes/biz-vektor/PIE.htc);
+}
+#gMenu .menu li a	{ border-right:1px solid #ccc;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e5e5e5), to(#fff));
+background: -moz-linear-gradient(#e5e5e5, #fff);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#e5e5e5, EndColorStr=#ffffff)";
+}
+#gMenu .menu li:hover li a,
+#gMenu .menu li.current_page_item li a,
+#gMenu .menu li.current-menu-ancestor li a,
+#gMenu .menu li.current-page-ancestor li a,
+#gMenu .menu li.current_page_ancestor li a { background:none !important;background-color:#fff !important;
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#ffffff, EndColorStr=#ffffff)" !important;}
+#gMenu .menu li:hover li a:hover,
+#gMenu .menu li.current_page_item li a:hover,
+#gMenu .menu li.current-menu-ancestor li a:hover,
+#gMenu .menu li.current-page-ancestor li a:hover,
+#gMenu .menu li.current_page_ancestor li a:hover { background-color:#f5f5f5 !important;
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#f5f5f5, EndColorStr=#f5f5f5)" !important;}
+
+
+#topMainBnrFrame .slideFrame img	{ position:relative;left:-4px; }
+#topMainBnrFrame .slides img,
+#topMainBnrFrame.flexslider .slides img	{ width:950px !important;max-width:950px !important; }
