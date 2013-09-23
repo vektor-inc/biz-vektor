@@ -7,75 +7,96 @@ if (1 <= $user_level) { ?>
 <div id="adminHeaderOuter">
 <div id="adminHeaderMenu">
 <ul>
-<li><a href="<?php echo get_admin_url(); ?>">管理画面</a>
+<li><a href="<?php echo get_admin_url(); ?>"><?php echo _x( 'Managing pages', 'BizVektor admin header menu', 'biz-vektor' ); ?></a>
 	<ul>
-	<li><a href="<?php echo home_url( '/' ); ?>">公開ページを見る</a></li>
+	<li><a href="<?php echo home_url( '/' ); ?>"><?php echo _x( 'Visit site', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
 	<?php // 管理者のみ
 	global $user_level;
 	get_currentuserinfo();
 	if (10 <= $user_level) { ?>
-	<li><a href="<?php echo get_admin_url(); ?>plugins.php">プラグインの管理</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>plugins.php"><?php echo _x( 'Plugins page', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
 	<?php } ?>
 	</ul>
 </li>
 <?php // 管理者のみ
 if (10 <= $user_level) { ?>
-<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options">テーマの管理</a>
+<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options"><?php echo _x( 'Theme options', 'BizVektor admin header menu', 'biz-vektor' ); ?></a>
 	<ul>
-	<li><a href="<?php echo get_admin_url(); ?>customize.php">テーマカスタマイザー</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>options-general.php">タイトル・キャッチコピー（説明）</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header">トップページのメインビジュアル</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>options-reading.php">トップページのメインビジュアルの下に表示するページの設定</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options">テーマオプション</a>
+	<li><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo _x( 'Customizer', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+	<li><a href="<?php echo get_admin_url(); ?>options-general.php"><?php echo _x( 'Site title & desctiption', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+	<li><a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header"><?php echo _x( 'Main visual of homepage', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+	<li><a href="<?php echo get_admin_url(); ?>options-reading.php"><?php echo _x( 'Setting of front page under the main visual', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+	<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options"><?php echo _x( 'Theme options', 'BizVektor admin header menu', 'biz-vektor' ); ?></a>
 		<ul>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#design">デザインの設定</a></li>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#postSetting">「<?php echo bizVektorOptions('infoLabelName') ?>」と「<?php echo bizVektorOptions('postLabelName') ?>」の設定</a></li>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#contactInfo">連絡先の設定</a></li>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#seoSetting">SEOの設定</a></li>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#topPage">トップページの設定</a></li>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#snsSetting">SNS連携の設定</a></li>
-		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#slideSetting">スライドショーの設定</a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#design"><?php echo _x( 'Design setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#contactInfo"><?php echo _x( 'Contact setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#prBox"><?php echo _x( 'Home 3PR area', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#postSetting">
+			<?php printf(_x('Setting of %1$s & %2$s', 'BizVektor admin header menu', 'biz-vektor'),bizVektorOptions('infoLabelName'),bizVektorOptions('postLabelName')); ?>
+			</a></li>
+
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#seoSetting"><?php echo _x( 'SEO & GA', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#topPage"><?php echo _x( 'Home page setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#snsSetting"><?php echo _x( 'SNS', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+		<li><a href="<?php echo get_admin_url(); ?>themes.php?page=theme_options#slideSetting"><?php echo _x( 'Slide', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
 		</ul>
 	</li>
-	<li id="adminHead_menuSetting"><a href="<?php echo get_admin_url(); ?>nav-menus.php">メニューの設定</a>
+	<li id="adminHead_menuSetting"><a href="<?php echo get_admin_url(); ?>nav-menus.php"><?php echo _x( 'Menu setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a>
 	<?php if ( !function_exists( 'biz_vektor_activation' ) ) { ?>
 		<ul>
-		<li><a href="http://bizvektor.com/setting/menu/" target="_blank">メニューの設定方法</a></li>
+		<li><a href="http://bizvektor.com/setting/menu/" target="_blank"><?php echo _x( 'How to menu setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
 		</ul>
 	<?php } ?>
 	</li>
-	<li><a href="<?php echo get_admin_url(); ?>widgets.php">ウィジェット</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>themes.php?page=custom-background">背景の設定</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>widgets.php"><?php echo _x( 'Widget setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+	<li><a href="<?php echo get_admin_url(); ?>themes.php?page=custom-background"><?php echo _x( 'Background setting', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
 	</ul>
 </li>
 <?php } ?>
-<li><a href="<?php echo get_admin_url(); ?>edit.php"><?php echo bizVektorOptions('postLabelName') ?>の管理</a>
+<li><a href="<?php echo get_admin_url(); ?>edit.php">
+	<?php printf( _x( 'Manage of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('postLabelName') ); ?></a>
 	<ul>
-	<li><a href="<?php echo get_admin_url(); ?>edit.php"><?php echo bizVektorOptions('postLabelName') ?>記事一覧</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>post-new.php"><?php echo bizVektorOptions('postLabelName') ?>の投稿</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>edit.php">
+		<?php printf( _x( 'Entry list of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('postLabelName') ); ?>
+		</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>post-new.php">
+		<?php printf( _x( 'New post of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('postLabelName') ); ?>
+	</a></li>
 	<?php // 編集者以上
 	if (7 <= $user_level) { ?>
-	<li><a href="<?php echo get_admin_url(); ?>edit-tags.php?taxonomy=category"><?php echo bizVektorOptions('postLabelName') ?>のカテゴリー</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>edit-tags.php?taxonomy=category">
+		<?php printf( _x( 'Category of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('postLabelName') ); ?>
+	</a></li>
 	<?php } ?>
 	</ul>
 </li>
-<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=info"><?php echo bizVektorOptions('infoLabelName') ?>の管理</a>
+<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=info">
+	<?php printf( _x( 'Manage of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ); ?>
+	</a>
 	<ul>
-	<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=info"><?php echo bizVektorOptions('infoLabelName') ?>一覧</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>post-new.php?post_type=info"><?php echo bizVektorOptions('infoLabelName') ?>の投稿</a></li>
-	<?php // 編集者以上
+	<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=info">
+		<?php printf( _x( 'Entry list of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ); ?>
+		</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>post-new.php?post_type=info">
+		<?php printf( _x( 'New post of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ); ?>
+		</a></li>
+	<?php // Editor
 	if (7 <= $user_level) { ?>
-	<li><a href="<?php echo get_admin_url(); ?>edit-tags.php?taxonomy=info-cat"><?php echo bizVektorOptions('infoLabelName') ?>のカテゴリー</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>edit-tags.php?taxonomy=info-cat">
+		<?php printf( _x( 'Category of %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ); ?>
+		</a></li>
 	<?php } ?>
 	</ul>
 </li>
-<?php // 編集者以上
+<?php // Editor
 if (7 <= $user_level) { ?>
-<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=page">ページの管理</a>
+<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=page"><?php echo _x( 'Manage of page', 'BizVektor admin header menu', 'biz-vektor' ); ?></a>
 	<ul>
-	<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=page">ページ一覧</a>
-	<li><a href="<?php echo get_admin_url(); ?>post-new.php?post_type=page">ページの追加</a></li>
-	<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=page&page=mypageorder">ページの並び替え<br />（プラグイン「My Page Order」）</a></li>
+	<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=page"><?php echo _x( 'Entry list of page', 'BizVektor admin header menu', 'biz-vektor' ); ?></a>
+	<li><a href="<?php echo get_admin_url(); ?>post-new.php?post_type=page"><?php echo _x( 'New post of page', 'BizVektor admin header menu', 'biz-vektor' ); ?></a></li>
+	<li><a href="<?php echo get_admin_url(); ?>edit.php?post_type=page&page=mypageorder">
+		<?php echo _x( 'Change page list order <br />[ My page order plugin]', 'BizVektor admin header menu', 'biz-vektor' ); ?>
+		</a></li>
 	</ul>
 </li>
 <?php } ?>

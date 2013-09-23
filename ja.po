@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor 1.0\n"
 "POT-Creation-Date: 2013-09-19 15:52+0900\n"
-"PO-Revision-Date: 2013-09-20 17:29+0900\n"
+"PO-Revision-Date: 2013-09-23 10:00+0900\n"
 "Last-Translator: \n"
 "Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
 "Language: Japanese\n"
@@ -53,6 +53,142 @@ msgstr "新しいコメント &raquo;"
 msgid "Meta Keywords"
 msgstr "メタキーワード"
 
+msgctxt "BizVektor option tab label"
+msgid "Design"
+msgstr "デザイン"
+
+msgctxt "BizVektor option tab label"
+msgid "Contact"
+msgstr "連絡先"
+
+msgctxt "BizVektor option tab label"
+msgid "TopPR"
+msgstr "3PRエリア"
+
+msgctxt "BizVektor option tab label"
+msgid "Homepage"
+msgstr "トップページ"
+
+msgctxt "BizVektor option tab label"
+msgid "Slide"
+msgstr "スライドショー"
+
+msgctxt "BizVektor option tab label"
+msgid "SNS"
+msgstr "SNS連携"
+
+msgctxt "BizVektor admin header menu"
+msgid "Managing pages"
+msgstr "管理画面"
+
+msgctxt "BizVektor admin header menu"
+msgid "Visit site"
+msgstr "公開ページを見る"
+
+msgctxt "BizVektor admin header menu"
+msgid "Plugins page"
+msgstr "プラグインの管理"
+
+msgctxt "BizVektor admin header menu"
+msgid "Theme options"
+msgstr "テーマの管理"
+
+msgctxt "BizVektor admin header menu"
+msgid "Customizer"
+msgstr "テーマカスタマイザー"
+
+msgctxt "BizVektor admin header menu"
+msgid "Site title & desctiption"
+msgstr "タイトル・キャッチコピー（説明）"
+
+msgctxt "BizVektor admin header menu"
+msgid "Main visual of homepage"
+msgstr "トップページのメインビジュアル"
+
+msgctxt "BizVektor admin header menu"
+msgid "Setting of front page under the main visual"
+msgstr "トップページのメインビジュアルの下に表示するページの設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Design setting"
+msgstr "デザインの設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Contact setting"
+msgstr "連絡先の設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Home 3PR area"
+msgstr "トップページ3PRエリア"
+
+msgctxt "BizVektor admin header menu"
+msgid "Setting of %1$s & %2$s"
+msgstr "%1$s と %2$s の設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "SEO & GA"
+msgstr "SEOとアクセス解析の設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Home page setting"
+msgstr "トップページの設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "SNS"
+msgstr "SNS連携の設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Slide"
+msgstr "スライドショーの設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Menu setting"
+msgstr "メニューの設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "How to menu setting"
+msgstr "メニューの設定方法"
+
+msgctxt "BizVektor admin header menu"
+msgid "Widget setting"
+msgstr "ウィジェットの設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Background setting"
+msgstr "背景の設定"
+
+msgctxt "BizVektor admin header menu"
+msgid "Manage of %s"
+msgstr "%s の管理"
+
+msgctxt "BizVektor admin header menu"
+msgid "Entry list of %s"
+msgstr "%s 記事一覧"
+
+msgctxt "BizVektor admin header menu"
+msgid "New post of %s"
+msgstr "%s の新規投稿"
+
+msgctxt "BizVektor admin header menu"
+msgid "Category of %s"
+msgstr "%s のカテゴリー"
+
+msgctxt "BizVektor admin header menu"
+msgid "Manage of page"
+msgstr "ページの管理"
+
+msgctxt "BizVektor admin header menu"
+msgid "Entry list of page"
+msgstr "固定ページのリスト"
+
+msgctxt "BizVektor admin header menu"
+msgid "New post of page"
+msgstr "固定ページの新規追加"
+
+msgctxt "BizVektor admin header menu"
+msgid "Change page list order <br />[ My page order plugin]"
+msgstr "固定ページの並び替え"
+
 #: front-page.php:25
 msgid "Posted on"
 msgstr "投稿日"
@@ -64,6 +200,9 @@ msgstr "カテゴリー"
 #: front-page.php:38 page.php:16
 msgid "Edit"
 msgstr "編集"
+
+msgid "Read more"
+msgstr "この記事を読む"
 
 #: front-page.php:41
 msgid "Title display setting"
@@ -120,6 +259,12 @@ msgid ""
 msgstr ""
 "サイドバーに表示するウィジェットです。facebook,twitterバナーの下に表示されま"
 "す。"
+
+msgid "Skip menu"
+msgstr "メニューを飛ばす"
+
+msgid "No entry."
+msgstr "記事はありません"
 
 #: inc/theme-options-edit.php:5
 #, php-format

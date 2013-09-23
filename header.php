@@ -9,7 +9,7 @@
 <title><?php getHeadTitle(); ?></title>
 <meta name="description" content="<?php getHeadDescription(); ?>" />
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
-<link rel="start" href="<?php echo site_url(); ?>" title="ホーム" />
+<link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
 <?php biz_vektor_ogp(); ?>
 <?php biz_vektor_theme_style(); ?>
 <?php
@@ -107,7 +107,7 @@ if ($gMenuExist) { ?>
 <div id="gMenu" class="itemClose" onclick="showHide('gMenu');">
 <div id="gMenuInner" class="innerBox">
 <h3 class="assistive-text"><span>MENU</span></h3>
-<div class="skip-link screen-reader-text"><a href="#content" title="メニューを飛ばす">メニューを飛ばす</a></div>
+<div class="skip-link screen-reader-text"><a href="#content" title="<?php _e('Skip menu', 'biz-vektor'); ?>"><?php _e('Skip menu', 'biz-vektor'); ?></a></div>
 <?php wp_nav_menu( array(
  'theme_location' => 'Header',
  'fallback_cb' => '',
