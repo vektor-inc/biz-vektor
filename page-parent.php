@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: 子ページインデックス
+ * Template Name: <?php _e('Child index page', 'biz-vektor'); ?>
  */
 get_header(); ?>
 
@@ -21,7 +21,7 @@ get_header(); ?>
 	<?php } ?>	
 <?php if ( is_user_logged_in() == TRUE ) {　?>
 <div class="adminEdit">
-<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
 <?php } ?>
 <?php endif; ?>
@@ -53,9 +53,9 @@ if (have_posts()) :
 	<?php } ?>
 	<div class="childText">
 	<p><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
-	<div class="moreLink"><a href="<?php the_permalink(); ?>">詳しくはこちら</a></div>
+	<div class="moreLink"><a href="<?php the_permalink(); ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
 	</div>
-	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
 </div>
 <!-- /.child_page_block -->

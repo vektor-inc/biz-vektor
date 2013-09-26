@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: サイドバーなし
+ * Template Name: <?php _e('No sidebar', 'biz-vektor'); ?>
  */
 get_header(); ?>
 
@@ -17,7 +17,7 @@ get_header(); ?>
 <?php
 if ( is_user_logged_in() == TRUE ) {　?>
 <div class="adminEdit">
-<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
 <?php } ?>
 

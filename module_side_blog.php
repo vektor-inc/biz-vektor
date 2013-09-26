@@ -5,7 +5,7 @@
 <?php else : ?>
 <div class="localSection sideWidget">
 <div class="localNaviBox">
-<h3 class="localHead">カテゴリー</h3>
+<h3 class="localHead"><?php _e('Category', 'biz-vektor'); ?></h3>
 <ul class="localNavi">
 <?php wp_list_categories('title_li=&orderby=order'); ?> 
 </ul>

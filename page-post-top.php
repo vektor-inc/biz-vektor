@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: 投稿トップ
+ * Template Name: <?php _e('Post top', 'biz-vektor'); ?>
  */
 get_header(); ?>
 
@@ -12,12 +12,12 @@ get_header(); ?>
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 	<?php the_content(); ?>
 	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
-	<?php //	 ▼編集を出力
+	<?php
 	if ( is_user_logged_in() == TRUE ) {　?>
 	<div class="adminEdit">
-	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 	</div>
-	<?php }  // ▲編集を出力 ?>
+	<?php } ?>
 <?php endwhile; ?>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

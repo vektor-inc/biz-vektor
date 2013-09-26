@@ -18,7 +18,7 @@ if ( is_user_logged_in() == TRUE ) {　?>
 <?php } ?>
 <?php endwhile; ?>
 
-<?php //▼ 子ページリスト ?>
+<?php // Child page list ?>
 <?php
 	if($post->ancestors){
 		foreach($post->ancestors as $post_anc_id){
@@ -38,7 +38,7 @@ if ( is_user_logged_in() == TRUE ) {　?>
 		</div>
 		<?php } ?>
 <?php } ?>
-<?php //▲ 子ページリスト ?>
+<?php // /Child page list ?>
 
 <?php get_template_part('module_mainfoot'); ?>
 

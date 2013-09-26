@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor 1.0\n"
 "POT-Creation-Date: 2013-09-19 15:52+0900\n"
-"PO-Revision-Date: 2013-09-25 02:37+0900\n"
+"PO-Revision-Date: 2013-09-27 07:13+0900\n"
 "Last-Translator: \n"
 "Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
 "Language: Japanese\n"
@@ -209,6 +209,47 @@ msgstr "bt_contact_ja.png"
 
 msgid "Contact us by e-mail"
 msgstr "メールでお問い合わせはこちら"
+
+msgid "Search Result for : %s"
+msgstr "『%s』の検索結果"
+
+msgid "Not found"
+msgstr "ページが見つかりません"
+
+msgid "Yearly archives"
+msgstr "年別アーカイブ"
+
+msgctxt "After year"
+msgid "&nbsp;"
+msgstr "年"
+
+msgid "Add to Hatena Bookmark this entry"
+msgstr "このエントリーをはてなブックマークに追加"
+
+msgctxt "Link to page"
+msgid "Read more"
+msgstr "詳しくはこちら"
+
+msgid "Image of %s"
+msgstr "%sのイメージ"
+
+msgid "Info top （Slug:info-top）"
+msgstr "お知らせトップ（スラッグ:info-top）"
+
+msgid "Don't show contact at the bottom of the page"
+msgstr "ページ下部問い合わせなし"
+
+msgid "No sidebar"
+msgstr "サイドバーなし"
+
+msgid "Child index page"
+msgstr "子ページインデックス"
+
+msgid "Post top"
+msgstr "投稿トップ"
+
+msgid "Sitemap（Slug:info-top）"
+msgstr "サイトマップ（スラッグ：sitemap-page）"
 
 #: front-page.php:41
 msgid "Title display setting"

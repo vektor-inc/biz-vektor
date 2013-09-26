@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: ページ下部問い合わせなし
+ * Template Name: <?php _e('Don't show contact at the bottom of the page', 'biz-vektor'); ?>
  */
 get_header(); ?>
 
@@ -16,12 +16,12 @@ get_header(); ?>
 <?php
 if ( is_user_logged_in() == TRUE ) {　?>
 <div class="adminEdit">
-<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
 <?php } ?>
 <?php endwhile; ?>
 
-<?php //▼ 子ページリスト ?>
+<?php // Child page list ?>
 <?php
 	if($post->ancestors){
 		foreach($post->ancestors as $post_anc_id){
@@ -41,7 +41,7 @@ if ( is_user_logged_in() == TRUE ) {　?>
 		</div>
 		<?php } ?>
 <?php } ?>
-<?php //▲ 子ページリスト ?>
+<?php // /Child page list ?>
 
 <?php biz_vektor_snsBtns(); ?>
 <?php biz_vektor_fbComments(); ?>

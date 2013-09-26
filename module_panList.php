@@ -17,9 +17,9 @@ endif;
 
 // ▼
 if ( is_404() ){
-	echo "<li>ページが見つかりません</li>";
+	echo "<li>".__('Not found', 'biz-vektor')."</li>";
 } else if ( is_search() ) {
-	echo "<li>検索結果</li>";
+	echo "<li>".sprintf(__('Search Result for : %s', 'biz-vektor'),get_search_query())."</li>";
 // ▼▼ 投稿ページをブログに指定された場合
 } else if ( is_home() ){
 	echo '<li>'.$postLabelName.' &raquo; </li>';
@@ -124,9 +124,9 @@ if ( is_404() ){
 		echo '</li>';
 	}
 	if (is_year()){
-		echo "<li>".get_the_date('Y'."年")."</li>";
+		echo "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
 	} else if (is_month()){
-		echo "<li>".get_the_date('Y'."年".'M')."</li>";
+		echo "<li>".sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) )."</li>";
 	}
 } elseif ( is_attachment() ) {
 	echo '<li>'.the_title('','', FALSE).'</li>';

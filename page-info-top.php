@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: お知らせトップ（スラッグ:info-top）
+ * Template Name: <?php _e('Info top （Slug:info-top）', 'biz-vektor'); ?>
  */
 get_header(); ?>
 
@@ -15,9 +15,9 @@ get_header(); ?>
 	<?php //	 ▼編集を出力
 	if ( is_user_logged_in() == TRUE ) {　?>
 	<div class="adminEdit">
-	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 	</div>
-	<?php }  // ▲編集を出力 ?>
+	<?php } ?>
 <?php endwhile; ?>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: サイトマップ（スラッグ：sitemap-page）
+ * Template Name: <?php _e('Sitemap（Slug:info-top）', 'biz-vektor'); ?>
  */
 get_header(); ?>
 
