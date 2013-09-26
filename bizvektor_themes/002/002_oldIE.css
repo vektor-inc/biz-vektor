@@ -11,6 +11,7 @@
 /*-------------------------------------------*/
 /* スクロール分余裕に20px */
 #headerTop #site-description	{ line-height:150%; }
+#header	{ padding-top:30px; }
 #header #site-title	{ padding-bottom:30px;float:left;}
 #header #headContact	{ float:right; text-align:right; }
 #header #headContact #headContactTxt	{ font-size:11px;}
@@ -86,6 +87,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #gMenu .assistive-text { position: absolute; top: -9000px; } /* display:noneだと読み上げない / 横にオフセットするとIEで読み込みまでの間表示される */
 #gMenu .menu li { float: left;width:auto;border-bottom:none; overflow:visible;box-shadow: inset 1px 0px 0px #fff; }
 #gMenu .menu li a	{ text-align:center;border-right:1px solid #e5e5e5; box-shadow: inset 1px 0px 0px #fff; }
+
+/* IE7のみドロップダウン非表示 */
+*+html #gMenu .menu li:hover ul { display:none; }
 
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:100;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
 #gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }

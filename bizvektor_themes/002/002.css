@@ -172,7 +172,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*	#header
 /*-------------------------------------------*/
 #header	{ display:block; overflow:hidden; }
-#header	{ padding-top:30px; text-align:left; }
+#header	{ padding-top:15px; text-align:left; }
 #header #site-title { font-size: 24px; line-height:45px; margin:0px;padding-bottom:10px;position:relative; font-weight:lighter; text-align: center; }
 #header #site-title a { color: #000; font-weight: bold; text-decoration: none; }
 #header #site-title a img	{ max-height:60px;margin-top:3px; }
@@ -204,7 +204,7 @@ background-color:#fff; }
 #gMenu #gMenuInner.innerBox	{ margin:0px;width:100%;}
 #gMenu .menu	{ font-size: 13px;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;border-top:1px solid #ccc;}
 #gMenu .menu li { text-shadow:0 1px #ffffff; position: relative;width:100%;display:block;border-bottom:1px solid #ccc; }
-#gMenu .menu li a	{ background:url(images/arrow_gray.png) right bottom no-repeat; color: #333; display: block; overflow:hidden;padding: 20px 15px 18px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative; }
+#gMenu .menu li a	{ background:url(images/arrow_gray.png) right bottom no-repeat; color: #333; display: block; overflow:hidden;padding: 20px 15px 18px; margin:0px; line-height:140%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative; }
 #gMenu .menu li a strong	{ font-weight:bold; }
 #gMenu .menu li a span 		{ color:#5ead3c; display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; }
 
@@ -311,7 +311,7 @@ background-color:#fff; }
 #content .child_page_block h4 a	{ border-bottom: 2px solid #5ead3c; text-decoration:none; color:#333; display:block; overflow:hidden;line-height:118.8%;padding-bottom:2px;  }
 #content .child_page_block h4 a:hover	{ text-decoration:none; color:#5ead3c; }
 #content .child_page_block .childText	{ display:block; overflow:hidden; }
-#content .child_page_block p 	{line-height: 133%; font-size:12px;margin-bottom:0px; padding:0px; }
+#content .child_page_block p 	{line-height: 141.7%; font-size:12px;margin-bottom:0px; padding:0px; }
 #content .child_page_block p a	{ text-decoration:none;color:#666; }
 #content .child_page_block p a:hover	{ text-decoration:underline;color:#5ead3c; }
 
@@ -473,7 +473,7 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 #sideTower .localHead a	{ text-decoration:none;color:#333; }
 #sideTower .localHead a:hover	{ text-decoration:underline; }
 #sideTower .sideWidget 	{ margin:0px; }
-#sideTower .sideWidget li	{ list-style:none;border-bottom:1px solid #eeeeee; line-height:121.4%;  }
+#sideTower .sideWidget li	{ list-style:none;border-bottom:1px solid #eeeeee; line-height:128.6%;  }
 #sideTower .sideWidget li a	{ display:block; padding:13px 10px 11px 10px; text-decoration:none; color:#666; background: url(images/arrow_gray.png) right bottom no-repeat; }
 #sideTower .sideWidget li a:hover,
 #sideTower .sideWidget li.current_page_item a,
@@ -715,6 +715,7 @@ background: linear-gradient(#fcfcfc, #d5e9cc);
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
 @media (min-width: 660px) { /* スクロール分余裕に20px */
+#header	{ padding-top:30px; }
 #headerTop #site-description	{ line-height:150%; }
 #header #site-title	{ padding-bottom:30px;float:left;}
 #header #headContact	{ float:right; text-align:right; }
@@ -788,6 +789,10 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu .assistive-text { position: absolute; top: -9000px; } /* display:noneだと読み上げない / 横にオフセットするとIEで読み込みまでの間表示される */
 #gMenu .menu li { float: left;width:auto;border-bottom:none; overflow:visible;box-shadow: inset 1px 0px 0px #fff; }
 #gMenu .menu li a	{ text-align:center;border-right:1px solid #e5e5e5; box-shadow: inset 1px 0px 0px #fff; }
+
+/* IE7のみドロップダウン非表示 */
+*+html #gMenu .menu li:hover ul { display:none; }
+
 
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:1000;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
 #gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }
