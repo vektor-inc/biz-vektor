@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: <?php _e('Don't show contact at the bottom of the page', 'biz-vektor'); ?>
+ * Template Name: Don't show contact at the bottom of the page
  */
 get_header(); ?>
 

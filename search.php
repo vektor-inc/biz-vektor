@@ -13,7 +13,7 @@
 	</ul>
 	<?php biz_vektor_content_nav( 'nav-below' ); ?>
 	<?php else : ?>
-		<p>入力されたキーワードが該当するページはありません。</p>
+		<p><?php _e('Sorry, but nothing matched your search terms. Please try again with different keywords.', 'biz-vektor'); ?></p>
 	<?php endif; ?>
 <br />
 	<div class="error404">

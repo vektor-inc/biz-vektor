@@ -8,10 +8,13 @@
 
 <!-- [ #post- ] -->
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<h1 class="entryPostTitle"><?php the_title(); ?> <?php edit_post_link('編集', '<span class="edit-link">（', '）</span>' ); ?></h1>
+	<h1 class="entryPostTitle"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">（', '）' ); ?></h1>
 	<?php $taxo_catelist = get_the_term_list( $post->ID, 'info-cat', '', ', ', '' ); ?>
 	<div class="entry-meta">
-	投稿日：<?php echo esc_html( get_the_date() ); ?><?php if (!empty($taxo_catelist)) : ?> | カテゴリー：<?php echo $taxo_catelist; endif; ?>
+	<?php _e('Posted on', 'biz-vektor'); ?> ： <?php echo esc_html( get_the_date() ); ?>
+	<?php if (!empty($taxo_catelist)) : ?> | 
+	<?php _e('Category', 'biz-vektor'); ?> ： <?php echo $taxo_catelist; ?>
+	<?php endif; ?>
 	</div><!-- .entry-meta -->
 
 	<div class="entry-content post-content">
@@ -22,7 +25,7 @@
 <?php
 if ( is_user_logged_in() == TRUE ) {　?>
 <div class="adminEdit">
-	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link('編集'); ?></span>
+	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
 <?php } ?>
 

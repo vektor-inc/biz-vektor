@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: <?php _e('No sidebar', 'biz-vektor'); ?>
+ * Template Name: No sidebar
  */
 get_header(); ?>
 

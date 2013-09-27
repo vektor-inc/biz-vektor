@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: <?php _e('Child index page', 'biz-vektor'); ?>
+ * Template Name: Child index page
  */
 get_header(); ?>
 

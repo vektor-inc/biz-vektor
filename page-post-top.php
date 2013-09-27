@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: <?php _e('Post top', 'biz-vektor'); ?>
+ * Template Name: Post top
  */
 get_header(); ?>
 

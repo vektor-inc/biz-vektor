@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: <?php _e('Info top （Slug:info-top）', 'biz-vektor'); ?>
+ * Template Name: Info top （Slug:info-top）
  */
 get_header(); ?>
 

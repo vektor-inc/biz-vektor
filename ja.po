@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor 1.0\n"
 "POT-Creation-Date: 2013-09-19 15:52+0900\n"
-"PO-Revision-Date: 2013-09-27 07:13+0900\n"
+"PO-Revision-Date: 2013-09-27 11:31+0900\n"
 "Last-Translator: \n"
 "Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
 "Language: Japanese\n"
@@ -14,6 +14,14 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+msgid ""
+"BizVektor theme will allow you to build a high-quality business web site. In "
+"addition, it is possible to increase the design by the plug-in."
+msgstr ""
+"BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
+"トを構築する事が出来ます。また、テーマ拡張プラグインによって新たに選択出来る"
+"デザインを増やす事が出来ます。"
 
 #: 503.php:19
 msgid "Maintenance is now working."
@@ -207,6 +215,9 @@ msgstr "この記事を読む"
 msgid "bt_contact.png"
 msgstr "bt_contact_ja.png"
 
+msgid "bnr_contact.png"
+msgstr "bnr_contact_ja.png"
+
 msgid "Contact us by e-mail"
 msgstr "メールでお問い合わせはこちら"
 
@@ -250,6 +261,16 @@ msgstr "投稿トップ"
 
 msgid "Sitemap（Slug:info-top）"
 msgstr "サイトマップ（スラッグ：sitemap-page）"
+
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+"ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
+"てみてください。"
+
+msgid "<dt>Tags</dt><dd>%1$s</dd>"
+msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 
 #: front-page.php:41
 msgid "Title display setting"

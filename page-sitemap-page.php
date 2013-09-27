@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: <?php _e('Sitemap（Slug:info-top）', 'biz-vektor'); ?>
+ * Template Name: Sitemap（Slug:info-top）
  */
 get_header(); ?>
 
