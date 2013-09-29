@@ -271,39 +271,9 @@ function biz_vektor_theme_styleSetting() {
 			'cssPath' => get_template_directory_uri().'/bizvektor_themes/plain/plain.css',
 			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/plain/plain_oldIE.css',
 			),
-		'001_red' => array(
-			'label' => 'Default_赤',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_red.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
-			),
-		'001_bizblue' => array(
-			'label' => 'Default_紺',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_bizblue.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
-			),
-		'001_green' => array(
-			'label' => 'Default_緑',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_green.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
-			),
-		'001_bizgreen' => array(
-			'label' => 'Default_深緑',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_bizgreen.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
-			),
-		'001_black' => array(
-			'label' => 'Default_黒',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_black.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
-			),
-		'001_daidai' => array(
-			'label' => 'Default_橙',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_daidai.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
-			),
-		'001_darkbrown' => array(
-			'label' => 'Default_焦茶',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_darkbrown.css',
+		'BizVektorPlus' => array(
+			'label' => 'BizVektorPlus',
+			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_plus.css',
 			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
 			),
 	);
