@@ -264,17 +264,17 @@ function biz_vektor_theme_styleSetting() {
 		'calmly' => array(
 			'label' => 'Calmly',
 			'cssPath' => get_template_directory_uri().'/bizvektor_themes/002/002.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/002/002_oldIE.css',
+			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/002/002_oldie.css',
 			),
 		'plain' => array(
 			'label' => 'プレーン',
 			'cssPath' => get_template_directory_uri().'/bizvektor_themes/plain/plain.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/plain/plain_oldIE.css',
+			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/plain/plain_oldie.css',
 			),
-		'BizVektorPlus' => array(
-			'label' => 'BizVektorPlus',
+		'default' => array(
+			'label' => 'Default',
 			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_plus.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldIE.css',
+			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldie.css',
 			),
 	);
 	// [2] プラグインからフィルターフックで拡張テーマの配列情報を受け取る
@@ -317,7 +317,7 @@ function biz_vektor_theme_styleOldIe(){
 
 	// 空の場合（テーマ選択されていない場合）デフォルトの値を設定
 	if (!$themePath && !$themePathOldIe)
-	$themePathOldIe = get_template_directory_uri().'/bizvektor_themes/002/002_oldIE.css';
+	$themePathOldIe = get_template_directory_uri().'/bizvektor_themes/002/002_oldie.css';
 	// $themePathOldIeを意図的に空にする場合はあり得る為、空かどうかの条件分岐は必要
 	if ($themePathOldIe){
 		print '<!--[if lte IE 8]>'."\n";
@@ -335,9 +335,9 @@ function biz_vektor_gMenuDivide() {
 	if ($options['gMenuDivide'] == '[ 選択して下さい ]' || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
 	//　それ以外
 	} else {
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/gMenu_'.$options['gMenuDivide'].'.css" />'."\n";
+		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/g_menu_'.$options['gMenuDivide'].'.css" />'."\n";
 		print '<!--[if lte IE 8]>'."\n";
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/gMenu_'.$options['gMenuDivide'].'_oldIE.css" />'."\n";
+		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/g_menu_'.$options['gMenuDivide'].'_oldie.css" />'."\n";
 		print '<![endif]-->'."\n";
 	}
 }

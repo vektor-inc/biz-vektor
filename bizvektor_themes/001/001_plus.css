@@ -41,7 +41,7 @@ behavior: url(/wp-content/themes/biz-vektor/PIE.htc);
 #gMenu .menu li.current_page_item a span,
 #gMenu .menu li.current_page_ancestor a span,
 #gMenu .menu li.current-page-ancestor a span,
-#gMenu .menu li a:hover span{ color:#B5916A; }
+#gMenu .menu li a:hover span{ color:#fff;opacity: 0.6; }
 
 #pageTitBnr	{ background-color:#361C00; }
 

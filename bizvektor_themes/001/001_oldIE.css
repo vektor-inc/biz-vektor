@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import "../plain/plain_oldIE.css";
+@import "../plain/plain_oldie.css";
 
 #gMenu h3.assistive-text	{ background:none ;border-right:none; }
 #gMenu h3.assistive-text	{ -ms-filter:none;-pie-background:none;}

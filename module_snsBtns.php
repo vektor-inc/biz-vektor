@@ -36,7 +36,7 @@
 <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
 </li>
 <li class="sb_line">
-<a href="http://line.naver.jp/R/msg/text/?<?php getHeadTitle(); ?>%0D%0A<?php echo $linkUrl; ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/linebutton_88x20.png" alt="LINE" /></a>
+<a href="http://line.naver.jp/R/msg/text/?<?php getHeadTitle(); ?>%0D%0A<?php echo $linkUrl; ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/linebutton.png" alt="LINE" /></a>
 </li>
 </ul>
 
