@@ -35,8 +35,6 @@ background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4D2E0D), to(#3C1F00));
 background: -moz-linear-gradient(#4D2E0D, #3C1F00);
 background: linear-gradient(#4D2E0D, #3C1F00);
 -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#4D2E0D, EndColorStr=#3C1F00)";
--pie-background: linear-gradient(#4D2E0D, #3C1F00);
-behavior: url(/wp-content/themes/biz-vektor/PIE.htc);
 }
 #gMenu .menu li.current_page_item a span,
 #gMenu .menu li.current_page_ancestor a span,
