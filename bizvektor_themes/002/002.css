@@ -532,7 +532,7 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 
 form#searchform { padding:5px 0px 5px 7px; background-color:#f3f3f3; display:block; overflow:hidden; position:relative;}
 form#searchform input#s	{ margin:0px 0px 0px 5px; padding:5px; width:70%; float:left; }
-form#searchform input#searchsubmit	{ border: 1px solid #5ead3c; background-image: none; margin:0px 10px 0px 0px; float:right; background-color:#5ead3c; width:15%; color:#fff;behavior: url(/wp-content/themes/biz-vektor/PIE.htc); }
+form#searchform input#searchsubmit	{ border: 1px solid #5ead3c; background-image: none; margin:0px 10px 0px 0px; float:right; background-color:#5ead3c; width:15%; color:#fff; }
 
 /*-------------------------------------------*/
 /*	#pagetop
