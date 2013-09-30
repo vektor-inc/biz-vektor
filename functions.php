@@ -447,9 +447,12 @@ function getHeadDescription() {
 			$metadescription = get_the_time('Y')."年の記事。".get_bloginfo('name').' '.get_bloginfo('description');
 		} else if (is_month()){
 			$metadescription = get_the_date('Y'."年".'M')."の記事。".get_bloginfo('name').' '.get_bloginfo('description');
-		} else if (is_auuthor()) {
+		} else if (is_author()) {
 			$userObj = get_queried_object();
 			$metadescription = esc_html($userObj->display_name)."の記事。".get_bloginfo('name').' '.get_bloginfo('description');
+		} else {
+			$postType = get_post_type();
+			$metadescription = esc_html(get_post_type_object($postType)->labels->name)."の記事。".get_bloginfo('name').' '.get_bloginfo('description');
 		}
 	// ▼固定ページ || 投稿記事
 	} else if (is_page() || is_single()) {

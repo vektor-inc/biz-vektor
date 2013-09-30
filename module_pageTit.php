@@ -8,7 +8,7 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 		$pageTitle = esc_html(bizVektorOptions('postLabelName'));
 	// 標準の投稿タイプでない場合は、カスタム投稿タイプ名を取得
 	} else {
-		// 普通のポスト退部が取得出来る場合
+		// 普通のポストタイプが取得出来る場合
 		if ($postType) {
 			$pageTitle = get_post_type_object($postType)->labels->name;
 		// 該当記事が0件の場合に投稿タイプ名が取得出来ないのでタクソノミー経由で取得する

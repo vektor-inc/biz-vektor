@@ -22,7 +22,7 @@ if ( is_404() ){
 	echo "<li>".sprintf(__('Search Result for : %s', 'biz-vektor'),get_search_query())."</li>";
 // ▼▼ 投稿ページをブログに指定された場合
 } else if ( is_home() ){
-	echo '<li>'.$postLabelName.' &raquo; </li>';
+	echo '<li>'.$postLabelName.'</li>';
 // ▼▼ 固定ページ
 } elseif ( is_page() ) {
 	$post = $wp_query->get_queried_object();
@@ -114,15 +114,15 @@ if ( is_404() ){
 } elseif ( is_archive() && (!is_category() || !is_tax()) ) {
 	// 投稿の場合
 	if ($postType == 'post') {
-		echo '<li>'.$postLabelName.' &raquo; </li>';
+		echo '<li>'.$postLabelName;
 	// カスタム投稿タイプの場合
 	} else {
 		echo '<li>'.$postTypeName;
-		if (is_month() || is_year()) {
-			echo ' &raquo; ';
-		}
-		echo '</li>';
 	}
+	if (is_month() || is_year()) {
+		echo ' &raquo; ';
+	}
+	echo '</li>';
 	if (is_year()){
 		echo "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
 	} else if (is_month()){
