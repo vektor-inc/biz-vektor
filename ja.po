@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor 1.0\n"
 "POT-Creation-Date: 2013-09-19 15:52+0900\n"
-"PO-Revision-Date: 2013-09-27 11:31+0900\n"
+"PO-Revision-Date: 2013-10-03 01:07+0900\n"
 "Last-Translator: \n"
 "Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
 "Language: Japanese\n"
@@ -338,3 +338,33 @@ msgstr "記事はありません"
 #, php-format
 msgid "%s Theme Options"
 msgstr "%s テーマオプション"
+
+msgid "Theme Options"
+msgstr "テーマオプション"
+
+msgid "Right sidebar"
+msgstr "右サイドバー"
+
+msgid "Left sidebar"
+msgstr "左サイドバー"
+
+msgctxt "Select label"
+msgid "[ Select ]"
+msgstr "[ 選択してください ]"
+
+msgid "Free WordPress Theme BizVektor for business"
+msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
+
+msgid "Vektor,Inc."
+msgstr ""
+"株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"
+
+msgctxt "Font select"
+msgid "serif"
+msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
+
+msgctxt "Font select"
+msgid "Meiryo,Osaka,sans-serif"
+msgstr ""
+"\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
+"Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"

@@ -74,8 +74,8 @@ add_filter( 'option_page_capability_biz_vektor_options', 'biz_vektor_option_page
 
 function biz_vektor_theme_options_add_page() {
 	$theme_page = add_theme_page(
-		'テーマオプション',   					// Name of page
-		'テーマオプション',   					// Label in menu
+		__('Theme Options', 'biz-vektor'),   					// Name of page
+		__('Theme Options', 'biz-vektor'),   					// Label in menu
 		'edit_theme_options',				// Capability required
 		'theme_options',					// Menu slug, used to uniquely identify the page
 		'biz_vektor_theme_options_render_page' // Function that renders the options page
@@ -83,7 +83,7 @@ function biz_vektor_theme_options_add_page() {
 
 	if ( ! $theme_page )
 		return;
-/* ヘッダーに付くヘルプタグ。
+/* help
 	$help = '<p></p>' .
 			'<p></p>';
 	add_contextual_help( $theme_page, $help );
@@ -105,13 +105,13 @@ function getHeadTitle() {
 		} else {
 			$headTitle = get_bloginfo('name');
 		}
-	// ▼投稿者ページ
+	// Author
 	} else if (is_author()) {
 		$userObj = get_queried_object();
 		$headTitle = esc_html($userObj->display_name)." | ".get_bloginfo('name');
-	// ▼固定ページ
+	// Page
 	} else if (is_page()) {
-		// ▼サブページの場合
+		// Sub Pages
 		if ( $post->post_parent ) {
 			if($post->ancestors){
 				foreach($post->ancestors as $post_anc_id){
@@ -121,13 +121,13 @@ function getHeadTitle() {
 				$post_id = $post->ID;
 			}
 			$headTitle = get_the_title()." | ".get_the_title($post_id)." | ".get_bloginfo('name');
-		// ▼サブページではない場合
+		// Not Sub Pages
 		} else {
 			$headTitle = get_the_title()." | ".get_bloginfo('name');
 		}
-	// ▼お知らせ
+	// Info
 	} else if (get_post_type() === 'info') {
-		// ▼お知らせ
+		// Single
 		if (is_single()) {
 			$taxo_catelist = get_the_term_list_nolink( $post->ID, 'info-cat', '', ',', '' );
 			if (!empty($taxo_catelist)) :
@@ -135,14 +135,15 @@ function getHeadTitle() {
 			else :
 				$headTitle = get_the_title()." | ".get_bloginfo('name');
 			endif;
-		// ▼お知らせカテゴリー
+		// Info category
 		} else if (is_tax()){
 			$headTitle = single_cat_title()." | ".get_bloginfo('name');
-		// ▼お知らせアーカイブ
+		// Info crchive
 		} else if (is_archive()) {
-			$headTitle = get_the_date('Y')."年 | ".get_bloginfo('name');
+			$headTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+			$headTitle .= " | ".get_bloginfo('name');
 		}
-	// ▼投稿記事
+	// Single
 	} else if (is_single()) {
 		$category = get_the_category();
 		if (!empty($category)) :
@@ -150,24 +151,24 @@ function getHeadTitle() {
 		else :
 			$headTitle = get_the_title()." | ".get_bloginfo('name');
 		endif;
-	// ▼投稿カテゴリーページ
+	// Category
 	} else if (is_category()) {
 		$headTitle = single_cat_title()." | ".get_bloginfo('name');
-	// ▼タグアーカイブ */
+	// Tag
 	} else if (is_tag()) {
 		$headTitle = single_tag_title()." | ".get_bloginfo('name');
-	// ▼投稿アーカイブページ
+	// Archive
 	} else if (is_archive()) {
 		if (is_month()){
-			$headTitle = get_the_date('Y'."年".'M')." | ".get_bloginfo('name');
+			$headTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) );
+			$headTitle .= " | ".get_bloginfo('name');
 		} else {
 			$headTitle = single_tag_title();
 		}
-
-	// ▼検索結果
+	// Search
 	} else if (is_search()) {
-		$headTitle = get_search_query()."の検索結果 | ".get_bloginfo('name');
-	// ▼それ以外
+		$headTitle = sprintf(__('Search Result for : %s', 'biz-vektor'),get_search_query())." | ".get_bloginfo('name');
+	//Other
 	} else {
 		$headTitle = get_bloginfo('name');
 	}
@@ -181,12 +182,12 @@ function biz_vektor_layouts() {
 	$layout_options = array(
 		'content-sidebar' => array(
 			'value' => 'content-sidebar',
-			'label' => '右サイドバー',
+			'label' => __('Right sidebar', 'biz-vektor'),
 			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
 		),
 		'sidebar-content' => array(
 			'value' => 'sidebar-content',
-			'label' => '左サイドバー',
+			'label' => __('Left sidebar', 'biz-vektor'),
 			'thumbnail' => get_template_directory_uri() . '/inc/images/sidebar-content.png',
 		),
 	);
@@ -307,7 +308,7 @@ function biz_vektor_theme_style() {
 function biz_vektor_theme_styleOldIe(){
 	// DBに入っている配列を読み込み
 	$options = biz_vektor_get_theme_options();
-	// biz_vektor_theme_styles配列読から旧IE用のバスを読み込んで$themePathOldIeに格納
+	// biz_vektor_theme_styles配列から旧IE用のバスを読み込んで$themePathOldIeに格納
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
 	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
@@ -332,7 +333,7 @@ function biz_vektor_theme_styleOldIe(){
 function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
 	// メニューボタンが未設定の場合
-	if ($options['gMenuDivide'] == '[ 選択して下さい ]' || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
+	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
 	//　それ以外
 	} else {
 		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/g_menu_'.$options['gMenuDivide'].'.css" />'."\n";
@@ -420,7 +421,7 @@ function biz_vektor_blogList()	{
 		$count = 0;
 		echo '<ul class="entryList">';
 		if ($xml->channel->item){
-			// WordPress ／　アメブロ
+			// WordPress ／　ameblo
 			foreach($xml->channel->item as $entry){
 			// アメブロの広告対策
 			$entryTitJudge = mb_substr( $entry->title, 0, 3 );	// 先頭3文字でトリム
@@ -470,8 +471,10 @@ function biz_vektor_topContentsBottom()	{
 		echo '<div id="topContentsBottom">'."\n";
 		echo $topContentsBottom;
 		if ( is_user_logged_in() == TRUE ) {
-			echo '<div class="adminEdit">'."\n";
-			echo '<span class="btn btnS btnAdmin"><a href="'.site_url().'/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">編集</a></span>'."\n";
+			echo '<div class="adminEdit edit-item">'."\n";
+			echo '<span class="btn btnS btnAdmin"><a href="'.get_admin_url().'/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">';
+			echo __('Edit', 'biz-vektor');
+			echo '</a></span>'."\n";
 			echo '</div>'."\n";
 		}
 		echo '</div>'."\n";
@@ -507,7 +510,7 @@ function biz_vektor_ogp () {
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_bloginfo('name').'" />'."\n";
-		$bizVektorOGP .= '<meta property="og:description" content="'.get_bloginfo('description').'"/>'."\n";
+		$bizVektorOGP .= '<meta property="og:description" content="'.get_bloginfo('description').'" />'."\n";
 	// ▼ カテゴリー＆アーカイブ
 	} else if (is_category() || is_archive()) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
@@ -834,7 +837,7 @@ function biz_vektor_footerCopyRight() 		{
 	というような形にはしたくありません。何卒ご理解とご協力の程宜しく願いいたします。	
 	*/
 	// id名は個別カスタマイズしてしまっている案件がある為変更不可
-	$footerPowerd = '<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizVektor.com" target="_blank" title="無料WordPressテーマ BizVektor(ビズベクトル)">BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="株式会社ベクトル -ホームページ制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]">Vektor,Inc.</a> technology.</div>';
+	$footerPowerd = '<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizVektor.com" target="_blank" title="'.__('Free WordPress Theme BizVektor for business', 'biz-vektor').'">BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="'.__('Vektor,Inc.', 'biz-vektor').'">Vektor,Inc.</a> technology.</div>';
 	// フィルターフック設定
 	// ※変数名・フィルター名は既にプラグインが販売されているので変更不可
 	$footerPowerd = apply_filters( 'footerPowerdCustom', $footerPowerd );
@@ -916,10 +919,8 @@ add_action('admin_print_scripts-appearance_page_theme_options', 'admin_theme_opt
 function admin_theme_options_plugins( $hook_suffix ) {
 	wp_enqueue_media();
 	wp_register_script( 'biz_vektor-theme-options', get_template_directory_uri().'/inc/theme-options.js', array('jquery'), '20120902' );
-	//wp_register_script( 'easyResponsiveTabs' , get_template_directory_uri().'/inc/js/easyResponsiveTabs.js', array('jquery'), '20130704' );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'biz_vektor-theme-options' );
-	//wp_enqueue_script( 'easyResponsiveTabs' );
 }
 
 /*-------------------------------------------*/
@@ -928,9 +929,9 @@ function admin_theme_options_plugins( $hook_suffix ) {
 add_action( 'wp_head','biz_vektor_fontStyle');
 function biz_vektor_fontStyle(){
 	$options = biz_vektor_get_theme_options();
-	$font_face_serif = '"ＭＳ Ｐ明朝","Hiragino Mincho Pro W6",serif;';
+	$font_face_serif = _x('serif', 'Font select', 'biz-vektor');
 	$font_face_serif 		= apply_filters( 'font_face_serif_custom', $font_face_serif );
-	$font_face_sans_serif = '"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;';
+	$font_face_sans_serif = _x('Meiryo,Osaka,sans-serif', 'Font select', 'biz-vektor');
 	$font_face_sans_serif 	= apply_filters( 'font_face_sans_serif_custom', $font_face_sans_serif );
 	if ($options['font_title'] == 'serif') {
 		$font_title_face = $font_face_serif ;
