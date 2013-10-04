@@ -30,7 +30,7 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 /* テーマオプション
 /*-------------------------------------------*/
 #biz_vektor_options #sub-content { display:block; overflow:hidden;width:23%;float:right;height:100%;border:1px solid #ccc;}
-#biz_vektor_options #sub-content iframe { width: 100%; margin:0; height:1000px; }
+#biz_vektor_options #sub-content iframe { width: 100%; margin:0; height:1600px; }
 #biz_vektor_options #main-content { display:block; overflow:hidden;width:75%;float:left;}
 
 #biz_vektor_options .sectionBox { padding-top:6em; position: relative; }
