@@ -472,9 +472,9 @@ function biz_vektor_topContentsBottom()	{
 		echo $topContentsBottom;
 		if ( is_user_logged_in() == TRUE ) {
 			echo '<div class="adminEdit edit-item">'."\n";
-			echo '<span class="btn btnS btnAdmin"><a href="'.get_admin_url().'/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">';
+			echo '<a href="'.get_admin_url().'/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">';
 			echo __('Edit', 'biz-vektor');
-			echo '</a></span>'."\n";
+			echo '</a>'."\n";
 			echo '</div>'."\n";
 		}
 		echo '</div>'."\n";
