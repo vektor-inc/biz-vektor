@@ -441,6 +441,7 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 /*-------------------------------------------*/
 #content form table	{ margin-top:25px; }
 #content form input[type=text],
+#content form input[type=email],
 #content form textarea	{ position:relative; overflow:hidden; padding:5px 10px; margin:5px 5px 5px 0px; width:90%;}
 #content form input[type=radio] { width:auto; }
 #content form input[type=checkbox] { width:auto; }
