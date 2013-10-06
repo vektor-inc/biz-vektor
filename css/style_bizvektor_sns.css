@@ -18,3 +18,5 @@
 #content #socialSet ul li.sb_mixi		{ z-index:50;width:110px;}
 #content #socialSet ul li.sb_pocket		{ margin-left:5px;}
 #content #socialSet ul li.sb_line img	{ height:20px !important;/* 拡張テーマで #content img に !importantがかかっているものがあるため */width:auto; }
+
+#fb-like-box { margin-bottom:20px; }
