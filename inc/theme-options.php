@@ -537,7 +537,7 @@ function biz_vektor_ogp () {
 			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // 改行コード削除
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_the_title().' | '.get_bloginfo('name').'" />'."\n";
-		$bizVektorOGP .= '<meta property="og:description" content="'.$metadescription.'"/>'."\n";
+		$bizVektorOGP .= '<meta property="og:description" content="'.$metadescription.'" />'."\n";
 	// 固定ページ・投稿ページ以外
 	} else {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
