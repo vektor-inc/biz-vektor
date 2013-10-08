@@ -261,10 +261,12 @@ background-color:#fff; }
 #content .nowrap	{ white-space:nowrap; }
 #content .sectionBox	{ margin-bottom:30px; display:block; overflow:hidden; }
 #content .entry-meta	{ margin:15px 0; font-size:11px; color:#666; }
+#content h1,
 #content h2,
 #content h1.contentTitle,
 #content h1.entryPostTitle	{ text-shadow: 0 1px #ffffff; clear:both; font-size:128.6%; padding:20px 15px 15px; font-weight:bold;color:#333; border-top: 1px solid #e5e5e5; border-bottom: 3px solid #5ead3c; position:relative; line-height:114.3%; background:url(images/line_wh.png) left top repeat-x; box-shadow: 0px 1px 3px rgba(0,0,0,0.20); }
 #content h1.entryPostTitle	{ margin:0px 0px 5px; }
+#content h1,
 #content h2	{ margin:0px 0px 25px; }
 #content h2	a	{ text-decoration:none; }
 #content h2.imageTit	{ margin:0px 0px 30px; border:none; padding:0px; background:none; }
@@ -276,6 +278,7 @@ background-color:#fff; }
 #content p { margin-bottom: 20px;padding:0px 5px; }
 #content blockquote { border: 3px solid #e6e6e6; padding:20px 15px 0px;margin-bottom:20px; clear:both; box-shadow: 0px 0px 2px rgba(0,0,0,.15); }
 #content strong	{ font-weight:bold; }
+#content address { margin-bottom:20px; }
 
 #content ul	{ margin:0px 0px 20px 20px; }
 #content li	{ margin-bottom:10px; }
