@@ -268,7 +268,7 @@ function biz_vektor_theme_styleSetting() {
 			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/002/002_oldie.css',
 			),
 		'plain' => array(
-			'label' => 'プレーン',
+			'label' => __('Plain', 'biz-vektor'),
 			'cssPath' => get_template_directory_uri().'/bizvektor_themes/plain/plain.css',
 			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/plain/plain_oldie.css',
 			),

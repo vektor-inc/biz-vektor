@@ -61,7 +61,7 @@ function bizvektor_customize_register($wp_customize) {
 	/*-------------------------------------------*/
     // セクションの動作設定
     $wp_customize->add_section( 'biz_vektor_design', array(
-        'title'          => 'デザインの設定',
+        'title'          => _x('Design settings', 'biz-vektor theme-customizer', 'biz-vektor'),
         'priority'       => 100,
     ) );
 
@@ -86,7 +86,7 @@ function bizvektor_customize_register($wp_customize) {
 		}
 		// セクションのUIを作成する
 		$wp_customize->add_control( 'theme_style',array(
-			'label'     => 'デザイン',
+			'label'     => _x('Design', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[theme_style]',
 			'type' => 'select',
@@ -97,7 +97,7 @@ function bizvektor_customize_register($wp_customize) {
 			$wp_customize,
 			'head_logo',	// 多分名前は何でもOK
 			array(
-				'label'     => 'ヘッダーロゴ画像',						// セクションの中での表示名
+				'label'     => _x('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor'),						// セクションの中での表示名
 				'section'   => 'biz_vektor_design', 				// テーマカスタマイザーのどのセクションに入れるか
 				'settings'  => 'biz_vektor_theme_options[head_logo]',	// DBのどこに格納するか
 				'priority'  => 101,
@@ -105,7 +105,7 @@ function bizvektor_customize_register($wp_customize) {
 		) );
 		$wp_customize->add_control( 'head_logo_url_txt',
 			array(
-				'label'     => 'ヘッダーロゴ画像URL',
+				'label'     => _x('URL of header logo image', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_design', 
 				'settings'  => 'biz_vektor_theme_options[head_logo]',
 				'type' => 'text',
@@ -117,7 +117,7 @@ function bizvektor_customize_register($wp_customize) {
 			$wp_customize,
 			'foot_logo',	// 多分名前は何でもOK
 			array(
-				'label'     => 'フッターロゴ画像',						// セクションの中での表示名
+				'label'     => _x('Footer logo image', 'biz-vektor theme-customizer', 'biz-vektor'),						// セクションの中での表示名
 				'section'   => 'biz_vektor_design', 				// テーマカスタマイザーのどのセクションに入れるか
 				'settings'  => 'biz_vektor_theme_options[foot_logo]',	// DBのどこに格納するか
 				'priority' => 111,
@@ -125,16 +125,16 @@ function bizvektor_customize_register($wp_customize) {
 		) );
 		$wp_customize->add_control( 'foot_logo_url_txt',
 			array(
-				'label'     => 'フッターロゴ画像URL',
+				'label'     => _x('URL of footer logo image', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_design', 
 				'settings'  => 'biz_vektor_theme_options[foot_logo]',
 				'type' => 'text',
 				'priority' => 112,
 			));
 
-		$biz_vektor_gMenuDivides = array('divide_natural' => '指定なし（左詰め）','divide_4' => '4分割','divide_5' => '5分割','divide_6' => '6分割','divide_7' => '7分割');
+		$biz_vektor_gMenuDivides = array('divide_natural' => _x('Depend on contents', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor'));
 		$wp_customize->add_control( 'gMenuDivide',array(
-			'label'     => 'ヘッダーメニューの数',
+			'label'     => _x('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[gMenuDivide]',
 			'type' => 'select',
@@ -146,7 +146,7 @@ function bizvektor_customize_register($wp_customize) {
 			$biz_vektor_layout_array[$layout['value']] = $layout['label'];
 		}
 		$wp_customize->add_control( 'biz_vektor_layout',array(
-			'label'     => 'レイアウト',
+			'label'     => _x('Layout', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[theme_layout]',
 			'type' => 'radio',
@@ -160,24 +160,24 @@ function bizvektor_customize_register($wp_customize) {
 		// 	'priority' => 401,
 		// )));
 		$wp_customize->add_control( 'font',array(
-			'label'     => '見出しの書体',
+			'label'     => _x('Font of headings', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[font_title]',
 			'type' => 'radio',
 			'choices' => array(
-				'serif' => '明朝',
-				'sanserif' => 'ゴシック',
+				'serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),
 				),
 			'priority' => 501,
 		));
 		$wp_customize->add_control( 'font_menu',array(
-			'label'     => 'グローバルメニューの書体',
+			'label'     => _x('Font of Menus', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[font_menu]',
 			'type' => 'radio',
 			'choices' => array(
-				'serif' => '明朝',
-				'sanserif' => 'ゴシック',
+				'serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),
 				),
 			'priority' => 502,
 		));
@@ -187,7 +187,7 @@ function bizvektor_customize_register($wp_customize) {
 	/*-------------------------------------------*/
 	// セクションを追加
 	$wp_customize->add_section( 'biz_vektor_contact', array(
-	    'title'          => '連絡先の設定',
+	    'title'          => _x('Contact settings', 'biz-vektor theme-customizer', 'biz-vektor'),
 	    'priority'       => 101,
 	));
 
@@ -205,7 +205,7 @@ function bizvektor_customize_register($wp_customize) {
 
 		$wp_customize->add_control( 'contact_txt',
 			array(
-				'label'     => 'お問い合わせメッセージ',
+				'label'     => _x('Message', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[contact_txt]',
 				'type' => 'text',
@@ -213,7 +213,7 @@ function bizvektor_customize_register($wp_customize) {
 			));
 		$wp_customize->add_control( 'tel_number',
 			array(
-				'label'     => '電話番号',
+				'label'     => _x('Phone number', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[tel_number]',
 				'type' => 'text',
@@ -221,7 +221,7 @@ function bizvektor_customize_register($wp_customize) {
 			));
 		$wp_customize->add_control( 'contact_time',
 			array(
-				'label'     => '受付時間',
+				'label'     => _x('Office hours', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[contact_time]',
 				'type' => 'text',
@@ -229,7 +229,7 @@ function bizvektor_customize_register($wp_customize) {
 			));		
 		$wp_customize->add_control( 'sub_sitename',
 			array(
-				'label'     => 'フッター左下とフッターコピーライトに表示させるサイト名（あるいは企業名・店舗名・サービス名）',
+				'label'     => _x('Site / Company / Store / Service name. This is displayed in footer let bottom and footer copyright.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[sub_sitename]',
 				'type' => 'text',
@@ -237,7 +237,7 @@ function bizvektor_customize_register($wp_customize) {
 			));
 		$wp_customize->add_control( new customize_Textarea_Control( $wp_customize,'contact_address',
 			array(
-				'label'     => '住所',
+				'label'     => _x('Company address', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[contact_address]',
 				//'type' => 'textfield',
@@ -245,7 +245,7 @@ function bizvektor_customize_register($wp_customize) {
 			)));
 		$wp_customize->add_control( 'contact_link',
 			array(
-				'label'     => '問い合わせページのURL',
+				'label'     => _x('The URL of contact page', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[contact_link]',
 				'type' => 'text',
@@ -256,7 +256,7 @@ function bizvektor_customize_register($wp_customize) {
 	/*-------------------------------------------*/
     // セクションを追加
     $wp_customize->add_section( 'biz_vektor_top3pr', array(
-        'title'          => 'トップページ3PRエリアの設定',
+        'title'          => __('3PR area settings', 'biz-vektor'),
         'priority'       => 102,
     ) );
     
@@ -270,7 +270,7 @@ function bizvektor_customize_register($wp_customize) {
 		// セクションのUIを作成する
 		$wp_customize->add_control( 'pr'.$i.'_title',
 			array(
-				'label'     => '【'.$i.'】タイトル',
+				'label'     => '【'.$i.'】'.__('Title', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_title]',
 				'type' => 'text',
@@ -279,14 +279,14 @@ function bizvektor_customize_register($wp_customize) {
 		);
 		$wp_customize->add_control( new customize_Textarea_Control( $wp_customize, 'pr'.$i.'_description',
 			array(
-				'label'     => '【'.$i.'】概要',
+				'label'     => '【'.$i.'】'.__('Description', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_description]',
 				'priority' => ($i*10)+2,
 			)));
 		$wp_customize->add_control( 'pr'.$i.'_link',
 			array(
-				'label'     => '【'.$i.'】リンク先ページのURL',
+				'label'     => '【'.$i.'】'.__('URL', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_link]',
 				'type' => 'text',
@@ -295,7 +295,7 @@ function bizvektor_customize_register($wp_customize) {
 		);
 		$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'pr'.$i.'_image',
 			array(
-				'label'     => '【'.$i.'】画像（横 310px 程度長方形推奨）',
+				'label'     => '【'.$i.'】'._x('Image for PC : 310px width is recommended.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_image]',
 				'priority' => ($i*10)+4,
@@ -303,7 +303,7 @@ function bizvektor_customize_register($wp_customize) {
 		);
 		$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'pr'.$i.'_image_s',
 			array(
-				'label'     => '【'.$i.'】スマホ用画像（120×120px 程度推奨）',
+				'label'     => '【'.$i.'】'._x('Image for smartphone : 120px by 120px is recommended.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_image_s]',
 				'priority' => ($i*10)+5,
