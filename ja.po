@@ -1,19 +1,14 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: BizVektor 1.0\n"
-"POT-Creation-Date: 2013-09-19 15:52+0900\n"
-"PO-Revision-Date: 2013-10-03 01:07+0900\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
-"Language: Japanese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
 
 msgid ""
 "BizVektor theme will allow you to build a high-quality business web site. In "
@@ -368,3 +363,414 @@ msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Design settings"
+msgstr "デザイン設定"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Design"
+msgstr "デザイン"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Header logo image"
+msgstr "ヘッダーロゴ画像"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "URL of header logo image"
+msgstr "ヘッダーロゴ画像URL"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Footer logo image"
+msgstr "ヘッダーロゴ画像"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "URL of footer logo image"
+msgstr "ヘッダーロゴ画像URL"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Depend on contents"
+msgstr "指定なし（左詰め）"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "4"
+msgstr "4分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "5"
+msgstr "5分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "6"
+msgstr "6分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "7"
+msgstr "7分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Number of header menus"
+msgstr "ヘッダーメニューの数"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Layout"
+msgstr "レイアウト"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Font of headings"
+msgstr "見出しの書体"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Font of Menus"
+msgstr "グローバルメニューの書体"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Serif"
+msgstr "明朝"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Sanserif"
+msgstr "ゴシック"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Contact settings"
+msgstr "連絡先の設定"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Message"
+msgstr "お問い合わせメッセージ"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Phone number"
+msgstr "電話番号"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Office hours"
+msgstr "受付時間"
+
+msgctxt "biz-vektor theme-customizer"
+msgid ""
+"Site / Company / Store / Service name. This is displayed in footer let "
+"bottom and footer copyright."
+msgstr ""
+"フッター左下とフッターコピーライトに表示させるサイト名（あるいは企業名・店舗"
+"名・サービス名）"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Company address"
+msgstr "住所"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "The URL of contact page"
+msgstr "問い合わせページのURL"
+
+msgid "3PR area settings"
+msgstr "トップページ3PRエリアの設定"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Description"
+msgstr "概要"
+
+msgid "URL"
+msgstr "リンク先ページのURL"
+
+msgid "Image for PC"
+msgstr "画像URL"
+
+msgid "310px width is recommended."
+msgstr "横 310px 程度推奨"
+
+msgid "Image for smartphone"
+msgstr "スマホ用画像URL"
+
+msgid "120px by 120px is recommended."
+msgstr "120×120px 程度推奨"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Image for PC : 310px width is recommended."
+msgstr "画像（横 310px 程度長方形推奨）"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Image for smartphone : 120px by 120px is recommended."
+msgstr "スマホ用画像（120×120px 程度推奨）"
+
+msgid "Plain"
+msgstr "プレーン"
+
+msgctxt "biz-vektor theme-options-edit-l44"
+msgid "Thank you for using BizVektor."
+msgstr "BizVektorのご利用ありがとうございます。"
+
+msgctxt "biz-vektor theme-options-edit-l44"
+msgid "You can change basic design settings in"
+msgstr "デザインなど基本的な設定は"
+
+msgid "Theme customizer"
+msgstr "テーマカスタマイザー"
+
+msgctxt "biz-vektor theme-options-edit-l44"
+msgid "."
+msgstr "から行う事が出来ます。"
+
+msgctxt "biz-vektor theme-options-edit"
+msgid "You can change other settings in this page."
+msgstr "この画面では更に細かい項目やSNS連携などを設定します。"
+
+msgctxt "biz-vektor theme-options-edit"
+msgid "Design settings"
+msgstr "デザインの設定"
+
+msgctxt "biz-vektor theme-options-edit"
+msgid "This section is also able to change from "
+msgstr "この項目は"
+
+msgctxt "biz-vektor theme-options-edit-l47"
+msgid "."
+msgstr "からも設定が可能です"
+
+msgid "Theme add-on"
+msgstr "拡張テーマ"
+
+msgid "Select"
+msgstr "選択して下さい"
+
+msgid "How to set up Menus"
+msgstr "メニューの設定方法"
+
+msgid "*optional"
+msgstr "※省略可"
+
+msgid "Select image"
+msgstr "画像を選択"
+
+msgid ""
+"※Use this feature when the site name has become longer for the SEO measures."
+msgstr ""
+"※未記入の場合はサイトのタイトルが表示されます。<br />※SEO対策の為にサイト名が"
+"長くなってしまった場合に使用します。<br />※フッター左下はフッター画像が登録さ"
+"れている場合はその画像が表示され、ここで入力した内容はフッターロゴ画像の代替"
+"テキストとして反映されます。<br />※フッターのロゴ画像はデザインの設定より登録"
+"出来ます。"
+
+msgid "You can select 1-column from below: "
+msgstr "※１カラムについては、以下２つの方法で設定できます。"
+
+msgid "[Top page] "
+msgstr "【トップページ】 このページの「"
+
+msgid "Top page settings"
+msgstr "トップページの設定"
+
+msgctxt "biz-vektor theme-options-edit-l128"
+msgid ". "
+msgstr "」"
+
+msgid ""
+"<p>If you choose theme add-on, don't forget saving changes before checking "
+"out.</p>"
+msgstr ""
+"<p>※拡張テーマのセッティング項目などがある場合は、一度変更を保存すると表示さ"
+"れます。</p>"
+
+msgid "Recommended : less than 60px height"
+msgstr ""
+"【 推奨サイズ　：　高さ60px以下 】　※60pxより大きい場合は自動的に60pxに縮小し"
+"ます。"
+
+msgid "Recommended : 180-250px width"
+msgstr ""
+"推奨サイズ　：　180-250px 】 ※260pxより大きい場合は自動的に260pxに縮小しま"
+"す。"
+
+msgid "You can select 1-column from below:"
+msgstr "１カラムについては"
+
+msgid "[page] Edot Page > Page Attributes > Template"
+msgstr "【固定ページ】 各ページ編集画面のテンプレート選択ドロップダウン"
+
+msgid "Deployment of the sidebar menu"
+msgstr "サイドバーのメニューの展開"
+
+msgid ""
+"If the site hierarchy is deep, you can choose to hide this menu hierarchy "
+"other than the fixed page you are currently viewing."
+msgstr ""
+"階層が深いサイトの場合、サイドバーのメニュー数が多くなってしまうので、現在表"
+"示している固定ページの子階層以外のメニュー（第３階層以下）を非表示にする事が"
+"出来ます。"
+
+msgid "Display"
+msgstr "表示する"
+
+msgid "Hide"
+msgstr "表示しない"
+
+msgid "It can not be set from the theme customizer."
+msgstr "この項目はテーマカスタマイザーからは設定出来ません。"
+
+msgid "ex) "
+msgstr "【記入例】"
+
+msgid "Please feel free to inquire."
+msgstr "お気軽にお問い合わせください。"
+
+msgid "Weekdays except holidays"
+msgstr "土・日・祝日除く"
+
+msgid "BizVektor, Inc."
+msgstr "BizVektor株式会社"
+
+msgid "This is displayed in footer let bottom and footer copyright."
+msgstr "※フッター左下に表示されます"
+
+msgid ""
+"316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br /"
+">Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176"
+msgstr ""
+"〒000-000<br />愛知県あま市○○○丁目○○番地<br />TEL : 000-000-0000 / FAX : "
+"000-000-0000"
+
+msgid "or"
+msgstr "あるいは"
+
+msgid ""
+"※If you fill in the blank, contact banner will be displayed in the sidebar."
+msgstr "※入力すると自動的にお問い合わせバナーが表示されます。"
+
+msgid "If not, it does not appear."
+msgstr "空欄の場合はお問い合わせバナーは表示されません。"
+
+msgid ""
+"※3PR area do not appear on the top page in the case of blank all.<br />※It "
+"is effective without the image.<br />"
+msgstr ""
+"※タイトルが３つとも未記入の場合はトップページに3PRエリアは表示されません。"
+"<br />※画像はよくわからなければ空欄でも問題ありません。"
+
+msgid "※You can register image for PC and for smartphone."
+msgstr ""
+"※画像を設定する場合はPC用（横幅310px程度高さ自由）とスマホ用（120px程度正方"
+"形）の２種類を登録して下さい。"
+
+msgid "PR area"
+msgstr "PRエリア"
+
+msgctxt "biz-vektor theme-options-edit-l294"
+msgid "「"
+msgstr "Settings of"
+
+msgctxt "biz-vektor theme-options-edit-l294"
+msgid "」と「"
+msgstr "and"
+
+msgctxt "biz-vektor theme-options-edit-l294"
+msgid "」の設定"
+msgstr "."
+
+msgid "It does not appear if there is no post at all."
+msgstr "記事が１件もない場合は表示されません。"
+
+msgid ""
+"If the excerpt field is filled, the content will appear in the &quot;"
+"excerpt&quot;. If not, the text will be displayed in a certain number of"
+msgstr ""
+"『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数を"
+"表示します。"
+
+msgid "characters from the beginning of a sentence. Please activate"
+msgstr "但し"
+
+msgid "&quot;WP Multibyte Patch&quot;"
+msgstr ""
+"プラグイン『WP Multibyte Patch』が有効化されていないと全文が表示されます"
+
+msgid "in order to display properly from "
+msgstr "ので、"
+
+msgid "Plugins page"
+msgstr "プラグイン管理ページ"
+
+msgid "where you can change plugin settings."
+msgstr "より有効化して下さい。"
+
+msgid "Thumbnail image of the article"
+msgstr "画像は該当する各記事のアイキャッチ画像"
+
+msgid "is displayed."
+msgstr "が表示されます。"
+
+msgid ""
+"There is a registration widget of thumbnail image in the lower right corner "
+"of each article edit screen."
+msgstr "各記事編集画面の右下にアイキャッチ画像の登録ウィジェットがあります。"
+
+msgid ""
+"If you do not have a widget, please check the item of &quot;thumbnail&quot; "
+"at the top right of the screen from the &quot;Screen options&quot; tab."
+msgstr ""
+"ウィジェットが無い場合は、画面右上の「表示」タブより「アイキャッチ画像」の項"
+"目にチェックを入れて下さい。"
+
+msgid "Change the title"
+msgstr "表記の変更"
+
+msgctxt "biz-vektor theme-options-edit-l309"
+msgid "Display layout of &quot;"
+msgstr "トップページでの"
+
+msgctxt "biz-vektor theme-options-edit-l309"
+msgid "&quot on the top page"
+msgstr "の表示レイアウト"
+
+msgctxt "biz-vektor theme-options-edit-l322"
+msgid "Display layout of &quot;"
+msgstr "アーカイブページでの"
+
+msgctxt "biz-vektor theme-options-edit-l322"
+msgid "&quot on the archive page"
+msgstr "の表示レイアウト"
+
+msgctxt "biz-vektor theme-options-edit-l373"
+msgid "Display number of &quot;"
+msgstr "トップページでの"
+
+msgctxt "biz-vektor theme-options-edit-l373"
+msgid "&quot on the top page"
+msgstr "の表示件数"
+
+msgctxt "biz-vektor theme-options-edit-l374"
+msgid "posts"
+msgstr "件"
+
+msgid "If you enter &quot0&quot, this section itself will disappear."
+msgstr "0 にするとタイトルごと表示されなくなります。"
+
+msgid "Main visual"
+msgstr "メインビジュアル"
+
+msgid "You can set a slide show or still image."
+msgstr ""
+"トップページのメインビジュアルについて、静止画またはスライドショーを設定出来"
+"ます。"
+
+msgid "Still image setting"
+msgstr "トップページ メインビジュアルの設定はこちら"
+
+msgid "Slide show setting"
+msgstr "トップページ スライドショーの設定はこちら"
+
+msgid "Page to be displayed below the main visual"
+msgstr "トップページのメインビジュアルの下に表示するページ"
+
+msgid "Reading Settings"
+msgstr "トップページメインビジュアルのすぐ下に表示するページを設定します。"
+
+msgid "Select &quot;Recent post&quot; or &quot;page&quot;."
+msgstr ""
+"『フロントページの表示』で『最新の投稿』または『固定ページ』を選択して下さ"
+"い。<br /"
+
+msgid "Do not select the pull-down &quot;post pages&quot;."
+msgstr "『投稿ページ』のプルダウンは選択しないで下さい。"
