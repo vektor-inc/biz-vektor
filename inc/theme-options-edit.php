@@ -41,16 +41,17 @@ function biz_vektor_theme_options_render_page() { ?>
 */ ?>
 
 <div id="design" class="sectionBox">
-<p class="message_intro">BizVekorのご利用ありがとうございます。デザインなど基本的な設定は<a href="<?php echo get_admin_url(); ?>customize.php">テーマカスタマイザー</a>から行う事が出来ます。<br />
-この画面では更に細かい項目やSNS連携などを設定します。</p>
+<p class="message_intro"><?php echo _x('Thank you for using BizVektor.', 'biz-vektor theme-options-edit-l44', 'biz-vektor');?> <?php echo _x('You can change basic design setting in', 'biz-vektor theme-options-edit-l44', 'biz-vektor');?> <a href="<?php echo get_admin_url(); ?>customize.php"><?php echo _x('Theme customizer', 'biz-vektor theme-options-edit-l44', 'biz-vektor'); ?></a> <?php echo _x('.', 'biz-vektor theme-options-edit-l44', 'biz-vektor'); ?><br />
+	<?php echo _x('You can change other settings in this page.', 'biz-vektor theme-options-edit', 'biz-vektor'); ?></p>
 <?php get_template_part('inc/theme-options-nav'); ?>
-	<h3>デザインの設定<span class="message_box">この項目は<a href="<?php echo get_admin_url(); ?>customize.php">テーマカスタマイザー</a>からも設定が可能です。</span></h3>
+
+<h3><?php echo _x('Design settings', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
 	<table class="form-table">
 	<tr>
-	<th>テーマ</th>
+	<th><?php echo __('Theme add-on', 'biz-vektor') ?></th>
 	<td>
 	<select name="biz_vektor_theme_options[theme_style]" id="<?php echo esc_attr( $options['theme_style'] ); ?>">
-	<option>[ 選択して下さい ]</option>
+	<option>[ <?php echo __('Select', 'biz-vektor') ?> ]</option>
 	<?php
 	// biz_vektor_theme_styles配列読み込み
 	global $biz_vektor_theme_styles;
@@ -67,20 +68,20 @@ function biz_vektor_theme_options_render_page() { ?>
 	</select>
 	<?php
 	global $themePlusSettingNavi;
-	$themePlusSettingNavi = '<p>※拡張テーマのセッティング項目などがある場合は、一度変更を保存すると表示されます。</p>';
+	$themePlusSettingNavi = "<p>If you choose theme add-on, don't forget saving changes before checking out.</p>";
 	// 第一引数：フィルターフック名　／　第二引数：フィルターフックをかける変数名
 	$themePlusSettingNavi = apply_filters( 'themePlusSettingNavi', $themePlusSettingNavi );
-	echo $themePlusSettingNavi;
+	echo __($themePlusSettingNavi, 'biz-vektor');
 	?>
 	</td>
 	</tr>
 	<tr>
-	<th>ヘッダーメニューの数</th>
+	<th><?php echo _x('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<select name="biz_vektor_theme_options[gMenuDivide]" id="<?php echo esc_attr( $options['gMenuDivide'] ); ?>">
-	<option>[ 選択して下さい ]</option>
+	<option>[ <?php echo __('Select', 'biz-vektor') ?> ]</option>
 	<?php
-	$biz_vektor_gMenuDivides = array('divide_natural' => '指定なし（左詰め）','divide_4' => '4分割','divide_5' => '5分割','divide_6' => '6分割','divide_7' => '7分割');
+	$biz_vektor_gMenuDivides = array('divide_natural' => _x('Depend on contents', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor'));
 	foreach( $biz_vektor_gMenuDivides as $biz_vektor_gMenuDivideKey => $biz_vektor_gMenuDivideValue) {
 		if ( $biz_vektor_gMenuDivideKey == $options['gMenuDivide'] ) {
 			print ('<option value="'.$biz_vektor_gMenuDivideKey.'" selected>'.$biz_vektor_gMenuDivideValue.'</option>');
@@ -90,22 +91,22 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
-	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">→ メニューの設定方法</a> ]
+	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">→ <?php echo __('How to set up Menus', 'biz-vektor') ;?></a> ]
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">ヘッダーロゴ画像</th>
+	<tr valign="top"><th scope="row"><?php echo _x('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td><input type="text" name="biz_vektor_theme_options[head_logo]" id="head_logo" value="<?php echo esc_attr( $options['head_logo'] ); ?>" style="width:60%;" /> 
-	<button id="media_head_logo" class="media_btn">画像を選択</button><br />
-	【 推奨サイズ　：　高さ60px以下 】　※60pxより大きい場合は自動的に60pxに縮小します。<br />
+	<button id="media_head_logo" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button><br />
+	<?php echo __('Recommended : less than 60px height', 'biz-vektor') ;?><br />
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">フッターロゴ画像URL<br />※省略可</th>
+	<tr valign="top"><th scope="row"><?php echo _x('Footer logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td><input type="text" name="biz_vektor_theme_options[foot_logo]" id="foot_logo" value="<?php echo esc_attr( $options['foot_logo'] ); ?>" style="width:60%;" /> 
-	<button id="media_foot_logo" class="media_btn">画像を選択</button><br />
-	【 推奨サイズ　：　横幅180px～250px程度 】 ※260pxより大きい場合は自動的に260pxに縮小します。<br />
+	<button id="media_foot_logo" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button><br />
+	<?php echo __('Recommended : 180-250px width', 'biz-vektor') ;?><br />
 	</td>
 	</tr>
-	<tr valign="top" class="image-radio-option theme-layout"><th scope="row">レイアウト</th>
+	<tr valign="top" class="image-radio-option theme-layout"><th scope="row"><?php echo _x('Layout', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
 		foreach ( biz_vektor_layouts() as $layout ) {
@@ -123,22 +124,21 @@ function biz_vektor_theme_options_render_page() { ?>
 		}
 	?>
 	<br clear="all" />
-	※１カラムについては
+	<?php echo __('You can select 1-column from below: ', 'biz-vektor');?>
 	<ul>
-		<li>【トップページ】 このページの「<a href="#topPage">トップページの設定</a>」</li>
-		<li>【固定ページ】 各ページ編集画面のテンプレート選択ドロップダウン</li>
+		<li><?php echo __('[Top page] ', 'biz-vektor');?><a href="#topPage"><?php echo __('Top page settings', 'biz-vektor');?></a><?php echo _x('. ', 'biz-vektor theme-options-edit-l128', 'biz-vektor');?></li>
+		<li><?php echo __('[page] Edot Page > Page Attributes > Template', 'biz-vektor') ;?></li>
 	</ul>
-	よりそれぞれ設定下さい。
 	</td>
 <!-- 	</tr>
 	<tr valign="top"><th scope="row">背景色</th>
 	<td><input type="text" name="biz_vektor_theme_options[bg_color]" id="bg_color" value="<?php echo esc_attr( $options['bg_color'] ); ?>" /></td>
 	</tr> -->
 	<tr>
-	<th>見出しの書体</th>
+	<th><?php echo _x('Font of headings', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
-	$biz_vektor_font_titles = array('serif' => '明朝','sanserif' => 'ゴシック',);
+	$biz_vektor_font_titles = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
 	foreach( $biz_vektor_font_titles as $biz_vektor_font_titleValue => $biz_vektor_font_titleLavel) {
 		if ( $biz_vektor_font_titleValue == $options['font_title'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="<?php echo $biz_vektor_font_titleValue ?>" checked> <?php echo $biz_vektor_font_titleLavel ?></label>
@@ -150,10 +150,10 @@ function biz_vektor_theme_options_render_page() { ?>
 	<td>
 	</tr>
 	<tr>
-	<th>グローバルメニューの書体</th>
+	<th><?php echo _x('Font of Menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
-	$biz_vektor_font_menus = array('serif' => '明朝','sanserif' => 'ゴシック',);
+	$biz_vektor_font_menus = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
 	foreach( $biz_vektor_font_menus as $biz_vektor_font_menuValue => $biz_vektor_font_menuLavel) {
 		if ( $biz_vektor_font_menuValue == $options['font_menu'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>" checked> <?php echo $biz_vektor_font_menuLavel ?></label>
@@ -165,11 +165,11 @@ function biz_vektor_theme_options_render_page() { ?>
 	<td>
 	</tr>
 	<tr>
-	<th>サイドバーのメニューの展開</th>
+	<th><?php echo __('Deployment of the sidebar menu', 'biz-vektor') ;?></th>
 	<td>
-		<p>階層が深いサイトの場合、サイドバーのメニュー数が多くなってしまうので、現在表示している固定ページの子階層以外のメニュー（第３階層以下）を非表示にする事が出来ます。</p>
+		<p><?php echo __('If the site hierarchy is deep, you can choose to hide this menu hierarchy other than the fixed page you are currently viewing.', 'biz-vektor');?></p>
 	<?php
-	$biz_vektor_side_childs = array('side_child_display' => '表示する','side_child_hidden' => '表示しない',);
+	$biz_vektor_side_childs = array('side_child_display' => __('Display', 'biz-vektor'),'side_child_hidden' => __('Hide', 'biz-vektor'),);
 	foreach( $biz_vektor_side_childs as $biz_vektor_side_childValue => $biz_vektor_side_childLavel) {
 		if ( $biz_vektor_side_childValue == $options['side_child_display'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[side_child_display]" value="<?php echo $biz_vektor_side_childValue ?>" checked> <?php echo $biz_vektor_side_childLavel ?></label>
@@ -178,7 +178,7 @@ function biz_vektor_theme_options_render_page() { ?>
 		<?php }
 	}
 	?>
-	<p>※この項目はテーマカスタマイザーからは設定出来ません。</p>
+	<p>※<?php echo __('It can not be set from the theme customizer.', 'biz-vektor') ;?></p>
 	<td>
 	</tr>
 	</table>
@@ -192,54 +192,48 @@ function biz_vektor_theme_options_render_page() { ?>
 	?>
 	<div id="contactInfo" class="sectionBox">
 	<?php get_template_part('inc/theme-options-nav'); ?>
-	<h3>連絡先の設定<span class="message_box">この項目は<a href="<?php echo get_admin_url(); ?>customize.php">テーマカスタマイザー</a>からも設定が可能です。</span></h3>
+	<h3><?php echo _x('Contact settings', 'biz-vektor theme-customizer', 'biz-vektor') ;?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
 	<table class="form-table">
-	<tr valign="top"><th scope="row">お問い合わせのメッセージ</th>
+	<tr valign="top"><th scope="row"><?php echo _x('Message', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[contact_txt]" id="contact_txt" value="<?php echo esc_attr( $options['contact_txt'] ); ?>" style="width:50%;" /><br />
-	<span>【記入例】お気軽にお問い合わせください。</span>
+	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo __('Please feel free to inquire.', 'biz-vektor') ;?></span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">お問い合わせ先の電話番号</th>
+	<tr valign="top"><th scope="row"><?php echo _x('Phone number', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[tel_number]" id="tel_number" value="<?php echo esc_attr( $options['tel_number'] ); ?>" style="width:50%;" /><br />
-	<span>【記入例】000-000-0000</span>
+	<span><?php echo __('ex) ', 'biz-vektor') ;?>000-000-0000</span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">電話受付時間</th>
+	<tr valign="top"><th scope="row"><?php echo _x('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[contact_time]" id="contact_time" value="" style="width:50%;" /><?php echo esc_attr( $options['contact_time'] ); ?></textarea><br />
-	<span>【記入例】受付時間 9：00～18：00（土・日・祝日除く）</span>
+	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo _x('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9：00～18：00（<?php echo __('Weekdays except holidays', 'biz-vektor') ;?>）</span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">
-	フッター左下とフッターコピーライトに表示させるサイト名 あるいは企業名・店舗名・サービス名<br />
+	<tr valign="top"><th scope="row"><?php echo _x('Site / Company / Store / Service name. This is displayed in footer let bottom and footer copyright.', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br />
 	</th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
-	<span>【記入例】BizVektor株式会社</span><br />
-	※未記入の場合は<a href="<?php echo get_admin_url(); ?>options-general.php" target="_blank">サイトのタイトル</a>が表示されます。<br />
-	※SEO対策の為にサイト名が長くなってしまった場合に使用します。<br />
-	※フッター左下は<span class="alert">フッター画像が登録されている場合はその画像が表示</span>され、ここで入力した内容はフッターロゴ画像の代替テキストとして反映されます。<br />
-	※フッターのロゴ画像はデザインの設定より登録出来ます。
+	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo __('BizVektor, Inc.', 'biz-vektor') ;?></span><br />
+	<?php echo __('※Use this feature when the site name has become longer for the SEO measures.', 'biz-vektor') ;?>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">住所・電話番号など<br />※フッター左下に表示されます</th>
+	<tr valign="top"><th scope="row"><?php echo _x('Company address', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br /><?php echo __('This is displayed in footer let bottom and footer copyright.', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="5" name="biz_vektor_theme_options[contact_address]" id="contact_address" value="" style="width:50%;" /><?php echo $options['contact_address'] ?></textarea><br />
-		<span>【記入例】<br />
-		〒000-000<br />
-		愛知県あま市○○○丁目○○番地<br />
-		TEL : 000-000-0000 / FAX : 000-000-0000
+		<span><?php echo __('ex) ', 'biz-vektor') ;?>
+		<?php echo __('316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br />Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176', 'biz-vektor') ;?>
 		</span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row">問い合わせページのURL</th>
+	<tr valign="top"><th scope="row"><?php echo _x('The URL of contact page', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" />
-	<span>【記入例】http://www.********.co.jp/contact/ あるいは /******/</span><br />
-	※入力すると自動的にお問い合わせバナーが表示されます。<br />
-	<span class="alert">空欄の場合はお問い合わせバナーは表示されません。</span>
+	<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.********.co.jp/contact/ <?php echo __('or', 'biz-vektor') ;?> /******/</span><br />
+	<?php echo __('※If you fill in the blank, contact banner will be displayed in the sidebar.', 'biz-vektor') ;?><br />
+	<span class="alert"><?php echo __('If not, it does not appear.', 'biz-vektor') ;?></span>
 	</td>
 	</tr>
 	</table>
@@ -254,35 +248,33 @@ function biz_vektor_theme_options_render_page() { ?>
 	?>
 	<div id="prBox" class="sectionBox">
 	<?php get_template_part('inc/theme-options-nav'); ?>
-	<h3>トップページ3PRエリア<span class="message_box">この項目は<a href="<?php echo get_admin_url(); ?>customize.php">テーマカスタマイザー</a>からも設定が可能です。</span></h3>
-※タイトルが３つとも未記入の場合はトップページに3PRエリアは表示されません。<br />
-※画像はよくわからなければ空欄でも問題ありません。<br />
-<span class="alert">※画像を設定する場合はPC用（横幅310px程度高さ自由）とスマホ用（120px程度正方形）の２種類を登録して下さい。</span>
+	<h3><?php echo __('3PR area settings', 'biz-vektor') ;?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
+	<?php echo __('※3PR area do not appear on the top page in the case of blank all.<br />※It is effective without the image.', 'biz-vektor') ;?><br /><span class="alert"><?php echo __('※You can register image for PC and for smartphone.', 'biz-vektor') ;?></span>
 <?php
 // PRエリア
 for ( $i = 1; $i <= 3 ;){ ?>
 
 <div class="prItem">
-<h5>PRエリア<?php echo $i; ?></h5>
+<h5><?php echo __('PR area', 'biz-vektor') ?><?php echo $i; ?></h5>
 <dl>
-<dt>タイトル</dt>
+<dt><?php echo __('Title', 'biz-vektor') ;?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_title]" id="pr<?php echo $i; ?>_title" value="<?php echo esc_attr( $options['pr'.$i.'_title'] ); ?>" /></dd>
-<dt>概要</dt>
+<dt><?php echo __('Description', 'biz-vektor') ;?></dt>
 <dd><textarea cols="15" rows="3" name="biz_vektor_theme_options[pr<?php echo $i; ?>_description]" id="pr<?php echo $i; ?>_description" value=""><?php echo esc_attr( $options['pr'.$i.'_description'] ); ?></textarea></dd>
-<dt>リンク先ページのURL</dt>
+<dt><?php echo __('URL', 'biz-vektor') ;?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_link]" id="pr<?php echo $i; ?>_link" value="<?php echo esc_attr( $options['pr'.$i.'_link'] ); ?>" /></dd>
-<dt>画像URL</dt>
+<dt><?php echo __('Image for PC', 'biz-vektor') ;?></dt>
 <dd>
 <span class="mediaSet">
 <input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image]" class="media_text" id="pr<?php echo $i; ?>_image" value="<?php echo esc_attr( $options['pr'.$i.'_image'] ); ?>" /> 
-<button id="media_pr<?php echo $i; ?>_image" class="media_btn">画像を選択</button></span>
-横幅 310px 程度推奨</dd>
-<dt>スマホ用画像URL</dt>
+<button id="media_pr<?php echo $i; ?>_image" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button></span>
+<?php echo __('310px width is recommended.', 'biz-vektor') ;?></dd>
+<dt><?php echo __('Image for smartphone', 'biz-vektor') ;?></dt>
 <dd>
 <span class="mediaSet">
 <input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image_s]" class="media_text" id="pr<?php echo $i; ?>_image_s" value="<?php echo esc_attr( $options['pr'.$i.'_image_s'] ); ?>" /> 
-<button id="media_pr<?php echo $i; ?>_image_s" class="media_btn">画像を選択</button></span>
-120×120px 程度推奨</dd>
+<button id="media_pr<?php echo $i; ?>_image_s" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button></span>
+<?php echo __('120px by 120px is recommended.', 'biz-vektor') ;?></dd>
 </dl>
 </div>
 
@@ -292,7 +284,6 @@ $i++;
 <?php submit_button(); ?>
 </div>
 
-
 <?php
 /*-------------------------------------------*/
 /*	入力_「お知らせ」と「ブログ」の表示設定
@@ -300,25 +291,25 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>「<?php echo esc_html( bizVektorOptions('infoLabelName')); ?>」と「<?php echo esc_html( bizVektorOptions('postLabelName')); ?>」の設定</h3>
+<h3><?php echo _x('Settings of', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?> <?php echo esc_html( bizVektorOptions('infoLabelName')); ?> <?php echo _x('and', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?> <?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo _x('.', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?></h3>
+※ <?php echo __('It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
+※ <?php echo __('If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
+　 <?php echo __('characters from the beginning of a sentence. Please activate', 'biz-vektor') ;?> <span class="alert"><?php echo __('&quot;WP Multibyte Patch&quot;', 'biz-vektor') ;?></span> <?php echo __('in order to display properly from', 'biz-vektor') ;?> <br />
+　 <a href="<?php echo get_admin_url(); ?>plugins.php" target="_blank">"Plugins" page</a> where you can change plugin settings.<br />
+※ <span class="alert"><?php echo __('Thumbnail image of the article', 'biz-vektor') ;?></span> <?php echo __('is displayed.', 'biz-vektor') ;?><br />
+　 <?php echo __('There is a registration widget of thumbnail image in the lower right corner of each article edit screen.', 'biz-vektor') ;?><br />
+　 <?php echo __('If you do not have a widget, please check the item of &quot;thumbnail&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
-※ 記事が１件もない場合は表示されません。<br />
-※『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数を表示します。<br />
-　 但し<span class="alert">プラグイン『WP Multibyte Patch』が有効化されていないと全文が表示されます</span>ので、<br />
-　 <a href="<?php echo get_admin_url(); ?>plugins.php" target="_blank">プラグイン管理ページ</a>より有効化して下さい。<br />
-※ <span class="alert">画像は該当する各記事のアイキャッチ画像</span>が表示されます。<br />
-　 各記事編集画面の右下にアイキャッチ画像の登録ウィジェットがあります。<br />
-　 ウィジェットが無い場合は、画面右上の「表示」タブより「アイキャッチ画像」の項目にチェックを入れて下さい。
 <table class="form-table">
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('infoLabelName')); ?></th>
 	<td>
-		→ 表記の変更 <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
+		→ <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt>トップページでの<?php echo esc_html( bizVektorOptions('infoLabelName')); ?>の表示レイアウト</dt>
+	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => 'タイトルのみ','listType_set' => '抜粋・画像あり');
+	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listInfoTop'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -328,10 +319,10 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt>アーカイブページでの<?php echo esc_html( bizVektorOptions('infoLabelName')); ?>の表示レイアウト</dt>
+	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php echo __('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => 'タイトルのみ','listType_set' => '抜粋・画像あり');
+	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listInfoArchive'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -347,12 +338,12 @@ $i++;
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
 	<td>
-		→ 表記の変更 <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
+		→ <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt>トップページでの<?php echo esc_html( bizVektorOptions('postLabelName')); ?>の表示</dt>
+	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => 'タイトルのみ','listType_set' => '抜粋・画像あり');
+	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listBlogTop'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listBlogTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -362,10 +353,10 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt>アーカイブページでの<?php echo esc_html( bizVektorOptions('postLabelName')); ?>の表示</dt>
+	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => 'タイトルのみ','listType_set' => '抜粋・画像あり');
+	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listBlogArchive'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listBlogArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -379,9 +370,9 @@ $i++;
 </td>
 </tr>
 <tr>
-<th>トップページでの<?php echo esc_html( bizVektorOptions('postLabelName')); ?>の<br />表示件数</th>
-<td><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" />件<br />
-0 にするとタイトルごと表示されなくなります。</td>
+<th><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></th>
+<td><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /><?php echo __('posts', 'biz-vektor theme-options-edit-l374', 'biz-vektor') ;?><br />
+<?php echo __('If you enter &quot0&quot, this section itself will disappear.', 'biz-vektor') ;?></td>
 </tr>
 </table>
 <?php submit_button(); ?>
@@ -421,7 +412,7 @@ $i++;
 ※現在は検索エンジンからの評価に影響しませんのであまり真剣に考えなくてもかまいません。
 ※各ページ個別のキーワードについては、それぞれの記事の編集画面より入力して下さい。共通キーワードと合わせて最大10個程度が望ましいです。<br />
 ※最後のキーワード欄の末尾には , は必要ありません。<br />
-【記入例】WordPress,テンプレート,無料,GPL
+<?php echo __('ex) ', 'biz-vektor') ;?>WordPress,テンプレート,無料,GPL
 </td>
 </tr>
 <tr>
@@ -436,7 +427,7 @@ metaタグのディスクリプションはGoogleなどの検索サイトの検�
 <th>Google Analytics設定</th>
 <td>GoogleAnalyticsのタグを埋め込む場合はアカウントIDを記入して下さい。<br />
 <p>UA-<input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
-【記入例】XXXXXXXX-X</p>
+<?php echo __('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
 
 	<dl>
 	<dt>出力する解析タグの種類を選択して下さい。（よくわからない場合は飛ばしてかまいません。）</dt>
@@ -471,24 +462,21 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 ?>
 <div id="topPage" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>トップページの設定</h3>
+<h3><?php echo __('Top page settings', 'biz-vektor') ;?></h3>
 <table class="form-table">
 <tr>
-<th>メインビジュアル</th>
-<td>トップページのメインビジュアルについて、静止画またはスライドショーを設定出来ます。
+<th><?php echo __('Main visua', 'biz-vektor') ;?></th>
+<td><?php echo __('You can set a slide show or still image.', 'biz-vektor') ;?>
 <ul>
-<li>[ <a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header" target="_blank">→ トップページ メインビジュアルの設定はこちら</a> ]</li>
-<li>[ <a href="#slideSetting">→ トップページ スライドショーの設定はこちら</a> ]</li>
+<li>[ <a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header" target="_blank">→ <?php echo __('Still image setting', 'biz-vektor') ;?></a> ]</li>
+<li>[ <a href="#slideSetting">→ <?php echo __('Slide show setting', 'biz-vektor') ;?></a> ]</li>
 </ul></td>
 </tr>
 <tr>
-<th id="topEntryTitleHidden">トップページのメインビジュアルの下に表示するページ</th>
-<th><p>トップページメインビジュアルのすぐ下に表示するページを設定します。</p>
-<p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">→ トップページ メインビジュアルの下に表示するページの設定はこちら</a> ]</p>
-<p>『フロントページの表示』で『最新の投稿』または『固定ページ』を選択して下さい。<br />
-『固定ページ』を選択した場合は、『フロントページ』をプルダウンで選択して下さい。<br />
-（先にトップページ用の固定ページを『トップページ』などの名前で作成しておくと良いでしょう。）<br />
- <span class="alert">※『投稿ページ』のプルダウンは選択しないで下さい。</span><br />
+<th id="topEntryTitleHidden"><?php echo __('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
+<th><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">→ Reading Settings</a> ]</p>
+<p><?php echo __('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
+ <span class="alert">※<?php echo __('Do not select the pull-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
  ※設定したページの本文が未記入の場合、メインビジュアルの下にはすぐに３ＰＲボックスが表示されますので、特に記入する事がなければ本文欄は未記入でも構いません。</p></td>
 </tr>
 <tr>
@@ -514,10 +502,10 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 </tr>
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>（RSS情報表示設定） </th>
-	<td><span style="font-size:14px;font-weight:lighter;">→ 表記の変更 <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
+	<td><span style="font-size:14px;font-weight:lighter;">→ <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
 <p>外部ブログや関連サイトのRSSを利用していて、更新情報をこのサイトのトップページに掲載する場合はRSSのアドレスを入力して下さい。<br />
 <input type="text" name="biz_vektor_theme_options[blogRss]" id="blogRss" value="<?php echo esc_attr( $options['blogRss'] ); ?>" />
-<span>【記入例】http://www.XXXX.jp/?feed=rss2</span></p>
+<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span></p>
 </td>
 </tr>
 <tr>
@@ -589,7 +577,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <th>facebook</th>
 <td>facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。<br />
 <input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" />
-<span>【記入例】https://www.facebook.com/hidekazu.ishikawa</span><br />
+<span><?php echo __('ex) ', 'biz-vektor') ;?>https://www.facebook.com/hidekazu.ishikawa</span><br />
 ※facebookが発行するバナー・ウィジェットを利用したい場合は、空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
 </td>
 </tr>
@@ -623,7 +611,7 @@ facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hi
 画像サイズは250×250ピクセル以上、画像比率3:1以下推奨。<br />
 [ <a href="<?php echo get_admin_url(); ?>media-new.php" target="_blank">→ OGP画像をアップロードする</a> ] ※アップロードした後、ファイルのURLを下記に貼り付けて下さい。<br />
 <input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /><br />
-<span>【記入例】http://www.vektor-inc.co.jp/images/ogpImage.png</span>
+<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span>
 </td>
 </tr>
 <tr>
@@ -638,7 +626,7 @@ facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hi
 </ul>
 <p>チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切りで入力して下さい。<br />
 <input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
-【記入例】1,3,7</p>
+<?php echo __('ex) ', 'biz-vektor') ;?>1,3,7</p>
 
 </td>
 </tr>
@@ -654,7 +642,7 @@ facebookコメント欄を表示するページにはチェックを入れて下
 </ul>
 チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切りで入力して下さい。<br />
 <input type="text" name="biz_vektor_theme_options[fbCommentsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['fbCommentsHidden'] ); ?>" /><br />
-【記入例】1,3,7
+<?php echo __('ex) ', 'biz-vektor') ;?>1,3,7
 </td>
 </tr>
 <tr>
@@ -668,7 +656,7 @@ facebook LikeBox を設置する場合は設置個所にチェックを入れて
 <dl>
 <dt>facebookページのURL</dt>
 <dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" />
-<span>【記入例】https://www.facebook.com/bizvektor</span></dd>
+<span><?php echo __('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
 <dt>ストリームの表示</dt>
 <dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> 表示する</dd>
 <dt>顔の表示</dt>
