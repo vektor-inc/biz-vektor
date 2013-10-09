@@ -82,7 +82,6 @@ if ( $options['listInfoTop'] == 'listType_set' ) { ?>
 $postTopCount = bizVektorOptions('postTopCount');
 $postTopCount = mb_convert_kana($postTopCount, "a", "UTF-8");
 if ($postTopCount != 0) {
-if (!$postTopCount):$postTopCount = 5 ; endif ;
 query_posts("showposts=$postTopCount"); ?>
 <?php if(have_posts()): ?>
 <div id="topBlog" class="infoList">

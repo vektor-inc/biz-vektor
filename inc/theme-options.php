@@ -890,7 +890,7 @@ function biz_vektor_slideBody(){
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_vektor_get_theme_options();
-	if ($options[$optionLabel]){
+	if ($options[$optionLabel] !='' ) { // !=''が無いと0でもデフォルトが適用されてしまう
 		return $options[$optionLabel];
 	} else {
 		bizVektorOptions_default();
