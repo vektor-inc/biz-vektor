@@ -2,7 +2,7 @@
 function biz_vektor_theme_options_render_page() { ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
-		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), get_current_theme() ); ?></h2>
+		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), wp_get_theme() ); ?></h2>
 		<?php settings_errors(); ?>
 
 		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
