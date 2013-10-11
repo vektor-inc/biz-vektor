@@ -71,7 +71,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	$themePlusSettingNavi = "<p>If you choose theme add-on, don't forget saving changes before checking out.</p>";
 	// 第一引数：フィルターフック名　／　第二引数：フィルターフックをかける変数名
 	$themePlusSettingNavi = apply_filters( 'themePlusSettingNavi', $themePlusSettingNavi );
-	echo __($themePlusSettingNavi, 'biz-vektor');
+	echo $themePlusSettingNavi;
 	?>
 	</td>
 	</tr>
@@ -130,10 +130,6 @@ function biz_vektor_theme_options_render_page() { ?>
 		<li><?php echo __('[page] Edot Page > Page Attributes > Template', 'biz-vektor') ;?></li>
 	</ul>
 	</td>
-<!-- 	</tr>
-	<tr valign="top"><th scope="row">背景色</th>
-	<td><input type="text" name="biz_vektor_theme_options[bg_color]" id="bg_color" value="<?php echo esc_attr( $options['bg_color'] ); ?>" /></td>
-	</tr> -->
 	<tr>
 	<th><?php echo _x('Font of headings', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
@@ -178,7 +174,7 @@ function biz_vektor_theme_options_render_page() { ?>
 		<?php }
 	}
 	?>
-	<p>※<?php echo __('It can not be set from the theme customizer.', 'biz-vektor') ;?></p>
+	<p>* <?php echo __('It can not be set from the theme customizer.', 'biz-vektor') ;?></p>
 	<td>
 	</tr>
 	</table>
@@ -217,7 +213,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
 	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo __('BizVektor, Inc.', 'biz-vektor') ;?></span><br />
-	<?php echo __('※Use this feature when the site name has become longer for the SEO measures.', 'biz-vektor') ;?>
+	<?php echo __('* Use this feature when the site name has become longer for the SEO measures.', 'biz-vektor') ;?>
 	</td>
 	</tr>
 	<tr valign="top"><th scope="row"><?php echo _x('Company address', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br /><?php echo __('This is displayed in footer let bottom and footer copyright.', 'biz-vektor') ;?></th>
@@ -232,7 +228,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" />
 	<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.********.co.jp/contact/ <?php echo __('or', 'biz-vektor') ;?> /******/</span><br />
-	<?php echo __('※If you fill in the blank, contact banner will be displayed in the sidebar.', 'biz-vektor') ;?><br />
+	<?php echo __('* If you fill in the blank, contact banner will be displayed in the sidebar.', 'biz-vektor') ;?><br />
 	<span class="alert"><?php echo __('If not, it does not appear.', 'biz-vektor') ;?></span>
 	</td>
 	</tr>
@@ -249,7 +245,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<div id="prBox" class="sectionBox">
 	<?php get_template_part('inc/theme-options-nav'); ?>
 	<h3><?php echo __('3PR area settings', 'biz-vektor') ;?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
-	<?php echo __('※3PR area do not appear on the top page in the case of blank all.<br />※It is effective without the image.', 'biz-vektor') ;?><br /><span class="alert"><?php echo __('※You can register image for PC and for smartphone.', 'biz-vektor') ;?></span>
+	<?php echo __('* 3PR area do not appear on the top page in the case of blank all.<br />* It is effective without the image.', 'biz-vektor') ;?><br /><span class="alert"><?php echo __('* You can register image for PC and for smartphone.', 'biz-vektor') ;?></span>
 <?php
 // PRエリア
 for ( $i = 1; $i <= 3 ;){ ?>
@@ -286,17 +282,17 @@ $i++;
 
 <?php
 /*-------------------------------------------*/
-/*	入力_「お知らせ」と「ブログ」の表示設定
+/*	Blog and Information
 /*-------------------------------------------*/
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
 <h3><?php echo _x('Settings of', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?> <?php echo esc_html( bizVektorOptions('infoLabelName')); ?> <?php echo _x('and', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?> <?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo _x('.', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?></h3>
-※ <?php echo __('It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
-※ <?php echo __('If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
+*  <?php echo __('It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
+*  <?php echo __('If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
 　 <?php echo __('characters from the beginning of a sentence. Please activate', 'biz-vektor') ;?> <span class="alert"><?php echo __('&quot;WP Multibyte Patch&quot;', 'biz-vektor') ;?></span> <?php echo __('in order to display properly from', 'biz-vektor') ;?> <br />
 　 <a href="<?php echo get_admin_url(); ?>plugins.php" target="_blank">"Plugins" page</a> where you can change plugin settings.<br />
-※ <span class="alert"><?php echo __('Thumbnail image of the article', 'biz-vektor') ;?></span> <?php echo __('is displayed.', 'biz-vektor') ;?><br />
+*  <span class="alert"><?php echo __('Thumbnail image of the article', 'biz-vektor') ;?></span> <?php echo __('is displayed.', 'biz-vektor') ;?><br />
 　 <?php echo __('There is a registration widget of thumbnail image in the lower right corner of each article edit screen.', 'biz-vektor') ;?><br />
 　 <?php echo __('If you do not have a widget, please check the item of &quot;thumbnail&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
@@ -386,12 +382,12 @@ $i++;
 
 <?php
 /*-------------------------------------------*/
-/*	SEO設定
+/*	SEO Setting
 /*-------------------------------------------*/
 ?>
 <div id="seoSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>SEO設定</h3>
+<h3><?php _e('SEO Setting', 'biz-vektor'); ?></h3>
 <table class="form-table">
 <tr>
 <th>トップページの&lt;title&gt;タグ</th>
@@ -402,16 +398,16 @@ $i++;
 このように固定ページ名や投稿名と<a href="<?php echo get_admin_url(); ?>options-general.php" target="_blank">サイトのタイトル</a>が連結して出力されますが、&lt;title&gt;の文字数が長くなりすぎると検索エンジンからの評価が逆に悪くなるので、<a href="<?php echo get_admin_url(); ?>options-general.php" target="_blank">サイトのタイトル</a>は<strong>一番検索されたいキーワードを盛り込みつつなるべく短くまとめる</strong>事が望ましいです。<br />
 しかし、トップページにおいては上記のように他のタイトルと連結されないので、もう少し長めの&lt;title&gt;をつける事が出来るために、ここで別途設定する事ができるようになっています。</p>
 <input type="text" name="biz_vektor_theme_options[topTitle]" id="topTitle" value="<?php echo esc_attr( $options['topTitle'] ); ?>" style="width:90%;" />
-<p>※未記入の場合はサイトのタイトルが反映されます。</p>
+<p>* 未記入の場合はサイトのタイトルが反映されます。</p>
 </td>
 </tr>
 <tr>
 <th>共通キーワード</th>
 <td>metaタグのキーワードで、サイト全体で共通して入れるキーワードを , 区切りで入力して下さい。<br />
 <input type="text" name="biz_vektor_theme_options[commonKeyWords]" id="commonKeyWords" value="<?php echo esc_attr( $options['commonKeyWords'] ); ?>" style="width:90%;" /><br />
-※現在は検索エンジンからの評価に影響しませんのであまり真剣に考えなくてもかまいません。
-※各ページ個別のキーワードについては、それぞれの記事の編集画面より入力して下さい。共通キーワードと合わせて最大10個程度が望ましいです。<br />
-※最後のキーワード欄の末尾には , は必要ありません。<br />
+* 現在は検索エンジンからの評価に影響しませんのであまり真剣に考えなくてもかまいません。
+* 各ページ個別のキーワードについては、それぞれの記事の編集画面より入力して下さい。共通キーワードと合わせて最大10個程度が望ましいです。<br />
+* 最後のキーワード欄の末尾には , は必要ありません。<br />
 <?php echo __('ex) ', 'biz-vektor') ;?>WordPress,テンプレート,無料,GPL
 </td>
 </tr>
@@ -420,7 +416,7 @@ $i++;
 <td>各ページの編集画面の「抜粋」欄に記入した内容がmetaタグのディスクリプションに反映されます。<br />
 metaタグのディスクリプションはGoogleなどの検索サイトの検索結果画面で、サイトタイトルの下などに表示されます。<br />
 抜粋欄が未記入の場合は、本文文頭より240文字がディスクリプションとして適応される仕様となっています。<br />
-※抜粋欄が表示されていない場合は、編集画面の右上に「表示」というタブがありますので、そこをクリックすると「抜粋」欄を表示するチェックボックスが出てきますので、チェックして下さい。
+* 抜粋欄が表示されていない場合は、編集画面の右上に「表示」というタブがありますので、そこをクリックすると「抜粋」欄を表示するチェックボックスが出てきますので、チェックして下さい。
 </td>
 </tr>
 <tr>
@@ -476,8 +472,8 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <th id="topEntryTitleHidden"><?php echo __('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
 <th><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">→ Reading Settings</a> ]</p>
 <p><?php echo __('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
- <span class="alert">※<?php echo __('Do not select the pull-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
- ※設定したページの本文が未記入の場合、メインビジュアルの下にはすぐに３ＰＲボックスが表示されますので、特に記入する事がなければ本文欄は未記入でも構いません。</p></td>
+ <span class="alert">* <?php echo __('Do not select the pull-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
+ * 設定したページの本文が未記入の場合、メインビジュアルの下にはすぐに３ＰＲボックスが表示されますので、特に記入する事がなければ本文欄は未記入でも構いません。</p></td>
 </tr>
 <tr>
 <th id="topEntryTitleHidden">トップページのメインビジュアルの下のタイトルの表示</th>
@@ -559,7 +555,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 } ?>
 
 </table>
-<p>※スライドショーは最大５枚まで設定出来ますが、3G回線のスマートフォンなど通信回線が遅い環境で閲覧した場合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる為、３枚以内推奨です。</p>
+<p>* スライドショーは最大５枚まで設定出来ますが、3G回線のスマートフォンなど通信回線が遅い環境で閲覧した場合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる為、３枚以内推奨です。</p>
 <?php submit_button(); ?>
 </div>
 
@@ -578,14 +574,14 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <td>facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。<br />
 <input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" />
 <span><?php echo __('ex) ', 'biz-vektor') ;?>https://www.facebook.com/hidekazu.ishikawa</span><br />
-※facebookが発行するバナー・ウィジェットを利用したい場合は、空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
+* facebookが発行するバナー・ウィジェットを利用したい場合は、空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
 </td>
 </tr>
 <tr>
 <th>facebookアプリケーションID</th>
 <td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
 <span>[ <a href="https://developers.facebook.com/apps" target="_blank">→アプリケーションIDを確認・取得する</a> ]</span><br />
-※アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しません。
+* アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しません。
 facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook アプリケーションID 取得」などで検索して下さい。
 </td>
 </tr>
@@ -593,7 +589,7 @@ facebookのアプリケーションIDの取得方法についてよくわから�
 <th>facebookユーザーID （任意）</th>
 <td>管理者のfacebookユーザーIDを入力して下さい。<br />
 <input type="text" name="biz_vektor_theme_options[fbAdminId]" id="fbAdminId" value="<?php echo esc_attr( $options['fbAdminId'] ); ?>" /><br />
-※facebookページのアプリケーションIDではありません。<br />
+* facebookページのアプリケーションIDではありません。<br />
 facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hidekazu.ishikawa）★ にアクセスするとわかります。それでもよくわからない場合は「facebook ユーザーID 調べ方」などで検索して下さい。
 </td>
 </tr>
@@ -601,7 +597,7 @@ facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hi
 <th>twitterアカウント</th>
 <td>twitterにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。<br />
 @<input type="text" name="biz_vektor_theme_options[twitter]" id="twitter" value="<?php echo esc_attr( $options['twitter'] ); ?>" /><br />
-※twitterのウィジェットなどを利用したい場合は空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
+* twitterのウィジェットなどを利用したい場合は空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
 </td>
 </tr>
 <tr>
@@ -609,7 +605,7 @@ facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hi
 <td>facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示される画像です。<br />
 ページにアイキャッチ画像が指定されてる場合はそちらが優先されます。<br />
 画像サイズは250×250ピクセル以上、画像比率3:1以下推奨。<br />
-[ <a href="<?php echo get_admin_url(); ?>media-new.php" target="_blank">→ OGP画像をアップロードする</a> ] ※アップロードした後、ファイルのURLを下記に貼り付けて下さい。<br />
+[ <a href="<?php echo get_admin_url(); ?>media-new.php" target="_blank">→ OGP画像をアップロードする</a> ] * アップロードした後、ファイルのURLを下記に貼り付けて下さい。<br />
 <input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /><br />
 <span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span>
 </td>
