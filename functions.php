@@ -168,10 +168,12 @@ register_default_headers( array(
 		'description' => 'Johnny'
 	),
 ) );
-add_custom_image_header('admin_header_style', '');
+add_theme_support( 'custom-header' );
 if ( ! function_exists( 'admin_header_style' ) ) ://wp_headで<head>にCSSを追加。無いとエラーが出るので削除不可
 function admin_header_style() { }
 endif;
+
+
 
 /*-------------------------------------------*/
 /*	カスタム背景
