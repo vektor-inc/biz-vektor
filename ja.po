@@ -1031,3 +1031,140 @@ msgstr "* スライドショーは最大５枚まで設定出来ますが、通�
 #######################################
 # SNS
 #######################################
+
+msgid "SNS cooperation"
+msgstr "SNS連携"
+
+msgid "There is no problem with setting later if you do not know well."
+msgstr "よくわからない場合は後で設定しても問題ありません。"
+
+msgid "Banner will be displayed if you enter a URL if you want to link to a personal account or facebook page."
+msgstr "facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。"
+
+msgid "facebook application ID"
+msgstr "facebookアプリケーションID"
+
+msgid "I will check and get the application ID"
+msgstr "アプリケーションIDを確認・取得する"
+
+msgid "* If application ID is not inputted, neither a Like button nor the comment field displays and operates correctly."
+msgstr "* アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しません。"
+
+msgid "Please search such as [facebook application ID acquisition] If you do not know much about how to get application ID of facebook."
+msgstr "facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook アプリケーションID 取得」などで検索して下さい。"
+
+msgid "facebook user ID (optional)"
+msgstr "facebookユーザーID （任意）"
+
+msgid "Please enter the facebook user ID of the administrator."
+msgstr "管理者のfacebookユーザーIDを入力して下さい。"
+
+msgid "* It is not the application ID of the facebook page."
+msgstr "* facebookページのアプリケーションIDではありません。"
+
+msgid "The personal ID of facebook, you can see when you access the http://graph.facebook.com/(own url name(example: hidekazu.ishikawa))."
+msgstr "facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hidekazu.ishikawa）★ にアクセスするとわかります。"
+
+msgid "Please search such as [Finding facebook user ID] If you still do not know well."
+msgstr "それでもよくわからない場合は「facebook ユーザーID 調べ方」などで検索して下さい。"
+
+# ---------------
+# twitter account
+# ---------------
+
+msgid "twitter account"
+msgstr "twitterアカウント"
+
+msgid "If you want to link to twitter, banner will be displayed if you enter the account name."
+msgstr "twitterにリンクする場合はアカウント名を入力するとバナーが表示されます。"
+
+msgid "* If you want to use, such as widgets twitter, can be left blank, paste the source code by using the [text] from %s here."
+msgstr "* twitterのウィジェットなどを利用したい場合は、ここは空欄のままにして、%s より『テキスト』を利用してソースコードを貼り付けて下さい。"
+
+# ---------------
+# OGP
+# ---------------
+
+msgid "OGP default image"
+msgstr "デフォルトのOGPイメージ"
+
+msgid "If, for example, they pressed the button of facebook [Like], it is an image that appears in the timeline of facebook."
+msgstr "facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示される画像です。"
+
+msgid "If the eye-catching image is specified in the page, eye-catching image takes precedence."
+msgstr "ページにアイキャッチ画像が指定されてる場合はそちらが優先されます。"
+
+msgid "* Picture sizes are 300x300 pixels or more and picture ratio 16:9 recommendation."
+msgstr "* 画像サイズは300×300ピクセル以上、画像比率16:9推奨。"
+
+# ---------------
+# Social buttons / facebook comment
+# ---------------
+
+msgid "Social buttons"
+msgstr "ソーシャルボタン"
+
+msgid "Please check the type of page that displays the social button."
+msgstr "ソーシャルボタンを表示するページの種類にチェックを入れて下さい。"
+
+msgctxt "sns display"
+msgid "Home page"
+msgstr "トップページ"
+
+msgctxt "sns display"
+msgid "Page"
+msgstr "固定ページ"
+
+msgctxt "sns display"
+msgid "single page"
+msgstr "投稿ページ"
+
+msgid "Also the type of page that checked, if there is a page you do not want to display, and enter by the delimiter , the ID of the page."
+msgstr "チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切りで入力して下さい。"
+
+msgid "facebook comments box"
+msgstr "facebook コメント欄"
+
+msgid "Please check the type of the page to display the facebook comments."
+msgstr "facebookコメント欄を表示するページにはチェックを入れて下さい。"
+
+# ---------------
+# facebook LikeBox
+# ---------------
+
+msgid "If you are installing a facebook LikeBox, please check the installation place."
+msgstr "facebook LikeBox を設置する場合は設置個所にチェックを入れて下さい。"
+
+msgid "* Please be sure to set facebook application ID."
+msgstr "* facebook ページのアプリケーションIDも必ず設定してください。余白が出来るなど正しく表示されません。"
+
+msgid "URL of the facebook page."
+msgstr "facebookページのURL"
+
+msgid "Display of stream"
+msgstr "ストリームの表示"
+
+msgid "Display of face"
+msgstr "顔の表示"
+
+msgid "Height of LikeBox"
+msgstr "LikeBoxの高さ"
+
+# ---------------
+# facebook LikeBox
+# ---------------
+
+msgid "Do not output the OGP"
+msgstr "OGPを出力しない"
+
+msgid "If the other plug-ins is outputting the OGP, Do not output the OGP of BizVektor."
+msgstr "他のプラグインがOGPを出力している場合はBizVektorのOGPを出力しないようにして下さい。"
+
+msgid "I want to output the OGP tags BizVektor"
+msgstr "BizVektorのOGPタグを出力する"
+
+msgid "Do not output OGP tags BizVektor"
+msgstr "BizVektorのOGPタグを出力しない"
+
+msgid "Page top"
+msgstr "このページの先頭へ戻る"

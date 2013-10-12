@@ -592,130 +592,139 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 
 <?php
 /*-------------------------------------------*/
-/*	SNS連携
+/*	SNS
 /*-------------------------------------------*/
 ?>
 <div id="snsSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>SNS連携</h3>
-よくわからない場合は後で設定しても問題ありません。
+<h3><?php _e('SNS cooperation', 'biz-vektor'); ?></h3>
+<?php _e('There is no problem with setting later if you do not know well.', 'biz-vektor'); ?>
 <table class="form-table">
 <tr>
 <th>facebook</th>
-<td>facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。<br />
+<td><?php _e('Banner will be displayed if you enter a URL if you want to link to a personal account or facebook page.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" />
-<span><?php echo __('ex) ', 'biz-vektor') ;?>https://www.facebook.com/hidekazu.ishikawa</span><br />
-* facebookが発行するバナー・ウィジェットを利用したい場合は、空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
+<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/hidekazu.ishikawa</span>
 </td>
 </tr>
+<!-- facebook application ID -->
 <tr>
-<th>facebookアプリケーションID</th>
+<th><?php _e('facebook application ID', 'biz-vektor'); ?></th>
 <td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
-<span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo;アプリケーションIDを確認・取得する</a> ]</span><br />
-* アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しません。
-facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook アプリケーションID 取得」などで検索して下さい。
+<span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo; <?php _e('I will check and get the application ID', 'biz-vektor'); ?></a> ]</span><br />
+<?php _e('* If application ID is not inputted, neither a Like button nor the comment field displays and operates correctly.', 'biz-vektor'); ?><br />
+<?php _e('Please search such as [facebook application ID acquisition] If you do not know much about how to get application ID of facebook.', 'biz-vektor'); ?>
 </td>
 </tr>
+<!-- facebook user ID -->
 <tr>
-<th>facebookユーザーID （任意）</th>
-<td>管理者のfacebookユーザーIDを入力して下さい。<br />
+<th><?php _e('facebook user ID (optional)', 'biz-vektor'); ?></th>
+<td><?php _e('Please enter the facebook user ID of the administrator.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[fbAdminId]" id="fbAdminId" value="<?php echo esc_attr( $options['fbAdminId'] ); ?>" /><br />
-* facebookページのアプリケーションIDではありません。<br />
-facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hidekazu.ishikawa）★ にアクセスするとわかります。それでもよくわからない場合は「facebook ユーザーID 調べ方」などで検索して下さい。
+<?php _e('* It is not the application ID of the facebook page.', 'biz-vektor'); ?><br />
+<?php _e('The personal ID of facebook, you can see when you access the http://graph.facebook.com/(own url name(example: hidekazu.ishikawa)).', 'biz-vektor'); ?><br />
+<?php _e('Please search such as [Finding facebook user ID] If you still do not know well.', 'biz-vektor'); ?>
 </td>
 </tr>
+<!-- twitter -->
 <tr>
-<th>twitterアカウント</th>
-<td>twitterにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。<br />
+<th><?php _e('twitter account', 'biz-vektor'); ?></th>
+<td><?php _e('If you want to link to twitter, banner will be displayed if you enter the account name.', 'biz-vektor'); ?><br />
 @<input type="text" name="biz_vektor_theme_options[twitter]" id="twitter" value="<?php echo esc_attr( $options['twitter'] ); ?>" /><br />
-* twitterのウィジェットなどを利用したい場合は空欄のままにして、<a href="<?php echo get_admin_url(); ?>widgets.php" target="_blank">ウィジェット</a>より『テキスト』を利用してソースコードを貼り付けて下さい。
+<?php $twitter_widget = '<a href="'.get_admin_url().'widgets.php" target="_blank">'.__('widget', 'biz-vektor').'</a>';
+printf(__('* If you want to use, such as widgets twitter, can be left blank, paste the source code by using the [text] from %s here.', 'biz-vektor'),$twitter_widget);
+?>
 </td>
 </tr>
+<!-- OGP -->
 <tr>
-<th>デフォルトのOGPイメージ</th>
-<td>facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示される画像です。<br />
-ページにアイキャッチ画像が指定されてる場合はそちらが優先されます。<br />
-画像サイズは250×250ピクセル以上、画像比率3:1以下推奨。<br />
-[ <a href="<?php echo get_admin_url(); ?>media-new.php" target="_blank">&raquo; OGP画像をアップロードする</a> ] * アップロードした後、ファイルのURLを下記に貼り付けて下さい。<br />
-<input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /><br />
-<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span>
+<th><?php _e('OGP default image', 'biz-vektor'); ?></th>
+<td><?php _e('If, for example, they pressed the button of facebook [Like], it is an image that appears in the timeline of facebook.', 'biz-vektor'); ?><br />
+<?php _e('If the eye-catching image is specified in the page, eye-catching image takes precedence.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /> 
+<button id="media_ogpImage" class="media_btn"><?php _e('Select a image', 'biz-vektor'); ?></button><br />
+<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
+<?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 recommendation.', 'biz-vektor'); ?>
 </td>
 </tr>
+<!-- Social buttons -->
 <tr>
-<th>ソーシャルボタン</th>
-<td>
-ソーシャルボタンを表示するページの種類にチェックを入れて下さい。
+<th><?php _e('Social buttons', 'biz-vektor'); ?></th>
+<td><?php _e('Please check the type of page that displays the social button.', 'biz-vektor'); ?>
 <ul>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsFront]" id="snsBtnsFront" value="false" <?php if ($options['snsBtnsFront']) {?> checked<?php } ?>> トップページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPage]" id="snsBtnsPage" value="false" <?php if ($options['snsBtnsPage']) {?> checked<?php } ?>> 固定ページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPost]" id="snsBtnsPost" value="false" <?php if ($options['snsBtnsPost']) {?> checked<?php } ?>> <?php echo esc_html(bizVektorOptions('postLabelName')); ?>投稿ページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> お知らせ投稿ページ</li>
+<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsFront]" id="snsBtnsFront" value="false" <?php if ($options['snsBtnsFront']) {?> checked<?php } ?>> 
+	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPage]" id="snsBtnsPage" value="false" <?php if ($options['snsBtnsPage']) {?> checked<?php } ?>> 
+	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPost]" id="snsBtnsPost" value="false" <?php if ($options['snsBtnsPost']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('single page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('single page', 'sns display', 'biz-vektor'); ?></li>
 </ul>
-<p>チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切りで入力して下さい。<br />
+<p><?php _e('Also the type of page that checked, if there is a page you do not want to display, and enter by the delimiter , the ID of the page.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
-<?php echo __('ex) ', 'biz-vektor') ;?>1,3,7</p>
-
+<?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
 </td>
 </tr>
+<!-- facebook comment -->
 <tr>
-<th>facebook コメント欄</th>
-<td>
-facebookコメント欄を表示するページにはチェックを入れて下さい。
+<th><?php _e('facebook comments box', 'biz-vektor'); ?></th>
+<td><?php _e('Please check the type of the page to display the facebook comments.', 'biz-vektor'); ?>
 <ul>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsFront]" id="fbCommentsFront" value="false" <?php if ($options['fbCommentsFront']) {?> checked<?php } ?>> トップページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPage]" id="fbCommentsPage" value="false" <?php if ($options['fbCommentsPage']) {?> checked<?php } ?>> 固定ページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPost]" id="fbCommentsPost" value="false" <?php if ($options['fbCommentsPost']) {?> checked<?php } ?>> ブログ投稿ページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> お知らせ投稿ページ</li>
+<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsFront]" id="fbCommentsFront" value="false" <?php if ($options['fbCommentsFront']) {?> checked<?php } ?>> 
+	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPage]" id="fbCommentsPage" value="false" <?php if ($options['fbCommentsPage']) {?> checked<?php } ?>> 
+	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPost]" id="fbCommentsPost" value="false" <?php if ($options['fbCommentsPost']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('single page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('single page', 'sns display', 'biz-vektor'); ?></li>
 </ul>
-チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切りで入力して下さい。<br />
-<input type="text" name="biz_vektor_theme_options[fbCommentsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['fbCommentsHidden'] ); ?>" /><br />
-<?php echo __('ex) ', 'biz-vektor') ;?>1,3,7
+<p><?php _e('Also the type of page that checked, if there is a page you do not want to display, and enter by the delimiter , the ID of the page.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
+<?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
 </td>
 </tr>
+<!-- facebook LikeBox -->
 <tr>
 <th>facebook LikeBox</th>
-<td>
-facebook LikeBox を設置する場合は設置個所にチェックを入れて下さい。
+<td><?php _e('If you are installing a facebook LikeBox, please check the installation place.', 'biz-vektor'); ?>
+<?php _e('* Please be sure to set facebook application ID.', 'biz-vektor'); ?>
 <ul>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFront]" id="fbLikeBoxFront" value="false" <?php if ($options['fbLikeBoxFront']) {?> checked<?php } ?>> トップページ</li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxSide]" id="fbLikeBoxSide" value="false" <?php if ($options['fbLikeBoxSide']) {?> checked<?php } ?>> サイドバー</li>
+<li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFront]" id="fbLikeBoxFront" value="false" <?php if ($options['fbLikeBoxFront']) {?> checked<?php } ?>> 
+	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></li>
+<li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxSide]" id="fbLikeBoxSide" value="false" <?php if ($options['fbLikeBoxSide']) {?> checked<?php } ?>> 
+	<?php _ex('Side bar', 'sns display', 'biz-vektor'); ?></li>
 </ul>
 <dl>
-<dt>facebookページのURL</dt>
-<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" />
+<dt><?php _e('URL of the facebook page.', 'biz-vektor'); ?></dt>
+<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" /><br />
 <span><?php echo __('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
-<dt>ストリームの表示</dt>
-<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> 表示する</dd>
-<dt>顔の表示</dt>
-<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php if ($options['fbLikeBoxFace']) {?> checked<?php } ?>> 表示する</dd>
-<dt>LikeBoxの高さ</dt>
+<dt><?php _e('Display of stream', 'biz-vektor'); ?></dt>
+<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
+<dt><?php _e('Display of face', 'biz-vektor'); ?></dt>
+<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php if ($options['fbLikeBoxFace']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
+<dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" />
-<span>単位：ピクセル</span></dd>
+px</dd>
 </dl>
 </td>
 </tr>
+<!-- OGP hidden -->
 <tr>
-<th>mixiイイネ！ボタン</th>
-<td>識別キー <input type="text" name="biz_vektor_theme_options[mixiKey]" id="twitter" value="<?php echo esc_attr( $options['mixiKey'] ); ?>" /><br />
-mixiイイネ！ボタンを利用するためには「mixi Platform 利用登録」が必要となります。<br />
-詳しくは「<a href="https://developer.mixi.co.jp/about-platform/overview/" target="_blank">mixi Platform 利用登録の概要</a>」をご覧ください。<br />
-識別キー は mixiの「<a href="https://sap.mixi.jp/home.pl" target="_blank">Partner Dashboard</a>」より、<br />
-Partner Dashboard　＞　mixi Plugin　 ＞　新規サービス追加　<br />
-にて、イイネ！ボタンを設置するサービスの登録を行ってください。<br />
-（新規サービスの登録、管理の詳細は<a href="https://developer.mixi.co.jp/connect/mixi_plugin/mixi_check/mixicheck/" target="_blank">こちら</a>）
-</td>
-</tr>
-<tr>
-<th>OGPを出力しない</th>
+<th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
 <td>
-<p>他のプラグインがOGPを出力している場合はBizVektorのOGPを出力しないようにして下さい。</p>
+<p><?php _e('If the other plug-ins is outputting the OGP, Do not output the OGP of BizVektor.', 'biz-vektor'); ?></p>
 <?php
-$biz_vektor_ogpTags = array('ogp_on' => 'BizVektorのOGPタグを出力する','ogp_off' => 'BizVektorのOGPタグを出力しない');
+$biz_vektor_ogpTags = array(
+	'ogp_on' 	=> __('I want to output the OGP tags BizVektor', 'biz-vektor'),
+	'ogp_off' 	=> __('Do not output OGP tags BizVektor', 'biz-vektor')
+	);
 foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLavel) {
 	if ( $biz_vektor_ogpTagValue == $options['ogpTagDisplay'] ) { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>" checked> <?php echo $biz_vektor_ogpTagLavel ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>" checked> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
 	<?php } else { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>"> <?php echo $biz_vektor_ogpTagLavel ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>"> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
 	<?php }
 } ?>
 </td>
