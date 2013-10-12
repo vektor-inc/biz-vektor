@@ -540,28 +540,25 @@ msgid "How to set up Menus"
 msgstr "メニューの設定方法"
 
 msgid "*optional"
-msgstr "※省略可"
+msgstr "* 省略可"
 
 msgid "Select image"
 msgstr "画像を選択"
 
 msgid ""
-"※Use this feature when the site name has become longer for the SEO measures."
+"* Use this feature when the site name has become longer for the SEO measures."
 msgstr ""
-"※未記入の場合はサイトのタイトルが表示されます。<br />※SEO対策の為にサイト名が"
-"長くなってしまった場合に使用します。<br />※フッター左下はフッター画像が登録さ"
-"れている場合はその画像が表示され、ここで入力した内容はフッターロゴ画像の代替"
-"テキストとして反映されます。<br />※フッターのロゴ画像はデザインの設定より登録"
-"出来ます。"
+"* 未記入の場合はサイトのタイトルが表示されます。<br />* SEO対策の為にサイト名"
+"が長くなってしまった場合に使用します。<br />* フッター左下はフッター画像が登"
+"録されている場合はその画像が表示され、ここで入力した内容はフッターロゴ画像の"
+"代替テキストとして反映されます。<br />* フッターのロゴ画像はデザインの設定よ"
+"り登録出来ます。"
 
 msgid "You can select 1-column from below: "
-msgstr "※１カラムについては、以下２つの方法で設定できます。"
+msgstr "* １カラムについては、以下２つの方法で設定できます。"
 
 msgid "[Top page] "
 msgstr "【トップページ】 このページの「"
-
-msgid "Top page settings"
-msgstr "トップページの設定"
 
 msgctxt "biz-vektor theme-options-edit-l128"
 msgid ". "
@@ -571,17 +568,17 @@ msgid ""
 "<p>If you choose theme add-on, don't forget saving changes before checking "
 "out.</p>"
 msgstr ""
-"<p>※拡張テーマのセッティング項目などがある場合は、一度変更を保存すると表示さ"
+"<p>* 拡張テーマのセッティング項目などがある場合は、一度変更を保存すると表示さ"
 "れます。</p>"
 
 msgid "Recommended : less than 60px height"
 msgstr ""
-"【 推奨サイズ　：　高さ60px以下 】　※60pxより大きい場合は自動的に60pxに縮小し"
-"ます。"
+"【 推奨サイズ　：　高さ60px以下 】　* 60pxより大きい場合は自動的に60pxに縮小"
+"します。"
 
 msgid "Recommended : 180-250px width"
 msgstr ""
-"推奨サイズ　：　180-250px 】 ※260pxより大きい場合は自動的に260pxに縮小しま"
+"推奨サイズ　：　180-250px 】 * 260pxより大きい場合は自動的に260pxに縮小しま"
 "す。"
 
 msgid "You can select 1-column from below:"
@@ -623,7 +620,7 @@ msgid "BizVektor, Inc."
 msgstr "BizVektor株式会社"
 
 msgid "This is displayed in footer let bottom and footer copyright."
-msgstr "※フッター左下に表示されます"
+msgstr "* フッター左下に表示されます"
 
 msgid ""
 "316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br /"
@@ -636,22 +633,22 @@ msgid "or"
 msgstr "あるいは"
 
 msgid ""
-"※If you fill in the blank, contact banner will be displayed in the sidebar."
-msgstr "※入力すると自動的にお問い合わせバナーが表示されます。"
+"* If you fill in the blank, contact banner will be displayed in the sidebar."
+msgstr "* 入力すると自動的にお問い合わせバナーが表示されます。"
 
 msgid "If not, it does not appear."
 msgstr "空欄の場合はお問い合わせバナーは表示されません。"
 
 msgid ""
-"※3PR area do not appear on the top page in the case of blank all.<br />※It "
+"* 3PR area do not appear on the top page in the case of blank all.<br />* It "
 "is effective without the image.<br />"
 msgstr ""
-"※タイトルが３つとも未記入の場合はトップページに3PRエリアは表示されません。"
-"<br />※画像はよくわからなければ空欄でも問題ありません。"
+"* タイトルが３つとも未記入の場合はトップページに3PRエリアは表示されません。"
+"<br />* 画像はよくわからなければ空欄でも問題ありません。"
 
-msgid "※You can register image for PC and for smartphone."
+msgid "* You can register image for PC and for smartphone."
 msgstr ""
-"※画像を設定する場合はPC用（横幅310px程度高さ自由）とスマホ用（120px程度正方"
+"* 画像を設定する場合はPC用（横幅310px程度高さ自由）とスマホ用（120px程度正方"
 "形）の２種類を登録して下さい。"
 
 msgid "PR area"
@@ -747,6 +744,153 @@ msgstr "件"
 msgid "If you enter &quot0&quot, this section itself will disappear."
 msgstr "0 にするとタイトルごと表示されなくなります。"
 
+#######################################
+# SEO and Google Analytics Setting
+#######################################
+msgid "SEO and Google Analytics Setting"
+msgstr "SEO と Google Analytics の設定"
+
+msgid "&lt;title&gt; tag of homepage"
+msgstr "トップページの&lt;title&gt;タグ"
+
+msgid "title of the site"
+msgstr "サイトタイトル"
+
+msgid "Normally, BizVektor will include the %s in the title tag."
+msgstr "BizVektorは通常 %s が全ページの&lt;title&gt;に入ります。"
+
+msgid ""
+"For example, it appears in the form of <br />&lt;title&gt;page title | site "
+"title&lt;/title&gt;<br /> if fixed page."
+msgstr ""
+"例えば固定ページであれば<br />&lt;title&gt;固定ページ名 | サイトタイトル&lt;/"
+"title&gt; <br />というような形式で出力されます。<br />"
+
+msgid ""
+"However, evaluation of the search engines so bad number of characters in the "
+"&lt;title&gt; is too long, <strong>and incorporate keywords that wants to be "
+"retrieved by most, are summarized as short as possible</strong>, it is "
+"desirable that the %s."
+msgstr ""
+"しかし、&lt;title&gt;の文字数が長くなりすぎると検索エンジンからの評価が逆に悪"
+"くなるので、%s は<strong>一番検索されたいキーワードを盛り込みつつなるべく短く"
+"まとめる</strong>事が望ましいです。<br />"
+
+msgid ""
+"However, it will not be connected to such as a page name, as described above "
+"in the top page, it is possible to put the &lt;title&gt; longer bit more, it "
+"is now can be set separately here."
+msgstr ""
+"ただ、トップページにおいては上記のように他のタイトルと連結されないので、もう"
+"少し長めの&lt;title&gt;をつける事が出来るために、ここで別途設定する事ができる"
+"ようになっています。"
+
+msgid "Site title will be applied if this field is blank."
+msgstr "未記入の場合はサイトのタイトルが反映されます。"
+
+# ---------------
+# Common keywords
+# ---------------
+msgid "Common keywords"
+msgstr "共通キーワード"
+
+msgid ""
+"In the keywords meta tag, the keywords you put in common throughout the "
+"site , Please enter separated."
+msgstr ""
+"metaタグのキーワードで、サイト全体で共通して入れるキーワードを , 区切りで入力"
+"して下さい。"
+
+msgid ""
+"* You do not have to think very seriously because it does not affect the "
+"evaluation of search engine from now."
+msgstr ""
+"* 現在は検索エンジンからの評価に影響しませんのであまり真剣に考えなくてもかま"
+"いません。"
+
+msgid ""
+"* The keywords of each page individually, enter from edit page of each "
+"article. About 10 maximum in conjunction with the common keywords is "
+"desirable."
+msgstr ""
+"* 各ページ個別のキーワードについては、それぞれの記事の編集画面より入力して下"
+"さい。共通キーワードと合わせて最大10個程度が望ましいです。"
+
+msgid "* Not required , at the end of the keyword column last."
+msgstr "* 最後のキーワード欄の末尾には , は必要ありません。"
+
+msgid "Not required , at the end of the keyword column last."
+msgstr "【記入例】 WordPress,テンプレート,テーマ,無料,GPL"
+
+# ---------------
+# Description setting
+# ---------------
+msgctxt "Description setting"
+msgid "Description"
+msgstr "ディスクリプション"
+
+msgid ""
+"What you have to fill in the edit page of each page in the \"excerpt\" field "
+"is reflected in the description of meta tags."
+msgstr ""
+"各ページの編集画面の「抜粋」欄に記入した内容がmetaタグのディスクリプションに"
+"反映されます。"
+
+msgid ""
+"In the search results screen of search sites such as Google, description for "
+"meta tags appears, for example, under the site title."
+msgstr ""
+"metaタグのディスクリプションはGoogleなどの検索サイトの検索結果画面で、サイト"
+"タイトルの下などに表示されます。"
+
+msgid ""
+"If the excerpt field is blank, it is the specification to be applied as a "
+"description is 240 characters from text beginning of a sentence."
+msgstr ""
+"抜粋欄が未記入の場合は、本文文頭より240文字がディスクリプションとして適用され"
+"る仕様となっています。"
+
+msgid ""
+"* If the excerpt field is not visible, there is a tab called \"View\" in the "
+"upper right corner of the edit page, check box to display the \"excerpt\" "
+"field because you come out when you click there, check."
+msgstr ""
+"* 抜粋欄が表示されていない場合は、編集画面の右上に「表示」というタブがありま"
+"すので、そこをクリックすると「抜粋」欄を表示するチェックボックスが出てきます"
+"ので、チェックして下さい。"
+
+# ---------------
+# Google Analytics setting
+# ---------------
+msgid "Google Analytics Setting"
+msgstr "Google Analytics設定"
+
+msgid ""
+"Please fill in the ID of the Analytics When you embed tags GoogleAnalytics."
+msgstr "GoogleAnalyticsのタグを埋め込む場合はAnalyticsのIDを記入して下さい。"
+
+msgid ""
+"Please select the type of analysis to be output tag. (It does not matter if "
+"you skip if you do not know well.)"
+msgstr ""
+"出力する解析タグの種類を選択して下さい。（よくわからない場合は飛ばしてかまい"
+"ません。）"
+
+msgid "To output only tag analysis of normal (default)"
+msgstr "通常の解析タグのみ出力する（デフォルト）"
+
+msgid "I want to output only tag analysis of Universal Analytics"
+msgstr "Universal Analyticsの解析タグのみ出力する"
+
+msgid "I want to output both tags"
+msgstr "両方の解析タグを出力する"
+
+#######################################
+# Toppage setting
+#######################################
+msgid "Top page settings"
+msgstr "トップページの設定"
+
 msgid "Main visual"
 msgstr "メインビジュアル"
 
@@ -764,13 +908,126 @@ msgstr "トップページ スライドショーの設定はこちら"
 msgid "Page to be displayed below the main visual"
 msgstr "トップページのメインビジュアルの下に表示するページ"
 
-msgid "Reading Settings"
-msgstr "トップページメインビジュアルのすぐ下に表示するページを設定します。"
+msgid "Setting of the page to display just below the main visual of home page"
+msgstr "トップページのメインビジュアルのすぐ下に表示するページを設定します。"
 
 msgid "Select &quot;Recent post&quot; or &quot;page&quot;."
 msgstr ""
 "『フロントページの表示』で『最新の投稿』または『固定ページ』を選択して下さ"
-"い。<br /"
+"い。"
 
 msgid "Do not select the pull-down &quot;post pages&quot;."
 msgstr "『投稿ページ』のプルダウンは選択しないで下さい。"
+
+msgid ""
+"If blank, the body of the page you have set will be displayed 3PR area is "
+"just below the main visual. Therefore, it can be a blank text field is "
+"Without having to fill in particular."
+msgstr ""
+"設定したページの本文が未記入の場合、メインビジュアルのすぐ下には3PRエリアが表"
+"示されますので、特に記入する事がなければ本文欄は未記入でも構いません。"
+
+msgid ""
+"Check this box if you want to display the title of the page to be displayed "
+"in the main visual under the home page."
+msgstr ""
+"トップページのメインビジュアル下に表示するページのタイトルを表示する場合は"
+"チェックを入れて下さい。"
+
+msgid "Display the title"
+msgstr "タイトルを表示する"
+
+msgid "Home 3PR area"
+msgstr "トップページ3PRエリア"
+
+msgid "Setting the Home 3PR area is here"
+msgstr "トップページ3PRエリアの設定はこちら"
+
+msgid "The display of the side bar of a home page."
+msgstr "トップページのサイドバーの表示"
+
+msgid "Check this box if you do not want to see the side bar on the home page."
+msgstr "トップページのサイドバーを表示しない場合はチェックを入れて下さい。"
+
+msgid "I want to hide the sidebar"
+msgstr "サイドバーを非表示にする"
+
+msgid "Display number of %s"
+msgstr "%s の表示件数"
+
+msgid "Please set from the [ Setting the %s and %s ]."
+msgstr "「%s と %s の設定」</a>から設定ください。"
+
+# ---------------
+# RSS
+# ---------------
+
+msgid "RSS information display setting"
+msgstr "RSS情報表示設定"
+
+msgid "Enter the address of the RSS if you are using the RSS of related sites and external blog, then be posted on the home page of this site for updates."
+msgstr "外部ブログや関連サイトのRSSを利用していて、更新情報をこのサイトのトップページに掲載する場合はRSSのアドレスを入力して下さい。"
+
+# ---------------
+# Home bottom free area
+# ---------------
+
+msgid "It is displayed in the lower part of the list and [%s] and [%s]."
+msgstr "「%s」や「%s」のリストの下の部分に表示されます。"
+
+#######################################
+# SlideSetting
+#######################################
+
+msgid "Slide　show　Setting"
+msgstr "スライドショーの設定"
+
+msgid "Please enter the URL of the image, such as that displayed when you want to set the slide show."
+msgstr "スライドショーを設定する場合は表示する画像のURLなどを入力下さい。"
+
+msgid "The recommended size of the image is 950 × 250px."
+msgstr "画像の推奨サイズは950×250pxです。"
+
+msgid "Main visual Home"
+msgstr "トップページのメインビジュアル"
+
+msgid "%s will be displayed if the slide show is not set."
+msgstr "スライドショーが設定されていない場合は %s が表示されます。"
+
+msgid "It can be only the URL of the image. However, the link is set in the image If you enter a link URL."
+msgstr "画像のURLだけでも構いませんがリンク先を入力すると画像クリックでリンクするようになります。"
+
+msgid "Please enter a character the contents of the image alternate text."
+msgstr "代替テキストはその画像の内容を文字で入力して下さい。"
+
+msgid "It becomes easy to hit to search the direction as which it was entered by the contents. "
+msgstr "記入した方がその内容で検索にヒットしやすくなります。"
+
+msgid "Moreover, when a visually handicapped person peruses, a text-to-speech-reading browser reads out the character. "
+msgstr "また、目の不自由な人が閲覧した際には音声読み上げブラウザがその文字を読み上げます。"
+
+msgid "Link URL"
+msgstr "リンク先URL"
+
+msgid "Image URL"
+msgstr "画像URL"
+
+msgid "Select a image"
+msgstr "画像を選択"
+
+msgid "Alternate text"
+msgstr "代替テキスト"
+
+msgctxt "Slide undisplayed"
+msgid "Undisplayed"
+msgstr "非表示にする"
+
+msgid "Open in a blank window"
+msgstr "別ウィンドウで開く"
+
+msgid "* If you visit in the environment in which the communications line is slow, because of the time or bought in the display, it is subject to deduction from search engine or withdrawal of the user, three or less is recommended."
+msgstr "* スライドショーは最大５枚まで設定出来ますが、通信回線が遅い環境で閲覧した場合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる為、３枚以内推奨です。"
+
+#######################################
+# SNS
+#######################################

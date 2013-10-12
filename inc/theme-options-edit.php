@@ -91,7 +91,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
-	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">→ <?php echo __('How to set up Menus', 'biz-vektor') ;?></a> ]
+	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">&raquo; <?php echo __('How to set up Menus', 'biz-vektor') ;?></a> ]
 	</td>
 	</tr>
 	<tr valign="top"><th scope="row"><?php echo _x('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
@@ -300,7 +300,7 @@ $i++;
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('infoLabelName')); ?></th>
 	<td>
-		→ <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
+		&raquo; <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
 	<dl>
 	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
 	<dd>
@@ -334,7 +334,7 @@ $i++;
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
 	<td>
-		→ <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
+		&raquo; <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
 	<dl>
 	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
 	<dd>
@@ -382,57 +382,62 @@ $i++;
 
 <?php
 /*-------------------------------------------*/
-/*	SEO Setting
+/*	SEO and Google Analytics Setting
 /*-------------------------------------------*/
 ?>
 <div id="seoSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('SEO Setting', 'biz-vektor'); ?></h3>
+<h3><?php _e('SEO and Google Analytics Setting', 'biz-vektor'); ?></h3>
 <table class="form-table">
 <tr>
-<th>トップページの&lt;title&gt;タグ</th>
+<th><?php _e('&lt;title&gt; tag of homepage', 'biz-vektor'); ?></th>
 <td>
-<p>BizVektorは<a href="<?php echo get_admin_url(); ?>options-general.php" target="_blank">サイトのタイトル</a>が全ページの&lt;title&gt;に入ります。例えば固定ページであれば<br />
-&lt;title&gt;固定ページ名 | サイトタイトル&lt;/title&gt; <br />
-というような形式で出力されます。<br />
-このように固定ページ名や投稿名と<a href="<?php echo get_admin_url(); ?>options-general.php" target="_blank">サイトのタイトル</a>が連結して出力されますが、&lt;title&gt;の文字数が長くなりすぎると検索エンジンからの評価が逆に悪くなるので、<a href="<?php echo get_admin_url(); ?>options-general.php" target="_blank">サイトのタイトル</a>は<strong>一番検索されたいキーワードを盛り込みつつなるべく短くまとめる</strong>事が望ましいです。<br />
-しかし、トップページにおいては上記のように他のタイトルと連結されないので、もう少し長めの&lt;title&gt;をつける事が出来るために、ここで別途設定する事ができるようになっています。</p>
+<p>
+<?php
+$sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_blank">'.__('title of the site', 'biz-vektor').'</a>';
+printf( __( 'Normally, BizVektor will include the %s in the title tag.', 'biz-vektor' ), $sitetitle_link );?><br />
+<?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if fixed page.', 'biz-vektor'); ?>
+<?php
+printf( __('However, evaluation of the search engines so bad number of characters in the &lt;title&gt; is too long, <strong>and incorporate keywords that wants to be retrieved by most, are summarized as short as possible</strong>, it is desirable that the %s.', 'biz-vektor'),$sitetitle_link) ; ?>
+<?php _e('However, it will not be connected to such as a page name, as described above in the top page, it is possible to put the &lt;title&gt; longer bit more, it is now can be set separately here.', 'biz-vektor'); ?></p>
 <input type="text" name="biz_vektor_theme_options[topTitle]" id="topTitle" value="<?php echo esc_attr( $options['topTitle'] ); ?>" style="width:90%;" />
-<p>* 未記入の場合はサイトのタイトルが反映されます。</p>
+<p>* <?php _e('Site title will be applied if this field is blank.', 'biz-vektor'); ?></p>
 </td>
 </tr>
 <tr>
-<th>共通キーワード</th>
-<td>metaタグのキーワードで、サイト全体で共通して入れるキーワードを , 区切りで入力して下さい。<br />
+<th><?php _e('Common keywords', 'biz-vektor'); ?></th>
+<td><?php _e('In the keywords meta tag, the keywords you put in common throughout the site , Please enter separated.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[commonKeyWords]" id="commonKeyWords" value="<?php echo esc_attr( $options['commonKeyWords'] ); ?>" style="width:90%;" /><br />
-* 現在は検索エンジンからの評価に影響しませんのであまり真剣に考えなくてもかまいません。
-* 各ページ個別のキーワードについては、それぞれの記事の編集画面より入力して下さい。共通キーワードと合わせて最大10個程度が望ましいです。<br />
-* 最後のキーワード欄の末尾には , は必要ありません。<br />
-<?php echo __('ex) ', 'biz-vektor') ;?>WordPress,テンプレート,無料,GPL
+<?php _e('* You do not have to think very seriously because it does not affect the evaluation of search engine from now.', 'biz-vektor'); ?><br />
+<?php _e('* The keywords of each page individually, enter from edit page of each article. About 10 maximum in conjunction with the common keywords is desirable.', 'biz-vektor'); ?><br />
+<?php _e('* Not required , at the end of the keyword column last.', 'biz-vektor'); ?><br />
+<?php _e('ex) WordPress,Template,Theme,Free,GPL', 'biz-vektor'); ?>
 </td>
 </tr>
 <tr>
-<th>ディスクリプション</th>
-<td>各ページの編集画面の「抜粋」欄に記入した内容がmetaタグのディスクリプションに反映されます。<br />
-metaタグのディスクリプションはGoogleなどの検索サイトの検索結果画面で、サイトタイトルの下などに表示されます。<br />
-抜粋欄が未記入の場合は、本文文頭より240文字がディスクリプションとして適応される仕様となっています。<br />
-* 抜粋欄が表示されていない場合は、編集画面の右上に「表示」というタブがありますので、そこをクリックすると「抜粋」欄を表示するチェックボックスが出てきますので、チェックして下さい。
+<th><?php echo _x('Description', 'Description setting', 'biz-vektor'); ?></th>
+<td>
+<?php _e('What you have to fill in the edit page of each page in the "excerpt" field is reflected in the description of meta tags.', 'biz-vektor'); ?><br />
+<?php _e('In the search results screen of search sites such as Google, description for meta tags appears, for example, under the site title.', 'biz-vektor'); ?><br />
+<?php _e('If the excerpt field is blank, it is the specification to be applied as a description is 240 characters from text beginning of a sentence.', 'biz-vektor'); ?><br />
+<?php _e('* If the excerpt field is not visible, there is a tab called "View" in the upper right corner of the edit page, check box to display the "excerpt" field because you come out when you click there, check.', 'biz-vektor'); ?>
 </td>
 </tr>
+<!-- Google Analytics -->
 <tr>
-<th>Google Analytics設定</th>
-<td>GoogleAnalyticsのタグを埋め込む場合はアカウントIDを記入して下さい。<br />
+<th><?php _e('Google Analytics Setting', 'biz-vektor'); ?></th>
+<td><?php _e('Please fill in the ID of the Analytics When you embed tags GoogleAnalytics.', 'biz-vektor'); ?><br />
 <p>UA-<input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
 <?php echo __('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
 
 	<dl>
-	<dt>出力する解析タグの種類を選択して下さい。（よくわからない場合は飛ばしてかまいません。）</dt>
+	<dt><?php _e('Please select the type of analysis to be output tag. (It does not matter if you skip if you do not know well.)', 'biz-vektor'); ?></dt>
 	<dd>
 <?php
 $biz_vektor_gaTypes = array(
-	'gaType_normal' => '通常の解析タグのみ出力する（デフォルト）',
-	'gaType_universal' => 'Universal Analyticsの解析タグのみ出力する',
-	'gaType_both' => '両方の解析タグを出力する'
+	'gaType_normal' => __('To output only tag analysis of normal (default)', 'biz-vektor'),
+	'gaType_universal' => __('I want to output only tag analysis of Universal Analytics', 'biz-vektor'),
+	'gaType_both' => __('I want to output both tags', 'biz-vektor')
 	);
 foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLavel) {
 	if ( $biz_vektor_gaTypeValue == $options['gaType'] ) { ?>
@@ -453,61 +458,81 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 
 <?php
 /*-------------------------------------------*/
-/*	トップページの設定
+/*	Toppage setting
 /*-------------------------------------------*/
 ?>
 <div id="topPage" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php echo __('Top page settings', 'biz-vektor') ;?></h3>
+<h3><?php _x('Top page settings', 'biz-vektor') ;?></h3>
 <table class="form-table">
 <tr>
-<th><?php echo __('Main visua', 'biz-vektor') ;?></th>
-<td><?php echo __('You can set a slide show or still image.', 'biz-vektor') ;?>
+<th><?php _e('Main visual', 'biz-vektor') ;?></th>
+<td><?php _e('You can set a slide show or still image.', 'biz-vektor') ;?>
 <ul>
-<li>[ <a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header" target="_blank">→ <?php echo __('Still image setting', 'biz-vektor') ;?></a> ]</li>
-<li>[ <a href="#slideSetting">→ <?php echo __('Slide show setting', 'biz-vektor') ;?></a> ]</li>
+<li>[ <a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header" target="_blank">
+	&raquo; <?php _e('Still image setting', 'biz-vektor') ;?></a> ]</li>
+<li>[ <a href="#slideSetting">
+	&raquo; <?php _e('Slide show setting', 'biz-vektor') ;?></a> ]</li>
 </ul></td>
 </tr>
+<!-- Page to be displayed below the main visual -->
 <tr>
-<th id="topEntryTitleHidden"><?php echo __('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<th><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">→ Reading Settings</a> ]</p>
-<p><?php echo __('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
- <span class="alert">* <?php echo __('Do not select the pull-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
- * 設定したページの本文が未記入の場合、メインビジュアルの下にはすぐに３ＰＲボックスが表示されますので、特に記入する事がなければ本文欄は未記入でも構いません。</p></td>
+<th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
+<th><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">
+	&raquo; <?php _e('Setting of the page to display just below the main visual of home page', 'biz-vektor'); ?></a> ]</p>
+<p><?php _e('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
+<span class="alert">
+* <?php _e('Do not select the pull-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
+* <?php _e('If blank, the body of the page you have set will be displayed 3PR area is just below the main visual. Therefore, it can be a blank text field is Without having to fill in particular.', 'biz-vektor'); ?></p></td>
+<p><?php _e('Check this box if you want to display the title of the page to be displayed in the main visual under the home page.', 'biz-vektor'); ?></p>
+<p><input type="checkbox" name="biz_vektor_theme_options[topEntryTitleDisplay]" id="topEntryTitleDisplay" value="true" <?php if ($options['topEntryTitleDisplay']) {?> checked<?php } ?>> <?php _e('Display the title', 'biz-vektor'); ?></p></td>
 </tr>
+<!-- Home 3PR area -->
 <tr>
-<th id="topEntryTitleHidden">トップページのメインビジュアルの下のタイトルの表示</th>
-<th><p>トップページのメインビジュアル下に表示するページのタイトルを表示する場合はチェックを入れて下さい。</p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topEntryTitleDisplay]" id="topEntryTitleDisplay" value="true" <?php if ($options['topEntryTitleDisplay']) {?> checked<?php } ?>> タイトルを表示する</p></td>
-</tr>
-<tr>
-<th>トップページ3PRエリア</th>
+<th><?php _e('Home 3PR area', 'biz-vektor'); ?></th>
 <td>
 <ul>
-<li>[ <a href="#prBox">→ トップページ3PRエリアの設定はこちら</a> ]</li>
+<li>[ <a href="#prBox">&raquo; <?php _e('Setting the Home 3PR area is here', 'biz-vektor'); ?></a> ]</li>
 </ul></td>
 </tr>
+<!-- TopEntryTitleHidden -->
 <tr>
-<th id="topEntryTitleHidden">トップページのサイドバーの表示</th>
-<th><p>トップページのサイドバーを表示しない場合はチェックを入れて下さい。</p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topSideBarDisplay]" id="topSideBarDisplay" value="true" <?php if ($options['topSideBarDisplay']) {?> checked<?php } ?>> サイドバーを非表示にする</p></td>
+<th id="topEntryTitleHidden">
+	<?php _e('The display of the side bar of a home page.', 'biz-vektor'); ?></th>
+<th><p>
+	<?php _e('Check this box if you do not want to see the side bar on the home page.', 'biz-vektor'); ?></p>
+<p><input type="checkbox" name="biz_vektor_theme_options[topSideBarDisplay]" id="topSideBarDisplay" value="true" <?php if ($options['topSideBarDisplay']) {?> checked<?php } ?>> <?php _e('I want to hide the sidebar', 'biz-vektor'); ?></p></td>
 </tr>
+<!-- Display number of Blog -->
 <tr>
-	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?>の表示件数</th>
-	<td><a href="#postSetting">「<?php echo esc_html( bizVektorOptions('postLabelName')); ?>」と「<?php echo esc_html( bizVektorOptions('postLabelName')); ?>」の設定</a>より設定下さい。</td>
+	<th><?php
+	$postLabelName = esc_html( bizVektorOptions('postLabelName'));
+	printf(__('Display number of %s', 'biz-vektor'), $postLabelName ); ?></th>
+	<td><a href="#postSetting">
+		<?php
+		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
+		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
+		printf( __('Please set from the [ Setting the %s and %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
+		?>
+		</a>
+	</td>
 </tr>
+<!-- RSS -->
 <tr>
-	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>（RSS情報表示設定） </th>
-	<td><span style="font-size:14px;font-weight:lighter;">→ <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
-<p>外部ブログや関連サイトのRSSを利用していて、更新情報をこのサイトのトップページに掲載する場合はRSSのアドレスを入力して下さい。<br />
-<input type="text" name="biz_vektor_theme_options[blogRss]" id="blogRss" value="<?php echo esc_attr( $options['blogRss'] ); ?>" />
-<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span></p>
+	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>（<?php _e('RSS information display setting', 'biz-vektor'); ?>） </th>
+	<td><span style="font-size:14px;font-weight:lighter;">&raquo; <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
+<p>
+	<?php _e('Enter the address of the RSS if you are using the RSS of related sites and external blog, then be posted on the home page of this site for updates.', 'biz-vektor'); ?><br />
+	<input type="text" name="biz_vektor_theme_options[blogRss]" id="blogRss" value="<?php echo esc_attr( $options['blogRss'] ); ?>" /><br />
+	<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span>
+</p>
 </td>
 </tr>
+<!-- Home bottom free area -->
 <tr>
-	<th>トップページ下部フリーエリア</th>
+	<th><?php _e('Home bottom free area', 'biz-vektor'); ?></th>
 <td>
-<p>「お知らせ」や「<?php echo esc_html(bizVektorOptions('postLabelName')); ?>」のリストの下の部分に表示されます。<br />
+<p><?php printf(__('It is displayed in the lower part of the list and [%s] and [%s].', 'biz-vektor'),$infoLabelName,$postLabelName); ?><br />
 <textarea cols="50" rows="4" name="biz_vektor_theme_options[topContentsBottom]" id="topContentsBottom" value="" style="width:90%;"><?php echo esc_attr( $options['topContentsBottom'] ); ?></textarea></p>
 </td>
 </tr>
@@ -518,17 +543,22 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 
 <?php
 /*-------------------------------------------*/
-/*	スライドショーの設定
+/*	SlideSetting
 /*-------------------------------------------*/
 ?>
 <div id="slideSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>スライドショーの設定</h3>
-<p>スライドショーを設定する場合は表示する画像のURLなどを入力下さい。<br />
-画像の推奨サイズは950×250pxです。<br />
-スライドショーが設定されていない場合は<a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header" target="_blank">トップページのメインビジュアル</a>が表示されます。<br />
-画像のURLだけでも構いませんがリンク先を入力すると画像クリックでリンクするようになります。<br />
-代替テキストはその画像の内容を文字で入力して下さい。記入した方がその内容で検索にヒットしやすくなると共に、目の不自由な人が閲覧した際には音声読み上げブラウザがその文字を読み上げます。</p>
+<h3><?php _e('Slide　show　Setting', 'biz-vektor'); ?></h3>
+<p><?php _e('Please enter the URL of the image, such as that displayed when you want to set the slide show.', 'biz-vektor'); ?><br />
+<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
+<?php
+$topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Main visual Home', 'biz-vektor').'</a>';
+printf(__('%s will be displayed if the slide show is not set.', 'biz-vektor'),$topVisualLink); ?><br />
+<?php　_e('It can be only the URL of the image. However, the link is set in the image If you enter a link URL.', 'biz-vektor'); ?><br />
+<?php _e('Please enter a character the contents of the image alternate text.', 'biz-vektor'); ?>
+<?php _e('It becomes easy to hit to search the direction as which it was entered by the contents. ', 'biz-vektor'); ?>
+<?php _e('Moreover, when a visually handicapped person peruses, a text-to-speech-reading browser reads out the character. ', 'biz-vektor'); ?>
+</p>
 <table class="form-table">
 <?php
 for ( $i = 1; $i <= 5 ;){
@@ -538,16 +568,16 @@ $slideAlt = 'slide'.$i.'alt';
 $slideDisplay = 'slide'.$i.'display';
 $slideBlank = 'slide'.$i.'blank'; ?>
 <tr>
-<td>リンク先URL<?php echo $i ?><br />
+<td><?php _e('Link URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideLink ?>]" id="<?php echo $slideLink ?>" value="<?php echo esc_attr( $options[$slideLink] ) ?>" /></td>
-<td>画像URL<?php echo $i ?><br />
-	<input type="text" name="biz_vektor_theme_options[<?php echo $slideImage ?>]" id="<?php echo $slideImage ?>" value="<?php echo esc_attr( $options[$slideImage] ) ?>" /> <button id="media_<?php echo $slideImage ?>" class="media_btn">画像を選択</button>
+<td><?php _e('Image URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
+	<input type="text" name="biz_vektor_theme_options[<?php echo $slideImage ?>]" id="<?php echo $slideImage ?>" value="<?php echo esc_attr( $options[$slideImage] ) ?>" /> <button id="media_<?php echo $slideImage ?>" class="media_btn"><?php _e('Select a image', 'biz-vektor'); ?></button>
 </td>
-<td>代替テキスト<?php echo $i ?>（alt）<br />
+<td><?php _e('Alternate text', 'biz-vektor'); ?>（alt）　[<?php echo $i ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideAlt ?>]" id="<?php echo $slideAlt ?>" value="<?php echo esc_attr( $options[$slideAlt] ) ?>" /></td>
 <td>
-<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideDisplay ?>]" id="<?php echo $slideDisplay ?>" value="true" <?php if ($options[$slideDisplay]) :echo ' checked';endif; ?>> 非表示にする</label><br />
-<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideBlank ?>]" id="<?php echo $slideBlank ?>" value="true" <?php if ($options[$slideBlank]) :echo ' checked';endif; ?>> 別ウィンドウで開く</label>
+<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideDisplay ?>]" id="<?php echo $slideDisplay ?>" value="true" <?php if ($options[$slideDisplay]) :echo ' checked';endif; ?>> <?php _ex('Undisplayed', 'Slide undisplayed', 'biz-vektor'); ?></label><br />
+<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideBlank ?>]" id="<?php echo $slideBlank ?>" value="true" <?php if ($options[$slideBlank]) :echo ' checked';endif; ?>> <?php _e('Open in a blank window', 'biz-vektor'); ?></label>
 </td>
 </tr>
 <?php
@@ -555,7 +585,8 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 } ?>
 
 </table>
-<p>* スライドショーは最大５枚まで設定出来ますが、3G回線のスマートフォンなど通信回線が遅い環境で閲覧した場合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる為、３枚以内推奨です。</p>
+<p><?php _e('* If you visit in the environment in which the communications line is slow, because of the time or bought in the display, it is subject to deduction from search engine or withdrawal of the user, three or less is recommended.', 'biz-vektor'); ?>
+	</p>
 <?php submit_button(); ?>
 </div>
 
@@ -580,7 +611,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <tr>
 <th>facebookアプリケーションID</th>
 <td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
-<span>[ <a href="https://developers.facebook.com/apps" target="_blank">→アプリケーションIDを確認・取得する</a> ]</span><br />
+<span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo;アプリケーションIDを確認・取得する</a> ]</span><br />
 * アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しません。
 facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook アプリケーションID 取得」などで検索して下さい。
 </td>
@@ -605,7 +636,7 @@ facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hi
 <td>facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示される画像です。<br />
 ページにアイキャッチ画像が指定されてる場合はそちらが優先されます。<br />
 画像サイズは250×250ピクセル以上、画像比率3:1以下推奨。<br />
-[ <a href="<?php echo get_admin_url(); ?>media-new.php" target="_blank">→ OGP画像をアップロードする</a> ] * アップロードした後、ファイルのURLを下記に貼り付けて下さい。<br />
+[ <a href="<?php echo get_admin_url(); ?>media-new.php" target="_blank">&raquo; OGP画像をアップロードする</a> ] * アップロードした後、ファイルのURLを下記に貼り付けて下さい。<br />
 <input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /><br />
 <span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span>
 </td>
