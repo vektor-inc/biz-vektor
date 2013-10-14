@@ -275,6 +275,10 @@ msgstr "↑ タイトルの表示設定"
 msgid "Change display page"
 msgstr "↑ 表示するページを変更する"
 
+# ############################################################################
+# functions.php
+# ############################################################################
+
 #: functions.php:96
 msgid "Sidebar(Front page only)"
 msgstr "サイドバー（トップのみ）"
@@ -322,6 +326,52 @@ msgid ""
 msgstr ""
 "サイドバーに表示するウィジェットです。facebook,twitterバナーの下に表示されま"
 "す。"
+
+msgctxt "admin menu"
+msgid "category"
+msgstr "カテゴリー"
+
+msgid "If you want to set a keyword individually to this page, enter a , delimiter (optional)."
+msgstr "このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
+
+msgctxt "link to seo setting"
+msgid "Theme option"
+msgstr "テーマオプション"
+
+msgid "* keyword to set common to the entire site can be set from %s."
+msgstr "※サイト全体に共通して設定するキーワードは %s から設定出来ます。"
+
+# ---------------
+# Head description
+# ---------------
+
+msgid "About %s"
+msgstr "%s について。"
+
+msgctxt "Year archive description"
+msgid "Article of %s."
+msgstr "%s 年の記事。"
+
+msgctxt "Archive description"
+msgid "Article of %s."
+msgstr "%s の記事。"
+
+msgid "Your comment is awaiting approval."
+msgstr "あなたのコメントは承認待ちです。"
+
+# ---------------
+# biz_vektor_content_nav
+# ---------------
+
+msgid "<span class=\"meta-nav\">&larr;</span> 古い投稿"
+msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
+
+msgid "New post <span class=\"meta-nav\">&rarr;</span>"
+msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
+
+
+# ############################################################################
+
 
 msgid "Skip menu"
 msgstr "メニューを飛ばす"
@@ -510,7 +560,7 @@ msgid "ex) "
 msgstr "【記入例】"
 
 # ############################################################################
-# Theme options
+# Theme options / Customizer
 # ############################################################################
 msgid "Theme customizer"
 msgstr "テーマカスタマイザー"
@@ -662,42 +712,40 @@ msgstr "PRエリア"
 msgid "Settings of [ %s ] and [ %s ]."
 msgstr "「%s」と「%s」の設定"
 
-msgid "It does not appear if there is no post at all."
-msgstr "記事が１件もない場合は表示されません。"
+msgid "* It does not appear if there is no post at all."
+msgstr "* 記事が１件もない場合は表示されません。"
 
 msgid ""
-"If the excerpt field is filled, the content will appear in the &quot;"
+"* If the excerpt field is filled, the content will appear in the &quot;"
 "excerpt&quot;. If not, the text will be displayed in a certain number of"
 msgstr ""
-"『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数を"
-"表示します。"
+"* 『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数"
+"を表示します。"
 
-msgid "characters from the beginning of a sentence. Please activate"
-msgstr "但し"
-
-msgid "&quot;WP Multibyte Patch&quot;"
-msgstr ""
-"プラグイン『WP Multibyte Patch』が有効化されていないと全文が表示されます"
-
-msgid "in order to display properly from "
-msgstr "ので、"
-
+msgctxt "no link"
 msgid "Plugins page"
 msgstr "プラグイン管理ページ"
 
-msgid "where you can change plugin settings."
-msgstr "より有効化して下さい。"
+msgid ""
+"In the case of corporal, full text will be displayed plug-in [WP Multibyte "
+"Patch] is not activated if the Japanese version."
+msgstr ""
+"<span class=\"alert\">但し、プラグイン『WP Multibyte Patch』が有効化されてい"
+"ないと全文が表示されます。</span>"
 
-msgid "Thumbnail image of the article"
-msgstr "画像は該当する各記事のアイキャッチ画像"
-
-msgid "is displayed."
-msgstr "が表示されます。"
+msgid "Please enable [WP Multibyte Patch] from the %s."
+msgstr "%s から『WP Multibyte Patch』を有効化して下さい。"
 
 msgid ""
-"There is a registration widget of thumbnail image in the lower right corner "
-"of each article edit screen."
-msgstr "各記事編集画面の右下にアイキャッチ画像の登録ウィジェットがあります。"
+"<span class=\"alert\">Thumbnail image of the article</span> is displayed."
+msgstr ""
+"<span class=\"alert\">画像は該当する各記事のアイキャッチ画像</span>が表示され"
+"ます。"
+
+msgid ""
+"Eye-catching image, you can register from the widget at the bottom right of "
+"each article edit screen."
+msgstr "アイキャッチ画像は各記事編集画面の右下のウィジェットから登録します。"
 
 msgid ""
 "If you do not have a widget, please check the item of &quot;thumbnail&quot; "
@@ -709,31 +757,22 @@ msgstr ""
 msgid "Change the title"
 msgstr "表記の変更"
 
-msgctxt "biz-vektor theme-options-edit-l309"
-msgid "Display layout of &quot;"
-msgstr "トップページでの"
+msgid "Display layout of &quot; %s &quot on the top page."
+msgstr "%s のトップページでの表示レイアウト"
 
-msgctxt "biz-vektor theme-options-edit-l309"
-msgid "&quot on the top page"
-msgstr "の表示レイアウト"
+msgid "Display layout of &quot; %s &quot on the archive page."
+msgstr "%s のアーカイブページでの表示レイアウト"
 
-msgctxt "biz-vektor theme-options-edit-l322"
-msgid "Display layout of &quot;"
-msgstr "アーカイブページでの"
+msgid "Title only"
+msgstr "タイトルのみ"
 
-msgctxt "biz-vektor theme-options-edit-l322"
-msgid "&quot on the archive page"
-msgstr "の表示レイアウト"
+msgid "With excerpt and thumbnail"
+msgstr "抜粋とサムネイル画像あり"
 
-msgctxt "biz-vektor theme-options-edit-l373"
-msgid "Display number of &quot;"
-msgstr "トップページでの"
+msgid "Number of %s to be displayed on the home page."
+msgstr "トップページでの %s の表示件数"
 
-msgctxt "biz-vektor theme-options-edit-l373"
-msgid "&quot on the top page"
-msgstr "の表示件数"
-
-msgctxt "biz-vektor theme-options-edit-l374"
+msgctxt "top page post count"
 msgid "posts"
 msgstr "件"
 

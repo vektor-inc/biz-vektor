@@ -325,24 +325,32 @@ $i++;
 		printf( __('Settings of [ %s ] and [ %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
 		?>
 </h3>
-*  <?php _e('It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
-*  <?php _e('If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
-　 <?php _e('characters from the beginning of a sentence. Please activate', 'biz-vektor') ;?> <span class="alert"><?php _e('&quot;WP Multibyte Patch&quot;', 'biz-vektor') ;?></span> <?php _e('in order to display properly from', 'biz-vektor') ;?> <br />
-　 <a href="<?php echo get_admin_url(); ?>plugins.php" target="_blank">"Plugins" page</a> where you can change plugin settings.<br />
-*  <span class="alert"><?php _e('Thumbnail image of the article', 'biz-vektor') ;?></span> <?php _e('is displayed.', 'biz-vektor') ;?><br />
-　 <?php _e('There is a registration widget of thumbnail image in the lower right corner of each article edit screen.', 'biz-vektor') ;?><br />
-　 <?php _e('If you do not have a widget, please check the item of &quot;thumbnail&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
+<?php _e('* It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
+<?php _e('* If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
+<?php
+	$plugin_link = '<a href="'.get_admin_url().'plugins.php" target="_blank">'._x('Plugins page','no link', 'biz-vektor').'</a>';
+	?>
+  <?php _e('In the case of corporal, full text will be displayed plug-in [WP Multibyte Patch] is not activated if the Japanese version.', 'biz-vektor'); ?>
+	
+	<?php printf(__('Please enable [WP Multibyte Patch] from the %s.', 'biz-vektor'), $plugin_link ); ?><br />
+* <?php _e('<span class="alert">Thumbnail image of the article</span> is displayed.', 'biz-vektor') ;?><br />
+	<?php _e('Eye-catching image, you can register from the widget at the bottom right of each article edit screen.', 'biz-vektor') ;?><br />
+	<?php _e('If you do not have a widget, please check the item of &quot;thumbnail&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
 <table class="form-table">
+<!-- Information layout -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('infoLabelName')); ?></th>
 	<td>
 		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php _e('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $infoLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
+	$biz_vektor_listTypes = array(
+		'listType_title' => __('Title only', 'biz-vektor'),
+		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
+	);
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listInfoTop'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -352,10 +360,13 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php _e('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $infoLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
+	$biz_vektor_listTypes = array(
+		'listType_title' => __('Title only', 'biz-vektor'),
+		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
+	);
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listInfoArchive'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -368,15 +379,19 @@ $i++;
 	</dl>
 </td>
 </tr>
+<!-- Post layout -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
 	<td>
 		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php _e('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $postLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
+	$biz_vektor_listTypes = array(
+		'listType_title' => __('Title only', 'biz-vektor'),
+		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
+	);
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listBlogTop'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listBlogTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -386,10 +401,13 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php _e('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $postLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
+	$biz_vektor_listTypes = array(
+		'listType_title' => __('Title only', 'biz-vektor'),
+		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
+	);
 	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
 		if ( $biz_vektor_listTypeValue == $options['listBlogArchive'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[listBlogArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
@@ -402,9 +420,11 @@ $i++;
 	</dl>
 </td>
 </tr>
+<!-- Post display count -->
 <tr>
-<th><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php _e('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></th>
-<td><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /><?php _e('posts', 'biz-vektor theme-options-edit-l374', 'biz-vektor') ;?><br />
+<th><?php printf(__('Number of %s to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></th>
+<td>
+	<input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
 <?php _e('If you enter &quot0&quot, this section itself will disappear.', 'biz-vektor') ;?></td>
 </tr>
 </table>

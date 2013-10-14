@@ -3,74 +3,69 @@
 /*	Set content width
 /* 	(Auto set up to media max with.)
 /*-------------------------------------------*/
-/*	カスタムメニュー
+/*	Custom menu
 /*-------------------------------------------*/
-/*	ウィジェット
+/*	Widget
 /*-------------------------------------------*/
-/*	カスタムヘッダー
+/*	Custom header
 /*-------------------------------------------*/
-/*	カスタム背景
+/*	Custom background
 /*-------------------------------------------*/
-/*	テーマオプションを読み込む
+/*	Load theme options
 /*-------------------------------------------*/
-/*	Default / Calmly用セッティングを読み込む
+/*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
-/*	テーマカスタマイザーセッティング
+/*	Load Theme customizer
 /*-------------------------------------------*/
-/*	管理画面_スタイルを追加
+/*	Admin page _ Add style
 /*-------------------------------------------*/
-/*	管理画面_投稿ステータスをbodyのclassに追加
+/*	Admin page _ Add post status to body class
 /*-------------------------------------------*/
-/*	管理画面_ビジュアルエディタでのcss指定
+/*	Admin page _ Add editor css
 /*-------------------------------------------*/
-/*	管理画面_オリジナル管理バーを追加
+/*	Admin page _ Add original admin bar
 /*-------------------------------------------*/
-/*	管理画面_ダッシュボードから余分な項目を削除
+/*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
-/*	管理画面_アイキャッチが使えるように
+/*	Admin page _ Eye catch
 /*-------------------------------------------*/
-/*	管理画面_keywordのカスタムフィールドを追加
+/*	Admin page _ Add custom field of keywords
 /*-------------------------------------------*/
-/*	管理画面_固定ページのカスタマイズ
+/*	Admin page _ page _ customize
 /*-------------------------------------------*/
-/*	管理画面_投稿のカスタマイズ
+/*	Admin page _ page _ customize
 /*-------------------------------------------*/
-/*	カスタム投稿タイプ_お知らせの追加
+/*	Custom post type _ add info
 /*-------------------------------------------*/
-/*	head_description 生成
+/*	head_description
 /*-------------------------------------------*/
-/*	head_wp_head が吐き出す項目を追加・削除
+/*	head_wp_head clean and add items
 /*-------------------------------------------*/
-/*	カスタム分類名をaタグ無しで出力する
+/*	Term list no link
 /*-------------------------------------------*/
-/*	ナビゲーションメニューの英語併記
+/*	Global navigation add cptions
 /*-------------------------------------------*/
-/*	抜粋の後につく [...] を変換
+/*	Excerpt _ change ... 
 /*-------------------------------------------*/
-/*	抜粋のpタグ自動挿入解除
+/*	Excerpt _ remove auto mark up to p
 /*-------------------------------------------*/
-/*	年別アーカイブリストの“年”を</a>の中に置換
+/*	Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
-/*	カテゴリー件数を</a>の中に置換
+/*	Category list 'count insert to inner </a>
 /*-------------------------------------------*/
-/*	TinyMCEでiframeタグ（GoogleMapなど）の自動消去禁止指定
-/*-------------------------------------------*/
-/*	画像挿入時のwidthとheight指定削除
-/*	（スマホ表示の際に画像サイズ自動調整がうまくいかない為）
+/*	Block to delete iframe tag from TinyMCE
 /*-------------------------------------------*/
 /*	Comment
 /*-------------------------------------------*/
 /*	Archive page link ( don't erase )
 /*-------------------------------------------*/
-/*	ページング
+/*	Pasing
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
 
 
 load_theme_textdomain('biz-vektor');
-// ▼管理バー非表示
-// ▼メニューに「すべての設定」項目を加える
 
 add_theme_support( 'automatic-feed-links' );
 
@@ -82,14 +77,14 @@ if ( ! isset( $content_width ) )
     $content_width = 640;
 
 /*-------------------------------------------*/
-/*	カスタムメニュー
+/*	Custom menu
 /*-------------------------------------------*/
 register_nav_menus( array( 'Header' => 'Header Navigation', ) );
 register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
 register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
 /*-------------------------------------------*/
-/*	ウィジェット
+/*	Widget
 /*-------------------------------------------*/
 function biz_vektor_widgets_init() {
 	register_sidebar( array(
@@ -135,12 +130,12 @@ add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
 
 /*-------------------------------------------*/
-/*	カスタムヘッダー
+/*	Custom header
 /*-------------------------------------------*/
 
-// カスタムヘッダーのテキスト機能を利用する場合
+// Use custom header text
 define( 'HEADER_TEXTCOLOR', '' );
-// カスタムヘッダーのテキスト機能をオフにする
+// Kill custom header test
 define( 'NO_HEADER_TEXT', true );
 
 define('HEADER_IMAGE', '%s/images/headers/bussines_desk_02.jpg');
@@ -176,7 +171,7 @@ endif;
 
 
 /*-------------------------------------------*/
-/*	カスタム背景
+/*	Custom background
 /*-------------------------------------------*/
 
 function biz_vektor_setup(){
@@ -188,23 +183,23 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 
 
 /*-------------------------------------------*/
-/*	テーマオプションを読み込む
+/*	Load theme options
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
 
 /*-------------------------------------------*/
-/*	Default / Calmly用セッティングを読み込む
+/*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/bizvektor_themes/001/001_custom.php' );
 	require( dirname( __FILE__ ) . '/bizvektor_themes/002/002_custom.php' );
 
 /*-------------------------------------------*/
-/*	テーマカスタマイザーセッティング
+/*	Load Theme customizer
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
 
 /*-------------------------------------------*/
-/*	管理画面_スタイルを追加
+/*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
 	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
@@ -214,15 +209,15 @@ function bizVektor_admin_css(){
 add_action('admin_head', 'bizVektor_admin_css', 11);
 
 /*-------------------------------------------*/
-/*	管理画面_投稿ステータスをbodyのclassに追加
+/*	Admin page _ Add post status to body class
 /*-------------------------------------------*/
 function bizVektor_postStatus(){
-		$classes = get_post_status() // 投稿の状態を取得; ?>
+		$classes = get_post_status(); ?>
 		<script type="text/javascript" charset="utf-8">
 		function postStatusColor(){
-			// 現状のクラス名を取得して投稿ステータスを足す
+			// Get class and add post status.
 			var newClass = document.getElementsByTagName("body")[0].className + " <?php echo $classes ?>";
-			// 現状のクラス名を置き換える
+			// Replace the class name of the current situation
 			document.getElementsByTagName("body")[0].setAttribute("class",newClass);
 		}
 		window.onload = postStatusColor;
@@ -233,12 +228,12 @@ add_action('admin_head-post.php', 'bizVektor_postStatus', 12);
 add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 
 /*-------------------------------------------*/
-/*	管理画面_ビジュアルエディタでのcss指定
+/*	Admin page _ Add editor css
 /*-------------------------------------------*/
 add_editor_style('editor-style.css');
 
 /*-------------------------------------------*/
-/*	管理画面_オリジナル管理バーを追加
+/*	Admin page _ Add original admin bar
 /*-------------------------------------------*/
 function original_header_menu_output() {
 	get_template_part('module_adminHeader');
@@ -247,23 +242,7 @@ add_action('admin_notices','original_header_menu_output');
 
 
 /*-------------------------------------------*/
-/*	管理画面_ダッシュボードから余分な項目を削除
-/*-------------------------------------------*/
-// function remove_dashboard_widgets() {
-//   global $wp_meta_boxes;
-// //  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);	
-// //被リンク
-// //  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);		//現在の状況
-// //  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);			//プラグイン
-// //	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);	//最近のコメント
-// //  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);		//クイック投稿
-// //  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);		//最近の下書き
-// //  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);			//WordPress開発ブログ
-// //  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);			//WordPressフォーラム
-// }
-// add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
-
-/*		「ようこそ」をとりあえず削除（完全に機能停止ではなくチェックすれば再表示可能になってしまう）
+/*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
 function hide_welcome_panel() {
 	$user_id = get_current_user_id();
@@ -273,13 +252,13 @@ function hide_welcome_panel() {
 add_action( 'load-index.php', 'hide_welcome_panel' );
 
 /*-------------------------------------------*/
-/*	管理画面_アイキャッチが使えるように
+/*	Admin page _ Eye catch
 /*-------------------------------------------*/
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 200, 200, true );
 
 /*-------------------------------------------*/
-/*	管理画面_keywordのカスタムフィールドを追加
+/*	Admin page _ Add custom field of keywords
 /*-------------------------------------------*/
 add_action('admin_menu', 'add_custom_field_metaKeyword');
 add_action('save_post', 'save_custom_field_metaKeyword');
@@ -296,8 +275,10 @@ function insert_custom_field_metaKeyword(){
   global $post;
   echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
   echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
-  echo '<p>このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）<br />';
-  echo '※サイト全体に共通して設定するキーワードは<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">テーマオプション</a>から設定出来ます。</p>';
+  echo '<p>'.__('If you want to set a keyword individually to this page, enter a , delimiter (optional).', 'biz-vektor').'<br />';
+  $theme_option_seo_link = '<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">'._x('','link to seo setting', 'biz-vektor').'</a>';
+  sprintf(__('* keyword to set common to the entire site can be set from %s.', 'biz-vektor'),$theme_option_seo_link);
+  echo '</p>';
 }
 
 function save_custom_field_metaKeyword($post_id){
@@ -322,37 +303,37 @@ function save_custom_field_metaKeyword($post_id){
 }
 
 /*-------------------------------------------*/
-/*	管理画面_固定ページのカスタマイズ
+/*	Admin page _ page _ customize
 /*-------------------------------------------*/
-add_post_type_support( 'page', 'excerpt' ); // 抜粋欄を追加
+add_post_type_support( 'page', 'excerpt' ); // add excerpt
 
 function remove_default_page_screen_metaboxes() {
-//	remove_meta_box( 'postcustom','page','normal' );		// カスタムフィールド
-//	remove_meta_box( 'postexcerpt','page','normal' );		// 抜粋
-	remove_meta_box( 'commentstatusdiv','page','normal' );	// ディスカッション
-	remove_meta_box( 'commentsdiv','page','normal' );		// コメント
-	remove_meta_box( 'trackbacksdiv','page','normal' );		// トラックバック
-//	remove_meta_box( 'authordiv','page','normal' );			// 作成者
-//	remove_meta_box( 'slugdiv','page','normal' );			// スラッグ
+//	remove_meta_box( 'postcustom','page','normal' );		// cutom field
+//	remove_meta_box( 'postexcerpt','page','normal' );		// excerpt
+	remove_meta_box( 'commentstatusdiv','page','normal' );	// discussion
+	remove_meta_box( 'commentsdiv','page','normal' );		// comment
+	remove_meta_box( 'trackbacksdiv','page','normal' );		// trackback
+//	remove_meta_box( 'authordiv','page','normal' );			// author
+//	remove_meta_box( 'slugdiv','page','normal' );			// slug
 //	remove_meta_box( 'revisionsdiv','page','normal' );		// リビジョン
  }
 add_action('admin_menu','remove_default_page_screen_metaboxes');
 
 /*-------------------------------------------*/
-/*	管理画面_投稿のカスタマイズ
+/*	Admin page _ page _ customize
 /*-------------------------------------------*/
 function remove_default_post_screen_metaboxes() {
-//	remove_meta_box( 'postcustom','post','normal' );			// カスタムフィールド
-//	remove_meta_box( 'postexcerpt','post','normal' );			// 抜粋
-//	remove_meta_box( 'commentstatusdiv','post','normal' );		// コメント
-//	remove_meta_box( 'trackbacksdiv','post','normal' );			// トラックバック
-//	remove_meta_box( 'slugdiv','post','normal' );				// スラッグ
-//	remove_meta_box( 'authordiv','post','normal' );				// 作成者
+//	remove_meta_box( 'postcustom','post','normal' );			// cutom field
+//	remove_meta_box( 'postexcerpt','post','normal' );			// excerpt
+//	remove_meta_box( 'commentstatusdiv','post','normal' );		// comment
+//	remove_meta_box( 'trackbacksdiv','post','normal' );			// trackback
+//	remove_meta_box( 'slugdiv','post','normal' );				// slug
+//	remove_meta_box( 'authordiv','post','normal' );				// author
  }
  add_action('admin_menu','remove_default_post_screen_metaboxes');
 
 /*-------------------------------------------*/
-/*	カスタム投稿タイプ_お知らせの追加
+/*	Custom post type _ add info
 /*-------------------------------------------*/
 add_action( 'init', 'create_post_type', 0 );
 function create_post_type() {
@@ -369,15 +350,15 @@ function create_post_type() {
 	'supports' => array('title','editor','excerpt','thumbnail')
 	)
 	);
-	// お知らせのカテゴリーを設定
+	// Add information category
 	register_taxonomy(
 		'info-cat',
 		'info',
 		array(
 			'hierarchical' => true,
 			'update_count_callback' => '_update_post_term_count',
-			'label' => $infoLabelName.'カテゴリー',
-			'singular_label' => $infoLabelName.'カテゴリー',
+			'label' => $infoLabelName._x('category','admin menu', 'biz-vektor'),
+			'singular_label' => $infoLabelName._x('category','admin menu', 'biz-vektor'),
 			'public' => true,
 			'show_ui' => true,
 		)
@@ -398,7 +379,7 @@ function my_rewrite( $wp_rewrite ){
      endforeach;
 }
 
-/*		カスタム投稿タイプのアーカイブ出力
+/*		Archive of custom post type
 /*-------------------------------------------*/
 global $my_archives_post_type;
 add_filter( 'getarchives_where', 'my_getarchives_where', 10, 2 );
@@ -422,50 +403,50 @@ function my_get_archives_link( $link_html ) {
 }
 
 /*-------------------------------------------*/
-/*	head_description 生成
+/*	head_description
 /*-------------------------------------------*/
 function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	// ▼トップページ
 	if (is_home() || is_page('home') || is_front_page()) {
 		$metadescription = get_bloginfo( 'description' );
-	// ▼カテゴリーページ
 	} else if (is_category() || is_tax()) {
 		$metadescription = $post->category_description;
 		if ( ! $metadescription ) {
-			$metadescription = single_cat_title()."について。".get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
 		}
-	// ▼タグアーカイブ */
 	} else if (is_tag()) {
 		$metadescription = strip_tags(tag_description());
-		$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // 改行コード削除
+		$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
 		if ( ! $metadescription ) {
-			$metadescription = single_tag_title()."について。".get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title()).get_bloginfo('name').' '.get_bloginfo('description');
 		}
-	// ▼アーカイブ */
 	} else if (is_archive()) {
 		if (is_year()){
-			$metadescription = get_the_time('Y')."年の記事。".get_bloginfo('name').' '.get_bloginfo('description');
+			$description_date = get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) );
+			$metadescription = sprintf(_x('Article of %s.','Yearly archive description', 'biz-vektor'), $description_date );
+			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		} else if (is_month()){
-			$metadescription = get_the_date('Y'."年".'M')."の記事。".get_bloginfo('name').' '.get_bloginfo('description');
+			$description_date = get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) );
+			$metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),$description_date );
+			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		} else if (is_author()) {
 			$userObj = get_queried_object();
-			$metadescription = esc_html($userObj->display_name)."の記事。".get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),esc_html($userObj->display_name) );
+			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		} else {
 			$postType = get_post_type();
-			$metadescription = esc_html(get_post_type_object($postType)->labels->name)."の記事。".get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),esc_html(get_post_type_object($postType)->labels->name) );
+			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		}
-	// ▼固定ページ || 投稿記事
 	} else if (is_page() || is_single()) {
 		$metaExcerpt = $post->post_excerpt;
 		if ($metaExcerpt) {
 			$metadescription = $post->post_excerpt;
 		} else {
-			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // タグを無効化して240文字でトリム
-			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // 改行コード削除
+			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
+			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // delete br
 		}
-	// ▼それ以外
 	} else {
 		$metadescription = get_bloginfo('description');
 	}
@@ -474,16 +455,16 @@ function getHeadDescription() {
 }
 
 /*-------------------------------------------*/
-/*	head_wp_head が吐き出す項目を追加・削除
+/*	head_wp_head clean and add items
 /*-------------------------------------------*/
 
-//	WordPressの情報を削除
+//	Remove WordPress information
 remove_action('wp_head', 'wp_generator');
 
-//	prev,nextを削除
+//	Remove prev,next
 remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
-//　Google Web Fonts を追加
+//　Add Google Web Fonts
 add_action('wp_head','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
 	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
@@ -491,7 +472,7 @@ function bizVektorAddWebFonts(){
 	echo $webFonts;
 }
 
-//　オプションのスタイルを追加
+//　Add BizVektor option css
 add_action('wp_head','bizVektorAddOptionStyle');
 function bizVektorAddOptionStyle(){
 	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/style_bizvektor_options.css" type="text/css" media="all" />'."\n";
@@ -499,7 +480,7 @@ function bizVektorAddOptionStyle(){
 	echo $optionStyle;
 }
 
-//　SNS連携のスタイルを追加
+//　Add BizVektor SNS module style
 add_action('wp_head','bizVektorAddSnsStyle');
 function bizVektorAddSnsStyle(){
 	$snsStyle = '<link rel="stylesheet" id="bizvektor-sns-css"  href="'.get_template_directory_uri().'/css/style_bizvektor_sns.css" type="text/css" media="all" />'."\n";
@@ -507,7 +488,7 @@ function bizVektorAddSnsStyle(){
 	echo $snsStyle;
 }
 
-//　pingbackを追加
+//　add pingback
 add_action('wp_head','bizVektorAddPingback');
 function bizVektorAddPingback(){
 	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
@@ -516,7 +497,7 @@ function bizVektorAddPingback(){
 }
 
 /*-------------------------------------------*/
-/*	カスタム分類名をaタグ無しで出力する
+/*	Term list no link
 /*-------------------------------------------*/
 function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', $after = '' ) {
     $terms = get_the_terms( $id, $taxonomy );
@@ -532,7 +513,7 @@ function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', 
 
 
 /*-------------------------------------------*/
-/*	ナビゲーションメニューの英語併記
+/*	Global navigation add cptions
 /*-------------------------------------------*/
 class description_walker extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth, $args) {
@@ -571,21 +552,20 @@ class description_walker extends Walker_Nav_Menu {
     }
 }
 /*-------------------------------------------*/
-/*	抜粋の後につく [...] を変換
+/*	Excerpt _ change ... 
 /*-------------------------------------------*/
-//	あれ、こんなフィルター無いっぽい。特定のテーマが独自につけてたフィルターかも。要確認
 function change_excerpt_more($post) {
     return ' ...';
 }
 add_filter('excerpt_more', 'change_excerpt_more');
 
 /*-------------------------------------------*/
-/*	抜粋のpタグ自動挿入解除
+/*	Excerpt _ remove auto mark up to p
 /*-------------------------------------------*/
 remove_filter('the_excerpt', 'wpautop');
 
 /*-------------------------------------------*/
-/*	年別アーカイブリストの“年”を</a>の中に置換
+/*	Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
 function my_archives_link($html){
   return preg_replace('@</a>(.+?)</li>@', '\1</a></li>', $html);
@@ -593,7 +573,7 @@ function my_archives_link($html){
 add_filter('get_archives_link', 'my_archives_link');
 
 /*-------------------------------------------*/
-/*	カテゴリー件数を</a>の中に置換
+/*	Category list 'count insert to inner </a>
 /*-------------------------------------------*/
 function my_list_categories( $output, $args ) {
 	$output = preg_replace('/<\/a>\s*\((\d+)\)/',' ($1)</a>',$output);
@@ -603,28 +583,13 @@ add_filter( 'wp_list_categories', 'my_list_categories', 10, 2 );
 
 
 /*-------------------------------------------*/
-/*	TinyMCEでiframeタグ（GoogleMapなど）の自動消去禁止指定
+/*	Block to delete iframe tag from TinyMCE
 /*-------------------------------------------*/
 function add_iframe($initArray) {
 $initArray['extended_valid_elements'] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]";
 return $initArray;
 }
 add_filter('tiny_mce_before_init', 'add_iframe');
-
-/*-------------------------------------------*/
-/*	画像挿入時のwidthとheight指定削除
-/*	（スマホ表示の際に画像サイズ自動調整がうまくいかない為）
-/*	→　キャプションが入らなくなる為削除。サイズは!importantで調整
-/*-------------------------------------------*/
-/*
-function remove_hwstring_from_image_tag( $html, $id, $caption, $title, $align, $url, $size ) {
-    list( $img_src, $width, $height ) = image_downsize($id, $size);
-    $hwstring = image_hwstring( $width, $height );
-    $html = str_replace( $hwstring, '', $html );
-    return $html;
-}
-add_filter( 'image_send_to_editor', 'remove_hwstring_from_image_tag', 10, 7 );
-*/
 
 /*-------------------------------------------*/
 /*	Comment
@@ -642,7 +607,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 			<?php printf(sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 		</div><!-- .comment-author .vcard -->
 		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em>あなたのコメントは承認待ちです。</em>
+			<em><?php _e('Your comment is awaiting approval.', 'biz-vektor'); ?></em>
 			<br />
 		<?php endif; ?>
 
@@ -662,7 +627,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p>Pingback: <?php comment_author_link(); ?>  <span class="linkBtn linkBtnS"><?php edit_comment_link( '編集', '<span class="edit-link">(', ')</span>' ); ?></span>
+		<p>Pingback: <?php comment_author_link(); ?>  <span class="linkBtn linkBtnS"><?php edit_comment_link( __('Edit', 'biz-vektor'), '<span class="edit-link">(', ')</span>' ); ?></span>
 	<?php
 			break;
 	endswitch;
@@ -676,16 +641,16 @@ function biz_vektor_content_nav( $nav_id ) {
 	global $wp_query;
 	if ( $wp_query->max_num_pages > 1 ) : ?>
 		<div id="<?php echo $nav_id; ?>">
-			<h4 class="assistive-text">ナビゲーション</h4>
-			<div class="nav-previous"><?php next_posts_link('<span class="meta-nav">&larr;</span> 古い投稿'); ?></div>
-			<div class="nav-next"><?php previous_posts_link('新しい投稿 <span class="meta-nav">&rarr;</span>'); ?></div>
+			<h4 class="assistive-text"><?php _e('Navigation', 'biz-vektor'); ?></h4>
+			<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older post', 'biz-vektor')); ?></div>
+			<div class="nav-next"><?php previous_posts_link(__('New post <span class="meta-nav">&rarr;</span>', 'biz-vektor')); ?></div>
 		</div><!-- #nav -->
 	<?php endif;
 	wp_reset_query();
 }
 
 /*-------------------------------------------*/
-/*	ページング
+/*	Pasing
 /*-------------------------------------------*/
 function pagination($pages = '', $range = 1) {
      $showitems = ($range * 2)+1;
@@ -717,15 +682,14 @@ function pagination($pages = '', $range = 1) {
          echo "</div>\n";
      }
 }
-// ▲ページング
 
 
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
 /*
-本文欄で一時的に非表示にしたい箇所がある場合、
-htmlモードで該当箇所を[ignore][/ignore]で囲うと、コメントアウトが出来ます。
+If there is a place that you want to hide temporarily in the text field,
+[ignore] When enclosing [/ ignore], can be commented out the relevant sections in the html mode.
 */
 function ignore_shortcode( $atts, $content = null ) {
     return null;
