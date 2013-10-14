@@ -389,30 +389,6 @@ msgid "URL of footer logo image"
 msgstr "ヘッダーロゴ画像URL"
 
 msgctxt "biz-vektor theme-customizer"
-msgid "Depend on contents"
-msgstr "指定なし（左詰め）"
-
-msgctxt "biz-vektor theme-customizer"
-msgid "4"
-msgstr "4分割"
-
-msgctxt "biz-vektor theme-customizer"
-msgid "5"
-msgstr "5分割"
-
-msgctxt "biz-vektor theme-customizer"
-msgid "6"
-msgstr "6分割"
-
-msgctxt "biz-vektor theme-customizer"
-msgid "7"
-msgstr "7分割"
-
-msgctxt "biz-vektor theme-customizer"
-msgid "Number of header menus"
-msgstr "ヘッダーメニューの数"
-
-msgctxt "biz-vektor theme-customizer"
 msgid "Layout"
 msgstr "レイアウト"
 
@@ -499,40 +475,6 @@ msgstr "スマホ用画像（120×120px 程度推奨）"
 msgid "Plain"
 msgstr "プレーン"
 
-msgctxt "biz-vektor theme-options-edit-l44"
-msgid "Thank you for using BizVektor."
-msgstr "BizVektorのご利用ありがとうございます。"
-
-msgctxt "biz-vektor theme-options-edit-l44"
-msgid "You can change basic design settings in"
-msgstr "デザインなど基本的な設定は"
-
-msgid "Theme customizer"
-msgstr "テーマカスタマイザー"
-
-msgctxt "biz-vektor theme-options-edit-l44"
-msgid "."
-msgstr "から行う事が出来ます。"
-
-msgctxt "biz-vektor theme-options-edit"
-msgid "You can change other settings in this page."
-msgstr "この画面では更に細かい項目やSNS連携などを設定します。"
-
-msgctxt "biz-vektor theme-options-edit"
-msgid "Design settings"
-msgstr "デザインの設定"
-
-msgctxt "biz-vektor theme-options-edit"
-msgid "This section is also able to change from "
-msgstr "この項目は"
-
-msgctxt "biz-vektor theme-options-edit-l47"
-msgid "."
-msgstr "からも設定が可能です"
-
-msgid "Theme add-on"
-msgstr "拡張テーマ"
-
 msgid "Select"
 msgstr "選択して下さい"
 
@@ -554,23 +496,6 @@ msgstr ""
 "代替テキストとして反映されます。<br />* フッターのロゴ画像はデザインの設定よ"
 "り登録出来ます。"
 
-msgid "You can select 1-column from below: "
-msgstr "* １カラムについては、以下２つの方法で設定できます。"
-
-msgid "[Top page] "
-msgstr "【トップページ】 このページの「"
-
-msgctxt "biz-vektor theme-options-edit-l128"
-msgid ". "
-msgstr "」"
-
-msgid ""
-"<p>If you choose theme add-on, don't forget saving changes before checking "
-"out.</p>"
-msgstr ""
-"<p>* 拡張テーマのセッティング項目などがある場合は、一度変更を保存すると表示さ"
-"れます。</p>"
-
 msgid "Recommended : less than 60px height"
 msgstr ""
 "【 推奨サイズ　：　高さ60px以下 】　* 60pxより大きい場合は自動的に60pxに縮小"
@@ -581,12 +506,86 @@ msgstr ""
 "推奨サイズ　：　180-250px 】 * 260pxより大きい場合は自動的に260pxに縮小しま"
 "す。"
 
-msgid "You can select 1-column from below:"
-msgstr "１カラムについては"
+msgid "ex) "
+msgstr "【記入例】"
 
-msgid "[page] Edot Page > Page Attributes > Template"
+# ############################################################################
+# Theme options
+# ############################################################################
+msgid "Theme customizer"
+msgstr "テーマカスタマイザー"
+
+msgid "Thank you for using BizVektor."
+msgstr "BizVektorのご利用ありがとうございます。"
+
+msgid "You can change basic design settings in %s"
+msgstr "デザインなど基本的な設定は %s から行う事が出来ます。"
+
+msgid "You can change other settings in this page."
+msgstr "この画面では更に細かい項目やSNS連携などを設定します。"
+
+# ######################################
+# Design Setting
+# ######################################
+msgctxt "biz-vektor theme-options-edit"
+msgid "Design settings"
+msgstr "デザインの設定"
+
+msgid "This section is also able to change from %s"
+msgstr "この項目は %s からも設定が可能です"
+
+msgid "Design skin"
+msgstr "デザイン"
+
+msgid ""
+"* If there is a setting item of each design skin, after you save your "
+"changes, you can set from theme customizer."
+msgstr ""
+"各デザイン固有のセッティング項目がある場合は、変更を保存した後で、テーマカス"
+"タマイザーより設定出来ます。"
+
+# ---------------
+# menu divide
+# ---------------
+msgctxt "biz-vektor theme-customizer"
+msgid "Number of header menus"
+msgstr "ヘッダーメニューの数"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "Not specified (left-justified)"
+msgstr "指定なし（左詰め）"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "4"
+msgstr "4分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "5"
+msgstr "5分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "6"
+msgstr "6分割"
+
+msgctxt "biz-vektor theme-customizer"
+msgid "7"
+msgstr "7分割"
+
+# ---------------
+# layout
+# ---------------
+msgid "You can select 1-column from below: "
+msgstr "* １カラムについては、以下２つの方法で設定できます。"
+
+msgid "[Top page] %s"
+msgstr "【トップページ】 このページの「%s」"
+
+msgid "[page] Edit Page > Page Attributes > Template"
 msgstr "【固定ページ】 各ページ編集画面のテンプレート選択ドロップダウン"
 
+# ---------------
+# Deployment of the sidebar menu
+# ---------------
 msgid "Deployment of the sidebar menu"
 msgstr "サイドバーのメニューの展開"
 
@@ -607,9 +606,9 @@ msgstr "表示しない"
 msgid "It can not be set from the theme customizer."
 msgstr "この項目はテーマカスタマイザーからは設定出来ません。"
 
-msgid "ex) "
-msgstr "【記入例】"
-
+# ######################################
+# Contact Information Setting
+# ######################################
 msgid "Please feel free to inquire."
 msgstr "お気軽にお問い合わせください。"
 
@@ -639,12 +638,15 @@ msgstr "* 入力すると自動的にお問い合わせバナーが表示され�
 msgid "If not, it does not appear."
 msgstr "空欄の場合はお問い合わせバナーは表示されません。"
 
-msgid ""
-"* 3PR area do not appear on the top page in the case of blank all.<br />* It "
-"is effective without the image.<br />"
+# ######################################
+# 3PR area
+# ######################################
+msgid "* 3PR area do not appear on the top page in the case of blank all."
 msgstr ""
 "* タイトルが３つとも未記入の場合はトップページに3PRエリアは表示されません。"
-"<br />* 画像はよくわからなければ空欄でも問題ありません。"
+
+msgid "* It is effective without the image."
+msgstr "* 画像はよくわからなければ空欄でも問題ありません。"
 
 msgid "* You can register image for PC and for smartphone."
 msgstr ""
@@ -654,17 +656,11 @@ msgstr ""
 msgid "PR area"
 msgstr "PRエリア"
 
-msgctxt "biz-vektor theme-options-edit-l294"
-msgid "「"
-msgstr "Settings of"
-
-msgctxt "biz-vektor theme-options-edit-l294"
-msgid "」と「"
-msgstr "and"
-
-msgctxt "biz-vektor theme-options-edit-l294"
-msgid "」の設定"
-msgstr "."
+# ######################################
+# Information and Blog
+# ######################################
+msgid "Settings of [ %s ] and [ %s ]."
+msgstr "「%s」と「%s」の設定"
 
 msgid "It does not appear if there is no post at all."
 msgstr "記事が１件もない場合は表示されません。"
@@ -744,9 +740,9 @@ msgstr "件"
 msgid "If you enter &quot0&quot, this section itself will disappear."
 msgstr "0 にするとタイトルごと表示されなくなります。"
 
-#######################################
+# ######################################
 # SEO and Google Analytics Setting
-#######################################
+# ######################################
 msgid "SEO and Google Analytics Setting"
 msgstr "SEO と Google Analytics の設定"
 
@@ -885,10 +881,10 @@ msgstr "Universal Analyticsの解析タグのみ出力する"
 msgid "I want to output both tags"
 msgstr "両方の解析タグを出力する"
 
-#######################################
-# Toppage setting
-#######################################
-msgid "Top page settings"
+# ######################################
+# Top page setting
+# ######################################
+msgid "Home page setting"
 msgstr "トップページの設定"
 
 msgid "Main visual"
@@ -961,28 +957,31 @@ msgstr "「%s と %s の設定」</a>から設定ください。"
 # ---------------
 # RSS
 # ---------------
-
 msgid "RSS information display setting"
 msgstr "RSS情報表示設定"
 
-msgid "Enter the address of the RSS if you are using the RSS of related sites and external blog, then be posted on the home page of this site for updates."
-msgstr "外部ブログや関連サイトのRSSを利用していて、更新情報をこのサイトのトップページに掲載する場合はRSSのアドレスを入力して下さい。"
+msgid ""
+"Enter the address of the RSS if you are using the RSS of related sites and "
+"external blog, then be posted on the home page of this site for updates."
+msgstr ""
+"外部ブログや関連サイトのRSSを利用していて、更新情報をこのサイトのトップページ"
+"に掲載する場合はRSSのアドレスを入力して下さい。"
 
 # ---------------
 # Home bottom free area
 # ---------------
-
 msgid "It is displayed in the lower part of the list and [%s] and [%s]."
 msgstr "「%s」や「%s」のリストの下の部分に表示されます。"
 
-#######################################
-# SlideSetting
-#######################################
-
+# ######################################
+# Slide Setting
+# ######################################
 msgid "Slide　show　Setting"
 msgstr "スライドショーの設定"
 
-msgid "Please enter the URL of the image, such as that displayed when you want to set the slide show."
+msgid ""
+"Please enter the URL of the image, such as that displayed when you want to "
+"set the slide show."
 msgstr "スライドショーを設定する場合は表示する画像のURLなどを入力下さい。"
 
 msgid "The recommended size of the image is 950 × 250px."
@@ -994,17 +993,27 @@ msgstr "トップページのメインビジュアル"
 msgid "%s will be displayed if the slide show is not set."
 msgstr "スライドショーが設定されていない場合は %s が表示されます。"
 
-msgid "It can be only the URL of the image. However, the link is set in the image If you enter a link URL."
-msgstr "画像のURLだけでも構いませんがリンク先を入力すると画像クリックでリンクするようになります。"
+msgid ""
+"It can be only the URL of the image. However, the link is set in the image "
+"If you enter a link URL."
+msgstr ""
+"画像のURLだけでも構いませんがリンク先を入力すると画像クリックでリンクするよう"
+"になります。"
 
 msgid "Please enter a character the contents of the image alternate text."
 msgstr "代替テキストはその画像の内容を文字で入力して下さい。"
 
-msgid "It becomes easy to hit to search the direction as which it was entered by the contents. "
+msgid ""
+"It becomes easy to hit to search the direction as which it was entered by "
+"the contents. "
 msgstr "記入した方がその内容で検索にヒットしやすくなります。"
 
-msgid "Moreover, when a visually handicapped person peruses, a text-to-speech-reading browser reads out the character. "
-msgstr "また、目の不自由な人が閲覧した際には音声読み上げブラウザがその文字を読み上げます。"
+msgid ""
+"Moreover, when a visually handicapped person peruses, a text-to-speech-"
+"reading browser reads out the character. "
+msgstr ""
+"また、目の不自由な人が閲覧した際には音声読み上げブラウザがその文字を読み上げ"
+"ます。"
 
 msgid "Link URL"
 msgstr "リンク先URL"
@@ -1025,21 +1034,30 @@ msgstr "非表示にする"
 msgid "Open in a blank window"
 msgstr "別ウィンドウで開く"
 
-msgid "* If you visit in the environment in which the communications line is slow, because of the time or bought in the display, it is subject to deduction from search engine or withdrawal of the user, three or less is recommended."
-msgstr "* スライドショーは最大５枚まで設定出来ますが、通信回線が遅い環境で閲覧した場合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる為、３枚以内推奨です。"
+msgid ""
+"* If you visit in the environment in which the communications line is slow, "
+"because of the time or bought in the display, it is subject to deduction "
+"from search engine or withdrawal of the user, three or less is recommended."
+msgstr ""
+"* スライドショーは最大５枚まで設定出来ますが、通信回線が遅い環境で閲覧した場"
+"合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる"
+"為、３枚以内推奨です。"
 
-#######################################
+# ######################################
 # SNS
-#######################################
-
+# ######################################
 msgid "SNS cooperation"
 msgstr "SNS連携"
 
 msgid "There is no problem with setting later if you do not know well."
 msgstr "よくわからない場合は後で設定しても問題ありません。"
 
-msgid "Banner will be displayed if you enter a URL if you want to link to a personal account or facebook page."
-msgstr "facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力するとバナーが表示されます。"
+msgid ""
+"Banner will be displayed if you enter a URL if you want to link to a "
+"personal account or facebook page."
+msgstr ""
+"facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力すると"
+"バナーが表示されます。"
 
 msgid "facebook application ID"
 msgstr "facebookアプリケーションID"
@@ -1047,11 +1065,19 @@ msgstr "facebookアプリケーションID"
 msgid "I will check and get the application ID"
 msgstr "アプリケーションIDを確認・取得する"
 
-msgid "* If application ID is not inputted, neither a Like button nor the comment field displays and operates correctly."
-msgstr "* アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しません。"
+msgid ""
+"* If application ID is not inputted, neither a Like button nor the comment "
+"field displays and operates correctly."
+msgstr ""
+"* アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しませ"
+"ん。"
 
-msgid "Please search such as [facebook application ID acquisition] If you do not know much about how to get application ID of facebook."
-msgstr "facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook アプリケーションID 取得」などで検索して下さい。"
+msgid ""
+"Please search such as [facebook application ID acquisition] If you do not "
+"know much about how to get application ID of facebook."
+msgstr ""
+"facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook "
+"アプリケーションID 取得」などで検索して下さい。"
 
 msgid "facebook user ID (optional)"
 msgstr "facebookユーザーID （任意）"
@@ -1062,45 +1088,65 @@ msgstr "管理者のfacebookユーザーIDを入力して下さい。"
 msgid "* It is not the application ID of the facebook page."
 msgstr "* facebookページのアプリケーションIDではありません。"
 
-msgid "The personal ID of facebook, you can see when you access the http://graph.facebook.com/(own url name(example: hidekazu.ishikawa))."
-msgstr "facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hidekazu.ishikawa）★ にアクセスするとわかります。"
+msgid ""
+"The personal ID of facebook, you can see when you access the http://graph."
+"facebook.com/(own url name(example: hidekazu.ishikawa))."
+msgstr ""
+"facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hidekazu."
+"ishikawa）★ にアクセスするとわかります。"
 
-msgid "Please search such as [Finding facebook user ID] If you still do not know well."
-msgstr "それでもよくわからない場合は「facebook ユーザーID 調べ方」などで検索して下さい。"
+msgid ""
+"Please search such as [Finding facebook user ID] If you still do not know "
+"well."
+msgstr ""
+"それでもよくわからない場合は「facebook ユーザーID 調べ方」などで検索して下さ"
+"い。"
 
 # ---------------
 # twitter account
 # ---------------
-
 msgid "twitter account"
 msgstr "twitterアカウント"
 
-msgid "If you want to link to twitter, banner will be displayed if you enter the account name."
-msgstr "twitterにリンクする場合はアカウント名を入力するとバナーが表示されます。"
+msgid ""
+"If you want to link to twitter, banner will be displayed if you enter the "
+"account name."
+msgstr ""
+"twitterにリンクする場合はアカウント名を入力するとバナーが表示されます。"
 
-msgid "* If you want to use, such as widgets twitter, can be left blank, paste the source code by using the [text] from %s here."
-msgstr "* twitterのウィジェットなどを利用したい場合は、ここは空欄のままにして、%s より『テキスト』を利用してソースコードを貼り付けて下さい。"
+msgid ""
+"* If you want to use, such as widgets twitter, can be left blank, paste the "
+"source code by using the [text] from %s here."
+msgstr ""
+"* twitterのウィジェットなどを利用したい場合は、ここは空欄のままにして、%s よ"
+"り『テキスト』を利用してソースコードを貼り付けて下さい。"
 
 # ---------------
 # OGP
 # ---------------
-
 msgid "OGP default image"
 msgstr "デフォルトのOGPイメージ"
 
-msgid "If, for example, they pressed the button of facebook [Like], it is an image that appears in the timeline of facebook."
-msgstr "facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示される画像です。"
+msgid ""
+"If, for example, they pressed the button of facebook [Like], it is an image "
+"that appears in the timeline of facebook."
+msgstr ""
+"facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示"
+"される画像です。"
 
-msgid "If the eye-catching image is specified in the page, eye-catching image takes precedence."
+msgid ""
+"If the eye-catching image is specified in the page, eye-catching image takes "
+"precedence."
 msgstr "ページにアイキャッチ画像が指定されてる場合はそちらが優先されます。"
 
-msgid "* Picture sizes are 300x300 pixels or more and picture ratio 16:9 recommendation."
+msgid ""
+"* Picture sizes are 300x300 pixels or more and picture ratio 16:9 "
+"recommendation."
 msgstr "* 画像サイズは300×300ピクセル以上、画像比率16:9推奨。"
 
 # ---------------
 # Social buttons / facebook comment
 # ---------------
-
 msgid "Social buttons"
 msgstr "ソーシャルボタン"
 
@@ -1119,8 +1165,12 @@ msgctxt "sns display"
 msgid "single page"
 msgstr "投稿ページ"
 
-msgid "Also the type of page that checked, if there is a page you do not want to display, and enter by the delimiter , the ID of the page."
-msgstr "チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切りで入力して下さい。"
+msgid ""
+"Also the type of page that checked, if there is a page you do not want to "
+"display, and enter by the delimiter , the ID of the page."
+msgstr ""
+"チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切り"
+"で入力して下さい。"
 
 msgid "facebook comments box"
 msgstr "facebook コメント欄"
@@ -1131,12 +1181,15 @@ msgstr "facebookコメント欄を表示するページにはチェックを入�
 # ---------------
 # facebook LikeBox
 # ---------------
-
-msgid "If you are installing a facebook LikeBox, please check the installation place."
+msgid ""
+"If you are installing a facebook LikeBox, please check the installation "
+"place."
 msgstr "facebook LikeBox を設置する場合は設置個所にチェックを入れて下さい。"
 
 msgid "* Please be sure to set facebook application ID."
-msgstr "* facebook ページのアプリケーションIDも必ず設定してください。余白が出来るなど正しく表示されません。"
+msgstr ""
+"* facebook ページのアプリケーションIDも必ず設定してください。余白が出来るなど"
+"正しく表示されません。"
 
 msgid "URL of the facebook page."
 msgstr "facebookページのURL"
@@ -1153,12 +1206,15 @@ msgstr "LikeBoxの高さ"
 # ---------------
 # facebook LikeBox
 # ---------------
-
 msgid "Do not output the OGP"
 msgstr "OGPを出力しない"
 
-msgid "If the other plug-ins is outputting the OGP, Do not output the OGP of BizVektor."
-msgstr "他のプラグインがOGPを出力している場合はBizVektorのOGPを出力しないようにして下さい。"
+msgid ""
+"If the other plug-ins is outputting the OGP, Do not output the OGP of "
+"BizVektor."
+msgstr ""
+"他のプラグインがOGPを出力している場合はBizVektorのOGPを出力しないようにして下"
+"さい。"
 
 msgid "I want to output the OGP tags BizVektor"
 msgstr "BizVektorのOGPタグを出力する"

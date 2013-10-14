@@ -14,49 +14,41 @@ function biz_vektor_theme_options_render_page() { ?>
 		<?php } ?>
 		
 		<div id="main-content">
+		<p class="message_intro">
+	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
+	<?php _e('Thank you for using BizVektor.', 'biz-vektor');?> 
+	<?php printf(__('You can change basic design settings in %s', 'biz-vektor'),$customizer_link); ?> <br />
+	<?php _e('You can change other settings in this page.','biz-vektor'); ?>
+		</p>
 		<form method="post" action="options.php">
 			<?php
 				settings_fields( 'biz_vektor_options' );
 				$options = biz_vektor_get_theme_options();
 				$default_options = biz_vektor_get_default_theme_options();
 			?>
-<?php /*
-		<script language="JavaScript">
-		jQuery(document).ready(function(jQuery){
-			jQuery("#tabSection").easyResponsiveTabs({
-				type: 'default', //Types: default, vertical, accordion           
-				width: 'auto', //auto or any custom width
-				fit: true   // 100% fits in a container
-			});
-		});
-		</script>
-<div id="tabSection">
-<ul class="resp-tabs-list">
-<li>タブの名前</li>
-</ul> 
-<div class="resp-tabs-container">
-<div>aaaaaaaa</div>
-</div><!-- [ /.resp-tabs-container ] -->
-</div><!-- [ #tabSection ] -->
-*/ ?>
-
+<?php
+/*-------------------------------------------*/
+/*	Design setting
+/*-------------------------------------------*/
+?>
 <div id="design" class="sectionBox">
-<p class="message_intro"><?php echo _x('Thank you for using BizVektor.', 'biz-vektor theme-options-edit-l44', 'biz-vektor');?> <?php echo _x('You can change basic design setting in', 'biz-vektor theme-options-edit-l44', 'biz-vektor');?> <a href="<?php echo get_admin_url(); ?>customize.php"><?php echo _x('Theme customizer', 'biz-vektor theme-options-edit-l44', 'biz-vektor'); ?></a> <?php echo _x('.', 'biz-vektor theme-options-edit-l44', 'biz-vektor'); ?><br />
-	<?php echo _x('You can change other settings in this page.', 'biz-vektor theme-options-edit', 'biz-vektor'); ?></p>
 <?php get_template_part('inc/theme-options-nav'); ?>
-
-<h3><?php echo _x('Design settings', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
+<h3><?php _ex('Design settings', 'biz-vektor theme-options-edit', 'biz-vektor'); ?>
+	<span class="message_box">
+		<?php printf(__('This section is also able to change from %s', 'biz-vektor'), $customizer_link ); ?>
+	</span>
+</h3>
 	<table class="form-table">
 	<tr>
-	<th><?php echo __('Theme add-on', 'biz-vektor') ?></th>
+	<th><?php _e('Design skin', 'biz-vektor') ?></th>
 	<td>
 	<select name="biz_vektor_theme_options[theme_style]" id="<?php echo esc_attr( $options['theme_style'] ); ?>">
-	<option>[ <?php echo __('Select', 'biz-vektor') ?> ]</option>
+	<option>[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
-	// biz_vektor_theme_styles配列読み込み
+	// Read biz_vektor_theme_styles
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
-	// プルダウン項目生成
+	// Create pulldown item
 	foreach( $biz_vektor_theme_styles as $biz_vektor_theme_styleKey => $biz_vektor_theme_styleValues) {
 			if ( $biz_vektor_theme_styleKey == $options['theme_style'] ) {
 				print ('<option value="'.$biz_vektor_theme_styleKey.'" selected>'.$biz_vektor_theme_styleValues['label'].'</option>');
@@ -68,20 +60,26 @@ function biz_vektor_theme_options_render_page() { ?>
 	</select>
 	<?php
 	global $themePlusSettingNavi;
-	$themePlusSettingNavi = "<p>If you choose theme add-on, don't forget saving changes before checking out.</p>";
-	// 第一引数：フィルターフック名　／　第二引数：フィルターフックをかける変数名
+	$themePlusSettingNavi = '<p>'.__('* If there is a setting item of each design skin, after you save your changes, you can set from theme customizer.', 'biz-vektor').'</p>';
 	$themePlusSettingNavi = apply_filters( 'themePlusSettingNavi', $themePlusSettingNavi );
 	echo $themePlusSettingNavi;
 	?>
 	</td>
 	</tr>
+	<!-- Menu divide -->
 	<tr>
-	<th><?php echo _x('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th><?php _ex('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<select name="biz_vektor_theme_options[gMenuDivide]" id="<?php echo esc_attr( $options['gMenuDivide'] ); ?>">
-	<option>[ <?php echo __('Select', 'biz-vektor') ?> ]</option>
+	<option>[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
-	$biz_vektor_gMenuDivides = array('divide_natural' => _x('Depend on contents', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor'));
+	$biz_vektor_gMenuDivides = array(
+		'divide_natural' => _x('Not specified (left-justified)','biz-vektor theme-customizer', 'biz-vektor'),
+		'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),
+		'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),
+		'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),
+		'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor')
+	);
 	foreach( $biz_vektor_gMenuDivides as $biz_vektor_gMenuDivideKey => $biz_vektor_gMenuDivideValue) {
 		if ( $biz_vektor_gMenuDivideKey == $options['gMenuDivide'] ) {
 			print ('<option value="'.$biz_vektor_gMenuDivideKey.'" selected>'.$biz_vektor_gMenuDivideValue.'</option>');
@@ -91,22 +89,28 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
-	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">&raquo; <?php echo __('How to set up Menus', 'biz-vektor') ;?></a> ]
+	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<!-- Head logo -->
+	<tr>
+	<th scope="row"><?php _ex('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td><input type="text" name="biz_vektor_theme_options[head_logo]" id="head_logo" value="<?php echo esc_attr( $options['head_logo'] ); ?>" style="width:60%;" /> 
-	<button id="media_head_logo" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button><br />
-	<?php echo __('Recommended : less than 60px height', 'biz-vektor') ;?><br />
+	<button id="media_head_logo" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button><br />
+	<?php _e('Recommended : less than 60px height', 'biz-vektor') ;?><br />
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('Footer logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<!-- Footer logo -->
+	<tr>
+	<th scope="row"><?php _ex('Footer logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td><input type="text" name="biz_vektor_theme_options[foot_logo]" id="foot_logo" value="<?php echo esc_attr( $options['foot_logo'] ); ?>" style="width:60%;" /> 
-	<button id="media_foot_logo" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button><br />
-	<?php echo __('Recommended : 180-250px width', 'biz-vektor') ;?><br />
+	<button id="media_foot_logo" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button><br />
+	<?php _e('Recommended : 180-250px width', 'biz-vektor') ;?><br />
 	</td>
 	</tr>
-	<tr valign="top" class="image-radio-option theme-layout"><th scope="row"><?php echo _x('Layout', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<!-- theme-layout -->
+	<tr class="image-radio-option theme-layout">
+	<th scope="row"><?php _ex('Layout', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
 		foreach ( biz_vektor_layouts() as $layout ) {
@@ -124,14 +128,20 @@ function biz_vektor_theme_options_render_page() { ?>
 		}
 	?>
 	<br clear="all" />
-	<?php echo __('You can select 1-column from below: ', 'biz-vektor');?>
+	<?php _e('You can select 1-column from below: ', 'biz-vektor');?>
 	<ul>
-		<li><?php echo __('[Top page] ', 'biz-vektor');?><a href="#topPage"><?php echo __('Top page settings', 'biz-vektor');?></a><?php echo _x('. ', 'biz-vektor theme-options-edit-l128', 'biz-vektor');?></li>
-		<li><?php echo __('[page] Edot Page > Page Attributes > Template', 'biz-vektor') ;?></li>
+		<li>
+			<?php
+			$toppage_setting_link = '<a href="#topPage">'.__('Home page setting', 'biz-vektor').'</a>';
+			printf( __('[Top page] %s', 'biz-vektor'), $toppage_setting_link );?>
+		</li>
+		<li><?php _e('[page] Edit Page > Page Attributes > Template', 'biz-vektor') ;?></li>
 	</ul>
 	</td>
+	</tr>
+	<!-- Font of headings -->
 	<tr>
-	<th><?php echo _x('Font of headings', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th><?php _ex('Font of headings', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
 	$biz_vektor_font_titles = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
@@ -145,8 +155,9 @@ function biz_vektor_theme_options_render_page() { ?>
 	?>
 	<td>
 	</tr>
+	<!-- Font of Menus -->
 	<tr>
-	<th><?php echo _x('Font of Menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th><?php _ex('Font of Menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
 	$biz_vektor_font_menus = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
@@ -160,10 +171,11 @@ function biz_vektor_theme_options_render_page() { ?>
 	?>
 	<td>
 	</tr>
+	<!-- Sidebar Child page menu display -->
 	<tr>
-	<th><?php echo __('Deployment of the sidebar menu', 'biz-vektor') ;?></th>
+	<th><?php _e('Deployment of the sidebar menu', 'biz-vektor') ;?></th>
 	<td>
-		<p><?php echo __('If the site hierarchy is deep, you can choose to hide this menu hierarchy other than the fixed page you are currently viewing.', 'biz-vektor');?></p>
+		<p><?php _e('If the site hierarchy is deep, you can choose to hide this menu hierarchy other than the fixed page you are currently viewing.', 'biz-vektor');?></p>
 	<?php
 	$biz_vektor_side_childs = array('side_child_display' => __('Display', 'biz-vektor'),'side_child_hidden' => __('Hide', 'biz-vektor'),);
 	foreach( $biz_vektor_side_childs as $biz_vektor_side_childValue => $biz_vektor_side_childLavel) {
@@ -174,103 +186,122 @@ function biz_vektor_theme_options_render_page() { ?>
 		<?php }
 	}
 	?>
-	<p>* <?php echo __('It can not be set from the theme customizer.', 'biz-vektor') ;?></p>
+	<p>* <?php _e('It can not be set from the theme customizer.', 'biz-vektor') ;?></p>
 	<td>
 	</tr>
 	</table>
 	<?php submit_button(); ?>
-	</div>
-	<!-- [ /#design ] -->
-	<?php
-	/*-------------------------------------------*/
-	/*	連絡先の設定
-	/*-------------------------------------------*/
-	?>
-	<div id="contactInfo" class="sectionBox">
+</div>
+<!-- [ /#design ] -->
+
+<?php
+/*-------------------------------------------*/
+/*	Contact information
+/*-------------------------------------------*/
+?>
+<div id="contactInfo" class="sectionBox">
 	<?php get_template_part('inc/theme-options-nav'); ?>
-	<h3><?php echo _x('Contact settings', 'biz-vektor theme-customizer', 'biz-vektor') ;?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
+	<h3><?php _ex('Contact settings', 'biz-vektor theme-customizer', 'biz-vektor') ;?>
+		<span class="message_box">
+			<?php printf(__('This section is also able to change from %s', 'biz-vektor'), $customizer_link ); ?>
+		</span>
+	</h3>
 	<table class="form-table">
-	<tr valign="top"><th scope="row"><?php echo _x('Message', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<tr>
+	<th scope="row"><?php _ex('Message', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[contact_txt]" id="contact_txt" value="<?php echo esc_attr( $options['contact_txt'] ); ?>" style="width:50%;" /><br />
-	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo __('Please feel free to inquire.', 'biz-vektor') ;?></span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('Please feel free to inquire.', 'biz-vektor') ;?></span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('Phone number', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<tr>
+	<th scope="row"><?php _ex('Phone number', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[tel_number]" id="tel_number" value="<?php echo esc_attr( $options['tel_number'] ); ?>" style="width:50%;" /><br />
-	<span><?php echo __('ex) ', 'biz-vektor') ;?>000-000-0000</span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?>000-000-0000</span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<tr>
+	<th scope="row"><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[contact_time]" id="contact_time" value="" style="width:50%;" /><?php echo esc_attr( $options['contact_time'] ); ?></textarea><br />
-	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo _x('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9：00～18：00（<?php echo __('Weekdays except holidays', 'biz-vektor') ;?>）</span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9：00～18：00（<?php _e('Weekdays except holidays', 'biz-vektor') ;?>）</span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('Site / Company / Store / Service name. This is displayed in footer let bottom and footer copyright.', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br />
+	<tr>
+	<th scope="row"><?php _ex('Site / Company / Store / Service name. This is displayed in footer let bottom and footer copyright.', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br />
 	</th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
-	<span><?php echo __('ex) ', 'biz-vektor') ;?><?php echo __('BizVektor, Inc.', 'biz-vektor') ;?></span><br />
-	<?php echo __('* Use this feature when the site name has become longer for the SEO measures.', 'biz-vektor') ;?>
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('BizVektor, Inc.', 'biz-vektor') ;?></span><br />
+	<?php _e('* Use this feature when the site name has become longer for the SEO measures.', 'biz-vektor') ;?>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('Company address', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br /><?php echo __('This is displayed in footer let bottom and footer copyright.', 'biz-vektor') ;?></th>
+	<!-- Company address -->
+	<tr>
+	<th scope="row"><?php _ex('Company address', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br /><?php _e('This is displayed in footer let bottom and footer copyright.', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="5" name="biz_vektor_theme_options[contact_address]" id="contact_address" value="" style="width:50%;" /><?php echo $options['contact_address'] ?></textarea><br />
-		<span><?php echo __('ex) ', 'biz-vektor') ;?>
-		<?php echo __('316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br />Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176', 'biz-vektor') ;?>
+		<span><?php _e('ex) ', 'biz-vektor') ;?>
+		<?php _e('316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br />Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176', 'biz-vektor') ;?>
 		</span>
 	</td>
 	</tr>
-	<tr valign="top"><th scope="row"><?php echo _x('The URL of contact page', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<!-- he URL of contact page -->
+	<tr>
+	<th scope="row"><?php _ex('The URL of contact page', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
-	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" />
-	<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.********.co.jp/contact/ <?php echo __('or', 'biz-vektor') ;?> /******/</span><br />
-	<?php echo __('* If you fill in the blank, contact banner will be displayed in the sidebar.', 'biz-vektor') ;?><br />
-	<span class="alert"><?php echo __('If not, it does not appear.', 'biz-vektor') ;?></span>
+	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" /><br />
+	<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.********.co.jp/contact/ <?php _e('or', 'biz-vektor') ;?> /******/</span><br />
+	<?php _e('* If you fill in the blank, contact banner will be displayed in the sidebar.', 'biz-vektor') ;?><br />
+	<span class="alert"><?php _e('If not, it does not appear.', 'biz-vektor') ;?></span>
 	</td>
 	</tr>
 	</table>
 	<?php submit_button(); ?>
-	</div>
-	<!-- [ /#contactInfo ] -->
+</div>
+<!-- [ /#contactInfo ] -->
 
-	<?php
-	/*-------------------------------------------*/
-	/*	3PRエリア
-	/*-------------------------------------------*/
-	?>
-	<div id="prBox" class="sectionBox">
-	<?php get_template_part('inc/theme-options-nav'); ?>
-	<h3><?php echo __('3PR area settings', 'biz-vektor') ;?><span class="message_box"><?php echo _x('This section is also able to change from ', 'biz-vektor theme-options-edit', 'biz-vektor'); ?><a href="<?php echo get_admin_url(); ?>customize.php"><?php echo __('Theme customizer', 'biz-vektor'); ?></a><?php echo _x('.', 'biz-vektor theme-options-edit-l47', 'biz-vektor'); ?></span></h3>
-	<?php echo __('* 3PR area do not appear on the top page in the case of blank all.<br />* It is effective without the image.', 'biz-vektor') ;?><br /><span class="alert"><?php echo __('* You can register image for PC and for smartphone.', 'biz-vektor') ;?></span>
 <?php
-// PRエリア
-for ( $i = 1; $i <= 3 ;){ ?>
+/*-------------------------------------------*/
+/*	3PR area
+/*-------------------------------------------*/
+?>
+<div id="prBox" class="sectionBox">
+	<?php get_template_part('inc/theme-options-nav'); ?>
+	<h3><?php _e('3PR area settings', 'biz-vektor') ;?>
+		<span class="message_box">
+			<?php printf(__('This section is also able to change from %s', 'biz-vektor'), $customizer_link ); ?>
+		</span>
+	</h3>
+	<?php _e('* 3PR area do not appear on the top page in the case of blank all.', 'biz-vektor') ;?><br />
+	<?php _e('* It is effective without the image.', 'biz-vektor') ;?><br />
+	<span class="alert">
+		<?php _e('* You can register image for PC and for smartphone.', 'biz-vektor') ;?>
+	</span>
+<?php for ( $i = 1; $i <= 3 ;){ ?>
 
 <div class="prItem">
-<h5><?php echo __('PR area', 'biz-vektor') ?><?php echo $i; ?></h5>
+<h5><?php _e('PR area', 'biz-vektor') ?><?php echo $i; ?></h5>
 <dl>
-<dt><?php echo __('Title', 'biz-vektor') ;?></dt>
+<dt><?php _e('Title', 'biz-vektor') ;?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_title]" id="pr<?php echo $i; ?>_title" value="<?php echo esc_attr( $options['pr'.$i.'_title'] ); ?>" /></dd>
-<dt><?php echo __('Description', 'biz-vektor') ;?></dt>
+<dt><?php _e('Description', 'biz-vektor') ;?></dt>
 <dd><textarea cols="15" rows="3" name="biz_vektor_theme_options[pr<?php echo $i; ?>_description]" id="pr<?php echo $i; ?>_description" value=""><?php echo esc_attr( $options['pr'.$i.'_description'] ); ?></textarea></dd>
-<dt><?php echo __('URL', 'biz-vektor') ;?></dt>
+<dt><?php _e('URL', 'biz-vektor') ;?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_link]" id="pr<?php echo $i; ?>_link" value="<?php echo esc_attr( $options['pr'.$i.'_link'] ); ?>" /></dd>
-<dt><?php echo __('Image for PC', 'biz-vektor') ;?></dt>
+<dt><?php _e('Image for PC', 'biz-vektor') ;?></dt>
 <dd>
 <span class="mediaSet">
 <input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image]" class="media_text" id="pr<?php echo $i; ?>_image" value="<?php echo esc_attr( $options['pr'.$i.'_image'] ); ?>" /> 
-<button id="media_pr<?php echo $i; ?>_image" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button></span>
-<?php echo __('310px width is recommended.', 'biz-vektor') ;?></dd>
-<dt><?php echo __('Image for smartphone', 'biz-vektor') ;?></dt>
+<button id="media_pr<?php echo $i; ?>_image" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button></span>
+<?php _e('310px width is recommended.', 'biz-vektor') ;?></dd>
+<dt><?php _e('Image for smartphone', 'biz-vektor') ;?></dt>
 <dd>
 <span class="mediaSet">
 <input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image_s]" class="media_text" id="pr<?php echo $i; ?>_image_s" value="<?php echo esc_attr( $options['pr'.$i.'_image_s'] ); ?>" /> 
-<button id="media_pr<?php echo $i; ?>_image_s" class="media_btn"><?php echo __('Select image', 'biz-vektor') ;?></button></span>
-<?php echo __('120px by 120px is recommended.', 'biz-vektor') ;?></dd>
+<button id="media_pr<?php echo $i; ?>_image_s" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button></span>
+<?php _e('120px by 120px is recommended.', 'biz-vektor') ;?></dd>
 </dl>
 </div>
 
@@ -287,22 +318,28 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php echo _x('Settings of', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?> <?php echo esc_html( bizVektorOptions('infoLabelName')); ?> <?php echo _x('and', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?> <?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo _x('.', 'biz-vektor theme-options-edit-l294', 'biz-vektor') ;?></h3>
-*  <?php echo __('It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
-*  <?php echo __('If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
-　 <?php echo __('characters from the beginning of a sentence. Please activate', 'biz-vektor') ;?> <span class="alert"><?php echo __('&quot;WP Multibyte Patch&quot;', 'biz-vektor') ;?></span> <?php echo __('in order to display properly from', 'biz-vektor') ;?> <br />
+<h3>
+		<?php
+		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
+		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
+		printf( __('Settings of [ %s ] and [ %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
+		?>
+</h3>
+*  <?php _e('It does not appear if there is no post at all.', 'biz-vektor') ;?><br />
+*  <?php _e('If the excerpt field is filled, the content will appear in the &quot;excerpt&quot;. If not, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
+　 <?php _e('characters from the beginning of a sentence. Please activate', 'biz-vektor') ;?> <span class="alert"><?php _e('&quot;WP Multibyte Patch&quot;', 'biz-vektor') ;?></span> <?php _e('in order to display properly from', 'biz-vektor') ;?> <br />
 　 <a href="<?php echo get_admin_url(); ?>plugins.php" target="_blank">"Plugins" page</a> where you can change plugin settings.<br />
-*  <span class="alert"><?php echo __('Thumbnail image of the article', 'biz-vektor') ;?></span> <?php echo __('is displayed.', 'biz-vektor') ;?><br />
-　 <?php echo __('There is a registration widget of thumbnail image in the lower right corner of each article edit screen.', 'biz-vektor') ;?><br />
-　 <?php echo __('If you do not have a widget, please check the item of &quot;thumbnail&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
+*  <span class="alert"><?php _e('Thumbnail image of the article', 'biz-vektor') ;?></span> <?php _e('is displayed.', 'biz-vektor') ;?><br />
+　 <?php _e('There is a registration widget of thumbnail image in the lower right corner of each article edit screen.', 'biz-vektor') ;?><br />
+　 <?php _e('If you do not have a widget, please check the item of &quot;thumbnail&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
 <table class="form-table">
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('infoLabelName')); ?></th>
 	<td>
-		&raquo; <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
+		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
+	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php _e('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
 	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
@@ -315,7 +352,7 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php echo __('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
+	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('infoLabelName')); ?><?php _e('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
 	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
@@ -334,9 +371,9 @@ $i++;
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
 	<td>
-		&raquo; <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
+		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
+	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php _e('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
 	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
@@ -349,7 +386,7 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
+	<dt><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php _e('&quot on the archive page', 'biz-vektor theme-options-edit-l322', 'biz-vektor') ;?></dt>
 	<dd>
 	<?php
 	$biz_vektor_listTypes = array('listType_title' => __('title only', 'biz-vektor'),'listType_set' => __('With excerpt and thumbnail', 'biz-vektor'));
@@ -366,19 +403,15 @@ $i++;
 </td>
 </tr>
 <tr>
-<th><?php echo __('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php echo __('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></th>
-<td><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /><?php echo __('posts', 'biz-vektor theme-options-edit-l374', 'biz-vektor') ;?><br />
-<?php echo __('If you enter &quot0&quot, this section itself will disappear.', 'biz-vektor') ;?></td>
+<th><?php _e('Display layout of &quot;', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?><?php echo esc_html( bizVektorOptions('postLabelName')); ?><?php _e('&quot on the top page', 'biz-vektor theme-options-edit-l309', 'biz-vektor') ;?></th>
+<td><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /><?php _e('posts', 'biz-vektor theme-options-edit-l374', 'biz-vektor') ;?><br />
+<?php _e('If you enter &quot0&quot, this section itself will disappear.', 'biz-vektor') ;?></td>
 </tr>
 </table>
 <?php submit_button(); ?>
 
 </div>
 <!-- [ /#postSetting ] -->
-
-
-
-
 
 <?php
 /*-------------------------------------------*/
@@ -415,7 +448,7 @@ printf( __('However, evaluation of the search engines so bad number of character
 </td>
 </tr>
 <tr>
-<th><?php echo _x('Description', 'Description setting', 'biz-vektor'); ?></th>
+<th><?php _ex('Description', 'Description setting', 'biz-vektor'); ?></th>
 <td>
 <?php _e('What you have to fill in the edit page of each page in the "excerpt" field is reflected in the description of meta tags.', 'biz-vektor'); ?><br />
 <?php _e('In the search results screen of search sites such as Google, description for meta tags appears, for example, under the site title.', 'biz-vektor'); ?><br />
@@ -428,7 +461,7 @@ printf( __('However, evaluation of the search engines so bad number of character
 <th><?php _e('Google Analytics Setting', 'biz-vektor'); ?></th>
 <td><?php _e('Please fill in the ID of the Analytics When you embed tags GoogleAnalytics.', 'biz-vektor'); ?><br />
 <p>UA-<input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
-<?php echo __('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
+<?php _e('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
 
 	<dl>
 	<dt><?php _e('Please select the type of analysis to be output tag. (It does not matter if you skip if you do not know well.)', 'biz-vektor'); ?></dt>
@@ -463,7 +496,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 ?>
 <div id="topPage" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _x('Top page settings', 'biz-vektor') ;?></h3>
+<h3><?php _e('Home page setting', 'biz-vektor') ;?></h3>
 <table class="form-table">
 <tr>
 <th><?php _e('Main visual', 'biz-vektor') ;?></th>
@@ -520,11 +553,11 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <!-- RSS -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>（<?php _e('RSS information display setting', 'biz-vektor'); ?>） </th>
-	<td><span style="font-size:14px;font-weight:lighter;">&raquo; <?php echo __('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
+	<td><span style="font-size:14px;font-weight:lighter;">&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
 <p>
 	<?php _e('Enter the address of the RSS if you are using the RSS of related sites and external blog, then be posted on the home page of this site for updates.', 'biz-vektor'); ?><br />
 	<input type="text" name="biz_vektor_theme_options[blogRss]" id="blogRss" value="<?php echo esc_attr( $options['blogRss'] ); ?>" /><br />
-	<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span>
 </p>
 </td>
 </tr>
@@ -643,7 +676,7 @@ printf(__('* If you want to use, such as widgets twitter, can be left blank, pas
 <?php _e('If the eye-catching image is specified in the page, eye-catching image takes precedence.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /> 
 <button id="media_ogpImage" class="media_btn"><?php _e('Select a image', 'biz-vektor'); ?></button><br />
-<span><?php echo __('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
+<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
 <?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 recommendation.', 'biz-vektor'); ?>
 </td>
 </tr>
@@ -699,7 +732,7 @@ printf(__('* If you want to use, such as widgets twitter, can be left blank, pas
 <dl>
 <dt><?php _e('URL of the facebook page.', 'biz-vektor'); ?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" /><br />
-<span><?php echo __('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
+<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
 <dt><?php _e('Display of stream', 'biz-vektor'); ?></dt>
 <dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Display of face', 'biz-vektor'); ?></dt>

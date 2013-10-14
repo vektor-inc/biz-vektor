@@ -132,7 +132,12 @@ function bizvektor_customize_register($wp_customize) {
 				'priority' => 112,
 			));
 
-		$biz_vektor_gMenuDivides = array('divide_natural' => _x('Depend on contents', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor'));
+		$biz_vektor_gMenuDivides = array(
+			'divide_natural' => _x('Not specified (left-justified)', 'biz-vektor theme-customizer', 'biz-vektor'),
+			'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),
+			'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),
+			'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),
+			'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor'));
 		$wp_customize->add_control( 'gMenuDivide',array(
 			'label'     => _x('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',

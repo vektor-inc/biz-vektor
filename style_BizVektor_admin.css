@@ -36,7 +36,7 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 #biz_vektor_options .sectionBox { padding-top:6em; position: relative; }
 #biz_vektor_options #design.sectionBox { padding-top:6em; }
 
-.message_intro { position: absolute; top:0; padding: 1em; line-height: 170%; }
+.message_intro { position: absolute; top:6em;; padding: 1em; line-height: 170%; }
 
 .optionNav	{ display:block; overflow:hidden; }
 .optionNav ul { display:block; overflow:hidden;margin:0;padding:0 5px; }
