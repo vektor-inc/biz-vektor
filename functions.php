@@ -164,7 +164,7 @@ register_default_headers( array(
 	),
 ) );
 add_theme_support( 'custom-header' );
-if ( ! function_exists( 'admin_header_style' ) ) ://wp_headで<head>にCSSを追加。無いとエラーが出るので削除不可
+if ( ! function_exists( 'admin_header_style' ) ) :
 function admin_header_style() { }
 endif;
 
@@ -315,7 +315,7 @@ function remove_default_page_screen_metaboxes() {
 	remove_meta_box( 'trackbacksdiv','page','normal' );		// trackback
 //	remove_meta_box( 'authordiv','page','normal' );			// author
 //	remove_meta_box( 'slugdiv','page','normal' );			// slug
-//	remove_meta_box( 'revisionsdiv','page','normal' );		// リビジョン
+//	remove_meta_box( 'revisionsdiv','page','normal' );		// revision
  }
 add_action('admin_menu','remove_default_page_screen_metaboxes');
 
@@ -464,7 +464,7 @@ remove_action('wp_head', 'wp_generator');
 //	Remove prev,next
 remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
-//　Add Google Web Fonts
+// Add Google Web Fonts
 add_action('wp_head','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
 	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
@@ -472,7 +472,7 @@ function bizVektorAddWebFonts(){
 	echo $webFonts;
 }
 
-//　Add BizVektor option css
+// Add BizVektor option css
 add_action('wp_head','bizVektorAddOptionStyle');
 function bizVektorAddOptionStyle(){
 	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/style_bizvektor_options.css" type="text/css" media="all" />'."\n";
@@ -480,7 +480,7 @@ function bizVektorAddOptionStyle(){
 	echo $optionStyle;
 }
 
-//　Add BizVektor SNS module style
+// Add BizVektor SNS module style
 add_action('wp_head','bizVektorAddSnsStyle');
 function bizVektorAddSnsStyle(){
 	$snsStyle = '<link rel="stylesheet" id="bizvektor-sns-css"  href="'.get_template_directory_uri().'/css/style_bizvektor_sns.css" type="text/css" media="all" />'."\n";
@@ -488,7 +488,7 @@ function bizVektorAddSnsStyle(){
 	echo $snsStyle;
 }
 
-//　add pingback
+// add pingback
 add_action('wp_head','bizVektorAddPingback');
 function bizVektorAddPingback(){
 	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
@@ -617,7 +617,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 
 		<div class="comment-body"><?php comment_text(); ?></div>
 		<div class="linkBtn linkBtnS">
-		<?php comment_reply_link( array_merge( $args, array( 'reply_text' => '返信', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('Reply', 'biz-vektor'), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div><!-- .reply -->
 	</div><!-- #comment-##  -->
 

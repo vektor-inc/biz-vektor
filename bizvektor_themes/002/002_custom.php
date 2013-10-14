@@ -1,28 +1,24 @@
 <?php
 
 /*-------------------------------------------*/
-/*	今適応されているテーマがcalmlyかどうかの判定
+/*	Judge calmly
 /*-------------------------------------------*/
 /*
 /*-------------------------------------------*/
-/*	functionsで毎回呼び出して$optionsに入れる処理を他でする。
+/*	Get 'calmly' options
 /*-------------------------------------------*/
-/*	変数設定
+/*	Variable settings
 /*-------------------------------------------*/
-/*	テーマカスタマイザーの設定
+/*	Setting customizer
 /*-------------------------------------------*/
-/*	管理画面_拡張設定メニューを追加
+/*	Admin page _ Add link bottom of pulldown
 /*-------------------------------------------*/
-/*	管理画面_拡張設定画面
-/*-------------------------------------------*/
-/*	管理画面_テーマオプション_デザインプルダウンの下に設定へのリンクを追加
-/*-------------------------------------------*/
-/*	head出力
+/*	Print head
 /*-------------------------------------------*/
 
 
 /*-------------------------------------------*/
-/*	今適応されているテーマがcalmlyかどうかの判定
+/*	Judge calmly
 /*-------------------------------------------*/
 function is_calmly(){
 	if (function_exists('biz_vektor_theme_styleSetting')) {
@@ -54,18 +50,17 @@ function biz_vektor_theme_options_calmly_init() {
 		}
 }
 /*-------------------------------------------*/
-/*	functionsで毎回呼び出して$optionsに入れる処理を他でする。
+/*	Get 'calmly' options
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options_calmly() {
 	return get_option( 'biz_vektor_theme_options_calmly' );
 }
 
 /*-------------------------------------------*/
-/*	変数設定
+/*	Variable settings
 /*-------------------------------------------*/
 function biz_vektor_theme_options_calmly_validate( $input ) {
 	$output = $defaults;
-	// 拡張テーマキーカラー
 	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
 	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
 	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
@@ -74,21 +69,21 @@ function biz_vektor_theme_options_calmly_validate( $input ) {
 }
 
 /*-------------------------------------------*/
-/*	テーマカスタマイザーの設定
+/*	Setting customizer
 /*-------------------------------------------*/
 add_action( 'customize_register', 'bizvektor_calmly_customize_register' );
 function bizvektor_calmly_customize_register($wp_customize) {
 	if (is_calmly()){
-    // セクションを追加
+    // Add section
     $wp_customize->add_section( 'biz_vektor_calmly', array(
-        'title'          => 'Calmlyカラー設定',
+        'title'          => __('', 'biz-vektor'),
         'priority'       => 1000,
     ) );
-	 // セクションの動作設定
+
 	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-	// セクションのUIを作成する
+	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
-		'label'    => 'キーカラー',
+		'label'    => _x('Keycolor', 'Calmly color setting', 'biz-vektor'),
 		'section'  => 'biz_vektor_calmly',
 		'settings' => 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',
 	)));
@@ -96,21 +91,20 @@ function bizvektor_calmly_customize_register($wp_customize) {
 }
 
 /*-------------------------------------------*/
-/*	管理画面_テーマオプション_デザインプルダウンの下に設定へのリンクを追加
+/*	Admin page _ Add link bottom of pulldown
 /*-------------------------------------------*/
-// 第一引数：フィルターフック名　／　第二引数：実行関数名
 add_filter('themePlusSettingNavi','themePlusSettingNaviCalmly');
 function themePlusSettingNaviCalmly(){
 	global $themePlusSettingNavi;
 	if (is_calmly()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php" target="_blank">→ テーマカスタマイザーで色を設定する</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&rquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }
 
 
 /*-------------------------------------------*/
-/*	head出力
+/*	Print head
 /*-------------------------------------------*/
 add_action( 'wp_head','calmlyWpHead');
 function calmlyWpHead(){

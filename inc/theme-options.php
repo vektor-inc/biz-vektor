@@ -1,58 +1,60 @@
 <?php
 /*-------------------------------------------*/
-/*	title 生成
+/*	Create title
 /*-------------------------------------------*/
-/*	レイアウト
+/*	layout
 /*-------------------------------------------*/
-/*	bodyタグにレイアウトのクラス追加
+/*	Add layout class to body tag
 /*-------------------------------------------*/
-/*	bodyタグにトップページでサイドバー非表示に設定されていた場合のクラス制御追加
+/*	Add to the body tag class to turn off the side bar
 /*-------------------------------------------*/
-/*	テーマオプション入力画面
+/*	Theme option edit
 /*-------------------------------------------*/
-/*	テーマスタイル
+/*	Theme style
 /*-------------------------------------------*/
-/*	メニューボタンの数
+/*	Menu divide
 /*-------------------------------------------*/
-/*	ヘッダーロゴ
+/*	Header logo
 /*-------------------------------------------*/
-/*	ヘッダー電話番号・受付時間
+/*	Header contact info (TEL & Time)
 /*-------------------------------------------*/
 /*	お問い合わせページURL出力　0.6以降不使用のはず
 /*-------------------------------------------*/
-/*	facebook twitter バナー出力
+/*	facebook twitter banner
 /*-------------------------------------------*/
-/*	トップページ_blogList（RSS）
+/*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
-/*	トップページ_下部フリーエリア
+/*	Home page _ bottom free area
 /*-------------------------------------------*/
-/*	OGP追加
+/*	Add OGP
 /*-------------------------------------------*/
-/*	中ページ下部問い合わせエリア
+/*	mainfoot _ contact
 /*-------------------------------------------*/
 /*	snsBtns
 /*-------------------------------------------*/
-/*	snsBtns 表示ページ設定
+/*	snsBtns _ display page
 /*-------------------------------------------*/
-/*	facebookコメント欄表示ページ設定
+/*	facebook comment display page
 /*-------------------------------------------*/
 /*	facebookLikeBox
 /*-------------------------------------------*/
-/*	facebookアプリケーションID（faceboo関連パーツを使用する為にbody直下に書くタグに出力）
+/*	Print facebook Application ID 
 /*-------------------------------------------*/
-/*	キーワード生成
+/*	Create keywords
 /*-------------------------------------------*/
 /*	GoogleAnalytics
 /*-------------------------------------------*/
-/*	フッター
+/*	footer
 /*-------------------------------------------*/
-/*	スライドショー
+/*	slide show
 /*-------------------------------------------*/
-/*	optionの値を単純に引っ張る
+/*	Print option
 /*-------------------------------------------*/
-/*	optionの値のデフォルトの値を設定
+/*	Set option default
 /*-------------------------------------------*/
-/*	theme_optionsページでのみ使うjsを読み込む
+/*	Print theme_options js
+/*-------------------------------------------*/
+/*	Side menu hidden
 /*-------------------------------------------*/
 
 function biz_vektor_theme_options_init() {
@@ -93,7 +95,7 @@ add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 
 /*-------------------------------------------*/
-/*	title 生成
+/*	Create title
 /*-------------------------------------------*/
 function getHeadTitle() {
 	$options = biz_vektor_get_theme_options();
@@ -176,7 +178,7 @@ function getHeadTitle() {
     echo $headTitle;
 }
 /*-------------------------------------------*/
-/*	レイアウト
+/*	layout
 /*-------------------------------------------*/
 function biz_vektor_layouts() {
 	$layout_options = array(
@@ -205,7 +207,7 @@ function biz_vektor_get_theme_options() {
 }
 
 /*-------------------------------------------*/
-/*	bodyタグにレイアウトのクラス追加
+/*	Add layout class to body tag
 /*-------------------------------------------*/
 
 function biz_vektor_layout_classes( $existing_classes ) {
@@ -229,36 +231,34 @@ function biz_vektor_layout_classes( $existing_classes ) {
 add_filter( 'body_class', 'biz_vektor_layout_classes' );
 
 /*-------------------------------------------*/
-/*	bodyタグにトップページでサイドバー非表示に設定されていた場合のクラス制御追加
+/*	Add to the body tag class to turn off the side bar
 /*-------------------------------------------*/
-function biz_vektor_topSideBarDisplay( $existing_classes ) {	// $existing_classesは既に存在するbodyのclass
-	// トップページでのみ実行
+function biz_vektor_topSideBarDisplay( $existing_classes ) {
 	if (is_front_page()){
 		$options = biz_vektor_get_theme_options();
 		if ($options['topSideBarDisplay'] ){
 			$classes[] = 'one-column';
-			// 既に存在するbodyの配列から指定の配列名を削除
+			// remove layout class
 			$existing_classes = array_diff( $existing_classes , array('right-sidebar','left-sidebar','two-column') );
-			// 既に存在したclass($existing_classes)と今回追加したclass($classes)をマージ
+			// merge 'one-column'
 			$existing_classes = array_merge( $existing_classes, $classes );
 		}
 	}
-	// bodyのclassを返す
 	return $existing_classes;
 }
 add_filter( 'biz_vektor_layout_classes', 'biz_vektor_topSideBarDisplay' );
 
 /*-------------------------------------------*/
-/*	テーマオプション入力画面
+/*	Theme option edit
 /*-------------------------------------------*/
 
 get_template_part('inc/theme-options-edit');
 
 /*-------------------------------------------*/
-/*	テーマスタイル
+/*	Theme style
 /*-------------------------------------------*/
 
-//	[1] テーマ配列読み込み
+//	[1] Set theme style array
 function biz_vektor_theme_styleSetting() {
 	global $biz_vektor_theme_styles;
 	$biz_vektor_theme_styles = array(
@@ -278,37 +278,28 @@ function biz_vektor_theme_styleSetting() {
 			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldie.css',
 			),
 	);
-	// [2] プラグインからフィルターフックで拡張テーマの配列情報を受け取る
+	// [2] Receive 'theme style array' from the plug-in
 	$biz_vektor_theme_styles = apply_filters( 'biz_vektor_themePlus', $biz_vektor_theme_styles );
 }
-/* [3]	管理画面のデザイン選択プルダウンで$biz_vektor_theme_stylesを読み込み。
-		第一引数を valueとして $options[theme_style] に格納
-		第一引数の配列のlavel $biz_vektor_theme_styleValues['label'] をプルダウン項目として表示。*/
 
-// [4] ヘッダーにスタイルを書き出す
+// [4] Print theme style css
 function biz_vektor_theme_style() {
-	// DBに入っている配列を読み込み
 	$options = biz_vektor_get_theme_options();
-
-	// biz_vektor_theme_styles配列読み込み
+	// Set bbiz_vektor_theme_styles
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
-
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 
-	// 空の場合（テーマ選択されていない場合）デフォルトの値を設定
 	if (!$themePath) {
 		$themePath = get_template_directory_uri().'/bizvektor_themes/002/002.css';
 	}
-	// 基本スタイルのCSSを出力
-	wp_enqueue_style( 'theme', $themePath , false, '2013-01-31');
+
+	wp_enqueue_style( 'theme', $themePath , false, '2013-10-14');
 }
 
-// ▼レスポンシブに非対応なIE８以前用
+// fuck IE
 function biz_vektor_theme_styleOldIe(){
-	// DBに入っている配列を読み込み
 	$options = biz_vektor_get_theme_options();
-	// biz_vektor_theme_styles配列から旧IE用のバスを読み込んで$themePathOldIeに格納
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
 	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
@@ -316,10 +307,10 @@ function biz_vektor_theme_styleOldIe(){
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
 
-	// 空の場合（テーマ選択されていない場合）デフォルトの値を設定
+	// empty case
 	if (!$themePath && !$themePathOldIe)
 	$themePathOldIe = get_template_directory_uri().'/bizvektor_themes/002/002_oldie.css';
-	// $themePathOldIeを意図的に空にする場合はあり得る為、空かどうかの条件分岐は必要
+	// Necessary
 	if ($themePathOldIe){
 		print '<!--[if lte IE 8]>'."\n";
 		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
@@ -328,13 +319,13 @@ function biz_vektor_theme_styleOldIe(){
 }
 
 /*-------------------------------------------*/
-/*	メニューボタンの数
+/*	Menu divide
 /*-------------------------------------------*/
 function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
-	// メニューボタンが未設定の場合
+	// No select
 	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
-	//　それ以外
+	//　other
 	} else {
 		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/g_menu_'.$options['gMenuDivide'].'.css" />'."\n";
 		print '<!--[if lte IE 8]>'."\n";
@@ -343,7 +334,7 @@ function biz_vektor_gMenuDivide() {
 	}
 }
 /*-------------------------------------------*/
-/*	ヘッダーロゴ
+/*	Header logo
 /*-------------------------------------------*/
 function biz_vektor_print_headLogo() {
 	$options = biz_vektor_get_theme_options();
@@ -355,39 +346,39 @@ function biz_vektor_print_headLogo() {
 	}
 }
 /*-------------------------------------------*/
-/*	ヘッダー電話番号・受付時間
+/*	Header contact info (TEL & Time)
 /*-------------------------------------------*/
 function biz_vektor_print_headContact() {
 	$options = biz_vektor_get_theme_options();
 	$contact_txt = $options['contact_txt'];
 	$contact_time = nl2br($options['contact_time']);
 	if ($options['tel_number']) {
-		// 電話番号の入力がある場合
+		// tel_number
 		$headContact = '<div id="headContact" class="itemClose" onclick="showHide(\'headContact\');"><div id="headContactInner">'."\n";
 			if ($contact_txt) {
-				// お問い合わせメッセージの入力がある場合
+				// contact_txt
 				$headContact .= '<div id="headContactTxt">'.$contact_txt.'</div>'."\n";
 			}
-			// モバイル端末の場合
+			// mobile
 			if ( function_exists('wp_is_mobile') && wp_is_mobile() ) {
 				$headContact .= '<div id="headContactTel">TEL <a href="tel:'.$options['tel_number'].'">'.$options['tel_number'].'</a></div>'."\n";
-			// モバイルじゃない場合
+			// not mobile
 			} else {
 				$headContact .= '<div id="headContactTel">TEL '.$options['tel_number'].'</div>'."\n";
 			}
 			if ($contact_time) {
-				// お問い合わせ時間の入力がある場合
+				// contact_time
 				$headContact .= '<div id="headContactTime">'.$contact_time.'</div>'."\n";
 			}
 		$headContact .=	'</div></div>';
 	}
-	// $headContact にフィルターフックを設定
+	// set filter to $headContact
 	$headContact = apply_filters( 'headContactCustom', $headContact );
 	echo $headContact;
 }
 
 /*-------------------------------------------*/
-/*	facebook twitter バナー出力
+/*	facebook twitter banner
 /*-------------------------------------------*/
 function biz_vektor_snsBnrs() {
 	$options = biz_vektor_get_theme_options();
@@ -406,7 +397,7 @@ function biz_vektor_snsBnrs() {
 }
 
 /*-------------------------------------------*/
-/*	トップページ_blogList（RSS）
+/*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
 function biz_vektor_blogList()	{
 	$options = biz_vektor_get_theme_options();
@@ -423,9 +414,9 @@ function biz_vektor_blogList()	{
 		if ($xml->channel->item){
 			// WordPress ／　ameblo
 			foreach($xml->channel->item as $entry){
-			// アメブロの広告対策
-			$entryTitJudge = mb_substr( $entry->title, 0, 3 );	// 先頭3文字でトリム
-			if (!($entryTitJudge == 'PR:')) { 					// 先頭3文字がPR:でない記事のみ表示
+			// fot ameblo PR
+			$entryTitJudge = mb_substr( $entry->title, 0, 3 );	// trim 3 charactors
+			if (!($entryTitJudge == 'PR:')) { 					// Display to only not 'PR:
 				 $entrydate = date ( "Y.m.d",strtotime ( $entry->pubDate ) );
 				 echo '<li><span class="infoDate">'.$entrydate.'</span>';
 				 echo '<span class="infoTxt"><a href="'.$entry->link.'" target="_blank">'.$entry->title.'</a></span></li>';
@@ -444,7 +435,7 @@ function biz_vektor_blogList()	{
 			 if ($count > 4){break;}
 			}
 		} else {
-			// ライブドア
+			// livedoor
 			foreach($xml->entry as $entry){
 				 $entrydate = substr(( $entry->modified ),0,10);
 				 $entrydate = str_replace("-", ".", $entrydate);
@@ -461,7 +452,7 @@ function biz_vektor_blogList()	{
 	}
 }
 /*-------------------------------------------*/
-/*	トップページ_下部フリーエリア
+/*	Home page _ bottom free area
 /*-------------------------------------------*/
 
 function biz_vektor_topContentsBottom()	{
@@ -483,7 +474,7 @@ function biz_vektor_topContentsBottom()	{
 
 
 /*-------------------------------------------*/
-/*	OGP追加
+/*	Add OGP
 /*-------------------------------------------*/
 function biz_vektor_ogp () {
 	$options = biz_vektor_get_theme_options();
@@ -503,7 +494,6 @@ function biz_vektor_ogp () {
 	if ($options['fbAppId']){
 		$bizVektorOGP = $bizVektorOGP.'<meta property="fb:app_id" content="'.$options['fbAppId'].'" />'."\n";
 	}
-	// ▼ トップページ
 	if (is_front_page() || is_home()) {
 		$bizVektorOGP .= '<meta property="og:type" content="website" />'."\n";
 		if ($options['ogpImage']){
@@ -511,13 +501,11 @@ function biz_vektor_ogp () {
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_bloginfo('name').'" />'."\n";
 		$bizVektorOGP .= '<meta property="og:description" content="'.get_bloginfo('description').'" />'."\n";
-	// ▼ カテゴリー＆アーカイブ
 	} else if (is_category() || is_archive()) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
 		if ($options['ogpImage']){
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
-	// ▼ 固定ページ・投稿ページの場合
 	} else if (is_page() || is_single()) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
 		// image
@@ -533,31 +521,28 @@ function biz_vektor_ogp () {
 		if ($metaExcerpt) {
 			$metadescription = $post->post_excerpt;
 		} else {
-			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // タグを無効化して240文字でトリム
-			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // 改行コード削除
+			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); 
+			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_the_title().' | '.get_bloginfo('name').'" />'."\n";
 		$bizVektorOGP .= '<meta property="og:description" content="'.$metadescription.'" />'."\n";
-	// 固定ページ・投稿ページ以外
 	} else {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
 		if ($options['ogpImage']){
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
 	}
-	// $bizVektorOGP にフィルターフックを設定
 	if ( $options['ogpTagDisplay'] == 'ogp_off' ) {
 		$bizVektorOGP = '';
 	}
 	$bizVektorOGP = apply_filters('bizVektorOGPCustom', $bizVektorOGP );
 	echo $bizVektorOGP;
-	//echo '<meta property="og:locale" content="ja_JP" />'."\n";
 }
 
 
 
 /*-------------------------------------------*/
-/*	中ページ下部問い合わせエリア
+/*	mainfoot _ contact
 /*-------------------------------------------*/
 function biz_vektor_mainfootContact() {
 	$options = biz_vektor_get_theme_options();
@@ -567,10 +552,10 @@ function biz_vektor_mainfootContact() {
 			print '<span class="mainFootCatch">'.$contact_txt.'</span>'."\n";
 		}
 	if ($options['tel_number']) {
-		// モバイル端末の場合
+		// mobile
 		if ( function_exists('wp_is_mobile') && wp_is_mobile() ) {
 			echo '<span class="mainFootTel">TEL <a href="tel:'.$options['tel_number'].'">'.$options['tel_number'].'</a></span>'."\n";
-		// モバイルじゃない場合
+		// not mobile
 		} else {
 			echo '<span class="mainFootTel">TEL '.$options['tel_number'].'</span>'."\n";
 		}
@@ -587,13 +572,9 @@ function twitterID() {
 	$options = biz_vektor_get_theme_options();
 	return $options['twitter'];
 }
-function mixiKey() {
-	$options = biz_vektor_get_theme_options();
-	return $options['mixiKey'];
-}
 
 /*-------------------------------------------*/
-/*	snsBtns 表示ページ設定
+/*	snsBtns _ display page
 /*-------------------------------------------*/
 function biz_vektor_snsBtns() {
 	$options = biz_vektor_get_theme_options();
@@ -604,19 +585,15 @@ function biz_vektor_snsBtns() {
 	$snsBtnsHidden = $options['snsBtnsHidden'];
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	$snsHiddenFlag = false	;
-	// $snsBtnsHidden を , で分割して $snsHiddens に配列として格納
+	$snsHiddenFlag = false;
+	// $snsBtnsHidden divide "," and insert to $snsHiddens by array
 	$snsHiddens = spliti(",",$snsBtnsHidden);
-	// $snsHiddenに値を順番に入れて実行
 	foreach( $snsHiddens as $snsHidden ){
-		// 現在のIDと配列の数字が同じだった場合
 		if (get_the_ID() == $snsHidden) {
-			// $snsHiddenFlagフラグ立てる
 			$snsHiddenFlag = true ;
 		}
 	}
 	wp_reset_query();
-	// フラグが立ってなかったら実行
 	if (!$snsHiddenFlag) {
 		if (
 			( is_front_page() && $snsBtnsFront ) ||
@@ -630,25 +607,21 @@ function biz_vektor_snsBtns() {
 }
 
 /*-------------------------------------------*/
-/*	facebookコメント欄表示ページ設定
+/*	facebook comment display page
 /*-------------------------------------------*/
 function biz_vektor_fbComments() {
 	$options = biz_vektor_get_theme_options();
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	$fbCommentHiddenFlag = false ;
-	// $snsBtnsHidden を , で分割して $snsHiddens に配列として格納
+	// is stored as an array to $snsHiddens to split with "," $snsBtnsHidden
 	$fbCommentHiddens = spliti(",",$options['fbCommentsHidden']);
-	// $snsHiddenに値を順番に入れて実行
 	foreach( $fbCommentHiddens as $fbCommentHidden ){
-		// 現在のIDと配列の数字が同じだった場合
 		if (get_the_ID() == $fbCommentHidden) {
-			// $snsHiddenFlagフラグ立てる
 			$fbCommentHiddenFlag = true ;
 		}
 	}
 	wp_reset_query();
-	// フラグが立ってなかったら実行
 	if (!$fbCommentHiddenFlag) {
 		if (
 			( is_front_page() && $options['fbCommentsFront'] ) || 
@@ -705,11 +678,9 @@ jQuery(document).ready(function(){
 jQuery(window).resize(function(){
 	likeBoxReSize();
 });
-// 読み込み時／ウィンドウリサイズ時の処理
+// When load page / window resize
 function likeBoxReSize(){
-	// 親要素の幅を取得して element に格納
 	var element = jQuery('.fb-like-box').parent().width();
-	// Likebox関連の要素のwidthを置換
 	jQuery('.fb-like-box').attr('data-width',element);
 	jQuery('.fb-like-box').children('span:first').css({"width":element});
 	jQuery('.fb-like-box span iframe.fb_ltr').css({"width":element});
@@ -720,7 +691,7 @@ function likeBoxReSize(){
 
 
 /*-------------------------------------------*/
-/*	facebookアプリケーションID（faceboo関連パーツを使用する為にbody直下に書くタグに出力）
+/*	Print facebook Application ID 
 /*-------------------------------------------*/
 function biz_vektor_fbAppId () {
 	$options = biz_vektor_get_theme_options();
@@ -729,20 +700,20 @@ function biz_vektor_fbAppId () {
 }
 
 /*-------------------------------------------*/
-/*	キーワード生成
+/*	Create keywords
 /*-------------------------------------------*/
 function biz_vektor_getHeadKeywords(){
 	$options = biz_vektor_get_theme_options();
 	$commonKeyWords = $options['commonKeyWords'];
-	// カスタムフィールドの値を取得
+	// get custom field
 	$entryKeyWords = post_custom('metaKeyword');
-	// 共通キーワード表示
+	// display common keywords
 	echo $commonKeyWords;
-	// 共通キーワードと個別キーワードが両方設定されている場合接続の , を出力
+	// If common and individual keywords exist, print ','.
 	if ($commonKeyWords && $entryKeyWords) {
 		echo ',';
 	}
-	// 個別キーワード出力
+	// print individual keywords
 	echo $entryKeyWords;
 }
 
@@ -754,7 +725,7 @@ function biz_vektor_googleAnalytics(){
 	$gaID = $options['gaID'];
 	$gaType = $options['gaType'];
 	if ($gaID) {
-		// 未選択 or 通常 or 両方 出力設定の場合
+
 		if ((!$gaType) || ($gaType == 'gaType_normal') || ($gaType == 'gaType_both')){ ?>
 <script type="text/javascript">
 
@@ -789,18 +760,16 @@ ga('send', 'pageview');
 }
 
 /*-------------------------------------------*/
-/*	フッター
+/*	footer
 /*-------------------------------------------*/
 
 function biz_vektor_footerSiteName() 		{
 	$options = biz_vektor_get_theme_options();
-	// サブのサイトタイトルが登録されている場合
 	if ($options['sub_sitename']) {
 		$footSiteName = nl2br($options['sub_sitename']);
 	} else {
 		$footSiteName = get_bloginfo( 'name' );
 	}
-	// フッターロゴが登録されている場合
 	if ($options['foot_logo']) {
 		print '<img src="'.$options['foot_logo'].'" alt="'.$footSiteName.'" />';
 	} else {
@@ -825,27 +794,15 @@ function biz_vektor_footerCopyRight() 		{
 	}
 	print '</a> All Rights Reserved.</div>';
 
-	/**************************************************************
-	/* 利用規約上は表示を強制していませんが、差し支えなければなるべく消さないで下さい。
-	/* ブログなどで削除方法を紹介する事はごなるべく遠慮下さい。
-	/**************************************************************
-	BizVektorは拡張テーマの有料販売を行なっておりますが、開発コストに対する収益としては激しく赤字です。
-	フッターの著作権非表示プラグインの販売も極めて重要な開発費用です。
-	ご自身で削除されるのはかまいませんが、ブログなどで紹介する事はごなるべく遠慮下さい。
-	あまり赤字が激しいと会社としてBizVektor本体の無料配布を継続する事が困難になります。
-	「BizVektor本体の機能を大幅に制限して、全ての機能は有料プラグインで～」
-	というような形にはしたくありません。何卒ご理解とご協力の程宜しく願いいたします。	
-	*/
-	// id名は個別カスタマイズしてしまっている案件がある為変更不可
+	// **** Don't change id name!
 	$footerPowerd = '<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizVektor.com" target="_blank" title="'.__('Free WordPress Theme BizVektor for business', 'biz-vektor').'">BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="'.__('Vektor,Inc.', 'biz-vektor').'">Vektor,Inc.</a> technology.</div>';
-	// フィルターフック設定
-	// ※変数名・フィルター名は既にプラグインが販売されているので変更不可
+	// **** Dont change filter name! Oh I already know 'Powerd' id miss spell !!!!!
 	$footerPowerd = apply_filters( 'footerPowerdCustom', $footerPowerd );
 	echo $footerPowerd;
 }
 
 /*-------------------------------------------*/
-/*	スライドショー
+/*	slide show
 /*-------------------------------------------*/
 function biz_vektor_slideExist () {
 	$options = biz_vektor_get_theme_options();
@@ -886,11 +843,11 @@ function biz_vektor_slideBody(){
 }
 
 /*-------------------------------------------*/
-/*	optionの値を単純に引っ張る
+/*	Print option
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_vektor_get_theme_options();
-	if ($options[$optionLabel] !='' ) { // !=''が無いと0でもデフォルトが適用されてしまう
+	if ($options[$optionLabel] !='' ) { // If !='' that 0 true
 		return $options[$optionLabel];
 	} else {
 		bizVektorOptions_default();
@@ -899,7 +856,7 @@ function bizVektorOptions($optionLabel) {
 	}
 }
 /*-------------------------------------------*/
-/*	optionの値のデフォルトの値を設定
+/*	Set option default
 /*-------------------------------------------*/
 function bizVektorOptions_default() {
 	global $bizVektorOptions_default;
@@ -913,7 +870,7 @@ function bizVektorOptions_default() {
 }
 
 /*-------------------------------------------*/
-/*	theme_optionsページでのみ使うjsを読み込む
+/*	Print theme_options js
 /*-------------------------------------------*/
 add_action('admin_print_scripts-appearance_page_theme_options', 'admin_theme_options_plugins');
 function admin_theme_options_plugins( $hook_suffix ) {
@@ -924,7 +881,7 @@ function admin_theme_options_plugins( $hook_suffix ) {
 }
 
 /*-------------------------------------------*/
-/*	フォント切り替え
+/*	Change fonts
 /*-------------------------------------------*/
 add_action( 'wp_head','biz_vektor_fontStyle');
 function biz_vektor_fontStyle(){
@@ -961,7 +918,7 @@ function biz_vektor_fontStyle(){
 	<?php
 }
 /*-------------------------------------------*/
-/*	サイドバーメニュー非表示
+/*	Side menu hidden
 /*-------------------------------------------*/
 add_action( 'wp_head','biz_vektor_sideChildDisplay');
 function biz_vektor_sideChildDisplay(){
@@ -980,7 +937,7 @@ function biz_vektor_sideChildDisplay(){
 }
 
 
-/*	admin_head JavaScriptのデバッグコンソールにhook_suffixの値を出力
+/*	admin_head JavaScript debug console hook_suffix
 /*-------------------------------------------*/
 /*
 add_action("admin_head", 'suffix2console');

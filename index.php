@@ -1,4 +1,4 @@
-<?php /* 検索値が空のときにindex.phpを表示してしまうのでリダイレクト処理 */
+<?php /* If search null ,redirect to top */
 if (isset($_GET['s']) && empty($_GET['s'])) {
 	header("Location: ".home_url());
 	exit;
@@ -23,7 +23,7 @@ if (isset($_GET['s']) && empty($_GET['s'])) {
 	} ?>
 	</div><!-- [ /#topBlog ] -->
 	<?php else: ?>
-	<p><?php _e('No entry.', 'biz-vektor'); ?>記事はありません</p>
+	<p><?php _e('No entry.', 'biz-vektor'); ?></p>
 	<?php endif; ?>
 <?php } ?>
 

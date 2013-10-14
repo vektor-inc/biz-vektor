@@ -1,28 +1,24 @@
 <?php
 
 /*-------------------------------------------*/
-/*	今適応されているテーマがdefault_designかどうかの判定
+/*	Judge default
 /*-------------------------------------------*/
 /*
 /*-------------------------------------------*/
-/*	functionsで毎回呼び出して$optionsに入れる処理を他でする。
+/*	Get 'default_design' options
 /*-------------------------------------------*/
-/*	変数設定
+/*	Variable settings
 /*-------------------------------------------*/
-/*	テーマカスタマイザーの設定
+/*	Setting customizer
 /*-------------------------------------------*/
-/*	管理画面_拡張設定メニューを追加
+/*	Admin page _ Add link bottom of pulldown
 /*-------------------------------------------*/
-/*	管理画面_拡張設定画面
-/*-------------------------------------------*/
-/*	管理画面_テーマオプション_デザインプルダウンの下に設定へのリンクを追加
-/*-------------------------------------------*/
-/*	head出力
+/*	Print head
 /*-------------------------------------------*/
 
 
 /*-------------------------------------------*/
-/*	今適応されているテーマがdefault_designかどうかの判定
+/*	Judge default
 /*-------------------------------------------*/
 function is_bizvektor_default_design(){
 	if (function_exists('biz_vektor_theme_styleSetting'))
@@ -50,18 +46,17 @@ function biz_vektor_theme_options_default_design_init() {
 		}
 }
 /*-------------------------------------------*/
-/*	functionsで毎回呼び出して$optionsに入れる処理を他でする。
+/*	Get 'default_design' options
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options_default_design() {
 	return get_option( 'biz_vektor_theme_options_default_design' );
 }
 
 /*-------------------------------------------*/
-/*	変数設定
+/*	Variable settings
 /*-------------------------------------------*/
 function biz_vektor_theme_options_default_design_validate( $input ) {
 	$output = $defaults;
-	// 拡張テーマキーカラー
 	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
 	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
 	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
@@ -70,33 +65,32 @@ function biz_vektor_theme_options_default_design_validate( $input ) {
 }
 
 /*-------------------------------------------*/
-/*	テーマカスタマイザーの設定
+/*	Setting customizer
 /*-------------------------------------------*/
 add_action( 'customize_register', 'bizvektor_default_design_customize_register' );
 function bizvektor_default_design_customize_register($wp_customize) {
 	if (is_bizvektor_default_design()){
-    // セクションを追加
+    // Add section
     $wp_customize->add_section( 'biz_vektor_default_design', array(
-        'title'          => 'Default カラー設定',
+        'title'          => _x('Default color setting','Default color setting', 'biz-vektor'),
         'priority'       => 1000,
     ) );
-	 // セクションの動作設定
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-	// セクションのUIを作成する
+	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
-		'label'    => 'キーカラー',
+		'label'    => __('Keycolor', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
-		'label'    => 'キーカラー（明）※リンクにマウスオーバーした時の色です',
+		'label'    => 'Keycolor(light)',
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorDark', array(
-		'label'    => 'キーカラー（暗）※メニューやフッターに奥行きを出します',
+		'label'    => 'Keycolor(Dark)',
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',
 	)));
@@ -104,14 +98,13 @@ function bizvektor_default_design_customize_register($wp_customize) {
 }
 
 /*-------------------------------------------*/
-/*	管理画面_テーマオプション_デザインプルダウンの下に設定へのリンクを追加
+/*	Admin page _ Add link bottom of pulldown
 /*-------------------------------------------*/
-// 第一引数：フィルターフック名　／　第二引数：実行関数名
 add_filter('themePlusSettingNavi','themePlusSettingNavi_default_design');
 function themePlusSettingNavi_default_design(){
 	global $themePlusSettingNavi;
 	if (is_bizvektor_default_design()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php" target="_blank">→ テーマカスタマイザーで色を設定する</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&rquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }
@@ -119,7 +112,7 @@ function themePlusSettingNavi_default_design(){
 
 
 /*-------------------------------------------*/
-/*	head出力
+/*	Print head
 /*-------------------------------------------*/
 add_action( 'wp_head','default_design_WpHead');
 function default_design_WpHead(){

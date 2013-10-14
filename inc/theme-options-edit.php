@@ -225,7 +225,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<th scope="row"><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[contact_time]" id="contact_time" value="" style="width:50%;" /><?php echo esc_attr( $options['contact_time'] ); ?></textarea><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9：00～18：00（<?php _e('Weekdays except holidays', 'biz-vektor') ;?>）</span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9:00 - 18:00 (<?php _e('Weekdays except holidays', 'biz-vektor') ;?>)</span>
 	</td>
 	</tr>
 	<tr>
@@ -572,7 +572,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 </tr>
 <!-- RSS -->
 <tr>
-	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>（<?php _e('RSS information display setting', 'biz-vektor'); ?>） </th>
+	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>(<?php _e('RSS information display setting', 'biz-vektor'); ?>) </th>
 	<td><span style="font-size:14px;font-weight:lighter;">&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
 <p>
 	<?php _e('Enter the address of the RSS if you are using the RSS of related sites and external blog, then be posted on the home page of this site for updates.', 'biz-vektor'); ?><br />
@@ -601,13 +601,13 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 ?>
 <div id="slideSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('Slide　show　Setting', 'biz-vektor'); ?></h3>
+<h3><?php _e('Slide show Setting', 'biz-vektor'); ?></h3>
 <p><?php _e('Please enter the URL of the image, such as that displayed when you want to set the slide show.', 'biz-vektor'); ?><br />
-<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
+<?php _e('The recommended size of the image is 950 x 250px.', 'biz-vektor'); ?><br />
 <?php
 $topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Main visual Home', 'biz-vektor').'</a>';
 printf(__('%s will be displayed if the slide show is not set.', 'biz-vektor'),$topVisualLink); ?><br />
-<?php　_e('It can be only the URL of the image. However, the link is set in the image If you enter a link URL.', 'biz-vektor'); ?><br />
+<?php _e('It can be only the URL of the image. However, the link is set in the image If you enter a link URL.', 'biz-vektor'); ?><br />
 <?php _e('Please enter a character the contents of the image alternate text.', 'biz-vektor'); ?>
 <?php _e('It becomes easy to hit to search the direction as which it was entered by the contents. ', 'biz-vektor'); ?>
 <?php _e('Moreover, when a visually handicapped person peruses, a text-to-speech-reading browser reads out the character. ', 'biz-vektor'); ?>
@@ -626,7 +626,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <td><?php _e('Image URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideImage ?>]" id="<?php echo $slideImage ?>" value="<?php echo esc_attr( $options[$slideImage] ) ?>" /> <button id="media_<?php echo $slideImage ?>" class="media_btn"><?php _e('Select a image', 'biz-vektor'); ?></button>
 </td>
-<td><?php _e('Alternate text', 'biz-vektor'); ?>（alt）　[<?php echo $i ?>]<br />
+<td><?php _e('Alternate text', 'biz-vektor'); ?> (alt) [<?php echo $i ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideAlt ?>]" id="<?php echo $slideAlt ?>" value="<?php echo esc_attr( $options[$slideAlt] ) ?>" /></td>
 <td>
 <label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideDisplay ?>]" id="<?php echo $slideDisplay ?>" value="true" <?php if ($options[$slideDisplay]) :echo ' checked';endif; ?>> <?php _ex('Undisplayed', 'Slide undisplayed', 'biz-vektor'); ?></label><br />
@@ -786,7 +786,7 @@ foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLav
 <?php submit_button(); ?>
 </div>
 <div class="optionNav bottomNav">
-<ul><li><a href="#wpwrap">このページの先頭へ戻る</a></li></ul>
+<ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
 </form>
 </div><!-- [ /#main-content ] -->
@@ -797,21 +797,19 @@ foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLav
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
 
-	// テーマカラー
 	$output['theme_style'] = $input['theme_style'];
 
 	$output['font_title'] = $input['font_title'];
 	$output['font_menu'] = $input['font_menu'];
-	// gMenuの数
+
 	$output['gMenuDivide'] = $input['gMenuDivide'];
-	// ヘッダーロゴ
+
 	$output['head_logo'] = $input['head_logo'];
-	// フッターロゴ
+
 	$output['foot_logo'] = $input['foot_logo'];
-	// 背景色
+
 	// $output['bg_color'] = $input['bg_color'];
 
-	// スライド用
 	for ( $i = 1; $i <= 5 ;){
 		$output['slide'.$i.'link'] = $input['slide'.$i.'link'];
 		$output['slide'.$i.'image'] = $input['slide'.$i.'image'];
@@ -821,49 +819,38 @@ function biz_vektor_theme_options_validate( $input ) {
 	$i++;
 	}
 
-	// お問い合わせメッセージ
 	$output['contact_txt'] = $input['contact_txt'];
-	// 電話番号
+
 	$output['tel_number'] = $input['tel_number'];
-	// 受付時間
+
 	$output['contact_time'] = $input['contact_time'];
-	// フッター左下とフッターコピーライトに表示させるサイト名（あるいは企業名・店舗名・サービス名）
+
 	$output['sub_sitename'] = $input['sub_sitename'];
-	// 住所
+
 	$output['contact_address'] = $input['contact_address'];
 
-	// お問い合わせページのURL
 	$output['contact_link'] = $input['contact_link'];
 
-	// トップページのタイトルタグ
 	$output['topTitle'] = $input['topTitle'];
-	// 共通キーワード
+
 	$output['commonKeyWords'] = $input['commonKeyWords'];
-	// GoogleAnalytics ID
+
 	$output['gaID'] = $input['gaID'];
 	$output['gaType'] = $input['gaType'];
 
-	// トップバナー下タイトルの表示
 	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
-	// トップページサイドバーの表示
+
 	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
 
-	// PRエリア
 	for ( $i = 1; $i <= 3 ;){
-		// PRタイトル
 		$output['pr'.$i.'_title'] = $input['pr'.$i.'_title'];
-		// PR概要
 		$output['pr'.$i.'_description'] = $input['pr'.$i.'_description'];
-		// PRリンクURL
 		$output['pr'.$i.'_link'] = $input['pr'.$i.'_link'];
-		// PR画像
 		$output['pr'.$i.'_image'] = $input['pr'.$i.'_image'];
-		// PR画像（スマホ用）
 		$output['pr'.$i.'_image_s'] = $input['pr'.$i.'_image_s'];
 	$i++;
 	}
 
-	// お知らせ、ブログ リスト表示
 	$output['infoLabelName'] = $input['infoLabelName'];
 	$output['postLabelName'] = $input['postLabelName'];
 	$output['postTopCount'] = $input['postTopCount'];
@@ -879,37 +866,30 @@ function biz_vektor_theme_options_validate( $input ) {
 	// topContentsBottom
 	$output['topContentsBottom'] = $input['topContentsBottom'];
 
-
-	// twitterアカウント
 	$output['twitter'] = $input['twitter'];
 
-	// facebookへのリンク
 	$output['facebook'] = $input['facebook'];
-	// facebookのアプリケーションID
+
 	$output['fbAppId'] = $input['fbAppId'];
-	// facebookのadminID
+
 	$output['fbAdminId'] = $input['fbAdminId'];
 
-	// OGPイメージ
 	$output['ogpImage'] = $input['ogpImage'];
-	// OGP非出力
+
 	$output['ogpTagDisplay'] = $input['ogpTagDisplay'];
 
-	// ソーシャルボタン表示指定
 	$output['snsBtnsFront'] = $input['snsBtnsFront'];
 	$output['snsBtnsPage'] = $input['snsBtnsPage'];
 	$output['snsBtnsPost'] = $input['snsBtnsPost'];
 	$output['snsBtnsInfo'] = $input['snsBtnsInfo'];
 	$output['snsBtnsHidden'] = $input['snsBtnsHidden'];
 
-	// facebookコメント表示指定
 	$output['fbCommentsFront'] = $input['fbCommentsFront'];
 	$output['fbCommentsPage'] = $input['fbCommentsPage'];
 	$output['fbCommentsPost'] = $input['fbCommentsPost'];
 	$output['fbCommentsInfo'] = $input['fbCommentsInfo'];
 	$output['fbCommentsHidden'] = $input['fbCommentsHidden'];
 
-	// facebookLikeBox指定
 	$output['fbLikeBoxFront'] = $input['fbLikeBoxFront'];
 	$output['fbLikeBoxSide'] = $input['fbLikeBoxSide'];
 	$output['fbLikeBoxURL'] = $input['fbLikeBoxURL'];
@@ -917,12 +897,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbLikeBoxFace'] = $input['fbLikeBoxFace'];
 	$output['fbLikeBoxHeight'] = $input['fbLikeBoxHeight'];
 
-	// mixiチェックキー
-	$output['mixiKey'] = $input['mixiKey'];
-
-	// ガラケーカラー
 	$output['galaTheme_style'] = $input['galaTheme_style'];
-	// ガラケートップ画像
 	$output['galaLogo'] = $input['galaLogo'];
 
 	// Theme layout must be in our array of theme layout options

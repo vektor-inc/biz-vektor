@@ -1263,3 +1263,35 @@ msgstr "BizVektorのOGPタグを出力しない"
 
 msgid "Page top"
 msgstr "このページの先頭へ戻る"
+
+# ######################################
+# Customizer
+# ######################################
+
+msgid "Keycolor"
+msgstr "キーカラー"
+
+msgid "Keycolor(Right)"
+msgstr "キーカラー（明）※リンクにマウスオーバーした時の色です"
+
+msgid "Keycolor(Dark)"
+msgstr "キーカラー（暗い）※メニューやフッターに奥行きを出します"
+
+msgid "Set the color from theme customizer"
+msgstr "→ テーマカスタマイザーで色を設定する"
+
+# ######################################
+# Default color
+# ######################################
+
+msgctxt "Default color setting"
+msgid "Default color setting"
+msgstr "Default カラー設定"
+
+# ######################################
+# Calmly color setting
+# ######################################
+
+msgctxt "Calmly color setting"
+msgid "Calmly color setting"
+msgstr "Calmly カラー設定"

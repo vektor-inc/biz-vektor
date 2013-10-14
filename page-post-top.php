@@ -13,7 +13,7 @@ get_header(); ?>
 	<?php the_content(); ?>
 	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 	<?php
-	if ( is_user_logged_in() == TRUE ) {　?>
+	if ( is_user_logged_in() == TRUE ) { ?>
 	<div class="adminEdit">
 	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 	</div>
