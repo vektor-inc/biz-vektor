@@ -18,8 +18,6 @@
 /*-------------------------------------------*/
 /*	Header contact info (TEL & Time)
 /*-------------------------------------------*/
-/*	お問い合わせページURL出力　0.6以降不使用のはず
-/*-------------------------------------------*/
 /*	facebook twitter banner
 /*-------------------------------------------*/
 /*	Home page _ blogList（RSS）
@@ -521,7 +519,7 @@ function biz_vektor_ogp () {
 		if ($metaExcerpt) {
 			$metadescription = $post->post_excerpt;
 		} else {
-			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); 
+			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
 			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_the_title().' | '.get_bloginfo('name').'" />'."\n";
@@ -795,7 +793,7 @@ function biz_vektor_footerCopyRight() 		{
 	print '</a> All Rights Reserved.</div>';
 
 	// **** Don't change id name!
-	$footerPowerd = '<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizVektor.com" target="_blank" title="'.__('Free WordPress Theme BizVektor for business', 'biz-vektor').'">BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="'.__('Vektor,Inc.', 'biz-vektor').'">Vektor,Inc.</a> technology.</div>';
+	$footerPowerd = '<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizVektor.com" target="_blank" title="'.__('Free WordPress Theme BizVektor for business', 'biz-vektor').'">BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="'._x('Vektor,Inc.', 'footer', 'biz-vektor').'">Vektor,Inc.</a> technology.</div>';
 	// **** Dont change filter name! Oh I already know 'Powerd' id miss spell !!!!!
 	$footerPowerd = apply_filters( 'footerPowerdCustom', $footerPowerd );
 	echo $footerPowerd;
@@ -864,7 +862,7 @@ function bizVektorOptions_default() {
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
 		'rssLabelName' => 'Blog entries',
-		'postTopCount' => '5',
+		//'postTopCount' => '5',
 		'theme_style' => 'calmly',
 	);
 }

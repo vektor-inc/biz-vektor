@@ -596,7 +596,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 
 <?php
 /*-------------------------------------------*/
-/*	SlideSetting
+/*	Slide Setting
 /*-------------------------------------------*/
 ?>
 <div id="slideSetting" class="sectionBox">

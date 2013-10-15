@@ -81,8 +81,8 @@ if ( $options['listInfoTop'] == 'listType_set' ) { ?>
 <?php
 $postTopCount = bizVektorOptions('postTopCount');
 $postTopCount = mb_convert_kana($postTopCount, "a", "UTF-8");
-if ($postTopCount != 0) {
-query_posts("showposts=$postTopCount"); ?>
+echo $postTopCount;
+if ($postTopCount != '0') : ?>
 <?php if(have_posts()): ?>
 <div id="topBlog" class="infoList">
 <h2><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h2>
@@ -96,8 +96,9 @@ if ( $options['listBlogTop'] == 'listType_set' ) {
 } ?>
 </div><!-- [ /#topBlog ] -->
 <?php endif;?>
+<?php pagination($additional_loop->max_num_pages); ?>
 <?php wp_reset_query(); ?>
-<?php } ?>
+<?php endif // postTopCpunt= 0  ?>
 
 <?php biz_vektor_blogList() // RSS import ?>
 

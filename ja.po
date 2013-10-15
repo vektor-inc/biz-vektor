@@ -10,13 +10,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
 
-msgid ""
-"BizVektor theme will allow you to build a high-quality business web site. In "
-"addition, it is possible to increase the design by the plug-in."
-msgstr ""
-"BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
-"トを構築する事が出来ます。また、テーマ拡張プラグインによって新たに選択出来る"
-"デザインを増やす事が出来ます。"
+msgid "BizVektor theme will allow you to build a high-quality business web site.It is possible to change the color in the Theme Customizer, to switch to a completely different design. In addition, it is possible to increase the design by the plug-in."
+msgstr "BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイトを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まったく別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって新たに選択出来るデザインを増やす事も出来ます。"
 
 #: 503.php:19
 msgid "Maintenance is now working."
@@ -400,6 +395,7 @@ msgstr "[ 選択してください ]"
 msgid "Free WordPress Theme BizVektor for business"
 msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
 
+msgctxt "footer"
 msgid "Vektor,Inc."
 msgstr ""
 "株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"

@@ -627,7 +627,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p>Pingback: <?php comment_author_link(); ?>  <span class="linkBtn linkBtnS"><?php edit_comment_link( __('Edit', 'biz-vektor'), '<span class="edit-link">(', ')</span>' ); ?></span>
+		<p>Pingback: <?php comment_author_link(); ?> <?php edit_comment_link( __('Edit', 'biz-vektor'), '<span class="edit-link">(', ')</span>' ); ?>
 	<?php
 			break;
 	endswitch;

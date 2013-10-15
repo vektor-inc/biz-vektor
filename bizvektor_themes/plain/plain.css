@@ -238,7 +238,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 #content .sectionBox	{ margin-bottom:30px; display:block; overflow:hidden; }
 #content .entry-meta	{ margin-bottom:15px; font-size:11px; color:#666; }
 #content .leadTxt { color:#333; }
-#content h1,
+#content h1 { font-size:2em;margin-bottom:2em; }
 #content h2,
 #content h1.contentTitle,
 #content h1.entryPostTitle	{ clear:both; font-size:128.6%; padding:13px 15px 8px;border-bottom:1px solid #ccc; border-top:2px solid #000; font-weight:bold;color:#333;
@@ -607,7 +607,7 @@ box-shadow:0 2px 1px #efefef;
 #comments li.comment .comment-author img	{ float:left;border:2px solid #ccc;margin-right:10px; }
 #comments li.comment .comment-author cite.fn	{ font-style:normal; line-height:120%;}
 #comments li.comment .comment-meta.commentmetadata	{ font-size:85.7%; line-height:120%;}
-#comments li.comment .comment-body	{ margin-left:50px;margin-top:5px; }
+#comments li.comment .comment-body	{ margin-left:50px;margin-top:10px; }
 #comments li.comment .comment-body p { margin-bottom:10px; }
 #comments li.comment .reply	{  }
 
@@ -618,6 +618,7 @@ box-shadow:0 2px 1px #efefef;
 #content #commentform p.form-allowed-tags	{ font-size:10px; line-height:120%; color:#666; width:95%;margin-bottom:10px; }
 #content #commentform p.form-submit input	{ width:auto; padding:10px 20px;}
 
+#content ol.commentlist li.post.pingback { padding-bottom:0;}
 
 /*-------------------------------------------*/
 /*	sitemap & 404 &search

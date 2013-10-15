@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* BizVektorOptions 0.1.1.0
+/* BizVektorOptions 0.1.1.1
 /*-------------------------------------------*/
 
 .leadTxt,
@@ -41,3 +41,6 @@
 #content .wpcf7 dl		{ display:block; overflow:hidden; border-bottom:1px dotted #ccc; }
 #content .wpcf7 dl dt	{ display:block; overflow:hidden; padding:10px 0;float:left; width:20%; color:#666; font-weight:lighter; }
 #content .wpcf7 dl dd	{ display:block; overflow:hidden; padding:10px;margin-bottom:0px; }
+
+.sticky {}
+.bypostauthor {}
