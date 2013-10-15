@@ -1,7 +1,7 @@
 jQuery(function(){
     // ページ離脱イベント
     jQuery(window).on('beforeunload',function(){
-        return('変更した内容は保存しましたか？');
+        return('Did you save it?');
     });
     // Submitの場合のみ　ページ離脱イベント解除
     jQuery('form').on('submit',function(){
