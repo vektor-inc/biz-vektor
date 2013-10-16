@@ -51,24 +51,32 @@ if ( !$postType ) {
 	if ($postType == 'info') : ?>
 		<?php if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('module_loop_info2'); ?>
+				<?php get_template_part('module_loop_post2'); ?>
 			<?php endwhile ?>
 		<?php else : ?>
 			<ul class="entryList">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('module_loop_info'); ?>
+				<?php get_template_part('module_loop_post'); ?>
 			<?php endwhile; ?>
 			</ul>
-		<?php endif; ?>
+		<?php endif; //$options['listInfoArchive'] ?>
 	<?php else : ?>
-		<?php if ( $options['listBlogArchive'] == 'listType_title' ) {
-			get_template_part('module_loop_blog');
-		} else {
-			get_template_part('module_loop_blog2');
-		} ?>
-	<?php endif; ?>
-	</div><!-- [ /.infoList ] -->
+		<?php $options = biz_vektor_get_theme_options();
+		if ( $options['listBlogArchive'] == 'listType_set' ) { ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part('module_loop_post2'); ?>
+			<?php endwhile ?>
+		<?php } else { ?>
+			<ul class="entryList">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part('module_loop_post'); ?>
+			<?php endwhile; ?>
+			</ul>
+		<?php } ?>
+
+	<?php endif; // $postType == 'info' ?>
 	<?php pagination($additional_loop->max_num_pages); ?>
+	</div><!-- [ /.infoList ] -->
 	</div>
 	<!-- [ /#content ] -->
 

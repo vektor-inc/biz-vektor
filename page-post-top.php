@@ -21,19 +21,28 @@ get_header(); ?>
 <?php endwhile; ?>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$wp_query = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged ) ); ?>
+$wp_query = new WP_Query( array( 
+	'post_type' => 'post',
+	'paged' => $paged
+) ); ?>
 <?php if(have_posts()): ?>
-<div class="infoList">
-<?php
-$options = biz_vektor_get_theme_options();
-if ( $options['listBlogArchive'] == 'listType_set' ) {
-	get_template_part('module_loop_blog2');
-} else {
-	get_template_part('module_loop_blog');
-} ?>
+	<div class="infoList">
+	<?php $options = biz_vektor_get_theme_options();
+	if ( $options['listBlogArchive'] == 'listType_set' ) { ?>
+		<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+			<?php get_template_part('module_loop_post2'); ?>
+		<?php endwhile; ?>
+	<?php } else { ?>
+		<ul class="entryList">
+		<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+			<?php get_template_part('module_loop_post'); ?>
+		<?php endwhile; ?>
+		</ul>
+	<?php } ?>
 	</div><!-- [ /.infoList ] -->
-	<?php pagination($additional_loop->max_num_pages); ?>
-<?php endif;?>
+	<?php pagination($wp_query->max_num_pages); ?>
+	<?php wp_reset_query();?>
+<?php endif; // hove_post() ?>
 
 	</div>
 	<!-- [ /#content ] -->

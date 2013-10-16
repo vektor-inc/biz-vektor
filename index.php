@@ -17,9 +17,9 @@ if (isset($_GET['s']) && empty($_GET['s'])) {
 	<?php
 	$options = biz_vektor_get_theme_options();
 	if ( $options['listBlogArchive'] == 'listType_set' ) {
-		get_template_part('module_loop_blog2');
+		get_template_part('module_loop_post2');
 	} else {
-		get_template_part('module_loop_blog');
+		get_template_part('module_loop_post');
 	} ?>
 	</div><!-- [ /#topBlog ] -->
 	<?php else: ?>

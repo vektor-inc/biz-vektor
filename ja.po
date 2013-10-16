@@ -262,11 +262,22 @@ msgstr ""
 msgid "<dt>Tags</dt><dd>%1$s</dd>"
 msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 
-#: front-page.php:41
+# ############################################################################
+# front-page
+# ############################################################################
+
+msgid "* In the page [Settings] &rquo; [Display Settings], if the setting of the front page is not [page], nothing is displayed in this area."
+msgstr "※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外の場合は何も表示されません。"
+
+msgid "* If empty, the body field of a page that you set on the front page does not display anything."
+msgstr "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されません。"
+
+msgid "* If you have set a fixed page to the front page, paging does not appear in the bottom of the post the list at the bottom."
+msgstr "※フロントページに固定ページを設定している場合、下部の投稿リストの下にはページングが表示されません。"
+
 msgid "Title display setting"
 msgstr "↑ タイトルの表示設定"
 
-#: front-page.php:44
 msgid "Change display page"
 msgstr "↑ 表示するページを変更する"
 
@@ -1005,6 +1016,9 @@ msgstr ""
 # ---------------
 # Home bottom free area
 # ---------------
+msgid "Home bottom free area"
+msgstr "トップページ下部フリーエリア"
+
 msgid "It is displayed in the lower part of the list and [%s] and [%s]."
 msgstr "「%s」や「%s」のリストの下の部分に表示されます。"
 
