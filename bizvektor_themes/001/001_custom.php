@@ -104,7 +104,7 @@ add_filter('themePlusSettingNavi','themePlusSettingNavi_default_design');
 function themePlusSettingNavi_default_design(){
 	global $themePlusSettingNavi;
 	if (is_bizvektor_default_design()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&rquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }

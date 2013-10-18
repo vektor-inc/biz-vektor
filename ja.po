@@ -10,8 +10,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
 
-msgid "BizVektor theme will allow you to build a high-quality web site.It is possible to change the color, to switch to a completely different design. In addition, it is possible to increase the design by the plug-in."
-msgstr "BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイトを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まったく別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって新たに選択出来るデザインを増やす事も出来ます。"
+msgid ""
+"BizVektor theme will allow you to build a high-quality web site.It is "
+"possible to change the color, to switch to a completely different design. In "
+"addition, it is possible to increase the design by the plug-in."
+msgstr ""
+"BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
+"トを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まった"
+"く別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって"
+"新たに選択出来るデザインを増やす事も出来ます。"
 
 #: 503.php:19
 msgid "Maintenance is now working."
@@ -265,15 +272,26 @@ msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 # ############################################################################
 # front-page
 # ############################################################################
+msgid ""
+"* In the page [Settings] &raquo; [Display Settings], if the setting of the "
+"front page is not [page], nothing is displayed in this area."
+msgstr ""
+"※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外"
+"の場合は何も表示されません。"
 
-msgid "* In the page [Settings] &rquo; [Display Settings], if the setting of the front page is not [page], nothing is displayed in this area."
-msgstr "※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外の場合は何も表示されません。"
+msgid ""
+"* If empty, the body field of a page that you set on the front page does not "
+"display anything."
+msgstr ""
+"※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
+"ん。"
 
-msgid "* If empty, the body field of a page that you set on the front page does not display anything."
-msgstr "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されません。"
-
-msgid "* If you have set a fixed page to the front page, paging does not appear in the bottom of the post the list at the bottom."
-msgstr "※フロントページに固定ページを設定している場合、下部の投稿リストの下にはページングが表示されません。"
+msgid ""
+"* If you have set a fixed page to the front page, paging does not appear in "
+"the bottom of the post the list at the bottom."
+msgstr ""
+"※フロントページに固定ページを設定している場合、下部の投稿リストの下にはページ"
+"ングが表示されません。"
 
 msgid "Title display setting"
 msgstr "↑ タイトルの表示設定"
@@ -284,7 +302,6 @@ msgstr "↑ 表示するページを変更する"
 # ############################################################################
 # functions.php
 # ############################################################################
-
 #: functions.php:96
 msgid "Sidebar(Front page only)"
 msgstr "サイドバー（トップのみ）"
@@ -337,8 +354,11 @@ msgctxt "admin menu"
 msgid "category"
 msgstr "カテゴリー"
 
-msgid "If you want to set a keyword individually to this page, enter a , delimiter (optional)."
-msgstr "このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
+msgid ""
+"If you want to set a keyword individually to this page, enter a , delimiter "
+"(optional)."
+msgstr ""
+"このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
 
 msgctxt "link to seo setting"
 msgid "Theme option"
@@ -350,7 +370,6 @@ msgstr "※サイト全体に共通して設定するキーワードは %s か�
 # ---------------
 # Head description
 # ---------------
-
 msgid "About %s"
 msgstr "%s について。"
 
@@ -368,17 +387,13 @@ msgstr "あなたのコメントは承認待ちです。"
 # ---------------
 # biz_vektor_content_nav
 # ---------------
-
 msgid "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
-
 # ############################################################################
-
-
 msgid "Skip menu"
 msgstr "メニューを飛ばす"
 
@@ -1277,7 +1292,6 @@ msgstr "このページの先頭へ戻る"
 # ######################################
 # Customizer
 # ######################################
-
 msgid "Keycolor"
 msgstr "キーカラー"
 
@@ -1288,12 +1302,11 @@ msgid "Keycolor(Dark)"
 msgstr "キーカラー（暗い）※メニューやフッターに奥行きを出します"
 
 msgid "Set the color from theme customizer"
-msgstr "→ テーマカスタマイザーで色を設定する"
+msgstr "テーマカスタマイザーで色を設定する"
 
 # ######################################
 # Default color
 # ######################################
-
 msgctxt "Default color setting"
 msgid "Default color setting"
 msgstr "Default カラー設定"
@@ -1301,7 +1314,6 @@ msgstr "Default カラー設定"
 # ######################################
 # Calmly color setting
 # ######################################
-
 msgctxt "Calmly color setting"
 msgid "Calmly color setting"
 msgstr "Calmly カラー設定"

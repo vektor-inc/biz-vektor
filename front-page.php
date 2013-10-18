@@ -31,7 +31,7 @@ get_header(); ?>
 		<div class="adminEdit">
 			<?php if (10 <= $user_level) { ?>
 			<p class="caption">
-			<?php _e('* In the page [Settings] &rquo; [Display Settings], if the setting of the front page is not [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
+			<?php _e('* In the page [Settings] &raquo; [Display Settings], if the setting of the front page is not [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
 			<?php _e('* If empty, the body field of a page that you set on the front page does not display anything.', 'biz-vektor'); ?><br />
 			<?php // _e('* If you have set a fixed page to the front page, paging does not appear in the bottom of the post the list at the bottom.', 'biz-vektor'); ?>
 			</p>

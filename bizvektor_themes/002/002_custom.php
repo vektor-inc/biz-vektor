@@ -97,7 +97,7 @@ add_filter('themePlusSettingNavi','themePlusSettingNaviCalmly');
 function themePlusSettingNaviCalmly(){
 	global $themePlusSettingNavi;
 	if (is_calmly()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&rquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }
