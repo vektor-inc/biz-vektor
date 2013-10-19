@@ -286,13 +286,15 @@ function biz_vektor_theme_style() {
 	// Set bbiz_vektor_theme_styles
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
+	// load default
+	if ( !$options['theme_style'] ) {
+		global $bizVektorOptions_default;
+		bizVektorOptions_default();
+		$options['theme_style'] = $bizVektorOptions_default['theme_style'];
+	}
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 
-	if (!$themePath) {
-		$themePath = get_template_directory_uri().'/bizvektor_themes/002/002.css';
-	}
-
-	wp_enqueue_style( 'theme', $themePath , false, '2013-10-14');
+	wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
 }
 
 // fuck IE
@@ -305,9 +307,6 @@ function biz_vektor_theme_styleOldIe(){
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
 
-	// empty case
-	if (!$themePath && !$themePathOldIe)
-	$themePathOldIe = get_template_directory_uri().'/bizvektor_themes/002/002_oldie.css';
 	// Necessary
 	if ($themePathOldIe){
 		print '<!--[if lte IE 8]>'."\n";
@@ -862,8 +861,13 @@ function bizVektorOptions_default() {
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
 		'rssLabelName' => 'Blog entries',
-		//'postTopCount' => '5',
-		'theme_style' => 'calmly',
+		'theme_style' => 'default',
+		'pr1_title' => 'PR title 1',
+		'pr1_description' => __('This field can be edited from the theme options screen or theme customizer.', 'biz-vektor'),
+		'pr2_title' => '色やデザインが変更可能',
+		'pr2_description' => __('This field can be edited from the theme options screen or theme customizer.', 'biz-vektor'),
+		'pr3_title' => 'PR title 3',
+		'pr3_description' => __('This field can be edited from the theme options screen or theme customizer.', 'biz-vektor'),
 	);
 }
 
