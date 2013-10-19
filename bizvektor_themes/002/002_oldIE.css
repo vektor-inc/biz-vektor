@@ -9,9 +9,8 @@
 /*-------------------------------------------*/
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
-/* スクロール分余裕に20px */
-#headerTop #site-description	{ line-height:150%; }
 #header	{ padding-top:30px; }
+#headerTop #site-description	{ line-height:150%; }
 #header #site-title	{ padding-bottom:30px;float:left;}
 #header #headContact	{ float:right; text-align:right; }
 #header #headContact #headContactTxt	{ font-size:11px;}
@@ -52,7 +51,6 @@
 #content .child_page_block	{ width:48%; padding:0 1px; }
 #content .child_page_block.layout_odd	{ float:left; clear:both; }
 
-
 /*-------------------------------------------*/
 /* pc iPad3より大きい場合
 /*-------------------------------------------*/
@@ -64,14 +62,9 @@ body     { line-height:150%; }
 	height: 0;
 	visibility: hidden;
 }
-
+/* グラデーション（filter）を使用するとIE8でドロップダウンの動作に不具合が出る場合がある為画像を使用 */
 #gMenu { border-bottom-width: 3px; border-bottom-style: solid; border-top:1px solid #e5e5e5;
-background:url(images/bg_gr_up.png) left bottom repeat-x #fff;
-}
-
-/*
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-*/
+background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
 #gMenu.itemClose .menu,
 #gMenu.itemOpen .menu	{ display:block;  }
@@ -91,7 +84,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 /* IE7のみドロップダウン非表示 */
 *+html #gMenu .menu li:hover ul { display:none; }
 
-#gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:100;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
+
+#gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:1000;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
 #gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }
 #gMenu .menu li:hover li a,
 #gMenu .menu li.current_page_item li a,
@@ -112,8 +106,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #gMenu .menu li:hover ul li:hover ul { border-top:1px solid #ccc; }
 
 #footerSiteMap .menu	{ font-size:12px; }
-#footerSiteMap .menu li	{ width: 162px; margin-right: 10px; display:inline-block; }
+#footerSiteMap .menu li	{ width:23%; margin-right: 2%; display:block; overflow:hidden;display:block;float: left; }
 #footerSiteMap .menu li	a	{ padding: 2px 20px 6px 0px; }
+#footerSiteMap .menu li	li 	{ width:100%;margin-right: 0%; float:none; }
 #footerSiteMap .menu li	li a	{ background-position:0px 3px; }
 #footerSiteMap .menu li	li li a	{ padding-left:10px; }
 #content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:2px; padding-bottom:2px; }
@@ -130,16 +125,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #footMenu .menu li a	{ background: none; padding:0px 15px 0px; line-height:1em; text-decoration:none; border-right:1px solid #ccc; border-bottom: none;  }
 #footMenu .menu li a:hover	{ color:#5ead3c; text-decoration:underline; background:none; }
 #footMenu .menu li.firstChild a	{ border-left:1px solid #ccc; }
-
+}
+@media (min-width: 850px) {
 #main #container #content.wide	{ width:850px; }
-#footerSiteMap .menu li	{ width: 164px; }
-
 #footMenu .innerBox	{ margin:0px auto;width:950px; }
-
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/
-/* スクロール分余裕に20px */
 .innerBox,
 #gMenu #gMenuInner.innerBox	{ width:950px; margin:0px auto; }
 #main #container	{ padding-top:40px;}
@@ -154,9 +146,8 @@ form#searchform input#searchsubmit	{ width:20%; }
 
 #topMainBnr			{ width:100%; }
 #topMainBnr img		{ width:950px !important; }
-#topMainBnrFrame .slides li {  }
 #topMainBnrFrame	{ width:950px;min-height:250px; }
-
+#topMainBnrFrame .slider li { }
 
 /*				.infoListBox
 /*-------------------------------------------*/
@@ -185,36 +176,5 @@ form#searchform input#searchsubmit	{ width:20%; }
 
 #content .mainFootContact .mainFootBt a img	{ width:100%; }
 
-#footerSiteMap	{ width:710px;padding-top:0px; font-size:12px; }
+#footerSiteMap	{ width:680px;padding-top:0px; font-size:12px;float:right; }
 #footer dl#footerOutline	{ float:left; }
-
-
-
-/* =Print Style
--------------------------------------------------------------- */
-
-@media print { body { background: none !important; }
-#wrapper { clear: both !important; display: block !important; float: none !important; position: relative !important; }
-#headerTop,
-#header,
-#panList,
-#gMenu,
-#pagetop,
-#sideTower,
-#footMenu,
-#footer,
-#siteBottom	{ display:none !important; }
-
-#pageTitBnr,
-#content table th	{ box-shadow:none !important; }
-
-#access,
-#branding img,
-#respond,
-.comment-edit-link,
-.edit-link,
-.navigation,
-.page-link,
-.widget-area { display: none !important; }
-#container { margin: 0; width: 100%; }
-}
