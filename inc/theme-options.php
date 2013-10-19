@@ -862,12 +862,12 @@ function bizVektorOptions_default() {
 		'infoLabelName' => 'Information',
 		'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
-		'pr1_title' => 'PR title 1',
-		'pr1_description' => __('This field can be edited from the theme options screen or theme customizer.', 'biz-vektor'),
-		'pr2_title' => '色やデザインが変更可能',
-		'pr2_description' => __('This field can be edited from the theme options screen or theme customizer.', 'biz-vektor'),
-		'pr3_title' => 'PR title 3',
-		'pr3_description' => __('This field can be edited from the theme options screen or theme customizer.', 'biz-vektor'),
+		'pr1_title' => __('Many theme options', 'biz-vektor'),
+		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
+		'pr2_title' => __('Various designs available', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
+		'pr3_title' => __('Optimized for business', 'biz-vektor'),
+		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
 	);
 }
 

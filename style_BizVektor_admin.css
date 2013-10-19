@@ -38,7 +38,7 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 
 .message_intro { position: padding: 1em; line-height: 170%; }
 
-.optionNav	{ display:block; overflow:hidden; }
+.optionNav	{ display:block !important; overflow:hidden; }
 .optionNav ul { display:block; overflow:hidden;margin:0;padding:0 5px; }
 .optionNav ul li { display: block; float:left;border-radius: 3px 3px 0 0;border:1px solid #ccc; border-bottom:none;margin-right:3px; margin-bottom:0;}
 .optionNav ul li:hover { background-color: #666; }

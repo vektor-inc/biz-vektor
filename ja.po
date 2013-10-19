@@ -299,6 +299,36 @@ msgstr "↑ タイトルの表示設定"
 msgid "Change display page"
 msgstr "↑ 表示するページを変更する"
 
+msgid "Many theme options"
+msgstr "豊富なオプション"
+
+msgid ""
+"Not only this part, you can change from theme customizer and theme options "
+"screen various items."
+msgstr ""
+"この部分はテーマオプション画面か、テーマカスタマイザーから変更する事が出来ま"
+"す。"
+
+msgid "Various designs available"
+msgstr "豊富なデザイン"
+
+msgid ""
+"BizVektor will allow you not only can change the color of the site, to "
+"switch to a different design."
+msgstr ""
+"BizVektorはサイトの色を変更出来るだけではなく、違うデザインに切り替える事が出"
+"来ます。"
+
+msgid "Optimized for business"
+msgstr "ビジネス用に最適化"
+
+msgid ""
+"It features such as induction to the query and child page list template, a "
+"variety of functions essential to business."
+msgstr ""
+"子ページリスト用テンプレートや問い合わせへの誘導など、ビジネスに必須な様々な"
+"機能を備えています。"
+
 # ############################################################################
 # functions.php
 # ############################################################################
@@ -713,7 +743,6 @@ msgstr "空欄の場合はお問い合わせバナーは表示されません。
 # ######################################
 # 3PR area
 # ######################################
-
 msgid "The display of the 3PR area of a home page."
 msgstr "3PRエリアの表示設定"
 

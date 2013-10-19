@@ -63,7 +63,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<th><?php _e('Design skin', 'biz-vektor') ?></th>
 	<td>
 	<select name="biz_vektor_theme_options[theme_style]" id="<?php echo esc_attr( $options['theme_style'] ); ?>">
-	<option>[ <?php _e('Select', 'biz-vektor') ?> ]</option>
+	<option value="">[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
 	// Read biz_vektor_theme_styles
 	global $biz_vektor_theme_styles;
@@ -91,7 +91,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<th><?php _ex('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<select name="biz_vektor_theme_options[gMenuDivide]" id="<?php echo esc_attr( $options['gMenuDivide'] ); ?>">
-	<option>[ <?php _e('Select', 'biz-vektor') ?> ]</option>
+	<option value="">[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
 	$biz_vektor_gMenuDivides = array(
 		'divide_natural' => _x('Not specified (left-justified)','biz-vektor theme-customizer', 'biz-vektor'),
