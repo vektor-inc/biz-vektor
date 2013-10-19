@@ -58,30 +58,9 @@ msgstr "新しいコメント &raquo;"
 msgid "Meta Keywords"
 msgstr "メタキーワード"
 
-msgctxt "BizVektor option tab label"
-msgid "Design"
-msgstr "デザイン"
-
-msgctxt "BizVektor option tab label"
-msgid "Contact"
-msgstr "連絡先"
-
-msgctxt "BizVektor option tab label"
-msgid "TopPR"
-msgstr "3PRエリア"
-
-msgctxt "BizVektor option tab label"
-msgid "Homepage"
-msgstr "トップページ"
-
-msgctxt "BizVektor option tab label"
-msgid "Slide"
-msgstr "スライドショー"
-
-msgctxt "BizVektor option tab label"
-msgid "SNS"
-msgstr "SNS連携"
-
+# ############################################################################
+# admin header menu
+# ############################################################################
 msgctxt "BizVektor admin header menu"
 msgid "Managing pages"
 msgstr "管理画面"
@@ -299,7 +278,10 @@ msgstr "↑ タイトルの表示設定"
 msgid "Change display page"
 msgstr "↑ 表示するページを変更する"
 
-msgid "Many theme options"
+# ---------------
+# Google Analytics setting
+# ---------------
+msgid "Rich theme options item"
 msgstr "豊富なオプション"
 
 msgid ""
@@ -319,7 +301,7 @@ msgstr ""
 "BizVektorはサイトの色を変更出来るだけではなく、違うデザインに切り替える事が出"
 "来ます。"
 
-msgid "Optimized for business"
+msgid "Optimized for business web site"
 msgstr "ビジネス用に最適化"
 
 msgid ""
@@ -604,9 +586,7 @@ msgstr ""
 "します。"
 
 msgid "Recommended : 180-250px width"
-msgstr ""
-"推奨サイズ　：　180-250px 】 * 260pxより大きい場合は自動的に260pxに縮小しま"
-"す。"
+msgstr "【 推奨サイズ　：　180-250px 】 * 大きい場合は自動的に縮小します。"
 
 msgid "ex) "
 msgstr "【記入例】"
@@ -625,6 +605,33 @@ msgstr "デザインなど基本的な設定は %s から行う事が出来ま�
 
 msgid "You can change other settings in this page."
 msgstr "この画面では更に細かい項目やSNS連携などを設定します。"
+
+# ######################################
+# tab label
+# ######################################
+msgctxt "BizVektor option tab label"
+msgid "Design"
+msgstr "デザイン"
+
+msgctxt "BizVektor option tab label"
+msgid "Contact"
+msgstr "連絡先"
+
+msgctxt "BizVektor option tab label"
+msgid "TopPR"
+msgstr "3PRエリア"
+
+msgctxt "BizVektor option tab label"
+msgid "Homepage"
+msgstr "トップページ"
+
+msgctxt "BizVektor option tab label"
+msgid "Slide"
+msgstr "スライドショー"
+
+msgctxt "BizVektor option tab label"
+msgid "SNS"
+msgstr "SNS連携"
 
 # ######################################
 # Design Setting

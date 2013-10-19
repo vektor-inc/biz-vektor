@@ -272,7 +272,7 @@ function biz_vektor_theme_styleSetting() {
 			),
 		'default' => array(
 			'label' => 'Default',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001_plus.css',
+			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001.css',
 			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldie.css',
 			),
 	);
@@ -862,11 +862,11 @@ function bizVektorOptions_default() {
 		'infoLabelName' => 'Information',
 		'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
-		'pr1_title' => __('Many theme options', 'biz-vektor'),
+		'pr1_title' => __('Rich theme options item', 'biz-vektor'),
 		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
 		'pr2_title' => __('Various designs available', 'biz-vektor'),
 		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
-		'pr3_title' => __('Optimized for business', 'biz-vektor'),
+		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
 		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
 	);
 }

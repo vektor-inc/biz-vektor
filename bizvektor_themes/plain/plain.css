@@ -123,7 +123,7 @@ background: -moz-linear-gradient(#fff, #e5e5e5);
 p.form-submit input[type=submit] { padding:6px 15px; }
 
 #searchform label	{ display:none; }
-form#searchform input#searchsubmit	{ padding:6px 10px; }
+form#searchform input#searchsubmit	{ padding:5px 10px; }
 
 .moreLink			{ margin-bottom:0px;height:auto; display:block; }
 .moreLink a			{ text-align:center; margin-top:10px; display:inline-block;overflow:hidden; font-size:10px; line-height:105%;text-decoration:none; background:url(images/icon_try1_gray.gif) 5px 50% no-repeat #efefef; color:#666;padding:5px 15px 5px 20px; }

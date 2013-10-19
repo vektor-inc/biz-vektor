@@ -118,6 +118,12 @@ add_action( 'wp_head','default_design_WpHead');
 function default_design_WpHead(){
 	if (is_bizvektor_default_design()){
 	$default_design_options = biz_vektor_get_theme_options_default_design();
+	if (!$default_design_options['theme_plusKeyColor'])
+		$default_design_options['theme_plusKeyColor'] = '#c30000';
+	if (!$default_design_options['theme_plusKeyColorLigh'])
+		$default_design_options['theme_plusKeyColorLigh'] = '#ff0000';
+	if (!$default_design_options['theme_plusKeyColorDark'])
+		$default_design_options['theme_plusKeyColorDark'] = '#990000';
 	?>
 		<style type="text/css">
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
@@ -149,7 +155,9 @@ form#searchform input#searchsubmit,
 #gMenu .menu li.current_page_item a,
 #gMenu .menu li.current_page_ancestor a ,
 #gMenu .menu li.current-page-ancestor a ,
-#gMenu .menu li a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
+#gMenu .menu li a:hover	{ 
+background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
+border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
 background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
 background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
 background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);

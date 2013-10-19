@@ -216,6 +216,7 @@ jQuery(document).ready(function(){
 /*	•¶š‚Ì‘å‚«‚³‚ª•Ï‰»‚µ‚½‚ÉÀs‚·‚éˆ—‚ğ’Ç‰Á
 /*-------------------------------------------*/
 jQuery(document).ready(function($){
+    // jQuery('.topPrTit').flatHeights();
     jQuery('.topPrDescription').flatHeights();
     jQuery('.child_page_block').flatHeights();
     jQuery('.child_page_block p').flatHeights();
