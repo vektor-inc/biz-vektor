@@ -713,9 +713,15 @@ msgstr "空欄の場合はお問い合わせバナーは表示されません。
 # ######################################
 # 3PR area
 # ######################################
-msgid "* 3PR area do not appear on the top page in the case of blank all."
-msgstr ""
-"* タイトルが３つとも未記入の場合はトップページに3PRエリアは表示されません。"
+
+msgid "The display of the 3PR area of a home page."
+msgstr "3PRエリアの表示設定"
+
+msgid "Check this box if you do not want to see the 3PR area on the home page."
+msgstr "チェックを入れると3PRエリアが表示されなくなります。"
+
+msgid "I want to hide the top 3PR area"
+msgstr "3PRエリアを表示しない"
 
 msgid "* It is effective without the image."
 msgstr "* 画像はよくわからなければ空欄でも問題ありません。"

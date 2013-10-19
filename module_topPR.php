@@ -1,6 +1,6 @@
 <?php
 $options = biz_vektor_get_theme_options();
-if ($options['pr1_title'] || $options['pr2_title'] || $options['pr3_title']) {
+if (!$options['top3PrDisplay']) {
 ?>
 	<!-- [ #topPr ] -->
 	<div id="topPr">
@@ -60,9 +60,9 @@ if ($options['pr1_title'] || $options['pr2_title'] || $options['pr3_title']) {
 	</div>
 	<!-- [ #topPr ] -->
 
-	<?php if ( is_user_logged_in() == TRUE ) { ?>
-	<div class="adminEdit">
-	<a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#prBox" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
-	</div>
-	<?php } ?>
+<?php } ?>
+<?php if ( is_user_logged_in() == TRUE ) { ?>
+<div class="adminEdit">
+<a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#prBox" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
+</div>
 <?php } ?>

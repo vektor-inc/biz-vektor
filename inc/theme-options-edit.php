@@ -1,4 +1,22 @@
 <?php
+/*-------------------------------------------*/
+/*	Design setting
+/*-------------------------------------------*/
+/*	Contact information
+/*-------------------------------------------*/
+/*	3PR area
+/*-------------------------------------------*/
+/*	Blog and Information
+/*-------------------------------------------*/
+/*	SEO and Google Analytics Setting
+/*-------------------------------------------*/
+/*	Toppage setting
+/*-------------------------------------------*/
+/*	Slide Setting
+/*-------------------------------------------*/
+/*	SNS
+/*-------------------------------------------*/
+
 function biz_vektor_theme_options_render_page() { ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
@@ -276,7 +294,18 @@ function biz_vektor_theme_options_render_page() { ?>
 			<?php printf(__('This section is also able to change from %s', 'biz-vektor'), $customizer_link ); ?>
 		</span>
 	</h3>
-	<?php _e('* 3PR area do not appear on the top page in the case of blank all.', 'biz-vektor') ;?><br />
+
+<table class="form-table">
+<!-- Home 3PR Area hidden -->
+<tr>
+<th>
+	<?php _e('The display of the 3PR area of a home page.', 'biz-vektor'); ?></th>
+<th><p>
+	<?php _e('Check this box if you do not want to see the 3PR area on the home page.', 'biz-vektor'); ?></p>
+<p><input type="checkbox" name="biz_vektor_theme_options[top3PrDisplay]" id="top3PrDisplay" value="true" <?php if ($options['top3PrDisplay']) {?> checked<?php } ?>> <?php _e('I want to hide the top 3PR area', 'biz-vektor'); ?></p></td>
+</tr>
+</table>
+
 	<?php _e('* It is effective without the image.', 'biz-vektor') ;?><br />
 	<span class="alert">
 		<?php _e('* You can register image for PC and for smartphone.', 'biz-vektor') ;?>
@@ -550,9 +579,9 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <li>[ <a href="#prBox">&raquo; <?php _e('Setting the Home 3PR area is here', 'biz-vektor'); ?></a> ]</li>
 </ul></td>
 </tr>
-<!-- TopEntryTitleHidden -->
+<!-- Home page side bar hidden -->
 <tr>
-<th id="topEntryTitleHidden">
+<th>
 	<?php _e('The display of the side bar of a home page.', 'biz-vektor'); ?></th>
 <th><p>
 	<?php _e('Check this box if you do not want to see the side bar on the home page.', 'biz-vektor'); ?></p>
@@ -843,6 +872,8 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
 
 	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
+
+	$output['top3PrDisplay'] = $input['top3PrDisplay'];
 
 	for ( $i = 1; $i <= 3 ;){
 		$output['pr'.$i.'_title'] = $input['pr'.$i.'_title'];
