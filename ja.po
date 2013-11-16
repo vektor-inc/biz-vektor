@@ -171,7 +171,7 @@ msgstr "固定ページの新規追加"
 
 msgctxt "BizVektor admin header menu"
 msgid "Change page list order <br />[ My page order plugin]"
-msgstr "固定ページの並び替え"
+msgstr "固定ページの並び替え <br />[ My page order プラグイン]"
 
 #: front-page.php:25
 msgid "Posted on"
@@ -466,11 +466,11 @@ msgstr "ヘッダーロゴ画像URL"
 
 msgctxt "biz-vektor theme-customizer"
 msgid "Footer logo image"
-msgstr "ヘッダーロゴ画像"
+msgstr "フッターロゴ画像"
 
 msgctxt "biz-vektor theme-customizer"
 msgid "URL of footer logo image"
-msgstr "ヘッダーロゴ画像URL"
+msgstr "フッターロゴ画像URL"
 
 msgctxt "biz-vektor theme-customizer"
 msgid "Layout"
