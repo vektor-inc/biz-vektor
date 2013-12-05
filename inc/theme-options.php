@@ -932,7 +932,8 @@ function biz_vektor_sideChildDisplay(){
 	/*-------------------------------------------*/
 #sideTower	ul.localNavi ul.children	{ display:none; }
 #sideTower	ul.localNavi li.current_page_ancestor	ul.children,
-#sideTower	ul.localNavi li.current_page_item		ul.children	{ display:block; }
+#sideTower	ul.localNavi li.current_page_item		ul.children,
+#sideTower	ul.localNavi li.current-cat				ul.children{ display:block; }
 	</style>
 	<?php
 	}
