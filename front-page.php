@@ -14,7 +14,7 @@ get_header(); ?>
 	<?php
 	$topFreeContent = NULL;
 	$topFreeContent = get_the_content();
-	if ($topFreeContent) : ?>
+	// if ($topFreeContent) : ?>
 	<div id="topFreeArea">
 	<?php if (bizVektorOptions('topEntryTitleDisplay') == true) : ?>
 		<h2><?php the_title(); ?></h2>
@@ -22,7 +22,7 @@ get_header(); ?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 	</div>
-	<?php endif; // $topFreeContent ?>
+	<?php // endif; // $topFreeContent ?>
 	<?php endif; // get_post_type() === 'page' ?>
 
 	<?php if ( is_user_logged_in() == TRUE ) {
@@ -84,7 +84,7 @@ if ( $options['listInfoTop'] == 'listType_set' ) { ?>
 </div><!-- [ /#topInfo ] -->
 <?php endif;?>
 
-<?php wp_reset_query();?>
+<?php // wp_reset_query();?>
 
 <?php
 /*-------------------------------------------*/
@@ -97,6 +97,9 @@ $postTopCount = mb_convert_kana($postTopCount, "a", "UTF-8");
 if ($postTopCount != '0') : ?>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+// if ( is_user_logged_in() == TRUE ) : 
+// echo $paged ;
+// endif;
 $post_loop = new WP_Query( array(
 	'post_type' => 'post',
 	'posts_per_page' => $postTopCount,
