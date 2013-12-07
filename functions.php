@@ -33,7 +33,7 @@
 /*-------------------------------------------*/
 /*	Admin page _ page _ customize
 /*-------------------------------------------*/
-/*	Admin page _ page _ customize
+/*	Admin page _ post _ customize
 /*-------------------------------------------*/
 /*	Custom post type _ add info
 /*-------------------------------------------*/
@@ -320,7 +320,7 @@ function remove_default_page_screen_metaboxes() {
 add_action('admin_menu','remove_default_page_screen_metaboxes');
 
 /*-------------------------------------------*/
-/*	Admin page _ page _ customize
+/*	Admin page _ post _ customize
 /*-------------------------------------------*/
 function remove_default_post_screen_metaboxes() {
 //	remove_meta_box( 'postcustom','post','normal' );			// cutom field
