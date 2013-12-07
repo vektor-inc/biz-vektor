@@ -27,9 +27,9 @@ function biz_vektor_theme_options_render_page() { ?>
 		biz_vektor_activation_information();
 		} else { ?>
 		<div id="sub-content">
-		<?php /*
+
 		<iframe frameborder="0" height="200" marginheight="0" marginwidth="0" scrolling="auto" src="http://bizvektor.com/info-admin/"></iframe>
-		*/?>
+
 		</div>
 		<?php } ?>
 		
