@@ -97,9 +97,6 @@ $postTopCount = mb_convert_kana($postTopCount, "a", "UTF-8");
 if ($postTopCount != '0') : ?>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-// if ( is_user_logged_in() == TRUE ) : 
-// echo $paged ;
-// endif;
 $post_loop = new WP_Query( array(
 	'post_type' => 'post',
 	'posts_per_page' => $postTopCount,
@@ -121,7 +118,7 @@ $post_loop = new WP_Query( array(
 		<?php endwhile; ?>
 		</ul>
 	<?php } ?>
-	<?php pagination($post_loop->max_num_pages); ?>
+	<?php // pagination($post_loop->max_num_pages); ?>
 	</div><!-- [ /#topBlog ] -->
 <?php endif; // $post_loop have_posts() ?>
 <?php endif; // $postTopCpunt= 0 ?>
