@@ -199,6 +199,11 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
 
 /*-------------------------------------------*/
+/*	Admin admin_bar_custom
+/*-------------------------------------------*/
+	get_template_part('module_adminBarCustom');
+
+/*-------------------------------------------*/
 /*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
@@ -235,11 +240,10 @@ add_editor_style('editor-style.css');
 /*-------------------------------------------*/
 /*	Admin page _ Add original admin bar
 /*-------------------------------------------*/
-function original_header_menu_output() {
-	get_template_part('module_adminHeader');
-}
-add_action('admin_notices','original_header_menu_output');
-
+// function original_header_menu_output() {
+// 	get_template_part('module_adminHeader');
+// }
+// add_action('admin_notices','original_header_menu_output');
 
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso

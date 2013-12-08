@@ -70,6 +70,10 @@ msgid "Visit site"
 msgstr "公開ページを見る"
 
 msgctxt "BizVektor admin header menu"
+msgid "General setting"
+msgstr "一般設定"
+
+msgctxt "BizVektor admin header menu"
 msgid "Plugins page"
 msgstr "プラグインの管理"
 
@@ -170,8 +174,8 @@ msgid "New post of page"
 msgstr "固定ページの新規追加"
 
 msgctxt "BizVektor admin header menu"
-msgid "Change page list order <br />[ My page order plugin]"
-msgstr "固定ページの並び替え <br />[ My page order プラグイン]"
+msgid "Change page list order [ My page order plugin]"
+msgstr "固定ページの並び替え [ My page order プラグイン]"
 
 #: front-page.php:25
 msgid "Posted on"

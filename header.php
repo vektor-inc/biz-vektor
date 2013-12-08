@@ -65,10 +65,6 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
   js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php biz_vektor_fbAppId(); ?>";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<?php
-if ( is_user_logged_in() == TRUE ) { ?>
-<?php get_template_part('module_adminHeader'); ?>
-<?php } ?>
 <div id="wrap">
 <!-- [ #headerTop ] -->
 <div id="headerTop">
