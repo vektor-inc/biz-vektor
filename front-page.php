@@ -59,12 +59,8 @@ get_header(); ?>
 /*	info
 /*-------------------------------------------*/
 ?>
-<?php $loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => 5 ) ); ?>
-<?php while ( $loop->have_posts() ) : $loop->the_post();
-$postCount = ++$postCount;
-endwhile;
-if ($postCount) :
-?>
+<?php $loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => 5, ) ); ?>
+<?php if ($loop->have_posts()) : ?>
 <div id="topInfo" class="infoList">
 <h2><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></h2>
 <div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=info" id="infoRss" target="_blank">RSS</a></div>

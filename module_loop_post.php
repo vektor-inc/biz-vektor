@@ -4,7 +4,11 @@ if ($postType == 'post') {
 	$taxonomySlug = 'category';
 } else {
 	$taxonomies = get_the_taxonomies();
-	foreach ( $taxonomies as $taxonomySlug => $taxonomy ) {}
+	if ($taxonomies) {
+		foreach ( $taxonomies as $taxonomySlug => $taxonomy ) {}
+	} else {
+		$taxonomySlug = '';
+	}
 }
 $taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
 ?>
