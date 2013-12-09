@@ -130,6 +130,8 @@ a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>;}
 
 a.btn,
+.linkBtn.linkBtnS a,
+.linkBtn.linkBtnM a,
 .moreLink a,
 .btn.btnS a,
 .btn.btnM a,
