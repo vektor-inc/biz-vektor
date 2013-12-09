@@ -129,6 +129,7 @@ function default_design_WpHead(){
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>;}
 
+a.btn,
 .moreLink a,
 .btn.btnS a,
 .btn.btnM a,
@@ -155,7 +156,7 @@ form#searchform input#searchsubmit,
 #gMenu .menu li.current_page_item a,
 #gMenu .menu li.current_page_ancestor a ,
 #gMenu .menu li.current-page-ancestor a ,
-#gMenu .menu li a:hover	{ 
+#gMenu .menu li a:hover	{
 background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
 border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
 background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
