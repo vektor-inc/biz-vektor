@@ -473,6 +473,7 @@ function biz_vektor_topContentsBottom()	{
 /*-------------------------------------------*/
 /*	Add OGP
 /*-------------------------------------------*/
+add_action('wp_head', 'biz_vektor_ogp' );
 function biz_vektor_ogp () {
 	$options = biz_vektor_get_theme_options();
 	//$ogpImage = $options['ogpImage'];
