@@ -10,7 +10,7 @@
 <meta name="description" content="<?php getHeadDescription(); ?>" />
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
-<?php // biz_vektor_ogp(); ?>
+<?php biz_vektor_ogp(); ?>
 <?php biz_vektor_theme_style(); ?>
 <?php
 if (is_front_page()) {
