@@ -1,5 +1,7 @@
 <?php
 /*-------------------------------------------*/
+/*	Set option default
+/*-------------------------------------------*/
 /*	Create title
 /*-------------------------------------------*/
 /*	layout
@@ -48,8 +50,6 @@
 /*-------------------------------------------*/
 /*	Print option
 /*-------------------------------------------*/
-/*	Set option default
-/*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
 /*	Side menu hidden
@@ -91,6 +91,46 @@ function biz_vektor_theme_options_add_page() {
 }
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
+function biz_vektor_get_default_theme_options() {
+	$default_theme_options = array(
+		'theme_layout' => 'content-sidebar',
+		'postLabelName' => 'Blog',
+		'infoLabelName' => 'Information',
+		'rssLabelName' => 'Blog entries',
+		'theme_style' => 'default',
+		'pr1_title' => __('Rich theme options item', 'biz-vektor'),
+		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
+		'pr2_title' => __('Various designs available', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
+		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
+		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
+	);
+	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
+}
+
+function biz_vektor_get_theme_options() {
+	return get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
+}
+
+/*-------------------------------------------*/
+/*	Set option default
+/*-------------------------------------------*/
+function bizVektorOptions_default() {
+	global $bizVektorOptions_default;
+	$bizVektorOptions_default = array(
+		'theme_layout' => 'content-sidebar',
+		'postLabelName' => 'Blog',
+		'infoLabelName' => 'Information',
+		'rssLabelName' => 'Blog entries',
+		'theme_style' => 'default',
+		'pr1_title' => __('Rich theme options item', 'biz-vektor'),
+		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
+		'pr2_title' => __('Various designs available', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
+		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
+		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
+	);
+}
 
 /*-------------------------------------------*/
 /*	Create title
@@ -194,16 +234,6 @@ function biz_vektor_layouts() {
 	return apply_filters( 'biz_vektor_layouts', $layout_options );
 }
 
-function biz_vektor_get_default_theme_options() {
-	$default_theme_options = array(
-		'theme_layout' => 'content-sidebar',
-	);
-}
-
-function biz_vektor_get_theme_options() {
-	return get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
-}
-
 /*-------------------------------------------*/
 /*	Add layout class to body tag
 /*-------------------------------------------*/
@@ -281,6 +311,7 @@ function biz_vektor_theme_styleSetting() {
 }
 
 // [4] Print theme style css
+add_action('wp_head','biz_vektor_theme_style',100 );
 function biz_vektor_theme_style() {
 	$options = biz_vektor_get_theme_options();
 	// Set bbiz_vektor_theme_styles
@@ -294,20 +325,14 @@ function biz_vektor_theme_style() {
 	}
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 
-	wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
-}
+	print '<!-- BizVektorStyle-->'."\n";
+	print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
+	print '<!-- /BizVektorStyle-->'."\n";
 
-// fuck IE
-function biz_vektor_theme_styleOldIe(){
-	$options = biz_vektor_get_theme_options();
-	global $biz_vektor_theme_styles;
-	biz_vektor_theme_styleSetting();
+	// wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
+
 	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
 
-	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
-	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
-
-	// Necessary
 	if ($themePathOldIe){
 		print '<!--[if lte IE 8]>'."\n";
 		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
@@ -318,6 +343,7 @@ function biz_vektor_theme_styleOldIe(){
 /*-------------------------------------------*/
 /*	Menu divide
 /*-------------------------------------------*/
+add_action('wp_head','biz_vektor_gMenuDivide',170 );
 function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
 	// No select
@@ -473,7 +499,8 @@ function biz_vektor_topContentsBottom()	{
 /*-------------------------------------------*/
 /*	Add OGP
 /*-------------------------------------------*/
-function biz_vektor_ogp () {
+add_action('wp_head', 'biz_vektor_ogp' );
+function biz_vektor_ogp() {
 	$options = biz_vektor_get_theme_options();
 	//$ogpImage = $options['ogpImage'];
 	//$fbAppId = $options['fbAppId'];
@@ -717,6 +744,7 @@ function biz_vektor_getHeadKeywords(){
 /*-------------------------------------------*/
 /*	GoogleAnalytics
 /*-------------------------------------------*/
+add_action('wp_head', 'biz_vektor_googleAnalytics', 10000 );
 function biz_vektor_googleAnalytics(){
 	$options = biz_vektor_get_theme_options();
 	$gaID = $options['gaID'];
@@ -844,31 +872,13 @@ function biz_vektor_slideBody(){
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_vektor_get_theme_options();
-	if ($options[$optionLabel] !='' ) { // If !='' that 0 true
+	if ($options[$optionLabel] != false ) { // If !='' that 0 true
 		return $options[$optionLabel];
 	} else {
 		bizVektorOptions_default();
 		global $bizVektorOptions_default;
 		return $bizVektorOptions_default[$optionLabel];
 	}
-}
-/*-------------------------------------------*/
-/*	Set option default
-/*-------------------------------------------*/
-function bizVektorOptions_default() {
-	global $bizVektorOptions_default;
-	$bizVektorOptions_default = array(
-		'postLabelName' => 'Blog',
-		'infoLabelName' => 'Information',
-		'rssLabelName' => 'Blog entries',
-		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options item', 'biz-vektor'),
-		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
-		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
-		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
-	);
 }
 
 /*-------------------------------------------*/

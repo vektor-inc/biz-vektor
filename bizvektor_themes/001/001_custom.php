@@ -24,7 +24,7 @@ function is_bizvektor_default_design(){
 	if (function_exists('biz_vektor_theme_styleSetting'))
 	{
 		$options = biz_vektor_get_theme_options();
-		if ($options['theme_style'] == 'default') {
+		if ( $options['theme_style'] == 'default' || $options['theme_style'] == '' ) {
 			return true;
 		}
 	}
@@ -109,21 +109,18 @@ function themePlusSettingNavi_default_design(){
 	return $themePlusSettingNavi;
 }
 
-
-
 /*-------------------------------------------*/
 /*	Print head
 /*-------------------------------------------*/
-add_action( 'wp_head','default_design_WpHead');
+add_action( 'wp_head','default_design_WpHead', 150);
 function default_design_WpHead(){
 	if (is_bizvektor_default_design()){
-	$default_design_options = biz_vektor_get_theme_options_default_design();
-	if (!$default_design_options['theme_plusKeyColor'])
-		$default_design_options['theme_plusKeyColor'] = '#c30000';
-	if (!$default_design_options['theme_plusKeyColorLigh'])
-		$default_design_options['theme_plusKeyColorLigh'] = '#ff0000';
-	if (!$default_design_options['theme_plusKeyColorDark'])
-		$default_design_options['theme_plusKeyColorDark'] = '#990000';
+		$default_design_options = biz_vektor_get_theme_options_default_design();
+		if(!$default_design_options){
+			$default_design_options['theme_plusKeyColor'] = '#c30000';
+			$default_design_options['theme_plusKeyColorLight'] = '#ff0000';
+			$default_design_options['theme_plusKeyColorDark'] = '#990000';
+		}
 	?>
 		<style type="text/css">
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }

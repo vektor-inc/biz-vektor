@@ -10,8 +10,6 @@
 <meta name="description" content="<?php getHeadDescription(); ?>" />
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
-<?php biz_vektor_ogp(); ?>
-<?php biz_vektor_theme_style(); ?>
 <?php
 if (is_front_page()) {
 	// ▼スライドショーがある場合
@@ -22,7 +20,6 @@ if (is_front_page()) {
 	wp_enqueue_script( 'flexSlider' );
 	}
 } ?>
-
 <?php
 wp_register_script( 'masterjs' , get_template_directory_uri().'/js/master.js', array('jquery'), '20130708' );
 wp_enqueue_script( 'jquery' );
@@ -40,8 +37,6 @@ if ( is_singular() && get_option( 'thread_comments' ) )
  */
 wp_head();
 ?>
-<?php biz_vektor_theme_styleOldIe(); ?>
-<?php biz_vektor_gMenuDivide(); ?>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <?php
 /* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
@@ -53,7 +48,6 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 	print '<link rel="stylesheet" type="text/css" media="all" href="'.$stylePathOldIe.'" />'."\n";
 	print '<![endif]-->'."\n";
 } ?>
-<?php biz_vektor_googleAnalytics(); ?>
 </head>
 
 <body <?php body_class(); ?>>
