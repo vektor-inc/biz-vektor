@@ -116,12 +116,12 @@ add_action( 'wp_head','default_design_WpHead', 150);
 function default_design_WpHead(){
 	if (is_bizvektor_default_design()){
 		$default_design_options = biz_vektor_get_theme_options_default_design();
-		if(!$default_design_options){
-			$default_design_options['theme_plusKeyColor'] = '#c30000';
-			$default_design_options['theme_plusKeyColorLight'] = '#ff0000';
-			$default_design_options['theme_plusKeyColorDark'] = '#990000';
-		}
-	?>
+		if( !isset($default_design_options['theme_plusKeyColor']) ) $default_design_options['theme_plusKeyColor'] = '#c30000';
+		if( !isset($default_design_options['theme_plusKeyColorLight']) ) $default_design_options['theme_plusKeyColorLight'] = '#ff0000';
+		if( !isset($default_design_options['theme_plusKeyColorDark']) ) $default_design_options['theme_plusKeyColorDark'] = '#990000';
+
+		// 
+?>
 		<style type="text/css">
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>;}
@@ -215,5 +215,6 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 #footMenu .menu li a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 </style>
 <![endif]-->
+
 	<?php }
 }
