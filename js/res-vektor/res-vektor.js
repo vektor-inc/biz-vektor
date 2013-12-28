@@ -32,6 +32,19 @@ class="show-full-only"
 
 
 /*----------------------------------------------------------*/
+/*	画像をaltテキストに置き換えたり戻したり
+/*----------------------------------------------------------*/
+/*	写真に画像の回り込みの場合のテキスト部分の横幅制御
+/*		[class名] 外側の要素 : ttBox / 画像（又はその枠） : ttBoxThumb / テキスト部分 : ttBoxTxt
+/*----------------------------------------------------------*/
+/*	メニューの開閉
+/*	<div id="menu" onclick="showHide('menu');" class="itemOpen">MENU</div>
+/*----------------------------------------------------------*/
+/*	トップへ戻る
+/*----------------------------------------------------------*/
+
+
+/*----------------------------------------------------------*/
 /*	要素の表示／非表示の切り替え
 /*----------------------------------------------------------*/
 jQuery(function(){
@@ -67,8 +80,6 @@ function resVektorRun(){
 			dropNavFunctions();
 			dropNavSubControlLinkDelete();
 			mode = "mode_mobile";
-			// ************** 個別案件指定
-			kobetsuItemMove();
 		}
 	}
 	if ( (breakPoint2 < bodyWidth) && (bodyWidth < breakPoint1) ) {
@@ -82,8 +93,6 @@ function resVektorRun(){
 			dropNavFunctions();
 			dropNavSubControlLinkDelete();
 			mode = "mode_tab";
-			// ************** 個別案件指定
-			kobetsuItemMove();
 		}
 	}
 	// ウィンドウサイズが960より大きい場合
@@ -97,8 +106,6 @@ function resVektorRun(){
 			dropNavReset();
 			dropNavSubControlLinkRedo()
 			mode = "mode_full";
-			// ************** 個別案件指定
-			kobetsuItemMoveBack()
 		}
 	}
 }
@@ -257,8 +264,6 @@ function dropNavSubControlLinkRedo(){
 /*----------------------------------------------------------*/
 /*	画像をaltテキストに置き換えたり戻したり
 /*----------------------------------------------------------*/
-/*		画像をaltテキストに置き換えたり
-/*----------------------------------------------------------*/
 function resImgTxtChange_mode_mobile(){
 	resImgTxtChange_mobile_only();
 	resImgTxtChange_mobile_tab();
@@ -349,3 +354,28 @@ function showHide(targetID) {
 		}
 	}
 }
+
+/*-------------------------------------------*/
+/*	トップへ戻る
+/*-------------------------------------------*/
+jQuery(document).ready(function(){
+    // hide #back-top first
+    jQuery("#back-top").hide();
+    // fade in #back-top
+    jQuery(function () {
+        jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > 100) {
+                jQuery('#back-top').fadeIn();
+            } else {
+                jQuery('#back-top').stop().fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        jQuery('#back-top a').click(function () {
+            jQuery('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+});

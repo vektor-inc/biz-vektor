@@ -515,11 +515,12 @@ function bizVektorAddJsScripts(){
 		}
 	}
 	echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/res-vektor/res-vektor.css" type="text/css">';
-	wp_register_script( 'res-vektor-js' , get_template_directory_uri().'/js/res-vektor/res-vektor.js', array('jquery'), '20131228' );
 	wp_register_script( 'masterjs' , get_template_directory_uri().'/js/master.js', array('jquery'), '20130708' );
+	wp_register_script( 'res-vektor-js' , get_template_directory_uri().'/js/res-vektor/res-vektor.js', array('jquery'), '20131228' );
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'res-vektor-js' );
 	wp_enqueue_script( 'masterjs' );
+	wp_enqueue_script( 'res-vektor-js' );
+
 }
 
 /*-------------------------------------------*/

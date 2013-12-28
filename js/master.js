@@ -207,8 +207,6 @@ jQuery(document).ready(function($){
     jQuery('.child_page_block').flatHeights();
     jQuery('.child_page_block p').flatHeights();
 	jQuery('#content .child_page_block h4 a').flatHeights();
-	//$('.menu li:hover').addClass('dropOpen');
-	//$('.menu li').mouseout().removeClass(dropOpen);
 });
 
 jQuery.changeLetterSize = {

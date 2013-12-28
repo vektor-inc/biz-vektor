@@ -5,14 +5,21 @@
 ?>
 </div><!-- #main -->
 
+<div id="back-top">
+<a href="#wrap">
+	<img id="pagetop" src="<?php echo get_template_directory_uri(); ?>/js/res-vektor/images/footer_pagetop.png" alt="PAGETOP" />
+</a>
+</div>
+
 <!-- [ #footerSection ] -->
 <div id="footerSection">
+	<!--
 	<div id="pagetop">
 	<div id="pagetopInner" class="innerBox">
 	<a href="#wrap">PAGETOP</a>
 	</div>
 	</div>
-
+	-->
 	<div id="footMenu">
 	<div id="footMenuInner" class="innerBox">
 	<?php wp_nav_menu( array(

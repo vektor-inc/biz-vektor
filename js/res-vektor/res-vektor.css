@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+#back-top #pagetop	{position: fixed; bottom: 20px; right: 20px; }
+#back-top { z-index: 500; position: relative; }
+
 .dropNavControl { cursor: pointer; }
 .show-mobile-only,
 .show-mobile-tab,
