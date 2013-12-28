@@ -11,25 +11,11 @@
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
 <?php
-if (is_front_page()) {
-	// ▼スライドショーがある場合
-	if (biz_vektor_slideExist()) {
-	echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/FlexSlider/flexslider.css" type="text/css">';
-	wp_enqueue_script( 'jquery' );
-	wp_register_script( 'flexSlider' , get_template_directory_uri().'/js/FlexSlider/jquery.flexslider.js', array('jquery'), '20120609');
-	wp_enqueue_script( 'flexSlider' );
-	}
-} ?>
-<?php
-wp_register_script( 'masterjs' , get_template_directory_uri().'/js/master.js', array('jquery'), '20130708' );
-wp_enqueue_script( 'jquery' );
-wp_enqueue_script( 'masterjs' );
 /* We add some JavaScript to pages with the comment form
  * to support sites with threaded comments (when in use).
  */
 if ( is_singular() && get_option( 'thread_comments' ) )
 	wp_enqueue_script( 'comment-reply' );
-
 /* Always have wp_head() just before the closing </head>
  * tag of your theme, or you will break many plugins, which
  * generally use this hook to add elements to <head> such

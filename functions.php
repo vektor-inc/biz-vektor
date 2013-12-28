@@ -41,6 +41,8 @@
 /*-------------------------------------------*/
 /*	head_wp_head clean and add items
 /*-------------------------------------------*/
+/*	footer_wp_footer clean and add items
+/*-------------------------------------------*/
 /*	Term list no link
 /*-------------------------------------------*/
 /*	Global navigation add cptions
@@ -63,7 +65,6 @@
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
-
 
 load_theme_textdomain('biz-vektor');
 
@@ -498,6 +499,24 @@ function bizVektorAddPingback(){
 	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
 	$pingback = apply_filters('pingbackCustom', $pingback );
 	echo $pingback;
+}
+
+/*-------------------------------------------*/
+/*	footer_wp_footer clean and add items
+/*-------------------------------------------*/
+add_action('wp_footer','bizVektorAddJsScripts');
+function bizVektorAddJsScripts(){
+	if (is_front_page()) {
+		if (biz_vektor_slideExist()) {
+		echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/FlexSlider/flexslider.css" type="text/css">';
+		wp_enqueue_script( 'jquery' );
+		wp_register_script( 'flexSlider' , get_template_directory_uri().'/js/FlexSlider/jquery.flexslider.js', array('jquery'), '20120609');
+		wp_enqueue_script( 'flexSlider' );
+		}
+	} 
+	wp_register_script( 'masterjs' , get_template_directory_uri().'/js/master.js', array('jquery'), '20130708' );
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'masterjs' );
 }
 
 /*-------------------------------------------*/
