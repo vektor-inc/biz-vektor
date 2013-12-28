@@ -182,20 +182,6 @@ jQuery.easing.quart = function (x, t, b, c, d) {
 	return -c * ((t=t/d-1)*t*t*t - 1) + b;
 };
 
-
-/*-------------------------------------------*/
-/*	ÉÅÉjÉÖÅ[ÇÃäJï¬
-/*-------------------------------------------*/
-function showHide(targetID) {
-	if( document.getElementById(targetID)) {
-		if( document.getElementById(targetID).className == "itemOpen") {
-			document.getElementById(targetID).className = "itemClose";
-		} else {
-			document.getElementById(targetID).className = "itemOpen";
-		}
-	}
-}
-
 /*-------------------------------------------*/
 /*
 /*-------------------------------------------*/

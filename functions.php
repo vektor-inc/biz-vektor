@@ -513,9 +513,12 @@ function bizVektorAddJsScripts(){
 		wp_register_script( 'flexSlider' , get_template_directory_uri().'/js/FlexSlider/jquery.flexslider.js', array('jquery'), '20120609');
 		wp_enqueue_script( 'flexSlider' );
 		}
-	} 
+	}
+	echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/res-vektor/res-vektor.css" type="text/css">';
+	wp_register_script( 'res-vektor-js' , get_template_directory_uri().'/js/res-vektor/res-vektor.js', array('jquery'), '20131228' );
 	wp_register_script( 'masterjs' , get_template_directory_uri().'/js/master.js', array('jquery'), '20130708' );
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'res-vektor-js' );
 	wp_enqueue_script( 'masterjs' );
 }
 
@@ -533,7 +536,6 @@ function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', 
     }
     return $before . join( $sep, $term_names ) . $after;
 }
-
 
 /*-------------------------------------------*/
 /*	Global navigation add cptions

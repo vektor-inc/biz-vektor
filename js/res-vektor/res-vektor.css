@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.dropNavControl { cursor: pointer; }
+.show-mobile-only,
+.show-mobile-tab,
+.show-tab-only,
+.show-tab-full,
+.show-full-only { display: none;}
+
+@media (min-width: 970px) {
+	.show-mobile-only,
+	.show-mobile-tab,
+	.show-tab-only{ display: none;}
+	span.txtBr-full-only { display: block; }
+}
+@media (max-width: 670px) {
+	.show-tab-only,
+	.show-tab-full,
+	.show-full-only { display: none;}
+}
+
+/*
+body.riseNavOpen #contents,
+body.riseNavOpen #sub-contents	{ display:none; }
+body.riseNavOpen #footer .riseNavControlClose	{ display:inline; width:100%;overflow:visible;margin:0px auto;z-index:100;}
+body.riseNavOpen #footer .riseNavControlClose	{ position:absolute;top:3px; text-align:center; }
+body.riseNavOpen #footer .riseNavControlClose img	{ margin:0px auto; }
+*/
