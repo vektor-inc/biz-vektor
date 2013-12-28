@@ -351,7 +351,7 @@ function create_post_type() {
 	'public' => true,
 	'menu_position' =>5,
 	'has_archive' => true,
-	'supports' => array('title','editor','excerpt','thumbnail')
+	'supports' => array('title','editor','excerpt','thumbnail','author')
 	)
 	);
 	// Add information category
