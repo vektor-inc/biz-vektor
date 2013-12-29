@@ -298,9 +298,8 @@ function biz_vektor_theme_options_render_page() { ?>
 <table class="form-table">
 <!-- Home 3PR Area hidden -->
 <tr>
-<th>
-	<?php _e('The display of the 3PR area of a home page.', 'biz-vektor'); ?></th>
-<th><p>
+<th><?php _e('The display of the 3PR area of a home page.', 'biz-vektor'); ?></th>
+<td><p>
 	<?php _e('Check this box if you do not want to see the 3PR area on the home page.', 'biz-vektor'); ?></p>
 <p><input type="checkbox" name="biz_vektor_theme_options[top3PrDisplay]" id="top3PrDisplay" value="true" <?php if ($options['top3PrDisplay']) {?> checked<?php } ?>> <?php _e('I want to hide the top 3PR area', 'biz-vektor'); ?></p></td>
 </tr>
@@ -562,7 +561,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <!-- Page to be displayed below the main visual -->
 <tr>
 <th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<th><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">
+<td><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">
 	&raquo; <?php _e('Setting of the page to display just below the main visual of home page', 'biz-vektor'); ?></a> ]</p>
 <p><?php _e('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
 <span class="alert">
@@ -581,9 +580,8 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 </tr>
 <!-- Home page side bar hidden -->
 <tr>
-<th>
-	<?php _e('The display of the side bar of a home page.', 'biz-vektor'); ?></th>
-<th><p>
+<th><?php _e('The display of the side bar of a home page.', 'biz-vektor'); ?></th>
+<td><p>
 	<?php _e('Check this box if you do not want to see the side bar on the home page.', 'biz-vektor'); ?></p>
 <p><input type="checkbox" name="biz_vektor_theme_options[topSideBarDisplay]" id="topSideBarDisplay" value="true" <?php if ($options['topSideBarDisplay']) {?> checked<?php } ?>> <?php _e('I want to hide the sidebar', 'biz-vektor'); ?></p></td>
 </tr>
