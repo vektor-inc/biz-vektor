@@ -16,6 +16,7 @@ class="resImgTxtChange-mobile-only"
 ━━━━━━━━━━━━━━━━━━━━
 imageにclass="resImage-mobile" クラスを指定
 画像ファイル名末尾に _mobile を追加
+【例】 sample_mobile.jpeg
 
 ━━━━━━━━━━━━━━━━━━━━
 CSSで表示・非表示を切り替える
@@ -30,6 +31,12 @@ class="show-full-only"
 改行したい箇所以降をspanにclassをつけて囲う
 <span class="txtBr-full-only"></span>
 
+━━━━━━━━━━━━━━━━━━━━
+写真に画像の回り込みの場合のテキスト部分の横幅制御
+━━━━━━━━━━━━━━━━━━━━
+[class名] 外側の要素 : .ttBox / 画像（又はその枠） : .ttBoxThumb / テキスト部分 : .ttBoxTxt
+ttBoxThumb にはcss側でサイズを指定をしてください（画像サイズをCSSで可変させた場合にも追従させるため）。
+.ttBoxThumb/.ttBoxTxt はそれぞれ回り込みを指定してください　（画像を右にするか左にするかは案件によって異なるため）
 
 /*----------------------------------------------------------*/
 /*	画像をaltテキストに置き換えたり戻したり
