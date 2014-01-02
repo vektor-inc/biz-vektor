@@ -33,8 +33,8 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 #biz_vektor_options #sub-content iframe { width: 100%; margin:0; height:1600px; }
 #biz_vektor_options #main-content { display:block; overflow:hidden;width:75%;float:left;}
 
-#biz_vektor_options .sectionBox { padding-top:6em; position: relative; }
-#biz_vektor_options #design.sectionBox { padding-top:6em; }
+#biz_vektor_options .sectionBox { padding-top:4em; position: relative; }
+#biz_vektor_options #design.sectionBox { padding-top:4em; }
 
 .message_intro { position: padding: 1em; line-height: 170%; }
 

@@ -209,8 +209,8 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
 	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
-	$adminCssPath = get_template_directory_uri().'/style_BizVektor_admin.css';
-	wp_enqueue_style( 'theme', $adminCssPath , false, '2012-06-24');
+	$adminCssPath = get_template_directory_uri().'/style_bizVektor_admin.css';
+	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-01-03');
 }
 add_action('admin_head', 'bizVektor_admin_css', 11);
 
