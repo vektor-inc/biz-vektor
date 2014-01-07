@@ -14,7 +14,7 @@ get_header(); ?>
 	<?php
 	$topFreeContent = NULL;
 	$topFreeContent = get_the_content();
-	// if ($topFreeContent) : ?>
+	if ($topFreeContent) : ?>
 	<div id="topFreeArea">
 	<?php if (bizVektorOptions('topEntryTitleDisplay') == true) : ?>
 		<h2><?php the_title(); ?></h2>
@@ -22,7 +22,7 @@ get_header(); ?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 	</div>
-	<?php // endif; // $topFreeContent ?>
+	<?php endif; // $topFreeContent ?>
 	<?php endif; // get_post_type() === 'page' ?>
 
 	<?php if ( is_user_logged_in() == TRUE ) {
