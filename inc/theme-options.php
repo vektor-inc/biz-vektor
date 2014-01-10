@@ -213,7 +213,7 @@ function getHeadTitle() {
 		$headTitle = get_bloginfo('name');
 	}
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
-    echo $headTitle;
+	echo esc_html($headTitle);
 }
 /*-------------------------------------------*/
 /*	layout
