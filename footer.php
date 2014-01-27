@@ -13,13 +13,13 @@
 
 <!-- [ #footerSection ] -->
 <div id="footerSection">
-	<!--
+
 	<div id="pagetop">
 	<div id="pagetopInner" class="innerBox">
 	<a href="#wrap">PAGETOP</a>
 	</div>
 	</div>
-	-->
+
 	<div id="footMenu">
 	<div id="footMenuInner" class="innerBox">
 	<?php wp_nav_menu( array(
