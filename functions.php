@@ -447,7 +447,8 @@ function getHeadDescription() {
 	} else if (is_page() || is_single()) {
 		$metaExcerpt = $post->post_excerpt;
 		if ($metaExcerpt) {
-			$metadescription = $post->post_excerpt;
+			// $metadescription = strip_tags($post->post_excerpt);
+			$metadescription = strip_tags($post->post_excerpt);
 		} else {
 			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
 			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // delete br
