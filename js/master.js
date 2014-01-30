@@ -110,7 +110,7 @@ window.onload = function(){
 	var aPreLoad = new Array();
 	var sTempSrc;
 
-  var setup = function(aImages) {
+	var setup = function(aImages) {
 		for (var i = 0; i < aImages.length; i++) {
 			if (aImages[i].className == 'imgover') {
 				var src = aImages[i].getAttribute('src');
@@ -144,16 +144,15 @@ window.onload = function(){
 		initRollovers();
 	}
 }
-/*
-jQuery(document).ready(function(){
-	jQuery('a img.imgover').hover(function(){
-		jQuery(this).attr('src').replace('/\.gif/', '/_on\.gif/');
-		jQuery(this).attr('src').replace('/\.png', '/_on\.png/');
-		jQuery(this).attr('src').replace('/\.jpg', '/_on\.jpg/');
-		//jQuery(this).remove();
-	});
-});
-*/
+
+// jQuery(document).ready(function(){
+// 	jQuery('a img.imgover').hover(function(){
+// 		jQuery(this).attr('src').replace('/\.gif/', '/_on\.gif/');
+// 		jQuery(this).attr('src').replace('/\.png', '/_on\.png/');
+// 		jQuery(this).attr('src').replace('/\.jpg', '/_on\.jpg/');
+// 		//jQuery(this).remove();
+// 	});
+// });
 
 /*-------------------------------------------*/
 /*	ページ内するするスクロール
