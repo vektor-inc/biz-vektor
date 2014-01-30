@@ -142,6 +142,7 @@ function bizVektorOptions($optionLabel) {
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_get_default_theme_options();
+		if (isset($options_default[$optionLabel]))
 		return $options_default[$optionLabel];
 	}
 }
