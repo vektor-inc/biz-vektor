@@ -106,11 +106,11 @@ function themePlusSettingNaviCalmly(){
 /*-------------------------------------------*/
 /*	Print head
 /*-------------------------------------------*/
-add_action( 'wp_head','calmlyWpHead');
+add_action( 'wp_head','calmlyWpHead', 150);
 function calmlyWpHead(){
 	if (is_calmly()){
 	$calmlyOptions = biz_vektor_get_theme_options_calmly();
-	?>
+		if ( $calmlyOptions ) : ?>
 		<style type="text/css">
 /* FontNormal */
 a,
@@ -190,5 +190,6 @@ form#searchform input#searchsubmit	{ border-color:<?php echo $calmlyOptions['the
 #footMenu .menu li a:hover	{ color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
 </style>
 <![endif]-->
-	<?php }
+<?php endif; // if ( $calmlyOptions )
+	}
 }
