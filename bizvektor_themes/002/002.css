@@ -450,24 +450,6 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 #content form input[type=radio] { width:auto; }
 #content form input[type=checkbox] { width:auto; }
 
-/*			trust-form
-/*-------------------------------------------*/
-#content #trust-form	{ width:100%; }
-
-/*			contactform7
-/*-------------------------------------------*/
-#content .wpcf7	{ margin-top:20px; }
-#content form span.wpcf7-form-control-wrap	{ position:relative; display:block; overflow:hidden; clear:both; /*回り込みをしている為*/ }
-#content form span.wpcf7-form-control-wrap .wpcf7-list-item,
-#content form span.wpcf7-form-control-wrap .wpcf7-list-item label	{ display:block; float:left; }
-#content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:8px; padding-bottom:8px; }
-#content form span.wpcf7-not-valid-tip	{ position: relative; color: #fff; padding-left: 5px; position:relative; display:block; background-color:#F00;left:0px;top:8px; margin-bottom:8px; }
-#content form span.wpcf7-not-valid-tip::after {content: "";position: absolute;bottom: 100%;left: 30px;height: 0;width: 0;border: 10px solid transparent;border-bottom: 10px solid #F00;}
-#content form div.wpcf7-validation-errors	{ border:none; position: relative; color:#FFF; padding:7px; background-color:#F00; text-align:center; }
-#content form div.wpcf7-validation-errors::after {content: "";position: absolute;bottom: 100%;left: 30px;height: 0;width: 0;border: 10px solid transparent;border-bottom: 10px solid #F00;}
-#content .wpcf7 dl		{ display:block; overflow:hidden; border-bottom:1px dotted #ccc; }
-#content .wpcf7 dl dt	{ display:block; overflow:hidden; padding:10px 0;float:left; width:20%; color:#666; font-weight:lighter; }
-#content .wpcf7 dl dd	{ display:block; overflow:hidden; padding:10px;margin-bottom:0px; }
 
 /*-------------------------------------------*/
 /*	#sideTower
@@ -778,7 +760,7 @@ body     { line-height:150%; }
 	visibility: hidden;
 }
 /* グラデーション（filter）を使用するとIE8でドロップダウンの動作に不具合が出る場合がある為画像を使用 */
-#gMenu { border-bottom-width: 3px; border-bottom-style: solid; border-top:1px solid #e5e5e5;
+#gMenu { border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color:#5ead3c;border-top:1px solid #e5e5e5;
 background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
 #gMenu.itemClose .menu,
