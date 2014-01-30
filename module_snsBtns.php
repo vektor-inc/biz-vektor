@@ -2,7 +2,7 @@
 <?php if (is_home() || is_front_page()) {
 	$linkUrl = home_url();
 	$twitterUrl = home_url();
-} else if (is_single() || (is_page() && !is_front_page())) {
+} else if ( is_single() || is_archive() || ( is_page() && !is_front_page() ) ) {
 	// $twitterUrl = home_url().'/?p='.get_the_ID();
 	// URL is shortened it's id, but perm link because it does not count URL becomes separately
 	$twitterUrl = get_permalink();

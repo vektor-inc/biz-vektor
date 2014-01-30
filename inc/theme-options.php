@@ -2,6 +2,8 @@
 /*-------------------------------------------*/
 /*	Set option default
 /*-------------------------------------------*/
+/*	Print option
+/*-------------------------------------------*/
 /*	Create title
 /*-------------------------------------------*/
 /*	layout
@@ -48,8 +50,6 @@
 /*-------------------------------------------*/
 /*	slide show
 /*-------------------------------------------*/
-/*	Print option
-/*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
 /*	Side menu hidden
@@ -91,6 +91,10 @@ function biz_vektor_theme_options_add_page() {
 }
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
+function biz_vektor_get_theme_options() {
+	return get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
+}
+
 function biz_vektor_get_default_theme_options() {
 	$default_theme_options = array(
 		'theme_layout' => 'content-sidebar',
@@ -108,12 +112,9 @@ function biz_vektor_get_default_theme_options() {
 	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
 }
 
-function biz_vektor_get_theme_options() {
-	return get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
-}
-
 /*-------------------------------------------*/
 /*	Set option default
+/*	$opstions_default = biz_vektor_get_default_theme_options(); に移行して順次廃止	// 0.11.0
 /*-------------------------------------------*/
 function bizVektorOptions_default() {
 	global $bizVektorOptions_default;
@@ -130,6 +131,19 @@ function bizVektorOptions_default() {
 		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
 		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
 	);
+}
+
+/*-------------------------------------------*/
+/*	Print option
+/*-------------------------------------------*/
+function bizVektorOptions($optionLabel) {
+	$options = biz_vektor_get_theme_options();
+	if ( $options[$optionLabel] != false ) { // If !='' that 0 true
+		return $options[$optionLabel];
+	} else {
+		$options_default = biz_vektor_get_default_theme_options();
+		return $options_default[$optionLabel];
+	}
 }
 
 /*-------------------------------------------*/
@@ -177,10 +191,16 @@ function getHeadTitle() {
 			endif;
 		// Info category
 		} else if (is_tax()){
-			$headTitle = single_cat_title()." | ".get_bloginfo('name');
+			$headTitle = single_cat_title('',false)." | ".get_bloginfo('name');
 		// Info crchive
 		} else if (is_archive()) {
-			$headTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+			if ( is_year()) {
+				$headTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+			} if ( is_month()) {
+				$headTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+			} else {
+				$headTitle = esc_html(bizVektorOptions('infoLabelName'));
+			}
 			$headTitle .= " | ".get_bloginfo('name');
 		}
 	// Single
@@ -193,17 +213,17 @@ function getHeadTitle() {
 		endif;
 	// Category
 	} else if (is_category()) {
-		$headTitle = single_cat_title()." | ".get_bloginfo('name');
+		$headTitle = single_cat_title('',false)." | ".get_bloginfo('name');
 	// Tag
 	} else if (is_tag()) {
-		$headTitle = single_tag_title()." | ".get_bloginfo('name');
+		$headTitle = single_tag_title('',false)." | ".get_bloginfo('name');
 	// Archive
 	} else if (is_archive()) {
 		if (is_month()){
 			$headTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) );
 			$headTitle .= " | ".get_bloginfo('name');
 		} else {
-			$headTitle = single_tag_title();
+			$headTitle = single_tag_title('',false)." | ".get_bloginfo('name');
 		}
 	// Search
 	} else if (is_search()) {
@@ -556,7 +576,7 @@ function biz_vektor_ogp() {
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
 	}
-	if ( $options['ogpTagDisplay'] == 'ogp_off' ) {
+	if ( isset($options['ogpTagDisplay']) == 'ogp_off' ) {
 		$bizVektorOGP = '';
 	}
 	$bizVektorOGP = apply_filters('bizVektorOGPCustom', $bizVektorOGP );
@@ -868,20 +888,6 @@ function biz_vektor_slideBody(){
 }
 
 /*-------------------------------------------*/
-/*	Print option
-/*-------------------------------------------*/
-function bizVektorOptions($optionLabel) {
-	$options = biz_vektor_get_theme_options();
-	if ($options[$optionLabel] != false ) { // If !='' that 0 true
-		return $options[$optionLabel];
-	} else {
-		bizVektorOptions_default();
-		global $bizVektorOptions_default;
-		return $bizVektorOptions_default[$optionLabel];
-	}
-}
-
-/*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
 add_action('admin_print_scripts-appearance_page_theme_options', 'admin_theme_options_plugins');
@@ -902,14 +908,14 @@ function biz_vektor_fontStyle(){
 	$font_face_serif 		= apply_filters( 'font_face_serif_custom', $font_face_serif );
 	$font_face_sans_serif = _x('Meiryo,Osaka,sans-serif', 'Font select', 'biz-vektor');
 	$font_face_sans_serif 	= apply_filters( 'font_face_sans_serif_custom', $font_face_sans_serif );
-	if ($options['font_title'] == 'serif') {
+	if ( isset($options['font_title']) == 'serif') {
 		$font_title_face = $font_face_serif ;
 		$font_title_weight = 'bold';
 	} else {
 		$font_title_face = $font_face_sans_serif;
 		$font_title_weight = 'lighter';
 	}
-	if ($options['font_menu'] == 'serif') {
+	if ( isset($options['font_menu']) == 'serif') {
 		$font_menu_face = $font_face_serif ;
 	} else {
 		$font_menu_face = $font_face_sans_serif;
@@ -935,7 +941,7 @@ function biz_vektor_fontStyle(){
 add_action( 'wp_head','biz_vektor_sideChildDisplay');
 function biz_vektor_sideChildDisplay(){
 	$options = biz_vektor_get_theme_options();
-	if ( $options['side_child_display'] == 'side_child_hidden' ) { ?>
+	if ( isset($options['side_child_display']) == 'side_child_hidden' ) { ?>
 	<style type="text/css">
 	/*-------------------------------------------*/
 	/*	sidebar child menu display
