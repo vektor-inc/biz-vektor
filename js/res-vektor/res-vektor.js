@@ -386,3 +386,55 @@ jQuery(document).ready(function(){
         });
     });
 });
+
+
+/*-------------------------------------------*/
+/*	表示モード制御
+/*-------------------------------------------*/
+// // ユーザーエージェントを判別してモバイル端末の場合はフッターのナビゲーションに表示切り替え用のリンクを追加
+// if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+// 	// モバイルからのアクセスの場合
+// 	jQuery(document).ready(function(){
+// 		console.log(jQuery.cookie("viewMode"));
+// 		/***********************************/
+// 		/* フッターに表示モード切り替えリンクを追加
+// 		/***********************************/
+// 		// 端末モードをモバイルに設定
+// 		jQuery.cookie("viewItem","mobile");
+// 		if ( jQuery.cookie("viewMode") == 'pc' ) {
+// 			// モバイル端末だけれどPC表示表示だったらスマホ版の切り替えリンクを表示
+// 			jQuery('#siteBottom').after('<div id="viewModeSwitch"><a href="" class="modeMobile">モバイル表示</a></div>');
+// 		} else {
+// 			// モバイル端末だけれどPC表示表示じゃない場合（モバイル版表示の場合）PC表示への切り替えリンクを表示
+// 			jQuery.cookie("viewMode","mobile");
+// 			jQuery('#siteBottom').after('<div id="viewModeSwitch"><a href="" class="modePc">PC表示</a></div>');
+// 		}
+// 	});
+// } else	{
+// 	jQuery(document).ready(function(){
+// 		jQuery.cookie("viewMode","pc");
+// 		jQuery.cookie("viewItem","pc");
+// 	});
+// }
+
+// jQuery(document).ready(function(){
+// 	if ( jQuery.cookie("viewMode") != 'mobile' && jQuery.cookie("viewItem") == 'mobile' ) {
+// 		// モバイルからのアクセス＆表示モードがPCの時はレスポンシブ用のCSSを削除
+// 		jQuery('#viewport').remove();
+// 	} else {
+// 		// 表示モードがモバイルの場合はviewport指定を追加
+// 		jQuery('head').append('<meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">');
+// 	}
+// 	// PC表示へ切り替え
+// 	jQuery('#viewModeSwitch .modePc').click(function(){
+// 		jQuery.cookie("viewMode","pc");
+// 		// ※クリックされた時点で再読み込みするので事実上不必要
+// 		jQuery(this).removeClass('modePc').addClass('modeMobile').text('モバイル表示');
+// 	});
+// 	// スマホ版へ切り替え
+// 	jQuery('#viewModeSwitch .modeMobile').click(function(){
+// 		jQuery.cookie("viewMode","mobile");
+// 		// ※クリックされた時点で再読み込みするので事実上不必要
+// 		jQuery(this).removeClass('modeMobile').addClass('modePc').text('PC表示');
+// 	});
+// });

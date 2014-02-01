@@ -14,7 +14,6 @@ Used to style the TinyMCE editor.
 *        { margin: 0px; padding: 0px; font-size: 100%; }
 ul, ol { list-style: none; }
 h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, table, form, input {margin:0;padding:0;font-size:100%; }
-hr  { display: none; }
 th	{ font-weight:lighter; }
 img { border: none; vertical-align: bottom; }
 

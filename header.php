@@ -5,7 +5,6 @@
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
 <title><?php getHeadTitle(); ?></title>
 <meta name="description" content="<?php getHeadDescription(); ?>" />
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
@@ -34,6 +33,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 	print '<link rel="stylesheet" type="text/css" media="all" href="'.$stylePathOldIe.'" />'."\n";
 	print '<![endif]-->'."\n";
 } ?>
+<meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 
 <body <?php body_class(); ?>>

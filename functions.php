@@ -522,11 +522,15 @@ add_action('wp_footer','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
 	echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/res-vektor/res-vektor.css" type="text/css">';
 	wp_register_script( 'masterjs' , get_template_directory_uri().'/js/master.js', array('jquery'), '20130708' );
-	wp_register_script( 'res-vektor-js' , get_template_directory_uri().'/js/res-vektor/res-vektor.js', array('jquery'), '20131228' );
 	wp_enqueue_script( 'masterjs' );
-	wp_enqueue_script( 'res-vektor-js' );
 }
 
+add_action( 'wp_enqueue_scripts', 'add_ResVektor' );
+function add_ResVektor() {
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'res-vektor-js' , get_template_directory_uri().'/js/res-vektor/res-vektor.js', array('jquery'), '20131228' );
+	wp_enqueue_script( 'jquery-cookie', get_template_directory_uri() . '/js/res-vektor/jquery.cookie.js', array( 'jquery' ), true );
+}
 /*-------------------------------------------*/
 /*	Term list no link
 /*-------------------------------------------*/
