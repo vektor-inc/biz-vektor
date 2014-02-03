@@ -902,7 +902,7 @@ function admin_theme_options_plugins( $hook_suffix ) {
 /*-------------------------------------------*/
 /*	Change fonts
 /*-------------------------------------------*/
-add_action( 'wp_head','biz_vektor_fontStyle');
+add_action( 'wp_head','biz_vektor_fontStyle',170);
 function biz_vektor_fontStyle(){
 	$options = biz_vektor_get_theme_options();
 	$font_face_serif = _x('serif', 'Font select', 'biz-vektor');
