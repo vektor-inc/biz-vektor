@@ -906,20 +906,24 @@ add_action( 'wp_head','biz_vektor_fontStyle',170);
 function biz_vektor_fontStyle(){
 	$options = biz_vektor_get_theme_options();
 	$font_face_serif = _x('serif', 'Font select', 'biz-vektor');
-	$font_face_serif 		= apply_filters( 'font_face_serif_custom', $font_face_serif );
+	$font_face_serif = apply_filters( 'font_face_serif_custom', $font_face_serif );
 	$font_face_sans_serif = _x('Meiryo,Osaka,sans-serif', 'Font select', 'biz-vektor');
-	$font_face_sans_serif 	= apply_filters( 'font_face_sans_serif_custom', $font_face_sans_serif );
-	if ( isset($options['font_title']) == 'serif') {
-		$font_title_face = $font_face_serif ;
-		$font_title_weight = 'bold';
-	} else {
-		$font_title_face = $font_face_sans_serif;
-		$font_title_weight = 'lighter';
+	$font_face_sans_serif = apply_filters( 'font_face_sans_serif_custom', $font_face_sans_serif );
+	if ( isset($options['font_title']) ) {
+		if ( $options['font_title'] == 'serif') {
+			$font_title_face = $font_face_serif ;
+			$font_title_weight = 'bold';
+		} else {
+			$font_title_face = $font_face_sans_serif;
+			$font_title_weight = 'lighter';
+		}
 	}
-	if ( isset($options['font_menu']) == 'serif') {
-		$font_menu_face = $font_face_serif ;
-	} else {
-		$font_menu_face = $font_face_sans_serif;
+	if ( isset($options['font_menu']) ) {
+		if ( $options['font_menu'] == 'serif') {
+			$font_menu_face = $font_face_serif ;
+		} else {
+			$font_menu_face = $font_face_sans_serif;
+		}
 	}
 ?>
 	<style type="text/css">
