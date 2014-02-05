@@ -129,8 +129,6 @@ form#searchform input#searchsubmit	{ padding:5px 10px; }
 .moreLink a			{ text-align:center; margin-top:10px; display:inline-block;overflow:hidden; font-size:10px; line-height:105%;text-decoration:none; background:url(images/icon_try1_gray.gif) 5px 50% no-repeat #efefef; color:#666;padding:5px 15px 5px 20px; }
 .moreLink a:hover { text-decoration:none !important;background-color:#e5e5e5; }
 
-
-
 html,body,#wrap	{ height:100%;min-height:100%; }
 
 /*-------------------------------------------*/
@@ -408,23 +406,6 @@ position:relative; line-height:114.3%;}
 #content form textarea	{ position:relative; overflow:hidden; padding:5px 10px; margin:5px 5px 5px 0px; width:90%;}
 #content form input[type=radio] { width:auto; }
 #content form input[type=checkbox] { width:auto; }
-
-/*			trust-form
-/*-------------------------------------------*/
-#content #trust-form	{ width:100%; }
-
-/*			contactform7
-/*-------------------------------------------*/
-#content .wpcf7	{ margin-top:20px; }
-#content form span.wpcf7-form-control-wrap	{ position:relative; display:block; overflow:hidden; clear:both; /*回り込みをしている為*/ }
-#content form span.wpcf7-form-control-wrap .wpcf7-list-item,
-#content form span.wpcf7-form-control-wrap .wpcf7-list-item label	{ display:block; float:left; }
-#content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:8px; padding-bottom:8px; }
-#content form span.wpcf7-not-valid-tip	{ position:relative; display:block; overflow:hidden; border:2px solid #c00; background-color:#FFeeee;left:0px;top:4px; margin-bottom:0px; }
-#content form div.wpcf7-validation-errors	{ border:2px solid #c00; background-color:#FFeeee; text-align:center; }
-#content .wpcf7 dl		{ display:block; overflow:hidden; border-bottom:1px dotted #ccc; }
-#content .wpcf7 dl dt	{ display:block; overflow:hidden; padding:10px;float:left; width:30%; color:#666; font-weight:lighter; }
-#content .wpcf7 dl dd	{ display:block; overflow:hidden; padding:10px;margin-bottom:0px; }
 
 /*-------------------------------------------*/
 /*	#sideTower
