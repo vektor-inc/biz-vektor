@@ -10,12 +10,9 @@
 	<?php the_content(); ?>
 	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 </div><!-- .entry-content -->
-<?php
-if ( is_user_logged_in() == TRUE ) { ?>
-<div class="adminEdit">
-<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
-</div>
-<?php } ?>
+
+<?php edit_post_link(__('Edit', 'biz-vektor'),'<div class="adminEdit"><span class="linkBtn linkBtnS linkBtnAdmin">','</span></div>'); ?>
+
 <?php endwhile; ?>
 
 <?php // Child page list ?>

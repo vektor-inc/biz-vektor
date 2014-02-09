@@ -23,7 +23,7 @@
 	</div><!-- .entry-content -->
 
 <?php
-if ( is_user_logged_in() == TRUE ) { ?>
+if ( is_user_logged_in() ) { ?>
 <div class="adminEdit">
 	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
