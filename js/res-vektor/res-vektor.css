@@ -22,6 +22,10 @@
 	.show-full-only { display: none;}
 }
 
+.ttBox {display:block; overflow:hidden;clear:both;margin-bottom:15px;}
+.ttBox .ttBoxleft { float:left; }
+.ttBox .ttBoxright { float:right; }
+
 /*
 body.riseNavOpen #contents,
 body.riseNavOpen #sub-contents	{ display:none; }

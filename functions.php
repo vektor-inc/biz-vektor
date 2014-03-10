@@ -70,6 +70,8 @@ load_theme_textdomain('biz-vektor');
 
 add_theme_support( 'automatic-feed-links' );
 
+get_template_part('plugins/sns/sns');
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
@@ -468,7 +470,7 @@ function getHeadDescription() {
 remove_action('wp_head', 'wp_generator');
 
 //	Remove prev,next
-remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
+// remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
 // Add Google Web Fonts
 add_action('wp_head','bizVektorAddWebFonts');
@@ -486,14 +488,6 @@ function bizVektorAddOptionStyle(){
 	echo $optionStyle;
 }
 
-// Add BizVektor SNS module style
-add_action('wp_head','bizVektorAddSnsStyle');
-function bizVektorAddSnsStyle(){
-	$snsStyle = '<link rel="stylesheet" id="bizvektor-sns-css"  href="'.get_template_directory_uri().'/css/style_bizvektor_sns.css" type="text/css" media="all" />'."\n";
-	$snsStyle = apply_filters('snsStyleCustom', $snsStyle );
-	echo $snsStyle;
-}
-
 // add pingback
 add_action('wp_head','bizVektorAddPingback');
 function bizVektorAddPingback(){
@@ -506,12 +500,12 @@ function bizVektorAddPingback(){
 add_action('wp_head','bizVektorAddHeadJs');
 function bizVektorAddHeadJs(){
 	if (is_front_page()) {
-		if (biz_vektor_slideExist()) {
+	if (biz_vektor_slideExist()) {
 		echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/FlexSlider/flexslider.css" type="text/css">';
 		wp_enqueue_script( 'jquery' );
 		wp_register_script( 'flexSlider' , get_template_directory_uri().'/js/FlexSlider/jquery.flexslider.js', array('jquery'), '20120609');
 		wp_enqueue_script( 'flexSlider' );
-		}
+	}
 	}
 }
 

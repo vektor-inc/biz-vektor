@@ -43,6 +43,13 @@ ttBoxThumb にはcss側でサイズを指定をしてください（画像サイ
 /*----------------------------------------------------------*/
 /*	写真に画像の回り込みの場合のテキスト部分の横幅制御
 /*		[class名] 外側の要素 : ttBox / 画像（又はその枠） : ttBoxThumb / テキスト部分 : ttBoxTxt
+/*
+【example】
+<div class="ttBox">
+<div class="ttBoxThumb left"><img src="" alt="" /></div>
+<div class="ttBoxTxt right">テキスト</div>
+</div><!-- [ /.ttBox ] -->
+*/
 /*----------------------------------------------------------*/
 /*	メニューの開閉
 /*	<div id="menu" onclick="showHide('menu');" class="itemOpen">MENU</div>

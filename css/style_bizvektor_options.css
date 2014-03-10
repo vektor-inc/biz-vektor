@@ -4,7 +4,7 @@
 /*-------------------------------------------*/
 
 .leadTxt,
-#content p.leadTxt { font-size:2em;line-height: 150%; }
+#content p.leadTxt { font-size:2em;line-height: 150%;padding:0; }
 
 /*			.qaItem
 /*-------------------------------------------*/

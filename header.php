@@ -5,7 +5,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php getHeadTitle(); ?></title>
+<title><?php echo getHeadTitle(); ?></title>
 <meta name="description" content="<?php getHeadDescription(); ?>" />
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
