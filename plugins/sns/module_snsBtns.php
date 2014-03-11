@@ -17,24 +17,24 @@
 <ul style="margin-left:0px;">
 
 <li class="sb_facebook sb_icon">
-<a href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><span class="icon-vk_w_r_sns_fb icon_sns"></span><span class="sns_txt">Facebook</span>
+<a href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><span class="vk_icon_w_r_sns_fb icon_sns"></span><span class="sns_txt">Facebook</span>
 </a>
 </li>
 
 <li class="sb_hatena sb_icon">
-<a href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $linkUrl; ?>&title=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=520');return false;"><span class="icon-vk_w_r_sns_hatena icon_sns"></span><span class="sns_txt">Hatena</span></a>
+<a href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $linkUrl; ?>&amp;title=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=520');return false;"><span class="vk_icon_w_r_sns_hatena icon_sns"></span><span class="sns_txt">Hatena</span></a>
 </li>
 
 <li class="sb_twitter sb_icon">
-<a href="http://twitter.com/intent/tweet?url=<?php echo $linkUrl; ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" ><span class="icon-vk_w_r_sns_twitter icon_sns"></span><span class="sns_txt">twitter</span></a>
+<a href="http://twitter.com/intent/tweet?url=<?php echo $linkUrl; ?>&amp;text=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" ><span class="vk_icon_w_r_sns_twitter icon_sns"></span><span class="sns_txt">twitter</span></a>
 </li>
 
 <li class="sb_google sb_icon">
-<a href="https://plus.google.com/share?url=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="icon-vk_w_r_sns_google icon_sns"></span><span class="sns_txt">Google+</span></a>
+<a href="https://plus.google.com/share?url=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="vk_icon_w_r_sns_google icon_sns"></span><span class="sns_txt">Google+</span></a>
 </li>
 
 <li class="sb_line sb_icon">
-<a href="http://line.naver.jp/R/msg/text/?<?php getHeadTitle(); ?>%0D%0A<?php echo $linkUrl; ?>"><span class="icon-vk_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
+<a href="http://line.naver.jp/R/msg/text/?<?php echo urlencode(getHeadTitle()); ?>%0D%0A<?php echo $linkUrl; ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
 </li>
 
 <li class="sb_pocket"><?php /* do not delete span */?><span></span>

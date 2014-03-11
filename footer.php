@@ -65,11 +65,5 @@
 </div>
 <!-- [ /#wrap ] -->
 <?php wp_footer();?>
-
-<!-- GooglePlusOne -->
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'ja'}
-</script>
-<!-- /GooglePlusOne -->
 </body>
 </html>

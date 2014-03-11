@@ -36,7 +36,7 @@
 	font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="vk_icon_w_r_sns_"], [class*=" vk_icon_w_r_sns_"] {
 	font-family: 'vk_sns';
 	speak: none;
 	font-style: normal;
@@ -50,18 +50,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-vk_w_r_sns_twitter:before {
+.vk_icon_w_r_sns_twitter:before {
 	content: "\e600";
 }
-.icon-vk_w_r_sns_line:before {
+.vk_icon_w_r_sns_line:before {
 	content: "\e601";
 }
-.icon-vk_w_r_sns_hatena:before {
+.vk_icon_w_r_sns_hatena:before {
 	content: "\e602";
 }
-.icon-vk_w_r_sns_google:before {
+.vk_icon_w_r_sns_google:before {
 	content: "\e603";
 }
-.icon-vk_w_r_sns_fb:before {
+.vk_icon_w_r_sns_fb:before {
 	content: "\e604";
 }
