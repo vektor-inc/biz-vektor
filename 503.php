@@ -16,7 +16,7 @@ footer	{ border-top:1px solid #e5e5e5; box-shadow:0px -1px 0px #fff; padding-top
 <!-- [ #content ] -->
 <div id="content">
 <h1><?php bloginfo('name'); ?></h1>
-<p><?php _e('Maintenance is now working.', 'biz-vektor'); ?></p>
+<p><?php _e('Maintenance in progress.', 'biz-vektor'); ?></p>
 </div>
 <!-- [ /#content ] -->
 <footer>

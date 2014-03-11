@@ -93,7 +93,7 @@ function biz_vektor_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
 		'id' => 'top-side-widget-area',
-		'description' => __( 'This widget area display front page only.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
@@ -102,25 +102,25 @@ function biz_vektor_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
 		'id' => 'blog-first-widget-area',
-		'description' => __( 'This widget area display post content only.It is displayed on the Contact banner.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears only on the post content pages. It is displayed above the Contact banner.', 'biz-vektor' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(All pages upper part)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(All pages - top)', 'biz-vektor' ),
 		'id' => 'primary-widget-area',
-		'description' => __( 'This widget area display all pages upper part.It is displayed on the facebook & twitter banner.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears on all pages in the upper section. It is displayed above the facebook & twitter banners.', 'biz-vektor' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(All pages under part)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(All pages - bottom)', 'biz-vektor' ),
 		'id' => 'secondary-widget-area',
-		'description' => __( 'This widget area display all pages upper part.It is displayed under the facebook & twitter banner.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears on all pages in the upper section. It is displayed below the facebook & twitter banners.', 'biz-vektor' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
@@ -282,9 +282,9 @@ function insert_custom_field_metaKeyword(){
   global $post;
   echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
   echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
-  echo '<p>'.__('If you want to set a keyword individually to this page, enter a , delimiter (optional).', 'biz-vektor').'<br />';
+  echo '<p>'.__('To distinguish between individual keywords, please enter a , delimiter (optional).', 'biz-vektor').'<br />';
   $theme_option_seo_link = '<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">'._x('','link to seo setting', 'biz-vektor').'</a>';
-  sprintf(__('* keyword to set common to the entire site can be set from %s.', 'biz-vektor'),$theme_option_seo_link);
+  sprintf(__('* keywords common to the entire site can be set from %s.', 'biz-vektor'),$theme_option_seo_link);
   echo '</p>';
 }
 

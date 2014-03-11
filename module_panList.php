@@ -19,7 +19,7 @@ endif;
 if ( is_404() ){
 	echo "<li>".__('Not found', 'biz-vektor')."</li>";
 } else if ( is_search() ) {
-	echo "<li>".sprintf(__('Search Result for : %s', 'biz-vektor'),get_search_query())."</li>";
+	echo "<li>".sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query())."</li>";
 // ▼▼ 投稿ページをブログに指定された場合
 } else if ( is_home() ){
 	echo '<li>'.$postLabelName.'</li>';

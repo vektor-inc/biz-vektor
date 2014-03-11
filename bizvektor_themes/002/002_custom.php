@@ -83,7 +83,7 @@ function bizvektor_calmly_customize_register($wp_customize) {
 	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
-		'label'    => _x('Keycolor', 'Calmly color setting', 'biz-vektor'),
+		'label'    => _x('Keycolor', 'Calmly color settings', 'biz-vektor'),
 		'section'  => 'biz_vektor_calmly',
 		'settings' => 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',
 	)));

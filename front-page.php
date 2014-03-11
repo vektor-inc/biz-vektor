@@ -31,18 +31,18 @@ get_header(); ?>
 		<div class="adminEdit">
 			<?php if (10 <= $user_level) { ?>
 			<p class="caption">
-			<?php _e('* In the page [Settings] &raquo; [Display Settings], if the setting of the front page is not [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
-			<?php _e('* If empty, the body field of a page that you set on the front page does not display anything.', 'biz-vektor'); ?><br />
-			<?php // _e('* If you have set a fixed page to the front page, paging does not appear in the bottom of the post the list at the bottom.', 'biz-vektor'); ?>
+			<?php _e('* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
+			<?php _e('* If empty, the body of a page that you set as the front page does not display anything.', 'biz-vektor'); ?><br />
+			<?php // _e('* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'biz-vektor'); ?>
 			</p>
 			<?php } ?>
 			<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __('Edit', 'biz-vektor') ); ?></span>
 			<?php if (10 <= $user_level) { ?>
 			<span style="float:left;margin-right:10px;"><a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">
-				<?php _e('Title display setting', 'biz-vektor'); ?>
+				<?php _e('Title display settings', 'biz-vektor'); ?>
 			</a></span>
 			<span><a href="<?php echo site_url(); ?>/wp-admin/options-reading.php" class="btn btnS btnAdmin">
-				<?php _e('Change display page', 'biz-vektor'); ?>
+				<?php _e('Change the page to be displayed', 'biz-vektor'); ?>
 			</a></span>
 			<?php } ?>
 		</div>

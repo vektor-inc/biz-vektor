@@ -92,12 +92,12 @@ function biz_vektor_get_default_theme_options() {
 		'infoLabelName' => 'Information',
 		'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options item', 'biz-vektor'),
-		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
+		'pr1_title' => __('Rich theme options', 'biz-vektor'),
+		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
-		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
-		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
 	);
 	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
 }
@@ -114,12 +114,12 @@ function bizVektorOptions_default() {
 		'infoLabelName' => 'Information',
 		'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options item', 'biz-vektor'),
-		'pr1_description' => __('Not only this part, you can change from theme customizer and theme options screen various items.', 'biz-vektor'),
+		'pr1_title' => __('Rich theme options', 'biz-vektor'),
+		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only can change the color of the site, to switch to a different design.', 'biz-vektor'),
-		'pr3_title' => __('Optimized for business web site', 'biz-vektor'),
-		'pr3_description' => __('It features such as induction to the query and child page list template, a variety of functions essential to business.', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
 	);
 }
 
@@ -218,7 +218,7 @@ function getHeadTitle() {
 		}
 	// Search
 	} else if (is_search()) {
-		$headTitle = sprintf(__('Search Result for : %s', 'biz-vektor'),get_search_query())." | ".get_bloginfo('name');
+		$headTitle = sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query())." | ".get_bloginfo('name');
 	//Other
 	} else {
 		$headTitle = get_bloginfo('name');

@@ -72,7 +72,7 @@ function bizvektor_customize_register($wp_customize) {
 		) );
 		$wp_customize->add_control( 'head_logo_url_txt',
 			array(
-				'label'     => _x('URL of header logo image', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => _x('Header logo image URL', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_design', 
 				'settings'  => 'biz_vektor_theme_options[head_logo]',
 				'type' => 'text',
@@ -92,7 +92,7 @@ function bizvektor_customize_register($wp_customize) {
 		) );
 		$wp_customize->add_control( 'foot_logo_url_txt',
 			array(
-				'label'     => _x('URL of footer logo image', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => _x('Footer logo image URL', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_design', 
 				'settings'  => 'biz_vektor_theme_options[foot_logo]',
 				'type' => 'text',
@@ -126,7 +126,7 @@ function bizvektor_customize_register($wp_customize) {
 			'priority' => 301,
 		));
 		$wp_customize->add_control( 'font',array(
-			'label'     => _x('Font of headings', 'biz-vektor theme-customizer', 'biz-vektor'),
+			'label'     => _x('Heading font', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[font_title]',
 			'type' => 'radio',
@@ -137,7 +137,7 @@ function bizvektor_customize_register($wp_customize) {
 			'priority' => 501,
 		));
 		$wp_customize->add_control( 'font_menu',array(
-			'label'     => _x('Font of Menus', 'biz-vektor theme-customizer', 'biz-vektor'),
+			'label'     => _x('Global Menu font', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[font_menu]',
 			'type' => 'radio',
@@ -195,7 +195,7 @@ function bizvektor_customize_register($wp_customize) {
 			));		
 		$wp_customize->add_control( 'sub_sitename',
 			array(
-				'label'     => _x('Site / Company / Store / Service name. This is displayed in footer let bottom and footer copyright.', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => _x('Site / Company / Store / Service name. This is displayed in the left bottom part of the footer.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[sub_sitename]',
 				'type' => 'text',
@@ -211,7 +211,7 @@ function bizvektor_customize_register($wp_customize) {
 			)));
 		$wp_customize->add_control( 'contact_link',
 			array(
-				'label'     => _x('The URL of contact page', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => _x('The contact page URL', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[contact_link]',
 				'type' => 'text',
@@ -260,7 +260,7 @@ function bizvektor_customize_register($wp_customize) {
 		);
 		$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'pr'.$i.'_image',
 			array(
-				'label'     => '['.$i.']'._x('Image for PC : 310px width is recommended.', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => '['.$i.']'._x('Image (Desktop version) : 310px width is recommended.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_image]',
 				'priority' => ($i*10)+4,
@@ -268,7 +268,7 @@ function bizvektor_customize_register($wp_customize) {
 		);
 		$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'pr'.$i.'_image_s',
 			array(
-				'label'     => '['.$i.']'._x('Image for smartphone : 120px by 120px is recommended.', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => '['.$i.']'._x('Image (Smartphone version) : 120px by 120px is recommended.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_top3pr', 
 				'settings'  => 'biz_vektor_theme_options[pr'.$i.'_image_s]',
 				'priority' => ($i*10)+5,
