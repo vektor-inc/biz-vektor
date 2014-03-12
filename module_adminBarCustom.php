@@ -26,7 +26,7 @@ function bizvektor_adminbar_custom_menu() {
 	global $wp_admin_bar;
 	$wp_admin_bar->add_menu( array(
 		'id' => 'admin_top',
-		'title' => _x( 'Managing pages', 'BizVektor admin header menu', 'biz-vektor' ),
+		'title' => _x( 'Admin pages', 'BizVektor admin header menu', 'biz-vektor' ),
 		'href' =>  get_admin_url()
 	));
 		$wp_admin_bar->add_menu( array(

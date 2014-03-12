@@ -249,7 +249,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	</td>
 	</tr>
 	<tr>
-	<th scope="row"><?php _ex('Site / Company / Store / Service name. This is displayed in the left bottom part of the footer.', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br />
+	<th scope="row"><?php _ex('Site / Company / Store / Service name. This is displayed in the left part of the footer bottom and footer copyright section.', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br />
 	</th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
@@ -305,10 +305,6 @@ function biz_vektor_theme_options_render_page() { ?>
 </tr>
 </table>
 
-	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
-	<span class="alert">
-		<?php _e('* You can register Image (Desktop version) and for smartphone.', 'biz-vektor') ;?>
-	</span>
 <?php for ( $i = 1; $i <= 3 ;){ ?>
 
 <div class="prItem">
@@ -338,6 +334,10 @@ function biz_vektor_theme_options_render_page() { ?>
 <?php
 $i++;
 } ?>
+	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
+	<span class="alert">
+	<?php _e('* You can set different image for desktop and smartphone versions of the site.', 'biz-vektor') ;?>
+	</span>
 <?php submit_button(); ?>
 </div>
 
@@ -481,8 +481,8 @@ $sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_bla
 printf( __( 'Normally, BizVektor will include the %s in the title tag.', 'biz-vektor' ), $sitetitle_link );?><br />
 <?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if using a static page.', 'biz-vektor'); ?>
 <?php
-printf( __('However, evaluation of the search engines so bad number of characters in the &lt;title&gt; is too long, <strong>and incorporate keywords that wants to be retrieved by most, are summarized as short as possible</strong>, it is desirable that the %s.', 'biz-vektor'),$sitetitle_link) ; ?>
-<?php _e('However, it will not be connected to such as a page name, as described above in the top page, it is possible to put the &lt;title&gt; longer bit more, it is now can be set separately here.', 'biz-vektor'); ?></p>
+printf( __('However, it might have negative impact on search engine rankings if the &lt;title&gt; is too long, <strong>therefore please include the most popular keywords in a summarized manner, keeping the %s as short as possible.</strong>', 'biz-vektor'),$sitetitle_link) ; ?>
+<?php _e('However, in the home page, as described above, other title will not be added, it is possible to make the &lt;title&gt; little longer, which can be set separately here.', 'biz-vektor'); ?></p>
 <input type="text" name="biz_vektor_theme_options[topTitle]" id="topTitle" value="<?php echo esc_attr( $options['topTitle'] ); ?>" style="width:90%;" />
 <p>* <?php _e('Site title will be used if this field is blank.', 'biz-vektor'); ?></p>
 </td>
@@ -500,10 +500,10 @@ printf( __('However, evaluation of the search engines so bad number of character
 <tr>
 <th><?php _ex('Description', 'Description settings', 'biz-vektor'); ?></th>
 <td>
-<?php _e('Content from the particular page's \"excerpt\" field will be reflected in the description meta tag.', 'biz-vektor'); ?><br />
+<?php _e("Content from the particular page's \"excerpt\" field will be reflected in the description meta tag.", 'biz-vektor'); ?><br />
 <?php _e('In the Google and other search engine results pages (SERPs), part of the meta tag description appears under the site title.', 'biz-vektor'); ?><br />
-<?php _e('If the excerpt field is blank, the first 240 characters from the page's content are used.', 'biz-vektor'); ?><br />
-<?php _e('* If the excerpt field is not visible, in the tab called \"View\" in the upper right corner of the edit page, please check the box to display the \"excerpt\" field.', 'biz-vektor'); ?>
+<?php _e('If the excerpt field is blank, the first 240 characters from the page\'s content are used.', 'biz-vektor'); ?><br />
+<?php _e("* If the excerpt field is not visible, in the tab called \"View\" in the upper right corner of the edit page, please check the box to display the \"excerpt\" field.", 'biz-vektor'); ?>
 </td>
 </tr>
 <!-- Google Analytics -->
@@ -518,9 +518,9 @@ printf( __('However, evaluation of the search engines so bad number of character
 	<dd>
 <?php
 $biz_vektor_gaTypes = array(
-	'gaType_normal' => __('To output only tag analysis of normal (default)', 'biz-vektor'),
-	'gaType_universal' => __('I want to output only tag analysis of Universal Analytics', 'biz-vektor'),
-	'gaType_both' => __('I want to output both tags', 'biz-vektor')
+	'gaType_normal' => __('To output only normal code (default)', 'biz-vektor'),
+	'gaType_universal' => __('To output the Universal Analytics code', 'biz-vektor'),
+	'gaType_both' => __('To output both types', 'biz-vektor')
 	);
 foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLavel) {
 	if ( $biz_vektor_gaTypeValue == $options['gaType'] ) { ?>
@@ -632,7 +632,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <?php get_template_part('inc/theme-options-nav'); ?>
 <h3><?php _e('Slideshow Settings', 'biz-vektor'); ?></h3>
 <p><?php _e('Please enter the URL of the image to be used in the slideshow.', 'biz-vektor'); ?><br />
-<?php _e('The recommended size of the image is 950 x 250px.', 'biz-vektor'); ?><br />
+<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
 <?php
 $topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Home page Main visual', 'biz-vektor').'</a>';
 printf(__('%s will be displayed if the slideshow is not set.', 'biz-vektor'),$topVisualLink); ?><br />
@@ -653,7 +653,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <td><?php _e('Link URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideLink ?>]" id="<?php echo $slideLink ?>" value="<?php echo esc_attr( $options[$slideLink] ) ?>" /></td>
 <td><?php _e('Image URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
-	<input type="text" name="biz_vektor_theme_options[<?php echo $slideImage ?>]" id="<?php echo $slideImage ?>" value="<?php echo esc_attr( $options[$slideImage] ) ?>" /> <button id="media_<?php echo $slideImage ?>" class="media_btn"><?php _e('Select a image', 'biz-vektor'); ?></button>
+	<input type="text" name="biz_vektor_theme_options[<?php echo $slideImage ?>]" id="<?php echo $slideImage ?>" value="<?php echo esc_attr( $options[$slideImage] ) ?>" /> <button id="media_<?php echo $slideImage ?>" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button>
 </td>
 <td><?php _e('Alternate text', 'biz-vektor'); ?> (alt) [<?php echo $i ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideAlt ?>]" id="<?php echo $slideAlt ?>" value="<?php echo esc_attr( $options[$slideAlt] ) ?>" /></td>
@@ -667,7 +667,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 } ?>
 
 </table>
-<p><?php _e('* The slideshow can be set to up to 5 images, but when accessing the site using a slow internet connection, because of the time it takes to display all images, the visitor might leave the page early on which might have a negative effect. Therefore using three or less images is recommended.', 'biz-vektor'); ?>
+<p><?php _e('* The slideshow can be set to up to 5 images, but when accessing the site using a slow internet connection, because of the time it takes to display all images, the visitor might leave the page early onwhich might have a negative effect. Therefore using three or less images is recommended.', 'biz-vektor'); ?>
 	</p>
 <?php submit_button(); ?>
 </div>
@@ -684,7 +684,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <table class="form-table">
 <tr>
 <th>facebook</th>
-<td><?php _e('If you wish to link to a personal account or a Facebook page banner will be displayed if you enter the URL.', 'biz-vektor'); ?><br />
+<td><?php _e('If you wish to link to a personal account or a Facebook page  banner will be displayed if you enter the URL.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" />
 <span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/hidekazu.ishikawa</span>
 </td>
@@ -695,7 +695,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
 <span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo; <?php _e('I will check and get the application ID', 'biz-vektor'); ?></a> ]</span><br />
 <?php _e('* If an application ID is not specified, neither a Like button nor the comment field displays and operates correctly.', 'biz-vektor'); ?><br />
-<?php _e('Please search for terms as [get facebook application ID] If you do not know much about how to get application ID for Facebook.', 'biz-vektor'); ?>
+<?php _e('Please search for terms as [get Facebook application ID] If you do not know much about how to get application ID for Facebook.', 'biz-vektor'); ?>
 </td>
 </tr>
 <!-- facebook user ID -->
@@ -724,7 +724,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <td><?php _e('If, for example someone pressed the Facebook [Like] button, this is the image that appears on the Facebook timeline.', 'biz-vektor'); ?><br />
 <?php _e('If a featured image is specified for the page, it takes precedence.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /> 
-<button id="media_ogpImage" class="media_btn"><?php _e('Select a image', 'biz-vektor'); ?></button><br />
+<button id="media_ogpImage" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button><br />
 <span><?php _e('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
 <?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is recommended.', 'biz-vektor'); ?>
 </td>
@@ -743,7 +743,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> 
 	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></li>
 </ul>
-<p><?php _e('Also the type of page that checked, if there is a page you do not want to display, and enter by the delimiter , the ID of the page.', 'biz-vektor'); ?><br />
+<p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
 <?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
 </td>
@@ -762,7 +762,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> 
 	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></li>
 </ul>
-<p><?php _e('AWithin the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
+<p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" id="ogpImage" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
 <?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
 </td>
@@ -770,7 +770,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <!-- facebook LikeBox -->
 <tr>
 <th>facebook LikeBox</th>
-<td><?php _e('If you wish to use Facebook LikeBox, please check the location."', 'biz-vektor'); ?>
+<td><?php _e('If you wish to use Facebook LikeBox, please check the location.', 'biz-vektor'); ?><br />
 <?php _e('* Please be sure to set Facebook application ID.', 'biz-vektor'); ?>
 <ul>
 <li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFront]" id="fbLikeBoxFront" value="false" <?php if ($options['fbLikeBoxFront']) {?> checked<?php } ?>> 
