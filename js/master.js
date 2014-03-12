@@ -202,6 +202,7 @@ jQuery(document).ready(function(){
 /*-------------------------------------------*/
 jQuery(document).ready(function($){
     // jQuery('.topPrTit').flatHeights();
+    jQuery('.topPrTit').flatHeights();
     jQuery('.topPrDescription').flatHeights();
     jQuery('.child_page_block').flatHeights();
     jQuery('.child_page_block p').flatHeights();
