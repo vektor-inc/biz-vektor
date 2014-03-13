@@ -305,6 +305,7 @@ function biz_vektor_theme_options_render_page() { ?>
 </tr>
 </table>
 
+<div class="sectionbox">
 <?php for ( $i = 1; $i <= 3 ;){ ?>
 
 <div class="prItem">
@@ -330,10 +331,10 @@ function biz_vektor_theme_options_render_page() { ?>
 <?php _e('120px by 120px is recommended.', 'biz-vektor') ;?></dd>
 </dl>
 </div>
-
 <?php
 $i++;
 } ?>
+</div>
 	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
 	<span class="alert">
 	<?php _e('* You can set different image for desktop and smartphone versions of the site.', 'biz-vektor') ;?>
