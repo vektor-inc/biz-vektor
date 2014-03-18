@@ -89,8 +89,7 @@ if ( $options['listInfoTop'] == 'listType_set' ) { ?>
 ?>
 <?php
 $postTopCount = bizVektorOptions('postTopCount');
-$postTopCount = mb_convert_kana($postTopCount, "a", "UTF-8");
-if ($postTopCount != '0') : ?>
+if ($postTopCount) : ?>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $post_loop = new WP_Query( array(
