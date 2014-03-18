@@ -416,7 +416,12 @@ function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_page('home') || is_front_page()) {
-		$metadescription = get_bloginfo( 'description' );
+		$metaExcerpt = $post->post_excerpt;
+		if ( $metaExcerpt ) {
+			$metadescription = $metaExcerpt;
+		} else {
+			$metadescription = get_bloginfo( 'description' );
+		}
 	} else if (is_category() || is_tax()) {
 		$metadescription = $post->category_description;
 		if ( ! $metadescription ) {
