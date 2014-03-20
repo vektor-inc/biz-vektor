@@ -289,14 +289,15 @@ function insert_custom_field_metaKeyword(){
 }
 
 function save_custom_field_metaKeyword($post_id){
-  if(!wp_verify_nonce($_POST['noncename_custom_field_metaKeyword'], plugin_basename(__FILE__))){
-    return $post_id;
-  }
-  if('page' == $_POST['post_type']){
-    if(!current_user_can('edit_page', $post_id)) return $post_id;
-  }else{
-    if(!current_user_can('edit_post', $post_id)) return $post_id;
-  }
+	$metaKeyword = isset($_POST['noncename_custom_field_metaKeyword']) ? htmlspecialchars($_POST['noncename_custom_field_metaKeyword']) : null;
+	if(!wp_verify_nonce($metaKeyword, plugin_basename(__FILE__))){
+		return $post_id;
+	}
+	if('page' == $_POST['post_type']){
+		if(!current_user_can('edit_page', $post_id)) return $post_id;
+	}else{
+		if(!current_user_can('edit_post', $post_id)) return $post_id;
+	}
 
   $data = $_POST['metaKeyword'];
 

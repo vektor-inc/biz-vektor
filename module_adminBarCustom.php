@@ -64,7 +64,7 @@ function bizvektor_adminbar_custom_menu() {
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'bizvektor_theme_setting',
 				'id' => 'Site title & description',
-				'title' => _x( 'Site title & desctiption', 'BizVektor admin header menu', 'biz-vektor' ),
+				'title' => _x( 'Site title & description', 'BizVektor admin header menu', 'biz-vektor' ),
 				'href' => get_admin_url().'options-general.php',
 			));
 			$wp_admin_bar->add_menu( array(
