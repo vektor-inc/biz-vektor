@@ -757,13 +757,13 @@ body.home.one-column #main #container #content	{ float:none;width:100%; }
 body.home.one-column #main #container #sideTower	{ float:none; display:none; }
 
 form#searchform input#s	{width:110px; }
-form#searchform input#searchsubmit	{ width:30%; }
+
+#sideTower form#searchform input#searchsubmit	{ width:30%; }
 
 #topMainBnr			{ width:100%; }
 #topMainBnr img		{ width:950px !important; }
 #topMainBnrFrame .slider li { }
 #topMainBnrFrame	{ width:950px;min-height:250px; }
-
 
 /*			.childPageBox
 /*-------------------------------------------*/
