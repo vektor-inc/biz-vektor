@@ -75,7 +75,6 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 </div>
 <!-- [ /#header ] -->
 
-
 <?php
 $gMenuExist = wp_nav_menu( array( 'theme_location' => 'Header' , 'fallback_cb' => '' , 'echo' => false ) ) ;
 if ($gMenuExist) { ?>

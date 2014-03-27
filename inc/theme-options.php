@@ -802,16 +802,16 @@ function biz_vektor_fontStyle(){
 add_action( 'wp_head','biz_vektor_sideChildDisplay');
 function biz_vektor_sideChildDisplay(){
 	$options = biz_vektor_get_theme_options();
-	if ( isset($options['side_child_display']) == 'side_child_hidden' ) { ?>
-	<style type="text/css">
-	/*-------------------------------------------*/
-	/*	sidebar child menu display
-	/*-------------------------------------------*/
+	if ( isset($options['side_child_display'] ) && $options['side_child_display'] == 'side_child_hidden' ) { ?>
+<style type="text/css">
+/*-------------------------------------------*/
+/*	sidebar child menu display
+/*-------------------------------------------*/
 #sideTower	ul.localNavi ul.children	{ display:none; }
 #sideTower	ul.localNavi li.current_page_ancestor	ul.children,
 #sideTower	ul.localNavi li.current_page_item		ul.children,
 #sideTower	ul.localNavi li.current-cat				ul.children{ display:block; }
-	</style>
+</style>
 	<?php
 	}
 }

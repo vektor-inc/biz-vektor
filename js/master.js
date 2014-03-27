@@ -404,3 +404,12 @@ new function(){
 	addEvent(window,"resize",footerFixed);
 	
 }
+
+/*-------------------------------------------*/
+/*	$.changeLetterSize.addHandler(func)
+/*	•¶š‚Ì‘å‚«‚³‚ª•Ï‰»‚µ‚½‚ÉÀs‚·‚éˆ—‚ğ’Ç‰Á
+/*-------------------------------------------*/
+jQuery("#btn").on("click", function() {
+	jQuery(this).next().next().slideToggle();
+	jQuery(this).toggleClass("active");
+});
