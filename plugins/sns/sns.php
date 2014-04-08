@@ -1,6 +1,8 @@
 <?php
 
 /*-------------------------------------------*/
+/*	Add OGP
+/*-------------------------------------------*/
 /*	snsBtns
 /*-------------------------------------------*/
 /*	snsBtns _ display page
@@ -11,6 +13,77 @@
 /*-------------------------------------------*/
 /*	Print facebook Application ID 
 /*-------------------------------------------*/
+
+/*-------------------------------------------*/
+/*	Add OGP
+/*-------------------------------------------*/
+add_action('wp_head', 'biz_vektor_ogp' );
+function biz_vektor_ogp() {
+	//if ( function_exists('biz_vektor_get_theme_options')) {
+	$options = biz_vektor_get_theme_options();
+	//$ogpImage = $options['ogpImage'];
+	//$fbAppId = $options['fbAppId'];
+	global $wp_query;
+	$post = $wp_query->get_queried_object();
+	if (is_home() || is_front_page()) {
+		$linkUrl = home_url();
+	} else if (is_single() || is_page()) {
+		$linkUrl = get_permalink();
+	} else {
+		$linkUrl = get_permalink();
+	}
+	$bizVektorOGP = '<!-- [ BizVektorOGP ] -->'."\n";
+	$bizVektorOGP .= '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
+	$bizVektorOGP .= '<meta property="og:url" content="'.$linkUrl.'" />'."\n";
+	if ($options['fbAppId']){
+		$bizVektorOGP = $bizVektorOGP.'<meta property="fb:app_id" content="'.$options['fbAppId'].'" />'."\n";
+	}
+	if (is_front_page() || is_home()) {
+		$bizVektorOGP .= '<meta property="og:type" content="website" />'."\n";
+		if ($options['ogpImage']){
+			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		}
+		$bizVektorOGP .= '<meta property="og:title" content="'.get_bloginfo('name').'" />'."\n";
+		$bizVektorOGP .= '<meta property="og:description" content="'.get_bloginfo('description').'" />'."\n";
+	} else if (is_category() || is_archive()) {
+		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
+		if ($options['ogpImage']){
+			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		}
+	} else if (is_page() || is_single()) {
+		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
+		// image
+		if (has_post_thumbnail()) {
+			$image_id = get_post_thumbnail_id();
+			$image_url = wp_get_attachment_image_src($image_id,'large', true);
+			$bizVektorOGP .= '<meta property="og:image" content="'.$image_url[0].'" />'."\n";
+		} else if ($options['ogpImage']){
+			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		}
+		// description
+		$metaExcerpt = $post->post_excerpt;
+		if ($metaExcerpt) {
+			$metadescription = $post->post_excerpt;
+		} else {
+			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
+			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);
+		}
+		$bizVektorOGP .= '<meta property="og:title" content="'.get_the_title().' | '.get_bloginfo('name').'" />'."\n";
+		$bizVektorOGP .= '<meta property="og:description" content="'.$metadescription.'" />'."\n";
+	} else {
+		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
+		if ($options['ogpImage']){
+			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		}
+	}
+	$bizVektorOGP .= '<!-- [ /BizVektorOGP ] -->'."\n";
+	if ( isset($options['ogpTagDisplay']) && $options['ogpTagDisplay'] == 'ogp_off' ) {
+		$bizVektorOGP = '';
+	}
+	$bizVektorOGP = apply_filters('bizVektorOGPCustom', $bizVektorOGP );
+	echo $bizVektorOGP;
+	//} // function_exist
+}
 
 // Add BizVektor SNS module style
 add_action('wp_head','bizVektorAddSnsStyle');
