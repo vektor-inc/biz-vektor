@@ -72,6 +72,8 @@ add_theme_support( 'automatic-feed-links' );
 
 get_template_part('plugins/sns/sns');
 
+locate_template( array( 'functions_module_widget.php' ), true, true );
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
