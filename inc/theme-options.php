@@ -650,6 +650,17 @@ function biz_vektor_slideExist () {
 	}
 }
 
+add_action('wp_head','bizVektorAddSliderRun');
+function bizVektorAddSliderRun(){
+	if (biz_vektor_slideExist()) {
+		echo "<script type='text/javascript'>
+		jQuery(window).load(function() { jQuery('.flexslider').flexslider(); });
+		</script>";
+	}
+}
+
+
+
 function biz_vektor_slideBody(){
 	$options = biz_vektor_get_theme_options();
 	for ( $i = 1; $i <= 5 ; $i++){
@@ -713,20 +724,21 @@ function biz_vektor_fontStyle(){
 		}
 	}
 ?>
-	<style type="text/css">
-	/*-------------------------------------------*/
-	/*	font
-	/*-------------------------------------------*/
-	h1,h2,h3,h4,h4,h5,h6,
-	#header #site-title,
-	#pageTitBnr #pageTitInner #pageTit,
-	#content .leadTxt,
-	#sideTower .localHead {font-family: <?php echo $font_title_face ?> ; }
-	#pageTitBnr #pageTitInner #pageTit { font-weight:<?php echo $font_title_weight ?>; }
-	#gMenu .menu li a strong {font-family: <?php echo $font_menu_face ?> ; }
-	</style>
-	<?php
+<style type="text/css">
+/*-------------------------------------------*/
+/*	font
+/*-------------------------------------------*/
+h1,h2,h3,h4,h4,h5,h6,
+#header #site-title,
+#pageTitBnr #pageTitInner #pageTit,
+#content .leadTxt,
+#sideTower .localHead {font-family: <?php echo $font_title_face ?> ; }
+#pageTitBnr #pageTitInner #pageTit { font-weight:<?php echo $font_title_weight ?>; }
+#gMenu .menu li a strong {font-family: <?php echo $font_menu_face ?> ; }
+</style>
+<?php
 }
+
 /*-------------------------------------------*/
 /*	Side menu hidden
 /*-------------------------------------------*/

@@ -978,7 +978,3 @@ jQuery("#btn").on("click", function() {
   }  
 
 })(jQuery);
-
-jQuery(window).load(function() {
-	jQuery('.flexslider').flexslider();
-});
