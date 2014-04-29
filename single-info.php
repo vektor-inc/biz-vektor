@@ -51,7 +51,6 @@ if ( is_user_logged_in() ) { ?>
 <!-- [ #sideTower ] -->
 <div id="sideTower">
 	<?php get_template_part('module_side_info'); ?>
-	<?php get_sidebar(); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>

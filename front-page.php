@@ -1,8 +1,4 @@
-<?php
-/**
- * The main template file.
- */
-get_header(); ?>
+<?php get_header(); ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
@@ -119,6 +115,7 @@ $post_loop = new WP_Query( array(
 <?php endif; // $postTopCpunt= 0 ?>
 <?php wp_reset_query();?>
 
+
 <?php biz_vektor_blogList() // RSS import ?>
 
 <?php biz_vektor_topContentsBottom(); ?>
@@ -132,7 +129,17 @@ $post_loop = new WP_Query( array(
 
 	<!-- [ #sideTower ] -->
 	<div id="sideTower">
-	<?php get_sidebar(); ?>
+
+<?php
+if ( is_active_sidebar( 'top-side-widget-area' ) ) :
+	dynamic_sidebar( 'top-side-widget-area' );
+else :
+	// ウィジェットに設定がない場合
+	if (function_exists('biz_vektor_contactBtn')) biz_vektor_contactBtn();
+	if (function_exists('biz_vektor_snsBnrs')) biz_vektor_snsBnrs();
+	if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
+	?>
+<?php endif; ?>
 	</div>
 	<!-- [ /#sideTower ] -->
 </div>

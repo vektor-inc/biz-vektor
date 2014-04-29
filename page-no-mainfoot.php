@@ -51,27 +51,7 @@ if ( is_user_logged_in() == TRUE ) { ?>
 
 <!-- [ #sideTower ] -->
 <div id="sideTower">
-<?php
-	if($post->ancestors){
-		foreach($post->ancestors as $post_anc_id){
-			$post_id = $post_anc_id;
-		}
-	} else {
-		$post_id = $post->ID;
-	}
-	if ($post_id) {
-		$children = wp_list_pages("title_li=&child_of=".$post_id."&echo=0");
-		if ($children) { ?>
-		<div class="localSection sideWidget pageListSection">
-		<h3 class="localHead"><a href="<?php echo get_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h3>
-		<ul class="localNavi">
-		<?php echo $children; ?>
-		</ul>
-		</div>
-		<?php } else { ?>
-		<?php } ?>
-<?php } ?>
-	<?php get_sidebar(); ?>
+	<?php get_template_part('module_side_page'); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>

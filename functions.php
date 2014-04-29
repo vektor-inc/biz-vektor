@@ -23,8 +23,6 @@
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
-/*	Admin page _ Add original admin bar
-/*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
 /*	Admin page _ Eye catch
@@ -65,6 +63,8 @@
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
+/*	ChildPageList widget
+/*-------------------------------------------*/
 
 load_theme_textdomain('biz-vektor');
 
@@ -72,7 +72,7 @@ add_theme_support( 'automatic-feed-links' );
 
 get_template_part('plugins/sns/sns');
 
-// locate_template( array( 'functions_module_widget.php' ), true, true );
+get_template_part('plugins/add_post_type/add_post_type');
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -103,33 +103,22 @@ function biz_vektor_widgets_init() {
 	) );
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
-		'id' => 'blog-first-widget-area',
-		'description' => __( 'This widget area appears only on the post content pages. It is displayed above the Contact banner.', 'biz-vektor' ),
+		'id' => 'post-widget-area',
+		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(All pages - top)', 'biz-vektor' ),
-		'id' => 'primary-widget-area',
-		'description' => __( 'This widget area appears on all pages in the upper section. It is displayed above the facebook & twitter banners.', 'biz-vektor' ),
+		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
+		'id' => 'page-widget-area',
+		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(All pages - bottom)', 'biz-vektor' ),
-		'id' => 'secondary-widget-area',
-		'description' => __( 'This widget area appears on all pages in the upper section. It is displayed below the facebook & twitter banners.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-
-
 }
 add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
@@ -213,8 +202,8 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
 	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
-	$adminCssPath = get_template_directory_uri().'/style_bizvektor_admin.css';
-	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-01-03');
+	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
+	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
 }
 add_action('admin_head', 'bizVektor_admin_css', 11);
 
@@ -342,76 +331,6 @@ function remove_default_post_screen_metaboxes() {
  }
  add_action('admin_menu','remove_default_post_screen_metaboxes');
 
-/*-------------------------------------------*/
-/*	Custom post type _ add info
-/*-------------------------------------------*/
-add_action( 'init', 'create_post_type', 0 );
-function create_post_type() {
-	$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
-	register_post_type( 'info', /* post-type */
-	array(
-		'labels' => array(
-		'name' => $infoLabelName,
-		'singular_name' => $infoLabelName
-	),
-	'public' => true,
-	'menu_position' =>5,
-	'has_archive' => true,
-	'supports' => array('title','editor','excerpt','thumbnail','author')
-	)
-	);
-	// Add information category
-	register_taxonomy(
-		'info-cat',
-		'info',
-		array(
-			'hierarchical' => true,
-			'update_count_callback' => '_update_post_term_count',
-			'label' => $infoLabelName._x('category','admin menu', 'biz-vektor'),
-			'singular_label' => $infoLabelName._x('category','admin menu', 'biz-vektor'),
-			'public' => true,
-			'show_ui' => true,
-		)
-	);
-	}
-
-add_action( 'generate_rewrite_rules', 'my_rewrite' );
-function my_rewrite( $wp_rewrite ){
-    $taxonomies = get_taxonomies();
-    $taxonomies = array_slice($taxonomies,4,count($taxonomies)-1);
-    foreach ( $taxonomies as $taxonomy ) :
-         $post_types = get_taxonomy($taxonomy)->object_type;
-
-        foreach ($post_types as $post_type){
-            $new_rules[$post_type.'/'.$taxonomy.'/(.+?)/?$'] = 'index.php?taxonomy='.$taxonomy.'&term='.$wp_rewrite->preg_index(1);
-        }
-         $wp_rewrite->rules = array_merge($new_rules, $wp_rewrite->rules);
-     endforeach;
-}
-
-/*		Archive of custom post type
-/*-------------------------------------------*/
-global $my_archives_post_type;
-add_filter( 'getarchives_where', 'my_getarchives_where', 10, 2 );
-function my_getarchives_where( $where, $r ) {
-  global $my_archives_post_type;
-  if ( isset($r['post_type']) ) {
-    $my_archives_post_type = $r['post_type'];
-    $where = str_replace( '\'post\'', '\'' . $r['post_type'] . '\'', $where );
-  } else {
-    $my_archives_post_type = '';
-  }
-  return $where;
-}
-add_filter( 'get_archives_link', 'my_get_archives_link' );
-function my_get_archives_link($link_html) {
-    global $my_archives_post_type;
-    if ($my_archives_post_type != '') {
-        $add_link = '?post_type=' . $my_archives_post_type;
-        $link_html = preg_replace("/href=\'(.+)\'/", "href='$1" . $add_link. "'", $link_html);
-    }
-    return $link_html;
-}
 
 /*-------------------------------------------*/
 /*	head_description
@@ -492,7 +411,7 @@ function bizVektorAddWebFonts(){
 // Add BizVektor option css
 add_action('wp_head','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common.css" type="text/css" media="all" />'."\n";
+	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common.css?20140430" type="text/css" media="all" />'."\n";
 	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
 	echo $optionStyle;
 }
@@ -719,3 +638,63 @@ function ignore_shortcode( $atts, $content = null ) {
     return null;
 }
 add_shortcode('ignore', 'ignore_shortcode');
+
+/*-------------------------------------------*/
+/*	ChildPageList widget
+/*-------------------------------------------*/
+function biz_vektor_childPageList(){
+	global $post;
+	if (is_page()) {
+		if($post->ancestors){
+				foreach($post->ancestors as $post_anc_id){
+					$post_id = $post_anc_id;
+				}
+			} else {
+				$post_id = $post->ID;
+			}
+			if ($post_id) {
+				$children = wp_list_pages("title_li=&child_of=".$post_id."&echo=0");
+				if ($children) { ?>
+				<div class="localSection sideWidget pageListSection">
+				<h3 class="localHead"><a href="<?php echo get_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h3>
+				<ul class="localNavi">
+				<?php echo $children; ?>
+				</ul>
+				</div>
+
+		<?php }
+		}
+	} // is_page
+}
+class WP_Widget_ChildPageList extends WP_Widget {
+	/** constructor */
+	function WP_Widget_childPageList() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_childPageList',
+			'description' => '表示している固定ページが属する階層のページリストを表示',
+		);
+		$this->WP_Widget('childPageList', '固定ページ子ページリスト', $widget_ops);
+	}
+
+	/** @see WP_Widget::widget */
+	function widget($args, $instance) {
+		extract( $args );
+		echo $before_widget;
+		biz_vektor_childPageList();
+		echo $after_widget;
+	}
+
+	// /** @see WP_Widget::update */
+	// function update($new_instance, $old_instance) {
+	// 	return $new_instance;
+	// }
+
+	// /** @see WP_Widget::form */
+	// function form($instance) {
+	// 	$title = esc_attr($instance['title']);
+	// }
+
+} // class WP_Widget_childPageList
+
+// register WP_Widget_childPageList widget
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));

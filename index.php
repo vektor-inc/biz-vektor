@@ -32,8 +32,7 @@ if (isset($_GET['s']) && empty($_GET['s'])) {
 
 <!-- [ #sideTower ] -->
 <div id="sideTower">
-	<?php get_template_part('module_side_blog'); ?>
-	<?php get_sidebar(); ?>
+	<?php get_template_part('module_side_post'); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>

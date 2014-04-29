@@ -15,7 +15,7 @@
 	$postCount = ++$postCount;
 	endwhile;
 	if ($postCount): ?>
-	<h5><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></h5>
+	<h5><a href="<?php echo home_url(); ?>/info/"><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></a></h5>
 	<ul class="linkList">
 	<?php wp_list_categories('taxonomy=info-cat&title_li=&orderby=order'); ?>
 	</ul>

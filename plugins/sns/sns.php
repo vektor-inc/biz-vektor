@@ -13,6 +13,12 @@
 /*-------------------------------------------*/
 /*	Print facebook Application ID 
 /*-------------------------------------------*/
+/*	facebook twitter banner
+/*-------------------------------------------*/
+/*	WP_Widget_fbBanner Class
+/*-------------------------------------------*/
+/*	WP_Widget_twBanner Class
+/*-------------------------------------------*/
 
 /*-------------------------------------------*/
 /*	Add OGP
@@ -225,3 +231,64 @@ function biz_vektor_fbAppId () {
 	$fbAppId = $options['fbAppId'];
 	echo $fbAppId;
 }
+
+/*-------------------------------------------*/
+/*	facebook twitter banner
+/*-------------------------------------------*/
+function biz_vektor_snsBnrs() {
+	$options = biz_vektor_get_theme_options();
+	$facebook = $options['facebook'];
+	$twitter = $options['twitter'];
+	if ($facebook || $twitter) {
+		$snsBnrs = '<ul id="snsBnr">';
+		if ($facebook) {
+			$snsBnrs .= '<li><a href="'.esc_url($facebook).'" target="_blank"><img src="'.get_template_directory_uri().'/images/bnr_facebook.png" alt="facebook" /></a></li>'."\n";
+		}
+		if ($twitter) {
+			$snsBnrs .= '<li><a href="https://twitter.com/#!/'.esc_url($twitter).'" target="_blank"><img src="'.get_template_directory_uri().'/images/bnr_twitter.png" alt="twitter" /></a></li>'."\n";
+		}
+		$snsBnrs .= '</ul>';
+		echo $snsBnrs;
+	}
+}
+
+/*-------------------------------------------*/
+/*	WP_Widget_snsBnrs Class
+/*-------------------------------------------*/
+
+class WP_Widget_snsBnrs extends WP_Widget {
+	/** constructor */
+	function WP_Widget_snsBnrs() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_snsBnrs',
+			'description' => 'facebook&twitterバナー',
+		);
+		$widget_name = 'facebook&twitterバナー'.' ('.get_biz_vektor_name().')';
+		$this->WP_Widget('snsBnrs', $widget_name, $widget_ops);
+	}
+
+	/** @see WP_Widget::widget */
+	function widget($args, $instance) {
+		extract( $args );
+		if (function_exists('biz_vektor_snsBnrs')) biz_vektor_snsBnrs();
+	}
+
+	/** @see WP_Widget::update */
+	function update($new_instance, $old_instance) {
+		return $new_instance;
+	}
+
+	/** @see WP_Widget::form */
+	function form($instance) {
+		// $title = esc_attr($instance['title']);
+		/*
+		?>
+			<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+		<?php
+		*/
+	}
+
+} // class WP_Widget_snsBnrs
+
+// register WP_Widget_snsBnrs widget
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_snsBnrs");'));

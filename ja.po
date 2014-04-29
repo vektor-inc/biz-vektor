@@ -317,51 +317,47 @@ msgstr ""
 # ############################################################################
 #: functions.php:96
 msgid "Sidebar(Front page only)"
-msgstr "サイドバー（トップのみ）"
+msgstr "サイドバー（トップページ）"
 
 #: functions.php:98
 msgid "This widget area appears on the front page only."
 msgstr ""
 "トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
 "必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
-"ジェットを使用して、ソースコードを張り付けられます。サイドバーウィジェット"
-"（共通）の上に表示されます。"
+"ジェットを使用して、ソースコードを張り付けられます。"
 
 #: functions.php:105
 msgid "Sidebar(Post content only)"
-msgstr "サイドバー（投稿・問い合わせバナー上）"
+msgstr "サイドバー（投稿ページ）"
 
 #: functions.php:107
-msgid ""
-"This widget area appears only on the post content pages. It is displayed "
-"above the Contact banner."
-msgstr ""
-"投稿コンテンツのページにのみ表示されるウィジェットです。問い合わせバナーの上"
-"に表示されます。"
+msgid "This widget area appears only on the post content pages."
+msgstr "投稿コンテンツのページにのみ表示されるウィジェットです。"
 
-#: functions.php:114
-msgid "Sidebar(All pages - top)"
-msgstr "サイドバー（共通・上）"
+msgid "Sidebar(Page content only)"
+msgstr "サイドバー（固定ページ）"
 
-#: functions.php:116
-msgid ""
-"This widget area appears on all pages in the upper section. It is displayed "
-"above the facebook & twitter banners."
-msgstr ""
-"サイドバーに表示するウィジェットです。facebook,twitterバナーの上に表示されま"
-"す。"
+#: functions.php:107
+msgid "This widget area appears only on the page content pages."
+msgstr "固定ページコンテンツのページにのみ表示されるウィジェットです。"
 
-#: functions.php:123
-msgid "Sidebar(All pages - bottom)"
-msgstr "サイドバー（共通・下）"
+msgid "Sidebar(%s content only)"
+msgstr "サイドバー（%sページ）"
 
-#: functions.php:125
-msgid ""
-"This widget area appears on all pages in the upper section. It is displayed "
-"below the facebook & twitter banners."
-msgstr ""
-"サイドバーに表示するウィジェットです。facebook,twitterバナーの下に表示されま"
-"す。"
+msgid "This widget area appears only on the %s content pages."
+msgstr "%sコンテンツのページにのみ表示されるウィジェットです。"
+
+msgid "%s category"
+msgstr "%s カテゴリー"
+
+msgid "Category list of %s"
+msgstr "%s のカテゴリーリスト"
+
+msgid "Yearly archives of %s"
+msgstr "%s の年別アーカイブ"
+
+msgid "%s Yearly archives"
+msgstr "%s 年別アーカイブ"
 
 msgctxt "admin menu"
 msgid "category"

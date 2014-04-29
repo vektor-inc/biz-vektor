@@ -27,8 +27,8 @@ if ( !$postType ) {
 		$userObj = get_queried_object();
 		$archiveTitle = $userObj->display_name;
 	}
-	$archiveTitle = apply_filters( 'biz_vektor_archiveTitCustom', $archiveTitle );
-	if ($archiveTitle) {
+	if ( isset($archiveTitle) && $archiveTitle ) {
+		$archiveTitle = apply_filters( 'biz_vektor_archiveTitCustom', $archiveTitle );
 		echo '<h1 class="contentTitle">'.esc_html( $archiveTitle ).'</h1>';
 	}
 /*-------------------------------------------*/
@@ -75,7 +75,7 @@ if ( !$postType ) {
 		<?php } ?>
 
 	<?php endif; // $postType == 'info' ?>
-	<?php pagination($additional_loop->max_num_pages); ?>
+	<?php pagination(); ?>
 	</div><!-- [ /.infoList ] -->
 	</div>
 	<!-- [ /#content ] -->
@@ -84,11 +84,10 @@ if ( !$postType ) {
 <div id="sideTower">
 	<?php
 	if ($postType == 'post') {
-		get_template_part('module_side_blog');
+		get_template_part('module_side_post');
 	} else if ($postType == 'info') {
 		get_template_part('module_side_info');
 	} ?>
-	<?php get_sidebar(); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>

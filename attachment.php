@@ -3,7 +3,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="wide">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -58,11 +58,6 @@
 	</div>
 	<!-- [ /#content ] -->
 
-<!-- [ #sideTower ] -->
-<div id="sideTower">
-	<?php get_sidebar(); ?>
-</div>
-<!-- [ /#sideTower ] -->
 </div>
 <!-- [ /#container ] -->
 

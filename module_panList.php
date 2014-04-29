@@ -40,10 +40,12 @@ if ( is_404() ){
 			}
 		}
 	}
+
 // ▼▼ 投稿者ページ
 } else if (is_author()) {
 	$userObj = get_queried_object();
 	echo '<li>'.esc_html($userObj->display_name).'</li>';
+
 // ▼▼ 投稿記事ページ
 } elseif ( is_single() ) {
 	// 投稿の場合
@@ -56,7 +58,7 @@ if ( is_404() ){
 		endif;
 	// カスタム投稿タイプのsingleページの場合
 	} else {
-		echo '<li>'.$postTypeName.' &raquo; </li>';
+		echo '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
 		$taxonomies = get_the_taxonomies();
 		// 複数のタクソノミーを跨ぐ事が無い前提なので、forechじゃなくても良いはず...
 		foreach ( $taxonomies as $taxonomySlug => $taxonomy ) {}
@@ -66,11 +68,13 @@ if ( is_404() ){
 		endif;
 	}
 	echo '<li>'.get_the_title()."</li>";
+
 // ▼▼ タクソノミー
 } else if (is_tax()) { // 階層構造を反映しないので要検討
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
 	if ( $postType == 'post') {
 		$postTypeName = esc_html(bizVektorOptions('postLabelName'));
+		echo '<li>'.$postTypeName.' &raquo; </li>';
 	// 標準の投稿タイプでない場合は、カスタム投稿タイプ名を取得
 	} else {
 		if (get_post_type()) {
@@ -81,8 +85,8 @@ if ( is_404() ){
 			$postTypeSlug = get_taxonomy( $taxonomy )->object_type[0];
 		}
 		$postTypeName = get_post_type_object($postTypeSlug)->labels->name;
+		echo '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
 	}
-	echo '<li>'.$postTypeName.' &raquo; </li>';
 	echo '<li>'.single_cat_title('','', FALSE).'</li>';
 // ▼▼ カテゴリー
 } else if ( is_category() ) {
@@ -114,15 +118,12 @@ if ( is_404() ){
 } elseif ( is_archive() && (!is_category() || !is_tax()) ) {
 	// 投稿の場合
 	if ($postType == 'post') {
-		echo '<li>'.$postLabelName;
+		echo '<li>'.$postLabelName.' &raquo; </li>';
 	// カスタム投稿タイプの場合
 	} else {
 		echo '<li>'.$postTypeName;
+		echo '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
 	}
-	if (is_month() || is_year()) {
-		echo ' &raquo; ';
-	}
-	echo '</li>';
 	if (is_year()){
 		echo "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
 	} else if (is_month()){
