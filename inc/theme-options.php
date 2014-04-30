@@ -781,7 +781,7 @@ class WP_Widget_contact_link extends WP_Widget {
 			'classname' => 'WP_Widget_contact_link',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$widget_name = __('Contact button').' ('.get_biz_vektor_name().')';
+		$widget_name = __('Contact button', 'biz-vektor').' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('contact_link', $widget_name, $widget_ops);
 	}
 

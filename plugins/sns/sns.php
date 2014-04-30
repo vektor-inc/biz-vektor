@@ -264,7 +264,7 @@ class WP_Widget_snsBnrs extends WP_Widget {
 			'classname' => 'WP_Widget_snsBnrs',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$widget_name = __('facebook&twitter banner').' ('.get_biz_vektor_name().')';
+		$widget_name = __('facebook&twitter banner', 'biz-vektor').' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('snsBnrs', $widget_name, $widget_ops);
 	}
 
