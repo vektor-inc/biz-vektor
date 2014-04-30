@@ -679,9 +679,11 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		extract( $args );
-		echo $before_widget;
-		biz_vektor_childPageList();
-		echo $after_widget;
+		if(biz_vektor_childPageList()){
+			echo $before_widget;
+			biz_vektor_childPageList();
+			echo $after_widget;
+		}
 	}
 
 	// /** @see WP_Widget::update */

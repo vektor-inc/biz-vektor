@@ -1,6 +1,6 @@
 <?php
-if ( is_active_sidebar( 'post-widget-area' ) ) :
-	dynamic_sidebar( 'post-widget-area' );
+if ( is_active_sidebar( 'page-widget-area' ) ) :
+	dynamic_sidebar( 'page-widget-area' );
 else :
 	// ウィジェットに設定がない場合
 	biz_vektor_childPageList();

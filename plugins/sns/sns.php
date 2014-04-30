@@ -15,10 +15,11 @@
 /*-------------------------------------------*/
 /*	facebook twitter banner
 /*-------------------------------------------*/
-/*	WP_Widget_fbBanner Class
+/*	WP_Widget_snsBnrs Class
 /*-------------------------------------------*/
-/*	WP_Widget_twBanner Class
+/*	WP_Widget_fbLikeBox Class
 /*-------------------------------------------*/
+
 
 /*-------------------------------------------*/
 /*	Add OGP
@@ -261,9 +262,9 @@ class WP_Widget_snsBnrs extends WP_Widget {
 	function WP_Widget_snsBnrs() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_snsBnrs',
-			'description' => 'facebook&twitterバナー',
+			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$widget_name = 'facebook&twitterバナー'.' ('.get_biz_vektor_name().')';
+		$widget_name = __('facebook&twitter banner').' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('snsBnrs', $widget_name, $widget_ops);
 	}
 
@@ -292,3 +293,37 @@ class WP_Widget_snsBnrs extends WP_Widget {
 
 // register WP_Widget_snsBnrs widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_snsBnrs");'));
+
+/*-------------------------------------------*/
+/*	WP_Widget_fbLikeBox Class
+/*-------------------------------------------*/
+
+class WP_Widget_fbLikeBox extends WP_Widget {
+	/** constructor */
+	function WP_Widget_fbLikeBox() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_fbLikeBox',
+			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
+		);
+		$widget_name = 'facebook Like Box'.' ('.get_biz_vektor_name().')';
+		$this->WP_Widget('fbLikeBox', $widget_name, $widget_ops);
+	}
+
+	/** @see WP_Widget::widget */
+	function widget($args, $instance) {
+		extract( $args );
+		if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
+	}
+
+	/** @see WP_Widget::update */
+	function update($new_instance, $old_instance) {
+		return $new_instance;
+	}
+
+	/** @see WP_Widget::form */
+	function form($instance) {	}
+
+} // class WP_Widget_fbLikeBox
+
+// register WP_Widget_fbLikeBox widget
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));

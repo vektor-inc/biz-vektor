@@ -757,16 +757,19 @@ function suffix2console() {
 /*-------------------------------------------*/
 /*	Contact Btn
 /*-------------------------------------------*/
-function biz_vektor_contactBtn(){
+function get_biz_vektor_contactBtn(){
 	$options = biz_vektor_get_theme_options();
-	if ($options['contact_link']) :?>
-	<ul>
-	<li class="sideBnr" id="sideContact"><a href="<?php echo $options['contact_link'] ?>">
-	<img src="<?php echo get_template_directory_uri(); ?>/images/<?php _e('bnr_contact.png', 'biz-vektor'); ?>" alt="<?php _e('Contact us by e-mail', 'biz-vektor'); ?>">
-	</a></li>
-	</ul>
-	<?php
+	if ($options['contact_link']) :
+	$contactBtn = '<ul>';
+	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$options['contact_link'].'">'."\n";
+	$contactBtn .= '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'"></a></li>'."\n";
+	
+	$contactBtn .= '</ul>'."\n";
+	return $contactBtn;
 	endif;
+}
+function biz_vektor_contactBtn(){
+	echo get_biz_vektor_contactBtn();
 }
 /*-------------------------------------------*/
 /*	Contact widget
@@ -776,18 +779,18 @@ class WP_Widget_contact_link extends WP_Widget {
 	function WP_Widget_contact_link() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_contact_link',
-			'description' => '問い合わせボタン',
+			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$widget_name = '問い合わせボタン'.' ('.get_biz_vektor_name().')';
+		$widget_name = __('Contact button').' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('contact_link', $widget_name, $widget_ops);
 	}
 
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		extract( $args );
-		echo $before_widget;
+		// echo $before_widget;
 		biz_vektor_contactBtn();
-		echo $after_widget;
+		// echo $after_widget;
 	}
 
 	/** @see WP_Widget::update */
