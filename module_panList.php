@@ -116,19 +116,24 @@ if ( is_404() ){
 	echo "<li>". $tagTitle ."</li>";
 // ▼▼ アーカイブ
 } elseif ( is_archive() && (!is_category() || !is_tax()) ) {
-	// 投稿の場合
-	if ($postType == 'post') {
-		echo '<li>'.$postLabelName.' &raquo; </li>';
-	// カスタム投稿タイプの場合
+
+	if (is_year() || is_month()){
+		// 投稿の場合
+		if ($postType == 'post') {
+			echo '<li>'.$postLabelName.' &raquo; </li>';
+		// カスタム投稿タイプの場合
+		} else {
+			echo '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
+		}
+		if (is_year()){
+			echo "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
+		} else if (is_month()){
+			echo "<li>".sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) )."</li>";
+		}
 	} else {
-		echo '<li>'.$postTypeName;
-		echo '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
+		echo '<li>'.$postTypeName.'</li>';
 	}
-	if (is_year()){
-		echo "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
-	} else if (is_month()){
-		echo "<li>".sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) )."</li>";
-	}
+
 } elseif ( is_attachment() ) {
 	echo '<li>'.the_title('','', FALSE).'</li>';
 }
