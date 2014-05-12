@@ -361,12 +361,34 @@ function biz_vektor_gMenuDivide() {
 	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
 	//　other
 	} else {
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/g_menu_'.$options['gMenuDivide'].'.css" />'."\n";
-		print '<!--[if lte IE 8]>'."\n";
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.get_template_directory_uri().'/css/g_menu_'.$options['gMenuDivide'].'_oldie.css" />'."\n";
-		print '<![endif]-->'."\n";
+		$menuWidth = array(
+			'divide_4' => array(238,237),
+			'divide_5' => array(193,189),
+			'divide_6' => array(159,158),
+			'divide_7' => array(139,135),
+			);
+		$menuWidthActive = $menuWidth[$options['gMenuDivide']][0];
+		$menuWidthNonActive = $menuWidth[$options['gMenuDivide']][1];
+echo '<style type="text/css">
+/*-------------------------------------------*/
+/*	menu divide
+/*-------------------------------------------*/
+@media (min-width: 970px) {
+#gMenu .menu li { width:'.$menuWidthNonActive.'px; text-align:center; }
+#gMenu .menu li.current_page_item,
+#gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
+}
+</style>'."\n";
+echo '<!--[if lte IE 8]>
+<style type="text/css">
+#gMenu .menu li { width:'.$menuWidthNonActive.'.px; text-align:center; }
+#gMenu .menu li.current_page_item,
+#gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
+</style>
+<![endif]-->'."\n";
 	}
 }
+
 /*-------------------------------------------*/
 /*	Header logo
 /*-------------------------------------------*/
