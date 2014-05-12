@@ -30,7 +30,7 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 /*-------------------------------------------*/
 $pageTitle = apply_filters( 'biz_vektor_pageTitCustom', $pageTitle );
 if ( is_home() || is_page() || is_attachment() || is_search() || is_404() ){ ?>
-<h1 id="pageTit"><?php echo esc_html( $pageTitle ); ?><?php if (is_page()) : edit_post_link(__('Edit', 'biz-vektor'), '<span class="edit-link edit-item"> [ ', ']' ); endif; ?></h1>
+<h1 id="pageTit"><?php echo esc_html( $pageTitle ); ?><?php if (is_page()) : edit_post_link(__('Edit', 'biz-vektor'), '<span class="edit-link edit-item"> [ ', ' ]' ); endif; ?></h1>
 <?php } else if ( is_category() || is_tag() || is_author() ||  is_tax() || is_archive() || is_single() ) { ?>
 <div id="pageTit"><?php echo esc_html( $pageTitle ); ?></div>
 <?php } ?>
