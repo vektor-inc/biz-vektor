@@ -1,0 +1,24 @@
+{
+  "name": "biz-vektor",
+  "version": "0.0.0",
+  "description": "BizVektor\r ==========\r Free WordPress Theme for business\r * * *\r ## Theme URI\r http://bizvektor.com\r ## Description\r BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイトを構築する事が出来ます。また、テーマ拡張プラグインによって新たに選択出来るデザインを増やす事が出来ます。\r ## Author\r Vektor,Inc.\r ## Author URI\r http://www.vektor-inc.co.jp/\r ## Version\r 0.11.3.0\r ## License\r GNU General Public License",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kurudrive/biz-vektor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kurudrive/biz-vektor/issues"
+  },
+  "homepage": "https://github.com/kurudrive/biz-vektor",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-uglify": "^0.4.0"
+  }
+}
