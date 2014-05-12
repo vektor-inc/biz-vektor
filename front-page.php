@@ -115,7 +115,6 @@ $post_loop = new WP_Query( array(
 <?php endif; // $postTopCpunt= 0 ?>
 <?php wp_reset_query();?>
 
-
 <?php biz_vektor_blogList() // RSS import ?>
 
 <?php biz_vektor_topContentsBottom(); ?>
@@ -129,7 +128,7 @@ $post_loop = new WP_Query( array(
 
 	<!-- [ #sideTower ] -->
 	<div id="sideTower">
-
+<?php if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
 <?php
 if ( is_active_sidebar( 'top-side-widget-area' ) ) :
 	dynamic_sidebar( 'top-side-widget-area' );
@@ -140,6 +139,7 @@ else :
 	if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
 	?>
 <?php endif; ?>
+<?php if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' ); ?>
 	</div>
 	<!-- [ /#sideTower ] -->
 </div>

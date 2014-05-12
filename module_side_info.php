@@ -1,3 +1,4 @@
+<?php if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
 <?php
 if ( is_active_sidebar( 'info-widget-area' ) ) :
 	dynamic_sidebar( 'info-widget-area' );
@@ -42,3 +43,4 @@ else :
 	if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
 	?>
 <?php endif; ?>
+<?php if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' ); ?>

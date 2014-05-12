@@ -119,6 +119,24 @@ function biz_vektor_widgets_init() {
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
+		'id' => 'common-side-top-widget-area',
+		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
+		'id' => 'common-side-bottom-widget-area',
+		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 

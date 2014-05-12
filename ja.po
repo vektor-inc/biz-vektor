@@ -347,6 +347,18 @@ msgstr "サイドバー（%sページ）"
 msgid "This widget area appears only on the %s content pages."
 msgstr "%sコンテンツのページにのみ表示されるウィジェットです。"
 
+msgid "Sidebar(Common top)"
+msgstr "サイドバー（共通・上）"
+
+msgid "This widget area appears at top of sidebar."
+msgstr "サイドバー上部に表示されるウィジェットです。"
+
+msgid "Sidebar(Common bottom)"
+msgstr "サイドバー（共通・下）"
+
+msgid "This widget area appears at bottom of sidebar."
+msgstr "サイドバー下部に表示されるウィジェットです。"
+
 msgid "facebook&twitter banner"
 msgstr "facebook&twitterバナー"
 
