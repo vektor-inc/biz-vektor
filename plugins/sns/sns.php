@@ -246,7 +246,7 @@ function biz_vektor_snsBnrs() {
 			$snsBnrs .= '<li><a href="'.esc_url($facebook).'" target="_blank"><img src="'.get_template_directory_uri().'/images/bnr_facebook.png" alt="facebook" /></a></li>'."\n";
 		}
 		if ($twitter) {
-			$snsBnrs .= '<li><a href="https://twitter.com/#!/'.esc_url($twitter).'" target="_blank"><img src="'.get_template_directory_uri().'/images/bnr_twitter.png" alt="twitter" /></a></li>'."\n";
+			$snsBnrs .= '<li><a href="https://twitter.com/#!/'.esc_html($twitter).'" target="_blank"><img src="'.get_template_directory_uri().'/images/bnr_twitter.png" alt="twitter" /></a></li>'."\n";
 		}
 		$snsBnrs .= '</ul>';
 		echo $snsBnrs;
