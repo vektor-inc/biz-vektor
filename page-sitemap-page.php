@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Sitemap（Slug:info-top）
+ * Template Name: Sitemap（Slug:sitemap-page）
  */
 get_header(); ?>
 
