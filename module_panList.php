@@ -62,7 +62,7 @@ if ( is_404() ){
 		$taxonomies = get_the_taxonomies();
 		// 複数のタクソノミーを跨ぐ事が無い前提なので、forechじゃなくても良いはず...
 		foreach ( $taxonomies as $taxonomySlug => $taxonomy ) {}
-		if ($taxonomySlug)	:
+		if ($taxonomies):
 			$taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, '', ' , ', '' );
 			echo '<li>'.$taxo_catelist.' &raquo; </li>';
 		endif;
