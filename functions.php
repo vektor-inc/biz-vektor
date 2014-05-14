@@ -445,19 +445,23 @@ function bizVektorAddPingback(){
 /*-------------------------------------------*/
 /*	footer_wp_footer clean and add items
 /*-------------------------------------------*/
-add_action('wp_footer','bizVektorAddJsScripts');
+add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
 	echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/res-vektor/res-vektor.css" type="text/css">';
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140512' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
+function add_defer_to_bizVektor_js( $url )
+{
+	if ( FALSE === strpos( $url, 'biz-vektor/js' ) or FALSE === strpos( $url, '.js' ) )
+	{ // not our file
+		return $url;
+	}
+	// Must be a ', not "!
+	return "$url' defer='defer";
+}
+add_filter( 'clean_url', 'add_defer_to_bizVektor_js', 11, 1 );
 
-// add_action( 'wp_enqueue_scripts', 'add_ResVektor' );
-// function add_ResVektor() {
-// 	wp_enqueue_script( 'jquery' );
-// 	wp_enqueue_script( 'res-vektor-js' , get_template_directory_uri().'/js/res-vektor/res-vektor.js', array('jquery'), '20131228' );
-// 	wp_enqueue_script( 'jquery-cookie', get_template_directory_uri() . '/js/res-vektor/jquery.cookie.js', array( 'jquery' ), true );
-// }
 /*-------------------------------------------*/
 /*	Term list no link
 /*-------------------------------------------*/
