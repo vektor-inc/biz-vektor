@@ -74,6 +74,8 @@ get_template_part('plugins/sns/sns');
 
 get_template_part('plugins/add_post_type/add_post_type');
 
+add_post_type_support( 'info', 'front-end-editor' );
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
