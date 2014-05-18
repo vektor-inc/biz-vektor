@@ -63,7 +63,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 <?php biz_vektor_print_headLogo(); ?>
 </a>
 </<?php echo $heading_tag; ?>>
-<!-- [ #headLogo ] -->
+<!-- [ /#headLogo ] -->
 
 <!-- [ #headContact ] -->
 <?php biz_vektor_print_headContact(); ?>
@@ -113,7 +113,7 @@ if ($gMenuExist) { ?>
 
 <?php if (is_front_page() && (biz_vektor_slideExist() || get_header_image()) ) { ?>
 <div id="topMainBnr">
-<div id="topMainBnrFrame" class="flexslider">
+<div id="topMainBnrFrame"<?php if (biz_vektor_slideExist()) echo ' class="flexslider"';?>>
 <?php if(biz_vektor_slideExist()) { ?>
 	<ul class="slides">
 	<?php biz_vektor_slideBody(); ?>

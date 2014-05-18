@@ -653,16 +653,14 @@ function biz_vektor_slideExist () {
 	}
 }
 
-add_action('wp_head','bizVektorAddSliderRun');
-function bizVektorAddSliderRun(){
-	if (biz_vektor_slideExist()) {
-		echo "<script type='text/javascript'>
-		jQuery(window).load(function() { jQuery('.flexslider').flexslider(); });
-		</script>";
-	}
-}
-
-
+// add_action('wp_head','bizVektorAddSliderRun');
+// function bizVektorAddSliderRun(){
+// 	if (biz_vektor_slideExist()) {
+// 		echo "<script type='text/javascript'>
+// 		jQuery(window).load(function() { jQuery('.flexslider').flexslider(); });
+// 		</script>";
+// 	}
+// }
 
 function biz_vektor_slideBody(){
 	$options = biz_vektor_get_theme_options();
@@ -834,7 +832,6 @@ class WP_Widget_contact_link extends WP_Widget {
 
 // register WP_Widget_contact_link widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_contact_link");'));
-
 
 function get_biz_vektor_name() {
 	$name = 'BizVektor';

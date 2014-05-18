@@ -415,6 +415,7 @@ jQuery("#btn").on("click", function() {
 });
 
 
+
 /*
  * jQuery FlexSlider v1.8
  * http://www.woothemes.com/flexslider/
@@ -426,6 +427,7 @@ jQuery("#btn").on("click", function() {
  * Contributing Author: Tyler Smith
  */
 
+
 ;(function (jQuery) {
   
   //FlexSlider: Object Instance
@@ -436,22 +438,22 @@ jQuery("#btn").on("click", function() {
     jQuery.data(el, "flexslider", slider);
 
     slider.init = function() {
-      slider.vars = jQuery.extend({}, jQuery.flexslider.defaults, options);
-      jQuery.data(el, 'flexsliderInit', true);
-	    slider.container = jQuery('.slides', slider).first();
-	    slider.slides = jQuery('.slides:first > li', slider);
-      slider.count = slider.slides.length;
-      slider.animating = false;
-      slider.currentSlide = slider.vars.slideToStart;
-      slider.animatingTo = slider.currentSlide;
-      slider.atEnd = (slider.currentSlide == 0) ? true : false;
-      slider.eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click';
-      slider.cloneCount = 0;
-      slider.cloneOffset = 0;
-      slider.manualPause = false;
-      slider.vertical = (slider.vars.slideDirection == "vertical");
-      slider.prop = (slider.vertical) ? "top" : "marginLeft";
-      slider.args = {};
+		slider.vars = jQuery.extend({}, jQuery.flexslider.defaults, options);
+		jQuery.data(el, 'flexsliderInit', true);
+		slider.container = jQuery('.slides', slider).first();
+		slider.slides = jQuery('.slides:first > li', slider);
+		slider.count = slider.slides.length;
+		slider.animating = false;
+		slider.currentSlide = slider.vars.slideToStart;
+		slider.animatingTo = slider.currentSlide;
+		slider.atEnd = (slider.currentSlide == 0) ? true : false;
+		slider.eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click';
+		slider.cloneCount = 0;
+		slider.cloneOffset = 0;
+		slider.manualPause = false;
+		slider.vertical = (slider.vars.slideDirection == "vertical");
+		slider.prop = (slider.vertical) ? "top" : "marginLeft";
+		slider.args = {};
       
       //Test for webbkit CSS3 Animations
       slider.transitions = "webkitTransition" in document.body.style;
@@ -978,3 +980,5 @@ jQuery("#btn").on("click", function() {
   }  
 
 })(jQuery);
+
+jQuery('.flexslider').flexslider();
