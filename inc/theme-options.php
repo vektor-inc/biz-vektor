@@ -188,7 +188,7 @@ function getHeadTitle() {
 			if ( is_year()) {
 				$headTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
 			} if ( is_month()) {
-				$headTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+				$headTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) );
 			} else {
 				$headTitle = esc_html(bizVektorOptions('infoLabelName'));
 			}
@@ -212,10 +212,16 @@ function getHeadTitle() {
 	} else if (is_archive()) {
 		if (is_month()){
 			$headTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) );
-			$headTitle .= " | ".get_bloginfo('name');
-		} else {
-			$headTitle = single_tag_title('',false)." | ".get_bloginfo('name');
+		} else if (is_year()){
+			$headTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+		} else if (is_tax()){
+			$headTitle = single_term_title('',false);
+		} else if (!is_day() || !is_tax()){
+			global $wp_query;
+			$postTypeName = esc_html($wp_query->queried_object->labels->name);
+			$headTitle .= $postTypeName;
 		}
+		$headTitle .= " | ".get_bloginfo('name');
 	// Search
 	} else if (is_search()) {
 		$headTitle = sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query())." | ".get_bloginfo('name');

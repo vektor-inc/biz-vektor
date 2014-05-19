@@ -10,10 +10,8 @@ $postTypeName = esc_html(get_post_type_object(get_post_type())->labels->name);
 
 // 標準のpost のラベル名
 $postLabelName = bizVektorOptions('postLabelName');
-if ( !is_front_page() ):
 	echo '<ul>';
 	echo '<li id="panHome"><a href="'. home_url() .'">HOME</a> &raquo; </li>';
-endif;
 
 // ▼
 if ( is_404() ){
@@ -137,7 +135,5 @@ if ( is_404() ){
 } elseif ( is_attachment() ) {
 	echo '<li>'.the_title('','', FALSE).'</li>';
 }
-if ( !is_front_page() ):
 	echo "</ul>";
-endif;
 wp_reset_query();
