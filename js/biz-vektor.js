@@ -1,105 +1,3 @@
-// mzfch.js
-function getCookieVal (offset) {
-  var endstr = document.cookie.indexOf (";", offset);
-  if (endstr == -1)
-	endstr = document.cookie.length;
-  return unescape(document.cookie.substring(offset, endstr));
-}
-
-function GetCookie (name) {
-  var arg = name + "=";
-  var alen = arg.length;
-  var clen = document.cookie.length;
-  var i = 0;
-  while (i < clen) {
-	var j = i + alen;
-	if (document.cookie.substring(i, j) == arg)
-	  return getCookieVal (j);
-	i = document.cookie.indexOf(" ", i) + 1;
-	if (i == 0)
-	  break;
-  }
-  return null;
-}
-
-function SetCookie (name, value) {
-  var argv = SetCookie.arguments;
-  var argc = SetCookie.arguments.length;
-  var expires = (argc > 2) ? argv[2] : null;
-  var path = (argc > 3) ? argv[3] : null;
-  var domain = (argc > 4) ? argv[4] : null;
-  var secure = (argc > 5) ? argv[5] : false;
-  document.cookie = name + "=" + escape (value) +
-	((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
-	((path == null) ? "" : ("; path=" + path)) +
-	((domain == null) ? "" : ("; domain=" + domain)) +
-	((secure == true) ? "; secure" : "");
-}
-
-// highlight.js
-/* �t�H�[�������l���� */
-function eraseTA(obj) {
-	if (obj.value == obj.defaultValue) obj.value = "";
-}
-
-/* �t�H�[���̃n�C���C�g */
-var currentlyActiveInputRef = false;
-var currentlyActiveInputClassName = false;
-
-function highlightActiveInput()
-{
-	if(currentlyActiveInputRef){
-		currentlyActiveInputRef.className = currentlyActiveInputClassName;
-	}
-	currentlyActiveInputClassName = this.className;
-	this.className = 'inputHighlighted';
-	currentlyActiveInputRef = this;
-}
-
-function blurActiveInput()
-{
-	this.className = currentlyActiveInputClassName;
-}
-
-var initInputHighlightScript = window.onload;
-window.onload = function(){
-	var tags = ['INPUT','TEXTAREA'];
-
-	for(tagCounter=0;tagCounter<tags.length;tagCounter++){
-		var inputs = document.getElementsByTagName(tags[tagCounter]);
-		for(var no=0;no<inputs.length;no++){
-			if(inputs[no].className && inputs[no].className=='doNotHighlightThisInput')continue;
-
-			if(inputs[no].tagName.toLowerCase()=='textarea' || (inputs[no].tagName.toLowerCase()=='input' && inputs[no].type.toLowerCase()=='text')){
-				inputs[no].onfocus = highlightActiveInput;
-				inputs[no].onblur = blurActiveInput;
-			}
-		}
-	}
-	if(initInputHighlightScript)
-	initInputHighlightScript();
-}
-
-
-// window open
-function m_win(url,windowname,width,height) {
- var features="location=no, menubar=no, status=yes, scrollbars=yes, resizable=yes, toolbar=no";
- if (width) {
-  if (window.screen.width > width)
-   features+=", left="+(window.screen.width-width)/2;
-  else width=window.screen.width;
-  features+=", width="+width;
- }
- if (height) {
-  if (window.screen.height > height)
-   features+=", top="+(window.screen.height-height)/2;
-  else height=window.screen.height;
-  features+=", height="+height;
- }
- window.open(url,windowname,features);
-}
-
-
 /*-------------------------------------------*/
 /*	rollover.js
 /*-------------------------------------------*/
@@ -155,12 +53,12 @@ window.onload = function(){
 // });
 
 /*-------------------------------------------*/
-/*	�y�[�W�����邷���X�N���[��
+/*	ページ内するするスクロール
 /*-------------------------------------------*/
 jQuery(document).ready(function(){
 
 	//
-	// <a href="#***">�̏ꍇ�A�X�N���[���������ǉ�
+	// <a href="#***">の場合、スクロール処理を追加
 	//
 	jQuery('a[href*=#]').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -176,7 +74,7 @@ jQuery(document).ready(function(){
 
 });
 
-// Easing�̒ǉ�
+// Easingの追加
 jQuery.easing.quart = function (x, t, b, c, d) {
 	return -c * ((t=t/d-1)*t*t*t - 1) + b;
 };
@@ -198,7 +96,7 @@ jQuery(document).ready(function(){
 ======================================================================
 /*-------------------------------------------*/
 /*	$.changeLetterSize.addHandler(func)
-/*	�����̑傫�����ω��������Ɏ��s���鏈�����ǉ�
+/*	文字の大きさが変化した時に実行する処理を追加
 /*-------------------------------------------*/
 jQuery(document).ready(function($){
     // jQuery('.topPrTit').flatHeights();
@@ -219,7 +117,7 @@ jQuery.changeLetterSize = {
 
 	var self = $.changeLetterSize;
 
-	/* �����̑傫�����m�F���邽�߂�ins�v�f */
+	/* 文字の大きさを確認するためのins要素 */
 	var ins = $('<ins>M</ins>').css({
 		display: 'block',
 		visibility: 'hidden',
@@ -228,7 +126,7 @@ jQuery.changeLetterSize = {
 		top: '0'
 	});
 
-	/* �����̑傫�����ς������� */
+	/* 文字の大きさが変わったか */
 	var isChanged = function() {
 		ins.appendTo('body');
 		var size = ins[0].offsetHeight;
@@ -238,12 +136,12 @@ jQuery.changeLetterSize = {
 		return true;
 	};
 
-	/* �������ǂݍ��񂾎��_��
-	   �����̑傫�����m�F���Ă��� */
+	/* 文書を読み込んだ時点で
+	   文字の大きさを確認しておく */
 	$(isChanged);
 
-	/* �����̑傫�����ς����Ă������A
-	   handlers���̊֐������Ɏ��s */
+	/* 文字の大きさが変わっていたら、
+	   handlers中の関数を順に実行 */
 	var observer = function() {
 		if (!isChanged()) return;
 		$.each(self.handlers, function(i, handler) {
@@ -251,8 +149,8 @@ jQuery.changeLetterSize = {
 		});
 	};
 
-	/* �n���h�����o�^���A
-	   �ŏ��̓o�^�ł����΁A�����������J�n */
+	/* ハンドラを登録し、
+	   最初の登録であれば、定期処理を開始 */
 	self.addHandler = function(func) {
 		self.handlers.push(func);
 		if (self.handlers.length == 1) {
@@ -265,16 +163,16 @@ jQuery.changeLetterSize = {
 
 /*-------------------------------------------*/
 /*	$(expr).flatHeights()
-/*	$(expr)�őI�����������̗v�f�ɂ��āA���ꂼ�ꍂ����
-/*	���ԍ������̂ɑ�����
+/*	$(expr)で選択した複数の要素について、それぞれ高さを
+/*	一番高いものに揃える
 /*-------------------------------------------*/
 
 (function($) {
 
-	/* �ΏۂƂȂ��v�f�Q�̏W�� */
+	/* 対象となる要素群の集合 */
 	var sets = [];
 
-	/* ���������̏����{�� */
+	/* 高さ揃えの処理本体 */
 	var flatHeights = function(set) {
 		var maxHeight = 0;
 		set.each(function(){
@@ -284,7 +182,7 @@ jQuery.changeLetterSize = {
 		set.css('height', maxHeight + 'px');
 	};
 
-	/* �v�f�Q�̍����𑵂��Asets�ɒǉ� */
+	/* 要素群の高さを揃え、setsに追加 */
 	jQuery.fn.flatHeights = function() {
 		if (this.length > 1) {
 			flatHeights(this);
@@ -293,7 +191,7 @@ jQuery.changeLetterSize = {
 		return this;
 	};
 
-	/* �����������Ď��s���鏈�� */
+	/* 高さ揃えを再実行する処理 */
 	var reflatting = function() {
 		$.each(sets, function() {
 			this.height('auto');
@@ -301,10 +199,10 @@ jQuery.changeLetterSize = {
 		});
 	};
 
-	/* �����̑傫�����ς��������ɍ����������Ď��s */
+	/* 文字の大きさが変わった時に高さ揃えを再実行 */
 	$.changeLetterSize.addHandler(reflatting);
 
-	/* �E�B���h�E�̑傫�����ς��������ɍ����������Ď��s */
+	/* ウィンドウの大きさが変わった時に高さ揃えを再実行 */
 	$(window).resize(reflatting);
 
 })(jQuery);
@@ -344,16 +242,16 @@ OTHER DEALINGS IN THE SOFTWARE.
 new function(){
 	
 	var footerId = "footerSection";
-	//���C��
+	//メイン
 	function footerFixed(){
-		//�h�L�������g�̍���
+		//ドキュメントの高さ
 		var dh = document.getElementsByTagName("body")[0].clientHeight;
-		//�t�b�^�[��top�����̈ʒu
+		//フッターのtopからの位置
 		document.getElementById(footerId).style.top = "0px";
 		var ft = document.getElementById(footerId).offsetTop;
-		//�t�b�^�[�̍���
+		//フッターの高さ
 		var fh = document.getElementById(footerId).offsetHeight;
-		//�E�B���h�E�̍���
+		//ウィンドウの高さ
 		if (window.innerHeight){
 			var wh = window.innerHeight;
 		}else if(document.documentElement && document.documentElement.clientHeight != 0){
@@ -365,10 +263,10 @@ new function(){
 		}
 	}
 	
-	//�����T�C�Y
+	//文字サイズ
 	function checkFontSize(func){
 	
-		//�����v�f�̒ǉ�	
+		//判定要素の追加	
 		var e = document.createElement("div");
 		var s = document.createTextNode("S");
 		e.appendChild(s);
@@ -378,7 +276,7 @@ new function(){
 		document.body.appendChild(e);
 		var defHeight = e.offsetHeight;
 		
-		//�����֐�
+		//判定関数
 		function checkBoxSize(){
 			if(defHeight != e.offsetHeight){
 				func();
@@ -388,7 +286,7 @@ new function(){
 		setInterval(checkBoxSize,1000)
 	}
 	
-	//�C�x���g���X�i�[
+	//イベントリスナー
 	function addEvent(elm,listener,fn){
 		try{
 			elm.addEventListener(listener,fn,false);
@@ -407,7 +305,7 @@ new function(){
 
 /*-------------------------------------------*/
 /*	$.changeLetterSize.addHandler(func)
-/*	�����̑傫�����ω��������Ɏ��s���鏈�����ǉ�
+/*	文字の大きさが変化した時に実行する処理を追加
 /*-------------------------------------------*/
 jQuery("#btn").on("click", function() {
 	jQuery(this).next().next().slideToggle();

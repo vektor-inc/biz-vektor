@@ -1,105 +1,3 @@
-// mzfch.js
-function getCookieVal (offset) {
-  var endstr = document.cookie.indexOf (";", offset);
-  if (endstr == -1)
-	endstr = document.cookie.length;
-  return unescape(document.cookie.substring(offset, endstr));
-}
-
-function GetCookie (name) {
-  var arg = name + "=";
-  var alen = arg.length;
-  var clen = document.cookie.length;
-  var i = 0;
-  while (i < clen) {
-	var j = i + alen;
-	if (document.cookie.substring(i, j) == arg)
-	  return getCookieVal (j);
-	i = document.cookie.indexOf(" ", i) + 1;
-	if (i == 0)
-	  break;
-  }
-  return null;
-}
-
-function SetCookie (name, value) {
-  var argv = SetCookie.arguments;
-  var argc = SetCookie.arguments.length;
-  var expires = (argc > 2) ? argv[2] : null;
-  var path = (argc > 3) ? argv[3] : null;
-  var domain = (argc > 4) ? argv[4] : null;
-  var secure = (argc > 5) ? argv[5] : false;
-  document.cookie = name + "=" + escape (value) +
-	((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
-	((path == null) ? "" : ("; path=" + path)) +
-	((domain == null) ? "" : ("; domain=" + domain)) +
-	((secure == true) ? "; secure" : "");
-}
-
-// highlight.js
-/* ƒtƒH[ƒ€‰Šú’lÁ‚· */
-function eraseTA(obj) {
-	if (obj.value == obj.defaultValue) obj.value = "";
-}
-
-/* ƒtƒH[ƒ€‚ÌƒnƒCƒ‰ƒCƒg */
-var currentlyActiveInputRef = false;
-var currentlyActiveInputClassName = false;
-
-function highlightActiveInput()
-{
-	if(currentlyActiveInputRef){
-		currentlyActiveInputRef.className = currentlyActiveInputClassName;
-	}
-	currentlyActiveInputClassName = this.className;
-	this.className = 'inputHighlighted';
-	currentlyActiveInputRef = this;
-}
-
-function blurActiveInput()
-{
-	this.className = currentlyActiveInputClassName;
-}
-
-var initInputHighlightScript = window.onload;
-window.onload = function(){
-	var tags = ['INPUT','TEXTAREA'];
-
-	for(tagCounter=0;tagCounter<tags.length;tagCounter++){
-		var inputs = document.getElementsByTagName(tags[tagCounter]);
-		for(var no=0;no<inputs.length;no++){
-			if(inputs[no].className && inputs[no].className=='doNotHighlightThisInput')continue;
-
-			if(inputs[no].tagName.toLowerCase()=='textarea' || (inputs[no].tagName.toLowerCase()=='input' && inputs[no].type.toLowerCase()=='text')){
-				inputs[no].onfocus = highlightActiveInput;
-				inputs[no].onblur = blurActiveInput;
-			}
-		}
-	}
-	if(initInputHighlightScript)
-	initInputHighlightScript();
-}
-
-
-// window open
-function m_win(url,windowname,width,height) {
- var features="location=no, menubar=no, status=yes, scrollbars=yes, resizable=yes, toolbar=no";
- if (width) {
-  if (window.screen.width > width)
-   features+=", left="+(window.screen.width-width)/2;
-  else width=window.screen.width;
-  features+=", width="+width;
- }
- if (height) {
-  if (window.screen.height > height)
-   features+=", top="+(window.screen.height-height)/2;
-  else height=window.screen.height;
-  features+=", height="+height;
- }
- window.open(url,windowname,features);
-}
-
-
 /*-------------------------------------------*/
 /*	rollover.js
 /*-------------------------------------------*/
@@ -155,12 +53,12 @@ window.onload = function(){
 // });
 
 /*-------------------------------------------*/
-/*	ƒy[ƒW“à‚·‚é‚·‚éƒXƒNƒ[ƒ‹
+/*	ãƒšãƒ¼ã‚¸å†…ã™ã‚‹ã™ã‚‹ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
 /*-------------------------------------------*/
 jQuery(document).ready(function(){
 
 	//
-	// <a href="#***">‚Ìê‡AƒXƒNƒ[ƒ‹ˆ—‚ğ’Ç‰Á
+	// <a href="#***">ã®å ´åˆã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å‡¦ç†ã‚’è¿½åŠ 
 	//
 	jQuery('a[href*=#]').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -176,7 +74,7 @@ jQuery(document).ready(function(){
 
 });
 
-// Easing‚Ì’Ç‰Á
+// Easingã®è¿½åŠ 
 jQuery.easing.quart = function (x, t, b, c, d) {
 	return -c * ((t=t/d-1)*t*t*t - 1) + b;
 };
@@ -198,7 +96,7 @@ jQuery(document).ready(function(){
 ======================================================================
 /*-------------------------------------------*/
 /*	$.changeLetterSize.addHandler(func)
-/*	•¶š‚Ì‘å‚«‚³‚ª•Ï‰»‚µ‚½‚ÉÀs‚·‚éˆ—‚ğ’Ç‰Á
+/*	æ–‡å­—ã®å¤§ãã•ãŒå¤‰åŒ–ã—ãŸæ™‚ã«å®Ÿè¡Œã™ã‚‹å‡¦ç†ã‚’è¿½åŠ 
 /*-------------------------------------------*/
 jQuery(document).ready(function($){
     // jQuery('.topPrTit').flatHeights();
@@ -219,7 +117,7 @@ jQuery.changeLetterSize = {
 
 	var self = $.changeLetterSize;
 
-	/* •¶š‚Ì‘å‚«‚³‚ğŠm”F‚·‚é‚½‚ß‚Ìins—v‘f */
+	/* æ–‡å­—ã®å¤§ãã•ã‚’ç¢ºèªã™ã‚‹ãŸã‚ã®insè¦ç´  */
 	var ins = $('<ins>M</ins>').css({
 		display: 'block',
 		visibility: 'hidden',
@@ -228,7 +126,7 @@ jQuery.changeLetterSize = {
 		top: '0'
 	});
 
-	/* •¶š‚Ì‘å‚«‚³‚ª•Ï‚í‚Á‚½‚© */
+	/* æ–‡å­—ã®å¤§ãã•ãŒå¤‰ã‚ã£ãŸã‹ */
 	var isChanged = function() {
 		ins.appendTo('body');
 		var size = ins[0].offsetHeight;
@@ -238,12 +136,12 @@ jQuery.changeLetterSize = {
 		return true;
 	};
 
-	/* •¶‘‚ğ“Ç‚İ‚ñ‚¾“_‚Å
-	   •¶š‚Ì‘å‚«‚³‚ğŠm”F‚µ‚Ä‚¨‚­ */
+	/* æ–‡æ›¸ã‚’èª­ã¿è¾¼ã‚“ã æ™‚ç‚¹ã§
+	   æ–‡å­—ã®å¤§ãã•ã‚’ç¢ºèªã—ã¦ãŠã */
 	$(isChanged);
 
-	/* •¶š‚Ì‘å‚«‚³‚ª•Ï‚í‚Á‚Ä‚¢‚½‚çA
-	   handlers’†‚ÌŠÖ”‚ğ‡‚ÉÀs */
+	/* æ–‡å­—ã®å¤§ãã•ãŒå¤‰ã‚ã£ã¦ã„ãŸã‚‰ã€
+	   handlersä¸­ã®é–¢æ•°ã‚’é †ã«å®Ÿè¡Œ */
 	var observer = function() {
 		if (!isChanged()) return;
 		$.each(self.handlers, function(i, handler) {
@@ -251,8 +149,8 @@ jQuery.changeLetterSize = {
 		});
 	};
 
-	/* ƒnƒ“ƒhƒ‰‚ğ“o˜^‚µA
-	   Å‰‚Ì“o˜^‚Å‚ ‚ê‚ÎA’èŠúˆ—‚ğŠJn */
+	/* ãƒãƒ³ãƒ‰ãƒ©ã‚’ç™»éŒ²ã—ã€
+	   æœ€åˆã®ç™»éŒ²ã§ã‚ã‚Œã°ã€å®šæœŸå‡¦ç†ã‚’é–‹å§‹ */
 	self.addHandler = function(func) {
 		self.handlers.push(func);
 		if (self.handlers.length == 1) {
@@ -265,16 +163,16 @@ jQuery.changeLetterSize = {
 
 /*-------------------------------------------*/
 /*	$(expr).flatHeights()
-/*	$(expr)‚Å‘I‘ğ‚µ‚½•¡”‚Ì—v‘f‚É‚Â‚¢‚ÄA‚»‚ê‚¼‚ê‚‚³‚ğ
-/*	ˆê”Ô‚‚¢‚à‚Ì‚É‘µ‚¦‚é
+/*	$(expr)ã§é¸æŠã—ãŸè¤‡æ•°ã®è¦ç´ ã«ã¤ã„ã¦ã€ãã‚Œãã‚Œé«˜ã•ã‚’
+/*	ä¸€ç•ªé«˜ã„ã‚‚ã®ã«æƒãˆã‚‹
 /*-------------------------------------------*/
 
 (function($) {
 
-	/* ‘ÎÛ‚Æ‚È‚é—v‘fŒQ‚ÌW‡ */
+	/* å¯¾è±¡ã¨ãªã‚‹è¦ç´ ç¾¤ã®é›†åˆ */
 	var sets = [];
 
-	/* ‚‚³‘µ‚¦‚Ìˆ—–{‘Ì */
+	/* é«˜ã•æƒãˆã®å‡¦ç†æœ¬ä½“ */
 	var flatHeights = function(set) {
 		var maxHeight = 0;
 		set.each(function(){
@@ -284,7 +182,7 @@ jQuery.changeLetterSize = {
 		set.css('height', maxHeight + 'px');
 	};
 
-	/* —v‘fŒQ‚Ì‚‚³‚ğ‘µ‚¦Asets‚É’Ç‰Á */
+	/* è¦ç´ ç¾¤ã®é«˜ã•ã‚’æƒãˆã€setsã«è¿½åŠ  */
 	jQuery.fn.flatHeights = function() {
 		if (this.length > 1) {
 			flatHeights(this);
@@ -293,7 +191,7 @@ jQuery.changeLetterSize = {
 		return this;
 	};
 
-	/* ‚‚³‘µ‚¦‚ğÄÀs‚·‚éˆ— */
+	/* é«˜ã•æƒãˆã‚’å†å®Ÿè¡Œã™ã‚‹å‡¦ç† */
 	var reflatting = function() {
 		$.each(sets, function() {
 			this.height('auto');
@@ -301,10 +199,10 @@ jQuery.changeLetterSize = {
 		});
 	};
 
-	/* •¶š‚Ì‘å‚«‚³‚ª•Ï‚í‚Á‚½‚É‚‚³‘µ‚¦‚ğÄÀs */
+	/* æ–‡å­—ã®å¤§ãã•ãŒå¤‰ã‚ã£ãŸæ™‚ã«é«˜ã•æƒãˆã‚’å†å®Ÿè¡Œ */
 	$.changeLetterSize.addHandler(reflatting);
 
-	/* ƒEƒBƒ“ƒhƒE‚Ì‘å‚«‚³‚ª•Ï‚í‚Á‚½‚É‚‚³‘µ‚¦‚ğÄÀs */
+	/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¤§ãã•ãŒå¤‰ã‚ã£ãŸæ™‚ã«é«˜ã•æƒãˆã‚’å†å®Ÿè¡Œ */
 	$(window).resize(reflatting);
 
 })(jQuery);
@@ -344,16 +242,16 @@ OTHER DEALINGS IN THE SOFTWARE.
 new function(){
 	
 	var footerId = "footerSection";
-	//ƒƒCƒ“
+	//ãƒ¡ã‚¤ãƒ³
 	function footerFixed(){
-		//ƒhƒLƒ…ƒƒ“ƒg‚Ì‚‚³
+		//ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®é«˜ã•
 		var dh = document.getElementsByTagName("body")[0].clientHeight;
-		//ƒtƒbƒ^[‚Ìtop‚©‚ç‚ÌˆÊ’u
+		//ãƒ•ãƒƒã‚¿ãƒ¼ã®topã‹ã‚‰ã®ä½ç½®
 		document.getElementById(footerId).style.top = "0px";
 		var ft = document.getElementById(footerId).offsetTop;
-		//ƒtƒbƒ^[‚Ì‚‚³
+		//ãƒ•ãƒƒã‚¿ãƒ¼ã®é«˜ã•
 		var fh = document.getElementById(footerId).offsetHeight;
-		//ƒEƒBƒ“ƒhƒE‚Ì‚‚³
+		//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•
 		if (window.innerHeight){
 			var wh = window.innerHeight;
 		}else if(document.documentElement && document.documentElement.clientHeight != 0){
@@ -365,10 +263,10 @@ new function(){
 		}
 	}
 	
-	//•¶šƒTƒCƒY
+	//æ–‡å­—ã‚µã‚¤ã‚º
 	function checkFontSize(func){
 	
-		//”»’è—v‘f‚Ì’Ç‰Á	
+		//åˆ¤å®šè¦ç´ ã®è¿½åŠ 	
 		var e = document.createElement("div");
 		var s = document.createTextNode("S");
 		e.appendChild(s);
@@ -378,7 +276,7 @@ new function(){
 		document.body.appendChild(e);
 		var defHeight = e.offsetHeight;
 		
-		//”»’èŠÖ”
+		//åˆ¤å®šé–¢æ•°
 		function checkBoxSize(){
 			if(defHeight != e.offsetHeight){
 				func();
@@ -388,7 +286,7 @@ new function(){
 		setInterval(checkBoxSize,1000)
 	}
 	
-	//ƒCƒxƒ“ƒgƒŠƒXƒi[
+	//ã‚¤ãƒ™ãƒ³ãƒˆãƒªã‚¹ãƒŠãƒ¼
 	function addEvent(elm,listener,fn){
 		try{
 			elm.addEventListener(listener,fn,false);
@@ -407,7 +305,7 @@ new function(){
 
 /*-------------------------------------------*/
 /*	$.changeLetterSize.addHandler(func)
-/*	•¶š‚Ì‘å‚«‚³‚ª•Ï‰»‚µ‚½‚ÉÀs‚·‚éˆ—‚ğ’Ç‰Á
+/*	æ–‡å­—ã®å¤§ãã•ãŒå¤‰åŒ–ã—ãŸæ™‚ã«å®Ÿè¡Œã™ã‚‹å‡¦ç†ã‚’è¿½åŠ 
 /*-------------------------------------------*/
 jQuery("#btn").on("click", function() {
 	jQuery(this).next().next().slideToggle();

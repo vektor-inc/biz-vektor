@@ -9,6 +9,14 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin:{
+    compress: {
+        files: {
+          "css/bizvektor_common_min.css":['css/bizvektor_common.css','js/res-vektor/res-vektor.css','js/flexslider/flexslider.css',]
+        }
+      }
+    },
+
     concat : {
       dist : {
         src : [
@@ -17,20 +25,21 @@ module.exports = function(grunt) {
           'js/jquery.cookie.js'
         ],
           dest : 'js/biz-vektor.js'
-        }
+        },
     },
+
     watch: {
       dev: {
         files: ["js/*.js"],
-        tasks: ['concat','uglify']
-      }
+        tasks: ['concat','uglify','cssmin']
+      },
     }
- 
+
   });
- 
+
   //使うプラグインの読み込み
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
- 
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 };

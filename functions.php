@@ -431,7 +431,7 @@ function bizVektorAddWebFonts(){
 // Add BizVektor option css
 add_action('wp_head','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common.css?20140430" type="text/css" media="all" />'."\n";
+	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140519" type="text/css" media="all" />'."\n";
 	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
 	echo $optionStyle;
 }
@@ -449,8 +449,7 @@ function bizVektorAddPingback(){
 /*-------------------------------------------*/
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
-	echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/js/res-vektor/res-vektor.css" type="text/css">';
-	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140512' );
+	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140519' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
 function add_defer_to_bizVektor_js( $url )
