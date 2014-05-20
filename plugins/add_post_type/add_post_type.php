@@ -120,12 +120,13 @@ class WP_Widget_infoTerms extends WP_Widget {
 		$args = array(
 			'show_option_none'		=> '',
 			'title_li'				=> '',
-			'taxonomy' 				=> $term_slug,
+			'taxonomy' 				=> 'info-cat',
 			'orderby'				=> 'order',
 			'echo'					=> 0    /* 直接出力させない為 */
 		);
 		$catlist = wp_list_categories( $args );
 		if ( !empty($catlist) ) { ?>
+			<div class="localSection sideWidget">
 			<div class="localNaviBox">
 			<h3 class="localHead"><?php _e('Category', 'biz-vektor'); ?></h3>
 			<ul class="localNavi">
