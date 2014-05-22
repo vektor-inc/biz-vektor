@@ -122,7 +122,7 @@ function biz_vektor_snsBtns() {
 	$post = $wp_query->get_queried_object();
 	$snsHiddenFlag = false;
 	// $snsBtnsHidden divide "," and insert to $snsHiddens by array
-	$snsHiddens = spliti(",",$snsBtnsHidden);
+	$snsHiddens = explode(",",$snsBtnsHidden);
 	foreach( $snsHiddens as $snsHidden ){
 		if (get_the_ID() == $snsHidden) {
 			$snsHiddenFlag = true ;
@@ -150,7 +150,7 @@ function biz_vektor_fbComments() {
 	$post = $wp_query->get_queried_object();
 	$fbCommentHiddenFlag = false ;
 	// is stored as an array to $snsHiddens to split with "," $snsBtnsHidden
-	$fbCommentHiddens = spliti(",",$options['fbCommentsHidden']);
+	$fbCommentHiddens = explode(",",$options['fbCommentsHidden']);
 	foreach( $fbCommentHiddens as $fbCommentHidden ){
 		if (get_the_ID() == $fbCommentHidden) {
 			$fbCommentHiddenFlag = true ;
