@@ -400,8 +400,7 @@ echo '<!--[if lte IE 8]>
 /*-------------------------------------------*/
 function biz_vektor_print_headLogo() {
 	$options = biz_vektor_get_theme_options();
-	$head_logo = $options['head_logo'];
-	if ($options['head_logo']) {
+	if (isset($options['head_logo']) && $options['head_logo']){
 		print '<img src="'.$options['head_logo'].'" alt="'.get_bloginfo('name').'" />';
 	} else {
 		echo bloginfo('name');
