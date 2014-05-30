@@ -190,7 +190,7 @@ endif;
 
 function biz_vektor_setup(){
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'f5f5f5',
+		'default-color' => 'fcfcfc',
 	) );
 }
 add_action( 'after_setup_theme', 'biz_vektor_setup' );
