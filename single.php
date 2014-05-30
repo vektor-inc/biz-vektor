@@ -54,9 +54,7 @@
 
 <!-- [ #sideTower ] -->
 <div id="sideTower">
-<?php if (get_post_type() == 'post') {
-	get_template_part('module_side_post');
-} ?>
+<?php get_template_part('module_side_'.get_post_type()); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>
