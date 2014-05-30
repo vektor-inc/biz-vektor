@@ -128,8 +128,8 @@ $post_loop = new WP_Query( array(
 
 	<!-- [ #sideTower ] -->
 	<div id="sideTower">
-<?php if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
 <?php
+if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' );
 if ( is_active_sidebar( 'top-side-widget-area' ) ) :
 	dynamic_sidebar( 'top-side-widget-area' );
 else :
@@ -137,9 +137,9 @@ else :
 	if (function_exists('biz_vektor_contactBtn')) biz_vektor_contactBtn();
 	if (function_exists('biz_vektor_snsBnrs')) biz_vektor_snsBnrs();
 	if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
-	?>
-<?php endif; ?>
-<?php if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' ); ?>
+endif;
+if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' );
+?>
 	</div>
 	<!-- [ /#sideTower ] -->
 </div>
