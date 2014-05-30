@@ -46,14 +46,15 @@ function create_post_type() {
 add_action( 'generate_rewrite_rules', 'my_rewrite' );
 function my_rewrite( $wp_rewrite ){
     $taxonomies = get_taxonomies();
+    // exclude default post types [category,post_tag,nav_menu,link_category ]
     $taxonomies = array_slice($taxonomies,4,count($taxonomies)-1);
     foreach ( $taxonomies as $taxonomy ) :
-         $post_types = get_taxonomy($taxonomy)->object_type;
-
+        $post_types = get_taxonomy($taxonomy)->object_type;
         foreach ($post_types as $post_type){
+        	$new_rules[$post_type.'/'.$taxonomy.'/([^/]+)/page/?([0-9]{1,})/?$'] = 'index.php?'.$taxonomy.'=$matches[1]&paged=$matches[2]';
             $new_rules[$post_type.'/'.$taxonomy.'/(.+?)/?$'] = 'index.php?taxonomy='.$taxonomy.'&term='.$wp_rewrite->preg_index(1);
         }
-         $wp_rewrite->rules = array_merge($new_rules, $wp_rewrite->rules);
+        $wp_rewrite->rules = array_merge($new_rules, $wp_rewrite->rules);
      endforeach;
 }
 
