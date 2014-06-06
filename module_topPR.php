@@ -34,7 +34,7 @@ $i++;
 		</div>
 	<?php } ?>
 	<div class="topPrTxtBox">
-		<p class="topPrDescription"><a href="<?php echo esc_url($options['pr1_link']) ?>"><?php echo esc_html($options['pr1_description']) ?></a></p>
+		<p class="topPrDescription"><a href="<?php echo esc_url($options['pr1_link']) ?>"><?php echo nl2br(esc_textarea($options['pr1_description'])) ?></a></p>
 		<div class="moreLink"><a href="<?php echo esc_url($options['pr1_link']) ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
 	</div>
 	</div>
@@ -52,7 +52,7 @@ $i++;
 		</div>
 	<?php } ?>
 	<div class="topPrTxtBox">
-		<p class="topPrDescription"><a href="<?php echo esc_url($options['pr2_link']) ?>"><?php echo esc_html($options['pr2_description']) ?></a></p>
+		<p class="topPrDescription"><a href="<?php echo esc_url($options['pr2_link']) ?>"><?php echo nl2br(esc_textarea($options['pr2_description'])) ?></a></p>
 		<div class="moreLink"><a href="<?php echo esc_url($options['pr2_link']) ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
 	</div>
 	</div>
@@ -70,7 +70,7 @@ $i++;
 		</div>
 	<?php } ?>
 	<div class="topPrTxtBox">
-		<p class="topPrDescription"><a href="<?php echo esc_url($options['pr3_link']) ?>"><?php echo esc_html($options['pr3_description']) ?></a></p>
+		<p class="topPrDescription"><a href="<?php echo esc_url($options['pr3_link']) ?>"><?php echo nl2br(esc_textarea($options['pr3_description'])) ?></a></p>
 		<div class="moreLink"><a href="<?php echo esc_url($options['pr3_link']) ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
 	</div>
 	</div>
