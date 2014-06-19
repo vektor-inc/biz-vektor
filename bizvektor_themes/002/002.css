@@ -94,6 +94,16 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
 -moz-opacity: .60; /* FF lt 1.5, Netscape */
 }
 
+/*			form
+/*-------------------------------------------*/
+form table	{ margin-top:25px; }
+form input[type=text],
+form input[type=email],
+form textarea{ position:relative; overflow:hidden; padding:5px 10px; margin:5px 5px 5px 0;}
+form input[type=radio] { width:auto; }
+form input[type=checkbox] { width:auto; }
+
+
 .adminEdit	{ clear:both; float:none; display:block; overflow:hidden;padding:0px 0px 20px; }
 .assistive-text	{ display:none; }
 
@@ -440,16 +450,6 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 #content .infoList .infoListBox div.thumbImage { width:35%;display:block; overflow:hidden;float:right;text-align:right; position:absolute;top:20px;right:0px; }
 #content .infoList .infoListBox div.thumbImage div.thumbImageInner { display:block; overflow:hidden;margin:1px; padding: 3px; }
 #content .infoList .infoListBox div.thumbImage div.thumbImageInner img	{ width:88px;height:auto;border: 4px solid #fff; box-shadow: 0px 1px 3px rgba(0,0,0,0.3); }
-
-
-/*			form
-/*-------------------------------------------*/
-#content form table	{ margin-top:25px; }
-#content form input[type=text],
-#content form input[type=email],
-#content form textarea	{ position:relative; overflow:hidden; padding:5px 10px; margin:5px 5px 5px 0px; width:90%;}
-#content form input[type=radio] { width:auto; }
-#content form input[type=checkbox] { width:auto; }
 
 
 /*-------------------------------------------*/
