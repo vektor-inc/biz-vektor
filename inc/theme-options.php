@@ -387,7 +387,7 @@ echo '<style type="text/css">
 </style>'."\n";
 echo '<!--[if lte IE 8]>
 <style type="text/css">
-#gMenu .menu li { width:'.$menuWidthNonActive.'.px; text-align:center; }
+#gMenu .menu li { width:'.$menuWidthNonActive.'px; text-align:center; }
 #gMenu .menu li.current_page_item,
 #gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
 </style>
