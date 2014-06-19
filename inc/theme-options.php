@@ -729,20 +729,24 @@ function biz_vektor_fontStyle(){
 			$font_menu_face = $font_face_sans_serif;
 		}
 	}
-?>
-<style type="text/css">
+	if ( ( isset($font_title_face) && $font_title_face ) || ( isset($font_menu_face) && $font_menu_face) ) {
+		$font_style_head = '<style type="text/css">
 /*-------------------------------------------*/
 /*	font
-/*-------------------------------------------*/
-h1,h2,h3,h4,h4,h5,h6,
-#header #site-title,
-#pageTitBnr #pageTitInner #pageTit,
-#content .leadTxt,
-#sideTower .localHead {font-family: <?php echo $font_title_face ?> ; }
-#pageTitBnr #pageTitInner #pageTit { font-weight:<?php echo $font_title_weight ?>; }
-#gMenu .menu li a strong {font-family: <?php echo $font_menu_face ?> ; }
-</style>
-<?php
+/*-------------------------------------------*/'."\n";
+	}
+	if ( isset($font_title_face) && $font_title_face ){
+		$font_style_head .= 'h1,h2,h3,h4,h4,h5,h6,#header #site-title,#pageTitBnr #pageTitInner #pageTit,#content .leadTxt,#sideTower .localHead {font-family: '.$font_title_face.'; }'."\n";
+		$font_style_head .= '#pageTitBnr #pageTitInner #pageTit { font-weight:'.$font_title_weight.'; }'."\n";
+	}
+	if ( isset($font_menu_face) && $font_menu_face ){
+		$font_style_head .= '#gMenu .menu li a strong {font-family: '.$font_menu_face.'; }'."\n";
+	}
+	if ( ( isset($options['font_title']) && $options['font_title'] ) || ( isset($options['font_menu']) && $options['font_menu']) ) {
+		$font_style_head .= '</style>'."\n";
+	}
+	// Output font style
+	if ( isset($font_style_head) && $font_style_head ) echo $font_style_head;
 }
 
 /*-------------------------------------------*/
