@@ -742,7 +742,7 @@ function biz_vektor_fontStyle(){
 	if ( isset($font_menu_face) && $font_menu_face ){
 		$font_style_head .= '#gMenu .menu li a strong {font-family: '.$font_menu_face.'; }'."\n";
 	}
-	if ( ( isset($options['font_title']) && $options['font_title'] ) || ( isset($options['font_menu']) && $options['font_menu']) ) {
+	if ( ( isset($font_title_face) && $font_title_face ) || ( isset($font_menu_face) && $font_menu_face) ) {
 		$font_style_head .= '</style>'."\n";
 	}
 	// Output font style
