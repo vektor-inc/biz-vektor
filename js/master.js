@@ -82,12 +82,12 @@ jQuery.easing.quart = function (x, t, b, c, d) {
 /*-------------------------------------------*/
 /*
 /*-------------------------------------------*/
-jQuery(document).ready(function(){
-	jQuery('body :first-child').addClass('firstChild');
-	jQuery('body :last-child').addClass('lastChild');
-	jQuery('body li:nth-child(odd)').addClass('odd');
-	jQuery('body li:nth-child(even)').addClass('even');
-});
+// jQuery(document).ready(function(){
+// 	jQuery('body :first-child').addClass('firstChild');
+// 	jQuery('body :last-child').addClass('lastChild');
+// 	jQuery('body li:nth-child(odd)').addClass('odd');
+// 	jQuery('body li:nth-child(even)').addClass('even');
+// });
 /*
 ======================================================================
 	jquery.flatheights.js
