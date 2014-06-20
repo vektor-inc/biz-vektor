@@ -1,6 +1,6 @@
 <?php
 $options = biz_vektor_get_theme_options();
-if ( !isset($options['top3PrDisplay'])) {
+if ( !isset($options['top3PrDisplay']) || (!$options['top3PrDisplay']) {
 // if Home Pr display
 
 // load default
