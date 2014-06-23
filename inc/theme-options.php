@@ -128,7 +128,7 @@ function bizVektorOptions_default() {
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_vektor_get_theme_options();
-	if ( $options[$optionLabel] != false ) { // If !='' that 0 true
+	if ( isset($options[$optionLabel]) ) {
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_get_default_theme_options();
@@ -257,17 +257,24 @@ function biz_vektor_layouts() {
 
 function biz_vektor_layout_classes( $existing_classes ) {
 	$options = biz_vektor_get_theme_options();
-	$current_layout = $options['theme_layout'];
+	if (isset($options['theme_layout'])) {
+		$current_layout = $options['theme_layout'];
 
-	if ( in_array( $current_layout, array( 'content-sidebar', 'sidebar-content' ) ) )
-		$classes = array( 'two-column' );
+		// if $options['theme_layout'] include 'content-sidebar' or 'sidebar-content' 
+		if ( in_array( $current_layout, array( 'content-sidebar', 'sidebar-content' ) ) )
+			// Set the classname 'two-column' to $classes
+			$classes = array( 'two-column' );
 
-	if ( 'content-sidebar' == $current_layout )
-		$classes[] = 'right-sidebar';
-	elseif ( 'sidebar-content' == $current_layout )
-		$classes[] = 'left-sidebar';
-	else
-		$classes[] = $current_layout;
+		if ( 'content-sidebar' == $current_layout )
+			$classes[] = 'right-sidebar';
+		elseif ( 'sidebar-content' == $current_layout )
+			$classes[] = 'left-sidebar';
+		else
+			$classes[] = $current_layout;
+	} else {
+		$current_layout = array();
+		$classes = array();
+	}
 
 	$classes = apply_filters( 'biz_vektor_layout_classes', $classes, $current_layout );
 
