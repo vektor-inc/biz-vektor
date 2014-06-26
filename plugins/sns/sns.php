@@ -42,12 +42,12 @@ function biz_vektor_ogp() {
 	$bizVektorOGP = '<!-- [ BizVektorOGP ] -->'."\n";
 	$bizVektorOGP .= '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
 	$bizVektorOGP .= '<meta property="og:url" content="'.$linkUrl.'" />'."\n";
-	if ($options['fbAppId']){
+	if (isset($options['fbAppId'])){
 		$bizVektorOGP = $bizVektorOGP.'<meta property="fb:app_id" content="'.$options['fbAppId'].'" />'."\n";
 	}
 	if (is_front_page() || is_home()) {
 		$bizVektorOGP .= '<meta property="og:type" content="website" />'."\n";
-		if ($options['ogpImage']){
+		if (isset($options['ogpImage'])){
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_bloginfo('name').'" />'."\n";

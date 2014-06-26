@@ -570,10 +570,8 @@ function biz_vektor_getHeadKeywords(){
 add_action('wp_head', 'biz_vektor_googleAnalytics', 10000 );
 function biz_vektor_googleAnalytics(){
 	$options = biz_vektor_get_theme_options();
-	$gaID = $options['gaID'];
-	$gaType = $options['gaType'];
-	if ($gaID) {
-
+	$gaType = (isset($options['gaType'])) ? $options['gaType'] : '';
+	if (isset($options['gaID'])) {
 		if ((!$gaType) || ($gaType == 'gaType_normal') || ($gaType == 'gaType_both')){ ?>
 <script type="text/javascript">
 
@@ -599,7 +597,7 @@ function biz_vektor_googleAnalytics(){
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-<?php echo $gaID ?>', '<?php echo $domain ?>');
+ga('create', 'UA-<?php echo $options['gaID'] ?>', '<?php echo $domain ?>');
 ga('send', 'pageview');
 </script>
 <?php

@@ -7,6 +7,8 @@ if ( !isset($options['top3PrDisplay']) || !$options['top3PrDisplay'] ) {
 bizVektorOptions_default();
 global $bizVektorOptions_default;
 
+
+
 for ( $i = 1; $i <= 3 ;){
 	if ( !$options['pr'.$i.'_title'] ) 
 		$options['pr'.$i.'_title'] = $bizVektorOptions_default['pr'.$i.'_title'];
