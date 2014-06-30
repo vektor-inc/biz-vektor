@@ -64,7 +64,7 @@ function biz_vektor_ogp() {
 			$image_id = get_post_thumbnail_id();
 			$image_url = wp_get_attachment_image_src($image_id,'large', true);
 			$bizVektorOGP .= '<meta property="og:image" content="'.$image_url[0].'" />'."\n";
-		} else if ($options['ogpImage']){
+		} else if ( isset($options['ogpImage']) && $options['ogpImage'] ) {
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
 		// description
@@ -113,11 +113,11 @@ function twitterID() {
 /*-------------------------------------------*/
 function biz_vektor_snsBtns() {
 	$options = biz_vektor_get_theme_options();
-	$snsBtnsFront = $options['snsBtnsFront'];
-	$snsBtnsPage = $options['snsBtnsPage'];
-	$snsBtnsPost = $options['snsBtnsPost'];
-	$snsBtnsInfo = $options['snsBtnsInfo'];
-	$snsBtnsHidden = $options['snsBtnsHidden'];
+	$snsBtnsFront = ( isset($options['snsBtnsFront']) ) ? $options['snsBtnsFront'] : '';
+	$snsBtnsPage = ( isset($options['snsBtnsPage']) ) ? $options['snsBtnsPage'] : '';
+	$snsBtnsPost = ( isset($options['snsBtnsPost']) ) ? $options['snsBtnsPost'] : '';
+	$snsBtnsInfo = ( isset($options['snsBtnsInfo']) ) ? $options['snsBtnsInfo'] : '';
+	$snsBtnsHidden = ( isset($options['snsBtnsHidden']) ) ? $options['snsBtnsHidden'] : '';
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	$snsHiddenFlag = false;
@@ -150,19 +150,22 @@ function biz_vektor_fbComments() {
 	$post = $wp_query->get_queried_object();
 	$fbCommentHiddenFlag = false ;
 	// is stored as an array to $snsHiddens to split with "," $snsBtnsHidden
-	$fbCommentHiddens = explode(",",$options['fbCommentsHidden']);
-	foreach( $fbCommentHiddens as $fbCommentHidden ){
-		if (get_the_ID() == $fbCommentHidden) {
-			$fbCommentHiddenFlag = true ;
+
+	$fbCommentHiddens = ( isset($options['fbCommentsHidden']) ) ? explode(",",$options['fbCommentsHidden']) : '';
+	if ($fbCommentHiddens) :
+		foreach( $fbCommentHiddens as $fbCommentHidden ){
+			if (get_the_ID() == $fbCommentHidden) {
+				$fbCommentHiddenFlag = true ;
+			}
 		}
-	}
-	wp_reset_query();
+	endif;
+	// wp_reset_query();
 	if (!$fbCommentHiddenFlag) {
 		if (
-			( is_front_page() && $options['fbCommentsFront'] ) || 
-			( is_page() && $options['fbCommentsPage'] && !is_front_page() ) || 
-			( get_post_type() == 'info' && $options['fbCommentsInfo'] ) || 
-			( get_post_type() == 'post' && $options['fbCommentsPost'] )
+			( is_front_page() && isset($options['fbCommentsFront']) && $options['fbCommentsFront'] ) || 
+			( is_page() && isset($options['fbCommentsPage']) && $options['fbCommentsPage'] && !is_front_page() ) || 
+			( get_post_type() == 'info' && isset($options['fbCommentsInfo']) && $options['fbCommentsInfo']) || 
+			( get_post_type() == 'post' && isset($options['fbCommentsPost']) && $options['fbCommentsPost'])
 			) 
 		{
 			?>
@@ -182,13 +185,13 @@ function biz_vektor_fbComments() {
 /*-------------------------------------------*/
 function biz_vektor_fbLikeBoxFront() {
 	$options = biz_vektor_get_theme_options();
-	if ( $options['fbLikeBoxFront'] ) {
+	if ( isset($options['fbLikeBoxFront']) && $options['fbLikeBoxFront'] ) {
 		biz_vektor_fbLikeBox();
 	}
 }
 function biz_vektor_fbLikeBoxSide() {
 	$options = biz_vektor_get_theme_options();
-	if ( $options['fbLikeBoxSide'] ) {
+	if ( isset($options['fbLikeBoxSide']) && $options['fbLikeBoxSide'] ) {
 		biz_vektor_fbLikeBox();
 	}
 }
@@ -238,8 +241,8 @@ function biz_vektor_fbAppId () {
 /*-------------------------------------------*/
 function biz_vektor_snsBnrs() {
 	$options = biz_vektor_get_theme_options();
-	$facebook = $options['facebook'];
-	$twitter = $options['twitter'];
+	if (isset($options['facebook'])) : $facebook = $options['facebook'] ; else : $facebook = ''; endif ;
+	if (isset($options['twitter'])) : $twitter = $options['twitter'] ; else : $twitter = ''; endif ;
 	if ($facebook || $twitter) {
 		$snsBnrs = '<ul id="snsBnr">';
 		if ($facebook) {

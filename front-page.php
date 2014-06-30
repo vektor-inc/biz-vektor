@@ -62,7 +62,7 @@
 <div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=info" id="infoRss" target="_blank">RSS</a></div>
 <?php
 $options = biz_vektor_get_theme_options();
-if ( $options['listInfoTop'] == 'listType_set' ) { ?>
+if ( isset($options['listInfoTop']) &&  $options['listInfoTop'] == 'listType_set' ) { ?>
 	<?php while ( $loop->have_posts() ) : $loop->the_post();?>
 		<?php get_template_part('module_loop_post2'); ?>
 	<?php endwhile ?>

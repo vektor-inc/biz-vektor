@@ -10,16 +10,16 @@ global $bizVektorOptions_default;
 
 
 for ( $i = 1; $i <= 3 ;){
-	if ( !$options['pr'.$i.'_title'] ) 
+	if ( !isset($options['pr'.$i.'_title']) ) 
 		$options['pr'.$i.'_title'] = $bizVektorOptions_default['pr'.$i.'_title'];
-	if ( !$options['pr'.$i.'_description'] ) 
+	if ( !isset($options['pr'.$i.'_description']) ) 
 		$options['pr'.$i.'_description'] = $bizVektorOptions_default['pr'.$i.'_description'];
-	// if ( !$options['pr'.$i.'_link'] ) 
-	// 	$options['pr'.$i.'_link'] = $bizVektorOptions_default['pr'.$i.'_link'];
-	// if ( !$options['pr'.$i.'_image'] ) 
-	// 	$options['pr'.$i.'_image'] = $bizVektorOptions_default['pr'.$i.'_image'];
-	// if ( !$options['pr'.$i.'_image_s'] ) 
-	// 	$options['pr'.$i.'_image_s'] = $bizVektorOptions_default['pr'.$i.'_image_s'];
+	if ( !isset($options['pr'.$i.'_link']) ) 
+		$options['pr'.$i.'_link'] = $bizVektorOptions_default['pr'.$i.'_link'];
+	if ( !isset($options['pr'.$i.'_image']) ) 
+		$options['pr'.$i.'_image'] = $bizVektorOptions_default['pr'.$i.'_image'];
+	if ( !isset($options['pr'.$i.'_image_s']) ) 
+		$options['pr'.$i.'_image_s'] = $bizVektorOptions_default['pr'.$i.'_image_s'];
 $i++;
 } ?>
 	<!-- [ #topPr ] -->

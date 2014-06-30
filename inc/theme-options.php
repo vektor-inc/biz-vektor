@@ -116,10 +116,19 @@ function bizVektorOptions_default() {
 		'theme_style' => 'default',
 		'pr1_title' => __('Rich theme options', 'biz-vektor'),
 		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
+		'pr1_link' => '',
+		'pr1_image' => '',
+		'pr1_image_s' => '',
 		'pr2_title' => __('Various designs available', 'biz-vektor'),
 		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr2_link' => '',
+		'pr2_image' => '',
+		'pr2_image_s' => '',
 		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
 		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
+		'pr3_link' => '',
+		'pr3_image' => '',
+		'pr3_image_s' => '',
 	);
 }
 
@@ -128,7 +137,7 @@ function bizVektorOptions_default() {
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_vektor_get_theme_options();
-	if ( isset($options[$optionLabel]) ) {
+	if ( isset($options[$optionLabel]) && $options[$optionLabel] ) {
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_get_default_theme_options();
