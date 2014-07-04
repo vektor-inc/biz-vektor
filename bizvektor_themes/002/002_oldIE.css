@@ -127,7 +127,7 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #footMenu .menu li a	{ background: none; padding:0px 15px 0px; line-height:1em; text-decoration:none; border-right:1px solid #ccc; border-bottom: none;  }
 #footMenu .menu li a:hover	{ color:#5ead3c; text-decoration:underline; background:none; }
 #footMenu .menu li.firstChild a	{ border-left:1px solid #ccc; }
-}
+
 
 #main #container #content.wide	{ width:850px; }
 #footMenu .innerBox	{ margin:0px auto;width:950px; }
