@@ -41,7 +41,7 @@ function create_post_type() {
 			'show_ui' => true,
 		)
 	);
-	}
+}
 
 add_action( 'generate_rewrite_rules', 'my_rewrite' );
 function my_rewrite( $wp_rewrite ){
