@@ -193,7 +193,7 @@ msgid "Read more"
 msgstr "阅读此文"
 
 msgid "bt_contact.png"
-msgstr "bt_contact_ja.png"
+msgstr "bt_contact_zh_CN.png"
 
 msgid "bnr_contact.png"
 msgstr "bnr_contact_zh_CN.png"
