@@ -123,7 +123,8 @@ background: -moz-linear-gradient(#e5e5e5, #fff);
 .single-post #content h2 { border:none;padding:0;box-shadow: none; font-size:171.4%;margin-top:10px; background: none; }
 #content table th	{ box-shadow:inset 1px 1px 0px #ffffff;}
 
-#content blockquote	{ border-radius:5px; box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0); }
+#content blockquote,
+#content .sectionFrame { border-radius:5px; box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0); }
 
 
 /*		.infoList

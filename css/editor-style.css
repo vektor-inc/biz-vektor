@@ -42,9 +42,9 @@ textarea { background: #f9f9f9; border: 1px solid #ccc; padding: 2px; font-size:
 	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
  }
 a         { overflow: hidden; color:#0071BC; }
-a:link, 
+a:link,
 a:visited { color: #039;  }
-a:hover, 
+a:hover,
 a:active  { color: #f00; text-decoration: underline; }
 /*-------------------------------------------*/
 /*	#main
@@ -75,7 +75,8 @@ tr th,
 thead th { font-size: 12px; padding: 9px 24px; }
 tr th { border-bottom: 1px solid #ccc; padding: 6px 10px; vertical-align:top; }
 tr td { border-bottom: 1px solid #ccc; padding: 6px 10px; }
-blockquote { border:1px solid #ccc; background-color:#f5f5f5; padding:20px 15px 0px;margin-bottom:15px;}
+blockquote,
+.sectionFrame  { border:1px solid #ccc; background-color:#f5f5f5; padding:20px 15px 0px;margin-bottom:15px;}
 
 
 /*			images
