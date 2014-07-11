@@ -934,7 +934,6 @@ function get_biz_vektor_name() {
 
 function biz_vektor_veryfi_option(){
 	$options = get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
-	bvt_debug($options);
 	$default_theme_options = array(
 		'font_title' => '',
 		'font_menu' => '',
