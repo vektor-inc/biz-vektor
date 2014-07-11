@@ -359,9 +359,8 @@ function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_page('home') || is_front_page()) {
-		$metaExcerpt = $post->post_excerpt;
-		if ( $metaExcerpt ) {
-			$metadescription = $metaExcerpt;
+		if ( isset($post->post_excerpt) ) {
+			$metadescription = $post->post_excerpt;
 		} else {
 			$metadescription = get_bloginfo( 'description' );
 		}
