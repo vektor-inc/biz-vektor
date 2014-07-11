@@ -182,7 +182,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<?php
 	$biz_vektor_font_menus = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
 	foreach( $biz_vektor_font_menus as $biz_vektor_font_menuValue => $biz_vektor_font_menuLavel) {
-		if ( $biz_vektor_font_menuValue == $options['font_menu'] ) { ?>
+		if ($biz_vektor_font_menuValue == $options['font_menu'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>" checked> <?php echo $biz_vektor_font_menuLavel ?></label>
 		<?php } else { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>"> <?php echo $biz_vektor_font_menuLavel ?></label>
@@ -828,116 +828,16 @@ foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLav
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
 
-	$output['theme_style'] = $input['theme_style'];
-
-	$output['font_title'] = $input['font_title'];
-	$output['font_menu'] = $input['font_menu'];
-
-	$output['gMenuDivide'] = $input['gMenuDivide'];
-
-	$output['head_logo'] = $input['head_logo'];
-
-	$output['foot_logo'] = $input['foot_logo'];
-
-	// $output['bg_color'] = $input['bg_color'];
-
-	for ( $i = 1; $i <= 5 ;){
-		$output['slide'.$i.'link'] = $input['slide'.$i.'link'];
-		$output['slide'.$i.'image'] = $input['slide'.$i.'image'];
-		$output['slide'.$i.'alt'] = $input['slide'.$i.'alt'];
-		$output['slide'.$i.'display'] = $input['slide'.$i.'display'];
-		$output['slide'.$i.'blank'] = $input['slide'.$i.'blank'];
-	$i++;
+	$keylist = array_keys($input);
+	foreach($keylist as $key){
+		if(isset($input[$key])) { $output[$key] = $input[$key]; }
 	}
-
-	$output['contact_txt'] = $input['contact_txt'];
-
-	$output['tel_number'] = $input['tel_number'];
-
-	$output['contact_time'] = $input['contact_time'];
-
-	$output['sub_sitename'] = $input['sub_sitename'];
-
-	$output['contact_address'] = $input['contact_address'];
-
-	$output['contact_link'] = $input['contact_link'];
-
-	$output['topTitle'] = $input['topTitle'];
-
-	$output['commonKeyWords'] = $input['commonKeyWords'];
-
-	$output['gaID'] = $input['gaID'];
-	$output['gaType'] = $input['gaType'];
-
-	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
-
-	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
-
-	$output['top3PrDisplay'] = $input['top3PrDisplay'];
-
-	for ( $i = 1; $i <= 3 ;){
-		$output['pr'.$i.'_title'] = $input['pr'.$i.'_title'];
-		$output['pr'.$i.'_description'] = $input['pr'.$i.'_description'];
-		$output['pr'.$i.'_link'] = $input['pr'.$i.'_link'];
-		$output['pr'.$i.'_image'] = $input['pr'.$i.'_image'];
-		$output['pr'.$i.'_image_s'] = $input['pr'.$i.'_image_s'];
-	$i++;
-	}
-
-	$output['infoLabelName'] = $input['infoLabelName'];
-	$output['postLabelName'] = $input['postLabelName'];
-	$output['postTopCount'] = $input['postTopCount'];
-	$output['listInfoTop'] = $input['listInfoTop'];
-	$output['listInfoArchive'] = $input['listInfoArchive'];
-	$output['listBlogTop'] = $input['listBlogTop'];
-	$output['listBlogArchive'] = $input['listBlogArchive'];
-
-	// RSS
-	$output['rssLabelName'] = $input['rssLabelName'];
-	$output['blogRss'] = $input['blogRss'];
-
-	// topContentsBottom
-	$output['topContentsBottom'] = $input['topContentsBottom'];
-
-	$output['twitter'] = $input['twitter'];
-
-	$output['facebook'] = $input['facebook'];
-
-	$output['fbAppId'] = $input['fbAppId'];
-
-	$output['fbAdminId'] = $input['fbAdminId'];
-
-	$output['ogpImage'] = $input['ogpImage'];
-
-	$output['ogpTagDisplay'] = $input['ogpTagDisplay'];
-
-	$output['snsBtnsFront'] = $input['snsBtnsFront'];
-	$output['snsBtnsPage'] = $input['snsBtnsPage'];
-	$output['snsBtnsPost'] = $input['snsBtnsPost'];
-	$output['snsBtnsInfo'] = $input['snsBtnsInfo'];
-	$output['snsBtnsHidden'] = $input['snsBtnsHidden'];
-
-	$output['fbCommentsFront'] = $input['fbCommentsFront'];
-	$output['fbCommentsPage'] = $input['fbCommentsPage'];
-	$output['fbCommentsPost'] = $input['fbCommentsPost'];
-	$output['fbCommentsInfo'] = $input['fbCommentsInfo'];
-	$output['fbCommentsHidden'] = $input['fbCommentsHidden'];
-
-	$output['fbLikeBoxFront'] = $input['fbLikeBoxFront'];
-	$output['fbLikeBoxSide'] = $input['fbLikeBoxSide'];
-	$output['fbLikeBoxURL'] = $input['fbLikeBoxURL'];
-	$output['fbLikeBoxStream'] = $input['fbLikeBoxStream'];
-	$output['fbLikeBoxFace'] = $input['fbLikeBoxFace'];
-	$output['fbLikeBoxHeight'] = $input['fbLikeBoxHeight'];
-
-	$output['galaTheme_style'] = $input['galaTheme_style'];
-	$output['galaLogo'] = $input['galaLogo'];
 
 	// Theme layout must be in our array of theme layout options
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
 		$output['theme_layout'] = $input['theme_layout'];
 	// sidebar child menu display
-	$output['side_child_display'] = $input['side_child_display'];
+	if($input['side_child_display']){ $output['side_child_display'] = $input['side_child_display']; }
 
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
