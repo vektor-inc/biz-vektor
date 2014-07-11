@@ -1,4 +1,4 @@
-BizVektor
+﻿BizVektor
 ==========
 Free WordPress Theme for business
 * * *
@@ -11,6 +11,6 @@ Vektor,Inc.
 ## Author URI
 http://www.vektor-inc.co.jp/
 ## Version
-0.11.5.0
+0.11.5.1
 ## License
 GNU General Public License
