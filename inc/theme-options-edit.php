@@ -837,7 +837,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
 		$output['theme_layout'] = $input['theme_layout'];
 	// sidebar child menu display
-	if($input['side_child_display']){ $output['side_child_display'] = $input['side_child_display']; }
+	if( $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
 
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }

@@ -83,7 +83,6 @@ add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
 	return biz_vektor_veryfi_option();
-	//return get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
 }
 
 function biz_vektor_get_default_theme_options() {
@@ -587,7 +586,7 @@ function biz_vektor_googleAnalytics(){
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA- <?php echo $options['gaID'] ?>']);
+  _gaq.push(['_setAccount', 'UA-<?php echo $options['gaID'] ?>']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -864,6 +863,7 @@ function get_biz_vektor_name() {
 	return $name;
 }
 
+// load the option and check data
 function biz_vektor_veryfi_option(){
 	$options = get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
 	$default_theme_options = array(
