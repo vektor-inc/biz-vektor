@@ -603,8 +603,9 @@ box-shadow: inset 0 1px 0 white; }
 
 #topFreeArea	{ display:block; overflow:hidden;padding-bottom:25px;}
 #topPr .topPrOuter	{ display:block; overflow:hidden; margin-bottom:20px; padding-bottom:10px; }
-#topPr h3			{ margin:0px 0px 15px;line-height:120%;font-size:16px; padding:0; border:none;background:url(images/line_grd.png) left bottom repeat-x;padding-bottom:3px;box-shadow:none; }
-#topPr h3 a			{ display:block; text-decoration:none;color:#333;  padding:3px 0 8px 0;border-bottom:2px solid #5ead3c; }
+#topPr h3			{ margin:0px 0px 14px;line-height:120%;font-size:16px; padding:0; border:none;background:url(images/line_grd.png) left bottom repeat-x;box-shadow:none;display:block; overflow:hidden; }
+/* a に高さを揃えるjsが動作するのでblock指定で上下は余白をつけない */
+#topPr h3 a			{ text-decoration:none;color:#333;padding:0 0 3px;display:block; overflow:hidden;border-bottom:2px solid #5ead3c; }
 #topPr h3 a:hover	{ color:#5ead3c; text-decoration:none; }
 #topPr p a	{ display:block; text-decoration:none;line-height:16px;color:#333;}
 #topPr a:hover	{ text-decoration:underline; }
