@@ -839,10 +839,15 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #main #container	{ padding-top:40px;}
 #main #container #content	{ float:left; width:680px; }
 #main #container #sideTower	{ float:right; width:220px;clear:none; }
+
 body.left-sidebar #main #container #content	{ float:right; }
 body.left-sidebar #main #container #sideTower	{ float:left; }
 body.home.one-column #main #container #content		{ float:none;width:100%; }
 body.home.one-column #main #container #sideTower	{ float:none; display:none; }
+
+#main #container #content.wide,
+body.left-sidebar #main #container #content.wide	{ float:none; }
+
 form#searchform input#s	{width:120px; }
 form#searchform input#searchsubmit	{ width:20%; }
 
