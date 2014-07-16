@@ -14,7 +14,7 @@
 	<?php while ( $loop->have_posts() ) : $loop->the_post();
 	$postCount = ++$postCount;
 	endwhile;
-	if ($postCount): ?>
+	if (isset($postCount) && $postCount): ?>
 	<h5><a href="<?php echo home_url(); ?>/info/"><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></a></h5>
 	<ul class="linkList">
 	<?php wp_list_categories('taxonomy=info-cat&title_li=&orderby=order'); ?>

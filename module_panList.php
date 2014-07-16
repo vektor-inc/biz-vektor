@@ -6,8 +6,9 @@ global $wp_query;
 // カスタム投稿タイプの種類を取得
 $postType = get_post_type();
 // カスタム投稿タイプ名を取得
-$postTypeName = esc_html(get_post_type_object(get_post_type())->labels->name);
-
+if(isset($postType->labels->name)){
+	$postTypeName = esc_html(get_post_type_object($postType->labels->name));
+}
 // 標準のpost のラベル名
 $postLabelName = bizVektorOptions('postLabelName');
 	echo '<ul>';
