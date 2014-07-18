@@ -58,11 +58,11 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 <div id="headerInner" class="innerBox">
 <!-- [ #headLogo ] -->
 <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-<?php echo $heading_tag; ?> id="site-title">
+<<?php echo $heading_tag; ?> id="site-title">
 <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo('name'); ?>" rel="home">
 <?php biz_vektor_print_headLogo(); ?>
 </a>
-<?php echo $heading_tag; ?>>
+<<?php echo $heading_tag; ?>>
 <!-- [ /#headLogo ] -->
 
 <!-- [ #headContact ] -->
