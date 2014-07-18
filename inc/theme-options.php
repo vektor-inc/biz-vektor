@@ -16,6 +16,8 @@
 /*-------------------------------------------*/
 /*	Theme style
 /*-------------------------------------------*/
+/*	Favicon
+/*-------------------------------------------*/
 /*	Menu divide
 /*-------------------------------------------*/
 /*	Header logo
@@ -370,6 +372,17 @@ function biz_vektor_theme_style() {
 		print '<!--[if lte IE 8]>'."\n";
 		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
 		print '<![endif]-->'."\n";
+	}
+}
+
+/*-------------------------------------------*/
+/*	Favicon
+/*-------------------------------------------*/
+add_action('wp_head', 'biz_vektor_favicon');
+function biz_vektor_favicon(){
+	$options = biz_vektor_get_theme_options();
+	if(isset($options['favicon']) && $options['favicon']){
+		echo '<link rel="SHORTCUT ICON" HREF="'.$options['favicon'].'" />';
 	}
 }
 
@@ -917,6 +930,7 @@ function biz_vektor_veryfi_option(){
 		'galaTheme_style' => '',
 		'galaLogo' => '',
 		'side_child_display' => '',
+		'favicon' => '',
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',

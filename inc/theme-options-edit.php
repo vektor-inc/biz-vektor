@@ -209,6 +209,14 @@ function biz_vektor_theme_options_render_page() { ?>
 	<p>* <?php _e('This setting can not be changed from the theme customizer.', 'biz-vektor') ;?></p>
 	<td>
 	</tr>
+	<!-- Favicon -->
+	<tr>
+	<th><?php _e('Design skin', 'biz-vektor') ; ?></th>
+	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
+	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
+	</td>
+	</tr>
+
 	</table>
 	<?php submit_button(); ?>
 </div>
@@ -838,6 +846,9 @@ function biz_vektor_theme_options_validate( $input ) {
 		$output['theme_layout'] = $input['theme_layout'];
 	// sidebar child menu display
 	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
+
+	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
+
 
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
