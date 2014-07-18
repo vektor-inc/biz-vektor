@@ -668,11 +668,13 @@ msgid ""
 "* If there are settings for the particular design skin, after you save your "
 "changes, you can update them from theme customizer."
 
+msgstr ""
+"各デザイン固有のセッティング項目がある場合は、変更を保存した後で、テーマカス"
+"タマイザーより設定出来ます。"
+
 msgid "Favicon Setting"
 msgstr "Favicon設定"
 
-msgid "Design skin"
-msgstr "デザイン"
 # ---------------
 # menu divide
 # ---------------
