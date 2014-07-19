@@ -149,11 +149,7 @@ form#searchform input#searchsubmit,
 #header #headContact #headContactTel	{color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;}
 
 #gMenu	{ border-top:2px solid <?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#gMenu h3.assistive-text,
-#gMenu .menu li.current_page_item a,
-#gMenu .menu li.current_page_ancestor a ,
-#gMenu .menu li.current-page-ancestor a ,
-#gMenu .menu li a:hover	{
+#gMenu h3.assistive-text {
 background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
 border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
 background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
@@ -161,6 +157,11 @@ background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusK
 background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
 -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=<?php echo $default_design_options['theme_plusKeyColor'] ?>, EndColorStr=<?php echo $default_design_options['theme_plusKeyColorDark'] ?>)";
 }
+#gMenu .menu li.current_page_item a,
+#gMenu .menu li.current_page_ancestor a ,
+#gMenu .menu li.current-page-ancestor a ,
+#gMenu .menu li a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+
 #pageTitBnr	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
 #panList a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
@@ -205,12 +206,35 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 .paging span.current,
 .paging a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
+@media (min-width: 770px) {
+#gMenu .menu li.current_page_item a,
+#gMenu .menu li.current_page_ancestor a ,
+#gMenu .menu li.current-page-ancestor a ,
+#gMenu .menu li a:hover	{
+background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
+border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
+background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=<?php echo $default_design_options['theme_plusKeyColor'] ?>, EndColorStr=<?php echo $default_design_options['theme_plusKeyColorDark'] ?>)";
+}
 }
 		</style>
 <!--[if lte IE 8]>
 <style type="text/css">
 #gMenu	{ border-bottom-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 #footMenu .menu li a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+#gMenu .menu li.current_page_item a,
+#gMenu .menu li.current_page_ancestor a ,
+#gMenu .menu li.current-page-ancestor a ,
+#gMenu .menu li a:hover	{
+background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
+border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
+background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=<?php echo $default_design_options['theme_plusKeyColor'] ?>, EndColorStr=<?php echo $default_design_options['theme_plusKeyColorDark'] ?>)";
+}
 </style>
 <![endif]-->
 

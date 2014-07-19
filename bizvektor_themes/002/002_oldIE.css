@@ -86,9 +86,13 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 /* IE7のみドロップダウン非表示 */
 *+html #gMenu .menu li:hover ul { display:none; }
 
+#gMenu .menu li ul { display: none; }
+#gMenu .menu li li a,
+#gMenu .menu li li li a,
+#gMenu .menu li li li li a { padding-left:15px; }
 
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:1000;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
-#gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }
+#gMenu .menu li:hover li	{ background:#fff;width:200px; position:relative; }
 #gMenu .menu li:hover li a,
 #gMenu .menu li.current_page_item li a,
 #gMenu .menu li.current-menu-ancestor li a,

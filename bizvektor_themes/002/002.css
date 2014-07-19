@@ -176,7 +176,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*-------------------------------------------*/
 /*	#headerTop
 /*-------------------------------------------*/
-#headerTop	{ display:block; color:#666; border-top: 3px solid #5ead3c; background:#f3f3f3; overflow:hidden; width:100%; padding:2px 0px; clear:both; font-size:85.7%; }
+#headerTop	{ display:none; color:#666; border-top: 3px solid #5ead3c; background:#f3f3f3; overflow:hidden; width:100%; padding:2px 0px; clear:both; font-size:85.7%; }
 #headerTop #site-description { padding: 2px 0; font-size:10px;line-height:120%;}
 
 /*-------------------------------------------*/
@@ -214,20 +214,17 @@ background-color:#fff; }
 #gMenu #gMenuInner	{ overflow:visible; display:block; position:relative;padding:0px;}
 #gMenu #gMenuInner.innerBox	{ margin:0px;width:100%;}
 #gMenu .menu	{ font-size: 13px;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;border-top:1px solid #ccc;}
-#gMenu .menu li { text-shadow:0 1px #ffffff; position: relative;width:100%;display:block;border-bottom:1px solid #ccc; }
-#gMenu .menu li a	{ background:url(images/arrow_gray.png) right bottom no-repeat; color: #333; display: block; overflow:hidden;padding: 20px 15px 18px; margin:0px; line-height:140%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative; }
+#gMenu .menu li { text-shadow:0 1px #ffffff; position: relative;width:100%;display:block; }
+#gMenu .menu li a	{ background:url(images/arrow_gray.png) right bottom no-repeat; color: #333; display: block; overflow:hidden;padding: 20px 15px 18px; margin:0px; line-height:140%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative;border-bottom:1px solid #ccc; }
 #gMenu .menu li a strong	{ font-weight:bold; }
-#gMenu .menu li a span 		{ color:#5ead3c; display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; }
-
-
+#gMenu .menu li a span 		{ color:#5ead3c; display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; display:none; }
 #gMenu .menu li.current_page_item a ,
 #gMenu .menu li.current_page_ancestor a ,
 #gMenu .menu li a:hover	{ background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
-#gMenu .menu li ul	{ display:none; }
-#gMenu .menu li ul li a { }
-#gMenu .menu li ul li span	{ display:none; }
-
-
+#gMenu .menu li li span	{ display:none; }
+#gMenu .menu li li a { padding-left:25px; }
+#gMenu .menu li li li a { padding-left:35px; }
+#gMenu .menu li li li li a { padding-left:45px; }
 
 /*-------------------------------------------*/
 /*	#panList
@@ -725,8 +722,6 @@ background: linear-gradient(#fcfcfc, #d5e9cc);
 
 .paging span.pageIndex { display:inline; }
 
-#topMainBnr { padding:30px 0; }
-
 #topPr { display:block; overflow:hidden; margin-bottom:50px; }
 #topPr .topPrOuter	{ padding-bottom:0px;border-bottom:none;}
 #topPr #topPrLeft 	{ width:33.1%; text-align:left; float:left;display:block; overflow:visible; }
@@ -784,9 +779,13 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 /* IE7のみドロップダウン非表示 */
 *+html #gMenu .menu li:hover ul { display:none; }
 
+#gMenu .menu li ul { display: none; }
+#gMenu .menu li li a,
+#gMenu .menu li li li a,
+#gMenu .menu li li li li a { padding-left:15px; }
 
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:1000;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
-#gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }
+#gMenu .menu li:hover li	{ background:#fff;width:200px; position:relative; }
 #gMenu .menu li:hover li a,
 #gMenu .menu li.current_page_item li a,
 #gMenu .menu li.current-menu-ancestor li a,
@@ -825,6 +824,9 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #footMenu .menu li a	{ background: none; padding:0px 15px 0px; line-height:1em; text-decoration:none; border-right:1px solid #ccc; border-bottom: none;  }
 #footMenu .menu li a:hover	{ color:#5ead3c; text-decoration:underline; background:none; }
 #footMenu .menu li.firstChild a	{ border-left:1px solid #ccc; }
+
+#topMainBnr { padding:30px 0; }
+
 }
 @media (min-width: 850px) {
 #main #container #content.wide	{ width:850px; }
