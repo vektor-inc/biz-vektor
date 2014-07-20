@@ -46,6 +46,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id="wrap">
+
 <!-- [ #headerTop ] -->
 <div id="headerTop">
 <div class="innerBox">
@@ -62,7 +63,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo('name'); ?>" rel="home">
 <?php biz_vektor_print_headLogo(); ?>
 </a>
-<<?php echo $heading_tag; ?>>
+</<?php echo $heading_tag; ?>>
 <!-- [ /#headLogo ] -->
 
 <!-- [ #headContact ] -->
