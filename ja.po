@@ -662,15 +662,14 @@ msgid "You can change settings for this section also from %s"
 msgstr "この項目は %s からも設定が可能です"
 
 msgid "Design skin"
-msgstr "デザイン"
+msgstr "デザインスキン"
 
 msgid ""
 "* If there are settings for the particular design skin, after you save your "
 "changes, you can update them from theme customizer."
-
 msgstr ""
-"各デザイン固有のセッティング項目がある場合は、変更を保存した後で、テーマカス"
-"タマイザーより設定出来ます。"
+"各デザインスキン固有のセッティング項目がある場合は、変更を保存した後で、テー"
+"マカスタマイザーより設定出来ます。"
 
 msgid "Favicon Setting"
 msgstr "Favicon設定"
