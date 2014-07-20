@@ -706,7 +706,7 @@ background: linear-gradient(#fcfcfc, #d5e9cc);
 #headerTop	{ display:block; }
 #header	{ padding-top:30px; }
 #headerTop #site-description	{ line-height:150%; }
-#header #site-title	{ padding-bottom:30px;float:left;}
+#header #site-title	{ padding-bottom:30px;float:left; text-align: left; }
 #header #headContact	{ float:right; text-align:right; }
 #header #headContact #headContactTxt	{ font-size:11px;}
 #header #headContact #headContactTime	{ font-size:12px;}
@@ -776,7 +776,7 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu .assistive-text { position: absolute; top: -9000px; } /* display:noneだと読み上げない / 横にオフセットするとIEで読み込みまでの間表示される */
 #gMenu .menu li { float: left;width:auto;border-bottom:none; overflow:visible;box-shadow: inset 1px 0px 0px #fff; }
 #gMenu .menu li a	{ text-align:center;border-right:1px solid #e5e5e5; box-shadow: inset 1px 0px 0px #fff; }
-
+#gMenu .menu li a span 		{ display:block; }
 /* IE7のみドロップダウン非表示 */
 *+html #gMenu .menu li:hover ul { display:none; }
 

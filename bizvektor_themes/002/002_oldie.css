@@ -11,9 +11,10 @@ body { font-size:14px; }
 /*-------------------------------------------*/
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
+#headerTop	{ display:block; }
 #header	{ padding-top:30px; }
 #headerTop #site-description	{ line-height:150%; }
-#header #site-title	{ padding-bottom:30px;float:left;}
+#header #site-title	{ padding-bottom:30px;float:left;text-align:left;　}
 #header #headContact	{ float:right; text-align:right; }
 #header #headContact #headContactTxt	{ font-size:11px;}
 #header #headContact #headContactTime	{ font-size:12px;}
@@ -29,8 +30,6 @@ body { font-size:14px; }
 #content .mainFootContact .mainFootBt a img	{ width:auto; }
 
 .paging span.pageIndex { display:inline; }
-
-#topMainBnr { padding:30px 0; }
 
 #topPr { display:block; overflow:hidden; margin-bottom:50px; }
 #topPr .topPrOuter	{ padding-bottom:0px;border-bottom:none;}
@@ -65,7 +64,7 @@ body     { line-height:150%; }
 	visibility: hidden;
 }
 /* グラデーション（filter）を使用するとIE8でドロップダウンの動作に不具合が出る場合がある為画像を使用 */
-#gMenu { border-bottom-width: 3px; border-bottom-style: solid; border-top:1px solid #e5e5e5;
+#gMenu { border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color:#5ead3c;border-top:1px solid #e5e5e5;
 background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
 #gMenu.itemClose .menu,
@@ -82,7 +81,7 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu .assistive-text { position: absolute; top: -9000px; } /* display:noneだと読み上げない / 横にオフセットするとIEで読み込みまでの間表示される */
 #gMenu .menu li { float: left;width:auto;border-bottom:none; overflow:visible;box-shadow: inset 1px 0px 0px #fff; }
 #gMenu .menu li a	{ text-align:center;border-right:1px solid #e5e5e5; box-shadow: inset 1px 0px 0px #fff; }
-
+#gMenu .menu li a span 		{ display:block; }
 /* IE7のみドロップダウン非表示 */
 *+html #gMenu .menu li:hover ul { display:none; }
 
@@ -132,21 +131,29 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #footMenu .menu li a:hover	{ color:#5ead3c; text-decoration:underline; background:none; }
 #footMenu .menu li.firstChild a	{ border-left:1px solid #ccc; }
 
+#topMainBnr { padding:30px 0; }
 
 #main #container #content.wide	{ width:850px; }
 #footMenu .innerBox	{ margin:0px auto;width:950px; }
+
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/
+
 .innerBox,
 #gMenu #gMenuInner.innerBox	{ width:950px; margin:0px auto; }
 #main #container	{ padding-top:40px;}
 #main #container #content	{ float:left; width:680px; }
 #main #container #sideTower	{ float:right; width:220px;clear:none; }
+
 body.left-sidebar #main #container #content	{ float:right; }
 body.left-sidebar #main #container #sideTower	{ float:left; }
 body.home.one-column #main #container #content		{ float:none;width:100%; }
 body.home.one-column #main #container #sideTower	{ float:none; display:none; }
+
+#main #container #content.wide,
+body.left-sidebar #main #container #content.wide	{ float:none; }
+
 form#searchform input#s	{width:120px; }
 form#searchform input#searchsubmit	{ width:20%; }
 
