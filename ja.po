@@ -315,16 +315,22 @@ msgstr ""
 # ############################################################################
 # functions.php
 # ############################################################################
+msgid "Homepage main content"
+msgstr "トップページメインコンテンツエリア"
+
+msgid "This widget area appears on the front page main content area only."
+msgstr ""
+"トップページのメインコンテンツエリア表示されるウィジェットです。ドラッグ＆ド"
+"ロップで必要なものだけ入れてください。バナーやブログパーツなどは、『テキス"
+"ト』ウィジェットを使用して、ソースコードを張り付けられます。"
+
 #: functions.php:96
 msgid "Sidebar(Front page only)"
 msgstr "サイドバー（トップページ）"
 
 #: functions.php:98
 msgid "This widget area appears on the front page only."
-msgstr ""
-"トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
-"必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
-"ジェットを使用して、ソースコードを張り付けられます。"
+msgstr "トップページにのみ表示されるサイドバーウィジェットです。"
 
 #: functions.php:105
 msgid "Sidebar(Post content only)"

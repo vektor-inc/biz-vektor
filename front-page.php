@@ -3,6 +3,12 @@
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
 	<div id="content">
+<?php
+if ( is_active_sidebar( 'top-main-widget-area' ) ) :
+	dynamic_sidebar( 'top-main-widget-area' );
+else : ?>
+	<?php get_template_part('module_topPR'); ?>
+<?php endif; ?>
 
 	<?php if ( have_posts()) : the_post(); ?>
 
@@ -45,8 +51,6 @@
 	<?php } // login ?>
 
 <?php endif; // have_posts() ?>
-
-<?php get_template_part('module_topPR'); ?>
 
 <?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
 

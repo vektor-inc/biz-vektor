@@ -63,8 +63,10 @@
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
-/*	ChildPageList widget
+/*	Page _ Child page lists
 /*-------------------------------------------*/
+
+get_template_part('functions_widgets');
 
 load_theme_textdomain('biz-vektor');
 
@@ -89,59 +91,6 @@ if ( ! isset( $content_width ) )
 register_nav_menus( array( 'Header' => 'Header Navigation', ) );
 register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
 register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
-
-/*-------------------------------------------*/
-/*	Widget
-/*-------------------------------------------*/
-function biz_vektor_widgets_init() {
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
-		'id' => 'top-side-widget-area',
-		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
-		'id' => 'post-widget-area',
-		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
-		'id' => 'page-widget-area',
-		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
-		'id' => 'common-side-top-widget-area',
-		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
-		'id' => 'common-side-bottom-widget-area',
-		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-}
-add_action( 'widgets_init', 'biz_vektor_widgets_init' );
-
 
 /*-------------------------------------------*/
 /*	Custom header
@@ -662,7 +611,7 @@ function ignore_shortcode( $atts, $content = null ) {
 add_shortcode('ignore', 'ignore_shortcode');
 
 /*-------------------------------------------*/
-/*	ChildPageList widget
+/*	Page _ Child page lists
 /*-------------------------------------------*/
 function biz_vektor_childPageList(){
 	global $post;
@@ -688,37 +637,3 @@ function biz_vektor_childPageList(){
 		}
 	} // is_page
 }
-class WP_Widget_ChildPageList extends WP_Widget {
-	/** constructor */
-	function WP_Widget_childPageList() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_childPageList',
-			'description' => '表示している固定ページが属する階層のページリストを表示',
-		);
-		$this->WP_Widget('childPageList', '固定ページ子ページリスト', $widget_ops);
-	}
-
-	/** @see WP_Widget::widget */
-	function widget($args, $instance) {
-		extract( $args );
-		if(biz_vektor_childPageList()){
-			echo $before_widget;
-			biz_vektor_childPageList();
-			echo $after_widget;
-		}
-	}
-
-	// /** @see WP_Widget::update */
-	// function update($new_instance, $old_instance) {
-	// 	return $new_instance;
-	// }
-
-	// /** @see WP_Widget::form */
-	// function form($instance) {
-	// 	$title = esc_attr($instance['title']);
-	// }
-
-} // class WP_Widget_childPageList
-
-// register WP_Widget_childPageList widget
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
