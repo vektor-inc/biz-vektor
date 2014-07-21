@@ -7,6 +7,10 @@
 /*-------------------------------------------*/
 /*	Top PR widget
 /*-------------------------------------------*/
+/*	Top Post list widget
+/*-------------------------------------------*/
+/*	Top Info list widget
+/*-------------------------------------------*/
 
 /*-------------------------------------------*/
 /*	Widget area setting
@@ -69,12 +73,10 @@ function biz_vektor_widgets_init() {
 }
 add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
-
 /*-------------------------------------------*/
 /*	ChildPageList widget
 /*-------------------------------------------*/
 class WP_Widget_ChildPageList extends WP_Widget {
-	/** constructor */
 	function WP_Widget_childPageList() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_childPageList',
@@ -83,8 +85,6 @@ class WP_Widget_ChildPageList extends WP_Widget {
 		$widget_name = '固定ページ子ページリスト'.' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('childPageList', $widget_name, $widget_ops);
 	}
-
-	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		extract( $args );
 		if(biz_vektor_childPageList()){
@@ -95,16 +95,12 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	}
 
 } // class WP_Widget_childPageList
-
-// register WP_Widget_childPageList widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
-
 
 /*-------------------------------------------*/
 /*	Top PR widget
 /*-------------------------------------------*/
 class WP_Widget_topPR extends WP_Widget {
-	/** constructor */
 	function WP_Widget_topPR() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_topPR',
@@ -113,15 +109,50 @@ class WP_Widget_topPR extends WP_Widget {
 		$widget_name = 'トップページ3PR'.' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
-
-	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		echo $before_widget;
 		get_template_part( 'module_topPR' );
 		echo $after_widget;
 	}
-
 } // class WP_Widget_topPR
-
-// register WP_Widget_childPageList widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
+
+/*-------------------------------------------*/
+/*	Top Post list widget
+/*-------------------------------------------*/
+class WP_Widget_top_list_post extends WP_Widget {
+	function WP_Widget_top_list_post() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_top_list_post',
+			'description' => '投稿の新着記事を表示します。',
+		);
+		$widget_name = 'トップページ用投稿リスト'.' ('.get_biz_vektor_name().')';
+		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
+	}
+	function widget($args, $instance) {
+		echo $before_widget;
+		get_template_part( 'module_top_list_post' );
+		echo $after_widget;
+	}
+} // class WP_Widget_top_list_post
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_post");'));
+
+/*-------------------------------------------*/
+/*	Top Info list widget
+/*-------------------------------------------*/
+class WP_Widget_top_list_info extends WP_Widget {
+	function WP_Widget_top_list_info() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_top_list_info',
+			'description' => '投稿の新着記事を表示します。',
+		);
+		$widget_name = 'トップページ用infoリスト'.' ('.get_biz_vektor_name().')';
+		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
+	}
+	function widget($args, $instance) {
+		echo $before_widget;
+		get_template_part( 'module_top_list_info' );
+		echo $after_widget;
+	}
+} // class WP_Widget_top_list_info
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));

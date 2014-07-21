@@ -8,6 +8,9 @@ if ( is_active_sidebar( 'top-main-widget-area' ) ) :
 	dynamic_sidebar( 'top-main-widget-area' );
 else : ?>
 	<?php get_template_part('module_topPR'); ?>
+	<?php get_template_part('module_top_list_info'); ?>
+	<?php get_template_part('module_top_list_post'); ?>
+	<?php biz_vektor_blogList() // RSS import ?>
 <?php endif; ?>
 
 	<?php if ( have_posts()) : the_post(); ?>
@@ -53,73 +56,6 @@ else : ?>
 <?php endif; // have_posts() ?>
 
 <?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
-
-<?php
-/*-------------------------------------------*/
-/*	info
-/*-------------------------------------------*/
-?>
-<?php $loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => 5, ) ); ?>
-<?php if ($loop->have_posts()) : ?>
-<div id="topInfo" class="infoList">
-<h2><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></h2>
-<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=info" id="infoRss" target="_blank">RSS</a></div>
-<?php
-$options = biz_vektor_get_theme_options();
-if ( isset($options['listInfoTop']) &&  $options['listInfoTop'] == 'listType_set' ) { ?>
-	<?php while ( $loop->have_posts() ) : $loop->the_post();?>
-		<?php get_template_part('module_loop_post2'); ?>
-	<?php endwhile ?>
-<?php } else { ?>
-	<ul class="entryList">
-	<?php while ( $loop->have_posts() ) : $loop->the_post();?>
-		<?php get_template_part('module_loop_post'); ?>
-	<?php endwhile; ?>
-	</ul>
-<?php } ?>
-</div><!-- [ /#topInfo ] -->
-<?php endif;?>
-
-<?php // wp_reset_query();?>
-
-<?php
-/*-------------------------------------------*/
-/*	Post
-/*-------------------------------------------*/
-?>
-<?php
-$postTopCount = bizVektorOptions('postTopCount');
-if ($postTopCount) : ?>
-<?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$post_loop = new WP_Query( array(
-	'post_type' => 'post',
-	'posts_per_page' => $postTopCount,
-	'paged' => $paged
-) ); ?>
-<?php if ($post_loop->have_posts()): ?>
-	<div id="topBlog" class="infoList">
-	<h2><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h2>
-	<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=post" id="blogRss" target="_blank">RSS</a></div>
-	<?php $options = biz_vektor_get_theme_options();
-	if ( $options['listBlogTop'] == 'listType_set' ) { ?>
-		<?php while ( $post_loop->have_posts() ) : $post_loop->the_post();?>
-			<?php get_template_part('module_loop_post2'); ?>
-		<?php endwhile ?>
-	<?php } else { ?>
-		<ul class="entryList">
-		<?php while ( $post_loop->have_posts() ) : $post_loop->the_post();?>
-			<?php get_template_part('module_loop_post'); ?>
-		<?php endwhile; ?>
-		</ul>
-	<?php } ?>
-	<?php // pagination($post_loop->max_num_pages); ?>
-	</div><!-- [ /#topBlog ] -->
-<?php endif; // $post_loop have_posts() ?>
-<?php endif; // $postTopCpunt= 0 ?>
-<?php wp_reset_query();?>
-
-<?php biz_vektor_blogList() // RSS import ?>
 
 <?php biz_vektor_topContentsBottom(); ?>
 

@@ -109,7 +109,9 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
-	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
+	<?php if ( !function_exists( 'biz_vektor_activation' ) ) :?>
+	[ <a href="http://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
+	<?php endif;?>
 	</td>
 	</tr>
 	<!-- Head logo -->
@@ -379,7 +381,7 @@ $i++;
 <table class="form-table">
 <!-- Information layout -->
 <tr>
-	<th><?php echo esc_html( bizVektorOptions('infoLabelName')); ?></th>
+	<th><?php echo esc_html( $infoLabelName ); ?></th>
 	<td>
 		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
 	<dl>
