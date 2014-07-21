@@ -1,4 +1,8 @@
 @charset "UTF-8";
+#eradi_ie_box { background-color: #c00; padding: 2em; color: #fff; text-align: center; font-size: 114.3%; }
+#eradi_ie_box .alert_title { font-size: 150%; margin-bottom: 1em; }
+#eradi_ie_box a { color: #fff; }
+
 #sideTower .sideWidget li#sideContact { border: none; }
 #sideTower .sideWidget li#sideContact a { padding: 0; }
 

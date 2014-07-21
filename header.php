@@ -37,15 +37,33 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 </head>
 
 <body <?php body_class(); ?>>
+<?php global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options(); ?>
+
 <div id="fb-root"></div>
+<?php
+if ($biz_vektor_options['fbAppId']) :
+print '<pre>';print_r($biz_vektor_options);print '</pre>';
+?>
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php biz_vektor_fbAppId(); ?>";
-  fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php echo esc_html($biz_vektor_options['fbAppId']); ?>";
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<?php endif; ?>
+
 <div id="wrap">
+
+<!--[if lte IE 8]>
+<div id="eradi_ie_box">
+<div class="alert_title">ご利用の Internet Exproler は古すぎます。</div>
+<p>このウェブサイトはあなたがご利用の Internet Explorer をサポートしていないため、正しく表示・動作しません。<br />
+古い Internet Exproler はセキュリティーの問題があるため、新しいブラウザに移行する事が強く推奨されています。<br />
+最新の Internet Exproler を利用するか、<a href="https://www.google.co.jp/chrome/browser/index.html" target="_blank">Chrome</a> や <a href="https://www.mozilla.org/ja/firefox/new/" target="_blank">Firefox</a> など、より早くて快適なブラウザを使用するようにしてください。</p>
+</div>
+<![endif]-->
 
 <!-- [ #headerTop ] -->
 <div id="headerTop">
@@ -69,7 +87,6 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 <!-- [ #headContact ] -->
 <?php biz_vektor_print_headContact(); ?>
 <!-- [ /#headContact ] -->
-
 
 </div>
 <!-- #headerInner -->
