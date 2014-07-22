@@ -7,6 +7,8 @@
 /*-------------------------------------------*/
 /*	Top PR widget
 /*-------------------------------------------*/
+/*	Page widget
+/*-------------------------------------------*/
 /*	Top Post list widget
 /*-------------------------------------------*/
 /*	Top Info list widget
@@ -119,6 +121,57 @@ class WP_Widget_topPR extends WP_Widget {
 	
 } // class WP_Widget_topPR
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
+
+/*-------------------------------------------*/
+/*	page widget
+/*-------------------------------------------*/
+class wp_widget_page extends WP_Widget {
+	function wp_widget_page() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_page_post',
+			'description' => '固定ページの出力'
+		);
+		$widget_name = '固定ページ本文'.' ('.get_biz_vektor_name().')';
+		$this->WP_Widget('pudge', $widget_name, $widget_ops);
+	}
+
+	function widget($args, $instance){
+		$this->display_page($instance['page_id']);
+	}
+
+	function form($instance){
+		$defaults = array(
+			'page_id' => 2
+		);
+
+		$instance = wp_parse_args((array) $instance, $defaults);
+		?>
+		<p>
+		<?php 	$pages = get_pages();	?>
+		<label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Title', 'biz-vektor') ?></label>
+		<select name="<?php echo $this->get_field_name('page_id'); ?>" >
+		<?php foreach($pages as $page){ ?>
+		<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
+		<?php } ?>
+		</select>
+		</p>
+		<?php
+	}
+
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['page_id'] = $new_instance['page_id'];
+		return $instance;
+	}
+
+	function display_page($pageid) {
+		$page = get_page($pageid);
+		echo $page->post_content;
+	}
+}
+add_action('widgets_init', create_function('', 'return register_widget("wp_widget_page");'));
+
+
 
 /*-------------------------------------------*/
 /*	Top Post list widget
