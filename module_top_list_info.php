@@ -3,7 +3,7 @@
 /*	info
 /*-------------------------------------------*/
 global $biz_vektor_options;
-print '<pre>';print_r($biz_vektor_options);print '</pre>';
+// print '<pre>';print_r($biz_vektor_options);print '</pre>';
 $loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => 5, ) ); ?>
 <?php if ($loop->have_posts()) : ?>
 <div id="topInfo" class="infoList">
