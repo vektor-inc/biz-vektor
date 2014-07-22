@@ -7,11 +7,6 @@
 if ( is_active_sidebar( 'top-main-widget-area' ) ) :
 	dynamic_sidebar( 'top-main-widget-area' );
 else : ?>
-	<?php get_template_part('module_topPR'); ?>
-	<?php get_template_part('module_top_list_info'); ?>
-	<?php get_template_part('module_top_list_post'); ?>
-	<?php biz_vektor_blogList() // RSS import ?>
-<?php endif; ?>
 
 	<?php if ( have_posts()) : the_post(); ?>
 
@@ -53,7 +48,13 @@ else : ?>
 		</div>
 	<?php } // login ?>
 
-<?php endif; // have_posts() ?>
+	<?php endif; // have_posts() ?>
+
+	<?php get_template_part('module_topPR'); ?>
+	<?php get_template_part('module_top_list_info'); ?>
+	<?php get_template_part('module_top_list_post'); ?>
+	<?php biz_vektor_blogList() // RSS import ?>
+<?php endif; ?>
 
 <?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
 
