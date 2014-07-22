@@ -44,8 +44,6 @@
 /*-------------------------------------------*/
 /*	Contact Btn
 /*-------------------------------------------*/
-/*	Contact widget
-/*-------------------------------------------*/
 
 function biz_vektor_theme_options_init() {
 	if ( false === biz_vektor_get_theme_options() )
@@ -825,50 +823,10 @@ function get_biz_vektor_contactBtn(){
 	return $contactBtn;
 	endif;
 }
+
 function biz_vektor_contactBtn(){
 	echo get_biz_vektor_contactBtn();
 }
-/*-------------------------------------------*/
-/*	Contact widget
-/*-------------------------------------------*/
-class WP_Widget_contact_link extends WP_Widget {
-	/** constructor */
-	function WP_Widget_contact_link() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_contact_link',
-			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
-		);
-		$widget_name = __('Contact button', 'biz-vektor').' ('.get_biz_vektor_name().')';
-		$this->WP_Widget('contact_link', $widget_name, $widget_ops);
-	}
-
-	/** @see WP_Widget::widget */
-	function widget($args, $instance) {
-		extract( $args );
-		// echo $before_widget;
-		biz_vektor_contactBtn();
-		// echo $after_widget;
-	}
-
-	/** @see WP_Widget::update */
-	function update($new_instance, $old_instance) {
-		return $new_instance;
-	}
-
-	/** @see WP_Widget::form */
-	function form($instance) {
-		$title = esc_attr($instance['title']);
-		/*
-		?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
-		<?php
-		*/
-	}
-
-} // class WP_Widget_contact_link
-
-// register WP_Widget_contact_link widget
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_contact_link");'));
 
 function get_biz_vektor_name() {
 	$name = 'BizVektor';
