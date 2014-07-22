@@ -637,14 +637,3 @@ function biz_vektor_childPageList(){
 		}
 	} // is_page
 }
-
-
-
-function biz_vektor_display_page($pageid) {
-	$page = get_page($pageid);
-
-//	echo "<h1>test</h1>";
-//	echo "<h2>".$page->post_title."</h2>";
-	echo $page->post_content;
-//	echo $page->post_date;
-}
