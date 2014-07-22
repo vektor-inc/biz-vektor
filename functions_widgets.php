@@ -21,15 +21,6 @@
 /*-------------------------------------------*/
 function biz_vektor_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Homepage main content', 'biz-vektor' ),
-		'id' => 'top-main-widget-area',
-		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-	) );
-	register_sidebar( array(
 		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
 		'id' => 'top-side-widget-area',
 		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
@@ -37,6 +28,15 @@ function biz_vektor_widgets_init() {
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Homepage main content', 'biz-vektor' ),
+		'id' => 'top-main-widget-area',
+		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
 	) );
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
