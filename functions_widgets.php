@@ -110,10 +110,13 @@ class WP_Widget_topPR extends WP_Widget {
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
-		echo $before_widget;
+	//	echo $before_widget;
 		get_template_part( 'module_topPR' );
-		echo $after_widget;
+	//	echo $after_widget;
 	}
+	function form(){}
+	function update(){}
+	
 } // class WP_Widget_topPR
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
 
