@@ -250,9 +250,10 @@ class wp_widget_bektor_rss extends WP_Widget {
 	function wp_widget_bektor_rss() {
 		$widget_ops = array(
 			'classname' => 'wp_widget_bektor_rss',
-			'description' => __( 'this is RSS', 'biz-vektor' ),
+			//'description' => __( 'this is RSS', 'biz-vektor' ),
+			'description' => 'RSSエントリーを設置します',
 		);
-		$widget_name = __('RSS bar', 'biz-vektor').' ('.get_biz_vektor_name().')';
+		$widget_name = __('RSS エントリー ', 'biz-vektor').' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
     function widget($args, $instance){

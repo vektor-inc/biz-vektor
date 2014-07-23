@@ -216,6 +216,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<th><?php _e('Favicon Setting', 'biz-vektor') ; ?></th>
 	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
 	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
+	<p>作成したicoファイルをアップロードしてください。</p>
 	</td>
 	</tr>
 
