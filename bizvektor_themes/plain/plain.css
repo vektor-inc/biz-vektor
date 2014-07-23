@@ -175,13 +175,13 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*-------------------------------------------*/
 #gMenu	{ clear:both; display:block; overflow:visible; position:relative;width:100%;}
 #gMenu.itemClose .menu	{ display:none; }
-#gMenu.itemOpen .menu	{ display:block;  }
+#gMenu.itemOpen .menu	{ display:block; }
 #gMenu .assistive-text  { display:block; overflow:hidden; position:relative; left:0px; font-weight:lighter;text-align:left;font-family:'Lato', sans-serif;cursor:pointer; background-color:#e5e5e5;border-top:1px; }
 #gMenu .assistive-text span	{ display:block; overflow:hidden; padding:8px 0px;width:94%; margin:0px 3%; }
 #gMenu .screen-reader-text { position: absolute; left: -9000px; }
 #gMenu #gMenuInner	{ overflow:visible; display:block; position:relative;padding:0px;}
 #gMenu #gMenuInner.innerBox	{ margin:0px;width:100%;}
-#gMenu .menu	{ font-size: 13px;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;border-top:1px solid #e5e5e5;}
+#gMenu .menu	{ display:block; overflow:visible;font-size: 13px;list-style: none; margin:0;padding:0px; border-top:1px solid #e5e5e5;}
 #gMenu .menu li { position: relative;width:100%;display:block; }
 #gMenu .menu li a	{ color: #333; display: block; overflow:hidden;padding: 11px 15px 9px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative;border-bottom:1px solid #e5e5e5; }
 #gMenu .menu li a strong	{ font-weight:lighter; }
@@ -691,7 +691,7 @@ body     { line-height:150%; }
 }
 #gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
 #gMenu.itemClose .menu,
-#gMenu.itemOpen .menu	{ display:block;  }
+#gMenu.itemOpen .menu	{ display:block; }
 #gMenu .menu	{ border-left:1px solid #e5e5e5; border-top:none; }
 #gMenu .menu:after	{
 	content: ".";
@@ -709,6 +709,7 @@ body     { line-height:150%; }
 #gMenu .menu li li a { padding-left:15px; }
 #gMenu .menu li li li a { padding-left:15px; }
 #gMenu .menu li li li li a { padding-left:15px; }
+
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:100;border-top:1px solid #e5e5e5; position:absolute;width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
 #gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }
 #gMenu .menu li:hover li a,
@@ -716,6 +717,7 @@ body     { line-height:150%; }
 #gMenu .menu li.current-menu-ancestor li a,
 #gMenu .menu li.current-page-ancestor li a,
 #gMenu .menu li.current_page_ancestor li a { background:none;background-color:#fff;color:#4d4d4d;text-align:left;border-right:none;}
+
 #gMenu .menu li:hover li a:hover,
 #gMenu .menu li.current_page_item li a:hover,
 #gMenu .menu li.current-menu-ancestor li a:hover,
