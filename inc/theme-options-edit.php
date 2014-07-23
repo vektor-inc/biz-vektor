@@ -839,6 +839,22 @@ foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLav
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
 
+
+	if($input['theme_layout'] == ''){ $input['theme_layout'] = "content-sidebar"; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $input['postLabelName'] = "Blog"; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $input['infoLabelName'] = "Information"; }
+	if($input['rssLabelName'] == ''){ $input['theme_layout'] = "Blog entries"; }
+	if($input['theme_style'] == ''){ $input['theme_style'] = "default"; }
+
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $input['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $input['pr1_description'] = __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $input['pr2_title'] = __('Various designs available', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $input['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $input['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $input['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
+
+
+
 	$keylist = array_keys($input);
 	foreach($keylist as $key){
 		if(isset($input[$key])) { $output[$key] = $input[$key]; }
