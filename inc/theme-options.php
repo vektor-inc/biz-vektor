@@ -469,10 +469,11 @@ function biz_vektor_print_headContact() {
 /*-------------------------------------------*/
 /*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
-function biz_vektor_blogList()	{
+function biz_vektor_blogList($url=null)	{
 	$options = biz_vektor_get_theme_options();
 	$blogRss = $options['blogRss'];
-	if ($blogRss) {
+	if ($url){ $blogRss = $url; }
+		if ($blogRss) {
 ?>
 	<div id="topBlog" class="infoList">
 	<h2><?php echo esc_html( bizVektorOptions('rssLabelName')); ?></h2>
