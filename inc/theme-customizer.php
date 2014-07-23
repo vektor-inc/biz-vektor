@@ -195,7 +195,7 @@ function bizvektor_customize_register($wp_customize) {
 			));		
 		$wp_customize->add_control( 'sub_sitename',
 			array(
-				'label'     => _x('Site / Company / Store / Service name. This is displayed in the left bottom part of the footer.', 'biz-vektor theme-customizer', 'biz-vektor'),
+				'label'     => _x('Site / Company / Store / Service name. This is displayed in the left part of the footer bottom and footer copyright section.', 'biz-vektor theme-customizer', 'biz-vektor'),
 				'section'   => 'biz_vektor_contact', 
 				'settings'  => 'biz_vektor_theme_options[sub_sitename]',
 				'type' => 'text',
