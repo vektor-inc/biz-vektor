@@ -15,6 +15,9 @@
 /*-------------------------------------------*/
 /*	Top Info list widget
 /*-------------------------------------------*/
+/*	RSS Widget
+/*-------------------------------------------*/
+
 
 /*-------------------------------------------*/
 /*	Widget area setting
@@ -239,3 +242,45 @@ class WP_Widget_top_list_info extends WP_Widget {
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
+
+/*-------------------------------------------*/
+/*	RSS widget
+/*-------------------------------------------*/
+class wp_widget_bektor_rss extends WP_Widget {
+	function wp_widget_bektor_rss() {
+		$widget_ops = array(
+			'classname' => 'wp_widget_bektor_rss',
+			//'description' => __( 'this is RSS', 'biz-vektor' ),
+			'description' => 'RSSエントリーを設置します',
+		);
+		$widget_name = __('RSS エントリー ', 'biz-vektor').' ('.get_biz_vektor_name().')';
+		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
+	}
+    function widget($args, $instance){
+		if($instance['url']){
+			echo '<div id="rss_widget">';
+			biz_vektor_blogList($instance['url']);
+			echo '</div>';
+		}
+    }
+
+    function form($instance){
+        $defaults = array(
+            'url' => ''
+		);
+		$instance = wp_parse_args((array) $instance, $defaults);
+
+		?>
+		<Label for="<?php echo $this->get_field_id('url');  ?>">URL</label>
+		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
+		<?php
+
+    }
+
+    function update($new_instance, $old_instance){
+        $instance = $old_instance;
+		$instance['url'] = $new_instance['url'];
+        return $instance;
+    }
+}
+add_action('widgets_init', create_function('', 'return register_widget("wp_widget_bektor_rss");'));
