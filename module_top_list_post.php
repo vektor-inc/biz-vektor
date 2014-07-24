@@ -4,8 +4,9 @@
 /*-------------------------------------------*/
 global $biz_vektor_options;
 $postTopCount = $biz_vektor_options['postTopCount'];
-if ($postTopCount) :
+if ($postTopCount != '0' ) :
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 $post_loop = new WP_Query( array(
 	'post_type' => 'post',
 	'posts_per_page' => $postTopCount,
@@ -29,6 +30,7 @@ $post_loop = new WP_Query( array(
 	<?php } ?>
 	<?php // pagination($post_loop->max_num_pages); ?>
 	</div><!-- [ /#topBlog ] -->
-<?php endif; // $post_loop have_posts() ?>
-<?php endif; // $postTopCpunt= 0 ?>
-<?php wp_reset_query();?>
+<?php
+endif; // $post_loop have_posts()
+endif; // $postTopCpunt= 0
+wp_reset_query();?>

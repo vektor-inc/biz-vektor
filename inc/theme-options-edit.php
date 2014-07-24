@@ -419,6 +419,11 @@ $i++;
 	?>
 	</dd>
 	</dl>
+	<dl>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$infoLabelName);?></dt>
+		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
+	</dl>
 </td>
 </tr>
 <!-- Post layout -->
@@ -460,15 +465,14 @@ $i++;
 	?>
 	</dd>
 	</dl>
+	<dl>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></dt>
+		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
+	</dl>
 </td>
 </tr>
 <!-- Post display count -->
-<tr>
-<th><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></th>
-<td>
-	<input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
-<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></td>
-</tr>
 </table>
 <?php submit_button(); ?>
 

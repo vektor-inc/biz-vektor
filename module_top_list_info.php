@@ -3,8 +3,10 @@
 /*	info
 /*-------------------------------------------*/
 global $biz_vektor_options;
+$infoTopCount = $biz_vektor_options['infoTopCount'];
 // print '<pre>';print_r($biz_vektor_options);print '</pre>';
-$loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => 5, ) ); ?>
+if ($infoTopCount != '0') :
+$loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => $infoTopCount, ) ); ?>
 <?php if ($loop->have_posts()) : ?>
 <div id="topInfo" class="infoList">
 <h2><?php echo esc_html($biz_vektor_options['infoLabelName']); ?></h2>
@@ -22,5 +24,7 @@ if ( isset($biz_vektor_options['listInfoTop']) &&  $biz_vektor_options['listInfo
 	</ul>
 <?php } ?>
 </div><!-- [ /#topInfo ] -->
-<?php endif;?>
-<?php wp_reset_query();?>
+<?php endif;
+wp_reset_query();
+endif; // if ($infoTopCount != 0) :
+?>
