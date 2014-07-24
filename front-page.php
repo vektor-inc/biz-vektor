@@ -51,14 +51,11 @@ else : ?>
 	<?php endif; // have_posts() ?>
 
 	<?php get_template_part('module_topPR'); ?>
+	<?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
 	<?php get_template_part('module_top_list_info'); ?>
 	<?php get_template_part('module_top_list_post'); ?>
 	<?php biz_vektor_blogList() // RSS import ?>
 <?php endif; ?>
-
-<?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
-
-<?php biz_vektor_topContentsBottom(); ?>
 
 <?php biz_vektor_fbLikeBoxFront(); ?>
 <?php biz_vektor_snsBtns(); ?>

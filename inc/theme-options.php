@@ -26,8 +26,6 @@
 /*-------------------------------------------*/
 /*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
-/*	Home page _ bottom free area
-/*-------------------------------------------*/
 /*	mainfoot _ contact
 /*-------------------------------------------*/
 /*	Create keywords
@@ -522,27 +520,6 @@ function biz_vektor_blogList($url=null)	{
 <?php
 	}
 }
-/*-------------------------------------------*/
-/*	Home page _ bottom free area
-/*-------------------------------------------*/
-
-function biz_vektor_topContentsBottom()	{
-	$options = biz_vektor_get_theme_options();
-	$topContentsBottom = $options['topContentsBottom'];
-	if ($topContentsBottom) {
-		echo '<div id="topContentsBottom">'."\n";
-		echo $topContentsBottom;
-		if ( is_user_logged_in() == TRUE ) {
-			echo '<div class="adminEdit edit-item">'."\n";
-			echo '<a href="'.get_admin_url().'/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">';
-			echo __('Edit', 'biz-vektor');
-			echo '</a>'."\n";
-			echo '</div>'."\n";
-		}
-		echo '</div>'."\n";
-	}
-}
-
 
 /*-------------------------------------------*/
 /*	mainfoot _ contact
@@ -863,7 +840,6 @@ function biz_vektor_veryfi_option(){
 		'listBlogTop' => '',
 		'listBlogArchive' => '',
 		'blogRss' => '',
-		'topContentsBottom' => '',
 		'twitter' => '',
 		'facebook' => '',
 		'fbAppId' => '',
