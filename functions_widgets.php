@@ -134,9 +134,9 @@ class wp_widget_page extends WP_Widget {
 	function wp_widget_page() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_page_post',
-			'description' => '固定ページの出力'
+			'description' => '固定ページの内容を出力します'
 		);
-		$widget_name = '固定ページ本文'.' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
 	}
 
@@ -153,7 +153,7 @@ class wp_widget_page extends WP_Widget {
 		?>
 		<p>
 		<?php 	$pages = get_pages();	?>
-		<label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Title', 'biz-vektor') ?></label>
+		<label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
 		<select name="<?php echo $this->get_field_name('page_id'); ?>" >
 		<?php foreach($pages as $page){ ?>
 		<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
@@ -208,11 +208,13 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 class WP_Widget_top_list_post extends WP_Widget {
 	function WP_Widget_top_list_post() {
+		global $biz_vektor_options;
+		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_post',
-			'description' => '投稿の新着記事を表示します。',
+			'description' => $biz_vektor_options['postLabelName'].'の新着記事を表示します。',
 		);
-		$widget_name = 'トップページ用投稿リスト'.' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_トップ用_'.$biz_vektor_options['postLabelName'].'リスト';
 		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -228,11 +230,13 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 class WP_Widget_top_list_info extends WP_Widget {
 	function WP_Widget_top_list_info() {
+		global $biz_vektor_options;
+		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_info',
-			'description' => '投稿の新着記事を表示します。',
+			'description' => $biz_vektor_options['infoLabelName'].'の新着記事を表示します。',
 		);
-		$widget_name = 'トップページ用infoリスト'.' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_トップ用_'.$biz_vektor_options['infoLabelName'].'リスト';
 		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {

@@ -313,7 +313,7 @@ msgstr ""
 "機能を備えています。"
 
 # ############################################################################
-# functions.php
+# functions_widget
 # ############################################################################
 msgid "Homepage main content"
 msgstr "トップページメインコンテンツエリア"
@@ -324,26 +324,21 @@ msgstr ""
 "ロップで必要なものだけ入れてください。バナーやブログパーツなどは、『テキス"
 "ト』ウィジェットを使用して、ソースコードを張り付けられます。"
 
-#: functions.php:96
 msgid "Sidebar(Front page only)"
 msgstr "サイドバー（トップページ）"
 
-#: functions.php:98
 msgid "This widget area appears on the front page only."
 msgstr "トップページにのみ表示されるサイドバーウィジェットです。"
 
-#: functions.php:105
 msgid "Sidebar(Post content only)"
 msgstr "サイドバー（投稿ページ）"
 
-#: functions.php:107
 msgid "This widget area appears only on the post content pages."
 msgstr "投稿コンテンツのページにのみ表示されるウィジェットです。"
 
 msgid "Sidebar(Page content only)"
 msgstr "サイドバー（固定ページ）"
 
-#: functions.php:107
 msgid "This widget area appears only on the page content pages."
 msgstr "固定ページコンテンツのページにのみ表示されるウィジェットです。"
 
@@ -371,6 +366,9 @@ msgstr "facebook&twitterバナー"
 msgid "Contact button"
 msgstr "問い合わせボタン"
 
+msgid "Display page"
+msgstr "表示するページ"
+
 msgid "*　It is necessary to set the Theme options page."
 msgstr "※「外観」→「テーマオプション」画面での設定が必要です。"
 
@@ -390,6 +388,7 @@ msgctxt "admin menu"
 msgid "category"
 msgstr "カテゴリー"
 
+# ############################################################################
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "
 "(optional)."
