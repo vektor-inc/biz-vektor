@@ -218,9 +218,9 @@ class WP_Widget_top_list_post extends WP_Widget {
 		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
-		echo $before_widget;
+		// echo $before_widget;
 		get_template_part( 'module_top_list_post' );
-		echo $after_widget;
+		// echo $after_widget;
 	}
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_post");'));
@@ -240,9 +240,9 @@ class WP_Widget_top_list_info extends WP_Widget {
 		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
-		echo $before_widget;
+		// echo $before_widget;
 		get_template_part( 'module_top_list_info' );
-		echo $after_widget;
+		// echo $after_widget;
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
