@@ -171,7 +171,7 @@ class wp_widget_page extends WP_Widget {
 
 	function display_page($pageid) {
 		$page = get_page($pageid);
-		echo $page->post_content;
+		echo apply_filters('the_content', $page->post_content );
 	}
 }
 add_action('widgets_init', create_function('', 'return register_widget("wp_widget_page");'));
