@@ -43,7 +43,6 @@ $biz_vektor_options = biz_vektor_get_theme_options(); ?>
 <div id="fb-root"></div>
 <?php
 if ($biz_vektor_options['fbAppId']) :
-print '<pre>';print_r($biz_vektor_options);print '</pre>';
 ?>
 <script>(function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
