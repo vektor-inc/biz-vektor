@@ -623,14 +623,6 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 </p>
 </td>
 </tr>
-<!-- Home bottom free area -->
-<tr>
-	<th><?php _e('Home bottom free area', 'biz-vektor'); ?></th>
-<td>
-<p><?php printf(__('Displayed in the lower part of the list, [%s] and [%s].', 'biz-vektor'),$infoLabelName,$postLabelName); ?><br />
-<textarea cols="50" rows="4" name="biz_vektor_theme_options[topContentsBottom]" id="topContentsBottom" value="" style="width:90%;"><?php echo esc_attr( $options['topContentsBottom'] ); ?></textarea></p>
-</td>
-</tr>
 </table>
 
 <?php submit_button(); ?>

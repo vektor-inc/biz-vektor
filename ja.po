@@ -1111,15 +1111,6 @@ msgstr ""
 "外部ブログや関連サイトのRSSを利用していて、更新情報をこのサイトのトップページ"
 "に掲載する場合はRSSのアドレスを入力して下さい。"
 
-# ---------------
-# Home bottom free area
-# ---------------
-msgid "Home bottom free area"
-msgstr "トップページ下部フリーエリア"
-
-msgid "Displayed in the lower part of the list, [%s] and [%s]."
-msgstr "「%s」や「%s」のリストの下の部分に表示されます。"
-
 # ######################################
 # Slideshow Settings
 # ######################################
