@@ -135,8 +135,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<th scope="row"><?php _ex('Layout', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
-		foreach ( biz_vektor_layouts() as $layout ) {
-			?>
+		foreach ( biz_vektor_layouts() as $layout ) { ?>
 			<div class="layout">
 			<label class="description">
 				<input type="radio" name="biz_vektor_theme_options[theme_layout]" value="<?php echo esc_attr( $layout['value'] ); ?>" <?php checked( $options['theme_layout'], $layout['value'] ); ?> />
@@ -380,7 +379,7 @@ $i++;
 	<?php _e('If there is no widget, please check &quot;Featured image&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
 <table class="form-table">
-<!-- Information layout -->
+<!-- Information -->
 <tr>
 	<th><?php echo esc_html( $infoLabelName ); ?></th>
 	<td>
@@ -424,9 +423,21 @@ $i++;
 		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
 		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
 	</dl>
+
+	<dl>
+		<dt><?php echo $infoLabelName;?> のトップのURL</dt>
+		<dd><?php $infoTopUrl = esc_html(home_url().'/info/'); ?>
+			* 通常 <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
+				<?php /*
+			<br>
+			* <?php echo $infoLabelName;?> 用のトップページを独自に設定していない場合は空欄のままで構いません。
+			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />	*/ ?>
+		</dd>
+	</dl>
+
 </td>
 </tr>
-<!-- Post layout -->
+<!-- Post -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
 	<td>
@@ -465,14 +476,22 @@ $i++;
 	?>
 	</dd>
 	</dl>
+	<!-- Post display count -->
 	<dl>
 		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></dt>
 		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
 		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
 	</dl>
+	<!-- /Post display count -->
+	<dl>
+		<dt><?php echo $postLabelName;?> のトップのURL</dt>
+		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
+			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
+			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
+	</dl>
 </td>
 </tr>
-<!-- Post display count -->
+
 </table>
 <?php submit_button(); ?>
 
@@ -835,11 +854,10 @@ foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLav
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
 
-
 	if($input['theme_layout'] == ''){ $input['theme_layout'] = "content-sidebar"; }
 	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $input['postLabelName'] = "Blog"; }
 	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $input['infoLabelName'] = "Information"; }
-	if($input['rssLabelName'] == ''){ $input['theme_layout'] = "Blog entries"; }
+	if($input['rssLabelName'] == ''){ $input['rssLabelName'] = "Blog entries"; }
 	if($input['theme_style'] == ''){ $input['theme_style'] = "default"; }
 
 	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $input['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
@@ -848,8 +866,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $input['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
 	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $input['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
 	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $input['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
-
-
 
 	$keylist = array_keys($input);
 	foreach($keylist as $key){

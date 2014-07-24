@@ -88,7 +88,7 @@ function biz_vektor_get_default_theme_options() {
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		'rssLabelName' => 'Blog entries',
+		// 'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
 		'pr1_title' => __('Rich theme options', 'biz-vektor'),
 		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
@@ -110,7 +110,7 @@ function bizVektorOptions_default() {
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		'rssLabelName' => 'Blog entries',
+		// 'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
 		'pr1_title' => __('Rich theme options', 'biz-vektor'),
 		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
@@ -865,15 +865,13 @@ function biz_vektor_veryfi_option(){
 		'fbLikeBoxStream' => '',
 		'fbLikeBoxFace' => '',
 		'fbLikeBoxHeight' => '',
-		'galaTheme_style' => '',
-		'galaLogo' => '',
 		'side_child_display' => '',
-		'favicon' => '',
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		'rssLabelName' => 'Blog entries',
-		'theme_style' => 'default'
+		// 'rssLabelName' => 'Blog entries',
+		'theme_style' => 'default',
+		'favicon' => '',
 	);
 	for ( $i = 1; $i <= 5 ;){
 		$default_theme_options['slide'.$i.'link'] = '';

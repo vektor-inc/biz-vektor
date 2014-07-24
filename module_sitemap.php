@@ -1,3 +1,4 @@
+<?php global $biz_vektor_options; ?>
 <!-- [ #sitemapOuter ] -->
 <div id="sitemapOuter">
 <div id="sitemapPageList">
@@ -36,7 +37,14 @@
 	$args = array( 'post_type' => 'post');
 	$posts = get_posts($args);
 	if (isset($posts) && $posts): ?>
-	<h5><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h5>
+	<h5><?php
+		$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
+		if ($postTopUrl) {
+			echo '<h5><a href="'.$postTopUrl.'">'.esc_html(bizVektorOptions('postLabelName')).'</a></h5>';
+		} else {
+			echo '<h5>'.esc_html(bizVektorOptions('postLabelName')).'</h5>';
+		}
+	?></h5>
 	<?php 
 	$args = array(
 		'taxonomy' => 'category',

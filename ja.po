@@ -863,7 +863,7 @@ msgid "With excerpt and thumbnail"
 msgstr "抜粋とサムネイル画像あり"
 
 msgid "Number of %s posts to be displayed on the home page."
-msgstr "トップページでの %s の表示件数"
+msgstr "%s のトップページでの表示件数"
 
 msgctxt "top page post count"
 msgid "posts"

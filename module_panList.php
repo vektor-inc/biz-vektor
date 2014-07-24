@@ -3,6 +3,8 @@
 /*	パンくずリスト
 /*-------------------------------------------*/
 global $wp_query;
+global $biz_vektor_options;
+
 // カスタム投稿タイプの種類を取得
 $postType = get_post_type();
 // カスタム投稿タイプ名を取得
@@ -13,7 +15,6 @@ $postTypeName = esc_html($post_type_object->labels->name);
 $postLabelName = bizVektorOptions('postLabelName');
 	echo '<ul>';
 	echo '<li id="panHome"><a href="'. home_url() .'">HOME</a> &raquo; </li>';
-
 // ▼
 if ( is_404() ){
 	echo "<li>".__('Not found', 'biz-vektor')."</li>";
@@ -49,7 +50,12 @@ if ( is_404() ){
 } elseif ( is_single() ) {
 	// 投稿の場合
 	if ($postType == 'post') {
-		echo '<li>'.$postLabelName.' &raquo; </li>';
+		$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
+		if ($postTopUrl) {
+			echo '<li><a href="'.$postTopUrl.'">'.$postLabelName.'</a> &raquo; </li>';
+		} else {
+			echo '<li>'.$postLabelName.' &raquo; </li>';
+		}
 		$category = get_the_category();
 		$category_id = get_cat_ID( $category[0]->cat_name );
 		if ($category_id) :  // カスタム投稿タイプを追加した場合にカテゴリー指定が無い場合の為
@@ -72,8 +78,12 @@ if ( is_404() ){
 } else if (is_tax()) { // 階層構造を反映しないので要検討
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
 	if ( $postType == 'post') {
-		$postTypeName = esc_html(bizVektorOptions('postLabelName'));
-		echo '<li>'.$postTypeName.' &raquo; </li>';
+		$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
+		if ($postTopUrl) {
+			echo '<li><a href="'.$postTopUrl.'">'.$postLabelName.'</a> &raquo; </li>';
+		} else {
+			echo '<li>'.$postLabelName.' &raquo; </li>';
+		}
 	// 標準の投稿タイプでない場合は、カスタム投稿タイプ名を取得
 	} else {
 		if (get_post_type()) {
@@ -89,7 +99,12 @@ if ( is_404() ){
 	echo '<li>'.single_cat_title('','', FALSE).'</li>';
 // ▼▼ カテゴリー
 } else if ( is_category() ) {
-	echo '<li>'.$postLabelName.' &raquo; </li>';
+	$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
+	if ($postTopUrl) {
+		echo '<li><a href="'.$postTopUrl.'">'.$postLabelName.'</a> &raquo; </li>';
+	} else {
+		echo '<li>'.$postLabelName.' &raquo; </li>';
+	}
 	// カテゴリー情報を取得して$catに格納
 	$cat = get_queried_object();
 	// parent が 0 の場合 = 親カテゴリーが存在する場合
