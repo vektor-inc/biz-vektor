@@ -10,27 +10,47 @@
 <div id="sitemapPostList">
 
 	<!-- [ info ] -->
-	<?php $loop = new WP_Query( array( 'post_type' => 'info' ) ); ?>
-	<?php while ( $loop->have_posts() ) : $loop->the_post();
-	$postCount = ++$postCount;
-	endwhile;
-	if (isset($postCount) && $postCount): ?>
+	<?php
+	$args = array( 'post_type' => 'info');
+	$posts = get_posts($args);
+	if (isset($posts) && $posts): ?>
 	<h5><a href="<?php echo home_url(); ?>/info/"><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></a></h5>
-	<ul class="linkList">
-	<?php wp_list_categories('taxonomy=info-cat&title_li=&orderby=order'); ?>
-	</ul>
-	<?php endif;?>
-	<?php wp_reset_query(); ?>
+	<?php 
+	$args = array(
+		'taxonomy' => 'info-cat',
+		'title_li' => '',
+		'orderby' => 'order',
+		'show_option_none' => '',
+		'echo' => 0
+	);
+	$term_list = wp_list_categories( $args );
+	if ( !empty($term_list) ) {
+		echo '<ul class="linkList">'.$term_list.'</ul>';
+	}
+	endif;
+	wp_reset_postdata(); ?>
 	<!-- [ /info ] -->
 	<!-- [ post ] -->
-	<?php query_posts("showposts=-0"); ?>
-	<?php if(have_posts()): ?>
+	<?php
+	unset($posts);
+	$args = array( 'post_type' => 'post');
+	$posts = get_posts($args);
+	if (isset($posts) && $posts): ?>
 	<h5><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h5>
-	<ul class="linkList">
-	<?php wp_list_categories('title_li='); ?> 
-	</ul>
-	<?php endif;?>
-	<?php wp_reset_query(); ?>
+	<?php 
+	$args = array(
+		'taxonomy' => 'category',
+		'title_li' => '',
+		'orderby' => 'order',
+		'show_option_none' => '',
+		'echo' => 0
+	);
+	$term_list = wp_list_categories( $args );
+	if ( !empty($term_list) ) {
+		echo '<ul class="linkList">'.$term_list.'</ul>';
+	}
+	endif;
+	wp_reset_postdata(); ?>
 	<!-- [ /post ] -->
 
 </div>
