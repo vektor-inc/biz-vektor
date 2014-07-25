@@ -800,8 +800,9 @@ function get_biz_vektor_contactBtn(){
 	if ($options['contact_link']) :
 	$contactBtn = '<ul>';
 	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$options['contact_link'].'">'."\n";
-	$contactBtn .= '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'"></a></li>'."\n";
-	
+	$contactBtnImage = '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'">';
+	$contactBtnImage = apply_filters( 'bizvektor_side_contact_btn_image', $contactBtnImage );
+	$contactBtn .= $contactBtnImage.'</a></li>'."\n";
 	$contactBtn .= '</ul>'."\n";
 	return $contactBtn;
 	endif;
