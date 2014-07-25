@@ -388,6 +388,10 @@ msgctxt "admin menu"
 msgid "category"
 msgstr "カテゴリー"
 
+msgid "RSS Entry"
+msgstr "RSSエントリー"
+
+
 # ############################################################################
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "
