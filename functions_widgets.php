@@ -261,29 +261,34 @@ class wp_widget_bektor_rss extends WP_Widget {
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
     function widget($args, $instance){
-		if($instance['url']){
+    	$options = biz_vektor_get_theme_options();
+		if(preg_match('/^http.*$/',$instance['url'])){
 			echo '<div id="rss_widget">';
-			biz_vektor_blogList($instance['url']);
+			biz_vektor_blogList($instance);
 			echo '</div>';
 		}
     }
 
     function form($instance){
         $defaults = array(
-            'url' => ''
+            'url' => '',
+            'label' => 'ブログエントリー',
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
 
 		?>
-		<Label for="<?php echo $this->get_field_id('url');  ?>">URL</label>
+		<Label for="<?php echo $this->get_field_id('url');  ?>">見出しタイトル</label><br/>
+		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+		<br/>
+		<Label for="<?php echo $this->get_field_id('url');  ?>">URL</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
 		<?php
 
     }
 
     function update($new_instance, $old_instance){
-        $instance = $old_instance;
 		$instance['url'] = $new_instance['url'];
+		$instance['label'] = $new_instance['label'];
         return $instance;
     }
 }

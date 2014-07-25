@@ -467,14 +467,19 @@ function biz_vektor_print_headContact() {
 /*-------------------------------------------*/
 /*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
-function biz_vektor_blogList($url=null)	{
-	$options = biz_vektor_get_theme_options();
-	$blogRss = $options['blogRss'];
-	if ($url){ $blogRss = $url; }
-		if ($blogRss) {
+function biz_vektor_blogList($option = array('url'=>null,'label'=>null))	{
+	if ($option['url']){ $blogRss = $option['url']; }
+	else{
+		$options = biz_vektor_get_theme_options();
+		$blogRss = $options['blogRss'];
+	}
+	if ($blogRss) {
+		$titlelabel = 'ブログエントリー';
+		if($option['label']){ $titlelabel = $option['label']; }
+		elseif($blogRss['rssLabelName']){ $titlelabel = exc_html($option['rssLabelName']); }
 ?>
 	<div id="topBlog" class="infoList">
-	<h2><?php echo esc_html( bizVektorOptions('rssLabelName')); ?></h2>
+	<h2><?php echo $titlelabel; ?></h2>
 	<div class="rssBtn"><a href="<?php echo $blogRss ?>" id="blogRss" target="_blank">RSS</a></div>
 		<?php
 		$xml = simplexml_load_file($blogRss);
@@ -869,7 +874,7 @@ function biz_vektor_veryfi_option(){
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		// 'rssLabelName' => 'Blog entries',
+		'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
 		'favicon' => '',
 	);

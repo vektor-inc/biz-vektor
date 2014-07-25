@@ -635,17 +635,6 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 		</a>
 	</td>
 </tr>
-<!-- RSS -->
-<tr>
-	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>(<?php _e('RSS information display settings', 'biz-vektor'); ?>) </th>
-	<td><span style="font-size:14px;font-weight:lighter;">&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
-<p>
-	<?php _e('Enter the URL of the RSS feed if you are using feeds from related sites or external blog to be posted on the home page of this site.', 'biz-vektor'); ?><br />
-	<input type="text" name="biz_vektor_theme_options[blogRss]" id="blogRss" value="<?php echo esc_attr( $options['blogRss'] ); ?>" /><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span>
-</p>
-</td>
-</tr>
 </table>
 
 <?php submit_button(); ?>
