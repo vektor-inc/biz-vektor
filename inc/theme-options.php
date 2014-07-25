@@ -476,7 +476,7 @@ function biz_vektor_blogList($option = array('url'=>null,'label'=>null))	{
 	if ($blogRss) {
 		$titlelabel = 'ブログエントリー';
 		if($option['label']){ $titlelabel = $option['label']; }
-		elseif($blogRss['rssLabelName']){ $titlelabel = exc_html($option['rssLabelName']); }
+		elseif($blogRss['rssLabelName']){ $titlelabel = esc_html($option['rssLabelName']); }
 ?>
 	<div id="topBlog" class="infoList">
 	<h2><?php echo $titlelabel; ?></h2>
