@@ -107,11 +107,12 @@ add_action( 'widgets_init', 'biz_vektor_info_widgets_init' );
 class WP_Widget_infoTerms extends WP_Widget {
 	/** constructor */
 	function WP_Widget_infoTerms() {
+		global $biz_vektor_options;
 		$widget_ops = array(
 			'classname' => 'WP_Widget_infoTerms',
-			'description' => sprintf( __( 'Category list of %s', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
+			'description' => sprintf( __( 'Category list of %s', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] ),
 		);
-		$widget_name = sprintf( __( '%s category', 'biz-vektor' ),bizVektorOptions('infoLabelName') ).' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_'.sprintf( __( '%s category', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] );
 		$this->WP_Widget('infoTerms', $widget_name, $widget_ops);
 	}
 
@@ -165,14 +166,14 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_infoArchives extends WP_Widget {
 	/** constructor */
 	function WP_Widget_infoArchives() {
+		global $biz_vektor_options;
 		$widget_ops = array(
 			'classname' => 'WP_Widget_infoArchives',
-			'description' => sprintf( __( 'Yearly archives of %s', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
+			'description' => sprintf( __( 'Yearly archives of %s', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] ),
 		);
-		$widget_name = sprintf( __( '%s Yearly archives', 'biz-vektor' ),bizVektorOptions('infoLabelName') ).' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_'.sprintf( __( '%s Yearly archives', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] );
 		$this->WP_Widget('infoArchives', $widget_name, $widget_ops);
 	}
-
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		extract( $args );
