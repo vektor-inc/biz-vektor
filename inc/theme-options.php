@@ -874,7 +874,7 @@ function biz_vektor_veryfi_option(){
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		'rssLabelName' => 'Blog entries',
+		//'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
 		'favicon' => '',
 	);

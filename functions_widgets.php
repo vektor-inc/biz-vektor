@@ -287,6 +287,7 @@ class wp_widget_bektor_rss extends WP_Widget {
     }
 
     function update($new_instance, $old_instance){
+		$instance = $old_instance;
 		$instance['url'] = $new_instance['url'];
 		$instance['label'] = $new_instance['label'];
         return $instance;
