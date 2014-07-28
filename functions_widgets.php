@@ -100,7 +100,6 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			echo $after_widget;
 		}
 	}
-
 } // class WP_Widget_childPageList
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
 
