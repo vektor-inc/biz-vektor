@@ -123,13 +123,7 @@ echo $gMenuHtml;
 ?>
 
 <?php if (!is_front_page()) { ?>
-<div id="pageTitBnr">
-<div class="innerBox">
-<div id="pageTitInner">
 <?php get_template_part('module_pageTit'); ?>
-</div><!-- [ /#pageTitInner ] -->
-</div>
-</div><!-- [ /#pageTitBnr ] -->
 <?php get_template_part('module_panList'); ?>
 <?php } ?>
 

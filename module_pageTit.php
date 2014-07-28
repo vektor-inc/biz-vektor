@@ -1,11 +1,29 @@
-<?php
+<?php 
+if ( is_home() || is_page() || is_attachment() || is_search() || is_404() ) {
+	$pageTitTag = 'h1';
+} else if ( is_category() || is_tag() || is_author() || is_tax() || is_archive() || is_single() ) {
+	$pageTitTag = 'div';
+}
+$pageTitHtml_before = '<div id="pageTitBnr">'."\n";
+$pageTitHtml_before .= '<div class="innerBox">'."\n";
+$pageTitHtml_before .= '<div id="pageTitInner">'."\n";
+$pageTitHtml_before .= '<'.$pageTitTag.' id="pageTit">'."\n";
+$pageTitHtml_after = '</'.$pageTitTag.'>'."\n";
+$pageTitHtml_after .= '</div><!-- [ /#pageTitInner ] -->'."\n";
+$pageTitHtml_after .= '</div>'."\n";
+$pageTitHtml_after .= '</div><!-- [ /#pageTitBnr ] -->'."\n";
+
+/*-------------------------------------------*/
+/*	title
+/*-------------------------------------------*/
+global $biz_vektor_options;
 if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_archive() || is_single() ) {
 	// ポストタイプを取得
 	$postType = get_post_type();
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
 	// 投稿が0件の場合はget_post_typeが効かないので is_category()とis_tag()も追加
 	if ( $postType == 'post' || is_category() || is_tag() ) {
-		$pageTitle = esc_html(bizVektorOptions('postLabelName'));
+		$pageTitle = esc_html($biz_vektor_options['postLabelName']);
 	// 標準の投稿タイプでない場合は、カスタム投稿タイプ名を取得
 	} else {
 		// 普通のポストタイプが取得出来る場合
@@ -25,12 +43,13 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 } else if (is_404()){ 
 	$pageTitle = __('Not found', 'biz-vektor');
 }
-/*-------------------------------------------*/
-/*	出力
-/*-------------------------------------------*/
 $pageTitle = apply_filters( 'biz_vektor_pageTitCustom', $pageTitle );
-if ( is_home() || is_page() || is_attachment() || is_search() || is_404() ){ ?>
-<h1 id="pageTit"><?php echo esc_html( $pageTitle ); ?><?php if (is_page()) : edit_post_link(__('Edit', 'biz-vektor'), '<span class="edit-link edit-item"> [ ', ' ]' ); endif; ?></h1>
-<?php } else if ( is_category() || is_tag() || is_author() || is_tax() || is_archive() || is_single() ) { ?>
-<div id="pageTit"><?php echo esc_html( $pageTitle ); ?></div>
-<?php } ?>
+
+/*-------------------------------------------*/
+/*	print
+/*-------------------------------------------*/
+$pageTitHtml = $pageTitHtml_before;
+$pageTitHtml .= esc_html( $pageTitle );
+$pageTitHtml .= $pageTitHtml_after;
+$pageTitHtml = apply_filters( 'bizvektor_pageTitHtml', $pageTitHtml );
+echo $pageTitHtml;
