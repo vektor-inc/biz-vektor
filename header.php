@@ -130,13 +130,7 @@ echo $gMenuHtml;
 </div><!-- [ /#pageTitInner ] -->
 </div>
 </div><!-- [ /#pageTitBnr ] -->
-<!-- [ #panList ] -->
-<div id="panList">
-<div id="panListInner" class="innerBox">
 <?php get_template_part('module_panList'); ?>
-</div>
-</div>
-<!-- [ /#panList ] -->
 <?php } ?>
 
 <?php if (is_front_page() && (biz_vektor_slideExist() || get_header_image()) ) { ?>
