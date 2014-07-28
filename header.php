@@ -116,7 +116,7 @@ $gMenuHtml .= '</div><!-- [ /#gMenuInner ] -->
 </div>
 <!-- [ /#gMenu ] -->'."\n";
 // gMenuのHTMLにフックを設定
-$gMenuHtml = apply_filters( 'bizvektor_gmenu', $gMenuHtml );
+$gMenuHtml = apply_filters( 'bizvektor_gMenuHtml', $gMenuHtml );
 // gMenuのHTMLを出力
 echo $gMenuHtml;
 } // if ($gMenu) 

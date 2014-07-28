@@ -162,5 +162,5 @@ $panListHtml .= '</div>
 </div>
 <!-- [ /#panList ] -->
 ';
-$panListHtml = apply_filters( 'bizvektor_panList', $panListHtml );
+$panListHtml = apply_filters( 'bizvektor_panListHtml', $panListHtml );
 echo $panListHtml;
