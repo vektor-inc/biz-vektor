@@ -49,7 +49,7 @@ $wp_query = new WP_Query( array(
 
 <!-- [ #sideTower ] -->
 <div id="sideTower">
-	<?php get_template_part('module_side_post'); ?>
+	<?php get_sidebar('post'); ?>
 </div>
 <!-- [ /#sideTower ] -->
 
