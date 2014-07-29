@@ -93,39 +93,38 @@ if ($biz_vektor_options['fbAppId']) :
 <!-- [ /#header ] -->
 
 <?php
-$gMenuExist = wp_nav_menu( array( 'theme_location' => 'Header' , 'fallback_cb' => '' , 'echo' => false ) ) ;
-if ($gMenuExist) { ?>
-<!-- [ #gMenu ] -->
-<div id="gMenu" class="itemClose" onclick="showHide('gMenu');">
-<div id="gMenuInner" class="innerBox">
-<h3 class="assistive-text"><span>MENU</span></h3>
-<div class="skip-link screen-reader-text"><a href="#content" title="<?php _e('Skip menu', 'biz-vektor'); ?>"><?php _e('Skip menu', 'biz-vektor'); ?></a></div>
-<?php wp_nav_menu( array(
+$args = array(
  'theme_location' => 'Header',
  'fallback_cb' => '',
+ 'echo' => false,
  'walker' => new description_walker()
-));
-?>
-</div><!-- [ /#gMenuInner ] -->
+);
+$gMenu = wp_nav_menu( $args ) ;
+// メニューがセットされていたら実行
+if ($gMenu) {
+// ナビのHTMLを一旦変数に格納
+$gMenuHtml = '
+<!-- [ #gMenu ] -->
+<div id="gMenu" class="itemClose" onclick="showHide(\'gMenu\');">
+<div id="gMenuInner" class="innerBox">
+<h3 class="assistive-text"><span>MENU</span></h3>
+<div class="skip-link screen-reader-text">
+	<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
+</div>'."\n";
+$gMenuHtml .= $gMenu."\n";
+$gMenuHtml .= '</div><!-- [ /#gMenuInner ] -->
 </div>
-<!-- [ /#gMenu ] -->
-<?php } ?>
+<!-- [ /#gMenu ] -->'."\n";
+// gMenuのHTMLにフックを設定
+$gMenuHtml = apply_filters( 'bizvektor_gMenuHtml', $gMenuHtml );
+// gMenuのHTMLを出力
+echo $gMenuHtml;
+} // if ($gMenu) 
+?>
 
 <?php if (!is_front_page()) { ?>
-<div id="pageTitBnr">
-<div class="innerBox">
-<div id="pageTitInner">
 <?php get_template_part('module_pageTit'); ?>
-</div><!-- [ /#pageTitInner ] -->
-</div>
-</div><!-- [ /#pageTitBnr ] -->
-<!-- [ #panList ] -->
-<div id="panList">
-<div id="panListInner" class="innerBox">
 <?php get_template_part('module_panList'); ?>
-</div>
-</div>
-<!-- [ /#panList ] -->
 <?php } ?>
 
 <?php if (is_front_page() && (biz_vektor_slideExist() || get_header_image()) ) { ?>

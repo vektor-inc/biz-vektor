@@ -476,7 +476,7 @@ function biz_vektor_blogList($option = array('url'=>null,'label'=>null))	{
 	if ($blogRss) {
 		$titlelabel = 'ブログエントリー';
 		if($option['label']){ $titlelabel = $option['label']; }
-		elseif($blogRss['rssLabelName']){ $titlelabel = exc_html($option['rssLabelName']); }
+		elseif($blogRss['rssLabelName']){ $titlelabel = esc_html($option['rssLabelName']); }
 ?>
 	<div id="topBlog" class="infoList">
 	<h2><?php echo $titlelabel; ?></h2>
@@ -796,12 +796,12 @@ function suffix2console() {
 /*	Contact Btn
 /*-------------------------------------------*/
 function get_biz_vektor_contactBtn(){
-	$options = biz_vektor_get_theme_options();
-	if ($options['contact_link']) :
+	global $biz_vektor_options;
+	if ($biz_vektor_options['contact_link']) :
 	$contactBtn = '<ul>';
-	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$options['contact_link'].'">'."\n";
-	$contactBtn .= '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'"></a></li>'."\n";
-	
+	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$biz_vektor_options['contact_link'].'">'."\n";
+	$contactBtn .= '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'">';
+	$contactBtn .= '</a></li>'."\n";
 	$contactBtn .= '</ul>'."\n";
 	return $contactBtn;
 	endif;

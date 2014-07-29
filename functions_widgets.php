@@ -89,7 +89,7 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			'classname' => 'WP_Widget_childPageList',
 			'description' => '表示している固定ページが属する階層のページリストを表示',
 		);
-		$widget_name = '固定ページ子ページリスト'.' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_固定ページ子ページリスト';
 		$this->WP_Widget('childPageList', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -100,11 +100,14 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			echo $after_widget;
 		}
 	}
+<<<<<<< HEAD
+=======
 	function form($instance){
 	}
 	function update($new_instance,$old_instance){
 	}
 
+>>>>>>> 86e4eef315ff16319cb2e8a20d9705ac4b3eb5cb
 } // class WP_Widget_childPageList
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
 
@@ -117,7 +120,7 @@ class WP_Widget_topPR extends WP_Widget {
 			'classname' => 'WP_Widget_topPR',
 			'description' => 'トップページの３PRエリアウィジェットです。※サイドバーでは正しく表示されません。',
 		);
-		$widget_name = 'トップページ3PR'.' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_トップページ3PR';
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -177,7 +180,9 @@ class wp_widget_page extends WP_Widget {
 
 	function display_page($pageid) {
 		$page = get_page($pageid);
+		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
 		echo apply_filters('the_content', $page->post_content );
+		echo '</div>';
 	}
 }
 add_action('widgets_init', create_function('', 'return register_widget("wp_widget_page");'));
@@ -191,7 +196,7 @@ class WP_Widget_contact_link extends WP_Widget {
 			'classname' => 'WP_Widget_contact_link',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$widget_name = __('Contact button', 'biz-vektor').' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_'.__('Contact button', 'biz-vektor');
 		$this->WP_Widget('contact_link', $widget_name, $widget_ops);
 	}
 
@@ -271,7 +276,7 @@ class wp_widget_bektor_rss extends WP_Widget {
 			//'description' => __( 'this is RSS', 'biz-vektor' ),
 			'description' => 'RSSエントリーを設置します',
 		);
-		$widget_name = __('RSS エントリー ', 'biz-vektor').' ('.get_biz_vektor_name().')';
+		$widget_name = get_biz_vektor_name().'_RSSエントリー';
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
     function widget($args, $instance){
@@ -282,7 +287,6 @@ class wp_widget_bektor_rss extends WP_Widget {
 			echo '</div>';
 		}
     }
-
     function form($instance){
         $defaults = array(
             'url' => '',
@@ -297,9 +301,7 @@ class wp_widget_bektor_rss extends WP_Widget {
 		<Label for="<?php echo $this->get_field_id('url');  ?>">URL</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
 		<?php
-
     }
-
     function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['url'] = $new_instance['url'];

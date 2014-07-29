@@ -39,15 +39,20 @@
 		<?php biz_vektor_print_footContact(); ?>
 		</dd>
 		</dl>
-		<!-- [ #footerSiteMap ] -->
-		<div id="footerSiteMap">
-		<?php wp_nav_menu(
+		<?php
+		$footerSiteMap = '<!-- [ #footerSiteMap ] -->
+		<div id="footerSiteMap">'."\n";
+		$footerSiteMap .= wp_nav_menu(
 		array(
 			'theme_location' => 'FooterSiteMap',
-			'fallback_cb' => ''
-		) ); ?>
-		</div>
-		<!-- [ /#footerSiteMap ] -->
+			'fallback_cb' => '',
+			'echo' => false,
+		) );
+		$footerSiteMap .= '</div>
+		<!-- [ /#footerSiteMap ] -->'."\n";
+		$footerSiteMap = apply_filters( 'bizvektor_footerSiteMap', $footerSiteMap );
+		echo $footerSiteMap;
+		?>
 	</div>
 	<!-- [ /#footerInner ] -->
 	</div>

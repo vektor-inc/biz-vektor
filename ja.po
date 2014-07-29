@@ -319,16 +319,16 @@ msgid "Homepage main content"
 msgstr "トップページメインコンテンツエリア"
 
 msgid "This widget area appears on the front page main content area only."
-msgstr ""
-"トップページのメインコンテンツエリア表示されるウィジェットです。ドラッグ＆ド"
-"ロップで必要なものだけ入れてください。バナーやブログパーツなどは、『テキス"
-"ト』ウィジェットを使用して、ソースコードを張り付けられます。"
+msgstr "トップページのメインコンテンツエリア表示されるウィジェットです。"
 
 msgid "Sidebar(Front page only)"
 msgstr "サイドバー（トップページ）"
 
 msgid "This widget area appears on the front page only."
-msgstr "トップページにのみ表示されるサイドバーウィジェットです。"
+msgstr ""
+"トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
+"必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
+"ジェットを使用して、ソースコードを張り付けられます。"
 
 msgid "Sidebar(Post content only)"
 msgstr "サイドバー（投稿ページ）"
@@ -340,13 +340,17 @@ msgid "Sidebar(Page content only)"
 msgstr "サイドバー（固定ページ）"
 
 msgid "This widget area appears only on the page content pages."
-msgstr "固定ページコンテンツのページにのみ表示されるウィジェットです。"
+msgstr ""
+"固定ページコンテンツのページにのみ表示されるウィジェットです。設定がない場合"
+"は子ページのリストなどが自動的に表示されます。"
 
 msgid "Sidebar(%s content only)"
 msgstr "サイドバー（%sページ）"
 
 msgid "This widget area appears only on the %s content pages."
-msgstr "%sコンテンツのページにのみ表示されるウィジェットです。"
+msgstr ""
+"%sコンテンツのページにのみ表示されるウィジェットです。設定がない場合はカテゴ"
+"リー"
 
 msgid "Sidebar(Common top)"
 msgstr "サイドバー（共通・上）"
@@ -387,6 +391,9 @@ msgstr "%s 年別アーカイブ"
 msgctxt "admin menu"
 msgid "category"
 msgstr "カテゴリー"
+
+msgid "RSS Entry"
+msgstr "RSSエントリー"
 
 # ############################################################################
 msgid ""
