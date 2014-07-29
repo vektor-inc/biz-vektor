@@ -100,6 +100,14 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			echo $after_widget;
 		}
 	}
+<<<<<<< HEAD
+=======
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
+	}
+
+>>>>>>> 86e4eef315ff16319cb2e8a20d9705ac4b3eb5cb
 } // class WP_Widget_childPageList
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
 
@@ -120,8 +128,10 @@ class WP_Widget_topPR extends WP_Widget {
 		get_template_part( 'module_topPR' );
 	//	echo $after_widget;
 	}
-	function form(){}
-	function update(){}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
+	}
 	
 } // class WP_Widget_topPR
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
@@ -223,6 +233,10 @@ class WP_Widget_top_list_post extends WP_Widget {
 		get_template_part( 'module_top_list_post' );
 		// echo $after_widget;
 	}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
+	}
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_post");'));
 
@@ -244,6 +258,10 @@ class WP_Widget_top_list_info extends WP_Widget {
 		// echo $before_widget;
 		get_template_part( 'module_top_list_info' );
 		// echo $after_widget;
+	}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
