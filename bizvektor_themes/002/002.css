@@ -409,10 +409,10 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 /*-------------------------------------------*/
 .paging	{ display:block; overflow:hidden; padding:20px 0px 20px; text-align:center;}
 .paging span,
-.paging a	{ margin:0px 2px; padding:6px 12px;color:#5ead3c;border:1px solid #5ead3c; text-decoration:none; }
+.paging a	{ margin:0px 1px; padding:6px 10px;color:#5ead3c;border:1px solid #5ead3c; text-decoration:none; }
 .paging span.current,
 .paging a:hover	{ background-color:#5ead3c;color:#fff; text-decoration:none; }
-.paging span.pageIndex { display:none; }
+.paging span.txt_hellip { border:none;margin:0;padding:6px 0px; }
 
 /*			.infoList
 -------------------------------------------------------------- */
