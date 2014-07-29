@@ -1,4 +1,7 @@
 <?php
+
+define('BizVektor_theme_version', '0.12.0');
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)

@@ -244,15 +244,15 @@ function getHeadTitle() {
 /*-------------------------------------------*/
 function biz_vektor_layouts() {
 	$layout_options = array(
-		'content-sidebar' => array(
-			'value' => 'content-sidebar',
-			'label' => __('Right sidebar', 'biz-vektor'),
-			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
-		),
 		'sidebar-content' => array(
 			'value' => 'sidebar-content',
 			'label' => __('Left sidebar', 'biz-vektor'),
 			'thumbnail' => get_template_directory_uri() . '/inc/images/sidebar-content.png',
+		),
+		'content-sidebar' => array(
+			'value' => 'content-sidebar',
+			'label' => __('Right sidebar', 'biz-vektor'),
+			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
 		),
 	);
 	return apply_filters( 'biz_vektor_layouts', $layout_options );
@@ -819,10 +819,20 @@ function get_biz_vektor_name() {
 
 // load the option and check data
 function biz_vektor_veryfi_option(){
-	$options = get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
-	$default_theme_options = array(
-		'font_title' => '',
-		'font_menu' => '',
+	$options = get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
+	$default_theme_options = biz_vektor_generate_default_options();
+
+	$keylist = array_keys($options);
+	foreach($keylist as $key){
+		$default_theme_options[$key] = $options[$key];
+	}
+
+	return $default_theme_options;
+}
+function biz_vektor_generate_default_options(){
+		$default_theme_options = array(
+		'font_title' => 'sanserif',
+		'font_menu' => 'sanserif',
 		'gMenuDivide' => '',
 		'head_logo' => '',
 		'foot_logo' => '',
@@ -837,16 +847,16 @@ function biz_vektor_veryfi_option(){
 		'gaID' => '',
 		'gaType' => '',
 		'topEntryTitleDisplay' => '',
-		'topSideBarDisplay' => '',
+		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
 		'postTopCount' => '',
 		'infoTopCount' => '',
 		'postTopUrl' => '',
 		'infoTopUrl' => '',
-		'listInfoTop' => '',
-		'listInfoArchive' => '',
-		'listBlogTop' => '',
-		'listBlogArchive' => '',
+		'listInfoTop' => 'listType_set',
+		'listInfoArchive' => 'listType_set',
+		'listBlogTop' => 'listType_set',
+		'listBlogArchive' => 'listType_set',
 		'blogRss' => '',
 		'twitter' => '',
 		'facebook' => '',
@@ -870,14 +880,33 @@ function biz_vektor_veryfi_option(){
 		'fbLikeBoxStream' => '',
 		'fbLikeBoxFace' => '',
 		'fbLikeBoxHeight' => '',
-		'side_child_display' => '',
+		'side_child_display' => 'side_child_display',
+		'rssLabelName' => 'Blog entries',
+		'favicon' => '',
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		//'rssLabelName' => 'Blog entries',
+		// 'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
-		'favicon' => '',
+		'pr1_title' => __('Rich theme options', 'biz-vektor'),
+		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
+		'pr1_link' => '',
+		'pr1_image' => '',
+		'pr1_image_s' => '',
+		'pr2_title' => __('Various designs available', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr2_link' => '',
+		'pr2_image' => '',
+		'pr2_image_s' => '',
+		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
+		'pr3_link' => '',
+		'pr3_image' => '',
+		'pr3_image_s' => '',
+		'theme_version'=>'0.11.5.2',
+		'SNSuse' => false
 	);
+
 	for ( $i = 1; $i <= 5 ;){
 		$default_theme_options['slide'.$i.'link'] = '';
 		$default_theme_options['slide'.$i.'image'] = '';
@@ -886,19 +915,6 @@ function biz_vektor_veryfi_option(){
 		$default_theme_options['slide'.$i.'blank'] = '';
 	$i++;
 	}
-		for ( $i = 1; $i <= 3 ;){
-		$default_theme_options['pr'.$i.'_title'] = '';
-		$default_theme_options['pr'.$i.'_description'] = '';
-		$default_theme_options['pr'.$i.'_link'] = '';
-		$default_theme_options['pr'.$i.'_image'] = '';
-		$default_theme_options['pr'.$i.'_image_s'] = '';
-	$i++;
-	}
-
-	$keylist = array_keys($options);
-	foreach($keylist as $key){
-		$default_theme_options[$key] = $options[$key];
-	}
-
+//	global $dbgdbg; echo "<strong>".$dbgdbg++."</strong><br>";
 	return $default_theme_options;
 }
