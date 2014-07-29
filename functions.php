@@ -153,8 +153,8 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/bizvektor_themes/001/001_custom.php' );
-	require( dirname( __FILE__ ) . '/bizvektor_themes/002/002_custom.php' );
+	require( dirname( __FILE__ ) . '/design_skins/001/001_custom.php' );
+	require( dirname( __FILE__ ) . '/design_skins/002/002_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer
