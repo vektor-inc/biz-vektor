@@ -359,7 +359,7 @@ position:relative; line-height:114.3%;}
 /*-------------------------------------------*/
 .paging	{ display:block; overflow:hidden; padding:20px 0px 20px; text-align:center; }
 .paging span,
-.paging a	{ margin:0px 1px; padding:6px 10px;color:#999;border:1px solid #999; text-decoration:none; border-radius:3px; }
+.paging a	{ margin:0 1px; padding:6px 10px;color:#999;border:1px solid #999; text-decoration:none; border-radius:3px; }
 .paging span.current,
 .paging a:hover	{ background-color:#999;color:#fff; text-decoration:none; }
 .paging span.txt_hellip { border:none;margin:0;padding:6px 0px; }
