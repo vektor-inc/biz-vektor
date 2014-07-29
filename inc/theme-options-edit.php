@@ -18,9 +18,10 @@
 /*-------------------------------------------*/
 
 function biz_vektor_theme_options_render_page() {
+	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
-echo "<pre>";print_r(biz_vektor_get_theme_options());echo "</pre>";
+echo "<pre>";print_r( $options );echo "</pre>";
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
@@ -45,7 +46,6 @@ echo "<pre>";print_r(biz_vektor_get_theme_options());echo "</pre>";
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
 		</p>
 		<form method="post" action="options.php">
-		<input type="hidden" name="post_status" value="bvo" />
 			<?php
 				settings_fields( 'biz_vektor_options' );
 			?>
@@ -816,18 +816,10 @@ px</dd>
 <th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
 <td>
 <p><?php _e('If other plug-ins are used for the OGP, do not output the OGP using BizVektor.', 'biz-vektor'); ?></p>
-<?php
-$biz_vektor_ogpTags = array(
-	'ogp_on' 	=> __('I want to output the OGP tags using BizVektor', 'biz-vektor'),
-	'ogp_off' 	=> __('Do not output OGP tags using BizVektor', 'biz-vektor')
-	);
-foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLavel) {
-	if ( $biz_vektor_ogpTagValue == $options['ogpTagDisplay'] ) { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>" checked> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
-	<?php } else { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>"> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
-	<?php }
-} ?>
+
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']=='ogp_off')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+
 </td>
 </tr>
 </table>
@@ -836,14 +828,33 @@ foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLav
 <div class="optionNav bottomNav">
 <ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
-</form>
+
+</form><div><form action="" method="post">
+<input type="hidden" name="bizvektor_action_mode" value="reset" />
+<input type="submit" value="リセット" />
+</form></div>
+
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
 <?php
 }
 
+function biz_vektor_them_edit_function($post){
+	switch ($post['bizvektor_action_mode']) {
+		case 'reset':
+			$default_theme_options = biz_vektor_get_default_theme_options();
+			delete_option('biz_vektor_theme_options');
+			add_option('biz_vektor_theme_options', $default_theme_options);
+			break;
+		
+		default:
+			break;
+	}
+}
+
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
+	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
 	$output['font_title'] = $input['font_title'];
 	$output['font_menu'] = $input['font_menu'];
@@ -931,6 +942,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $input['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
 	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $input['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
 
+	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
 	// Theme layout must be in our array of theme layout options
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
@@ -938,7 +950,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	// sidebar child menu display
 	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
 
-	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
 	//$output = $defaults;
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
