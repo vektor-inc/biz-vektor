@@ -323,18 +323,18 @@ function biz_vektor_theme_styleSetting() {
 	$biz_vektor_theme_styles = array(
 		'calmly' => array(
 			'label' => 'Calmly',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/002/002.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/002/002_oldie.css',
+			'cssPath' => get_template_directory_uri().'/design_skins/002/002.css',
+			'cssPathOldIe' => get_template_directory_uri().'/design_skins/002/002_oldie.css',
 			),
 		'plain' => array(
 			'label' => __('Plain', 'biz-vektor'),
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/plain/plain.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/plain/plain_oldie.css',
+			'cssPath' => get_template_directory_uri().'/design_skins/plain/plain.css',
+			'cssPathOldIe' => get_template_directory_uri().'/design_skins/plain/plain_oldie.css',
 			),
 		'default' => array(
 			'label' => 'Default',
-			'cssPath' => get_template_directory_uri().'/bizvektor_themes/001/001.css',
-			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/001/001_oldie.css',
+			'cssPath' => get_template_directory_uri().'/design_skins/001/001.css',
+			'cssPathOldIe' => get_template_directory_uri().'/design_skins/001/001_oldie.css',
 			),
 	);
 	// [2] Receive 'theme style array' from the plug-in
