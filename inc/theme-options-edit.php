@@ -21,7 +21,7 @@ function biz_vektor_theme_options_render_page() {
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
-echo "<pre>";print_r( $options );echo "</pre>";
+echo "<pre>";print_r( get_option('biz_vektor_theme_options') );echo "</pre>";
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
@@ -46,6 +46,7 @@ echo "<pre>";print_r( $options );echo "</pre>";
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
 		</p>
 		<form method="post" action="options.php">
+		<input type="hidden" name="post_status" value="bvo" />
 			<?php
 				settings_fields( 'biz_vektor_options' );
 			?>
@@ -842,9 +843,11 @@ px</dd>
 function biz_vektor_them_edit_function($post){
 	switch ($post['bizvektor_action_mode']) {
 		case 'reset':
-			$default_theme_options = biz_vektor_get_default_theme_options();
+			$default_theme_options = biz_vektor_generate_default_options();
+			echo '<pre style="color:red;">';print_r($default_theme_options);echo '</pre>';
 			delete_option('biz_vektor_theme_options');
 			add_option('biz_vektor_theme_options', $default_theme_options);
+			echo '<pre style="color:red;">';print_r(get_option('biz_vektor_theme_options'));echo '</pre>';
 			break;
 		
 		default:

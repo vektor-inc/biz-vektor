@@ -1,6 +1,6 @@
 <?php
 
-define('BizVektor_theme_version', '0.12.0');
+define('BizVektor_Theme_Version', '1.0.0');
 
 /*-------------------------------------------*/
 /*	Set content width

@@ -45,15 +45,17 @@
 
 function biz_vektor_theme_options_init() {
 	if ( false === biz_vektor_get_theme_options() )
-		add_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
+//		add_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
 
 	register_setting(
 		'biz_vektor_options',
 		'biz_vektor_theme_options',
 		'biz_vektor_theme_options_validate'
 	);
+	global $biz_vektor_theme_options;
+	$biz_vektor_theme_options = biz_vektor_veryfi_option();
 }
-add_action( 'admin_init', 'biz_vektor_theme_options_init' );
+add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
 
 function biz_vektor_option_page_capability( $capability ) {
 	return 'edit_theme_options';
@@ -80,7 +82,11 @@ function biz_vektor_theme_options_add_page() {
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
-	return biz_vektor_veryfi_option();
+//	return biz_vektor_veryfi_option();
+	global $famas;echo '<span style="color:red;">['.++$famas."]</span>";
+//	return get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
+	global $biz_vektor_theme_options;
+	return $biz_vektor_theme_options;
 }
 
 function biz_vektor_get_default_theme_options() {
@@ -819,6 +825,7 @@ function get_biz_vektor_name() {
 
 // load the option and check data
 function biz_vektor_veryfi_option(){
+	global $famass;echo '<span style="color:blue;">['.++$famass."]</span>";
 	$options = get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
 	$default_theme_options = biz_vektor_generate_default_options();
 
@@ -826,7 +833,6 @@ function biz_vektor_veryfi_option(){
 	foreach($keylist as $key){
 		$default_theme_options[$key] = $options[$key];
 	}
-
 	return $default_theme_options;
 }
 function biz_vektor_generate_default_options(){
@@ -903,7 +909,6 @@ function biz_vektor_generate_default_options(){
 		'pr3_link' => '',
 		'pr3_image' => '',
 		'pr3_image_s' => '',
-		'theme_version'=>'0.11.5.2',
 		'SNSuse' => false
 	);
 
@@ -917,4 +922,47 @@ function biz_vektor_generate_default_options(){
 	}
 //	global $dbgdbg; echo "<strong>".$dbgdbg++."</strong><br>";
 	return $default_theme_options;
+}
+
+class biz_vektor_veryfi_tool{
+	var $version;
+
+	public function __construct(){
+		$this->check_version();
+	}
+
+	public function update(){
+		switch (BizVektor_Theme_Version) {
+			case '1.0.0':
+				if($this->version == '0.11.5.2'){
+					$this->rebuild_option_0_11_5_2();
+				}
+				break;
+			
+			default:
+				break;
+		}
+	}
+
+	public function check_version(){
+		// テーマバージョンの確認
+		$options = get_option('biz_vektor_get_theme_options');
+		if(isset($options['theme_version'])){
+			$this->version = $options['theme_version'];
+		}else{
+			$this->version = '0.11.5.2';
+		}
+	}
+
+	public function rebuild_option_0_11_5_2(){
+		$options = get_option('biz_vektor_theme_options');
+		$default = biz_vektor_generate_default_options();
+
+		$keylist = array_keys($options);
+		foreach($keylist as $key){
+			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
+		}
+		delete_option('biz_vektor_theme_options');
+		add_option('biz_vektor_theme_options', $default);
+	}
 }
