@@ -154,7 +154,6 @@ form#searchform input#s	{width:110px; }
 #content .childPageBox ul li ul li a:hover,
 #content .childPageBox ul li ul li.current_page_item a { background-image:url(images/icon_arrow2_red.gif); }
 
-<<<<<<< HEAD:bizvektor_themes/plain/plain_oldIE.css
 #content .childPageBox ul li ul li ul	{ padding-left:8px;font-size:100%;line-height:120%;}
 #content .childPageBox ul li.current_page_item ul li a	{ color:#666; text-decoration:none;background-image:url(images/icon_arrow2_gray.gif); }
 #content .childPageBox ul li.current_page_item ul li a:hover	{ color:#c00; text-decoration:underline;background-image:url(images/icon_arrow2_red.gif); }
@@ -163,7 +162,3 @@ form#searchform input#s	{width:110px; }
 
 #footerSiteMap	{ width:640px;padding-top:0px; font-size:12px; }
 #footer dl#footerOutline	{ float:left; }
-=======
-#topMainBnr			{ width:100%; }
-#topMainBnr img		{ max-width:950px; }
->>>>>>> 159f5bfb51fc82d4942d5b0c6b02f0a10959e7b1:bizvektor_themes/plain/plain_oldie.css
