@@ -825,14 +825,18 @@ px</dd>
 </table>
 <?php submit_button(); ?>
 </div>
+</form>
+
+<?php if(false){ ?>
+<div class="option Advanced"><form action="" method="post">
+<input type="hidden" name="bizvektor_action_mode" value="reset" />
+<p class="submit"><label style="font-weight:bold;color:red;"><input type="submit" name="submit" id="submit" class="button button-primary" value="設定を初期化"  />   ※ ビズベクトルテーマの設定がすべて初期化されます。</label></p>
+</form></div>
+
 <div class="optionNav bottomNav">
 <ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
-
-</form><div><form action="" method="post">
-<input type="hidden" name="bizvektor_action_mode" value="reset" />
-<input type="submit" value="リセット" />
-</form></div>
+<?php } ?>
 
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
