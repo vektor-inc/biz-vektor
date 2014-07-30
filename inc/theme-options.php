@@ -110,7 +110,7 @@ function biz_vektor_get_default_theme_options() {
 
 /*-------------------------------------------*/
 /*	Set option default
-/*	$opstions_default = biz_vektor_get_default_theme_options(); に移行して順次廃止	// 0.11.0
+/*	$opstions_default = biz_vektor_generate_default_options(); に移行して順次廃止	// 1.0.0
 /*-------------------------------------------*/
 function bizVektorOptions_default() {
 	global $bizVektorOptions_default;
@@ -825,7 +825,7 @@ function get_biz_vektor_name() {
 	return $name;
 }
 
-// load the option and check data
+// テーマオプションを読み込み、デフォルト値に上書きして返す。Noticeが出た時の一時的な使用用。現状で使用箇所なし 
 function biz_vektor_veryfi_option(){
 	$options = get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
 	$default_theme_options = biz_vektor_generate_default_options();
@@ -836,6 +836,7 @@ function biz_vektor_veryfi_option(){
 	}
 	return $default_theme_options;
 }
+
 function biz_vektor_generate_default_options(){
 		$default_theme_options = array(
 		'font_title' => 'sanserif',
@@ -924,4 +925,48 @@ function biz_vektor_generate_default_options(){
 	}
 //	global $dbgdbg; echo "<strong>".$dbgdbg++."</strong><br>";
 	return $default_theme_options;
+}
+
+class biz_vektor_veryfi_tool{
+	var $version;
+
+	public function __construct(){
+		$this->check_version();
+	}
+
+	public function update(){
+		switch (BizVektor_Theme_Version) {
+			case '1.0.0':
+				if($this->version == '0.11.5.2'){
+					$this->rebuild_option_0_11_5_2();
+				}
+				break;
+			default:
+				break;
+		}
+	}
+
+	public function check_version(){
+		// テーマバージョンの確認
+		//$options = get_option('biz_vektor_theme_options');
+		$options = biz_vektor_get_theme_options();
+		if(isset($options['version'])){
+			$this->version = $options['version'];
+		}else{
+			$this->version = '0.11.5.2';
+		}
+	}
+
+	public function rebuild_option_0_11_5_2(){
+		$options = get_option('biz_vektor_theme_options');
+		$default = biz_vektor_generate_default_options();
+
+		$keylist = array_keys($options);
+		foreach($keylist as $key){
+			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
+		}
+		delete_option('biz_vektor_theme_options');
+		add_option('biz_vektor_theme_options', $default);
+		biz_vektor_option_register();
+	}
 }
