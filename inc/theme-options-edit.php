@@ -21,7 +21,6 @@ function biz_vektor_theme_options_render_page() {
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
-echo "<pre>";print_r( get_option('biz_vektor_theme_options') );echo "</pre>";
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
@@ -844,11 +843,9 @@ function biz_vektor_them_edit_function($post){
 	switch ($post['bizvektor_action_mode']) {
 		case 'reset':
 			$default_theme_options = biz_vektor_generate_default_options();
-			echo '<pre style="color:red;">';print_r($default_theme_options);echo '</pre>';
 			delete_option('biz_vektor_theme_options');
 			add_option('biz_vektor_theme_options', $default_theme_options);
 			biz_vektor_theme_options_init();
-			echo '<pre style="color:red;">';print_r(get_option('biz_vektor_theme_options'));echo '</pre>';
 			break;
 		
 		default:
@@ -860,39 +857,64 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
-	$output['font_title'] = $input['font_title'];
-	$output['font_menu'] = $input['font_menu'];
+	// Design
 	$output['gMenuDivide'] = $input['gMenuDivide'];
 	$output['head_logo'] = $input['head_logo'];
 	$output['foot_logo'] = $input['foot_logo'];
+	$output['font_title'] = $input['font_title'];
+	$output['font_menu'] = $input['font_menu'];
+	$output['side_child_display'] = $input['side_child_display'];
+	// Contact info
 	$output['contact_txt'] = $input['contact_txt'];
 	$output['tel_number'] = $input['tel_number'];
 	$output['contact_time'] = $input['contact_time'];
 	$output['sub_sitename'] = $input['sub_sitename'];
 	$output['contact_address'] = $input['contact_address'];
 	$output['contact_link'] = $input['contact_link'];
-	$output['topTitle'] = $input['topTitle'];
-	$output['commonKeyWords'] = $input['commonKeyWords'];
-	$output['gaID'] = $input['gaID'];
-	$output['gaType'] = $input['gaType'];
-	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
-	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
+	// 3PR
 	$output['top3PrDisplay'] = $input['top3PrDisplay'];
-	$output['postTopCount'] = $input['postTopCount'];
-	$output['infoTopCount'] = $input['infoTopCount'];
-	$output['postTopUrl'] = $input['postTopUrl'];
-	$output['infoTopUrl'] = $input['infoTopUrl'];
+	$output['pr1_image'] = $input['pr1_image'];
+	$output['pr1_image_s'] = $input['pr1_image_s'];
+	$output['pr2_link'] = $input['pr2_link'];
+	$output['pr2_image'] = $input['pr2_image'];
+	$output['pr2_image_s'] = $input['pr2_image_s'];
+	$output['pr3_link'] = $input['pr3_link'];
+	$output['pr3_image'] = $input['pr3_image'];
+	$output['pr3_image_s'] = $input['pr3_image_s'];
+	// Infomation & Blog	
 	$output['listInfoTop'] = $input['listInfoTop'];
 	$output['listInfoArchive'] = $input['listInfoArchive'];
 	$output['listBlogTop'] = $input['listBlogTop'];
 	$output['listBlogArchive'] = $input['listBlogArchive'];
+	$output['infoTopCount'] = $input['infoTopCount'];
+	$output['postTopUrl'] = $input['postTopUrl'];
+	$output['postTopCount'] = $input['postTopCount'];
+	$output['pr1_link'] = $input['pr1_link'];
+	// SEO 
+	$output['topTitle'] = $input['topTitle'];
+	$output['commonKeyWords'] = $input['commonKeyWords'];
+	$output['gaID'] = $input['gaID'];
+	$output['gaType'] = $input['gaType'];
+	// TopPage
+	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
+	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
+	$output['infoTopUrl'] = $input['infoTopUrl'];
+	// SlideShow
+	for ( $i = 1; $i <= 5 ;){
+		$output['slide'.$i.'link'] = $input['slide'.$i.'link'];
+		$output['slide'.$i.'image'] = $input['slide'.$i.'image'];
+		$output['slide'.$i.'alt'] = $input['slide'.$i.'alt'];
+		$output['slide'.$i.'display'] = $input['slide'.$i.'display'];
+		$output['slide'.$i.'blank'] = $input['slide'.$i.'blank'];
+	$i++;
+	}
+	// SNS
+	$output['fbAppId'] = $input['fbAppId'];
+	$output['fbAdminId'] = $input['fbAdminId'];
 	$output['blogRss'] = $input['blogRss'];
 	$output['twitter'] = $input['twitter'];
 	$output['facebook'] = $input['facebook'];
-	$output['fbAppId'] = $input['fbAppId'];
-	$output['fbAdminId'] = $input['fbAdminId'];
 	$output['ogpImage'] = $input['ogpImage'];
-	$output['ogpTagDisplay'] = $input['ogpTagDisplay'];
 	$output['snsBtnsFront'] = $input['snsBtnsFront'];
 	$output['snsBtnsPage'] = $input['snsBtnsPage'];
 	$output['snsBtnsPost'] = $input['snsBtnsPost'];
@@ -909,17 +931,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbLikeBoxStream'] = $input['fbLikeBoxStream'];
 	$output['fbLikeBoxFace'] = $input['fbLikeBoxFace'];
 	$output['fbLikeBoxHeight'] = $input['fbLikeBoxHeight'];
-	$output['side_child_display'] = $input['side_child_display'];
-	$output['pr1_link'] = $input['pr1_link'];
-	$output['pr1_image'] = $input['pr1_image'];
-	$output['pr1_image_s'] = $input['pr1_image_s'];
-	$output['pr2_link'] = $input['pr2_link'];
-	$output['pr2_image'] = $input['pr2_image'];
-	$output['pr2_image_s'] = $input['pr2_image_s'];
-	$output['pr3_link'] = $input['pr3_link'];
-	$output['pr3_image'] = $input['pr3_image'];
-	$output['pr3_image_s'] = $input['pr3_image_s'];
-
+	$output['ogpTagDisplay'] = $input['ogpTagDisplay'];
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $output['postLabelName'] = "Blog"; }
@@ -927,12 +939,11 @@ function biz_vektor_theme_options_validate( $input ) {
 	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
 	if($input['theme_style'] == ''){ $output['theme_style'] = "default"; }
 
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $output['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $output['pr1_description'] = __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $output['pr2_title'] = __('Various designs available', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $output['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $output['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $output['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $output['pr1_title'] = $defaults['pr1_title']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $output['pr1_description'] = $defaults['pr1_description']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $output['pr2_title'] = $defaults['pr2_title']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $output['pr3_title'] = $defaults['pr3_title']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $output['pr3_description'] = $defaults['pr3_description']; }
 
 	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
