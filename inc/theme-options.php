@@ -52,14 +52,14 @@ function biz_vektor_theme_options_init() {
 }
 add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
 
-function biz_vektor_option_resist(){
+function biz_vektor_option_register(){
 	register_setting(
 		'biz_vektor_options',
 		'biz_vektor_theme_options',
 		'biz_vektor_theme_options_validate'
 	);
 }
-add_action('admin_init', 'biz_vektor_option_resist');
+add_action('admin_init', 'biz_vektor_option_register');
 
 function biz_vektor_option_page_capability( $capability ) {
 	return 'edit_theme_options';
@@ -86,7 +86,6 @@ function biz_vektor_theme_options_add_page() {
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
-	global $famas;echo '<span style="color:red;">['.++$famas."]</span>";
 	global $biz_vektor_theme_options;
 	return $biz_vektor_theme_options;
 }
@@ -828,7 +827,6 @@ function get_biz_vektor_name() {
 
 // load the option and check data
 function biz_vektor_veryfi_option(){
-	global $famass;echo '<span style="color:blue;">['.++$famass."]</span>";
 	$options = get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
 	$default_theme_options = biz_vektor_generate_default_options();
 

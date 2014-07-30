@@ -910,41 +910,29 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbLikeBoxFace'] = $input['fbLikeBoxFace'];
 	$output['fbLikeBoxHeight'] = $input['fbLikeBoxHeight'];
 	$output['side_child_display'] = $input['side_child_display'];
-	$output['rssLabelName'] = $input['rssLabelName'];
-	$output['favicon'] = $input['favicon'];
-	$output['theme_layout'] = $input['theme_layout'];
-	$output['postLabelName'] = $input['postLabelName'];
-	$output['infoLabelName'] = $input['infoLabelName'];
-	$output['theme_style'] = $input['theme_style'];
-	$output['pr1_title'] = $input['pr1_title'];
-	$output['pr1_description'] = $input['pr1_description'];
 	$output['pr1_link'] = $input['pr1_link'];
 	$output['pr1_image'] = $input['pr1_image'];
 	$output['pr1_image_s'] = $input['pr1_image_s'];
-	$output['pr2_title'] = $input['pr2_title'];
-	$output['pr2_description'] = $input['pr2_description'];
 	$output['pr2_link'] = $input['pr2_link'];
 	$output['pr2_image'] = $input['pr2_image'];
 	$output['pr2_image_s'] = $input['pr2_image_s'];
-	$output['pr3_title'] = $input['pr3_title'];
-	$output['pr3_description'] = $input['pr3_description'];
 	$output['pr3_link'] = $input['pr3_link'];
 	$output['pr3_image'] = $input['pr3_image'];
 	$output['pr3_image_s'] = $input['pr3_image_s'];
 
 
-	if($input['theme_layout'] == ''){ $input['theme_layout'] = "content-sidebar"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $input['postLabelName'] = "Blog"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $input['infoLabelName'] = "Information"; }
-	if($input['rssLabelName'] == ''){ $input['rssLabelName'] = "Blog entries"; }
-	if($input['theme_style'] == ''){ $input['theme_style'] = "default"; }
+	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $output['postLabelName'] = "Blog"; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $output['infoLabelName'] = "Information"; }
+	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
+	if($input['theme_style'] == ''){ $output['theme_style'] = "default"; }
 
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $input['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $input['pr1_description'] = __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $input['pr2_title'] = __('Various designs available', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $input['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $input['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $input['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $output['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $output['pr1_description'] = __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $output['pr2_title'] = __('Various designs available', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $output['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $output['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $output['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
 
 	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
