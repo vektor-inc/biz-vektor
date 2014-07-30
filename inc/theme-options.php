@@ -44,16 +44,22 @@
 /*-------------------------------------------*/
 
 function biz_vektor_theme_options_init() {
-	if ( false === biz_vektor_get_theme_options() )
-		add_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
+	if ( false === get_option('biz_vektor_theme_options') ){
+		add_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
+	}
+	global $biz_vektor_theme_options;
+	$biz_vektor_theme_options = get_option('biz_vektor_theme_options' );
+}
+add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
 
+function biz_vektor_option_register(){
 	register_setting(
 		'biz_vektor_options',
 		'biz_vektor_theme_options',
 		'biz_vektor_theme_options_validate'
 	);
 }
-add_action( 'admin_init', 'biz_vektor_theme_options_init' );
+add_action('admin_init', 'biz_vektor_option_register');
 
 function biz_vektor_option_page_capability( $capability ) {
 	return 'edit_theme_options';
@@ -80,7 +86,8 @@ function biz_vektor_theme_options_add_page() {
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
-	return biz_vektor_veryfi_option();
+	global $biz_vektor_theme_options;
+	return $biz_vektor_theme_options;
 }
 
 function biz_vektor_get_default_theme_options() {
@@ -97,12 +104,13 @@ function biz_vektor_get_default_theme_options() {
 		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
 		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
 	);
-	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
+//	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
+	return apply_filters( 'biz_vektor_default_options', biz_vektor_generate_default_options() );
 }
 
 /*-------------------------------------------*/
 /*	Set option default
-/*	$opstions_default = biz_vektor_get_default_theme_options(); に移行して順次廃止	// 0.11.0
+/*	$opstions_default = biz_vektor_generate_default_options(); に移行して順次廃止	// 1.0.0
 /*-------------------------------------------*/
 function bizVektorOptions_default() {
 	global $bizVektorOptions_default;
@@ -244,15 +252,15 @@ function getHeadTitle() {
 /*-------------------------------------------*/
 function biz_vektor_layouts() {
 	$layout_options = array(
-		'content-sidebar' => array(
-			'value' => 'content-sidebar',
-			'label' => __('Right sidebar', 'biz-vektor'),
-			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
-		),
 		'sidebar-content' => array(
 			'value' => 'sidebar-content',
 			'label' => __('Left sidebar', 'biz-vektor'),
 			'thumbnail' => get_template_directory_uri() . '/inc/images/sidebar-content.png',
+		),
+		'content-sidebar' => array(
+			'value' => 'content-sidebar',
+			'label' => __('Right sidebar', 'biz-vektor'),
+			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
 		),
 	);
 	return apply_filters( 'biz_vektor_layouts', $layout_options );
@@ -374,13 +382,13 @@ function biz_vektor_theme_style() {
 /*-------------------------------------------*/
 /*	Favicon
 /*-------------------------------------------*/
-add_action('wp_head', 'biz_vektor_favicon');
 function biz_vektor_favicon(){
 	$options = biz_vektor_get_theme_options();
 	if(isset($options['favicon']) && $options['favicon']){
 		echo '<link rel="SHORTCUT ICON" HREF="'.$options['favicon'].'" />';
 	}
 }
+add_action('wp_head', 'biz_vektor_favicon');
 
 /*-------------------------------------------*/
 /*	Menu divide
@@ -817,12 +825,22 @@ function get_biz_vektor_name() {
 	return $name;
 }
 
-// load the option and check data
+// テーマオプションを読み込み、デフォルト値に上書きして返す。Noticeが出た時の一時的な使用用。現状で使用箇所なし 
 function biz_vektor_veryfi_option(){
-	$options = get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
-	$default_theme_options = array(
-		'font_title' => '',
-		'font_menu' => '',
+	$options = get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
+	$default_theme_options = biz_vektor_generate_default_options();
+
+	$keylist = array_keys($options);
+	foreach($keylist as $key){
+		$default_theme_options[$key] = $options[$key];
+	}
+	return $default_theme_options;
+}
+
+function biz_vektor_generate_default_options(){
+		$default_theme_options = array(
+		'font_title' => 'sanserif',
+		'font_menu' => 'sanserif',
 		'gMenuDivide' => '',
 		'head_logo' => '',
 		'foot_logo' => '',
@@ -837,16 +855,16 @@ function biz_vektor_veryfi_option(){
 		'gaID' => '',
 		'gaType' => '',
 		'topEntryTitleDisplay' => '',
-		'topSideBarDisplay' => '',
+		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
 		'postTopCount' => '',
 		'infoTopCount' => '',
 		'postTopUrl' => '',
 		'infoTopUrl' => '',
-		'listInfoTop' => '',
-		'listInfoArchive' => '',
-		'listBlogTop' => '',
-		'listBlogArchive' => '',
+		'listInfoTop' => 'listType_set',
+		'listInfoArchive' => 'listType_set',
+		'listBlogTop' => 'listType_set',
+		'listBlogArchive' => 'listType_set',
 		'blogRss' => '',
 		'twitter' => '',
 		'facebook' => '',
@@ -870,14 +888,33 @@ function biz_vektor_veryfi_option(){
 		'fbLikeBoxStream' => '',
 		'fbLikeBoxFace' => '',
 		'fbLikeBoxHeight' => '',
-		'side_child_display' => '',
+		'side_child_display' => 'side_child_display',
+		'rssLabelName' => 'Blog entries',
+		'favicon' => '',
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		//'rssLabelName' => 'Blog entries',
+		// 'rssLabelName' => 'Blog entries',
 		'theme_style' => 'default',
-		'favicon' => '',
+		'pr1_title' => __('Rich theme options', 'biz-vektor'),
+		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
+		'pr1_link' => '',
+		'pr1_image' => '',
+		'pr1_image_s' => '',
+		'pr2_title' => __('Various designs available', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr2_link' => '',
+		'pr2_image' => '',
+		'pr2_image_s' => '',
+		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
+		'pr3_link' => '',
+		'pr3_image' => '',
+		'pr3_image_s' => '',
+		'version' => '1.0.0',
+		'SNSuse' => false
 	);
+
 	for ( $i = 1; $i <= 5 ;){
 		$default_theme_options['slide'.$i.'link'] = '';
 		$default_theme_options['slide'.$i.'image'] = '';
@@ -886,19 +923,50 @@ function biz_vektor_veryfi_option(){
 		$default_theme_options['slide'.$i.'blank'] = '';
 	$i++;
 	}
-		for ( $i = 1; $i <= 3 ;){
-		$default_theme_options['pr'.$i.'_title'] = '';
-		$default_theme_options['pr'.$i.'_description'] = '';
-		$default_theme_options['pr'.$i.'_link'] = '';
-		$default_theme_options['pr'.$i.'_image'] = '';
-		$default_theme_options['pr'.$i.'_image_s'] = '';
-	$i++;
-	}
-
-	$keylist = array_keys($options);
-	foreach($keylist as $key){
-		$default_theme_options[$key] = $options[$key];
-	}
-
+//	global $dbgdbg; echo "<strong>".$dbgdbg++."</strong><br>";
 	return $default_theme_options;
+}
+
+class biz_vektor_veryfi_tool{
+	var $version;
+
+	public function __construct(){
+		$this->check_version();
+	}
+
+	public function update(){
+		switch (BizVektor_Theme_Version) {
+			case '1.0.0':
+				if($this->version == '0.11.5.2'){
+					$this->rebuild_option_0_11_5_2();
+				}
+				break;
+			default:
+				break;
+		}
+	}
+
+	public function check_version(){
+		// テーマバージョンの確認
+		//$options = get_option('biz_vektor_theme_options');
+		$options = biz_vektor_get_theme_options();
+		if(isset($options['version'])){
+			$this->version = $options['version'];
+		}else{
+			$this->version = '0.11.5.2';
+		}
+	}
+
+	public function rebuild_option_0_11_5_2(){
+		$options = get_option('biz_vektor_theme_options');
+		$default = biz_vektor_generate_default_options();
+
+		$keylist = array_keys($options);
+		foreach($keylist as $key){
+			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
+		}
+		delete_option('biz_vektor_theme_options');
+		add_option('biz_vektor_theme_options', $default);
+		biz_vektor_option_register();
+	}
 }

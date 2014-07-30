@@ -17,7 +17,13 @@
 /*	SNS
 /*-------------------------------------------*/
 
-function biz_vektor_theme_options_render_page() { ?>
+function biz_vektor_theme_options_render_page() {
+	$updata = new biz_vektor_veryfi_tool;
+	$updata->update();
+	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
+	global $options_bizvektor;
+	$options_bizvektor = $options = biz_vektor_get_theme_options();
+ ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
 		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), wp_get_theme() ); ?></h2>
@@ -41,10 +47,9 @@ function biz_vektor_theme_options_render_page() { ?>
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
 		</p>
 		<form method="post" action="options.php">
+		<input type="hidden" name="post_status" value="bvo" />
 			<?php
 				settings_fields( 'biz_vektor_options' );
-				$options = biz_vektor_get_theme_options();
-				$default_options = biz_vektor_get_default_theme_options();
 			?>
 <?php
 /*-------------------------------------------*/
@@ -603,8 +608,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <span class="alert">
 * <?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
 * <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?></p></td>
-<p><?php _e('Check this box if you want to display the page title below the main visual on the home page.', 'biz-vektor'); ?></p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topEntryTitleDisplay]" id="topEntryTitleDisplay" value="true" <?php if ($options['topEntryTitleDisplay']) {?> checked<?php } ?>> <?php _e('Display the title', 'biz-vektor'); ?></p></td>
+</td>
 </tr>
 <!-- Home 3PR area -->
 <tr>
@@ -814,52 +818,140 @@ px</dd>
 <th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
 <td>
 <p><?php _e('If other plug-ins are used for the OGP, do not output the OGP using BizVektor.', 'biz-vektor'); ?></p>
-<?php
-$biz_vektor_ogpTags = array(
-	'ogp_on' 	=> __('I want to output the OGP tags using BizVektor', 'biz-vektor'),
-	'ogp_off' 	=> __('Do not output OGP tags using BizVektor', 'biz-vektor')
-	);
-foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLavel) {
-	if ( $biz_vektor_ogpTagValue == $options['ogpTagDisplay'] ) { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>" checked> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
-	<?php } else { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>"> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
-	<?php }
-} ?>
+
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']=='ogp_off')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+
 </td>
 </tr>
 </table>
 <?php submit_button(); ?>
 </div>
+</form>
+
+<?php if(false){ ?>
+<div class="option Advanced"><form action="" method="post">
+<input type="hidden" name="bizvektor_action_mode" value="reset" />
+<p class="submit"><label style="font-weight:bold;color:red;"><input type="submit" name="submit" id="submit" class="button button-primary" value="設定を初期化"  />   ※ ビズベクトルテーマの設定がすべて初期化されます。</label></p>
+</form></div>
+
 <div class="optionNav bottomNav">
 <ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
-</form>
+<?php } ?>
+
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
 <?php
 }
 
+function biz_vektor_them_edit_function($post){
+	switch ($post['bizvektor_action_mode']) {
+		case 'reset':
+			$default_theme_options = biz_vektor_generate_default_options();
+			delete_option('biz_vektor_theme_options');
+			add_option('biz_vektor_theme_options', $default_theme_options);
+			biz_vektor_theme_options_init();
+			break;
+		
+		default:
+			break;
+	}
+}
+
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
+	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
-	if($input['theme_layout'] == ''){ $input['theme_layout'] = "content-sidebar"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $input['postLabelName'] = "Blog"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $input['infoLabelName'] = "Information"; }
-	if($input['rssLabelName'] == ''){ $input['rssLabelName'] = "Blog entries"; }
-	if($input['theme_style'] == ''){ $input['theme_style'] = "default"; }
-
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $input['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $input['pr1_description'] = __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $input['pr2_title'] = __('Various designs available', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $input['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $input['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $input['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
-
-	$keylist = array_keys($input);
-	foreach($keylist as $key){
-		if(isset($input[$key])) { $output[$key] = $input[$key]; }
+	// Design
+	$output['gMenuDivide'] = $input['gMenuDivide'];
+	$output['head_logo'] = $input['head_logo'];
+	$output['foot_logo'] = $input['foot_logo'];
+	$output['font_title'] = $input['font_title'];
+	$output['font_menu'] = $input['font_menu'];
+	$output['side_child_display'] = $input['side_child_display'];
+	// Contact info
+	$output['contact_txt'] = $input['contact_txt'];
+	$output['tel_number'] = $input['tel_number'];
+	$output['contact_time'] = $input['contact_time'];
+	$output['sub_sitename'] = $input['sub_sitename'];
+	$output['contact_address'] = $input['contact_address'];
+	$output['contact_link'] = $input['contact_link'];
+	// 3PR
+	$output['top3PrDisplay'] = $input['top3PrDisplay'];
+	$output['pr1_image'] = $input['pr1_image'];
+	$output['pr1_image_s'] = $input['pr1_image_s'];
+	$output['pr2_link'] = $input['pr2_link'];
+	$output['pr2_image'] = $input['pr2_image'];
+	$output['pr2_image_s'] = $input['pr2_image_s'];
+	$output['pr3_link'] = $input['pr3_link'];
+	$output['pr3_image'] = $input['pr3_image'];
+	$output['pr3_image_s'] = $input['pr3_image_s'];
+	// Infomation & Blog	
+	$output['listInfoTop'] = $input['listInfoTop'];
+	$output['listInfoArchive'] = $input['listInfoArchive'];
+	$output['listBlogTop'] = $input['listBlogTop'];
+	$output['listBlogArchive'] = $input['listBlogArchive'];
+	$output['infoTopCount'] = $input['infoTopCount'];
+	$output['postTopUrl'] = $input['postTopUrl'];
+	$output['postTopCount'] = $input['postTopCount'];
+	$output['pr1_link'] = $input['pr1_link'];
+	// SEO 
+	$output['topTitle'] = $input['topTitle'];
+	$output['commonKeyWords'] = $input['commonKeyWords'];
+	$output['gaID'] = $input['gaID'];
+	$output['gaType'] = $input['gaType'];
+	// TopPage
+	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
+	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
+	$output['infoTopUrl'] = $input['infoTopUrl'];
+	// SlideShow
+	for ( $i = 1; $i <= 5 ;){
+		$output['slide'.$i.'link'] = $input['slide'.$i.'link'];
+		$output['slide'.$i.'image'] = $input['slide'.$i.'image'];
+		$output['slide'.$i.'alt'] = $input['slide'.$i.'alt'];
+		$output['slide'.$i.'display'] = $input['slide'.$i.'display'];
+		$output['slide'.$i.'blank'] = $input['slide'.$i.'blank'];
+	$i++;
 	}
+	// SNS
+	$output['fbAppId'] = $input['fbAppId'];
+	$output['fbAdminId'] = $input['fbAdminId'];
+	$output['blogRss'] = $input['blogRss'];
+	$output['twitter'] = $input['twitter'];
+	$output['facebook'] = $input['facebook'];
+	$output['ogpImage'] = $input['ogpImage'];
+	$output['snsBtnsFront'] = $input['snsBtnsFront'];
+	$output['snsBtnsPage'] = $input['snsBtnsPage'];
+	$output['snsBtnsPost'] = $input['snsBtnsPost'];
+	$output['snsBtnsInfo'] = $input['snsBtnsInfo'];
+	$output['snsBtnsHidden'] = $input['snsBtnsHidden'];
+	$output['fbCommentsFront'] = $input['fbCommentsFront'];
+	$output['fbCommentsPage'] = $input['fbCommentsPage'];
+	$output['fbCommentsPost'] = $input['fbCommentsPost'];
+	$output['fbCommentsInfo'] = $input['fbCommentsInfo'];
+	$output['fbCommentsHidden'] = $input['fbCommentsHidden'];
+	$output['fbLikeBoxFront'] = $input['fbLikeBoxFront'];
+	$output['fbLikeBoxSide'] = $input['fbLikeBoxSide'];
+	$output['fbLikeBoxURL'] = $input['fbLikeBoxURL'];
+	$output['fbLikeBoxStream'] = $input['fbLikeBoxStream'];
+	$output['fbLikeBoxFace'] = $input['fbLikeBoxFace'];
+	$output['fbLikeBoxHeight'] = $input['fbLikeBoxHeight'];
+	$output['ogpTagDisplay'] = $input['ogpTagDisplay'];
+
+	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $output['postLabelName'] = "Blog"; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $output['infoLabelName'] = "Information"; }
+	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
+	if($input['theme_style'] == ''){ $output['theme_style'] = "default"; }
+
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $output['pr1_title'] = $defaults['pr1_title']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $output['pr1_description'] = $defaults['pr1_description']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $output['pr2_title'] = $defaults['pr2_title']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $output['pr3_title'] = $defaults['pr3_title']; }
+	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $output['pr3_description'] = $defaults['pr3_description']; }
+
+	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
 	// Theme layout must be in our array of theme layout options
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
@@ -867,9 +959,8 @@ function biz_vektor_theme_options_validate( $input ) {
 	// sidebar child menu display
 	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
 
-	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
-
+	//$output = $defaults;
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
 
