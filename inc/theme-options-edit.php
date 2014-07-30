@@ -18,6 +18,8 @@
 /*-------------------------------------------*/
 
 function biz_vektor_theme_options_render_page() {
+	$updata = new biz_vektor_veryfi_tool;
+	$updata->update();
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
