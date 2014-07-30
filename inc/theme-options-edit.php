@@ -23,6 +23,7 @@ function biz_vektor_theme_options_render_page() {
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
+	//echo "<pre>";print_r($options);echo "</pre>";
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>

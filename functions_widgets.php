@@ -100,14 +100,10 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			echo $after_widget;
 		}
 	}
-<<<<<<< HEAD
-=======
 	function form($instance){
 	}
 	function update($new_instance,$old_instance){
 	}
-
->>>>>>> 86e4eef315ff16319cb2e8a20d9705ac4b3eb5cb
 } // class WP_Widget_childPageList
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
 

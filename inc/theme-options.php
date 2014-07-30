@@ -948,8 +948,7 @@ class biz_vektor_veryfi_tool{
 
 	public function check_version(){
 		// テーマバージョンの確認
-		//$options = get_option('biz_vektor_theme_options');
-		$options = biz_vektor_get_theme_options();
+		$options = get_option('biz_vektor_theme_options');
 		if(isset($options['version'])){
 			$this->version = $options['version'];
 		}else{
@@ -960,7 +959,6 @@ class biz_vektor_veryfi_tool{
 	public function rebuild_option_0_11_5_2(){
 		$options = get_option('biz_vektor_theme_options');
 		$default = biz_vektor_generate_default_options();
-
 		$keylist = array_keys($options);
 		foreach($keylist as $key){
 			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
