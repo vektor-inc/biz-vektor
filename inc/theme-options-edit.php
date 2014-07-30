@@ -847,6 +847,7 @@ function biz_vektor_them_edit_function($post){
 			echo '<pre style="color:red;">';print_r($default_theme_options);echo '</pre>';
 			delete_option('biz_vektor_theme_options');
 			add_option('biz_vektor_theme_options', $default_theme_options);
+			biz_vektor_theme_options_init();
 			echo '<pre style="color:red;">';print_r(get_option('biz_vektor_theme_options'));echo '</pre>';
 			break;
 		

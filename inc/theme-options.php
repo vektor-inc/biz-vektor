@@ -44,18 +44,22 @@
 /*-------------------------------------------*/
 
 function biz_vektor_theme_options_init() {
-	if ( false === biz_vektor_get_theme_options() )
-//		add_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
+	if ( false === get_option('biz_vektor_theme_options') ){
+		add_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
+	}
+	global $biz_vektor_theme_options;
+	$biz_vektor_theme_options = get_option('biz_vektor_theme_options' );
+}
+add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
 
+function biz_vektor_option_resist(){
 	register_setting(
 		'biz_vektor_options',
 		'biz_vektor_theme_options',
 		'biz_vektor_theme_options_validate'
 	);
-	global $biz_vektor_theme_options;
-	$biz_vektor_theme_options = biz_vektor_veryfi_option();
 }
-add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
+add_action('admin_init', 'biz_vektor_option_resist');
 
 function biz_vektor_option_page_capability( $capability ) {
 	return 'edit_theme_options';
@@ -82,9 +86,7 @@ function biz_vektor_theme_options_add_page() {
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
-//	return biz_vektor_veryfi_option();
 	global $famas;echo '<span style="color:red;">['.++$famas."]</span>";
-//	return get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
 	global $biz_vektor_theme_options;
 	return $biz_vektor_theme_options;
 }
@@ -103,7 +105,8 @@ function biz_vektor_get_default_theme_options() {
 		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
 		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
 	);
-	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
+//	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
+	return apply_filters( 'biz_vektor_default_options', biz_vektor_generate_default_options() );
 }
 
 /*-------------------------------------------*/
@@ -380,13 +383,13 @@ function biz_vektor_theme_style() {
 /*-------------------------------------------*/
 /*	Favicon
 /*-------------------------------------------*/
-add_action('wp_head', 'biz_vektor_favicon');
 function biz_vektor_favicon(){
 	$options = biz_vektor_get_theme_options();
 	if(isset($options['favicon']) && $options['favicon']){
 		echo '<link rel="SHORTCUT ICON" HREF="'.$options['favicon'].'" />';
 	}
 }
+add_action('wp_head', 'biz_vektor_favicon');
 
 /*-------------------------------------------*/
 /*	Menu divide
@@ -909,6 +912,7 @@ function biz_vektor_generate_default_options(){
 		'pr3_link' => '',
 		'pr3_image' => '',
 		'pr3_image_s' => '',
+		'version' => '1.0.0',
 		'SNSuse' => false
 	);
 
