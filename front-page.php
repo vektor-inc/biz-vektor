@@ -7,6 +7,16 @@
 if ( is_active_sidebar( 'top-main-widget-area' ) ) :
 	dynamic_sidebar( 'top-main-widget-area' );
 else : ?>
+	<?php if ( is_user_logged_in() == TRUE ) {
+	global $user_level;
+	get_currentuserinfo();
+		if (10 <= $user_level) { ?>
+			<div class="adminEdit sectionFrame">
+			<p>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
+			<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。</p>
+			</div>
+		<?php }
+	} ?>
 
 	<?php if ( have_posts()) : the_post(); ?>
 
@@ -65,7 +75,6 @@ else : ?>
 	<!-- [ /#content ] -->
 <?php $option = biz_vektor_get_theme_options();if(!$option['topSideBarDisplay']){ ?>
 	<!-- [ #sideTower ] -->
-
 	<div id="sideTower">
 <?php
 if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' );

@@ -315,8 +315,8 @@ msgstr ""
 # ############################################################################
 # functions_widget
 # ############################################################################
-msgid "Homepage main content"
-msgstr "トップページメインコンテンツエリア"
+msgid "Main content(Homepage)"
+msgstr "メインコンテンツエリア（トップページ）"
 
 msgid "This widget area appears on the front page main content area only."
 msgstr "トップページのメインコンテンツエリア表示されるウィジェットです。"

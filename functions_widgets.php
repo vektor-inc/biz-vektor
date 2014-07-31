@@ -33,7 +33,7 @@ function biz_vektor_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Homepage main content', 'biz-vektor' ),
+		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',
 		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
 		'before_widget' => '',
