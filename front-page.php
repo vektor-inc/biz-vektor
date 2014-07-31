@@ -26,9 +26,11 @@ else : ?>
 	$topFreeContent = get_the_content();
 	if ($topFreeContent) : ?>
 	<div id="topFreeArea">
-	<?php if (bizVektorOptions('topEntryTitleDisplay') == true) : ?>
+	<?php
+	/* if (bizVektorOptions('topEntryTitleDisplay') == true) : ?>
 		<h2><?php the_title(); ?></h2>
-	<?php endif; // bizVektorOptions('topEntryTitleDisplay') == true ?>
+	<?php endif; // bizVektorOptions('topEntryTitleDisplay') == true
+	*/?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 	</div>
