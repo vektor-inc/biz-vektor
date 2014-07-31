@@ -1,6 +1,8 @@
 <?php
 /*-------------------------------------------*/
 /*	Set option default
+/*-------------------------------------------*
+/*	Theme Option Default
 /*-------------------------------------------*/
 /*	Print option
 /*-------------------------------------------*/
@@ -41,6 +43,8 @@
 /*	Side menu hidden
 /*-------------------------------------------*/
 /*	Contact Btn
+/*-------------------------------------------*/
+/*	Updata
 /*-------------------------------------------*/
 
 function biz_vektor_theme_options_init() {
@@ -106,6 +110,98 @@ function biz_vektor_get_default_theme_options() {
 	);
 //	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
 	return apply_filters( 'biz_vektor_default_options', biz_vektor_generate_default_options() );
+}
+
+/*-------------------------------------------*/
+/*	Theme Option Default
+/*-------------------------------------------*/
+
+function biz_vektor_generate_default_options(){
+		$default_theme_options = array(
+		'font_title' => 'sanserif',
+		'font_menu' => 'sanserif',
+		'gMenuDivide' => '',
+		'head_logo' => '',
+		'foot_logo' => '',
+		'contact_txt' => '',
+		'tel_number' => '',
+		'contact_time' => '',
+		'sub_sitename' => '',
+		'contact_address' => '',
+		'contact_link' => '',
+		'topTitle' => '',
+		'commonKeyWords' => '',
+		'gaID' => '',
+		'gaType' => 'gaType_normal',
+		'topEntryTitleDisplay' => '',
+		'topSideBarDisplay' => false,
+		'top3PrDisplay' => '',
+		'postTopCount' => '0',
+		'infoTopCount' => '0',
+		'postTopUrl' => '',
+		'infoTopUrl' => '',
+		'listInfoTop' => 'listType_set',
+		'listInfoArchive' => 'listType_set',
+		'listBlogTop' => 'listType_set',
+		'listBlogArchive' => 'listType_set',
+		'blogRss' => '',
+		'twitter' => '',
+		'facebook' => '',
+		'fbAppId' => '',
+		'fbAdminId' => '',
+		'ogpImage' => '',
+		'ogpTagDisplay' => '',
+		'snsBtnsFront' => '',
+		'snsBtnsPage' => '',
+		'snsBtnsPost' => '',
+		'snsBtnsInfo' => '',
+		'snsBtnsHidden' => '',
+		'fbCommentsFront' => '',
+		'fbCommentsPage' => '',
+		'fbCommentsPost' => '',
+		'fbCommentsInfo' => '',
+		'fbCommentsHidden' => '',
+		'fbLikeBoxFront' => '',
+		'fbLikeBoxSide' => '',
+		'fbLikeBoxURL' => '',
+		'fbLikeBoxStream' => '',
+		'fbLikeBoxFace' => '',
+		'fbLikeBoxHeight' => '',
+		'side_child_display' => 'side_child_display',
+		'rssLabelName' => 'Blog entries',
+		'favicon' => '',
+		'theme_layout' => 'content-sidebar',
+		'postLabelName' => 'Blog',
+		'infoLabelName' => 'Information',
+		'theme_style' => 'default',
+		'pr1_title' => __('Rich theme options', 'biz-vektor'),
+		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
+		'pr1_link' => '',
+		'pr1_image' => '',
+		'pr1_image_s' => '',
+		'pr2_title' => __('Various designs available', 'biz-vektor'),
+		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr2_link' => '',
+		'pr2_image' => '',
+		'pr2_image_s' => '',
+		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
+		'pr3_link' => '',
+		'pr3_image' => '',
+		'pr3_image_s' => '',
+		'version' => BizVektor_Theme_Version,
+		'SNSuse' => false
+	);
+
+	for ( $i = 1; $i <= 5 ;){
+		$default_theme_options['slide'.$i.'link'] = '';
+		$default_theme_options['slide'.$i.'image'] = '';
+		$default_theme_options['slide'.$i.'alt'] = '';
+		$default_theme_options['slide'.$i.'display'] = '';
+		$default_theme_options['slide'.$i.'blank'] = '';
+	$i++;
+	}
+	return $default_theme_options;
 }
 
 /*-------------------------------------------*/
@@ -408,7 +504,8 @@ function biz_vektor_gMenuDivide() {
 			);
 		$menuWidthActive = $menuWidth[$options['gMenuDivide']][0];
 		$menuWidthNonActive = $menuWidth[$options['gMenuDivide']][1];
-echo '<style type="text/css">
+?>
+<style type="text/css">
 /*-------------------------------------------*/
 /*	menu divide
 /*-------------------------------------------*/
@@ -417,14 +514,15 @@ echo '<style type="text/css">
 #gMenu .menu li.current_page_item,
 #gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
 }
-</style>'."\n";
-echo '<!--[if lte IE 8]>
+</style>
+<!--[if lte IE 8]>
 <style type="text/css">
 #gMenu .menu li { width:'.$menuWidthNonActive.'px; text-align:center; }
 #gMenu .menu li.current_page_item,
 #gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
 </style>
-<![endif]-->'."\n";
+<![endif]-->
+<?php
 	}
 }
 
@@ -837,95 +935,6 @@ function biz_vektor_veryfi_option(){
 	return $default_theme_options;
 }
 
-function biz_vektor_generate_default_options(){
-		$default_theme_options = array(
-		'font_title' => 'sanserif',
-		'font_menu' => 'sanserif',
-		'gMenuDivide' => '',
-		'head_logo' => '',
-		'foot_logo' => '',
-		'contact_txt' => '',
-		'tel_number' => '',
-		'contact_time' => '',
-		'sub_sitename' => '',
-		'contact_address' => '',
-		'contact_link' => '',
-		'topTitle' => '',
-		'commonKeyWords' => '',
-		'gaID' => '',
-		'gaType' => 'gaType_normal',
-		'topEntryTitleDisplay' => '',
-		'topSideBarDisplay' => false,
-		'top3PrDisplay' => '',
-		'postTopCount' => '0',
-		'infoTopCount' => '0',
-		'postTopUrl' => '',
-		'infoTopUrl' => '',
-		'listInfoTop' => 'listType_set',
-		'listInfoArchive' => 'listType_set',
-		'listBlogTop' => 'listType_set',
-		'listBlogArchive' => 'listType_set',
-		'blogRss' => '',
-		'twitter' => '',
-		'facebook' => '',
-		'fbAppId' => '',
-		'fbAdminId' => '',
-		'ogpImage' => '',
-		'ogpTagDisplay' => '',
-		'snsBtnsFront' => '',
-		'snsBtnsPage' => '',
-		'snsBtnsPost' => '',
-		'snsBtnsInfo' => '',
-		'snsBtnsHidden' => '',
-		'fbCommentsFront' => '',
-		'fbCommentsPage' => '',
-		'fbCommentsPost' => '',
-		'fbCommentsInfo' => '',
-		'fbCommentsHidden' => '',
-		'fbLikeBoxFront' => '',
-		'fbLikeBoxSide' => '',
-		'fbLikeBoxURL' => '',
-		'fbLikeBoxStream' => '',
-		'fbLikeBoxFace' => '',
-		'fbLikeBoxHeight' => '',
-		'side_child_display' => 'side_child_display',
-		'rssLabelName' => 'Blog entries',
-		'favicon' => '',
-		'theme_layout' => 'content-sidebar',
-		'postLabelName' => 'Blog',
-		'infoLabelName' => 'Information',
-		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options', 'biz-vektor'),
-		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
-		'pr1_link' => '',
-		'pr1_image' => '',
-		'pr1_image_s' => '',
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
-		'pr2_link' => '',
-		'pr2_image' => '',
-		'pr2_image_s' => '',
-		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
-		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
-		'pr3_link' => '',
-		'pr3_image' => '',
-		'pr3_image_s' => '',
-		'version' => '1.0.0',
-		'SNSuse' => false
-	);
-
-	for ( $i = 1; $i <= 5 ;){
-		$default_theme_options['slide'.$i.'link'] = '';
-		$default_theme_options['slide'.$i.'image'] = '';
-		$default_theme_options['slide'.$i.'alt'] = '';
-		$default_theme_options['slide'.$i.'display'] = '';
-		$default_theme_options['slide'.$i.'blank'] = '';
-	$i++;
-	}
-//	global $dbgdbg; echo "<strong>".$dbgdbg++."</strong><br>";
-	return $default_theme_options;
-}
-
 class biz_vektor_veryfi_tool{
 	var $version;
 
@@ -944,6 +953,10 @@ class biz_vektor_veryfi_tool{
 				break;
 		}
 	}
+
+/*-------------------------------------------*/
+/*	Updata
+/*-------------------------------------------*/
 
 	public function check_version(){
 		// テーマバージョンの確認
