@@ -1052,14 +1052,8 @@ msgstr "トップページ スライドショーの設定はこちら"
 msgid "Page to be displayed below the main visual"
 msgstr "トップページのメインビジュアルの下に表示するページ"
 
-msgid ""
-"Setting for the page to display just below the main visual of home page."
-msgstr "トップページのメインビジュアルのすぐ下に表示するページを設定します。"
-
-msgid "Select &quot;Recent post&quot; or &quot;page&quot;."
-msgstr ""
-"『フロントページの表示』で『最新の投稿』または『固定ページ』を選択して下さ"
-"い。"
+msgid "Select &quot;page&quot;."
+msgstr "『フロントページの表示』で『固定ページ』を選択して下さい。"
 
 msgid "Do not select the drop-down &quot;post pages&quot;."
 msgstr "『投稿ページ』のプルダウンは選択しないで下さい。"

@@ -603,12 +603,24 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <!-- Page to be displayed below the main visual -->
 <tr>
 <th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<td><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">
-	&raquo; <?php _e('Setting for the page to display just below the main visual of home page.', 'biz-vektor'); ?></a> ]</p>
-<p><?php _e('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
-<span class="alert">
-* <?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
-* <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?></p></td>
+<td>
+<ol>
+<li>
+まずはトップページ用の固定ページを作成してください。<br />
+[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; 固定ページ</a> ]<br />
+<?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
+</li>
+<li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
+[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
+<p><?php _e('Select &quot;page&quot;.', 'biz-vektor') ;?><br />
+『フロントページ』のプルダウンで、トップページ用に作成した固定ページを選択してください。<br />
+<span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
+</li>
+<li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
+<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。
+</li>
+</ol>
+</td>
 </td>
 </tr>
 <!-- Home 3PR area -->
