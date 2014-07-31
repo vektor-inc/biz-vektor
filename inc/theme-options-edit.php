@@ -807,7 +807,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <dt><?php _e('Display stream', 'biz-vektor'); ?></dt>
 <dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Display faces', 'biz-vektor'); ?></dt>
-<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php if ($options['fbLikeBoxFace']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
+<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php echo ($options['fbLikeBoxFace']=='false')? "checked ":""; ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" />
 px</dd>
@@ -865,94 +865,94 @@ function biz_vektor_theme_options_validate( $input ) {
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
 	// Design
-	$output['gMenuDivide'] = $input['gMenuDivide'];
-	$output['head_logo'] = $input['head_logo'];
-	$output['foot_logo'] = $input['foot_logo'];
-	$output['font_title'] = $input['font_title'];
-	$output['font_menu'] = $input['font_menu'];
-	$output['side_child_display'] = $input['side_child_display'];
+	$output['gMenuDivide']				 = $input['gMenuDivide'];
+	$output['head_logo']				 = $input['head_logo'];
+	$output['foot_logo']				 = $input['foot_logo'];
+	$output['font_title']				 = $input['font_title'];
+	$output['font_menu']				 = $input['font_menu'];
+	$output['side_child_display']		 = $input['side_child_display'];
+	$output['favicon']					 = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
+
 	// Contact info
-	$output['contact_txt'] = $input['contact_txt'];
-	$output['tel_number'] = $input['tel_number'];
-	$output['contact_time'] = $input['contact_time'];
-	$output['sub_sitename'] = $input['sub_sitename'];
-	$output['contact_address'] = $input['contact_address'];
-	$output['contact_link'] = $input['contact_link'];
+	$output['contact_txt']				 = $input['contact_txt'];
+	$output['tel_number']				 = $input['tel_number'];
+	$output['contact_time']				 = $input['contact_time'];
+	$output['sub_sitename']				 = $input['sub_sitename'];
+	$output['contact_address']			 = $input['contact_address'];
+	$output['contact_link']				 = $input['contact_link'];
 	// 3PR
-	$output['top3PrDisplay'] = $input['top3PrDisplay'];
-	$output['pr1_image'] = $input['pr1_image'];
-	$output['pr1_image_s'] = $input['pr1_image_s'];
-	$output['pr2_link'] = $input['pr2_link'];
-	$output['pr2_image'] = $input['pr2_image'];
-	$output['pr2_image_s'] = $input['pr2_image_s'];
-	$output['pr3_link'] = $input['pr3_link'];
-	$output['pr3_image'] = $input['pr3_image'];
-	$output['pr3_image_s'] = $input['pr3_image_s'];
+	$output['top3PrDisplay']			 = (isset($input['top3PrDisplay']))?	 "true" : "";
+	$output['pr1_title']				 = ($input['pr1_title'] == '')?			 $defaults['pr1_title'] : $input['pr1_title'] ;
+	$output['pr1_description']			 = ($input['pr1_description'] == '')?	 $defaults['pr1_description'] : $input['pr1_description'] ;
+	$output['pr1_link']					 = $input['pr1_link'];
+	$output['pr1_image']				 = $input['pr1_image'];
+	$output['pr1_image_s']				 = $input['pr1_image_s'];
+	$output['pr2_title']				 = ($input['pr2_title'] == '')?			 $defaults['pr2_title'] : $input['pr2_title'] ;
+	$output['pr2_description']			 = ($input['pr2_description'] == '')?	 $defaults['pr2_description'] : $input['pr2_description'] ;
+	$output['pr2_link']					 = $input['pr2_link'];
+	$output['pr2_image']				 = $input['pr2_image'];
+	$output['pr2_image_s']				 = $input['pr2_image_s'];
+	$output['pr3_title']				 = ($input['pr3_title'] == '')?			 $defaults['pr3_title'] : $input['pr3_title'] ;
+	$output['pr3_description']			 = ($input['pr3_description'] == '')?	 $defaults['pr3_description'] : $input['pr3_description'] ;
+	$output['pr3_link']					 = $input['pr3_link'];
+	$output['pr3_image']				 = $input['pr3_image'];
+	$output['pr3_image_s']				 = $input['pr3_image_s'];
 	// Infomation & Blog	
-	$output['listInfoTop'] = $input['listInfoTop'];
-	$output['listInfoArchive'] = $input['listInfoArchive'];
-	$output['listBlogTop'] = $input['listBlogTop'];
-	$output['listBlogArchive'] = $input['listBlogArchive'];
-	$output['infoTopCount'] = $input['infoTopCount'];
-	$output['postTopUrl'] = $input['postTopUrl'];
-	$output['postTopCount'] = $input['postTopCount'];
-	$output['pr1_link'] = $input['pr1_link'];
+	$output['postLabelName']			 = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
+	$output['infoLabelName']			 = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
+	$output['listInfoTop']				 = $input['listInfoTop'];
+	$output['listInfoArchive']			 = $input['listInfoArchive'];
+	$output['listBlogTop']				 = $input['listBlogTop'];
+	$output['listBlogArchive']			 = $input['listBlogArchive'];
+	$output['infoTopCount']				 = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 0 : $input['infoTopCount'];
+	$output['postTopUrl']				 = $input['postTopUrl'];
+	$output['postTopCount']				 = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 0 : $input['postTopCount'];
 	// SEO 
-	$output['topTitle'] = $input['topTitle'];
-	$output['commonKeyWords'] = $input['commonKeyWords'];
-	$output['gaID'] = $input['gaID'];
-	$output['gaType'] = $input['gaType'];
+	$output['topTitle']					 = $input['topTitle'];
+	$output['commonKeyWords']			 = $input['commonKeyWords'];
+	$output['gaID']						 = preg_replace('/^[ 　]*(.*)$/', "$1", $input['gaID']);
+	$output['gaType']					 = $input['gaType'];
 	// TopPage
-	$output['topEntryTitleDisplay'] = $input['topEntryTitleDisplay'];
-	$output['topSideBarDisplay'] = $input['topSideBarDisplay'];
-	$output['infoTopUrl'] = $input['infoTopUrl'];
+//	$output['topEntryTitleDisplay']		 = $input['topEntryTitleDisplay'];
+	$output['topSideBarDisplay']		 = (isset($input['topSideBarDisplay']))? "true" : '';
+//	$output['infoTopUrl'] = $input['infoTopUrl'];
 	// SlideShow
 	for ( $i = 1; $i <= 5 ;){
-		$output['slide'.$i.'link'] = $input['slide'.$i.'link'];
-		$output['slide'.$i.'image'] = $input['slide'.$i.'image'];
-		$output['slide'.$i.'alt'] = $input['slide'.$i.'alt'];
-		$output['slide'.$i.'display'] = $input['slide'.$i.'display'];
-		$output['slide'.$i.'blank'] = $input['slide'.$i.'blank'];
+		$output['slide'.$i.'link']			 = $input['slide'.$i.'link'];
+		$output['slide'.$i.'image']			 = $input['slide'.$i.'image'];
+		$output['slide'.$i.'alt']			 = $input['slide'.$i.'alt'];
+		$output['slide'.$i.'display']		 = (isset($input['slide'.$i.'display']))? "true" : '';
+		$output['slide'.$i.'blank']			 = (isset($input['slide'.$i.'blank']))? "true" : '';
 	$i++;
 	}
 	// SNS
-	$output['fbAppId'] = $input['fbAppId'];
-	$output['fbAdminId'] = $input['fbAdminId'];
-	$output['blogRss'] = $input['blogRss'];
-	$output['twitter'] = $input['twitter'];
-	$output['facebook'] = $input['facebook'];
-	$output['ogpImage'] = $input['ogpImage'];
-	$output['snsBtnsFront'] = $input['snsBtnsFront'];
-	$output['snsBtnsPage'] = $input['snsBtnsPage'];
-	$output['snsBtnsPost'] = $input['snsBtnsPost'];
-	$output['snsBtnsInfo'] = $input['snsBtnsInfo'];
-	$output['snsBtnsHidden'] = $input['snsBtnsHidden'];
-	$output['fbCommentsFront'] = $input['fbCommentsFront'];
-	$output['fbCommentsPage'] = $input['fbCommentsPage'];
-	$output['fbCommentsPost'] = $input['fbCommentsPost'];
-	$output['fbCommentsInfo'] = $input['fbCommentsInfo'];
-	$output['fbCommentsHidden'] = $input['fbCommentsHidden'];
-	$output['fbLikeBoxFront'] = $input['fbLikeBoxFront'];
-	$output['fbLikeBoxSide'] = $input['fbLikeBoxSide'];
-	$output['fbLikeBoxURL'] = $input['fbLikeBoxURL'];
-	$output['fbLikeBoxStream'] = $input['fbLikeBoxStream'];
-	$output['fbLikeBoxFace'] = $input['fbLikeBoxFace'];
-	$output['fbLikeBoxHeight'] = $input['fbLikeBoxHeight'];
-	$output['ogpTagDisplay'] = $input['ogpTagDisplay'];
+	$output['fbAppId']					 = $input['fbAppId'];
+	$output['fbAdminId']				 = $input['fbAdminId'];
+//	$output['blogRss'] = $input['blogRss'];
+	$output['twitter']					 = $input['twitter'];
+	$output['facebook']					 = $input['facebook'];
+	$output['ogpImage']					 = $input['ogpImage'];
+	$output['snsBtnsFront']				 = (isset($input['snsBtnsFront']))? "false" : '';
+	$output['snsBtnsPage']				 = (isset($input['snsBtnsPage']))? "false" : '';
+	$output['snsBtnsPost']				 = (isset($input['snsBtnsPost']))? "false" : '';
+	$output['snsBtnsInfo']				 = (isset($input['snsBtnsInfo']))? "false" : '';
+	$output['snsBtnsHidden']			 = $input['snsBtnsHidden'];
+	$output['fbCommentsFront']			 = (isset($input['fbCommentsFront']))? "false" : '';
+	$output['fbCommentsPage']			 = (isset($input['fbCommentsPage']))? "false" : '';
+	$output['fbCommentsPost']			 = (isset($input['fbCommentsPost']))? "false" : '';
+	$output['fbCommentsInfo']			 = (isset($input['fbCommentsInfo']))? "false" : '';
+//	$output['fbCommentsHidden'] = $input['fbCommentsHidden'];
+	$output['fbLikeBoxFront']			 = (isset($input['fbLikeBoxFront']))? "false" : '' ;
+	$output['fbLikeBoxSide']			 = (isset($input['fbLikeBoxSide']))? "false" : '' ;
+	$output['fbLikeBoxURL']				 = $input['fbLikeBoxURL'];
+	$output['fbLikeBoxStream']			 = (isset($input['fbLikeBoxStream']))? "false" : '' ;
+	$output['fbLikeBoxFace']			 = (isset($input['fbLikeBoxFace']))? "false" : '' ;
+	$output['fbLikeBoxHeight']			 = $input['fbLikeBoxHeight'];
+	$output['ogpTagDisplay']			 = $input['ogpTagDisplay'];
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $output['postLabelName'] = "Blog"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $output['infoLabelName'] = "Information"; }
-	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
+//	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
 	if($input['theme_style'] == ''){ $output['theme_style'] = "default"; }
-
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $output['pr1_title'] = $defaults['pr1_title']; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $output['pr1_description'] = $defaults['pr1_description']; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $output['pr2_title'] = $defaults['pr2_title']; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $output['pr3_title'] = $defaults['pr3_title']; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $output['pr3_description'] = $defaults['pr3_description']; }
-
-	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
 
 	// Theme layout must be in our array of theme layout options
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
