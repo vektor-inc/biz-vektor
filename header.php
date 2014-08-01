@@ -122,22 +122,11 @@ echo $gMenuHtml;
 } // if ($gMenu) 
 ?>
 
+<?php echo get_biz_vektor_header_image_home();?>
+
 <?php if (!is_front_page()) { ?>
 <?php get_template_part('module_pageTit'); ?>
 <?php get_template_part('module_panList'); ?>
 <?php } ?>
 
-<?php if (is_front_page() && (biz_vektor_slideExist() || get_header_image()) ) { ?>
-<div id="topMainBnr">
-<div id="topMainBnrFrame"<?php if (biz_vektor_slideExist()) echo ' class="flexslider"';?>>
-<?php if(biz_vektor_slideExist()) { ?>
-	<ul class="slides">
-	<?php biz_vektor_slideBody(); ?>
-	</ul>
-<?php } else { ?>
-	<div class="slideFrame"><img src="<?php header_image(); ?>" alt="" /></div>
-<?php } ?>
-</div>
-</div>
-<?php } ?>
 <div id="main">

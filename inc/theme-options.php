@@ -761,51 +761,67 @@ function biz_vektor_footerCopyRight() 		{
 /*	slide show
 /*-------------------------------------------*/
 function biz_vektor_slideExist () {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
 	if (
-		($options['slide1image'] && (!$options['slide1display'])) ||
-		($options['slide2image'] && (!$options['slide2display'])) ||
-		($options['slide3image'] && (!$options['slide3display'])) ||
-		($options['slide4image'] && (!$options['slide4display'])) ||
-		($options['slide5image'] && (!$options['slide5display']))
+		($biz_vektor_options['slide1image'] && (!$biz_vektor_options['slide1display'])) ||
+		($biz_vektor_options['slide2image'] && (!$biz_vektor_options['slide2display'])) ||
+		($biz_vektor_options['slide3image'] && (!$biz_vektor_options['slide3display'])) ||
+		($biz_vektor_options['slide4image'] && (!$biz_vektor_options['slide4display'])) ||
+		($biz_vektor_options['slide5image'] && (!$biz_vektor_options['slide5display']))
 	){
 	return true;
 	}
 }
 
-// add_action('wp_head','bizVektorAddSliderRun');
-// function bizVektorAddSliderRun(){
-// 	if (biz_vektor_slideExist()) {
-// 		echo "<script type='text/javascript'>
-// 		jQuery(window).load(function() { jQuery('.flexslider').flexslider(); });
-// 		</script>";
-// 	}
-// }
-
-function biz_vektor_slideBody(){
-	$options = biz_vektor_get_theme_options();
+function get_biz_vektor_slide_body(){
+	global $biz_vektor_options;
 	for ( $i = 1; $i <= 5 ; $i++){
-		if ($options['slide'.$i.'image']) {
-			if (!$options['slide'.$i.'display']) {
-				print '<li>';
-				if ($options['slide'.$i.'link']) {
+		if ($biz_vektor_options['slide'.$i.'image']) {
+			if (!$biz_vektor_options['slide'.$i.'display']) {
+				$biz_vektor_slide_body = '<li>';
+				if ($biz_vektor_options['slide'.$i.'link']) {
 					$blank = "";
-					if ($options['slide'.$i.'blank']) : $blank = ' target="_blank"'; endif;
-					print '<a href="'.$options['slide'.$i.'link'].'" class="slideFrame"'.$blank.'>';
+					if ($biz_vektor_options['slide'.$i.'blank']) : $blank = ' target="_blank"'; endif;
+					$biz_vektor_slide_body .= '<a href="'.$biz_vektor_options['slide'.$i.'link'].'" class="slideFrame"'.$blank.'>';
 				} else	{
-					print '<span class="slideFrame">';
+					$biz_vektor_slide_body .= '<span class="slideFrame">';
 				}
-				print '<img src="'.$options['slide'.$i.'image'].'" alt="'.$options['slide'.$i.'alt'].'" />';
-				if ($options['slide'.$i.'link']) {
-					print '</a>';
+				$biz_vektor_slide_body .= '<img src="'.$biz_vektor_options['slide'.$i.'image'].'" alt="'.$biz_vektor_options['slide'.$i.'alt'].'" />';
+				if ($biz_vektor_options['slide'.$i.'link']) {
+					$biz_vektor_slide_body .= '</a>';
 				} else {
-					print '</span>';
+					$biz_vektor_slide_body .= '</span>';
 				}
-				print '</li>'."\n";
+				$biz_vektor_slide_body .= '</li>'."\n";
 			}
 		}
 	}
+	return $biz_vektor_slide_body;
 }
+function get_biz_vektor_header_image(){
+	$biz_vektor_slider_class = (biz_vektor_slideExist()) ? ' class="flexslider"':'';
+	$biz_vektor_header_image = '<div id="topMainBnr">'."\n";
+	$biz_vektor_header_image .= '<div id="topMainBnrFrame"'.$biz_vektor_slider_class.'>'."\n";
+	if(biz_vektor_slideExist()) {
+		$biz_vektor_header_image .= '<ul class="slides">'."\n";
+		$biz_vektor_header_image .= get_biz_vektor_slide_body();
+		$biz_vektor_header_image .= '</ul>'."\n";
+	} else {
+		$biz_vektor_header_image .= '<div class="slideFrame"><img src="'.esc_url( get_header_image() ).'" alt="" /></div>'."\n";
+	}
+	$biz_vektor_header_image .= '</div>'."\n";
+	$biz_vektor_header_image .= '</div>'."\n";
+	$biz_vektor_header_image = apply_filters( 'biz_vektor_header_image', $biz_vektor_header_image );
+	return $biz_vektor_header_image;
+}
+function get_biz_vektor_header_image_home(){
+	if (is_front_page() && ( biz_vektor_slideExist() || get_header_image()) ) {
+		$biz_vektor_header_image_front = get_biz_vektor_header_image();
+		$biz_vektor_header_image_front = apply_filters( 'biz_vektor_header_image_front', $biz_vektor_header_image_front );
+		return $biz_vektor_header_image_front;
+	}
+}
+
 
 /*-------------------------------------------*/
 /*	Print theme_options js
