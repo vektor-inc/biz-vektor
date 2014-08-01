@@ -139,19 +139,20 @@ class wp_widget_page extends WP_Widget {
 	function wp_widget_page() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_page_post',
-			'description' => '固定ページの内容を出力します'
+			'description' => '固定ページの内容を出力します',
 		);
 		$widget_name = get_biz_vektor_name().'_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
 	}
 
 	function widget($args, $instance){
-		$this->display_page($instance['page_id']);
+		$this->display_page($instance['page_id'],$instance['set_title']);
 	}
 
 	function form($instance){
 		$defaults = array(
-			'page_id' => 2
+			'page_id' => 2,
+			'set_title' => true
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -164,6 +165,9 @@ class wp_widget_page extends WP_Widget {
 		<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
 		<?php } ?>
 		</select>
+		<br/>
+		<input type="checkbox" name="<?php echo $this->get_field_name('set_title'); ?>" value="true" <?php echo ($instance['set_title'])? 'checked': '' ; ?> >
+		<label for="<?php echo $this->get_field_id('set_title'); ?>"> タイトルを表示させる</label>
 		</p>
 		<?php
 	}
@@ -171,12 +175,14 @@ class wp_widget_page extends WP_Widget {
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['page_id'] = $new_instance['page_id'];
+		$instance['set_title'] = ($new_instance['set_title'] == 'true')? true : false;
 		return $instance;
 	}
 
-	function display_page($pageid) {
+	function display_page($pageid,$titleflag=false) {
 		$page = get_page($pageid);
 		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
+		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
 		echo '</div>';
 	}
