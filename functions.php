@@ -68,6 +68,8 @@ define('BizVektor_Theme_Version', '1.0.0');
 /*-------------------------------------------*/
 /*	Page _ Child page lists
 /*-------------------------------------------*/
+/*	HomePage _ add action filters
+/*-------------------------------------------*/
 
 get_template_part('functions_widgets');
 
@@ -670,4 +672,14 @@ function biz_vektor_childPageList(){
 		<?php }
 		}
 	} // is_page
+}
+
+/*-------------------------------------------*/
+/*	HomePage _ add action filters
+/*-------------------------------------------*/
+function biz_vektor_contentMain_before(){
+	do_action('biz_vektor_contentMain_before');
+}
+function biz_vektor_contentMain_after(){
+	do_action('biz_vektor_contentMain_after');
 }

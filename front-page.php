@@ -3,11 +3,19 @@
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
 	<div id="content">
+	<?php biz_vektor_contentMain_before();?>
+	<div id="content-main">
 <?php
 if ( is_active_sidebar( 'top-main-widget-area' ) ) :
 	dynamic_sidebar( 'top-main-widget-area' );
-else : ?>
-	<?php if ( is_user_logged_in() == TRUE ) {
+else :
+
+	/*-------------------------------------------*/
+	/*	No use main content widget
+	/*-------------------------------------------*/
+
+	// Widget guide message
+	if ( is_user_logged_in() == TRUE ) {
 	global $user_level;
 	get_currentuserinfo();
 		if (10 <= $user_level) { ?>
@@ -16,21 +24,15 @@ else : ?>
 			<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。</p>
 			</div>
 		<?php }
-	} ?>
+	}
 
-	<?php if ( have_posts()) : the_post(); ?>
-
-	<?php if (get_post_type() === 'page') : ?>
-	<?php
-	$topFreeContent = NULL;
-	$topFreeContent = get_the_content();
-	if ($topFreeContent) : ?>
+	// page content
+	if ( have_posts()) : the_post();
+		if (get_post_type() === 'page') :
+			$topFreeContent = NULL;
+			$topFreeContent = get_the_content();
+			if ($topFreeContent) : ?>
 	<div id="topFreeArea">
-	<?php
-	/* if (bizVektorOptions('topEntryTitleDisplay') == true) : ?>
-		<h2><?php the_title(); ?></h2>
-	<?php endif; // bizVektorOptions('topEntryTitleDisplay') == true
-	*/?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 	</div>
@@ -73,6 +75,9 @@ else : ?>
 <?php biz_vektor_snsBtns(); ?>
 <?php biz_vektor_fbComments(); ?>
 
+	</div>
+	<!-- #content-main -->
+	<?php biz_vektor_contentMain_after();?>
 	</div>
 	<!-- [ /#content ] -->
 <?php $option = biz_vektor_get_theme_options();if(!$option['topSideBarDisplay']){ ?>
