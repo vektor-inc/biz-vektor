@@ -154,6 +154,7 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*	Load theme options
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
+	require( dirname( __FILE__ ) . '/inc/theme-options-init.php' );
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly

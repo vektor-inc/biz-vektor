@@ -1,10 +1,10 @@
 <?php
 /*-------------------------------------------*/
-/*	Set option default
-/*-------------------------------------------*
-/*	Theme Option Default
+/*	テーマオプションのメニューとページを設定
 /*-------------------------------------------*/
-/*	Print option
+/*	テーマオプションの編集権限設定
+/*-------------------------------------------*/
+/*	テーマオプションの編集画面の読み込み
 /*-------------------------------------------*/
 /*	Create title
 /*-------------------------------------------*/
@@ -13,8 +13,6 @@
 /*	Add layout class to body tag
 /*-------------------------------------------*/
 /*	Add to the body tag class to turn off the side bar
-/*-------------------------------------------*/
-/*	Theme option edit
 /*-------------------------------------------*/
 /*	Theme style
 /*-------------------------------------------*/
@@ -47,29 +45,10 @@
 /*	Updata
 /*-------------------------------------------*/
 
-function biz_vektor_theme_options_init() {
-	if ( false === get_option('biz_vektor_theme_options') ){
-		add_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
-	}
-	global $biz_vektor_theme_options;
-	$biz_vektor_theme_options = get_option('biz_vektor_theme_options' );
-}
-add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
 
-function biz_vektor_option_register(){
-	register_setting(
-		'biz_vektor_options',
-		'biz_vektor_theme_options',
-		'biz_vektor_theme_options_validate'
-	);
-}
-add_action('admin_init', 'biz_vektor_option_register');
-
-function biz_vektor_option_page_capability( $capability ) {
-	return 'edit_theme_options';
-}
-add_filter( 'option_page_capability_biz_vektor_options', 'biz_vektor_option_page_capability' );
-
+/*-------------------------------------------*/
+/*	テーマオプションのメニューとページを設定
+/*-------------------------------------------*/
 function biz_vektor_theme_options_add_page() {
 	$theme_page = add_theme_page(
 		__('Theme Options', 'biz-vektor'),   					// Name of page
@@ -89,164 +68,19 @@ function biz_vektor_theme_options_add_page() {
 }
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
-function biz_vektor_get_theme_options() {
-	global $biz_vektor_theme_options;
-	return $biz_vektor_theme_options;
+/*-------------------------------------------*/
+/*	テーマオプションの編集権限設定
+/*-------------------------------------------*/
+function biz_vektor_option_page_capability( $capability ) {
+	return 'edit_theme_options';
 }
-
-function biz_vektor_get_default_theme_options() {
-	$default_theme_options = array(
-		'theme_layout' => 'content-sidebar',
-		'postLabelName' => 'Blog',
-		'infoLabelName' => 'Information',
-		// 'rssLabelName' => 'Blog entries',
-		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options', 'biz-vektor'),
-		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
-		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
-		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
-	);
-//	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
-	return apply_filters( 'biz_vektor_default_options', biz_vektor_generate_default_options() );
-}
+add_filter( 'option_page_capability_biz_vektor_options', 'biz_vektor_option_page_capability' );
 
 /*-------------------------------------------*/
-/*	Theme Option Default
+/*	テーマオプションの編集画面の読み込み
 /*-------------------------------------------*/
 
-function biz_vektor_generate_default_options(){
-		$default_theme_options = array(
-		'font_title' => 'sanserif',
-		'font_menu' => 'sanserif',
-		'gMenuDivide' => '',
-		'head_logo' => '',
-		'foot_logo' => '',
-		'contact_txt' => '',
-		'tel_number' => '',
-		'contact_time' => '',
-		'sub_sitename' => '',
-		'contact_address' => '',
-		'contact_link' => '',
-		'topTitle' => '',
-		'commonKeyWords' => '',
-		'gaID' => '',
-		'gaType' => 'gaType_normal',
-		'topEntryTitleDisplay' => '',
-		'topSideBarDisplay' => false,
-		'top3PrDisplay' => '',
-		'postTopCount' => '0',
-		'infoTopCount' => '0',
-		'postTopUrl' => '',
-		'infoTopUrl' => '',
-		'listInfoTop' => 'listType_set',
-		'listInfoArchive' => 'listType_set',
-		'listBlogTop' => 'listType_set',
-		'listBlogArchive' => 'listType_set',
-		'blogRss' => '',
-		'twitter' => '',
-		'facebook' => '',
-		'fbAppId' => '',
-		'fbAdminId' => '',
-		'ogpImage' => '',
-		'ogpTagDisplay' => '',
-		'snsBtnsFront' => '',
-		'snsBtnsPage' => '',
-		'snsBtnsPost' => '',
-		'snsBtnsInfo' => '',
-		'snsBtnsHidden' => '',
-		'fbCommentsFront' => '',
-		'fbCommentsPage' => '',
-		'fbCommentsPost' => '',
-		'fbCommentsInfo' => '',
-		'fbCommentsHidden' => '',
-		'fbLikeBoxFront' => '',
-		'fbLikeBoxSide' => '',
-		'fbLikeBoxURL' => '',
-		'fbLikeBoxStream' => '',
-		'fbLikeBoxFace' => '',
-		'fbLikeBoxHeight' => '',
-		'side_child_display' => 'side_child_display',
-		'rssLabelName' => 'Blog entries',
-		'favicon' => '',
-		'theme_layout' => 'content-sidebar',
-		'postLabelName' => 'Blog',
-		'infoLabelName' => 'Information',
-		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options', 'biz-vektor'),
-		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
-		'pr1_link' => '',
-		'pr1_image' => '',
-		'pr1_image_s' => '',
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
-		'pr2_link' => '',
-		'pr2_image' => '',
-		'pr2_image_s' => '',
-		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
-		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
-		'pr3_link' => '',
-		'pr3_image' => '',
-		'pr3_image_s' => '',
-		'version' => BizVektor_Theme_Version,
-		'SNSuse' => false
-	);
-
-	for ( $i = 1; $i <= 5 ;){
-		$default_theme_options['slide'.$i.'link'] = '';
-		$default_theme_options['slide'.$i.'image'] = '';
-		$default_theme_options['slide'.$i.'alt'] = '';
-		$default_theme_options['slide'.$i.'display'] = '';
-		$default_theme_options['slide'.$i.'blank'] = '';
-	$i++;
-	}
-	return $default_theme_options;
-}
-
-/*-------------------------------------------*/
-/*	Set option default
-/*	$opstions_default = biz_vektor_generate_default_options(); に移行して順次廃止	// 1.0.0
-/*-------------------------------------------*/
-function bizVektorOptions_default() {
-	global $bizVektorOptions_default;
-	$bizVektorOptions_default = array(
-		'theme_layout' => 'content-sidebar',
-		'postLabelName' => 'Blog',
-		'infoLabelName' => 'Information',
-		// 'rssLabelName' => 'Blog entries',
-		'theme_style' => 'default',
-		'pr1_title' => __('Rich theme options', 'biz-vektor'),
-		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
-		'pr1_link' => '',
-		'pr1_image' => '',
-		'pr1_image_s' => '',
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
-		'pr2_link' => '',
-		'pr2_image' => '',
-		'pr2_image_s' => '',
-		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
-		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
-		'pr3_link' => '',
-		'pr3_image' => '',
-		'pr3_image_s' => '',
-	);
-}
-
-/*-------------------------------------------*/
-/*	Print option
-/*-------------------------------------------*/
-function bizVektorOptions($optionLabel) {
-	$options = biz_vektor_get_theme_options();
-	if ( isset($options[$optionLabel]) && $options[$optionLabel] ) {
-		return $options[$optionLabel];
-	} else {
-		$options_default = biz_vektor_get_default_theme_options();
-		if (isset($options_default[$optionLabel]))
-		return $options_default[$optionLabel];
-	}
-}
+get_template_part('inc/theme-options-edit');
 
 /*-------------------------------------------*/
 /*	Create title
@@ -412,12 +246,6 @@ function biz_vektor_topSideBarDisplay( $existing_classes ) {
 add_filter( 'biz_vektor_layout_classes', 'biz_vektor_topSideBarDisplay' );
 
 /*-------------------------------------------*/
-/*	Theme option edit
-/*-------------------------------------------*/
-
-get_template_part('inc/theme-options-edit');
-
-/*-------------------------------------------*/
 /*	Theme style
 /*-------------------------------------------*/
 
@@ -452,12 +280,16 @@ function biz_vektor_theme_style() {
 	// Set bbiz_vektor_theme_styles
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
-	// load default
-	if ( !$options['theme_style'] ) {
-		global $bizVektorOptions_default;
-		bizVektorOptions_default();
-		$options['theme_style'] = $bizVektorOptions_default['theme_style'];
-	}
+
+	/*-------------------------------------------*/
+	/* global $biz_vektor_theme_styles　の時点で初期時が入るようになったはずなのでエラーが出なければ廃止
+	/*-------------------------------------------*/
+	//// load default
+	// if ( !$options['theme_style'] ) {
+	// 	$default_theme_options = biz_vektor_generate_default_options();
+	// 	$options['theme_style'] = $default_theme_options['theme_style'];
+	// }
+
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 
 	print '<!-- BizVektorStyle-->'."\n";
@@ -510,9 +342,9 @@ function biz_vektor_gMenuDivide() {
 /*	menu divide
 /*-------------------------------------------*/
 @media (min-width: 970px) {
-#gMenu .menu li { width:'.$menuWidthNonActive.'px; text-align:center; }
+#gMenu .menu li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
 #gMenu .menu li.current_page_item,
-#gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
+#gMenu .menu li.current_page_ancestor { width:<?php echo $menuWidthActive ?>px; }
 }
 </style>
 <!--[if lte IE 8]>
@@ -937,62 +769,4 @@ function get_biz_vektor_name() {
 	$name = 'BizVektor';
 	$name = apply_filters( 'bizvektor_name', $name );
 	return $name;
-}
-
-// テーマオプションを読み込み、デフォルト値に上書きして返す。Noticeが出た時の一時的な使用用。現状で使用箇所なし 
-function biz_vektor_veryfi_option(){
-	$options = get_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
-	$default_theme_options = biz_vektor_generate_default_options();
-
-	$keylist = array_keys($options);
-	foreach($keylist as $key){
-		$default_theme_options[$key] = $options[$key];
-	}
-	return $default_theme_options;
-}
-
-class biz_vektor_veryfi_tool{
-	var $version;
-
-	public function __construct(){
-		$this->check_version();
-	}
-
-	public function update(){
-		switch (BizVektor_Theme_Version) {
-			case '1.0.0':
-				if($this->version == '0.11.5.2'){
-					$this->rebuild_option_0_11_5_2();
-				}
-				break;
-			default:
-				break;
-		}
-	}
-
-/*-------------------------------------------*/
-/*	Updata
-/*-------------------------------------------*/
-
-	public function check_version(){
-		// テーマバージョンの確認
-		$options = get_option('biz_vektor_theme_options');
-		if(isset($options['version'])){
-			$this->version = $options['version'];
-		}else{
-			$this->version = '0.11.5.2';
-		}
-	}
-
-	public function rebuild_option_0_11_5_2(){
-		$options = get_option('biz_vektor_theme_options');
-		$default = biz_vektor_generate_default_options();
-		$keylist = array_keys($options);
-		foreach($keylist as $key){
-			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
-		}
-		delete_option('biz_vektor_theme_options');
-		add_option('biz_vektor_theme_options', $default);
-		biz_vektor_option_register();
-	}
 }
