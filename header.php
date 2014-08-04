@@ -2,6 +2,8 @@
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="edge" />
 <![endif]-->
+<?php global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options(); ?>
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -20,8 +22,7 @@ if ( is_singular() && get_option( 'thread_comments' ) )
  * generally use this hook to add elements to <head> such
  * as styles, scripts, and meta tags.
  */
-wp_head();
-?>
+wp_head(); ?>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <?php
 /* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
@@ -37,9 +38,6 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 </head>
 
 <body <?php body_class(); ?>>
-<?php global $biz_vektor_options;
-$biz_vektor_options = biz_vektor_get_theme_options(); ?>
-
 <div id="fb-root"></div>
 <?php
 if ($biz_vektor_options['fbAppId']) :
