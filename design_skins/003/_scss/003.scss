@@ -1,0 +1,357 @@
+@charset "utf-8";
+@import "compass";
+@import "base";
+@import "icon_vk_kado";
+
+$color_lgray : #efefef;
+$color_border : #e5e5e5;
+$color_border_vivid : #333;
+$color_key : #EB5505;
+$color_key_light : #09c;
+$color_key_slight : #eff5ff;
+$color_title : #333;
+$color_font : #666;
+$color_bg_black : #000;
+$color_bg_black_font : #999;
+$color_bg_gray_border : #e5e5e5;
+$sidePadding : 25px;
+
+
+@mixin linebox { border:1px solid #ccc;box-shadow:inset 0px 0px 0px 1px rgba(255,255,255,0.9);color:#fff; }
+@mixin wakubox { box-shadow:inset 0px 0px 0px 4px rgba(0,0,0,0.05); border:1px solid #ccc;margin-bottom:20px; }
+@mixin vektor_kado_icons {
+	font-family: 'vektor_kado_icons';
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+/*-------------------------------------------*/
+/*	Btn
+/*-------------------------------------------*/
+#searchform input[type=submit],
+p.form-submit input[type=submit],
+form#searchform input#searchsubmit,
+#content form input.wpcf7-submit,
+#confirm-button input,
+a.btn,
+.linkBtn a,
+input[type=button],
+input[type=submit]	{ @include linebox; }
+
+
+form#searchform { @include linebox;color:#666; }
+form#searchform input#searchsubmit { @include linebox; }
+
+.moreLink { display:block; overflow:hidden;
+	a 		{ float:right;padding:0; text-decoration: right;font-size:11px; line-height: 140%;background: none; }
+	a:hover { background: none; }
+	a:after { @include vektor_kado_icons;content:"\3a";padding:2px 2px 0 5px; }
+}
+
+#headerTop { border-top:2px solid #000; background-color: #f5f5f5; }
+#header { background-color: #fff;
+	.innerBox { padding-top:20px;
+		#site-title { padding-bottom:10px; }
+	}
+}
+
+#gMenu {
+	ul.menu {
+			a strong { font-weight: lighter; }
+		}
+} // #gMenu
+
+@media (max-width: 970px) {
+#gMenu	{
+	.assistive-text { @include linebox;border-radius: 4px;color:#333;
+		span { font-size:0;line-height: 0;
+		&:before { font-size:24px;line-height: 24px; }
+		}
+	}
+	ul.menu { border-top:1px solid #e5e5e5;
+		li { background-color: #f5f5f5;box-shadow:inset 0px 1px 0px 0px rgba(255,255,255,1);
+			a:before {@include vektor_kado_icons;content:"\2b";margin-right:5px;}
+		}
+		ul { border-top:1px solid #e5e5e5;
+			li a:before { font-size:80%; }
+		}
+	} // ul
+}
+} // @media (max-width: 970px)
+
+
+#pageTitBnr { background-color:$color_key;border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
+#pageTitBnr #pageTitInner #pageTit { color:#fff;font-weight: lighter; }
+
+#panList {
+	border-bottom:1px solid $color_border; background-color: #fafafa;
+	ul { width:100%; }
+	ul a,
+	ul a:active { color:#666;text-decoration: none; }
+	ul li#panHome a:before { @include vektor_kado_icons;content: "\2d";padding-right:3px;  }
+}
+
+#content {
+	h2,
+	h1.contentTitle,
+	h1.entryPostTitle,
+	.sideWidget h4 { border:1px solid #ccc;border-left:4px solid $color_key;background-color: #efefef; padding-left:15px; box-shadow:inset 0px 0px 0px 1px rgba(255,255,255,1); }
+	h3 { border-top:none;border-bottom:3px solid #ccc; position: relative;padding-bottom: 5px;font-size:150%; }
+	h3:after { content:".";line-height:0;width:30%;display:block; overflow:hidden;border-bottom:3px solid $color_key; position: absolute;bottom:-3px; }
+	// blockquote,
+	.sectionFrame { @include wakubox;padding:20px 20px 0;
+		h2,
+		h3,
+		h4,
+		h5 { margin-top:0px; margin-bottom:15px;}
+	}
+	h4 { padding-top:0;border-bottom:1px solid #ccc;box-shadow:0px 1px 0px rgba(255,255,255,1); }
+	table { border-top:1px dotted $color_border_vivid;border-spacing: 2px;border-collapse: inherit;
+		th,td { border:none;margin-right:2px;border-bottom:1px dotted $color_border_vivid; }
+		th { font-weight: lighter; }
+	}
+} 
+
+#content .infoList {
+	.rssBtn a { @include linebox; }
+	.infoCate a { background: none; }
+	.infoListBox { @include wakubox;padding:20px 20px 10px;margin-top:15px; }
+}
+
+#content .childPageBox { @include wakubox; }
+#content .childPageBox h4 { border-bottom:1px dotted $color_border_vivid; }
+
+#content .mainFootContact { padding:15px 0; border-top:1px dotted $color_border_vivid;border-bottom:1px dotted $color_border_vivid; }
+
+#content .child_page_block { @include wakubox;}
+#content .child_page_block .child_page_blockInner { padding: 15px 15px 10px; margin:0; }
+#content .child_page_block h4 { border-bottom:1px dotted $color_border_vivid; }
+
+#sideTower {
+	.localSection { @include wakubox;padding:15px;
+		.localHead { border-top:none;padding-top:5px; }
+			li a:before { @include vektor_kado_icons;content: "\32";margin-right:5px;padding-top:3px;}
+			li a { padding-left:25px;color:$color_font; }
+			li a:first-letter { margin-left:-20px; }
+			li ul li { font-size:12px; }
+			li ul li a { padding-left:25px; }
+			li ul li a:before { @include vektor_kado_icons;content: "\2b";margin-right:5px;padding-top:3px;}
+			li ul li a:first-letter { margin-left:-20px;border:1px solid rgba(255,255,255,0); }
+	}
+} // #sideTower
+#pagetop {
+	.innerBox {  }
+	a { color:#fff;margin-bottom:0;border:none; position: relative; }
+			a	{ margin-top:5px;padding:5px 15px 5px;}
+			a:hover	{ margin-top:0;padding-bottom:10px; }
+	a:before { @include vektor_kado_icons;content: "\41";margin-right:5px;top:1px;position: relative; }
+}
+
+
+/*-------------------------------------------*/
+/*	#footMenu
+/*-------------------------------------------*/
+#footMenu	{ border-top:2px solid #999;border-bottom:1px solid #fff;
+	.innerBox {
+		a { color:#666;}
+		.menu li a:hover { text-decoration: none; }
+	 }
+}
+/*-------------------------------------------*/
+/*	#footer
+/*-------------------------------------------*/
+#footer	{ padding:0; background-color: #f5f5f5;
+	.innerBox { padding-top:25px;padding-bottom:20px;
+	a { color:#666; }
+	}
+}
+/*		#footerSiteMap
+/*-------------------------------------------*/
+#footerSiteMap .menu {
+	li.firstChild	{ border-top:1px solid $color_bg_gray_border; }
+	li	a	{ border-bottom:1px solid $color_bg_gray_border; }
+	li ul li.firstChild { border-top:none; }
+}
+
+#siteBottom { background-color: #f5f5f5;border-top:1px solid $color_bg_gray_border;
+	#siteBottomInner.innerBox { padding-top:0;
+		#copy { padding-top:15px; }
+		#powerd { color:#333;}
+		#powerd a { color:#454545;}
+	}
+}
+
+#topMainBnr { background-color: #fafafa;border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
+#topMainBnrFrame { padding:0px;width:100%;
+	ul.slides { border-left:1px solid $color_border;border-right:1px solid $color_border; }
+}
+#topPr { border-top:1px dotted $color_border;
+	.topPrOuter {
+		border-bottom:1px dotted $color_border;
+		h3 { border-bottom:none; }
+	}
+}
+/*-------------------------------------------*/
+/* コンテンツ推奨サイズより大きい場合
+/*-------------------------------------------*/
+@media (min-width: 660px) { /* スクロール分余裕に20px */
+#topPr { border-top:none;
+	.topPrOuter { border-bottom:none;
+		.topPrInner { padding:0;width:90%; }
+	} // .topPrOuter
+	#topPrLeft .topPrInner {  }
+} // #topPr
+} // min-width: 660px
+
+/*-------------------------------------------*/
+/* pc iPad3より大きい場合
+/*-------------------------------------------*/
+@media (min-width: 770px) {
+#site-title { float:left; }
+#footMenu	{ background-color: #f5f5f5;
+	#footMenuInner { padding: 0px $sidePadding 0px; }
+	.menu { padding:10px 0;}
+	.menu li.firstChild	{ border-top:none; }
+	.menu li a { border-right:none;padding:0 20px 0 0; }
+	.menu li a:before { font-family: 'vektor_kado_icons';content: "\2b";padding-right:5px;}
+} // #footMenu
+#footerSiteMap {
+	.menu {
+		li { margin-right:10px;
+			a { border-bottom:1px solid $color_bg_gray_border; }
+			ul li { margin-right:0;
+					a { border:none; }
+			}
+		} //li
+		li.firstChild	{ border-top:none; }
+	} //.menu
+} // #footerSiteMap
+
+// #topMainBnrFrame	{ width:94%; padding-right:3%;padding-left:3%;margin:0 auto; }
+} // min-width: 770px
+
+/*-------------------------------------------*/
+/*	フルサイズ
+/*-------------------------------------------*/
+@media (min-width: 970px) { /* スクロール分余裕に20px */
+.innerBox,
+#panList .innerBox,
+#footMenu .innerBox,
+#topMainBnrFrame,
+#pageTitBnr .innerBox,
+#topMainBnrFrame { width:950px; padding-left:0;padding-right:0;margin:0 auto; }
+
+#topMainBnr img		{ width:950px !important; }
+
+#gMenu #gMenuInner.innerBox { width:auto; }
+#gMenu { float:right;clear:none;width:auto;padding-left:30px;
+	&:after { content:""; display: inherit; }
+	.menu { 
+		li.firstChild a { border-left:1px solid $color_border; }
+		li a { border-right:1px solid $color_border;margin-top:13px;margin-bottom:11px;padding:0 20px; }
+		li.current_page_item,
+		li.current_page_ancestor,
+		li.current-page-ancestor,
+		li:hover { box-shadow:inset 0px 0px 0px 2px rgba(255,255,255,1);
+			ul { 
+				li { border-bottom:1px dotted $color_border; border-radius: 4px;
+					a { margin:0;padding:10px;border-radius: 4px; }
+					li.firstChild a { border-left:none; }
+				}
+				li.firstChild a { border-left:none; }
+			}
+		} // li:hover
+	} //.menu
+} // #gmenu
+
+} // min-width: 970px
+
+
+/*-------------------------------------------*/
+/*	color /* そのまま貼るのでsassで書かない */
+/*-------------------------------------------*/
+a { color:$color_key_light; }
+
+#searchform input[type=submit],
+p.form-submit input[type=submit],
+form#searchform input#searchsubmit,
+#content form input.wpcf7-submit,
+#confirm-button input,
+a.btn,
+.linkBtn a,
+input[type=button],
+input[type=submit] { background-color:$color_key; }
+
+.moreLink a:hover { color:$color_key; }
+
+#headerTop { border-top-color:$color_key; }
+#headContactTel { color:$color_key;}
+
+#gMenu .menu li:hover { color:$color_key; }
+#gMenu .menu li a:hover { color:$color_key; }
+#gMenu .menu li a span { color:$color_key; }
+#gMenu .menu li li a:hover,
+#gMenu .menu li:hover li a:hover,
+#gMenu .menu li.current_page_item,
+#gMenu .menu li.current_page_ancestor,
+#gMenu .menu li.current-page-ancestor,
+#gMenu .menu li.current_page_item li a:hover,
+#gMenu .menu li.current-menu-ancestor li a:hover,
+#gMenu .menu li.current-page-ancestor li a:hover,
+#gMenu .menu li.current_page_ancestor li a:hover { color: $color_key; }
+
+#sideTower li#sideContact.sideBnr a,
+#content .infoList .rssBtn a,
+form#searchform input#searchsubmit { background-color: $color_key; }
+
+#sideTower li#sideContact.sideBnr a:hover,
+#content .infoList .rssBtn a:hover,
+form#searchform input#searchsubmit:hover { background-color: $color_key_light; }
+
+#panList .innerBox ul a:hover { color:$color_key_light; }
+
+#content .mainFootContact p.mainFootTxt span.mainFootTel { color:$color_key; }
+#content .mainFootContact .mainFootBt a { background-color: $color_key; }
+#content .mainFootContact .mainFootBt a:hover { background-color: $color_key_light; }
+
+#content .infoList .infoCate a { background-color: $color_key_slight;color:$color_key; }
+#content .infoList .infoCate a:hover { background-color: $color_key_light; }
+
+.paging span,
+.paging a	{ color:$color_key;border-color:$color_key;}
+.paging span.current,
+.paging a:hover	{ background-color:$color_key;}
+
+#sideTower .localHead { border-top-color:$color_key; }
+
+	/* アクティブのページ */
+#sideTower .sideWidget li a:hover,
+#sideTower .sideWidget li.current_page_item a,
+#sideTower .sideWidget li.current-cat a	{ color:$color_key;background-color: $color_key_slight;}
+	/* 親がアクティブの子ページ（リセットする） */
+#sideTower .sideWidget li.current-cat li a,
+#sideTower .sideWidget li.current_page_item li a	{ color:#333;background-color:inherit; }
+	/* 親がアクティブの子ページhover */
+#sideTower .sideWidget li.current-cat li a:hover,
+#sideTower .sideWidget li.current_page_item li a:hover	{ color:$color_key;background-color: $color_key_slight; }
+	/* 子がアクティブのページ */
+#sideTower .sideWidget li li.current-cat a,
+#sideTower .sideWidget li li.current_page_item a { color:$color_key;background-color: $color_key_slight; }
+	/* 子がアクティブの孫ページ（リセットする） */
+#sideTower .sideWidget li li.current-cat li a,
+#sideTower .sideWidget li li.current_page_item li a { color:#333;background-color:inherit; }
+	/* 子がアクティブの孫ページhover */
+#sideTower .sideWidget li li.current-cat li a:hover,
+#sideTower .sideWidget li li.current_page_item li a:hover { color:$color_key;background-color: $color_key_slight; }
+
+#pagetop a { background-color: $color_key; }
+#pagetop a:hover { background-color: $color_key_light; }
+
+#footMenu { border-top-color: $color_key;}
+#footMenu .menu li a:before { color:$color_key; }
+#footMenu .menu li a:hover { color:$color_key; }

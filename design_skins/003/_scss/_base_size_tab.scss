@@ -1,0 +1,34 @@
+@import "compass";
+@import "icon_vk_kado";
+
+#header #site-title	{ padding-bottom:15px;float:left;}
+#main #container	{ padding-top:20px;}
+#main #container #content	{ margin:0px auto; }
+#content p	{ line-height:170%; }
+#content table th,
+#content table td { display:table-cell; }
+#content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
+#content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
+#content .mainFootContact .mainFootBt	{ float:right; }
+#content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
+#content .mainFootContact .mainFootBt a img	{ width:auto; }
+.paging span.pageIndex { display:inline; }
+
+#topPr { display:block; overflow:hidden; }
+#topPr .topPrOuter	{ padding:0px;border-bottom:none;margin-bottom:20px; }
+#topPr #topPrLeft 	{ width:33.1%; text-align:left; float:left;display:block; overflow:visible; }
+#topPr #topPrCenter { width:33.1%; text-align:center;float:left;display:block; overflow:visible; }
+#topPr #topPrRight 	{ width:33.1%; text-align:right;float:right; display:block; overflow:visible; }
+#topPr #topPrLeft .topPrInner 	{ float:left; }
+#topPr #topPrCenter .topPrInner	{ margin:0px auto;}
+#topPr #topPrRight .topPrInner	{ float:right; }
+#topPr .topPrInner	{text-align:left;width:95%;}
+#topPr .topPrInner p	{ padding:0px; }
+#topPr .topPrInner p.topPrDescription	{ font-size:85.7%; }
+#topPr .prImage	{ float:none;width:100%; margin-right:0px; }
+#topPr .prImage img { height:auto;width:100%; }
+#topPr .prImage img.imageWide	{ display:block;}
+#topPr .prImage img.imageSmall	{ display:none;}
+
+#content .child_page_block	{ width:48%; }
+#content .child_page_block.layout_odd	{ float:left; clear:both; }

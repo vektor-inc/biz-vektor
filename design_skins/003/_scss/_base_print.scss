@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import "compass";
+
+@media print { 
+body { background: none !important; }
+#wrapper { clear: both !important; display: block !important; float: none !important; position: relative !important; }
+#headerTop,
+#header,
+#panList,
+#gMenu,
+#pagetop,
+#sideTower,
+#footMenu,
+#footer,
+#siteBottom	{ display:none !important; }
+
+#pageTitBnr,
+#content table th	{ box-shadow:none !important; }
+
+#access,
+#branding img,
+#respond,
+.comment-edit-link,
+.edit-link,
+.navigation,
+.page-link,
+.widget-area { display: none !important; }
+#container { margin: 0; width: 100%; }
+}

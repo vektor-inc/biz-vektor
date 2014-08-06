@@ -253,6 +253,11 @@ add_filter( 'biz_vektor_layout_classes', 'biz_vektor_topSideBarDisplay' );
 function biz_vektor_theme_styleSetting() {
 	global $biz_vektor_theme_styles;
 	$biz_vektor_theme_styles = array(
+		'003' => array(
+			'label' => '003',
+			'cssPath' => get_template_directory_uri().'/design_skins/003/003.css',
+			'cssPathOldIe' => get_template_directory_uri().'/design_skins/003/003_oldie.css',
+			),
 		'calmly' => array(
 			'label' => 'Calmly',
 			'cssPath' => get_template_directory_uri().'/design_skins/002/002.css',

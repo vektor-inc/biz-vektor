@@ -1,0 +1,89 @@
+@charset "utf-8";
+@import "compass";
+@import "base_old_ie";
+
+$color_lgray : #efefef;
+$color_border : #e5e5e5;
+$color_border_vivid : #333;
+$color_key : #069;
+$color_key_light : #09c;
+$color_key_slight : #eff5ff;
+$color_title : #333;
+$color_font : #666;
+$color_bg_black : #000;
+$color_bg_black_font : #999;
+$color_bg_black_border : #151515;
+$sidePadding : 25px;
+
+/*-------------------------------------------*/
+/* コンテンツ推奨サイズより大きい場合
+/*-------------------------------------------*/
+
+#topPr { border-top:none;
+	.topPrOuter { border-bottom:none;
+		.topPrInner { padding:0 6%;width:88%;border-right:1px solid $color_border; }
+	} // .topPrOuter
+	#topPrLeft .topPrInner { border-left:1px solid $color_border; }
+} // #topPr
+
+
+/*-------------------------------------------*/
+/* pc iPad3より大きい場合
+/*-------------------------------------------*/
+
+#gMenu { border-top:1px solid $color_border;border-bottom:1px solid $color_border;
+	.menu { 
+		li.firstChild a { border-left:1px solid $color_border; }
+		li a { border-right:1px solid $color_border;margin-top:13px;margin-bottom:11px;padding:0 10px; }
+		li.current_page_item,
+		li.current_page_ancestor,
+		li.current-page-ancestor,
+		li:hover { box-shadow:inset 0px 0px 0px 2px rgba(255,255,255,1);
+			ul { border-top:1px solid $color_border;
+				li { border-bottom:1px solid $color_border;
+					a { margin:0;padding:10px; }
+					li.firstChild a { border-left:none; }
+				}
+				li.firstChild a { border-left:none; }
+			}
+		} // li:hover
+	} //.menu
+} // #gmenu
+
+#footMenu	{ background-color: $color_bg_black;
+	#footMenuInner { padding: 0px $sidePadding 0px; }
+	.menu { padding:10px 0;}
+	.menu li.firstChild	{ border-top:none; }
+	.menu li a { border-right:none;padding:0 20px 0 0; }
+	.menu li a:before { font-family: 'vektor_kado_icons';content: "\2b";padding-right:5px;}
+} // #footMenu
+#footerSiteMap {
+	.menu {
+		li { margin-right:10px;
+			a { border-bottom:1px solid $color_bg_black_border; }
+			ul li { margin-right:0;
+					a { border:none; }
+			}
+				} //li
+		li.firstChild	{ border-top:none; }
+	} //.menu
+} // #footerSiteMap
+
+#topMainBnrFrame	{ width:94%; padding-right:3%;padding-left:3%;margin:0 auto; }
+#pageTitBnr #pageTitInner { border-left:1px solid $color_border;border-right:1px solid $color_border; }
+
+
+
+/*-------------------------------------------*/
+/*	フルサイズ
+/*-------------------------------------------*/
+
+.innerBox,
+#gMenu #gMenuInner.innerBox,
+#panList .innerBox,
+#footMenu .innerBox,
+#topMainBnrFrame,
+#pageTitBnr .innerBox,
+#topMainBnrFrame { width:950px; padding-left:0;padding-right:0;margin:0 auto; }
+
+#topMainBnr img		{ width:950px !important; }

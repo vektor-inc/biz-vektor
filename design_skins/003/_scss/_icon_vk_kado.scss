@@ -1,0 +1,147 @@
+@font-face {
+	font-family: 'vektor_kado_icons';
+	src:url('fonts/vektor_kado_icons.eot');
+	src:url('fonts/vektor_kado_icons.eot?#iefix') format('embedded-opentype'),
+		url('fonts/vektor_kado_icons.woff') format('woff'),
+		url('fonts/vektor_kado_icons.ttf') format('truetype'),
+		url('fonts/vektor_kado_icons.svg#vektor_kado_icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'vektor_kado_icons';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-vk_kado_waku_tel_01, .icon-vk_kado_waku_rss_01, .icon-vk_kado_waku_menu_01, .icon-vk_kado_waku_close_01, .icon-vk_kado_nuri_rss_01, .icon-vk_kado_nuri_arrow_01_right, .icon-vk_kado_nashi_tel_01, .icon-vk_kado_nashi_menu_01, .icon-vk_kado_nashi_close_01, .icon-vk_kado_full_tri_01_right_bottom, .icon-vk_kado_full_home_01, .icon-vk_full_rss_01, .icon-vk_kado_nashi_arrow_01_top, .icon-vk_kado_nashi_arrow_01_right, .icon-vk_kado_nashi_arrow_01_left, .icon-vk_kado_nashi_arrow_01_bottom, .icon-vk_kado_wakumaru_arrow_01_top, .icon-vk_kado_wakumaru_arrow_01_right, .icon-vk_kado_wakumaru_arrow_01_left, .icon-vk_kado_wakumaru_arrow_01_bottom, .icon-vk_kado_waku_arrow_01_top, .icon-vk_kado_waku_arrow_01_right, .icon-vk_kado_waku_arrow_01_left, .icon-vk_kado_waku_arrow_01_bottom, .icon-vk_kado_nurimaru_arrow_01_top, .icon-vk_kado_nurimaru_arrow_01_right, .icon-vk_kado_nurimaru_arrow_01_left, .icon-vk_kado_nurimaru_arrow_01_bottom, .icon-vk_kado_nuri_arrow_01_top, .icon-vk_kado_nuri_arrow_01_right-2, .icon-vk_kado_nuri_arrow_01_left, .icon-vk_kado_nuri_arrow_01_bottom, .icon-vk_kado_full_arrow_01_top, .icon-vk_kado_full_arrow_01_right, .icon-vk_kado_full_arrow_01_left, .icon-vk_kado_full_arrow_01_bottom {
+	font-family: 'vektor_kado_icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-vk_kado_waku_tel_01:before {
+	content: "\21";
+}
+.icon-vk_kado_waku_rss_01:before {
+	content: "\22";
+}
+.icon-vk_kado_waku_menu_01:before {
+	content: "\23";
+}
+.icon-vk_kado_waku_close_01:before {
+	content: "\24";
+}
+.icon-vk_kado_nuri_rss_01:before {
+	content: "\26";
+}
+.icon-vk_kado_nuri_arrow_01_right:before {
+	content: "\27";
+}
+.icon-vk_kado_nashi_tel_01:before {
+	content: "\28";
+}
+.icon-vk_kado_nashi_menu_01:before {
+	content: "\29";
+}
+.icon-vk_kado_nashi_close_01:before {
+	content: "\2a";
+}
+.icon-vk_kado_full_tri_01_right_bottom:before {
+	content: "\2c";
+}
+.icon-vk_kado_full_home_01:before {
+	content: "\2d";
+}
+.icon-vk_full_rss_01:before {
+	content: "\2f";
+}
+.icon-vk_kado_nashi_arrow_01_top:before {
+	content: "\25";
+}
+.icon-vk_kado_nashi_arrow_01_right:before {
+	content: "\2b";
+}
+.icon-vk_kado_nashi_arrow_01_left:before {
+	content: "\2e";
+}
+.icon-vk_kado_nashi_arrow_01_bottom:before {
+	content: "\30";
+}
+.icon-vk_kado_wakumaru_arrow_01_top:before {
+	content: "\31";
+}
+.icon-vk_kado_wakumaru_arrow_01_right:before {
+	content: "\32";
+}
+.icon-vk_kado_wakumaru_arrow_01_left:before {
+	content: "\33";
+}
+.icon-vk_kado_wakumaru_arrow_01_bottom:before {
+	content: "\34";
+}
+.icon-vk_kado_waku_arrow_01_top:before {
+	content: "\35";
+}
+.icon-vk_kado_waku_arrow_01_right:before {
+	content: "\36";
+}
+.icon-vk_kado_waku_arrow_01_left:before {
+	content: "\37";
+}
+.icon-vk_kado_waku_arrow_01_bottom:before {
+	content: "\38";
+}
+.icon-vk_kado_nurimaru_arrow_01_top:before {
+	content: "\39";
+}
+.icon-vk_kado_nurimaru_arrow_01_right:before {
+	content: "\3a";
+}
+.icon-vk_kado_nurimaru_arrow_01_left:before {
+	content: "\3b";
+}
+.icon-vk_kado_nurimaru_arrow_01_bottom:before {
+	content: "\3c";
+}
+.icon-vk_kado_nuri_arrow_01_top:before {
+	content: "\3d";
+}
+.icon-vk_kado_nuri_arrow_01_right-2:before {
+	content: "\3e";
+}
+.icon-vk_kado_nuri_arrow_01_left:before {
+	content: "\3f";
+}
+.icon-vk_kado_nuri_arrow_01_bottom:before {
+	content: "\40";
+}
+.icon-vk_kado_full_arrow_01_top:before {
+	content: "\41";
+}
+.icon-vk_kado_full_arrow_01_right:before {
+	content: "\42";
+}
+.icon-vk_kado_full_arrow_01_left:before {
+	content: "\43";
+}
+.icon-vk_kado_full_arrow_01_bottom:before {
+	content: "\44";
+}

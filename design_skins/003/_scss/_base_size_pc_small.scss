@@ -1,0 +1,42 @@
+@import "compass";
+@import "icon_vk_kado";
+
+$color_lgray : #efefef;
+$color_key : #333;
+$color_border : #ccc;
+$line_low : 135.7% ;
+$font_size_small : 85.7%;
+
+body     { line-height:150%; }
+#headerTop { display: block; }
+#headerTop #site-description	{ display:inherit;line-height:150%;font-size:12px;}
+
+#header	{
+	#site-title { margin-left:0;}
+}
+
+#footerSiteMap {
+	.menu	{ font-size:12px;
+		li { display:inline-block;margin-bottom:6px;min-width:100px; }
+		li a	{ padding:0px 0px 4px; }
+		li ul { margin-top:8px; }
+		li li  { margin-right:10px; }
+		li li a	{ background-position:3px 3px;padding:0px;font-size:91.7%;}
+	}
+}
+// [attention] Put #footerSiteMap that sitemap is not float.
+#footMenu {
+	.innerBox { padding:10px 0; }
+	.menu { border:none;
+		li { float:left;border:none;}
+		li a { border-right:1px solid $color_border;padding:0px 15px 0px;}
+		li.lastChild a { border-right:none; }
+	} // .menu
+} // #footMenu
+
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:2px; padding-bottom:2px; }
+
+#sitemapOuter	{ padding:20px 50px; }
+#content #sitemapPageList { float:left;width:49%; }
+#content #sitemapPostList { float:right;width:49%;margin-top:0px; }
+#content ul.linkList li a	{ padding:3px 15px; }

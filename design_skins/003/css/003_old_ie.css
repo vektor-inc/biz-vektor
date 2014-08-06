@@ -1,0 +1,389 @@
+@charset "UTF-8";
+@font-face { font-family: 'vektor_kado_icons'; src: url("fonts/vektor_kado_icons.eot"); src: url("fonts/vektor_kado_icons.eot?#iefix") format("embedded-opentype"), url("fonts/vektor_kado_icons.woff") format("woff"), url("fonts/vektor_kado_icons.ttf") format("truetype"), url("fonts/vektor_kado_icons.svg#vektor_kado_icons") format("svg"); font-weight: normal; font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before { font-family: 'vektor_kado_icons'; content: attr(data-icon); speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-vk_kado_waku_tel_01, .icon-vk_kado_waku_rss_01, .icon-vk_kado_waku_menu_01, .icon-vk_kado_waku_close_01, .icon-vk_kado_nuri_rss_01, .icon-vk_kado_nuri_arrow_01_right, .icon-vk_kado_nashi_tel_01, .icon-vk_kado_nashi_menu_01, .icon-vk_kado_nashi_close_01, .icon-vk_kado_full_tri_01_right_bottom, .icon-vk_kado_full_home_01, .icon-vk_full_rss_01, .icon-vk_kado_nashi_arrow_01_top, .icon-vk_kado_nashi_arrow_01_right, .icon-vk_kado_nashi_arrow_01_left, .icon-vk_kado_nashi_arrow_01_bottom, .icon-vk_kado_wakumaru_arrow_01_top, .icon-vk_kado_wakumaru_arrow_01_right, .icon-vk_kado_wakumaru_arrow_01_left, .icon-vk_kado_wakumaru_arrow_01_bottom, .icon-vk_kado_waku_arrow_01_top, .icon-vk_kado_waku_arrow_01_right, .icon-vk_kado_waku_arrow_01_left, .icon-vk_kado_waku_arrow_01_bottom, .icon-vk_kado_nurimaru_arrow_01_top, .icon-vk_kado_nurimaru_arrow_01_right, .icon-vk_kado_nurimaru_arrow_01_left, .icon-vk_kado_nurimaru_arrow_01_bottom, .icon-vk_kado_nuri_arrow_01_top, .icon-vk_kado_nuri_arrow_01_right-2, .icon-vk_kado_nuri_arrow_01_left, .icon-vk_kado_nuri_arrow_01_bottom, .icon-vk_kado_full_arrow_01_top, .icon-vk_kado_full_arrow_01_right, .icon-vk_kado_full_arrow_01_left, .icon-vk_kado_full_arrow_01_bottom { font-family: 'vektor_kado_icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; }
+
+.icon-vk_kado_waku_tel_01:before { content: "\21"; }
+
+.icon-vk_kado_waku_rss_01:before { content: "\22"; }
+
+.icon-vk_kado_waku_menu_01:before { content: "\23"; }
+
+.icon-vk_kado_waku_close_01:before { content: "\24"; }
+
+.icon-vk_kado_nuri_rss_01:before { content: "\26"; }
+
+.icon-vk_kado_nuri_arrow_01_right:before { content: "\27"; }
+
+.icon-vk_kado_nashi_tel_01:before { content: "\28"; }
+
+.icon-vk_kado_nashi_menu_01:before { content: "\29"; }
+
+.icon-vk_kado_nashi_close_01:before { content: "\2a"; }
+
+.icon-vk_kado_full_tri_01_right_bottom:before { content: "\2c"; }
+
+.icon-vk_kado_full_home_01:before { content: "\2d"; }
+
+.icon-vk_full_rss_01:before { content: "\2f"; }
+
+.icon-vk_kado_nashi_arrow_01_top:before { content: "\25"; }
+
+.icon-vk_kado_nashi_arrow_01_right:before { content: "\2b"; }
+
+.icon-vk_kado_nashi_arrow_01_left:before { content: "\2e"; }
+
+.icon-vk_kado_nashi_arrow_01_bottom:before { content: "\30"; }
+
+.icon-vk_kado_wakumaru_arrow_01_top:before { content: "\31"; }
+
+.icon-vk_kado_wakumaru_arrow_01_right:before { content: "\32"; }
+
+.icon-vk_kado_wakumaru_arrow_01_left:before { content: "\33"; }
+
+.icon-vk_kado_wakumaru_arrow_01_bottom:before { content: "\34"; }
+
+.icon-vk_kado_waku_arrow_01_top:before { content: "\35"; }
+
+.icon-vk_kado_waku_arrow_01_right:before { content: "\36"; }
+
+.icon-vk_kado_waku_arrow_01_left:before { content: "\37"; }
+
+.icon-vk_kado_waku_arrow_01_bottom:before { content: "\38"; }
+
+.icon-vk_kado_nurimaru_arrow_01_top:before { content: "\39"; }
+
+.icon-vk_kado_nurimaru_arrow_01_right:before { content: "\3a"; }
+
+.icon-vk_kado_nurimaru_arrow_01_left:before { content: "\3b"; }
+
+.icon-vk_kado_nurimaru_arrow_01_bottom:before { content: "\3c"; }
+
+.icon-vk_kado_nuri_arrow_01_top:before { content: "\3d"; }
+
+.icon-vk_kado_nuri_arrow_01_right-2:before { content: "\3e"; }
+
+.icon-vk_kado_nuri_arrow_01_left:before { content: "\3f"; }
+
+.icon-vk_kado_nuri_arrow_01_bottom:before { content: "\40"; }
+
+.icon-vk_kado_full_arrow_01_top:before { content: "\41"; }
+
+.icon-vk_kado_full_arrow_01_right:before { content: "\42"; }
+
+.icon-vk_kado_full_arrow_01_left:before { content: "\43"; }
+
+.icon-vk_kado_full_arrow_01_bottom:before { content: "\44"; }
+
+#header #site-title { padding-bottom: 15px; float: left; }
+
+#main #container { padding-top: 20px; }
+
+#main #container #content { margin: 0px auto; }
+
+#content p { line-height: 170%; }
+
+#content table th, #content table td { display: table-cell; }
+
+#content .mainFootContact p.mainFootTxt { float: left; margin-bottom: 0px; text-align: left; }
+
+#content .mainFootContact p.mainFootTxt .mainFootCatch { font-size: 120%; }
+
+#content .mainFootContact .mainFootBt { float: right; }
+
+#content .mainFootContact .mainFootBt a { width: 350px; min-height: 50px; }
+
+#content .mainFootContact .mainFootBt a img { width: auto; }
+
+.paging span.pageIndex { display: inline; }
+
+#topPr { display: block; overflow: hidden; }
+
+#topPr .topPrOuter { padding: 0px; border-bottom: none; margin-bottom: 20px; }
+
+#topPr #topPrLeft { width: 33.1%; text-align: left; float: left; display: block; overflow: visible; }
+
+#topPr #topPrCenter { width: 33.1%; text-align: center; float: left; display: block; overflow: visible; }
+
+#topPr #topPrRight { width: 33.1%; text-align: right; float: right; display: block; overflow: visible; }
+
+#topPr #topPrLeft .topPrInner { float: left; }
+
+#topPr #topPrCenter .topPrInner { margin: 0px auto; }
+
+#topPr #topPrRight .topPrInner { float: right; }
+
+#topPr .topPrInner { text-align: left; width: 95%; }
+
+#topPr .topPrInner p { padding: 0px; }
+
+#topPr .topPrInner p.topPrDescription { font-size: 85.7%; }
+
+#topPr .prImage { float: none; width: 100%; margin-right: 0px; }
+
+#topPr .prImage img { height: auto; width: 100%; }
+
+#topPr .prImage img.imageWide { display: block; }
+
+#topPr .prImage img.imageSmall { display: none; }
+
+#content .child_page_block { width: 48%; }
+
+#content .child_page_block.layout_odd { float: left; clear: both; }
+
+@font-face { font-family: 'vektor_kado_icons'; src: url("fonts/vektor_kado_icons.eot"); src: url("fonts/vektor_kado_icons.eot?#iefix") format("embedded-opentype"), url("fonts/vektor_kado_icons.woff") format("woff"), url("fonts/vektor_kado_icons.ttf") format("truetype"), url("fonts/vektor_kado_icons.svg#vektor_kado_icons") format("svg"); font-weight: normal; font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before { font-family: 'vektor_kado_icons'; content: attr(data-icon); speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-vk_kado_waku_tel_01, .icon-vk_kado_waku_rss_01, .icon-vk_kado_waku_menu_01, .icon-vk_kado_waku_close_01, .icon-vk_kado_nuri_rss_01, .icon-vk_kado_nuri_arrow_01_right, .icon-vk_kado_nashi_tel_01, .icon-vk_kado_nashi_menu_01, .icon-vk_kado_nashi_close_01, .icon-vk_kado_full_tri_01_right_bottom, .icon-vk_kado_full_home_01, .icon-vk_full_rss_01, .icon-vk_kado_nashi_arrow_01_top, .icon-vk_kado_nashi_arrow_01_right, .icon-vk_kado_nashi_arrow_01_left, .icon-vk_kado_nashi_arrow_01_bottom, .icon-vk_kado_wakumaru_arrow_01_top, .icon-vk_kado_wakumaru_arrow_01_right, .icon-vk_kado_wakumaru_arrow_01_left, .icon-vk_kado_wakumaru_arrow_01_bottom, .icon-vk_kado_waku_arrow_01_top, .icon-vk_kado_waku_arrow_01_right, .icon-vk_kado_waku_arrow_01_left, .icon-vk_kado_waku_arrow_01_bottom, .icon-vk_kado_nurimaru_arrow_01_top, .icon-vk_kado_nurimaru_arrow_01_right, .icon-vk_kado_nurimaru_arrow_01_left, .icon-vk_kado_nurimaru_arrow_01_bottom, .icon-vk_kado_nuri_arrow_01_top, .icon-vk_kado_nuri_arrow_01_right-2, .icon-vk_kado_nuri_arrow_01_left, .icon-vk_kado_nuri_arrow_01_bottom, .icon-vk_kado_full_arrow_01_top, .icon-vk_kado_full_arrow_01_right, .icon-vk_kado_full_arrow_01_left, .icon-vk_kado_full_arrow_01_bottom { font-family: 'vektor_kado_icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; }
+
+.icon-vk_kado_waku_tel_01:before { content: "\21"; }
+
+.icon-vk_kado_waku_rss_01:before { content: "\22"; }
+
+.icon-vk_kado_waku_menu_01:before { content: "\23"; }
+
+.icon-vk_kado_waku_close_01:before { content: "\24"; }
+
+.icon-vk_kado_nuri_rss_01:before { content: "\26"; }
+
+.icon-vk_kado_nuri_arrow_01_right:before { content: "\27"; }
+
+.icon-vk_kado_nashi_tel_01:before { content: "\28"; }
+
+.icon-vk_kado_nashi_menu_01:before { content: "\29"; }
+
+.icon-vk_kado_nashi_close_01:before { content: "\2a"; }
+
+.icon-vk_kado_full_tri_01_right_bottom:before { content: "\2c"; }
+
+.icon-vk_kado_full_home_01:before { content: "\2d"; }
+
+.icon-vk_full_rss_01:before { content: "\2f"; }
+
+.icon-vk_kado_nashi_arrow_01_top:before { content: "\25"; }
+
+.icon-vk_kado_nashi_arrow_01_right:before { content: "\2b"; }
+
+.icon-vk_kado_nashi_arrow_01_left:before { content: "\2e"; }
+
+.icon-vk_kado_nashi_arrow_01_bottom:before { content: "\30"; }
+
+.icon-vk_kado_wakumaru_arrow_01_top:before { content: "\31"; }
+
+.icon-vk_kado_wakumaru_arrow_01_right:before { content: "\32"; }
+
+.icon-vk_kado_wakumaru_arrow_01_left:before { content: "\33"; }
+
+.icon-vk_kado_wakumaru_arrow_01_bottom:before { content: "\34"; }
+
+.icon-vk_kado_waku_arrow_01_top:before { content: "\35"; }
+
+.icon-vk_kado_waku_arrow_01_right:before { content: "\36"; }
+
+.icon-vk_kado_waku_arrow_01_left:before { content: "\37"; }
+
+.icon-vk_kado_waku_arrow_01_bottom:before { content: "\38"; }
+
+.icon-vk_kado_nurimaru_arrow_01_top:before { content: "\39"; }
+
+.icon-vk_kado_nurimaru_arrow_01_right:before { content: "\3a"; }
+
+.icon-vk_kado_nurimaru_arrow_01_left:before { content: "\3b"; }
+
+.icon-vk_kado_nurimaru_arrow_01_bottom:before { content: "\3c"; }
+
+.icon-vk_kado_nuri_arrow_01_top:before { content: "\3d"; }
+
+.icon-vk_kado_nuri_arrow_01_right-2:before { content: "\3e"; }
+
+.icon-vk_kado_nuri_arrow_01_left:before { content: "\3f"; }
+
+.icon-vk_kado_nuri_arrow_01_bottom:before { content: "\40"; }
+
+.icon-vk_kado_full_arrow_01_top:before { content: "\41"; }
+
+.icon-vk_kado_full_arrow_01_right:before { content: "\42"; }
+
+.icon-vk_kado_full_arrow_01_left:before { content: "\43"; }
+
+.icon-vk_kado_full_arrow_01_bottom:before { content: "\44"; }
+
+body { line-height: 150%; }
+
+#headerTop { display: block; }
+
+#headerTop #site-description { display: inherit; line-height: 150%; font-size: 12px; }
+
+#header #site-title { margin-left: 0; }
+
+#footerSiteMap .menu { font-size: 12px; }
+#footerSiteMap .menu li { display: inline-block; margin-bottom: 6px; min-width: 100px; }
+#footerSiteMap .menu li a { padding: 0px 0px 4px; }
+#footerSiteMap .menu li ul { margin-top: 8px; }
+#footerSiteMap .menu li li { margin-right: 10px; }
+#footerSiteMap .menu li li a { background-position: 3px 3px; padding: 0px; font-size: 91.7%; }
+
+#footMenu .innerBox { padding: 10px 0; }
+#footMenu .menu { border: none; }
+#footMenu .menu li { float: left; border: none; }
+#footMenu .menu li a { border-right: 1px solid #cccccc; padding: 0px 15px 0px; }
+#footMenu .menu li.lastChild a { border-right: none; }
+
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item { padding-top: 2px; padding-bottom: 2px; }
+
+#sitemapOuter { padding: 20px 50px; }
+
+#content #sitemapPageList { float: left; width: 49%; }
+
+#content #sitemapPostList { float: right; width: 49%; margin-top: 0px; }
+
+#content ul.linkList li a { padding: 3px 15px; }
+
+#header .innerBox { padding-top: 20px; }
+#header .innerBox #site-title { padding-bottom: 20px; }
+#header #headContact #headContactTxt { font-size: 11px; }
+#header #headContact #headContactTel { font-size: 24px; margin-bottom: 4px; }
+#header #headContact #headContactTime { font-size: 12px; }
+#header #headContact { float: right; text-align: right; margin-bottom: 20px; }
+#header #headContact #headContactInner:before { display: none; }
+#header #headContact #headContactInner { cursor: inherit; padding: 0; display: block; overflow: hidden; margin: 0; }
+#header #headContact.itemClose #headContactInner #headContactTxt, #header #headContact.itemClose #headContactInner #headContactTel, #header #headContact.itemClose #headContactInner #headContactTime { display: block; }
+#header #headContact.itemOpen #headContactInner { clear: none; border: none; padding: 0; margin-bottom: 0; }
+#header #headContact.itemOpen #headContactInner #headContactTxt, #header #headContact.itemOpen #headContactInner #headContactTel, #header #headContact.itemOpen #headContactInner #headContactTime { display: block; }
+
+#gMenu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu #gMenuInner.innerBox { margin: 0px 3%; width: 94%; }
+
+#gMenu.itemClose .menu, #gMenu.itemOpen .menu { display: block; }
+
+#gMenu .menu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu .assistive-text { position: absolute; top: -9000px; }
+#gMenu .menu li { float: left; border-bottom: none; overflow: visible; width: auto; }
+#gMenu .menu li a { text-align: center; }
+#gMenu .menu li ul { display: none; }
+#gMenu .menu li:hover ul { display: block; position: absolute; z-index: 100; position: absolute; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+#gMenu .menu li:hover ul li { background: #fff; border-bottom: 1px solid #cccccc; width: 200px; position: relative; }
+#gMenu .menu li:hover ul li a { text-align: left; line-height: 140%; }
+#gMenu .menu li:hover ul li ul { position: absolute; left: 200px; top: 10px; border-top: none; }
+#gMenu .menu li:hover ul li ul, #gMenu .menu li:hover ul li ul li { display: none; }
+#gMenu .menu li:hover ul li:hover ul, #gMenu .menu li:hover ul li:hover ul li { display: block; }
+#gMenu .menu li:hover li a, #gMenu .menu li.current_page_item li a, #gMenu .menu li.current-menu-ancestor li a, #gMenu .menu li.current-page-ancestor li a, #gMenu .menu li.current_page_ancestor li a { background: none; text-align: left; border-right: none; }
+#gMenu .menu li:hover li a:hover, #gMenu .menu li.current_page_item li a:hover, #gMenu .menu li.current-menu-ancestor li a:hover, #gMenu .menu li.current-page-ancestor li a:hover, #gMenu .menu li.current_page_ancestor li a:hover { background-color: #f5f5f5; }
+
+.innerBox, #gMenu #gMenuInner.innerBox { width: 950px; margin: 0px auto; }
+
+#header .innerBox { padding-top: 30px; width: 950px; }
+
+#main #container { padding-top: 30px; }
+
+#main #container #content { float: left; width: 640px; }
+
+#main #container #sideTower { float: right; width: 220px; clear: none; }
+
+body.left-sidebar #main #container #content { float: right; }
+
+body.left-sidebar #main #container #sideTower { float: left; }
+
+body.home.one-column #main #container #content { float: none; width: 100%; }
+
+body.home.one-column #main #container #sideTower { float: none; display: none; }
+
+form#searchform input#searchsubmit { width: 20%; }
+
+#gMenu .menu li a { padding-left: 5px; padding-right: 5px; }
+
+#content .mainFootContact .mainFootBt a img { width: 100%; }
+
+#topMainBnr { width: 100%; }
+
+#topMainBnr img { width: 950px !important; max-width: 950px !important; }
+
+#topMainBnrFrame { width: 950px; min-height: 250px; }
+
+/*			.childPageBox
+/*-------------------------------------------*/
+#content .childPageBox { display: block; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; display: block; overflow: hidden; width: 638px; margin-bottom: 20px; }
+#content .childPageBox h4 { font-weight: lighter; margin: 15px 20px 10px; padding: 0px 0px 3px; font-size: 14px; }
+#content .childPageBox h4 a { text-decoration: none; color: #666666; }
+#content .childPageBox ul { margin: 0px 20px 15px; padding: 0px; display: block; overflow: hidden; font-size: 85.7%; line-height: 125%; }
+#content .childPageBox ul li { float: left; display: block; width: 33%; list-style: none; margin: 0px; }
+#content .childPageBox ul li a { background: url(../images/icon_arrow1_gray.gif) left 5px no-repeat; padding: 3px 5px 3px 17px; text-decoration: none; display: block; overflow: hidden; color: #666; }
+#content .childPageBox ul li a:hover, #content .childPageBox ul li.current_page_item a { background-image: url(../images/icon_arrow1_red.gif); text-decoration: underline; color: #c00; }
+#content .childPageBox ul li ul { margin: 0px; font-size: 91.7%; }
+#content .childPageBox ul li ul li { float: none; width: auto; }
+#content .childPageBox ul li ul li a { background: url(../images/icon_arrow2_gray.gif) left 6px no-repeat; padding: 3px 5px 3px 14px; text-decoration: none; margin-left: 3px; }
+#content .childPageBox ul li ul li a:hover, #content .childPageBox ul li ul li.current_page_item a { background-image: url(../images/icon_arrow2_red.gif); }
+#content .childPageBox ul li ul li ul { padding-left: 8px; font-size: 100%; line-height: 135.7%; }
+#content .childPageBox ul li.current_page_item ul li a { color: #666; text-decoration: none; background-image: url(../images/icon_arrow2_gray.gif); }
+#content .childPageBox ul li.current_page_item ul li a:hover { color: #c00; text-decoration: underline; background-image: url(../images/icon_arrow2_red.gif); }
+
+#footerSiteMap { width: 640px; padding-top: 0px; font-size: 12px; }
+
+#footer dl#footerOutline { float: left; }
+#footer dl#footerOutline dd { padding-right: 20px; }
+
+#footerSiteMap .menu li { width: 150px; float: left; }
+
+/*-------------------------------------------*/
+/* コンテンツ推奨サイズより大きい場合
+/*-------------------------------------------*/
+#topPr { border-top: none; }
+#topPr .topPrOuter { border-bottom: none; }
+#topPr .topPrOuter .topPrInner { padding: 0 6%; width: 88%; border-right: 1px solid #e5e5e5; }
+#topPr #topPrLeft .topPrInner { border-left: 1px solid #e5e5e5; }
+
+/*-------------------------------------------*/
+/* pc iPad3より大きい場合
+/*-------------------------------------------*/
+#gMenu { border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+#gMenu .menu li.firstChild a { border-left: 1px solid #e5e5e5; }
+#gMenu .menu li a { border-right: 1px solid #e5e5e5; margin-top: 13px; margin-bottom: 11px; padding: 0 10px; }
+#gMenu .menu li.current_page_item, #gMenu .menu li.current_page_ancestor, #gMenu .menu li.current-page-ancestor, #gMenu .menu li:hover { box-shadow: inset 0px 0px 0px 2px white; }
+#gMenu .menu li.current_page_item ul, #gMenu .menu li.current_page_ancestor ul, #gMenu .menu li.current-page-ancestor ul, #gMenu .menu li:hover ul { border-top: 1px solid #e5e5e5; }
+#gMenu .menu li.current_page_item ul li, #gMenu .menu li.current_page_ancestor ul li, #gMenu .menu li.current-page-ancestor ul li, #gMenu .menu li:hover ul li { border-bottom: 1px solid #e5e5e5; }
+#gMenu .menu li.current_page_item ul li a, #gMenu .menu li.current_page_ancestor ul li a, #gMenu .menu li.current-page-ancestor ul li a, #gMenu .menu li:hover ul li a { margin: 0; padding: 10px; }
+#gMenu .menu li.current_page_item ul li li.firstChild a, #gMenu .menu li.current_page_ancestor ul li li.firstChild a, #gMenu .menu li.current-page-ancestor ul li li.firstChild a, #gMenu .menu li:hover ul li li.firstChild a { border-left: none; }
+#gMenu .menu li.current_page_item ul li.firstChild a, #gMenu .menu li.current_page_ancestor ul li.firstChild a, #gMenu .menu li.current-page-ancestor ul li.firstChild a, #gMenu .menu li:hover ul li.firstChild a { border-left: none; }
+
+#footMenu { background-color: black; }
+#footMenu #footMenuInner { padding: 0px 25px 0px; }
+#footMenu .menu { padding: 10px 0; }
+#footMenu .menu li.firstChild { border-top: none; }
+#footMenu .menu li a { border-right: none; padding: 0 20px 0 0; }
+#footMenu .menu li a:before { font-family: 'vektor_kado_icons'; content: "\2b"; padding-right: 5px; }
+
+#footerSiteMap .menu li { margin-right: 10px; }
+#footerSiteMap .menu li a { border-bottom: 1px solid #151515; }
+#footerSiteMap .menu li ul li { margin-right: 0; }
+#footerSiteMap .menu li ul li a { border: none; }
+#footerSiteMap .menu li.firstChild { border-top: none; }
+
+#topMainBnrFrame { width: 94%; padding-right: 3%; padding-left: 3%; margin: 0 auto; }
+
+#pageTitBnr #pageTitInner { border-left: 1px solid #e5e5e5; border-right: 1px solid #e5e5e5; }
+
+/*-------------------------------------------*/
+/*	フルサイズ
+/*-------------------------------------------*/
+.innerBox, #gMenu #gMenuInner.innerBox, #panList .innerBox, #footMenu .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
+
+#topMainBnr img { width: 950px !important; }
