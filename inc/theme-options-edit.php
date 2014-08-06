@@ -363,6 +363,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 $i++;
 } ?>
 </div>
+<br clear="all" /><!-- [ 無いと回りこむ ] -->
 	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
 	<span class="alert">
 	<?php _e('* You can set different image for desktop and smartphone versions of the site.', 'biz-vektor') ;?>
@@ -624,8 +625,7 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 </li>
 <li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
 [ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
-<p><?php _e('Select &quot;page&quot;.', 'biz-vektor') ;?><br />
-『フロントページ』のプルダウンで、トップページ用に作成した固定ページを選択してください。<br />
+<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
 <span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
 </li>
 <li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
