@@ -15,7 +15,9 @@ global $biz_vektor_options;
 $postType = get_post_type();
 // カスタム投稿タイプ名を取得
 $post_type_object = get_post_type_object($postType);
-$postTypeName = esc_html($post_type_object->labels->name);
+if($post_type_object){
+	$postTypeName = esc_html($post_type_object->labels->name);
+}
 
 // 標準のpost のラベル名
 $postLabelName = $biz_vektor_options['postLabelName'];
