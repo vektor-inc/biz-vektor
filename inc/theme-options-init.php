@@ -366,15 +366,16 @@ function biz_vektor_them_edit_function($post){
 
 /*-------------------------------------------*/
 /*	出力する
+/*	global $biz_vektor_options に順次移行
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;
-	// $biz_vektor_theme_options = get_option('biz_vektor_theme_options');
 	return $biz_vektor_options;
 }
 
 /*-------------------------------------------*/
 /*	Print option
+/*	global $biz_vektor_options に順次移行
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_vektor_get_theme_options();
