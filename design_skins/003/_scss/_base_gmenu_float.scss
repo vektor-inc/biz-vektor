@@ -1,0 +1,38 @@
+@import "compass";
+/*-------------------------------------------*/
+/*	#gMenu
+/*-------------------------------------------*/
+#gMenu	{ clear:both; display:block; overflow:visible; position:relative;width:100%;
+	.assistive-text  { display:block; overflow:hidden; font-weight:lighter;font-family:'Lato', sans-serif;cursor:pointer; background-color:#f5f5f5;width:2.5em;position: absolute; top:-50px;right:15px; text-align: center;
+		span	{ display:block; overflow:hidden; padding:3px 0;margin:0; }
+		span:before { font-family: 'vektor_kado_icons';margin-right:0px; }
+	}
+	.screen-reader-text { position: absolute; left: -9000px; }
+	#gMenuInner	{ overflow:visible; display:block; position:relative;padding:0px;}
+	#gMenuInner.innerBox	{ margin:0px;width:100%;}
+	.menu	{ font-size: 13px;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;
+		li { position: relative;width:100%;display:block;border-bottom:1px solid $color_border;
+			&:last-child { border-bottom:none;}
+			a	{ color: #333; display: block; overflow:hidden;padding: 13px 10px 11px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative; }
+			a span { display:none; }
+		}
+	} // .menu
+}
+@media (max-width: 969px) {
+#gMenu	{
+	.menu ul li a { padding-left:25px; }
+}
+#gMenu.itemClose {
+	.assistive-text span:before { @include vektor_kado_icons;content: "\29";}
+	.menu	{ display:none; }
+}
+#gMenu.itemOpen {
+	.assistive-text span:before { @include vektor_kado_icons;content: "\2a";}
+	.menu	{ display:block; }
+}
+}
+@media (min-width: 970px) {
+#gMenu	{
+	.menu li a span { display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; opacity: 0.6; } 
+}
+}

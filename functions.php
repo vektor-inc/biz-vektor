@@ -161,6 +161,7 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/design_skins/001/001_custom.php' );
 	require( dirname( __FILE__ ) . '/design_skins/002/002_custom.php' );
+	require( dirname( __FILE__ ) . '/design_skins/003/003_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer

@@ -262,13 +262,14 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 #gMenu .menu li { position: relative; width: 100%; display: block; border-bottom: 1px solid #e5e5e5; }
 #gMenu .menu li:last-child { border-bottom: none; }
 #gMenu .menu li a { color: #333; display: block; overflow: hidden; padding: 13px 10px 11px; margin: 0px; line-height: 110%; text-decoration: none; letter-spacing: 0px; text-align: left; position: relative; }
-#gMenu .menu li a span { display: block; font-size: 10px; line-height: 140%; letter-spacing: 1px; font-family: verdana, Arial, Helvetica, sans-serif; opacity: 0.6; }
+#gMenu .menu li a span { display: none; }
 
-@media (max-width: 970px) { #gMenu .menu ul li a { padding-left: 25px; }
+@media (max-width: 969px) { #gMenu .menu ul li a { padding-left: 25px; }
   #gMenu.itemClose .assistive-text span:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\29"; }
   #gMenu.itemClose .menu { display: none; }
   #gMenu.itemOpen .assistive-text span:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2a"; }
   #gMenu.itemOpen .menu { display: block; } }
+@media (min-width: 970px) { #gMenu .menu li a span { display: block; font-size: 10px; line-height: 140%; letter-spacing: 1px; font-family: verdana, Arial, Helvetica, sans-serif; opacity: 0.6; } }
 /*-------------------------------------------*/
 /*	#pageTitBnr
 /*-------------------------------------------*/
@@ -937,7 +938,7 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
   #header .innerBox { padding-top: 30px; width: 950px; }
   #main #container { padding-top: 30px; }
   #main #container #content { float: left; width: 640px; }
-  #main #container #sideTower { float: right; width: 220px; clear: none; }
+  #main #container #sideTower { float: right; width: 300px; clear: none; }
   body.left-sidebar #main #container #content { float: right; }
   body.left-sidebar #main #container #sideTower { float: left; }
   body.home.one-column #main #container #content { float: none; width: 100%; }

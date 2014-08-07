@@ -297,7 +297,7 @@ body { line-height: 150%; }
 
 #main #container #content { float: left; width: 640px; }
 
-#main #container #sideTower { float: right; width: 220px; clear: none; }
+#main #container #sideTower { float: right; width: 300px; clear: none; }
 
 body.left-sidebar #main #container #content { float: right; }
 
