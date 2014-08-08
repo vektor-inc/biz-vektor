@@ -612,25 +612,24 @@ function biz_vektor_slideExist () {
 
 function get_biz_vektor_slide_body(){
 	global $biz_vektor_options;
+	$biz_vektor_slide_body = '';
 	for ( $i = 1; $i <= 5 ; $i++){
-		if ($biz_vektor_options['slide'.$i.'image']) {
-			if (!$biz_vektor_options['slide'.$i.'display']) {
-				$biz_vektor_slide_body = '<li>';
-				if ($biz_vektor_options['slide'.$i.'link']) {
-					$blank = "";
-					if ($biz_vektor_options['slide'.$i.'blank']) : $blank = ' target="_blank"'; endif;
-					$biz_vektor_slide_body .= '<a href="'.$biz_vektor_options['slide'.$i.'link'].'" class="slideFrame"'.$blank.'>';
-				} else	{
-					$biz_vektor_slide_body .= '<span class="slideFrame">';
-				}
-				$biz_vektor_slide_body .= '<img src="'.$biz_vektor_options['slide'.$i.'image'].'" alt="'.$biz_vektor_options['slide'.$i.'alt'].'" />';
-				if ($biz_vektor_options['slide'.$i.'link']) {
-					$biz_vektor_slide_body .= '</a>';
-				} else {
-					$biz_vektor_slide_body .= '</span>';
-				}
-				$biz_vektor_slide_body .= '</li>'."\n";
+		if ( $biz_vektor_options['slide'.$i.'image'] && !$biz_vektor_options['slide'.$i.'display']) {
+			$biz_vektor_slide_body .= '<li>';
+			if ($biz_vektor_options['slide'.$i.'link']) {
+				$blank = "";
+				if ($biz_vektor_options['slide'.$i.'blank']) : $blank = ' target="_blank"'; endif;
+				$biz_vektor_slide_body .= '<a href="'.$biz_vektor_options['slide'.$i.'link'].'" class="slideFrame"'.$blank.'>';
+			} else	{
+				$biz_vektor_slide_body .= '<span class="slideFrame">';
 			}
+			$biz_vektor_slide_body .= '<img src="'.$biz_vektor_options['slide'.$i.'image'].'" alt="'.$biz_vektor_options['slide'.$i.'alt'].'" />';
+			if ($biz_vektor_options['slide'.$i.'link']) {
+				$biz_vektor_slide_body .= '</a>';
+			} else {
+				$biz_vektor_slide_body .= '</span>';
+			}
+			$biz_vektor_slide_body .= '</li>'."\n";
 		}
 	}
 	return $biz_vektor_slide_body;
