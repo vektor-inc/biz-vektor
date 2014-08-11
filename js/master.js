@@ -313,7 +313,6 @@ jQuery("#btn").on("click", function() {
 });
 
 
-
 /*
  * jQuery FlexSlider v1.8
  * http://www.woothemes.com/flexslider/

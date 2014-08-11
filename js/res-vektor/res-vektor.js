@@ -361,7 +361,7 @@ function resThumbTxtFix(){
 function showHide(targetID) {
 	if( document.getElementById(targetID)) {
 		var targetItem = '#' + targetID;
-		if ( jQuery(targetItem).hasClass('itemOpen')) {
+		if ( jQuery(targetItem).hasClass('itemOpen') ) {
 			document.getElementById(targetID).className = "itemClose";
 		} else {
 			document.getElementById(targetID).className = "itemOpen";

@@ -17,9 +17,9 @@ function regenerate_head_contact_custom($headContact){
 	// ナビのHTMLを一旦変数に格納
 	$gMenuHtml = '
 	<!-- [ #gMenu ] -->
-	<div id="gMenu" class="itemClose" onclick="showHide(\'gMenu\');">
+	<div id="gMenu" class="itemClose">
 	<div id="gMenuInner" class="innerBox">
-	<h3 class="assistive-text"><span>MENU</span></h3>
+	<h3 class="assistive-text" onclick="showHide(\'gMenu\');"><span>MENU</span></h3>
 	<div class="skip-link screen-reader-text">
 		<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
 	</div>'."\n";
@@ -31,6 +31,16 @@ function regenerate_head_contact_custom($headContact){
     $headContact =  $gMenuHtml;
     return $headContact;
 }
+
+/*-------------------------------------------*/
+/*  元のグローバルメニューは空にする
+/*-------------------------------------------*/
+add_filter('bizvektor_gMenuHtml','regenerate_gMenu_custom');
+function regenerate_gMenu_custom(){
+	$gMenuHtml = '';
+	return $gMenuHtml;
+}
+
 
 /*-------------------------------------------*/
 /*  メニューの横幅指定を一旦無効化
