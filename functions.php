@@ -689,5 +689,5 @@ function biz_vektor_archive_loop(){
 	do_action('biz_vektor_archive_loop');
 }
 function is_biz_vektor_archive_loop(){
-	do_action('is_biz_vektor_archive_loop');
+	return apply_filters('is_biz_vektor_archive_loop', false);
 }
