@@ -60,6 +60,8 @@ if ( !$postType ) {
 			<?php endwhile; ?>
 			</ul>
 		<?php endif; //$options['listInfoArchive'] ?>
+	<?php elseif (function_exists(is_biz_vektor_archive_loop()) && is_biz_vektor_archive_loop()) : ?>
+		<?php biz_vektor_archive_loop();?>
 	<?php else : ?>
 		<?php $options = biz_vektor_get_theme_options();
 		if ( $options['listBlogArchive'] == 'listType_set' ) { ?>
