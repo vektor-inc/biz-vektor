@@ -9,7 +9,6 @@ if ( !$postType ) {
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
 	<div id="content">
-	
 	<?php
 /*-------------------------------------------*/
 /*	Archive title
