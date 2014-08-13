@@ -8,6 +8,10 @@
 
 <!-- [ #post- ] -->
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if (is_biz_vektor_extra_single()) : ?>
+
+		<?php biz_vektor_extra_single(); ?>
+	<?php else: ?>
 	<h1 class="entryPostTitle"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
 	<div class="entry-meta">
 		<?php _e('Posted on', 'biz-vektor'); ?> : <?php echo esc_html( get_the_date() ); ?> | 
@@ -39,7 +43,7 @@
 	<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span> %title' ); ?></div>
 	<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">&rarr;</span>' ); ?></div>
 </div><!-- #nav-below -->
-
+<?php endif; ?>
 </div>
 <!-- [ /#post- ] -->
 
