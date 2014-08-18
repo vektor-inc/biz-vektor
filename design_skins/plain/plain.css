@@ -173,7 +173,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*-------------------------------------------*/
 /*	#gMenu
 /*-------------------------------------------*/
-#gMenu	{ clear:both; display:block; overflow:visible; position:relative;width:100%;}
+#gMenu	{ clear:both; display:block; overflow:visible; position:relative;width:100%;border-top:1px solid #ccc;border-bottom:1px solid #ccc; }
 #gMenu.itemClose .menu	{ display:none; }
 #gMenu.itemOpen .menu	{ display:block; }
 #gMenu .assistive-text  { display:block; overflow:hidden; position:relative; left:0px; font-weight:lighter;text-align:left;font-family:'Lato', sans-serif;cursor:pointer; background-color:#e5e5e5;border-top:1px; }
@@ -185,10 +185,9 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 #gMenu .menu li { position: relative;width:100%;display:block; }
 #gMenu .menu li a	{ color: #333; display: block; overflow:hidden;padding: 11px 15px 9px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative;border-bottom:1px solid #e5e5e5; }
 #gMenu .menu li a strong	{ font-weight:lighter; }
-#gMenu .menu li a span 		{ display: none; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif;color:#999; }
-#gMenu .menu li.current_page_item a ,
-#gMenu .menu li.current_page_ancestor a ,
-#gMenu .menu li a:hover	{ background-color:#f5f5f5; }
+#gMenu .menu li a span 		{ display: none; }
+#gMenu .menu li.current_page_item > a ,
+#gMenu .menu li > a:hover	{ background-color:#f5f5f5; }
 #gMenu .menu li li span	{ display:none; }
 #gMenu .menu li li a { padding-left:25px; }
 #gMenu .menu li li li a { padding-left:35px; }
@@ -469,6 +468,7 @@ border-radius:5px;
 /*-------------------------------------------*/
 /*	#pagetop
 /*-------------------------------------------*/
+#footerSection #pagetop { display: none; }
 #pagetop	{ display:block; overflow:hidden; clear:both; z-index:5; }
 #pagetop a	{ float:right; display:block; position:relative; padding:5px 15px 13px;font-size:11px; text-decoration:none;margin-bottom:0px;font-family:'Lato', sans-serif; letter-spacing:1px;}
 #pagetop a:hover	{  }
@@ -682,6 +682,7 @@ box-shadow:0 2px 1px #efefef;
 @media (min-width: 770px) {
 body     { line-height:150%; }
 #headerTop	{ display:block; }
+#gMenu { border-top:none;border-bottom:none;}
 #gMenu:after {
 	content: ".";
 	display: block;
@@ -702,27 +703,18 @@ body     { line-height:150%; }
 }
 
 #gMenu .assistive-text { position: absolute; top: -9000px; } /* display:noneだと読み上げない / 横にオフセットするとIEで読み込みまでの間表示される */
-#gMenu .menu li { float: left;width:auto;border-bottom:none; overflow:visible; }
-#gMenu .menu li a	{ text-align:center;border-right:1px solid #e5e5e5;border-bottom:none; }
-#gMenu .menu li a span { display: block; }
-#gMenu .menu li ul { display:none; }
+#gMenu .menu li a { border-bottom:none; }
+#gMenu .menu > li { float: left;width:auto;border-bottom:none; overflow:visible; }
+#gMenu .menu > li > a	{ text-align:center;border-right:1px solid #e5e5e5;border-bottom:none; }
+#gMenu .menu > li.current_page_ancestor > a { background-color:#f5f5f5; }
+#gMenu .menu > li > a span { display: block;font-size:10px; line-height:140%;letter-spacing:1px; 
+	font-family:verdana, Arial, Helvetica, sans-serif;color:#999; }
+#gMenu .menu > li ul { display:none; }
 #gMenu .menu li li a { padding-left:15px; }
 #gMenu .menu li li li a { padding-left:15px; }
 #gMenu .menu li li li li a { padding-left:15px; }
-
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:100;border-top:1px solid #e5e5e5; position:absolute;width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
 #gMenu .menu li:hover li	{ background:#fff;border-bottom:1px solid #e5e5e5;width:200px; position:relative; }
-#gMenu .menu li:hover li a,
-#gMenu .menu li.current_page_item li a,
-#gMenu .menu li.current-menu-ancestor li a,
-#gMenu .menu li.current-page-ancestor li a,
-#gMenu .menu li.current_page_ancestor li a { background:none;background-color:#fff;color:#4d4d4d;text-align:left;border-right:none;}
-
-#gMenu .menu li:hover li a:hover,
-#gMenu .menu li.current_page_item li a:hover,
-#gMenu .menu li.current-menu-ancestor li a:hover,
-#gMenu .menu li.current-page-ancestor li a:hover,
-#gMenu .menu li.current_page_ancestor li a:hover { background-color:#f5f5f5;}
 
 #gMenu .menu li:hover ul li ul	{ position:absolute;left:200px;top:10px; border-top:none;}
 #gMenu .menu li:hover ul li ul,
@@ -743,7 +735,7 @@ body     { line-height:150%; }
 #content #sitemapPageList { float:left;width:49%; }
 #content #sitemapPostList { float:right;width:49%;margin-top:0px; }
 #content ul.linkList li a	{ padding:3px 15px; }
-
+} /* @media (min-width: 770px)  */
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/

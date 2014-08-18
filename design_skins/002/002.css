@@ -202,13 +202,13 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*-------------------------------------------*/
 
 #gMenu	{ border-top: 1px solid #5ead3c; clear:both; display:block; border-bottom:none; overflow:visible; position:relative;width:100%;
-background-color:#fff; }
+background-color:#f9f9f9; }
 #gMenu.itemClose .menu	{ display:none; }
 #gMenu.itemOpen .menu	{ display:block;  }
 #gMenu .assistive-text  { box-shadow: inset 0px 0px -1px rgba(200,215,200,0.6); display:block; overflow:hidden; position:relative; left:0px; font-weight:lighter;text-align:left;font-family:'Lato', sans-serif;cursor:pointer; color:#FFFFFF; background-color:#5ead3c;}
 #gMenu .assistive-text span	{ display:block; overflow:hidden; padding: 14px 0 12px 24px; width:94%; margin:0px 3%; }
-#gMenu.itemClose .assistive-text span	{ background:url(images/iconMenuOpen.png) left 50% no-repeat; }
-#gMenu.itemOpen .assistive-text span	{ background:url(images/iconMenuClose.png) left 50% no-repeat; }
+#gMenu.itemClose .assistive-text span	{ background:url(images/iconMenuClose.png) left 50% no-repeat; }
+#gMenu.itemOpen .assistive-text span	{ background:url(images/iconMenuOpen.png) left 50% no-repeat; }
 
 #gMenu .screen-reader-text { position: absolute; left: -9000px; }
 #gMenu #gMenuInner	{ overflow:visible; display:block; position:relative;padding:0px;}
@@ -218,9 +218,8 @@ background-color:#fff; }
 #gMenu .menu li a	{ background:url(images/arrow_gray.png) right bottom no-repeat; color: #333; display: block; overflow:hidden;padding: 20px 15px 18px; margin:0px; line-height:140%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative;border-bottom:1px solid #ccc; }
 #gMenu .menu li a strong	{ font-weight:bold; }
 #gMenu .menu li a span 		{ color:#5ead3c; display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; display:none; }
-#gMenu .menu li.current_page_item a ,
-#gMenu .menu li.current_page_ancestor a ,
-#gMenu .menu li a:hover	{ background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
+#gMenu .menu li.current_page_item > a ,
+#gMenu .menu li > a:hover	{ background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
 #gMenu .menu li li span	{ display:none; }
 #gMenu .menu li li a { padding-left:25px; }
 #gMenu .menu li li li a { padding-left:35px; }
@@ -828,6 +827,7 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 
 #topMainBnr { padding:30px 0; }
 
+}
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/
