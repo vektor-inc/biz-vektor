@@ -129,7 +129,7 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #footMenu .menu li	{ list-style:none;display:block; margin:0px;padding:0px;float:left; line-height:100%; font-size:12px; }
 #footMenu .menu li a	{ background: none; padding:0px 15px 0px; line-height:1em; text-decoration:none; border-right:1px solid #ccc; border-bottom: none;  }
 #footMenu .menu li a:hover	{ color:#5ead3c; text-decoration:underline; background:none; }
-#footMenu .menu li.firstChild a	{ border-left:1px solid #ccc; }
+#footMenu .menu li:first-child a	{ border-left:1px solid #ccc; }
 
 #topMainBnr { padding:30px 0; }
 
