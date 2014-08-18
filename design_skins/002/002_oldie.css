@@ -162,10 +162,6 @@ form#searchform input#searchsubmit	{ width:20%; }
 #topMainBnrFrame	{ width:950px;min-height:250px; }
 #topMainBnrFrame .slider li { }
 
-/*				.infoListBox
-/*-------------------------------------------*/
-#content .infoList .infoListBox div.entryTxtBox.haveThumbnail	{ float:Left; margin-right:110px; }
-
 /*			.childPageBox
 /*-------------------------------------------*/
 #content .childPageBox { display:block; }

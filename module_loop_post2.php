@@ -13,8 +13,8 @@ if ($postType == 'post') {
 $taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
 ?>
 <!-- [ .infoListBox ] -->
-<div class="infoListBox">
-	<div class="entryTxtBox <?php if ( has_post_thumbnail()) : ?>haveThumbnail<?php endif; ?>">
+<div class="infoListBox ttBox">
+	<div class="entryTxtBox ttBoxTxt<?php if ( has_post_thumbnail()) echo ' haveThumbnail'; ?>">
 	<h4 class="entryTitle">
 	<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 	<?php if ( is_user_logged_in() == TRUE ) : edit_post_link(__('Edit', 'biz-vektor'), '<span class="edit-link edit-item">[ ', ' ]</span>');endif ?>
@@ -27,7 +27,7 @@ $taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
 	</div><!-- [ /.entryTxtBox ] -->
 	
 	<?php if ( has_post_thumbnail()) { ?>
-		<div class="thumbImage">
+		<div class="thumbImage ttBoxThumb">
 		<div class="thumbImageInner">
 		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 		</div>

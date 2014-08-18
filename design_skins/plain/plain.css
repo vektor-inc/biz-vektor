@@ -383,7 +383,7 @@ position:relative; line-height:114.3%;}
 /*-------------------------------------------*/
 #content .infoList .infoListBox { display:block; overflow:hidden; padding:20px 0px; border-bottom:1px solid #ccc;position:relative; }
 #content .infoList .infoListBox div.entryTxtBox { margin:0px;display:block; overflow:hidden; }
-#content .infoList .infoListBox div.entryTxtBox.haveThumbnail	{ float:Left; margin-right:100px; }
+#content .infoList .infoListBox div.entryTxtBox.haveThumbnail	{ float:left; }
 #content .infoList .infoListBox div.entryTxtBox p { margin-bottom:3px; padding:0px;line-height:150%; }
 #content .infoList .infoListBox div.entryTxtBox p.entryMeta { margin-bottom:4px; }
 #content .infoList .infoListBox div.entryTxtBox p.entryMeta .infoDate,
@@ -394,9 +394,9 @@ position:relative; line-height:114.3%;}
 #content .infoList .infoListBox div.entryTxtBox h4.entryTitle a:hover { text-decoration:underline; }
 #content .infoList .infoListBox div.entryTxtBox p.moreLink	{ margin:0px; padding:0px; }
 
-#content .infoList .infoListBox div.thumbImage { width:35%;display:block; overflow:hidden;float:right;text-align:right; position:absolute;top:20px;right:0px; }
+#content .infoList .infoListBox div.thumbImage { display:block; overflow:hidden;float:right;text-align:right; }
 #content .infoList .infoListBox div.thumbImage div.thumbImageInner { display:block; overflow:hidden;margin:1px; }
-#content .infoList .infoListBox div.thumbImage div.thumbImageInner img	{ width:88px;height:auto;border:1px solid #ccc; }
+#content .infoList .infoListBox div.thumbImage div.thumbImageInner img	{ width:98px;height:auto;border:1px solid #ccc; }
 
 
 /*			form
