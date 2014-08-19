@@ -20,9 +20,9 @@
 
 /*			.flowBox
 /*-------------------------------------------*/
-#content .flowBox { padding-bottom: 40px; margin-bottom: 15px; display: block; overflow: hidden; background: url(../images/options/arrow_down.gif) center bottom no-repeat; }
+#content .flowBox { padding-bottom: 30px; margin-bottom: 15px; display: block; overflow: hidden; background: url(../images/options/arrow_down.png) center bottom no-repeat; }
 
-#content .flowBox.last { background: none; padding-bottom: 0px; margin-bottom: 0px; }
+#content .flowBox:last-child { background: none; padding-bottom: 0px; margin-bottom: 0px; }
 
 #content .flowBox dl { display: block; overflow: hidden; padding: 15px 20px; border: 3px solid #e5e5e5; }
 
@@ -56,6 +56,7 @@
 
 #content .wpcf7 dl dd { display: block; overflow: hidden; padding: 10px; margin-bottom: 0px; }
 
+@media (min-width: 770px) { #content form span.wpcf7-form-control-wrap .wpcf7-list-item { padding-top: 2px; padding-bottom: 2px; } }
 /*
 Grunt で統合するファイル
 res-vektor.css
