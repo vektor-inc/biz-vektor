@@ -286,16 +286,17 @@ function biz_vektor_theme_style() {
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
 
-	// load default
 	if ( isset($options['theme_style']) ) {
 		$theme_style = $options['theme_style'];
-		if ( isset($biz_vektor_theme_styles[$theme_style]['cssPath']) && is_file( $biz_vektor_theme_styles[$theme_style]['cssPath']) ) {
-			$theme_style = $options['theme_style'];
-		} else {
-			// case of uninstall ex skin
+		/*
+		一度保存されているラベルのスキンプラグインが停止またはアンインストールされている事があるので、
+		保存されているスキンが使用出来るか判別するために変数の配列を確認。なければ変わりにrebuildを適用する
+		*/
+		if ( !isset($biz_vektor_theme_styles[$theme_style]) ) {
 			$theme_style = 'rebuild';
 		}
 	} else {
+		// set default style
 		$theme_style = 'rebuild';
 	}
 
