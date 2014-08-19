@@ -1,10 +1,24 @@
 <?php
 
+register_nav_menus( array( 'headerSubMenu' => 'Header sub menu', ) );
+
 /*-------------------------------------------*/
-/*  ブローバルメニューを#headerの中に出力
+/*  Print header menu to head contact area
 /*-------------------------------------------*/
-add_filter('headContactCustom','regenerate_head_contact_custom');
-function regenerate_head_contact_custom($headContact){
+add_filter('headContactCustom','rebuild_head_contact_custom');
+function rebuild_head_contact_custom($headContact){
+	$gMenuHtml = '';
+
+	// ////////////// SubMenu
+	// $sub_menu_args = array(
+	//  'theme_location' => 'headerSubMenu',
+	//  'fallback_cb' => '',
+	//  'echo' => false,
+	//  // 'walker' => new description_walker()
+	// );
+	// $headSubMenu = wp_nav_menu( $sub_menu_args ) ;
+
+	////////////// Global menu
 	$args = array(
 	 'theme_location' => 'Header',
 	 'fallback_cb' => '',
@@ -12,31 +26,41 @@ function regenerate_head_contact_custom($headContact){
 	 'walker' => new description_walker()
 	);
 	$gMenu = wp_nav_menu( $args ) ;
+
 	// メニューがセットされていたら実行
-	if ($gMenu) {
+	if ($gMenu || $gMenuHtml) {
 	// ナビのHTMLを一旦変数に格納
-	$gMenuHtml = '
+	$gMenuHtml .= '
 	<!-- [ #gMenu ] -->
-	<div id="gMenu" class="itemClose">
+	<div id="gMenu">
 	<div id="gMenuInner" class="innerBox">
-	<h3 class="assistive-text" onclick="showHide(\'gMenu\');"><span>MENU</span></h3>
+	<h3 class="assistive-text" onclick="showHide(\'header\');"><span>MENU</span></h3>
 	<div class="skip-link screen-reader-text">
 		<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
 	</div>'."\n";
+
+	// メニューがセットされていたら実行
+	// if ($headSubMenu) {
+	// 	$gMenuHtml .= '<div class="headSubMenu">'."\n";
+	// 	$gMenuHtml .= $headSubMenu;
+	// 	$gMenuHtml .= '</div>'."\n";
+	// }
+	$gMenuHtml .= '<div class="headMainMenu">'."\n";
 	$gMenuHtml .= $gMenu."\n";
+	$gMenuHtml .= '</div>'."\n";
 	$gMenuHtml .= '</div><!-- [ /#gMenuInner ] -->
 	</div>
 	<!-- [ /#gMenu ] -->'."\n";
 	} // if ($gMenu) 
-    $headContact =  $gMenuHtml;
-    return $headContact;
+	$headContact = $gMenuHtml;
+	return $headContact;
 }
 
 /*-------------------------------------------*/
 /*  元のグローバルメニューは空にする
 /*-------------------------------------------*/
-add_filter('bizvektor_gMenuHtml','regenerate_gMenu_custom');
-function regenerate_gMenu_custom(){
+add_filter('bizvektor_gMenuHtml','rebuild_gMenu_custom');
+function rebuild_gMenu_custom(){
 	$gMenuHtml = '';
 	return $gMenuHtml;
 }

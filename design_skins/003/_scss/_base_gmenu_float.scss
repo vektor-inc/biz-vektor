@@ -1,38 +1,113 @@
 @import "compass";
+
 /*-------------------------------------------*/
 /*	#gMenu
 /*-------------------------------------------*/
 #gMenu	{ clear:both; display:block; overflow:visible; position:relative;width:100%;
-	.assistive-text  { display:block; overflow:hidden; font-weight:lighter;font-family:'Lato', sans-serif;cursor:pointer; background-color:#f5f5f5;width:2.5em;position: absolute; top:-50px;right:15px; text-align: center;
+	.assistive-text  { display:block; overflow:hidden; font-weight:lighter;font-family:'Lato', sans-serif;cursor:pointer; background-color:#f5f5f5;width:2.5em;position: absolute; top:-45px;right:15px; text-align: center;
 		span	{ display:block; overflow:hidden; padding:3px 0;margin:0; }
 		span:before { font-family: 'vektor_kado_icons';margin-right:0px; }
 	}
 	.screen-reader-text { position: absolute; left: -9000px; }
 	#gMenuInner	{ overflow:visible; display:block; position:relative;padding:0px;}
 	#gMenuInner.innerBox	{ margin:0px;width:100%;}
-	.menu	{ font-size: $font_size_13;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;
-		li { position: relative;width:100%;display:block;border-bottom:1px solid $color_border;
-			&:last-child { border-bottom:none;}
-			a	{ color: #333; display: block; overflow:hidden;padding: 13px 10px 11px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative; }
-			a span { display:none; }
-		}
-	} // .menu
 }
+.headSubMenu { 
+	li { float:left;
+			a { text-decoration: none;color:#666; }
+	}
+}
+.headMainMenu { font-size: $font_size_13;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;
+	li { position: relative;width:100%;display:block;
+		&:last-child { border-bottom:none;}
+		a	{ display: block; overflow:hidden;position:relative;color: #333; padding: 13px 10px 11px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; }
+	}
+	li:hover li a,
+	li.current_page_item li a,
+	li.current-menu-ancestor li a,
+	li.current-page-ancestor li a,
+	li.current_page_ancestor li a { color:#333; }
+} // .headMainMenu .menu
+
 @media (max-width: 969px) {
-#gMenu	{
-	.menu ul li a { padding-left:25px; }
+.headSubMenu { display:block; overflow:hidden;position: relative;font-size:$font_size_11;border-top:1px solid $color_border;margin-bottom:2px;
+	ul { display:block; overflow:hidden;background-color: #f5f5f5;
+		li { width:50%;
+			a { padding:0.5em 1em;display:block; overflow:hidden;padding:6px 10px 4px; border-bottom:1px solid $color_border; background-color: #fff; }
+			&:nth-child(odd) a { border-right:1px solid $color_border; }
+			ul { display:none; }
+		}
+	}
 }
-#gMenu.itemClose {
-	.assistive-text span:before { @include vektor_kado_icons;content: "\29";}
-	.menu	{ display:none; }
+.headMainMenu {
+		li {
+		a { padding-left:10px;text-align:left;border-bottom:1px solid $color_border; }
+		a span { display:none; }
+		ul li {
+			a { padding-left:20px; }
+			ul li a { padding-left:30px; }
+		}
+	}
 }
-#gMenu.itemOpen {
-	.assistive-text span:before { @include vektor_kado_icons;content: "\2a";}
-	.menu	{ display:block; }
+// メニュー開閉
+#header,
+#header.itemClose {
+		.headSubMenu { display: none; }
+		.assistive-text span:before { @include vektor_kado_icons;content: "\29";}
+		.headMainMenu .menu	{ display:none; }
 }
+#header.itemOpen {
+		.headSubMenu { display:block; }
+		.assistive-text span:before { @include vektor_kado_icons;content: "\2a";}
+		.headMainMenu .menu	{ display:block; }
 }
+} // @media (max-width: 969px)
 @media (min-width: 970px) {
-#gMenu	{
-	.menu li a span { display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; opacity: 0.6; } 
+#gMenu:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
 }
+#gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
+#gMenu.itemClose .menu,
+#gMenu.itemOpen .menu	{ display:block; }
+#gMenu .menu:after	{
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
 }
+#gMenu { position: relative;
+.assistive-text { position: absolute; top: -9000px; } // [attention] if [display:none] no reader / if yoko offset that ie display still data road.
+}
+.headMainMenu { clear:both;
+	li { float: left;border-bottom:none; overflow:visible;width:auto }
+	li a	{ text-align: center; }
+	li a span { display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; opacity: 0.6; }
+	li ul { display: none; }
+	li:hover ul { display:block; position:absolute;z-index:100; position:absolute;box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+			li	{ background:#fff;width:200px; position:relative;
+				a { text-align: left; line-height: 140%; }
+				ul	{ position:absolute;left:200px;top:10px; border-top:none;}
+				ul,
+				ul li	{ display:none; }
+			}
+			li:hover ul,
+			li:hover ul li	{display:block;}
+	} // li:hover ul
+
+	li:hover li a,
+	li.current_page_item li a,
+	li.current-menu-ancestor li a,
+	li.current-page-ancestor li a,
+	li.current_page_ancestor li a { background:none;text-align:left;border-right:none; }
+	li:hover li a:hover,
+	li.current_page_item li a:hover,
+	li.current-menu-ancestor li a:hover,
+	li.current-page-ancestor li a:hover,
+	li.current_page_ancestor li a:hover { background-color:#f5f5f5;}
+} // .headMainMenu
+} // @media (min-width: 970px) 

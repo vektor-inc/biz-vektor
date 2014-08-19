@@ -1,8 +1,12 @@
 @import "compass";
-
-#header {
-	.innerBox { padding-top:20px;
-		#site-title { padding-bottom:20px; }
+body     { line-height:150%; }
+#headerTop { display: block; }
+#headerTop #site-description	{ line-height:150%;font-size:12px; display: block; }
+#header { padding-bottom:15px;
+	.innerBox {
+		#site-title { margin-top:15px;margin-bottom:0;margin-left:0;
+			img { max-height:45px; }
+		}
 	} //.innerBox
 	#headContact #headContactTxt	{ font-size:11px;}
 	#headContact #headContactTel	{ font-size:24px;margin-bottom:4px; }
@@ -28,60 +32,12 @@
 	} // #headContact.itemOpen
 } // #header
 
-#gMenu:after {
-	content: ".";
-	display: block;
-	clear: both;
-	height: 0;
-	visibility: hidden;
-}
-#gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
-#gMenu.itemClose .menu,
-#gMenu.itemOpen .menu	{ display:block; }
-#gMenu .menu:after	{
-	content: ".";
-	display: block;
-	clear: both;
-	height: 0;
-	visibility: hidden;
-}
-
-#gMenu {
-.assistive-text { position: absolute; top: -9000px; } // [attention] if [display:none] no reader / if yoko offset that ie display still data road.
-	.menu { 
-		li { float: left;border-bottom:none; overflow:visible;width:auto }
-		li a	{ text-align: center; }
-		li ul { display: none; }
-		li:hover ul { display:block; position:absolute;z-index:100; position:absolute;box-shadow:1px 1px 3px rgba(0,0,0,0.2);
-				li	{ background:#fff;border-bottom:1px solid $color_border;width:200px; position:relative;
-					a { text-align: left; line-height: 140%; }
-					ul	{ position:absolute;left:200px;top:10px; border-top:none;}
-					ul,
-					ul li	{ display:none; }
-				}
-				li:hover ul,
-				li:hover ul li	{display:block;}
-		} // li:hover ul
-
-		li:hover li a,
-		li.current_page_item li a,
-		li.current-menu-ancestor li a,
-		li.current-page-ancestor li a,
-		li.current_page_ancestor li a { background:none;text-align:left;border-right:none; }
-		li:hover li a:hover,
-		li.current_page_item li a:hover,
-		li.current-menu-ancestor li a:hover,
-		li.current-page-ancestor li a:hover,
-		li.current_page_ancestor li a:hover { background-color:#f5f5f5;}
-	} // .menu
-}
-
 .innerBox,
 #gMenu #gMenuInner.innerBox	{ width:950px; margin:0px auto; }
-#header .innerBox { padding-top:30px;width:950px; }
+#header .innerBox { width:950px; }
 #main #container	{ padding-top:30px;}
-#main #container #content	{ float:left; width:640px; }
-#main #container #sideTower	{ float:right; width:300px;clear:none; }
+#main #container #content	{ float:left; width:660px; }
+#main #container #sideTower	{ float:right; width:250px;clear:none; }
 
 body.left-sidebar #main #container #content	{ float:right; }
 body.left-sidebar #main #container #sideTower	{ float:left; }
@@ -91,8 +47,6 @@ body.home.one-column #main #container #sideTower	{ float:none; display:none; }
 
 // form#searchform input#s	{width:120px; }
 form#searchform input#searchsubmit	{ width:20%; }
-
-#gMenu .menu li a { padding-left:5px;padding-right:5px; }
 
 #content .mainFootContact .mainFootBt a img	{ width:100%; }
 

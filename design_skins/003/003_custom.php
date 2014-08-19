@@ -34,7 +34,7 @@ function is_rebuild(){
 			global $biz_vektor_theme_styles;
 			biz_vektor_theme_styleSetting();
 			if ( isset( $biz_vektor_theme_styles[$options['theme_style']] )){
-				break;
+				return false;
 			} else {
 				return true;
 			}
