@@ -123,7 +123,7 @@ function biz_vektor_generate_default_options(){
 		'theme_layout' => 'content-sidebar',
 		'postLabelName' => 'Blog',
 		'infoLabelName' => 'Information',
-		'theme_style' => 'default',
+		'theme_style' => 'rebuild',
 		'pr1_title' => __('Rich theme options', 'biz-vektor'),
 		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr1_link' => '',
@@ -338,7 +338,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 //	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
 
-	$output['theme_style'] = ($input['theme_style'] == '') ? "default" : $input['theme_style'] ;
+	$output['theme_style'] = ($input['theme_style'] == '') ? "rebuild" : $input['theme_style'] ;
 
 	// Theme layout must be in our array of theme layout options
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )

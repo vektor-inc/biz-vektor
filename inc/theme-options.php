@@ -253,8 +253,8 @@ add_filter( 'biz_vektor_layout_classes', 'biz_vektor_topSideBarDisplay' );
 function biz_vektor_theme_styleSetting() {
 	global $biz_vektor_theme_styles;
 	$biz_vektor_theme_styles = array(
-		'003' => array(
-			'label' => '003',
+		'rebuild' => array(
+			'label' => 'Rebuild',
 			'cssPath' => get_template_directory_uri().'/design_skins/003/css/003.css',
 			'cssPathOldIe' => get_template_directory_uri().'/design_skins/003/css/003_oldie.css',
 			),
@@ -286,24 +286,27 @@ function biz_vektor_theme_style() {
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
 
-	/*-------------------------------------------*/
-	/* global $biz_vektor_theme_styles　の時点で初期時が入るようになったはずなのでエラーが出なければ廃止
-	/*-------------------------------------------*/
-	//// load default
-	// if ( !$options['theme_style'] ) {
-	// 	$default_theme_options = biz_vektor_generate_default_options();
-	// 	$options['theme_style'] = $default_theme_options['theme_style'];
-	// }
+	// load default
+	if ( isset($options['theme_style']) ) {
+		$theme_style = $options['theme_style'];
+		if ( isset($biz_vektor_theme_styles[$theme_style]['cssPath']) && is_file( $biz_vektor_theme_styles[$theme_style]['cssPath']) ) {
+			$theme_style = $options['theme_style'];
+		} else {
+			// case of uninstall ex skin
+			$theme_style = 'rebuild';
+		}
+	} else {
+		$theme_style = 'rebuild';
+	}
 
-	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
+	// wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
 
+	$themePath = $biz_vektor_theme_styles[$theme_style]['cssPath'];
 	print '<!-- BizVektorStyle-->'."\n";
 	print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
 	print '<!-- /BizVektorStyle-->'."\n";
 
-	// wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
-
-	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
+	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
 
 	if ($themePathOldIe){
 		print '<!--[if lte IE 8]>'."\n";
