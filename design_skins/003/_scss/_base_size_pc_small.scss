@@ -24,7 +24,7 @@ body     { line-height:150%; }
 	.innerBox { padding:10px 0; }
 	.menu { border:none;
 		li { float:left;border:none;}
-		li a { border-right:1px solid $color_border;padding:0px 15px 0px;}
+		li a { padding:0px 15px 0px 0px;}
 		li.lastChild a { border-right:none; }
 	} // .menu
 } // #footMenu

@@ -519,7 +519,6 @@ border:1px solid $color_key;padding:5px 15px 5px;}
 /*	#footer
 /*-------------------------------------------*/
 #footer	{ margin:0px; padding:20px 0px 20px; display:block; overflow:hidden;text-align:left; }
-#footer	{  }
 #footer dl#footerOutline	{ margin:0px; line-height:150%;width:300px; }
 #footer dl#footerOutline dt	{ margin-bottom:8px;line-height:150%; }
 #footer dl#footerOutline dt img	{ margin-bottom:5px;max-width:260px; }
@@ -638,9 +637,8 @@ border:1px solid $color_key;padding:5px 15px 5px;}
 /*	sitemap & 404 &search
 /*-------------------------------------------*/
 #content.wide	{ display:block; overflow:hidden; }
-#content #sitemapPostList { margin-top:20px; }
-#content #sitemapPostList h5	{ margin:0px;padding:0px; font-weight:lighter;font-size:14px; }
-#content ul.linkList	{ margin:0px;padding:0px; font-size:85.7%; }
+#content #sitemapPostList h5	{ margin:0px 0 10px;padding:0px; font-weight:lighter;font-size:14px; }
+#content ul.linkList	{ margin:0px 0 15px;padding:0px; font-size:85.7%; }
 #content ul.linkList li	{ list-style:none;margin-bottom:0px; }
 #content ul.linkList li a	{ background:url(../images/icon_arrow1_gray.gif) left 8px no-repeat; padding:5px 15px; display:block;text-decoration:none; color:#666;}
 #content ul.linkList li a:hover	{ background-image:url(../images/icon_arrow1_red.gif);text-decoration:underline;color:#c00; }

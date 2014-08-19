@@ -59,7 +59,7 @@ body { line-height: 150%; }
 #footMenu .innerBox { padding: 10px 0; }
 #footMenu .menu { border: none; }
 #footMenu .menu li { float: left; border: none; }
-#footMenu .menu li a { border-right: 1px solid #cccccc; padding: 0px 15px 0px; }
+#footMenu .menu li a { padding: 0px 15px 0px 0px; }
 #footMenu .menu li.lastChild a { border-right: none; }
 
 #sitemapOuter { padding: 20px 50px; }
@@ -97,7 +97,7 @@ body { line-height: 150%; }
 
 #main #container #content { float: left; width: 660px; }
 
-#main #container #sideTower { float: right; width: 250px; clear: none; }
+#main #container #sideTower { float: right; width: 220px; clear: none; }
 
 body.left-sidebar #main #container #content { float: right; }
 
@@ -119,7 +119,7 @@ form#searchform input#searchsubmit { width: 20%; }
 
 /*			.childPageBox
 /*-------------------------------------------*/
-#content .childPageBox { display: block; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; display: block; overflow: hidden; width: 638px; margin-bottom: 20px; }
+#content .childPageBox { display: block; overflow: hidden; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-bottom: 20px; }
 #content .childPageBox h4 { font-weight: lighter; margin: 15px 20px 10px; padding: 0px 0px 3px; font-size: 14px; }
 #content .childPageBox h4 a { text-decoration: none; color: #666666; }
 #content .childPageBox ul { margin: 0px 20px 15px; padding: 0px; display: block; overflow: hidden; font-size: 85.7%; line-height: 125%; }

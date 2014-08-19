@@ -15,7 +15,7 @@ $color_bg_black : #000;
 $color_bg_black_font : #999;
 $color_bg_gray_border : #e5e5e5;
 $color_bg_lgray : #f9f9f9;
-$color_bg_searchform : #f5f5f5;
+$color_bg_searchform : #efefef;
 $color_bg_footer : #f5f5f5;
 $sidePadding : 25px;
 
@@ -100,9 +100,7 @@ form#searchform {
 	border-top:1px solid $color_border;border-bottom:1px solid $color_border;
 	background-color:$color_bg_lgray;
 	background-color:#fff;
-	// background-color:#333;
 	color:#fff;
-	// box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
 	#pageTitInner	{ background:url(../images/pageTit_bg.png) left 50% no-repeat;padding:0 17px;
 		#pageTit { font-weight: lighter; }
 	}
@@ -144,7 +142,7 @@ form#searchform {
 }
 
 #content .childPageBox { @include wakubox; }
-#content .childPageBox h4 { border-bottom:1px dotted $color_border_vivid; }
+#content .childPageBox h4 { border-bottom:1px solid $color_border; }
 
 #content .mainFootContact { padding:15px 0; border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
 
@@ -181,25 +179,39 @@ form#searchform {
 /*	#footMenu
 /*-------------------------------------------*/
 #footMenu	{ border-top:2px solid $color_border;border-bottom:1px solid $color_border;
-	.innerBox {
-		a { color:#666;}
-		.menu li a:hover { text-decoration: none; }
+	.innerBox { width:100%;
+		a { color:#888;}
+		.menu li {
+			a { background:url(../images/icon_arrow1_gray.gif) 10px 50% no-repeat; padding:8px 15px 8px 28px;
+				&:hover { background-image:url(../images/icon_arrow1_red.gif) ;}
+			}
+			a:hover { text-decoration: none; }
+			&:last-child { border-bottom:none; }
+		}
 	 }
 }
 /*-------------------------------------------*/
 /*	#footer
 /*-------------------------------------------*/
 #footer	{ padding:0; background-color: $color_bg_footer;
-	.innerBox { padding-top:25px;padding-bottom:20px;
-	a { color:#666; }
+	.innerBox { padding-top:25px; width:100%;
+	a { color:#888; }
 	}
+	dl#footerOutline { margin-left:10px; }
 }
 /*		#footerSiteMap
 /*-------------------------------------------*/
-#footerSiteMap .menu {
-	li.firstChild	{ border-top:1px solid $color_bg_gray_border; }
-	li	a	{ border-bottom:1px solid $color_bg_gray_border; }
-	li ul li.firstChild { border-top:none; }
+#footerSiteMap .menu { border-top:1px solid $color_bg_gray_border;
+	li	{
+		a	{ border-bottom:1px solid $color_bg_gray_border;background:url(../images/icon_arrow1_gray.gif) 10px 50% no-repeat; padding:8px 15px 8px 28px;
+			&:hover { background-image: url(../images/icon_arrow1_red.gif);}
+		}
+		ul li {
+			a { background:url(../images/icon_arrow2_gray.gif) 12px 50% no-repeat;padding:8px 15px 8px 28px;
+				&:hover { background-image: url(../images/icon_arrow2_red.gif);}
+			}
+		}
+	}
 }
 
 #siteBottom { background-color: $color_bg_footer;border-top:1px solid $color_bg_gray_border;
@@ -228,16 +240,6 @@ form#searchform {
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
 @media (min-width: 660px) { /* スクロール分余裕に20px */
-// #content {
-// 	#topPr { border-top:none;
-// 		.topPrOuter { border-bottom:none;
-// 			.topPrInner { padding:0;width:90%; }
-// 		} // .topPrOuter
-// 		h3 { border:none;padding:0;
-// 			&:after { content:none; border:none; }
-// 		}
-// 	} // #topPr
-// }
 #content {
 	#topPr { border-top:none;
 		.topPrOuter { border-bottom:none;
@@ -256,21 +258,25 @@ form#searchform {
 /*-------------------------------------------*/
 @media (min-width: 770px) {
 #footMenu	{ background-color: $color_bg_footer;
-	#footMenuInner { padding: 0px $sidePadding 0px; }
-	.menu { padding:10px 0;}
-	.menu li.firstChild	{ border-top:none; }
-	.menu li a { border-right:none;padding:0 20px 0 0; }
-	.menu li a:before { font-family: 'vektor_kado_icons';content: "\2b";padding-right:5px;}
+	.innerBox { padding: 0px $sidePadding 0px;
+		.menu { padding:10px 0;}
+		.menu li a { background-position: left 50%;padding:0 20px 0 18px; 
+			&:hover {  }
+		}
+		// .menu li a:before { font-family: 'vektor_kado_icons';content: "\2b";padding-right:5px; position: relative; top:1px;}
+	}
 } // #footMenu
+#footer .innerBox { width:94%;padding-bottom:20px;
+	dl#footerOutline { margin-left:0px; }
+}
 #footerSiteMap {
-	.menu {
-		li { margin-right:10px;
-			a { border-bottom:1px solid $color_bg_gray_border; }
-			ul li { margin-right:0;
-					a { border:none; }
-			}
+	.menu { border-top:none;
+		> li { margin-right:10px; }
+		li { 
+			a { padding:2px 0 2px 18px;background-position: left 50%;border-bottom:none;  }
+			ul li a { padding:2px 0 2px 18px;background-position: 2px 50%; }
 		} //li
-		li.firstChild	{ border-top:none; }
+		// li:first-child	{ border-top:none; }
 	} //.menu
 } // #footerSiteMap
 
@@ -284,6 +290,7 @@ form#searchform {
 .innerBox,
 #panList .innerBox,
 #footMenu .innerBox,
+#footer .innerBox,
 #topMainBnrFrame,
 #pageTitBnr .innerBox,
 #topMainBnrFrame { width:950px; padding-left:0;padding-right:0;margin:0 auto; }
@@ -293,13 +300,6 @@ form#searchform {
 #gMenu { float:right;clear:none;width:auto;padding-left:30px;
 	&:after { content:""; display: inherit; }
 } // #gmenu
-// .headSubMenu	{ margin-bottom:20px;
-// 	ul { 
-// 		li { display:block; overflow:hidden; }
-// 		li a { display:block; overflow:hidden;padding:3px 10px 3px;color:#999; }
-// 		li a:before { display: none; }
-// 	}
-// }
 .headMainMenu { margin-top:25px;
 	.menu {
 		li:nth-child(1) a { border-left:1px solid #e5e5e5; }
@@ -318,6 +318,7 @@ form#searchform {
 	}
 
 } //.headMainMenu
+form#searchform input#searchsubmit { width:auto; }
 } // min-width: 970px
 
 
@@ -346,16 +347,16 @@ input[type=submit],
 #headerTop { border-top-color:$color_key; }
 
 .headMainMenu li:hover { color:$color_key; }
-.headMainMenu li a:hover { color:$color_key; }
-.headMainMenu li li a:hover,
-.headMainMenu li:hover li a:hover,
-.headMainMenu li.current_page_item a,
-.headMainMenu li.current_page_ancestor a,
-.headMainMenu li.current-page-ancestor a,
-.headMainMenu li.current_page_item li a:hover,
-.headMainMenu li.current-menu-ancestor li a:hover,
-.headMainMenu li.current-page-ancestor li a:hover,
-.headMainMenu li.current_page_ancestor li a:hover { color: $color_key; }
+.headMainMenu li > a:hover,
+.headMainMenu li.current_page_item > a { color:$color_key; }
+// .headMainMenu li li a:hover,
+// .headMainMenu li:hover li a:hover,
+// .headMainMenu li.current_page_ancestor a,
+// .headMainMenu li.current-page-ancestor a,
+// .headMainMenu li.current_page_item li a:hover,
+// .headMainMenu li.current-menu-ancestor li a:hover,
+// .headMainMenu li.current-page-ancestor li a:hover,
+// .headMainMenu li.current_page_ancestor li a:hover { color: $color_key; }
 
 #pageTitBnr { background-color:$color_key; }
 

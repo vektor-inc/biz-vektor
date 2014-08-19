@@ -257,7 +257,6 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 .headMainMenu li { position: relative; width: 100%; display: block; }
 .headMainMenu li:last-child { border-bottom: none; }
 .headMainMenu li a { display: block; overflow: hidden; position: relative; color: #333; padding: 13px 10px 11px; margin: 0px; line-height: 110%; text-decoration: none; letter-spacing: 0px; }
-.headMainMenu li:hover li a, .headMainMenu li.current_page_item li a, .headMainMenu li.current-menu-ancestor li a, .headMainMenu li.current-page-ancestor li a, .headMainMenu li.current_page_ancestor li a { color: #333; }
 
 @media (max-width: 969px) { .headSubMenu { display: block; overflow: hidden; position: relative; font-size: 0.786em; border-top: 1px solid #e5e5e5; margin-bottom: 2px; }
   .headSubMenu ul { display: block; overflow: hidden; background-color: #f5f5f5; }
@@ -747,11 +746,9 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
 /*-------------------------------------------*/
 #content.wide { display: block; overflow: hidden; }
 
-#content #sitemapPostList { margin-top: 20px; }
+#content #sitemapPostList h5 { margin: 0px 0 10px; padding: 0px; font-weight: lighter; font-size: 14px; }
 
-#content #sitemapPostList h5 { margin: 0px; padding: 0px; font-weight: lighter; font-size: 14px; }
-
-#content ul.linkList { margin: 0px; padding: 0px; font-size: 85.7%; }
+#content ul.linkList { margin: 0px 0 15px; padding: 0px; font-size: 85.7%; }
 
 #content ul.linkList li { list-style: none; margin-bottom: 0px; }
 
@@ -833,7 +830,7 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
   #footMenu .innerBox { padding: 10px 0; }
   #footMenu .menu { border: none; }
   #footMenu .menu li { float: left; border: none; }
-  #footMenu .menu li a { border-right: 1px solid #cccccc; padding: 0px 15px 0px; }
+  #footMenu .menu li a { padding: 0px 15px 0px 0px; }
   #footMenu .menu li.lastChild a { border-right: none; }
   #sitemapOuter { padding: 20px 50px; }
   #content #sitemapPageList { float: left; width: 49%; }
@@ -862,7 +859,7 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
   #header .innerBox { width: 950px; }
   #main #container { padding-top: 30px; }
   #main #container #content { float: left; width: 660px; }
-  #main #container #sideTower { float: right; width: 250px; clear: none; }
+  #main #container #sideTower { float: right; width: 220px; clear: none; }
   body.left-sidebar #main #container #content { float: right; }
   body.left-sidebar #main #container #sideTower { float: left; }
   body.home.one-column #main #container #content { float: none; width: 100%; }
@@ -873,7 +870,7 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
   #topMainBnr img { width: 950px !important; max-width: 950px !important; }
   #topMainBnrFrame { width: 950px; min-height: 250px; }
   /*			.childPageBox /*-------------------------------------------*/
-  #content .childPageBox { display: block; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; display: block; overflow: hidden; width: 638px; margin-bottom: 20px; }
+  #content .childPageBox { display: block; overflow: hidden; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-bottom: 20px; }
   #content .childPageBox h4 { font-weight: lighter; margin: 15px 20px 10px; padding: 0px 0px 3px; font-size: 14px; }
   #content .childPageBox h4 a { text-decoration: none; color: #666666; }
   #content .childPageBox ul { margin: 0px 20px 15px; padding: 0px; display: block; overflow: hidden; font-size: 85.7%; line-height: 125%; }
@@ -994,8 +991,8 @@ you can use the generic selector below, but it's slower:
 /*-------------------------------------------*/
 #searchform input[type=submit], p.form-submit input[type=submit], form#searchform input#searchsubmit, #content form input.wpcf7-submit, #confirm-button input, a.btn, .linkBtn a, input[type=button], input[type=submit] { color: #fff; }
 
-form#searchform { color: #666; padding: 0; background-color: whitesmoke; }
-form#searchform input { background-color: whitesmoke; border: none; box-shadow: inset 0 0 0 whitesmoke; }
+form#searchform { color: #666; padding: 0; background-color: #efefef; }
+form#searchform input { background-color: #efefef; border: none; box-shadow: inset 0 0 0 #efefef; }
 form#searchform input#s { width: 95%; }
 form#searchform input:focus, form#searchform input:active { border: none; }
 form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
@@ -1044,7 +1041,7 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 
 #content .childPageBox { box-shadow: inset 0px 0px 0px 4px rgba(0, 0, 0, 0.05); border: 1px solid #cccccc; margin-bottom: 20px; }
 
-#content .childPageBox h4 { border-bottom: 1px dotted #333333; }
+#content .childPageBox h4 { border-bottom: 1px solid #e9e9e9; }
 
 #content .mainFootContact { padding: 15px 0; border-top: 1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; }
 
@@ -1073,21 +1070,28 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 /*	#footMenu
 /*-------------------------------------------*/
 #footMenu { border-top: 2px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; }
-#footMenu .innerBox a { color: #666; }
+#footMenu .innerBox { width: 100%; }
+#footMenu .innerBox a { color: #888; }
+#footMenu .innerBox .menu li a { background: url(../images/icon_arrow1_gray.gif) 10px 50% no-repeat; padding: 8px 15px 8px 28px; }
+#footMenu .innerBox .menu li a:hover { background-image: url(../images/icon_arrow1_red.gif); }
 #footMenu .innerBox .menu li a:hover { text-decoration: none; }
+#footMenu .innerBox .menu li:last-child { border-bottom: none; }
 
 /*-------------------------------------------*/
 /*	#footer
 /*-------------------------------------------*/
 #footer { padding: 0; background-color: whitesmoke; }
-#footer .innerBox { padding-top: 25px; padding-bottom: 20px; }
-#footer .innerBox a { color: #666; }
+#footer .innerBox { padding-top: 25px; width: 100%; }
+#footer .innerBox a { color: #888; }
+#footer dl#footerOutline { margin-left: 10px; }
 
 /*		#footerSiteMap
 /*-------------------------------------------*/
-#footerSiteMap .menu li.firstChild { border-top: 1px solid #e5e5e5; }
-#footerSiteMap .menu li a { border-bottom: 1px solid #e5e5e5; }
-#footerSiteMap .menu li ul li.firstChild { border-top: none; }
+#footerSiteMap .menu { border-top: 1px solid #e5e5e5; }
+#footerSiteMap .menu li a { border-bottom: 1px solid #e5e5e5; background: url(../images/icon_arrow1_gray.gif) 10px 50% no-repeat; padding: 8px 15px 8px 28px; }
+#footerSiteMap .menu li a:hover { background-image: url(../images/icon_arrow1_red.gif); }
+#footerSiteMap .menu li ul li a { background: url(../images/icon_arrow2_gray.gif) 12px 50% no-repeat; padding: 8px 15px 8px 28px; }
+#footerSiteMap .menu li ul li a:hover { background-image: url(../images/icon_arrow2_red.gif); }
 
 #siteBottom { background-color: whitesmoke; border-top: 1px solid #e5e5e5; }
 #siteBottom #siteBottomInner.innerBox { padding-top: 0; }
@@ -1120,21 +1124,20 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 /* pc iPad3より大きい場合
 /*-------------------------------------------*/
 @media (min-width: 770px) { #footMenu { background-color: whitesmoke; }
-  #footMenu #footMenuInner { padding: 0px 25px 0px; }
-  #footMenu .menu { padding: 10px 0; }
-  #footMenu .menu li.firstChild { border-top: none; }
-  #footMenu .menu li a { border-right: none; padding: 0 20px 0 0; }
-  #footMenu .menu li a:before { font-family: 'vektor_kado_icons'; content: "\2b"; padding-right: 5px; }
-  #footerSiteMap .menu li { margin-right: 10px; }
-  #footerSiteMap .menu li a { border-bottom: 1px solid #e5e5e5; }
-  #footerSiteMap .menu li ul li { margin-right: 0; }
-  #footerSiteMap .menu li ul li a { border: none; }
-  #footerSiteMap .menu li.firstChild { border-top: none; } }
+  #footMenu .innerBox { padding: 0px 25px 0px; }
+  #footMenu .innerBox .menu { padding: 10px 0; }
+  #footMenu .innerBox .menu li a { background-position: left 50%; padding: 0 20px 0 18px; }
+  #footer .innerBox { width: 94%; padding-bottom: 20px; }
+  #footer .innerBox dl#footerOutline { margin-left: 0px; }
+  #footerSiteMap .menu { border-top: none; }
+  #footerSiteMap .menu > li { margin-right: 10px; }
+  #footerSiteMap .menu li a { padding: 2px 0 2px 18px; background-position: left 50%; border-bottom: none; }
+  #footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 50%; } }
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/
 @media (min-width: 970px) { /* スクロール分余裕に20px */
-  .innerBox, #panList .innerBox, #footMenu .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
+  .innerBox, #panList .innerBox, #footMenu .innerBox, #footer .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
   #topMainBnr img { width: 950px !important; }
   #gMenu #gMenuInner.innerBox { width: auto; }
   #gMenu { float: right; clear: none; width: auto; padding-left: 30px; }
@@ -1145,7 +1148,8 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
   .headMainMenu .menu li.current_page_item, .headMainMenu .menu li.current_page_ancestor, .headMainMenu .menu li.current-page-ancestor, .headMainMenu .menu li:hover { box-shadow: inset 0px 0px 0px 2px white; }
   .headMainMenu .menu li.current_page_item ul li, .headMainMenu .menu li.current_page_ancestor ul li, .headMainMenu .menu li.current-page-ancestor ul li, .headMainMenu .menu li:hover ul li { border-bottom: 1px dotted #e5e5e5; }
   .headMainMenu .menu li.current_page_item ul li:nth-child(1) a, .headMainMenu .menu li.current_page_ancestor ul li:nth-child(1) a, .headMainMenu .menu li.current-page-ancestor ul li:nth-child(1) a, .headMainMenu .menu li:hover ul li:nth-child(1) a { border-left: none; }
-  .headMainMenu .menu li.current_page_item ul li a, .headMainMenu .menu li.current_page_ancestor ul li a, .headMainMenu .menu li.current-page-ancestor ul li a, .headMainMenu .menu li:hover ul li a { margin: 0; padding: 10px 15px; } }
+  .headMainMenu .menu li.current_page_item ul li a, .headMainMenu .menu li.current_page_ancestor ul li a, .headMainMenu .menu li.current-page-ancestor ul li a, .headMainMenu .menu li:hover ul li a { margin: 0; padding: 10px 15px; }
+  form#searchform input#searchsubmit { width: auto; } }
 /*-------------------------------------------*/
 /*	color /* そのまま貼るのでsassで書かない */
 /*-------------------------------------------*/
@@ -1165,9 +1169,7 @@ a { color: red; }
 
 .headMainMenu li:hover { color: #e90000; }
 
-.headMainMenu li a:hover { color: #e90000; }
-
-.headMainMenu li li a:hover, .headMainMenu li:hover li a:hover, .headMainMenu li.current_page_item a, .headMainMenu li.current_page_ancestor a, .headMainMenu li.current-page-ancestor a, .headMainMenu li.current_page_item li a:hover, .headMainMenu li.current-menu-ancestor li a:hover, .headMainMenu li.current-page-ancestor li a:hover, .headMainMenu li.current_page_ancestor li a:hover { color: #e90000; }
+.headMainMenu li > a:hover, .headMainMenu li.current_page_item > a { color: #e90000; }
 
 #pageTitBnr { background-color: #e90000; }
 

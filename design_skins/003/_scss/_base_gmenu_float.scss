@@ -22,11 +22,6 @@
 		&:last-child { border-bottom:none;}
 		a	{ display: block; overflow:hidden;position:relative;color: #333; padding: 13px 10px 11px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; }
 	}
-	li:hover li a,
-	li.current_page_item li a,
-	li.current-menu-ancestor li a,
-	li.current-page-ancestor li a,
-	li.current_page_ancestor li a { color:#333; }
 } // .headMainMenu .menu
 
 @media (max-width: 969px) {
