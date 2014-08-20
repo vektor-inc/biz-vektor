@@ -409,7 +409,7 @@ function bizVektorAddPingback(){
 /*-------------------------------------------*/
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
-	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140519' );
+	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
 function add_defer_to_bizVektor_js( $url )
