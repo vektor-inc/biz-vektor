@@ -134,9 +134,9 @@ form#searchform input#searchsubmit { width: 20%; }
 #content .childPageBox ul li.current_page_item ul li a { color: #666; text-decoration: none; background-image: url(../images/icon_arrow2_gray.gif); }
 #content .childPageBox ul li.current_page_item ul li a:hover { color: #c00; text-decoration: underline; background-image: url(../images/icon_arrow2_red.gif); }
 
-#footerSiteMap { width: 640px; padding-top: 0px; font-size: 12px; }
+#footerSiteMap { width: 660px; float: right; padding-top: 0px; font-size: 12px; }
 
-#footer dl#footerOutline { float: left; }
+#footer dl#footerOutline { float: left; width: 260px; }
 #footer dl#footerOutline dd { padding-right: 20px; }
 
 #footerSiteMap .menu li { width: 150px; float: left; }

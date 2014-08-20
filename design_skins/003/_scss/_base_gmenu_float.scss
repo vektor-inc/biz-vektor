@@ -25,15 +25,6 @@
 } // .headMainMenu .menu
 
 @media (max-width: 969px) {
-.headSubMenu { display:block; overflow:hidden;position: relative;font-size:$font_size_11;border-top:1px solid $color_border;margin-bottom:2px;
-	ul { display:block; overflow:hidden;background-color: #f5f5f5;
-		li { width:50%;
-			a { padding:0.5em 1em;display:block; overflow:hidden;padding:6px 10px 4px; border-bottom:1px solid $color_border; background-color: #fff; }
-			&:nth-child(odd) a { border-right:1px solid $color_border; }
-			ul { display:none; }
-		}
-	}
-}
 .headMainMenu {
 		li {
 		a { padding-left:10px;text-align:left;border-bottom:1px solid $color_border; }
@@ -47,14 +38,12 @@
 // メニュー開閉
 #header,
 #header.itemClose {
-		.headSubMenu { display: none; }
 		.assistive-text span:before { @include vektor_kado_icons;content: "\29";}
 		.headMainMenu .menu	{ display:none; }
 }
 #header.itemOpen {
-		.headSubMenu { display:block; }
 		.assistive-text span:before { @include vektor_kado_icons;content: "\2a";}
-		.headMainMenu .menu	{ display:block; }
+		.headMainMenu .menu	{ display:block;border-top:1px solid $color_border; }
 }
 } // @media (max-width: 969px)
 @media (min-width: 970px) {

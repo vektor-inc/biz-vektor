@@ -272,13 +272,13 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 
 	strong	{ font-weight:bold; }
 
-	ul	{ margin:0px 0px 20px 20px;
+	ul	{ margin:0px 0px 20px 30px;
 		li	{ list-style:disc;padding:0px; }
 		ul	{ margin-top:10px; }
 		ul li	{ list-style:circle; }
 	}
 	li	{ margin-bottom:10px; }
-	ol	{ margin:0px 0px 20px 40px;
+	ol	{ margin:0px 0px 20px 30px;
 		li	{ list-style:decimal;padding:0px; }
 	}
 	table { border-top: 1px solid $color_border; margin: 5px -1px 24px 0; text-align: left; width: 100%;border-collapse: collapse; border-spacing: 0;font-size:85.7%; line-height:141.7%;
@@ -295,7 +295,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 			}
 		}
 	}
-	dt		{ color:#000;padding-bottom:3px;margin-bottom:10px; color:#c00; }
+	dt		{ padding-bottom:3px;margin-bottom:10px; }
 	dd		{ margin:0px 0px 30px;padding:0px;}
 } // #content
 
@@ -449,24 +449,9 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 			li li a	{ padding-left:20px; }
 		}
 		// アクティブのページ
-		li a:hover,
-		li.current_page_item a,
-		li.current-cat a	{ background-color:#efefef;}
-		// 親がアクティブの子ページ（リセットする）
-		li.current-cat li a,
-		li.current_page_item li a	{ background-color:inherit; }
-		// 親がアクティブの子ページhover
-		li.current-cat li a:hover,
-		li.current_page_item li a:hover	{ background-color:#efefef; }
-		// 子がアクティブのページ
-		li li.current-cat a,
-		li li.current_page_item a { background-color:#efefef; }
-		// 子がアクティブの孫ページ（リセットする）
-		li li.current-cat li a,
-		li li.current_page_item li a { background-color:inherit; }
-		// 子がアクティブの孫ページhover
-		li li.current-cat li a:hover,
-		li li.current_page_item li a:hover { background-color:#efefef; }
+		li > a:hover,
+		li.current_page_item > a,
+		li.current-cat > a	{ background-color:#efefef;}
 
 	.textwidget	{ padding-top:10px; }
 	.textwidget img	{ display:block; margin: 0 auto; }

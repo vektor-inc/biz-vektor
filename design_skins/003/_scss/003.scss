@@ -85,7 +85,7 @@ form#searchform {
 			&:before { font-size:24px;line-height: 24px; }
 			}
 		}
-		.headMainMenu { border-top:1px solid #e5e5e5;
+		.headMainMenu {
 			ul { 
 				li { background-color: #f5f5f5;box-shadow:inset 0px 1px 0px 0px rgba(255,255,255,1);
 					a:after { float:right;@include vektor_kado_icons;content:"\2b";}
@@ -107,13 +107,15 @@ form#searchform {
 }
 
 
-#panList { border-bottom:1px solid $color_border;
-	background-color: #fcfcfc;
+#panList { background-color: #fcfcfc;
 	ul { width:100%; }
 	ul a,
 	ul a:active { color:#666;text-decoration: none; }
 	ul li#panHome a:before { @include vektor_kado_icons;content: "\2d";padding-right:3px;  }
 }
+
+// グローバルメニューやスライドが存在しない場合があるため #main で線を引く
+#main { border-top:1px solid $color_border; }
 
 #content {
 	h2,
@@ -123,14 +125,15 @@ form#searchform {
 	h3 { border-bottom:1px solid #ccc; position: relative;font-weight: lighter;padding-bottom: 5px;font-size:150%;  }
 	h3:after { @include h3_after; }
 	blockquote,
-	.sectionFrame { @include wakubox;padding:20px 20px 0;
+	.sectionFrame { @include wakubox;padding:20px 20px 5px;
 		h2,
 		h3,
 		h4,
 		h5 { margin-top:0px; margin-bottom:15px;}
 	}
-	h4 { padding-top:0;border-bottom:1px dotted #ccc;box-shadow:0px 1px 0px rgba(255,255,255,1); font-weight: lighter; }
-	table { border-top:1px solid $color_border;border-spacing: 2px;border-collapse: inherit;
+	h3,h4,h5,h6 { font-weight: lighter; }
+	h4 { padding-top:0;border-bottom:1px solid $color_border;box-shadow:0px 1px 0px rgba(255,255,255,1);  }
+	table { border-top:1px solid $color_border;border-spacing: 1px;border-collapse: inherit;
 		th,td { border:none;margin-right:2px;border-bottom:1px solid $color_border; }
 		th { font-weight: lighter; }
 	}
@@ -147,15 +150,15 @@ form#searchform {
 #content .mainFootContact { padding:15px 0; border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
 
 #content .child_page_block { @include wakubox;
-	.child_page_blockInner { padding: 15px 15px 10px; margin:0; }
-	h4 { border-bottom:1px solid $color_border; position: relative;
+	.child_page_blockInner { padding: 18px; margin:0; }
+	h4 { border-bottom:1px solid $color_border; position: relative;font-size:114.3%;
 		&:after { @include h3_after;}
 	}
 }
 
 #sideTower {
 	.localHead { @include h2 }
-	.localNavi { 
+	.sideWidget { 
 			li a:before { @include vektor_kado_icons;content: "\32";margin-right:5px;padding-top:3px;}
 			li a { padding-left:25px;color:$color_font; }
 			li a:first-letter { margin-left:-20px; }
@@ -222,7 +225,7 @@ form#searchform {
 	}
 }
 
-#topMainBnr { background-color: #fafafa;border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
+#topMainBnr { background-color: #fafafa;border-top:1px solid $color_border; }
 #topMainBnrFrame { padding:0px;width:100%;
 	ul.slides { border-left:1px solid $color_border;border-right:1px solid $color_border; }
 }
@@ -272,9 +275,9 @@ form#searchform {
 #footerSiteMap {
 	.menu { border-top:none;
 		> li { margin-right:10px; }
-		li { 
+		li { width:150px;
 			a { padding:2px 0 2px 18px;background-position: left 50%;border-bottom:none;  }
-			ul li a { padding:2px 0 2px 18px;background-position: 2px 50%; }
+			ul li a { padding:2px 0 2px 18px;background-position: 2px 5px; }
 		} //li
 		// li:first-child	{ border-top:none; }
 	} //.menu
@@ -349,14 +352,6 @@ input[type=submit],
 .headMainMenu li:hover { color:$color_key; }
 .headMainMenu li > a:hover,
 .headMainMenu li.current_page_item > a { color:$color_key; }
-// .headMainMenu li li a:hover,
-// .headMainMenu li:hover li a:hover,
-// .headMainMenu li.current_page_ancestor a,
-// .headMainMenu li.current-page-ancestor a,
-// .headMainMenu li.current_page_item li a:hover,
-// .headMainMenu li.current-menu-ancestor li a:hover,
-// .headMainMenu li.current-page-ancestor li a:hover,
-// .headMainMenu li.current_page_ancestor li a:hover { color: $color_key; }
 
 #pageTitBnr { background-color:$color_key; }
 
@@ -388,24 +383,24 @@ form#searchform input#searchsubmit:hover { background-color: $color_key_light; }
 .paging a:hover	{ background-color:$color_key;}
 
 	/* アクティブのページ */
-#sideTower .sideWidget li a:hover,
-#sideTower .sideWidget li.current_page_item a,
-#sideTower .sideWidget li.current-cat a	{ color:$color_key;background-color: $color_key_slight;}
+#sideTower .sideWidget li > a:hover,
+#sideTower .sideWidget li.current_page_item > a,
+#sideTower .sideWidget li.current-cat > a	{ color:$color_key;background-color: $color_key_slight;}
 	/* 親がアクティブの子ページ（リセットする） */
-#sideTower .sideWidget li.current-cat li a,
-#sideTower .sideWidget li.current_page_item li a	{ color:#333;background-color:inherit; }
-	/* 親がアクティブの子ページhover */
-#sideTower .sideWidget li.current-cat li a:hover,
-#sideTower .sideWidget li.current_page_item li a:hover	{ color:$color_key;background-color: $color_key_slight; }
-	/* 子がアクティブのページ */
-#sideTower .sideWidget li li.current-cat a,
-#sideTower .sideWidget li li.current_page_item a { color:$color_key;background-color: $color_key_slight; }
-	/* 子がアクティブの孫ページ（リセットする） */
-#sideTower .sideWidget li li.current-cat li a,
-#sideTower .sideWidget li li.current_page_item li a { color:#333;background-color:inherit; }
-	/* 子がアクティブの孫ページhover */
-#sideTower .sideWidget li li.current-cat li a:hover,
-#sideTower .sideWidget li li.current_page_item li a:hover { color:$color_key;background-color: $color_key_slight; }
+// #sideTower .sideWidget li.current-cat li a,
+// #sideTower .sideWidget li.current_page_item li a	{ color:#333;background-color:inherit; }
+// 	/* 親がアクティブの子ページhover */
+// #sideTower .sideWidget li.current-cat li a:hover,
+// #sideTower .sideWidget li.current_page_item li a:hover	{ color:$color_key;background-color: $color_key_slight; }
+// 	/* 子がアクティブのページ */
+// #sideTower .sideWidget li li.current-cat a,
+// #sideTower .sideWidget li li.current_page_item a { color:$color_key;background-color: $color_key_slight; }
+// 	/* 子がアクティブの孫ページ（リセットする） */
+// #sideTower .sideWidget li li.current-cat li a,
+// #sideTower .sideWidget li li.current_page_item li a { color:#333;background-color:inherit; }
+// 	/* 子がアクティブの孫ページhover */
+// #sideTower .sideWidget li li.current-cat li a:hover,
+// #sideTower .sideWidget li li.current_page_item li a:hover { color:$color_key;background-color: $color_key_slight; }
 
 // #pagetop a { background-color: $color_key; }
 // #pagetop a:hover { background-color: $color_key_light; }
