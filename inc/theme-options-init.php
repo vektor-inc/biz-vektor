@@ -306,8 +306,8 @@ function biz_vektor_theme_options_validate( $input ) {
 		$output['slide'.$i.'link']			 = $input['slide'.$i.'link'];
 		$output['slide'.$i.'image']			 = $input['slide'.$i.'image'];
 		$output['slide'.$i.'alt']			 = $input['slide'.$i.'alt'];
-		$output['slide'.$i.'display']		 = (isset($input['slide'.$i.'display']))? "true" : '';
-		$output['slide'.$i.'blank']			 = (isset($input['slide'.$i.'blank']))? "true" : '';
+		$output['slide'.$i.'display']		 = (isset($input['slide'.$i.'display']) && $input['slide'.$i.'display'])? "true" : '';
+		$output['slide'.$i.'blank']			 = (isset($input['slide'.$i.'blank']) && $input['slide'.$i.'blank'])? "true" : '';
 	$i++;
 	}
 	// SNS
