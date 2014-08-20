@@ -77,7 +77,7 @@ function bizvektor_calmly_customize_register($wp_customize) {
     // Add section
     $wp_customize->add_section( 'biz_vektor_calmly', array(
         'title'          => __('Calmly Setting', 'biz-vektor'),
-        'priority'       => 1000,
+        'priority'       => 110,
     ) );
 
 	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
