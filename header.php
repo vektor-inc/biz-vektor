@@ -58,7 +58,7 @@ if ($biz_vektor_options['fbAppId']) :
 <div class="alert_title">ご利用の Internet Exproler は古すぎます。</div>
 <p>このウェブサイトはあなたがご利用の Internet Explorer をサポートしていないため、正しく表示・動作しません。<br />
 古い Internet Exproler はセキュリティーの問題があるため、新しいブラウザに移行する事が強く推奨されています。<br />
-最新の Internet Exproler を利用するか、<a href="https://www.google.co.jp/chrome/browser/index.html" target="_blank">Chrome</a> や <a href="https://www.mozilla.org/ja/firefox/new/" target="_blank">Firefox</a> など、より早くて快適なブラウザを使用するようにしてください。</p>
+最新の Internet Exproler を利用するか、<a href="https://www.google.co.jp/chrome/browser/index.html" target="_blank">Chrome</a> や <a href="https://www.mozilla.org/ja/firefox/new/" target="_blank">Firefox</a> など、より早くて快適なブラウザをご利用ください。</p>
 </div>
 <![endif]-->
 

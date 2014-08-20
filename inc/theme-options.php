@@ -358,7 +358,7 @@ function biz_vektor_gMenuDivide() {
 </style>
 <!--[if lte IE 8]>
 <style type="text/css">
-#gMenu .menu li { width<?php echo $menuWidthNonActive ?>px; text-align:center; }
+#gMenu .menu li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
 #gMenu .menu li.current_page_item,
 #gMenu .menu li.current_page_ancestor { width:<?php echo $menuWidthActive ?>px; }
 </style>
