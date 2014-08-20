@@ -141,47 +141,79 @@ form#searchform input#searchsubmit { width: 20%; }
 
 #footerSiteMap .menu li { width: 150px; float: left; }
 
+/* メニューのファイルのあとで 003*/
+#gMenu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu .innerBox { margin: 0; width: 100%; }
+
+#gMenu.itemClose .menu, #gMenu.itemOpen .menu { display: block; }
+
+#gMenu .menu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu { position: relative; }
+#gMenu .assistive-text { position: absolute; top: -9000px; }
+
+.headMainMenu { clear: both; }
+.headMainMenu li { float: left; border-bottom: none; overflow: visible; width: auto; }
+.headMainMenu li a { text-align: center; }
+.headMainMenu li a span { display: block; font-size: 10px; line-height: 140%; letter-spacing: 1px; font-family: verdana, Arial, Helvetica, sans-serif; opacity: 0.6; }
+.headMainMenu li ul { display: none; }
+.headMainMenu li:hover ul { display: block; position: absolute; z-index: 100; position: absolute; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+.headMainMenu li:hover ul li { background: #fff; width: 200px; position: relative; }
+.headMainMenu li:hover ul li a { text-align: left; line-height: 140%; }
+.headMainMenu li:hover ul li ul { position: absolute; left: 200px; top: 10px; border-top: none; }
+.headMainMenu li:hover ul li ul, .headMainMenu li:hover ul li ul li { display: none; }
+.headMainMenu li:hover ul li:hover ul, .headMainMenu li:hover ul li:hover ul li { display: block; }
+.headMainMenu li:hover li a, .headMainMenu li.current_page_item li a, .headMainMenu li.current-menu-ancestor li a, .headMainMenu li.current-page-ancestor li a, .headMainMenu li.current_page_ancestor li a { background: none; text-align: left; border-right: none; }
+.headMainMenu li:hover li a:hover, .headMainMenu li.current_page_item li a:hover, .headMainMenu li.current-menu-ancestor li a:hover, .headMainMenu li.current-page-ancestor li a:hover, .headMainMenu li.current_page_ancestor li a:hover { background-color: #f5f5f5; }
+
 /*-------------------------------------------*/
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
-#topPr { border-top: none; }
-#topPr .topPrOuter { border-bottom: none; }
-#topPr .topPrOuter .topPrInner { padding: 0 6%; width: 88%; border-right: 1px solid #e5e5e5; }
-#topPr #topPrLeft .topPrInner { border-left: 1px solid #e5e5e5; }
+#content #topPr { border-top: none; }
+#content #topPr .topPrOuter { border-bottom: none; }
+#content #topPr .topPrOuter .topPrInner { padding: 0 6%; width: 88%; border-right: 1px solid #e9e9e9; }
+#content #topPr #topPrLeft .topPrInner { border-left: 1px solid #e9e9e9; }
+#content #topPr h3 { border-bottom: 1px solid #e9e9e9; margin-bottom: 10px; padding-bottom: 2px; }
+#content #topPr h3:after { border-bottom-width: 1px; bottom: -1px; }
 
 /*-------------------------------------------*/
 /* pc iPad3より大きい場合
 /*-------------------------------------------*/
-#gMenu { border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
-#gMenu .menu li.firstChild a { border-left: 1px solid #e5e5e5; }
-#gMenu .menu li a { border-right: 1px solid #e5e5e5; margin-top: 13px; margin-bottom: 11px; padding: 0 10px; }
-#gMenu .menu li.current_page_item, #gMenu .menu li.current_page_ancestor, #gMenu .menu li.current-page-ancestor, #gMenu .menu li:hover { box-shadow: inset 0px 0px 0px 2px white; }
-#gMenu .menu li.current_page_item ul, #gMenu .menu li.current_page_ancestor ul, #gMenu .menu li.current-page-ancestor ul, #gMenu .menu li:hover ul { border-top: 1px solid #e5e5e5; }
-#gMenu .menu li.current_page_item ul li, #gMenu .menu li.current_page_ancestor ul li, #gMenu .menu li.current-page-ancestor ul li, #gMenu .menu li:hover ul li { border-bottom: 1px solid #e5e5e5; }
-#gMenu .menu li.current_page_item ul li a, #gMenu .menu li.current_page_ancestor ul li a, #gMenu .menu li.current-page-ancestor ul li a, #gMenu .menu li:hover ul li a { margin: 0; padding: 10px; }
-#gMenu .menu li.current_page_item ul li li.firstChild a, #gMenu .menu li.current_page_ancestor ul li li.firstChild a, #gMenu .menu li.current-page-ancestor ul li li.firstChild a, #gMenu .menu li:hover ul li li.firstChild a { border-left: none; }
-#gMenu .menu li.current_page_item ul li.firstChild a, #gMenu .menu li.current_page_ancestor ul li.firstChild a, #gMenu .menu li.current-page-ancestor ul li.firstChild a, #gMenu .menu li:hover ul li.firstChild a { border-left: none; }
+#footMenu { background-color: whitesmoke; }
+#footMenu .innerBox { padding: 0px 25px 0px; }
+#footMenu .innerBox .menu { padding: 10px 0; }
+#footMenu .innerBox .menu li a { background-position: left 50%; padding: 0 20px 0 18px; }
 
-#footMenu { background-color: black; }
-#footMenu #footMenuInner { padding: 0px 25px 0px; }
-#footMenu .menu { padding: 10px 0; }
-#footMenu .menu li.firstChild { border-top: none; }
-#footMenu .menu li a { border-right: none; padding: 0 20px 0 0; }
-#footMenu .menu li a:before { font-family: 'vektor_kado_icons'; content: "\2b"; padding-right: 5px; }
+#footer .innerBox { width: 94%; padding-bottom: 20px; }
+#footer .innerBox dl#footerOutline { margin-left: 0px; }
 
-#footerSiteMap .menu li { margin-right: 10px; }
-#footerSiteMap .menu li a { border-bottom: 1px solid #151515; }
-#footerSiteMap .menu li ul li { margin-right: 0; }
-#footerSiteMap .menu li ul li a { border: none; }
-#footerSiteMap .menu li.firstChild { border-top: none; }
-
-#topMainBnrFrame { width: 94%; padding-right: 3%; padding-left: 3%; margin: 0 auto; }
-
-#pageTitBnr #pageTitInner { border-left: 1px solid #e5e5e5; border-right: 1px solid #e5e5e5; }
+#footerSiteMap .menu { border-top: none; }
+#footerSiteMap .menu > li { margin-right: 10px; }
+#footerSiteMap .menu li { width: 150px; }
+#footerSiteMap .menu li a { padding: 2px 0 2px 18px; background-position: left 50%; border-bottom: none; }
+#footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 5px; }
 
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/
-.innerBox, #gMenu #gMenuInner.innerBox, #panList .innerBox, #footMenu .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
+.innerBox, #panList .innerBox, #footMenu .innerBox, #footer .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
 
 #topMainBnr img { width: 950px !important; }
+
+#gMenu { float: right; clear: none; width: auto; padding-left: 30px; }
+#gMenu #gMenuInner.innerBox { width: auto; }
+#gMenu:after { content: ""; display: inherit; }
+
+.headMainMenu { margin-top: 25px; }
+.headMainMenu .menu li:first-child a { border-left: 1px solid #e5e5e5; }
+.headMainMenu .menu li a { border-right: 1px solid #e5e5e5; padding: 3px 20px; }
+.headMainMenu .menu li.current_page_item, .headMainMenu .menu li.current_page_ancestor, .headMainMenu .menu li.current-page-ancestor, .headMainMenu .menu li:hover { box-shadow: inset 0px 0px 0px 2px white; }
+.headMainMenu .menu li.current_page_item ul li, .headMainMenu .menu li.current_page_ancestor ul li, .headMainMenu .menu li.current-page-ancestor ul li, .headMainMenu .menu li:hover ul li { border-bottom: 1px dotted #e5e5e5; }
+.headMainMenu .menu li.current_page_item ul li a, .headMainMenu .menu li.current_page_ancestor ul li a, .headMainMenu .menu li.current-page-ancestor ul li a, .headMainMenu .menu li:hover ul li a { margin: 0; padding: 10px 15px; }
+
+form#searchform input#searchsubmit { width: auto; }
+
+/*-------------------------------------------*/
+/*	▼▼▼▼▼ このファイル独自なので注意
+/*-------------------------------------------*/

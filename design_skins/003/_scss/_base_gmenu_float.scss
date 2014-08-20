@@ -9,8 +9,7 @@
 		span:before { font-family: 'vektor_kado_icons';margin-right:0px; }
 	}
 	.screen-reader-text { position: absolute; left: -9000px; }
-	#gMenuInner	{ overflow:visible; display:block; position:relative;padding:0px;}
-	#gMenuInner.innerBox	{ margin:0px;width:100%;}
+	.innerBox	{ overflow:visible; display:block; position:relative;padding:0px;margin:0px;width:100%;}
 }
 .headSubMenu { 
 	li { float:left;
@@ -54,7 +53,7 @@
 	height: 0;
 	visibility: hidden;
 }
-#gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
+#gMenu .innerBox	{ margin:0;width:100%;}
 #gMenu.itemClose .menu,
 #gMenu.itemOpen .menu	{ display:block; }
 #gMenu .menu:after	{

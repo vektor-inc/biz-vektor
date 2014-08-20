@@ -247,8 +247,7 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 #gMenu .assistive-text span { display: block; overflow: hidden; padding: 3px 0; margin: 0; }
 #gMenu .assistive-text span:before { font-family: 'vektor_kado_icons'; margin-right: 0px; }
 #gMenu .screen-reader-text { position: absolute; left: -9000px; }
-#gMenu #gMenuInner { overflow: visible; display: block; position: relative; padding: 0px; }
-#gMenu #gMenuInner.innerBox { margin: 0px; width: 100%; }
+#gMenu .innerBox { overflow: visible; display: block; position: relative; padding: 0px; margin: 0px; width: 100%; }
 
 .headSubMenu li { float: left; }
 .headSubMenu li a { text-decoration: none; color: #666; }
@@ -267,7 +266,7 @@ html, body, #wrap { height: 100%; min-height: 100%; }
   #header.itemOpen .assistive-text span:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2a"; }
   #header.itemOpen .headMainMenu .menu { display: block; border-top: 1px solid #e5e5e5; } }
 @media (min-width: 970px) { #gMenu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
-  #gMenu #gMenuInner.innerBox { margin: 0px 3%; width: 94%; }
+  #gMenu .innerBox { margin: 0; width: 100%; }
   #gMenu.itemClose .menu, #gMenu.itemOpen .menu { display: block; }
   #gMenu .menu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
   #gMenu { position: relative; }
@@ -1129,15 +1128,14 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 @media (min-width: 970px) { /* スクロール分余裕に20px */
   .innerBox, #panList .innerBox, #footMenu .innerBox, #footer .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
   #topMainBnr img { width: 950px !important; }
-  #gMenu #gMenuInner.innerBox { width: auto; }
   #gMenu { float: right; clear: none; width: auto; padding-left: 30px; }
+  #gMenu #gMenuInner.innerBox { width: auto; }
   #gMenu:after { content: ""; display: inherit; }
   .headMainMenu { margin-top: 25px; }
-  .headMainMenu .menu li:nth-child(1) a { border-left: 1px solid #e5e5e5; }
-  .headMainMenu .menu li a { border-right: 1px solid #e5e5e5; padding: 3px 20px; }
+  .headMainMenu .menu > li:first-child a { border-left: 1px solid #e5e5e5; }
+  .headMainMenu .menu li > a { border-right: 1px solid #e5e5e5; padding: 3px 20px; }
   .headMainMenu .menu li.current_page_item, .headMainMenu .menu li.current_page_ancestor, .headMainMenu .menu li.current-page-ancestor, .headMainMenu .menu li:hover { box-shadow: inset 0px 0px 0px 2px white; }
   .headMainMenu .menu li.current_page_item ul li, .headMainMenu .menu li.current_page_ancestor ul li, .headMainMenu .menu li.current-page-ancestor ul li, .headMainMenu .menu li:hover ul li { border-bottom: 1px dotted #e5e5e5; }
-  .headMainMenu .menu li.current_page_item ul li:nth-child(1) a, .headMainMenu .menu li.current_page_ancestor ul li:nth-child(1) a, .headMainMenu .menu li.current-page-ancestor ul li:nth-child(1) a, .headMainMenu .menu li:hover ul li:nth-child(1) a { border-left: none; }
   .headMainMenu .menu li.current_page_item ul li a, .headMainMenu .menu li.current_page_ancestor ul li a, .headMainMenu .menu li.current-page-ancestor ul li a, .headMainMenu .menu li:hover ul li a { margin: 0; padding: 10px 15px; }
   form#searchform input#searchsubmit { width: auto; } }
 /*-------------------------------------------*/
@@ -1188,7 +1186,6 @@ a { color: red; }
 /* アクティブのページ */
 #sideTower .sideWidget li > a:hover, #sideTower .sideWidget li.current_page_item > a, #sideTower .sideWidget li.current-cat > a { color: #e90000; background-color: #fff5f5; }
 
-/* 親がアクティブの子ページ（リセットする） */
 #footMenu { border-top-color: #e90000; }
 
 #footMenu .menu li a:hover { color: #e90000; }

@@ -97,7 +97,7 @@ sub { height: 0; line-height: 1; position: relative; vertical-align: baseline; }
 sup { bottom: 1ex; }
 sub { top: .5ex; }
 
-a         { overflow: hidden; color:#666; }
+a{ overflow: hidden; color:#666; }
 a:hover,
 a:active  { color: #c00; }
 

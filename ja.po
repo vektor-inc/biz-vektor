@@ -1372,10 +1372,13 @@ msgid "Keycolor"
 msgstr "キーカラー"
 
 msgid "Keycolor(Light)"
-msgstr "キーカラー（明）※リンクにマウスオーバーした時の色です"
+msgstr "キーカラー（明）"
 
 msgid "Keycolor(Dark)"
-msgstr "キーカラー（暗い）※メニューやフッターに奥行きを出します"
+msgstr "キーカラー（暗）"
+
+msgid "Keycolor(VeryLight)"
+msgstr "キーカラー（薄）"
 
 msgid "Set the color from theme customizer"
 msgstr "テーマカスタマイザーで色を設定する"
@@ -1393,3 +1396,9 @@ msgstr "Default カラー設定"
 msgctxt "Calmly color settings"
 msgid "Calmly color settings"
 msgstr "Calmly カラー設定"
+
+# ######################################
+# Rebuild color setting
+# ######################################
+msgid "Rebuild color setting"
+msgstr "Rebuild カラー設定"

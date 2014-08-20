@@ -299,21 +299,21 @@ form#searchform {
 #topMainBnrFrame { width:950px; padding-left:0;padding-right:0;margin:0 auto; }
 
 #topMainBnr img		{ width:950px !important; }
-#gMenu #gMenuInner.innerBox { width:auto; }
 #gMenu { float:right;clear:none;width:auto;padding-left:30px;
+	#gMenuInner.innerBox { width:auto; }
 	&:after { content:""; display: inherit; }
 } // #gmenu
 .headMainMenu { margin-top:25px;
 	.menu {
-		li:nth-child(1) a { border-left:1px solid #e5e5e5; }
-		li a { border-right:1px solid #e5e5e5;padding:3px 20px; }
+		 > li:first-child a { border-left:1px solid #e5e5e5; }
+		li > a { border-right:1px solid #e5e5e5;padding:3px 20px; }
 		li.current_page_item,
 		li.current_page_ancestor,
 		li.current-page-ancestor,
 		li:hover { box-shadow:inset 0px 0px 0px 2px rgba(255,255,255,1);
 			ul { 
 				li { border-bottom:1px dotted #e5e5e5;
-					&:nth-child(1) a { border-left:none; }
+					// &:nth-child(1) a { border-left:none; }
 					a { margin:0;padding:10px 15px; }
 				}
 			}
@@ -386,27 +386,8 @@ form#searchform input#searchsubmit:hover { background-color: $color_key_light; }
 #sideTower .sideWidget li > a:hover,
 #sideTower .sideWidget li.current_page_item > a,
 #sideTower .sideWidget li.current-cat > a	{ color:$color_key;background-color: $color_key_slight;}
-	/* 親がアクティブの子ページ（リセットする） */
-// #sideTower .sideWidget li.current-cat li a,
-// #sideTower .sideWidget li.current_page_item li a	{ color:#333;background-color:inherit; }
-// 	/* 親がアクティブの子ページhover */
-// #sideTower .sideWidget li.current-cat li a:hover,
-// #sideTower .sideWidget li.current_page_item li a:hover	{ color:$color_key;background-color: $color_key_slight; }
-// 	/* 子がアクティブのページ */
-// #sideTower .sideWidget li li.current-cat a,
-// #sideTower .sideWidget li li.current_page_item a { color:$color_key;background-color: $color_key_slight; }
-// 	/* 子がアクティブの孫ページ（リセットする） */
-// #sideTower .sideWidget li li.current-cat li a,
-// #sideTower .sideWidget li li.current_page_item li a { color:#333;background-color:inherit; }
-// 	/* 子がアクティブの孫ページhover */
-// #sideTower .sideWidget li li.current-cat li a:hover,
-// #sideTower .sideWidget li li.current_page_item li a:hover { color:$color_key;background-color: $color_key_slight; }
-
-// #pagetop a { background-color: $color_key; }
-// #pagetop a:hover { background-color: $color_key_light; }
 
 #footMenu { border-top-color: $color_key;}
-// #footMenu .menu li a:before { color:$color_key; }
 #footMenu .menu li a:hover { color:$color_key; }
 
 @media (min-width: 970px) {
