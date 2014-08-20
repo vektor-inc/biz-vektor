@@ -370,7 +370,8 @@ function biz_vektor_them_edit_function($post){
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;
 	// global 変数が上手く取得出来てない場合はDBから持ってくる。
-	if (!isset($biz_vektor_options)) 
+	// if (!isset($biz_vektor_options)) 
+	// やはりDBから持ってこないとカスタマイザーが効かない。
 		$biz_vektor_options = get_option('biz_vektor_theme_options' );
 	return $biz_vektor_options;
 }
