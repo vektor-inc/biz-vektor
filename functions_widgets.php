@@ -116,7 +116,7 @@ class WP_Widget_topPR extends WP_Widget {
 			'classname' => 'WP_Widget_topPR',
 			'description' => 'トップページの３PRエリアウィジェットです。※サイドバーでは正しく表示されません。',
 		);
-		$widget_name = get_biz_vektor_name().'_トップページ3PR';
+		$widget_name = get_biz_vektor_name().'_トップ用_3PR';
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
