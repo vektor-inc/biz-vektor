@@ -28,7 +28,7 @@ if ( !isset($biz_vektor_options['top3PrDisplay']) || !$biz_vektor_options['top3P
 /*-------------------------------------------*/
 ?>
 	<!-- [ #topPr ] -->
-	<div id="topPr">
+	<div id="topPr" class="topPr">
 	<div id="topPrLeft" class="topPrOuter">
 	<div class="topPrInner">
 	<h3 class="topPrTit"><a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>"><?php echo $biz_vektor_options['pr1_title'] ?></a></h3>
