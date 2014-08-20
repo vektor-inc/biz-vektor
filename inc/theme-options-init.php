@@ -196,6 +196,10 @@ function biz_vektor_generate_default_options(){
 // 	return $default_theme_options;
 // }
 
+	/*-------------------------------------------*/
+	/*	Updator
+	/*-------------------------------------------*/
+
 class biz_vektor_veryfi_tool{
 	var $version;
 
@@ -214,10 +218,6 @@ class biz_vektor_veryfi_tool{
 				break;
 		}
 	}
-
-	/*-------------------------------------------*/
-	/*	Updata
-	/*-------------------------------------------*/
 
 	public function check_version(){
 		// テーマバージョンの確認
@@ -250,7 +250,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
 	// Design
-	$output['gMenuDivide']				 = $input['gMenuDivide'];
+	$output['gMenuDivide']					 = $input['gMenuDivide'];
 	$output['head_logo']				 = $input['head_logo'];
 	$output['foot_logo']				 = $input['foot_logo'];
 	$output['font_title']				 = $input['font_title'];
@@ -266,7 +266,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['contact_address']			 = $input['contact_address'];
 	$output['contact_link']				 = $input['contact_link'];
 	// 3PR
-	$output['top3PrDisplay']			 = (isset($input['top3PrDisplay']))?	 "true" : "";
+	$output['top3PrDisplay']			 = (isset($input['top3PrDisplay']) && $input['top3PrDisplay'] == 'true')?	 true : false;
 	$output['pr1_title']				 = ($input['pr1_title'] == '')?			 $defaults['pr1_title'] : $input['pr1_title'] ;
 	$output['pr1_description']			 = ($input['pr1_description'] == '')?	 $defaults['pr1_description'] : $input['pr1_description'] ;
 	$output['pr1_link']					 = $input['pr1_link'];
@@ -299,7 +299,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['gaType']					 = $input['gaType'];
 	// TopPage
 //	$output['topEntryTitleDisplay']		 = $input['topEntryTitleDisplay'];
-	$output['topSideBarDisplay']		 = (isset($input['topSideBarDisplay']))? "true" : '';
+	$output['topSideBarDisplay']		 = (isset($input['topSideBarDisplay']) && $input['topSideBarDisplay'] == 'true')? true : false;
 //	$output['infoTopUrl'] = $input['infoTopUrl'];
 	// SlideShow
 	for ( $i = 1; $i <= 5 ;){
@@ -311,29 +311,29 @@ function biz_vektor_theme_options_validate( $input ) {
 	$i++;
 	}
 	// SNS
-	$output['fbAppId']					 = $input['fbAppId'];
-	$output['fbAdminId']				 = $input['fbAdminId'];
+	$output['fbAppId']                = $input['fbAppId'];
+	$output['fbAdminId']              = $input['fbAdminId'];
 //	$output['blogRss'] = $input['blogRss'];
-	$output['twitter']					 = $input['twitter'];
-	$output['facebook']					 = $input['facebook'];
-	$output['ogpImage']					 = $input['ogpImage'];
-	$output['snsBtnsFront']				 = (isset($input['snsBtnsFront']))? "false" : '';
-	$output['snsBtnsPage']				 = (isset($input['snsBtnsPage']))? "false" : '';
-	$output['snsBtnsPost']				 = (isset($input['snsBtnsPost']))? "false" : '';
-	$output['snsBtnsInfo']				 = (isset($input['snsBtnsInfo']))? "false" : '';
-	$output['snsBtnsHidden']			 = $input['snsBtnsHidden'];
-	$output['fbCommentsFront']			 = (isset($input['fbCommentsFront']))? "false" : '';
-	$output['fbCommentsPage']			 = (isset($input['fbCommentsPage']))? "false" : '';
-	$output['fbCommentsPost']			 = (isset($input['fbCommentsPost']))? "false" : '';
-	$output['fbCommentsInfo']			 = (isset($input['fbCommentsInfo']))? "false" : '';
+	$output['twitter']                = $input['twitter'];
+	$output['facebook']               = $input['facebook'];
+	$output['ogpImage']               = $input['ogpImage'];
+	$output['snsBtnsFront']           = (isset($input['snsBtnsFront']) && $input['snsBtnsFront'] == 'false')? 'false' : '';
+	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
+	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';
+	$output['snsBtnsInfo']            = (isset($input['snsBtnsInfo']) && $input['snsBtnsInfo'] == 'false')? 'false' : '';
+	$output['snsBtnsHidden']          = $input['snsBtnsHidden'];
+	$output['fbCommentsFront']        = (isset($input['fbCommentsFront']) && $input['fbCommentsFront'] == 'false')? 'false' : '';
+	$output['fbCommentsPage']         = (isset($input['fbCommentsPage']) && $input['fbCommentsPage'] == 'false')? 'false' : '';
+	$output['fbCommentsPost']         = (isset($input['fbCommentsPost']) && $input['fbCommentsPost'] == 'false')? 'false' : '';
+	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
 //	$output['fbCommentsHidden'] = $input['fbCommentsHidden'];
-	$output['fbLikeBoxFront']			 = (isset($input['fbLikeBoxFront']))? "false" : '' ;
-	$output['fbLikeBoxSide']			 = (isset($input['fbLikeBoxSide']))? "false" : '' ;
-	$output['fbLikeBoxURL']				 = $input['fbLikeBoxURL'];
-	$output['fbLikeBoxStream']			 = (isset($input['fbLikeBoxStream']))? "false" : '' ;
-	$output['fbLikeBoxFace']			 = (isset($input['fbLikeBoxFace']))? "false" : '' ;
-	$output['fbLikeBoxHeight']			 = $input['fbLikeBoxHeight'];
-	$output['ogpTagDisplay']			 = (isset($input['ogpTagDisplay']))? "false" : '' ;
+	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
+	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
+	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
+	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 //	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
