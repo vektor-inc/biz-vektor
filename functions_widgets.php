@@ -33,7 +33,7 @@ function biz_vektor_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Homepage main content', 'biz-vektor' ),
+		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',
 		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
 		'before_widget' => '',
@@ -100,6 +100,10 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			echo $after_widget;
 		}
 	}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
+	}
 } // class WP_Widget_childPageList
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
 
@@ -112,7 +116,7 @@ class WP_Widget_topPR extends WP_Widget {
 			'classname' => 'WP_Widget_topPR',
 			'description' => 'トップページの３PRエリアウィジェットです。※サイドバーでは正しく表示されません。',
 		);
-		$widget_name = get_biz_vektor_name().'_トップページ3PR';
+		$widget_name = get_biz_vektor_name().'_トップ用_3PR';
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -120,8 +124,10 @@ class WP_Widget_topPR extends WP_Widget {
 		get_template_part( 'module_topPR' );
 	//	echo $after_widget;
 	}
-	function form(){}
-	function update(){}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
+	}
 	
 } // class WP_Widget_topPR
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
@@ -133,19 +139,20 @@ class wp_widget_page extends WP_Widget {
 	function wp_widget_page() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_page_post',
-			'description' => '固定ページの内容を出力します'
+			'description' => '固定ページの内容を出力します',
 		);
 		$widget_name = get_biz_vektor_name().'_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
 	}
 
 	function widget($args, $instance){
-		$this->display_page($instance['page_id']);
+		$this->display_page($instance['page_id'],$instance['set_title']);
 	}
 
 	function form($instance){
 		$defaults = array(
-			'page_id' => 2
+			'page_id' => 2,
+			'set_title' => true
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -158,6 +165,9 @@ class wp_widget_page extends WP_Widget {
 		<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
 		<?php } ?>
 		</select>
+		<br/>
+		<input type="checkbox" name="<?php echo $this->get_field_name('set_title'); ?>" value="true" <?php echo ($instance['set_title'])? 'checked': '' ; ?> >
+		<label for="<?php echo $this->get_field_id('set_title'); ?>"> タイトルを表示させる</label>
 		</p>
 		<?php
 	}
@@ -165,12 +175,14 @@ class wp_widget_page extends WP_Widget {
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['page_id'] = $new_instance['page_id'];
+		$instance['set_title'] = ($new_instance['set_title'] == 'true')? true : false;
 		return $instance;
 	}
 
-	function display_page($pageid) {
+	function display_page($pageid,$titleflag=false) {
 		$page = get_page($pageid);
 		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
+		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
 		echo '</div>';
 	}
@@ -223,6 +235,10 @@ class WP_Widget_top_list_post extends WP_Widget {
 		get_template_part( 'module_top_list_post' );
 		// echo $after_widget;
 	}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
+	}
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_post");'));
 
@@ -244,6 +260,10 @@ class WP_Widget_top_list_info extends WP_Widget {
 		// echo $before_widget;
 		get_template_part( 'module_top_list_info' );
 		// echo $after_widget;
+	}
+	function form($instance){
+	}
+	function update($new_instance,$old_instance){
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));

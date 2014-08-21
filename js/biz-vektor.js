@@ -1,4 +1,44 @@
 /*-------------------------------------------*/
+/*	SNSアイテム関連
+/*-------------------------------------------*/
+/*	rollover.js
+/*-------------------------------------------*/
+/*	ページ内するするスクロール
+/*-------------------------------------------*/
+
+/*-------------------------------------------*/
+/*	SNSアイテム関連
+/*-------------------------------------------*/
+likeBoxReSize();
+jQuery(window).resize(function(){
+	likeBoxReSize();
+});
+// When load page / window resize
+function likeBoxReSize(){
+	var i = number;
+	jQuery('.fb-like-box').each(function(i){
+		var element = jQuery(this).parent().width();
+		jQuery(this).attr('data-width',element);
+		jQuery(this).children('span:first').css({"width":element});
+		jQuery(this).children('span iframe.fb_ltr').css({"width":element});
+	});
+}
+fbCommentReSize();
+jQuery(window).resize(function(){
+	fbCommentReSize();
+});
+// When load page / window resize
+function fbCommentReSize(){
+	var i = number;
+	jQuery('.fb-comments').each(function(i){
+		var element = jQuery(this).parent().width();
+		jQuery(this).attr('data-width',element);
+		jQuery(this).children('span:first').css({"width":element});
+		jQuery(this).children('span iframe.fb_ltr').css({"width":element});
+	});
+}
+
+/*-------------------------------------------*/
 /*	rollover.js
 /*-------------------------------------------*/
 var initRollovers = window.onload;
@@ -56,7 +96,6 @@ window.onload = function(){
 /*	ページ内するするスクロール
 /*-------------------------------------------*/
 jQuery(document).ready(function(){
-
 	//
 	// <a href="#***">の場合、スクロール処理を追加
 	//
@@ -311,7 +350,6 @@ jQuery("#btn").on("click", function() {
 	jQuery(this).next().next().slideToggle();
 	jQuery(this).toggleClass("active");
 });
-
 
 
 /*
@@ -1243,7 +1281,7 @@ function resThumbTxtFix(){
 function showHide(targetID) {
 	if( document.getElementById(targetID)) {
 		var targetItem = '#' + targetID;
-		if ( jQuery(targetItem).hasClass('itemOpen')) {
+		if ( jQuery(targetItem).hasClass('itemOpen') ) {
 			document.getElementById(targetID).className = "itemClose";
 		} else {
 			document.getElementById(targetID).className = "itemOpen";

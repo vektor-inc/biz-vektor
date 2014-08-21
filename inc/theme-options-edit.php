@@ -1,5 +1,9 @@
 <?php
 /*-------------------------------------------*/
+/*  Theme option edit page
+/*-------------------------------------------*/
+
+/*-------------------------------------------*/
 /*	Design setting
 /*-------------------------------------------*/
 /*	Contact information
@@ -17,7 +21,17 @@
 /*	SNS
 /*-------------------------------------------*/
 
-function biz_vektor_theme_options_render_page() { ?>
+/*-------------------------------------------*/
+/*  Theme option edit page
+/*-------------------------------------------*/
+function biz_vektor_theme_options_render_page() {
+	$updata = new biz_vektor_veryfi_tool;
+	$updata->update();
+	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
+	global $options_bizvektor;
+	$options_bizvektor = $options = biz_vektor_get_theme_options();
+	//echo "<pre>";print_r($options);echo "</pre>";
+ ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
 		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), wp_get_theme() ); ?></h2>
@@ -32,7 +46,12 @@ function biz_vektor_theme_options_render_page() { ?>
 
 		</div>
 		<?php } ?>
-		
+
+<?php 
+global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
+?>
+
 		<div id="main-content">
 		<p class="message_intro">
 	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
@@ -41,10 +60,9 @@ function biz_vektor_theme_options_render_page() { ?>
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
 		</p>
 		<form method="post" action="options.php">
+		<input type="hidden" name="post_status" value="bvo" />
 			<?php
 				settings_fields( 'biz_vektor_options' );
-				$options = biz_vektor_get_theme_options();
-				$default_options = biz_vektor_get_default_theme_options();
 			?>
 <?php
 /*-------------------------------------------*/
@@ -345,6 +363,7 @@ function biz_vektor_theme_options_render_page() { ?>
 $i++;
 } ?>
 </div>
+<br clear="all" /><!-- [ 無いと回りこむ ] -->
 	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
 	<span class="alert">
 	<?php _e('* You can set different image for desktop and smartphone versions of the site.', 'biz-vektor') ;?>
@@ -597,14 +616,24 @@ foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLav
 <!-- Page to be displayed below the main visual -->
 <tr>
 <th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<td><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">
-	&raquo; <?php _e('Setting for the page to display just below the main visual of home page.', 'biz-vektor'); ?></a> ]</p>
-<p><?php _e('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
-<span class="alert">
-* <?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
-* <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?></p></td>
-<p><?php _e('Check this box if you want to display the page title below the main visual on the home page.', 'biz-vektor'); ?></p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topEntryTitleDisplay]" id="topEntryTitleDisplay" value="true" <?php if ($options['topEntryTitleDisplay']) {?> checked<?php } ?>> <?php _e('Display the title', 'biz-vektor'); ?></p></td>
+<td>
+<ol>
+<li>
+まずはトップページ用の固定ページを作成してください。<br />
+[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; 固定ページ</a> ]<br />
+<?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
+</li>
+<li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
+[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
+<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
+<span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
+</li>
+<li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
+<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。
+</li>
+</ol>
+</td>
+</td>
 </tr>
 <!-- Home 3PR area -->
 <tr>
@@ -802,7 +831,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <dt><?php _e('Display stream', 'biz-vektor'); ?></dt>
 <dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Display faces', 'biz-vektor'); ?></dt>
-<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php if ($options['fbLikeBoxFace']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
+<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php echo ($options['fbLikeBoxFace']=='false')? "checked ":""; ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" />
 px</dd>
@@ -814,63 +843,29 @@ px</dd>
 <th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
 <td>
 <p><?php _e('If other plug-ins are used for the OGP, do not output the OGP using BizVektor.', 'biz-vektor'); ?></p>
-<?php
-$biz_vektor_ogpTags = array(
-	'ogp_on' 	=> __('I want to output the OGP tags using BizVektor', 'biz-vektor'),
-	'ogp_off' 	=> __('Do not output OGP tags using BizVektor', 'biz-vektor')
-	);
-foreach( $biz_vektor_ogpTags as $biz_vektor_ogpTagValue => $biz_vektor_ogpTagLavel) {
-	if ( $biz_vektor_ogpTagValue == $options['ogpTagDisplay'] ) { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>" checked> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
-	<?php } else { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="<?php echo $biz_vektor_ogpTagValue ?>"> <?php echo $biz_vektor_ogpTagLavel ?></label><br />
-	<?php }
-} ?>
+
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']=='ogp_off')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+
 </td>
 </tr>
 </table>
 <?php submit_button(); ?>
 </div>
+</form>
+
+<?php if(false){ ?>
+<div class="option Advanced"><form action="" method="post">
+<input type="hidden" name="bizvektor_action_mode" value="reset" />
+<p class="submit"><label style="font-weight:bold;color:red;"><input type="submit" name="submit" id="submit" class="button button-primary" value="設定を初期化"  />   ※ ビズベクトルテーマの設定がすべて初期化されます。</label></p>
+</form></div>
+
 <div class="optionNav bottomNav">
 <ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
-</form>
+<?php } ?>
+
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
 <?php
 }
-
-function biz_vektor_theme_options_validate( $input ) {
-	$output = $defaults = biz_vektor_get_default_theme_options();
-
-	if($input['theme_layout'] == ''){ $input['theme_layout'] = "content-sidebar"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['postLabelName'])){ $input['postLabelName'] = "Blog"; }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName'])){ $input['infoLabelName'] = "Information"; }
-	if($input['rssLabelName'] == ''){ $input['rssLabelName'] = "Blog entries"; }
-	if($input['theme_style'] == ''){ $input['theme_style'] = "default"; }
-
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_title'])){ $input['pr1_title'] = __('Rich theme options', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr1_description'])){ $input['pr1_description'] = __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_title'])){ $input['pr2_title'] = __('Various designs available', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr2_description'])){ $input['pr2_description'] = __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_title'])){ $input['pr3_title'] = __('Optimized for business web sites', 'biz-vektor'); }
-	if(preg_match('/^(\s|[ 　]*)$/', $input['pr3_description'])){ $input['pr3_description'] = __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'); }
-
-	$keylist = array_keys($input);
-	foreach($keylist as $key){
-		if(isset($input[$key])) { $output[$key] = $input[$key]; }
-	}
-
-	// Theme layout must be in our array of theme layout options
-	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
-		$output['theme_layout'] = $input['theme_layout'];
-	// sidebar child menu display
-	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
-
-	if(!preg_match("/.+\.ico$/i", $output['favicon'])){ $output['favicon'] = ''; }
-
-
-	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
-}
-
-?>

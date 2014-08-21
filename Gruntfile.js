@@ -12,7 +12,11 @@ module.exports = function(grunt) {
     cssmin:{
     compress: {
         files: {
-          "css/bizvektor_common_min.css":['css/bizvektor_common.css','js/res-vektor/res-vektor.css','js/flexslider/flexslider.css',]
+          "css/bizvektor_common_min.css":[
+            'css/bizvektor_common.css',
+            'js/res-vektor/res-vektor.css',
+            'js/flexslider/flexslider.css',
+          ]
         }
       }
     },

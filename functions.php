@@ -1,4 +1,7 @@
 <?php
+
+define('BizVektor_Theme_Version', '1.0.0');
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
@@ -65,6 +68,8 @@
 /*-------------------------------------------*/
 /*	Page _ Child page lists
 /*-------------------------------------------*/
+/*	HomePage _ add action filters
+/*-------------------------------------------*/
 
 get_template_part('functions_widgets');
 
@@ -83,7 +88,7 @@ add_post_type_support( 'info', 'front-end-editor' );
 /* 	(Auto set up to media max with.)
 /*-------------------------------------------*/
 if ( ! isset( $content_width ) )
-    $content_width = 640;
+	$content_width = 640;
 
 /*-------------------------------------------*/
 /*	Custom menu
@@ -101,10 +106,15 @@ define( 'HEADER_TEXTCOLOR', '' );
 // Kill custom header test
 define( 'NO_HEADER_TEXT', true );
 
-define('HEADER_IMAGE', '%s/images/headers/bussines_desk_02.jpg');
+define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
 define('HEADER_IMAGE_WIDTH', 950);
 define('HEADER_IMAGE_HEIGHT', 250);
 register_default_headers( array(
+	'accelerate' => array(
+		'url' => '%s/images/headers/accelerate.jpg',
+		'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
+		'description' => 'Accelerate your business'
+	),
 	'bussines_desk_02' => array(
 		'url' => '%s/images/headers/bussines_desk_02.jpg',
 		'thumbnail_url' => '%s/images/headers/bussines_desk_02-thumbnail.jpg',
@@ -149,12 +159,14 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*	Load theme options
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
+	require( dirname( __FILE__ ) . '/inc/theme-options-init.php' );
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/bizvektor_themes/001/001_custom.php' );
-	require( dirname( __FILE__ ) . '/bizvektor_themes/002/002_custom.php' );
+	require( dirname( __FILE__ ) . '/design_skins/001/001_custom.php' );
+	require( dirname( __FILE__ ) . '/design_skins/002/002_custom.php' );
+	require( dirname( __FILE__ ) . '/design_skins/003/003_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer
@@ -172,7 +184,7 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 function bizVektor_admin_css(){
 	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
 	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
-	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
+	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
 }
 add_action('admin_head', 'bizVektor_admin_css', 11);
 
@@ -232,9 +244,9 @@ add_action('save_post', 'save_custom_field_metaKeyword');
 
 function add_custom_field_metaKeyword(){
   if(function_exists('add_custom_field_metaKeyword')){
-    add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
-    add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
-    add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
+	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
+	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
+	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
   }
 }
 
@@ -262,11 +274,11 @@ function save_custom_field_metaKeyword($post_id){
   $data = $_POST['metaKeyword'];
 
   if(get_post_meta($post_id, 'metaKeyword') == ""){
-    add_post_meta($post_id, 'metaKeyword', $data, true);
+	add_post_meta($post_id, 'metaKeyword', $data, true);
   }elseif($data != get_post_meta($post_id, 'metaKeyword', true)){
-    update_post_meta($post_id, 'metaKeyword', $data);
+	update_post_meta($post_id, 'metaKeyword', $data);
   }elseif($data == ""){
-    delete_post_meta($post_id, 'metaKeyword', get_post_meta($post_id, 'metaKeyword', true));
+	delete_post_meta($post_id, 'metaKeyword', get_post_meta($post_id, 'metaKeyword', true));
   }
 }
 
@@ -355,7 +367,7 @@ function getHeadDescription() {
 		$metadescription = get_bloginfo('description');
 	}
 	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
-    echo $metadescription;
+	echo $metadescription;
 }
 
 /*-------------------------------------------*/
@@ -397,7 +409,7 @@ function bizVektorAddPingback(){
 /*-------------------------------------------*/
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
-	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140519' );
+	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
 function add_defer_to_bizVektor_js( $url )
@@ -415,61 +427,61 @@ add_filter( 'clean_url', 'add_defer_to_bizVektor_js', 11, 1 );
 /*	Term list no link
 /*-------------------------------------------*/
 function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', $after = '' ) {
-    $terms = get_the_terms( $id, $taxonomy );
-    if ( is_wp_error( $terms ) )
-        return $terms;
-    if ( empty( $terms ) )
-        return false;
-    foreach ( $terms as $term ) {
-        $term_names[] =  $term->name ;
-    }
-    return $before . join( $sep, $term_names ) . $after;
+	$terms = get_the_terms( $id, $taxonomy );
+	if ( is_wp_error( $terms ) )
+		return $terms;
+	if ( empty( $terms ) )
+		return false;
+	foreach ( $terms as $term ) {
+		$term_names[] =  $term->name ;
+	}
+	return $before . join( $sep, $term_names ) . $after;
 }
 
 /*-------------------------------------------*/
 /*	Global navigation add cptions
 /*-------------------------------------------*/
 class description_walker extends Walker_Nav_Menu {
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-        global $wp_query;
-        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+		global $wp_query;
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
-        $class_names = $value = '';
+		$class_names = $value = '';
 
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
-        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-        $class_names = ' class="'. esc_attr( $class_names ) . '"';
-        $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+		$class_names = ' class="'. esc_attr( $class_names ) . '"';
+		$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
 
-        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
 
-        $prepend = '<strong>';
-        $append = '</strong>';
-        $description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
+		$prepend = '<strong>';
+		$append = '</strong>';
+		$description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
 
-        if($depth != 0) {
-            $description = $append = $prepend = "";
-        }
+		if($depth != 0) {
+			$description = $append = $prepend = "";
+		}
 
-        $item_output = $args->before;
-        $item_output .= '<a'. $attributes .'>';
-        $item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
-        $item_output .= $description.$args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'>';
+		$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+		$item_output .= $description.$args->link_after;
+		$item_output .= '</a>';
+		$item_output .= $args->after;
 
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
 }
 /*-------------------------------------------*/
 /*	Excerpt _ change ... 
 /*-------------------------------------------*/
 function change_excerpt_more($post) {
-    return ' ...';
+	return ' ...';
 }
 add_filter('excerpt_more', 'change_excerpt_more');
 
@@ -566,37 +578,68 @@ function biz_vektor_content_nav( $nav_id ) {
 /*-------------------------------------------*/
 /*	Pasing
 /*-------------------------------------------*/
-function pagination($pages = '', $range = 1) {
-     $showitems = ($range * 2)+1;
+function pagination($max_num_pages = '', $range = 1) {
+	$showitems = ($range * 2)+1;
 
-     global $paged;
-     if(empty($paged)) $paged = 1;
+	global $paged;
+	if(empty($paged)) $paged = 1;
 
-     if($pages == '') {
-         global $wp_query;
-         $pages = $wp_query->max_num_pages;
-         if(!$pages) {
-             $pages = 1;
-         }
-     }
+	if($max_num_pages == '') {
+		global $wp_query;
+		// 最後のページ
+		$max_num_pages = $wp_query->max_num_pages;
+		if(!$max_num_pages) {
+			 $max_num_pages = 1;
+		}
+	}
 
-     if(1 != $pages) {
-         echo "<div class=\"paging\"><span class=\"pageIndex\">Page ".$paged." / ".$pages."</span>";
-         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
-         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
+	if(1 != $max_num_pages) {
+		echo '<div class="paging">'."\n";
 
-         for ($i=1; $i <= $pages; $i++) {
-             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
-                 echo ($paged == $i)? "<span class=\"current\">".$i."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".$i."</a>";
-             }
-         }
+		// Prevリンク
+		// 現在のページが２ページ目以降の場合
+		if ($paged > 1) echo '<a class="prev_link" href="'.get_pagenum_link($paged - 1).'">&laquo;</a>'."\n";
 
-         if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">&rsaquo;</a>";
-         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
-         echo "</div>\n";
-     }
+		// 今のページからレンジを引いて2以上ある場合 && 最大表示アイテム数より最第ページ数が大きい場合
+		// （レンジ数のすぐ次の場合は表示する）
+		// 1...３４５
+		if ( $paged-$range >= 2 && $max_num_pages > $showitems ) echo '<a href="'.get_pagenum_link(1).'">1</a>'."\n";
+		// 今のページからレンジを引いて3以上ある場合 && 最大表示アイテム数より最第ページ数が大きい場合
+		if ( $paged-$range >= 3 && $max_num_pages > $showitems ) echo '<span class="txt_hellip">&hellip;</span>'."\n";
+
+		// レンジより前に追加する数
+		$addPrevCount = $paged+$range-$max_num_pages;
+		// レンジより後に追加する数
+		$addNextCount = -($paged-1-$range); // 今のページ数を遡ってカウントするために-1
+		// アイテムループ
+		for ($i=1; $i <= $max_num_pages; $i++) {
+			// 表示するアイテム
+			if ($paged == $i) {
+				$pageItem = '<span class="current">'.$i.'</span>'."\n";
+			} else {
+				$pageItem = '<a href="'.get_pagenum_link($i).'" class="inactive">'.$i.'</a>'."\n";
+			}
+
+			// 今のページからレンジを引いた数～今のページからレンジを足した数まで || 最大ページ数が最大表示アイテム数以下の場合
+			if ( ( $paged-$range <= $i && $i<= $paged+$range ) || $max_num_pages <= $showitems ) {
+				echo $pageItem;
+				// 今のページからレンジを引くと負数になる場合 && 今のページ+レンジ+負数をレンジに加算した数まで
+			} else if ( $paged-1-$range < 0 && $paged+$range+$addNextCount >= $i ) {
+				echo $pageItem;
+			// 今のページからレンジを足すと　最後のページよりも大きくなる場合 && 今のページ+レンジ+負数をレンジに加算した数まで
+			} else if ( $paged+$range > $max_num_pages && $paged-$range-$addPrevCount <= $i ) {
+				echo $pageItem;
+			}
+		}
+
+		// 現在のページにレンジを足しても最後のページ数より２以上小さい時 && 最大表示アイテム数より最第ページ数が大きい場合
+		if ( $paged+$range <= $max_num_pages-2 && $max_num_pages > $showitems ) echo '<span class="txt_hellip">&hellip;</span>'."\n";
+		if ( $paged+$range <= $max_num_pages-1 && $max_num_pages > $showitems ) echo '<a href="'.get_pagenum_link($max_num_pages).'">'.$max_num_pages.'</a>'."\n";
+		// Nextリンク
+		if ($paged < $max_num_pages) echo '<a class="next_link" href="'.get_pagenum_link($paged + 1).'">&raquo;</a>'."\n";
+		echo "</div>\n";
+	 }
 }
-
 
 /*-------------------------------------------*/
 /*	Comment out short code
@@ -606,7 +649,7 @@ If there is a place that you want to hide temporarily in the text field,
 [ignore] When enclosing [/ ignore], can be commented out the relevant sections in the html mode.
 */
 function ignore_shortcode( $atts, $content = null ) {
-    return null;
+	return null;
 }
 add_shortcode('ignore', 'ignore_shortcode');
 
@@ -636,4 +679,26 @@ function biz_vektor_childPageList(){
 		<?php }
 		}
 	} // is_page
+}
+
+/*-------------------------------------------*/
+/*	HomePage _ add action filters
+/*-------------------------------------------*/
+function biz_vektor_contentMain_before(){
+	do_action('biz_vektor_contentMain_before');
+}
+function biz_vektor_contentMain_after(){
+	do_action('biz_vektor_contentMain_after');
+}
+function biz_vektor_archive_loop(){
+	do_action('biz_vektor_archive_loop');
+}
+function is_biz_vektor_archive_loop(){
+	return apply_filters('is_biz_vektor_archive_loop', false);
+}
+function is_biz_vektor_extra_single(){
+	return apply_filters('is_biz_vektor_archive_loop', false);
+}
+function biz_vektor_extra_single(){
+	do_action('biz_vektor_extra_single');	
 }

@@ -1,0 +1,219 @@
+@charset "UTF-8";
+#header #site-title { float: left; }
+
+#main #container { padding-top: 20px; }
+
+#main #container #content { margin: 0px auto; }
+
+#content p { line-height: 170%; }
+
+#content table th, #content table td { display: table-cell; }
+
+#content .mainFootContact p.mainFootTxt { float: left; margin-bottom: 0px; text-align: left; }
+
+#content .mainFootContact p.mainFootTxt .mainFootCatch { font-size: 120%; }
+
+#content .mainFootContact .mainFootBt { float: right; }
+
+#content .mainFootContact .mainFootBt a { width: 350px; min-height: 50px; }
+
+#content .mainFootContact .mainFootBt a img { width: auto; }
+
+.paging span.pageIndex { display: inline; }
+
+#content .topPr { display: block; overflow: hidden; }
+#content .topPr .topPrOuter { padding: 0px; border-bottom: none; margin-bottom: 20px; }
+#content .topPr #topPrLeft { width: 33.1%; text-align: left; float: left; display: block; overflow: visible; }
+#content .topPr #topPrCenter { width: 33.1%; text-align: center; float: left; display: block; overflow: visible; }
+#content .topPr #topPrRight { width: 33.1%; text-align: right; float: right; display: block; overflow: visible; }
+#content .topPr #topPrLeft .topPrInner { float: left; }
+#content .topPr #topPrCenter .topPrInner { margin: 0px auto; }
+#content .topPr #topPrRight .topPrInner { float: right; }
+#content .topPr .topPrInner { text-align: left; width: 95%; }
+#content .topPr h3 { margin-bottom: 15px; }
+#content .topPr h3 a { display: block; overflow: hidden; }
+#content .topPr p { padding: 0px; }
+#content .topPr p.topPrDescription { font-size: 85.7%; }
+#content .topPr .prImage { float: none; width: 100%; margin-right: 0px; }
+#content .topPr .prImage img { height: auto; width: 100%; }
+#content .topPr .prImage img.imageWide { display: block; }
+#content .topPr .prImage img.imageSmall { display: none; }
+
+#content .child_page_block { width: 48%; }
+
+#content .child_page_block.layout_odd { float: left; clear: both; }
+
+body { line-height: 150%; }
+
+#headerTop { display: block; }
+
+#headerTop #site-description { line-height: 150%; font-size: 12px; display: block; }
+
+#footerSiteMap .menu { font-size: 12px; }
+#footerSiteMap .menu li { display: inline-block; margin-bottom: 6px; min-width: 100px; }
+#footerSiteMap .menu li a { padding: 0px 0px 4px; }
+#footerSiteMap .menu li ul { margin-top: 8px; }
+#footerSiteMap .menu li li { margin-right: 10px; }
+#footerSiteMap .menu li li a { background-position: 3px 3px; padding: 0px; font-size: 91.7%; }
+
+#footMenu .innerBox { padding: 10px 0; }
+#footMenu .menu { border: none; }
+#footMenu .menu li { float: left; border: none; }
+#footMenu .menu li a { padding: 0px 15px 0px 0px; }
+#footMenu .menu li.lastChild a { border-right: none; }
+
+#sitemapOuter { padding: 20px 50px; }
+
+#content #sitemapPageList { float: left; width: 49%; }
+
+#content #sitemapPostList { float: right; width: 49%; margin-top: 0px; }
+
+#content ul.linkList li a { padding: 3px 15px; }
+
+body { line-height: 150%; }
+
+#headerTop { display: block; }
+
+#headerTop #site-description { line-height: 150%; font-size: 12px; display: block; }
+
+#header { padding-bottom: 15px; }
+#header .innerBox #site-title { margin-top: 15px; margin-bottom: 0; margin-left: 0; }
+#header .innerBox #site-title img { max-height: 45px; }
+#header #headContact #headContactTxt { font-size: 11px; }
+#header #headContact #headContactTel { font-size: 24px; margin-bottom: 4px; }
+#header #headContact #headContactTime { font-size: 12px; }
+#header #headContact { float: right; text-align: right; margin-bottom: 20px; }
+#header #headContact #headContactInner:before { display: none; }
+#header #headContact #headContactInner { cursor: inherit; padding: 0; display: block; overflow: hidden; margin: 0; }
+#header #headContact.itemClose #headContactInner #headContactTxt, #header #headContact.itemClose #headContactInner #headContactTel, #header #headContact.itemClose #headContactInner #headContactTime { display: block; }
+#header #headContact.itemOpen #headContactInner { clear: none; border: none; padding: 0; margin-bottom: 0; }
+#header #headContact.itemOpen #headContactInner #headContactTxt, #header #headContact.itemOpen #headContactInner #headContactTel, #header #headContact.itemOpen #headContactInner #headContactTime { display: block; }
+
+.innerBox, #gMenu #gMenuInner.innerBox { width: 950px; margin: 0px auto; }
+
+#header .innerBox { width: 950px; }
+
+#main #container { padding-top: 30px; }
+
+#main #container #content { float: left; width: 660px; }
+
+#main #container #sideTower { float: right; width: 220px; clear: none; }
+
+body.left-sidebar #main #container #content { float: right; }
+
+body.left-sidebar #main #container #sideTower { float: left; }
+
+body.home.one-column #main #container #content { float: none; width: 100%; }
+
+body.home.one-column #main #container #sideTower { float: none; display: none; }
+
+form#searchform input#searchsubmit { width: 20%; }
+
+#content .mainFootContact .mainFootBt a img { width: 100%; }
+
+#topMainBnr { width: 100%; }
+
+#topMainBnr img { width: 950px !important; max-width: 950px !important; }
+
+#topMainBnrFrame { width: 950px; min-height: 250px; }
+
+/*			.childPageBox
+/*-------------------------------------------*/
+#content .childPageBox { display: block; overflow: hidden; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-bottom: 20px; }
+#content .childPageBox h4 { font-weight: lighter; margin: 15px 20px 10px; padding: 0px 0px 3px; font-size: 14px; }
+#content .childPageBox h4 a { text-decoration: none; color: #666666; }
+#content .childPageBox ul { margin: 0px 20px 15px; padding: 0px; display: block; overflow: hidden; font-size: 85.7%; line-height: 125%; }
+#content .childPageBox ul li { float: left; display: block; width: 33%; list-style: none; margin: 0px; }
+#content .childPageBox ul li a { background: url(../images/icon_arrow1_gray.gif) left 5px no-repeat; padding: 3px 5px 3px 17px; text-decoration: none; display: block; overflow: hidden; color: #666; }
+#content .childPageBox ul li a:hover, #content .childPageBox ul li.current_page_item a { background-image: url(../images/icon_arrow1_red.gif); text-decoration: underline; color: #c00; }
+#content .childPageBox ul li ul { margin: 0px; font-size: 91.7%; }
+#content .childPageBox ul li ul li { float: none; width: auto; }
+#content .childPageBox ul li ul li a { background: url(../images/icon_arrow2_gray.gif) left 6px no-repeat; padding: 3px 5px 3px 14px; text-decoration: none; margin-left: 3px; }
+#content .childPageBox ul li ul li a:hover, #content .childPageBox ul li ul li.current_page_item a { background-image: url(../images/icon_arrow2_red.gif); }
+#content .childPageBox ul li ul li ul { padding-left: 8px; font-size: 100%; line-height: 135.7%; }
+#content .childPageBox ul li.current_page_item ul li a { color: #666; text-decoration: none; background-image: url(../images/icon_arrow2_gray.gif); }
+#content .childPageBox ul li.current_page_item ul li a:hover { color: #c00; text-decoration: underline; background-image: url(../images/icon_arrow2_red.gif); }
+
+#footerSiteMap { width: 660px; float: right; padding-top: 0px; font-size: 12px; }
+
+#footer dl#footerOutline { float: left; width: 260px; }
+#footer dl#footerOutline dd { padding-right: 20px; }
+
+#footerSiteMap .menu li { width: 150px; float: left; }
+
+/* メニューのファイルのあとで 003*/
+#gMenu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu .innerBox { margin: 0; width: 100%; }
+
+#gMenu.itemClose .menu, #gMenu.itemOpen .menu { display: block; }
+
+#gMenu .menu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu { position: relative; }
+#gMenu .assistive-text { position: absolute; top: -9000px; }
+
+.headMainMenu { clear: both; }
+.headMainMenu li { float: left; border-bottom: none; overflow: visible; width: auto; }
+.headMainMenu li a { text-align: center; }
+.headMainMenu li a span { display: block; font-size: 10px; line-height: 140%; letter-spacing: 1px; font-family: verdana, Arial, Helvetica, sans-serif; opacity: 0.6; }
+.headMainMenu li ul { display: none; }
+.headMainMenu li:hover ul { display: block; position: absolute; z-index: 100; position: absolute; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+.headMainMenu li:hover ul li { background: #fff; width: 200px; position: relative; }
+.headMainMenu li:hover ul li a { text-align: left; line-height: 140%; }
+.headMainMenu li:hover ul li ul { position: absolute; left: 200px; top: 10px; border-top: none; }
+.headMainMenu li:hover ul li ul, .headMainMenu li:hover ul li ul li { display: none; }
+.headMainMenu li:hover ul li:hover ul, .headMainMenu li:hover ul li:hover ul li { display: block; }
+.headMainMenu li:hover li a, .headMainMenu li.current_page_item li a, .headMainMenu li.current-menu-ancestor li a, .headMainMenu li.current-page-ancestor li a, .headMainMenu li.current_page_ancestor li a { background: none; text-align: left; border-right: none; }
+.headMainMenu li:hover li a:hover, .headMainMenu li.current_page_item li a:hover, .headMainMenu li.current-menu-ancestor li a:hover, .headMainMenu li.current-page-ancestor li a:hover, .headMainMenu li.current_page_ancestor li a:hover { background-color: #f5f5f5; }
+
+/*-------------------------------------------*/
+/* コンテンツ推奨サイズより大きい場合
+/*-------------------------------------------*/
+#content #topPr { border-top: none; }
+#content #topPr .topPrOuter { border-bottom: none; }
+#content #topPr .topPrOuter .topPrInner { padding: 0 6%; width: 88%; border-right: 1px solid #e9e9e9; }
+#content #topPr #topPrLeft .topPrInner { border-left: 1px solid #e9e9e9; }
+#content #topPr h3 { border-bottom: 1px solid #e9e9e9; margin-bottom: 10px; padding-bottom: 2px; }
+#content #topPr h3:after { border-bottom-width: 1px; bottom: -1px; }
+
+/*-------------------------------------------*/
+/* pc iPad3より大きい場合
+/*-------------------------------------------*/
+#footMenu { background-color: whitesmoke; }
+#footMenu .innerBox { padding: 0px 25px 0px; }
+#footMenu .innerBox .menu { padding: 10px 0; }
+#footMenu .innerBox .menu li a { background-position: left 50%; padding: 0 20px 0 18px; }
+
+#footer .innerBox { width: 94%; padding-bottom: 20px; }
+#footer .innerBox dl#footerOutline { margin-left: 0px; }
+
+#footerSiteMap .menu { border-top: none; }
+#footerSiteMap .menu > li { margin-right: 10px; }
+#footerSiteMap .menu li { width: 150px; }
+#footerSiteMap .menu li a { padding: 2px 0 2px 18px; background-position: left 50%; border-bottom: none; }
+#footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 5px; }
+
+/*-------------------------------------------*/
+/*	フルサイズ
+/*-------------------------------------------*/
+.innerBox, #panList .innerBox, #footMenu .innerBox, #footer .innerBox, #topMainBnrFrame, #pageTitBnr .innerBox, #topMainBnrFrame { width: 950px; padding-left: 0; padding-right: 0; margin: 0 auto; }
+
+#topMainBnr img { width: 950px !important; }
+
+#gMenu { float: right; clear: none; width: auto; padding-left: 30px; }
+#gMenu #gMenuInner.innerBox { width: auto; }
+#gMenu:after { content: ""; display: inherit; }
+
+.headMainMenu { margin-top: 25px; }
+.headMainMenu .menu li:first-child a { border-left: 1px solid #e5e5e5; }
+.headMainMenu .menu li a { border-right: 1px solid #e5e5e5; padding: 3px 20px; }
+.headMainMenu .menu li.current_page_item, .headMainMenu .menu li.current_page_ancestor, .headMainMenu .menu li.current-page-ancestor, .headMainMenu .menu li:hover { box-shadow: inset 0px 0px 0px 2px white; }
+.headMainMenu .menu li.current_page_item ul li, .headMainMenu .menu li.current_page_ancestor ul li, .headMainMenu .menu li.current-page-ancestor ul li, .headMainMenu .menu li:hover ul li { border-bottom: 1px dotted #e5e5e5; }
+.headMainMenu .menu li.current_page_item ul li a, .headMainMenu .menu li.current_page_ancestor ul li a, .headMainMenu .menu li.current-page-ancestor ul li a, .headMainMenu .menu li:hover ul li a { margin: 0; padding: 10px 15px; }
+
+form#searchform input#searchsubmit { width: auto; }
+
+/*-------------------------------------------*/
+/*	▼▼▼▼▼ このファイル独自なので注意
+/*-------------------------------------------*/

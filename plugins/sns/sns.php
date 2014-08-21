@@ -209,21 +209,6 @@ function biz_vektor_fbLikeBox() {
 ?>
 <div id="fb-like-box">
 <div class="fb-like-box" data-href="<?php echo $options['fbLikeBoxURL'] ?>" data-width="640" <?php echo $fbLikeBoxHeight ?>data-show-faces="<?php echo $fbLikeBoxFace ?>" data-stream="<?php echo $fbLikeBoxStream ?>" data-header="true"></div>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	likeBoxReSize();
-});
-jQuery(window).resize(function(){
-	likeBoxReSize();
-});
-// When load page / window resize
-function likeBoxReSize(){
-	var element = jQuery('.fb-like-box').parent().width();
-	jQuery('.fb-like-box').attr('data-width',element);
-	jQuery('.fb-like-box').children('span:first').css({"width":element});
-	jQuery('.fb-like-box span iframe.fb_ltr').css({"width":element});
-}
-</script>
 </div>
 <?php }
 

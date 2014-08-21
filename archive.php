@@ -9,7 +9,6 @@ if ( !$postType ) {
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
 	<div id="content">
-	
 	<?php
 /*-------------------------------------------*/
 /*	Archive title
@@ -48,7 +47,9 @@ if ( !$postType ) {
 	<div class="infoList">
 	<?php
 	$options = biz_vektor_get_theme_options();
+
 	if ($postType == 'info') : ?>
+
 		<?php if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part('module_loop_post2'); ?>
@@ -60,7 +61,13 @@ if ( !$postType ) {
 			<?php endwhile; ?>
 			</ul>
 		<?php endif; //$options['listInfoArchive'] ?>
+
+	<?php elseif (is_biz_vektor_archive_loop()) : ?>
+
+		<?php biz_vektor_archive_loop(); ?>
+
 	<?php else : ?>
+
 		<?php $options = biz_vektor_get_theme_options();
 		if ( $options['listBlogArchive'] == 'listType_set' ) { ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -82,7 +89,7 @@ if ( !$postType ) {
 
 <!-- [ #sideTower ] -->
 <div id="sideTower">
-<?php get_template_part('module_side_'.$postType); ?>
+<?php get_sidebar($postType); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>

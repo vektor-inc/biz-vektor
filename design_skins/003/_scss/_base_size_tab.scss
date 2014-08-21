@@ -1,0 +1,37 @@
+@import "compass";
+
+#header #site-title	{ float:left;}
+#main #container	{ padding-top:20px;}
+#main #container #content	{ margin:0px auto; }
+#content p	{ line-height:170%; }
+#content table th,
+#content table td { display:table-cell; }
+#content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
+#content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
+#content .mainFootContact .mainFootBt	{ float:right; }
+#content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
+#content .mainFootContact .mainFootBt a img	{ width:auto; }
+.paging span.pageIndex { display:inline; }
+#content {
+	.topPr { display:block; overflow:hidden; 
+		.topPrOuter	{ padding:0px;border-bottom:none;margin-bottom:20px; }
+		#topPrLeft 	{ width:33.1%; text-align:left; float:left;display:block; overflow:visible; }
+		#topPrCenter { width:33.1%; text-align:center;float:left;display:block; overflow:visible; }
+		#topPrRight 	{ width:33.1%; text-align:right;float:right; display:block; overflow:visible; }
+		#topPrLeft .topPrInner 	{ float:left; }
+		#topPrCenter .topPrInner	{ margin:0px auto;}
+		#topPrRight .topPrInner	{ float:right; }
+		.topPrInner	{text-align:left;width:95%;}
+		h3 { margin-bottom:15px; }
+		h3 a { display:block; overflow:hidden; }
+		p	{ padding:0px; }
+		p.topPrDescription	{ font-size:85.7%; }
+		.prImage	{ float:none;width:100%; margin-right:0px; }
+		.prImage img { height:auto;width:100%; }
+		.prImage img.imageWide	{ display:block;}
+		.prImage img.imageSmall	{ display:none;}
+	}
+}
+
+#content .child_page_block	{ width:48%; }
+#content .child_page_block.layout_odd	{ float:left; clear:both; }

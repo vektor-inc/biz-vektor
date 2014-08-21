@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+body { font-size:14px; }
+
+#gMenu .menu li { text-align: left !important; }
+#gMenu .menu li a { text-align: center; }
+
+
+/* @media 部分をそのまま貼り付けで@medhia をコメントアウト */
+
+/*-------------------------------------------*/
+/* コンテンツ推奨サイズより大きい場合
+/*-------------------------------------------*/
+
+#headerTop	{ display:block; }
+#header	{ padding-top:30px; }
+#headerTop #site-description	{ line-height:150%; }
+#header #site-title	{ padding-bottom:30px;float:left; text-align: left; }
+#header #headContact	{ float:right; text-align:right; }
+#header #headContact #headContactTxt	{ font-size:11px;}
+#header #headContact #headContactTime	{ font-size:12px;}
+#header #headContact #headContactTel	{ font-size:24px;margin-bottom:4px; color:#333; }
+
+#main #container	{ padding-top:20px;}
+#main #container #content	{ margin:0px auto; }
+#content p	{ line-height:170%; }
+#content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
+#content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
+#content .mainFootContact .mainFootBt	{ float:right; }
+#content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
+#content .mainFootContact .mainFootBt a img	{ width:auto; }
+
+.paging span.pageIndex { display:inline; }
+
+#topPr { display:block; overflow:hidden; margin-bottom:50px; }
+#topPr .topPrOuter	{ padding-bottom:0px;border-bottom:none;}
+#topPr #topPrLeft 	{ width:33.1%; text-align:left; float:left;display:block; overflow:visible; }
+#topPr #topPrCenter { width:33.1%; text-align:center;float:left;display:block; overflow:visible; }
+#topPr #topPrRight 	{ width:33.1%; text-align:right;float:right; display:block; overflow:visible; }
+#topPr #topPrLeft .topPrInner 	{ float:left; }
+#topPr #topPrCenter .topPrInner	{ margin:0px auto;}
+#topPr #topPrRight .topPrInner	{ float:right; }
+#topPr .topPrInner	{text-align:left;width:95%;}
+#topPr .topPrInner p	{ padding:0px; }
+#topPr .topPrInner p.topPrDescription	{ font-size:12px; }
+#topPr .prImage	{ float:none;width:96%; margin-right:0px; }
+#topPr .prImage a	{ display: block;}
+#topPr .prImage a:hover	{  }
+#topPr .prImage img { height:auto; }
+#topPr .prImage img.imageWide	{ display:block;}
+#topPr .prImage img.imageSmall	{ display:none;}
+
+#content .child_page_block	{ width:48%; padding:0 1px; }
+#content .child_page_block.layout_odd	{ float:left; clear:both; }
+
+/*-------------------------------------------*/
+/* pc iPad3より大きい場合
+/*-------------------------------------------*/
+body     { line-height:150%; }
+#gMenu:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+/* グラデーション（filter）を使用するとIE8でドロップダウンの動作に不具合が出る場合がある為画像を使用 */
+#gMenu { border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color:#5ead3c;border-top:1px solid #e5e5e5;
+background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
+#gMenu #gMenuInner.innerBox	{ margin:0px 3%;width:94%;}
+#gMenu.itemClose .menu,
+#gMenu.itemOpen .menu	{ display:block;  }
+#gMenu .menu	{ border-left:1px solid #e5e5e5; border-top:none; }
+#gMenu .menu:after	{
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+#gMenu .assistive-text { position: absolute; top: -9000px; } /* display:noneだと読み上げない / 横にオフセットするとIEで読み込みまでの間表示される */
+#gMenu .menu li { float: left;width:auto;border-bottom:none; overflow:visible;box-shadow: inset 1px 0px 0px #fff; }
+#gMenu .menu li a	{ text-align:center;border-right:1px solid #e5e5e5; box-shadow: inset 1px 0px 0px #fff; }
+#gMenu .menu li a span 		{ display:block; }
+/* IE7のみドロップダウン非表示 */
+*+html #gMenu .menu li:hover ul { display:none; }
+
+#gMenu .menu li ul { display: none; }
+#gMenu .menu li li a,
+#gMenu .menu li li li a,
+#gMenu .menu li li li li a { padding-left:15px; }
+
+#gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:1000;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
+#gMenu .menu li:hover li	{ background:#fff;width:200px; position:relative; }
+#gMenu .menu li:hover li a,
+#gMenu .menu li.current_page_item li a,
+#gMenu .menu li.current-menu-ancestor li a,
+#gMenu .menu li.current-page-ancestor li a,
+#gMenu .menu li.current_page_ancestor li a { background:none; background-color:#fff;color:#4d4d4d;text-align:left;border-right:none;}
+#gMenu .menu li:hover li a:hover,
+#gMenu .menu li.current_page_item li a:hover,
+#gMenu .menu li.current-menu-ancestor li a:hover,
+#gMenu .menu li.current-page-ancestor li a:hover,
+#gMenu .menu li.current_page_ancestor li a:hover { background-color:#f5f5f5;}
+
+#gMenu .menu li:hover ul li ul	{ position:absolute;left:200px;top:10px; border-top:none;}
+#gMenu .menu li:hover ul li ul,
+#gMenu .menu li:hover ul li ul li	{ display:none; }
+#gMenu .menu li:hover ul li:hover ul,
+#gMenu .menu li:hover ul li:hover ul li	{display:block;}
+#gMenu .menu li:hover ul li:hover ul { border-top:1px solid #ccc; }
+
+#footerSiteMap .menu	{ font-size:12px; }
+#footerSiteMap .menu li	{ width:23%; margin-right: 2%; display:block; overflow:hidden;display:block;float: left; }
+#footerSiteMap .menu li	a	{ padding: 2px 20px 6px 0px; }
+#footerSiteMap .menu li	li 	{ width:100%;margin-right: 0%; float:none; }
+#footerSiteMap .menu li	li a	{ background-position:0px 3px; }
+#footerSiteMap .menu li	li li a	{ padding-left:10px; }
+#content form span.wpcf7-form-control-wrap .wpcf7-list-item	{ padding-top:2px; padding-bottom:2px; }
+#footerSiteMap .menu li	li li a	{ display:block; background-position: 0px 3px; }
+
+#sitemapOuter	{ padding:20px 50px; }
+#content #sitemapPageList { float:left;width:49%; }
+#content #sitemapPostList { float:right;width:49%;margin-top:0px; }
+#content ul.linkList li a	{ padding:3px 15px; }
+
+#footMenu {padding: 15px 0px;}
+#footMenu .innerBox	{ margin:0px 3%;width:94%; }
+#footMenu .menu li	{ list-style:none;display:block; margin:0px;padding:0px;float:left; line-height:100%; font-size:12px; }
+#footMenu .menu li a	{ background: none; padding:0px 15px 0px; line-height:1em; text-decoration:none; border-right:1px solid #ccc; border-bottom: none;  }
+#footMenu .menu li a:hover	{ color:#5ead3c; text-decoration:underline; background:none; }
+#footMenu .menu li:first-child a	{ border-left:1px solid #ccc; }
+
+#topMainBnr { padding:30px 0; }
+
+/*-------------------------------------------*/
+/*	フルサイズ
+/*-------------------------------------------*/
+.innerBox,
+#gMenu #gMenuInner.innerBox	{ width:950px; margin:0px auto; }
+#main #container	{ padding-top:40px;}
+#main #container #content	{ float:left; width:680px; }
+#main #container #sideTower	{ float:right; width:220px;clear:none; }
+
+body.left-sidebar #main #container #content	{ float:right; }
+body.left-sidebar #main #container #sideTower	{ float:left; }
+body.home.one-column #main #container #content		{ float:none;width:100%; }
+body.home.one-column #main #container #sideTower	{ float:none; display:none; }
+
+#main #container #content.wide,
+body.left-sidebar #main #container #content.wide	{ float:none; }
+
+form#searchform input#s	{width:120px; }
+form#searchform input#searchsubmit	{ width:20%; }
+
+#topMainBnr			{ width:100%; }
+#topMainBnr img		{ width:950px !important; }
+#topMainBnrFrame	{ width:950px;min-height:250px; }
+#topMainBnrFrame .slider li { }
+
+/*			.childPageBox
+/*-------------------------------------------*/
+#content .childPageBox { display:block; }
+#content .childPageBox{ margin-top:20px; border:1px solid #e6e6e6; padding:0px;display:block; overflow:hidden; margin-bottom:20px;}
+#content .childPageBox h4	{ border-top: none; background:none; font-weight:lighter;margin:15px 20px 10px; padding:0px 0px 3px; font-size:14px;}
+#content .childPageBox h4 a	{ text-decoration:none;color:#666 }
+#content .childPageBox ul 	{ margin:0px 20px 15px; padding:0px; display:block; overflow:hidden; font-size:85.7%; line-height:125%;}
+#content .childPageBox ul li	{ float:left; display:block; width:33%; list-style:none;margin:0px; }
+#content .childPageBox ul li a	{ background:url(images/icon_arrow_bk.png) left 5px no-repeat; padding:3px 5px 3px 10px; text-decoration:none; display:block; overflow:hidden; color:#666;}
+#content .childPageBox ul li a:hover,
+#content .childPageBox ul li.current_page_item a { background-image:url(images/icon_arrow_bk.png); text-decoration:underline;color:#5ead3c; }
+
+#content .childPageBox ul li ul	{ margin:0px;font-size:91.7%; }
+#content .childPageBox ul li ul li		{ float:none;width:auto; }
+#content .childPageBox ul li ul li a	{ background:url(images/icon_arrow_bk_s.png) left 6px no-repeat; padding:3px 5px 3px 10px; text-decoration:none; }
+#content .childPageBox ul li ul li a:hover,
+#content .childPageBox ul li ul li.current_page_item a { background:url(images/icon_arrow_bk_s.png) left 6px no-repeat;  }
+#content .childPageBox ul li ul li ul	{ padding-left:8px;font-size:100%;line-height:120%;}
+#content .childPageBox ul li.current_page_item ul li a	{ color:#666; text-decoration:none;background-image:url(images/icon_arrow2_gray.gif); }
+#content .childPageBox ul li.current_page_item ul li a:hover	{ color:#5ead3c; text-decoration:underline;background-image:url(images/icon_arrow2_red.gif); }
+
+#content .mainFootContact .mainFootBt a img	{ width:100%; }
+
+#footMenu .innerBox	{ margin:0px auto;width:950px; }
+#footerSiteMap	{ width:680px;padding-top:0px; font-size:12px;float:right; }
+#footer dl#footerOutline	{ float:left; }
