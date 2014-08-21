@@ -141,7 +141,7 @@ class wp_widget_page extends WP_Widget {
 			'classname' => 'WP_Widget_page_post',
 			'description' => '固定ページの内容を出力します',
 		);
-		$widget_name = get_biz_vektor_name().'_固定ページ本文';
+		$widget_name = get_biz_vektor_name().'_トップ用_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
 	}
 
