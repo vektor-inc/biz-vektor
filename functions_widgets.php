@@ -278,7 +278,7 @@ class wp_widget_bektor_rss extends WP_Widget {
 			//'description' => __( 'this is RSS', 'biz-vektor' ),
 			'description' => 'RSSエントリーを設置します',
 		);
-		$widget_name = get_biz_vektor_name().'_RSSエントリー';
+		$widget_name = get_biz_vektor_name().'_トップ用_RSSエントリー';
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
     function widget($args, $instance){
