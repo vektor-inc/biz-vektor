@@ -1,7 +1,4 @@
 <?php 
- // https://gist.github.com/2968549
- // http://ottopress.com/tag/customizer/
- 
 /*	To use text area at customizer
 /*-------------------------------------------*/
 if(class_exists('WP_Customize_Control')):
