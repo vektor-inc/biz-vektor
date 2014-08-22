@@ -86,8 +86,8 @@ function biz_vektor_generate_default_options(){
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
-		'postTopCount' => '5',
-		'infoTopCount' => '5',
+		'postTopCount' => '0',
+		'infoTopCount' => '0',
 		'postTopUrl' => '',
 		'infoTopUrl' => '',
 		'listInfoTop' => 'listType_set',
@@ -201,7 +201,7 @@ function biz_vektor_generate_default_options(){
 	/*-------------------------------------------*/
 
 class biz_vektor_veryfi_tool{
-	var $version;
+	public $version;
 
 	public function __construct(){
 		$this->check_version();
@@ -238,7 +238,7 @@ class biz_vektor_veryfi_tool{
 		}
 		delete_option('biz_vektor_theme_options');
 		add_option('biz_vektor_theme_options', $default);
-		biz_vektor_option_register();
+		biz_vektor_theme_options_init();
 	}
 }
 

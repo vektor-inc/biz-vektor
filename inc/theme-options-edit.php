@@ -845,7 +845,7 @@ px</dd>
 <p><?php _e('If other plug-ins are used for the OGP, do not output the OGP using BizVektor.', 'biz-vektor'); ?></p>
 
 <label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']=='ogp_off')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
 
 </td>
 </tr>
