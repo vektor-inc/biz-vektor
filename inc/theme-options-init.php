@@ -100,7 +100,7 @@ function biz_vektor_generate_default_options(){
 		'fbAppId' => '',
 		'fbAdminId' => '',
 		'ogpImage' => '',
-		'ogpTagDisplay' => '',
+		'ogpTagDisplay' => 'ogp_off',
 		'snsBtnsFront' => '',
 		'snsBtnsPage' => '',
 		'snsBtnsPost' => '',
