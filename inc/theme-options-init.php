@@ -195,7 +195,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['font_menu']              = $input['font_menu'];
 	$output['side_child_display']     = $input['side_child_display'];
 	$output['favicon']                = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
-	$output['enableie8Warning']       = ($input['enableie8Warning'] == 'true')? true: false;
+	$output['enableie8Warning']       = (isset($input['enableie8Warning']) && $input['enableie8Warning'] == 'true')? true: false;
 
 	// Contact info
 	$output['contact_txt']            = $input['contact_txt'];
@@ -269,6 +269,8 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
 	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
+	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
+
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 
