@@ -351,9 +351,12 @@ function biz_vektor_gMenuDivide() {
 /*	menu divide
 /*-------------------------------------------*/
 @media (min-width: 970px) {
-#gMenu .menu li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
-#gMenu .menu li.current_page_item,
-#gMenu .menu li.current_page_ancestor { width:<?php echo $menuWidthActive ?>px; }
+#gMenu .menu > li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
+#gMenu .menu > li.current_menu_item,
+#gMenu .menu > li.current-menu-ancestor,
+#gMenu .menu > li.current_page_item,
+#gMenu .menu > li.current_page_ancestor,
+#gMenu .menu > li.current-page-ancestor { width:<?php echo $menuWidthActive ?>px; }
 }
 </style>
 <!--[if lte IE 8]>
