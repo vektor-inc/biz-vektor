@@ -78,7 +78,7 @@ function biz_vektor_generate_default_options(){
 		'fbAppId' => '',
 		'fbAdminId' => '',
 		'ogpImage' => '',
-		'ogpTagDisplay' => 'ogp_off',
+		'ogpTagDisplay' => 'ogp_on',
 		'snsBtnsFront' => '',
 		'snsBtnsPage' => '',
 		'snsBtnsPost' => '',
@@ -267,6 +267,8 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
 	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
+	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
+
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 
