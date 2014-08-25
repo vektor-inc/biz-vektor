@@ -100,7 +100,7 @@ function biz_vektor_generate_default_options(){
 		'fbAppId' => '',
 		'fbAdminId' => '',
 		'ogpImage' => '',
-		'ogpTagDisplay' => '',
+		'ogpTagDisplay' => 'ogp_on',
 		'snsBtnsFront' => '',
 		'snsBtnsPage' => '',
 		'snsBtnsPost' => '',
@@ -313,7 +313,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	// SNS
 	$output['fbAppId']                = $input['fbAppId'];
 	$output['fbAdminId']              = $input['fbAdminId'];
-//	$output['blogRss'] = $input['blogRss'];
 	$output['twitter']                = $input['twitter'];
 	$output['facebook']               = $input['facebook'];
 	$output['ogpImage']               = $input['ogpImage'];
@@ -333,10 +332,9 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
-	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
+	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
-//	if($input['rssLabelName'] == ''){ $output['rssLabelName'] = "Blog entries"; }
 
 	$output['theme_style'] = ($input['theme_style'] == '') ? "rebuild" : $input['theme_style'] ;
 
