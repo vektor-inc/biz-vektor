@@ -237,6 +237,14 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</td>
 	</tr>
 
+	<!-- Ie8Warning -->
+	<tr>
+	<th>IE8警告表示</th>
+	<td><label><input type="checkbox" name="biz_vektor_theme_options[enableie8Warning]" id="ie8warning" value="true" <?php echo (isset($options['enableie8Warning']) && $options['enableie8Warning'])? 'checked': ''; ?> /> 
+	<span>Internet Explorer8への警告を表示する</span></label>
+	</td>
+	</tr>
+
 	</table>
 	<?php submit_button(); ?>
 </div>

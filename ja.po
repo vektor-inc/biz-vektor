@@ -691,6 +691,9 @@ msgstr ""
 msgid "Favicon Setting"
 msgstr "Favicon設定"
 
+msgid "ie8warning Setting"
+msgstr "IE8警告表示"
+
 # ---------------
 # menu divide
 # ---------------

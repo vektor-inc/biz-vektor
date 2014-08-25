@@ -61,6 +61,7 @@ function biz_vektor_generate_default_options(){
 		'commonKeyWords' => '',
 		'gaID' => '',
 		'gaType' => 'gaType_normal',
+		'enableie8Warning' => true,
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
@@ -194,6 +195,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['font_menu']              = $input['font_menu'];
 	$output['side_child_display']     = $input['side_child_display'];
 	$output['favicon']                = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
+	$output['enableie8Warning']       = ($input['enableie8Warning'] == 'true')? true: false;
 
 	// Contact info
 	$output['contact_txt']            = $input['contact_txt'];
