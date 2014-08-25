@@ -244,7 +244,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<span>Internet Explorer8への警告を表示する</span></label>
 	</td>
 	</tr>
-
+ 
 	</table>
 	<?php submit_button(); ?>
 </div>
