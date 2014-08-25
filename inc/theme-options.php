@@ -164,7 +164,7 @@ function getHeadTitle() {
 		} else if (!is_day() || !is_tax()){
 			global $wp_query;
 			$postTypeName = esc_html($wp_query->queried_object->labels->name);
-			$headTitle .= $postTypeName;
+			$headTitle = $postTypeName;
 		}
 		$headTitle .= " | ".get_bloginfo('name');
 	// Search
