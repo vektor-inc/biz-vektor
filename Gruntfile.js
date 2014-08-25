@@ -26,7 +26,8 @@ module.exports = function(grunt) {
         src : [
           'js/master.js',
           'js/res-vektor/res-vektor.js',
-          'js/jquery.cookie.js'
+          'js/jquery.cookie.js',
+          'js/jquery.flatheights.js'
         ],
           dest : 'js/biz-vektor.js'
         },
