@@ -53,6 +53,7 @@ if ($biz_vektor_options['fbAppId']) :
 
 <div id="wrap">
 
+<?php if($biz_vektor_options['enableie8Warning']): ?>
 <!--[if lte IE 8]>
 <div id="eradi_ie_box">
 <div class="alert_title">ご利用の Internet Exproler は古すぎます。</div>
@@ -61,6 +62,7 @@ if ($biz_vektor_options['fbAppId']) :
 最新の Internet Exproler を利用するか、<a href="https://www.google.co.jp/chrome/browser/index.html" target="_blank">Chrome</a> や <a href="https://www.mozilla.org/ja/firefox/new/" target="_blank">Firefox</a> など、より早くて快適なブラウザをご利用ください。</p>
 </div>
 <![endif]-->
+<?php endif; ?>
 
 <!-- [ #headerTop ] -->
 <div id="headerTop">
