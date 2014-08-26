@@ -319,9 +319,9 @@ function remove_default_post_screen_metaboxes() {
 function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	if (is_home() || is_page('home') || is_front_page()) {
-		if ( isset($post->post_excerpt) ) {
-			$metadescription = $post->post_excerpt;
+	if (is_home() || is_front_page() ) {
+		if ( get_the_excerpt() ) {
+			$metadescription = get_the_excerpt();
 		} else {
 			$metadescription = get_bloginfo( 'description' );
 		}
