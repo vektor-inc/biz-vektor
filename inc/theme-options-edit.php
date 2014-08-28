@@ -35,6 +35,7 @@ function biz_vektor_theme_options_render_page() {
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
 		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), wp_get_theme() ); ?></h2>
+		BizVektor_v<?php echo BizVektor_Theme_Version; ?>
 		<?php settings_errors(); ?>
 
 		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
