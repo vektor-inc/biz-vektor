@@ -101,7 +101,7 @@ form#searchform {
 	background-color:#fff;
 	color:#fff;
 	#pageTitInner	{ background:url(../images/pageTit_bg.png) left 50% no-repeat;padding:0 17px;
-		#pageTit { font-weight: lighter;width:100%; }
+		#pageTit { font-weight: lighter;width:100%;/*iPhone4sでの表示不良対策の為に100%は必要*/ }
 	}
 }
 
