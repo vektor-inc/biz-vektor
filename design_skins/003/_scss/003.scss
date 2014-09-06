@@ -95,17 +95,15 @@ form#searchform {
 	}
 } // @media (max-width: 969px)
 
-
 #pageTitBnr { 
 	border-top:1px solid $color_border;border-bottom:1px solid $color_border;
 	background-color:$color_bg_lgray;
 	background-color:#fff;
 	color:#fff;
 	#pageTitInner	{ background:url(../images/pageTit_bg.png) left 50% no-repeat;padding:0 17px;
-		#pageTit { font-weight: lighter; }
+		#pageTit { font-weight: lighter;width:100%; }
 	}
 }
-
 
 #panList { background-color: #fcfcfc;
 	ul { width:100%; }

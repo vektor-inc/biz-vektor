@@ -91,6 +91,31 @@ body { line-height: 150%; }
 
 .innerBox, #gMenu #gMenuInner.innerBox { width: 950px; margin: 0px auto; }
 
+#gMenu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu .innerBox { margin: 0; width: 100%; }
+
+#gMenu.itemClose .menu, #gMenu.itemOpen .menu { display: block; }
+
+#gMenu .menu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+#gMenu { position: relative; }
+#gMenu .assistive-text { position: absolute; top: -9000px; }
+
+.headMainMenu { clear: both; }
+.headMainMenu li { float: left; border-bottom: none; overflow: visible; width: auto; }
+.headMainMenu li a { text-align: center; }
+.headMainMenu li a span { display: block; font-size: 10px; line-height: 140%; letter-spacing: 1px; font-family: verdana, Arial, Helvetica, sans-serif; opacity: 0.6; }
+.headMainMenu li ul { display: none; }
+.headMainMenu li:hover ul { display: block; position: absolute; z-index: 100; position: absolute; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+.headMainMenu li:hover ul li { background: #fff; width: 200px; position: relative; }
+.headMainMenu li:hover ul li a { text-align: left; line-height: 140%; }
+.headMainMenu li:hover ul li ul { position: absolute; left: 200px; top: 10px; border-top: none; }
+.headMainMenu li:hover ul li ul, .headMainMenu li:hover ul li ul li { display: none; }
+.headMainMenu li:hover ul li:hover ul, .headMainMenu li:hover ul li:hover ul li { display: block; }
+.headMainMenu li:hover li a, .headMainMenu li.current_page_item li a, .headMainMenu li.current-menu-ancestor li a, .headMainMenu li.current-page-ancestor li a, .headMainMenu li.current_page_ancestor li a { background: none; text-align: left; border-right: none; }
+.headMainMenu li:hover li a:hover, .headMainMenu li.current_page_item li a:hover, .headMainMenu li.current-menu-ancestor li a:hover, .headMainMenu li.current-page-ancestor li a:hover, .headMainMenu li.current_page_ancestor li a:hover { background-color: #f5f5f5; }
+
 #header .innerBox { width: 950px; }
 
 #main #container { padding-top: 30px; }

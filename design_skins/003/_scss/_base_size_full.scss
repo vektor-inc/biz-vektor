@@ -38,6 +38,54 @@ body     { line-height:150%; }
 
 .innerBox,
 #gMenu #gMenuInner.innerBox	{ width:$width_container; margin:0px auto; }
+#gMenu:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+#gMenu .innerBox	{ margin:0;width:100%;}
+#gMenu.itemClose .menu,
+#gMenu.itemOpen .menu	{ display:block; }
+#gMenu .menu:after	{
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+#gMenu { position: relative;
+.assistive-text { position: absolute; top: -9000px; } // [attention] if [display:none] no reader / if yoko offset that ie display still data road.
+}
+.headMainMenu { clear:both;
+	li { float: left;border-bottom:none; overflow:visible;width:auto }
+	li a	{ text-align: center; }
+	li a span { display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; opacity: 0.6; }
+	li ul { display: none; }
+	li:hover ul { display:block; position:absolute;z-index:100; position:absolute;box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+			li	{ background:#fff;width:200px; position:relative;
+				a { text-align: left; line-height: 140%; }
+				ul	{ position:absolute;left:200px;top:10px; border-top:none;}
+				ul,
+				ul li	{ display:none; }
+			}
+			li:hover ul,
+			li:hover ul li	{display:block;}
+	} // li:hover ul
+
+	li:hover li a,
+	li.current_page_item li a,
+	li.current-menu-ancestor li a,
+	li.current-page-ancestor li a,
+	li.current_page_ancestor li a { background:none;text-align:left;border-right:none; }
+	li:hover li a:hover,
+	li.current_page_item li a:hover,
+	li.current-menu-ancestor li a:hover,
+	li.current-page-ancestor li a:hover,
+	li.current_page_ancestor li a:hover { background-color:#f5f5f5;}
+} // .headMainMenu
+
 #header .innerBox { width:$width_container; }
 #main #container	{ padding-top:30px;}
 #main #container #content	{ float:left; width:$width_content; }
