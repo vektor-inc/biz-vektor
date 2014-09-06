@@ -55,6 +55,14 @@ if ( is_404() ){
 // ▼▼ 投稿者ページ
 } else if (is_author()) {
 	$userObj = get_queried_object();
+	// 投稿の場合
+	if ($postType == 'post') {
+		if ($postTopUrl) {
+			$panListHtml .= '<li><a href="'.esc_url($postTopUrl).'">'.$postLabelName.'</a> &raquo; </li>';
+		} else {
+			$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
+		}
+	}
 	$panListHtml .= '<li>'.esc_html($userObj->display_name).'</li>';
 
 // ▼▼ 投稿記事ページ
