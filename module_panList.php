@@ -21,6 +21,9 @@ if($post_type_object){
 
 // 標準のpost のラベル名
 $postLabelName = $biz_vektor_options['postLabelName'];
+// 標準のpost のトップのURL
+$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? $biz_vektor_options['postTopUrl'] : '';
+
 	$panListHtml .= '<ul>';
 	$panListHtml .= '<li id="panHome"><a href="'. home_url() .'">HOME</a> &raquo; </li>';
 // ▼
@@ -52,15 +55,22 @@ if ( is_404() ){
 // ▼▼ 投稿者ページ
 } else if (is_author()) {
 	$userObj = get_queried_object();
+	// 投稿の場合
+	if ($postType == 'post') {
+		if ($postTopUrl) {
+			$panListHtml .= '<li><a href="'.esc_url($postTopUrl).'">'.$postLabelName.'</a> &raquo; </li>';
+		} else {
+			$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
+		}
+	}
 	$panListHtml .= '<li>'.esc_html($userObj->display_name).'</li>';
 
 // ▼▼ 投稿記事ページ
 } elseif ( is_single() ) {
 	// 投稿の場合
 	if ($postType == 'post') {
-		$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
 		if ($postTopUrl) {
-			$panListHtml .= '<li><a href="'.$postTopUrl.'">'.$postLabelName.'</a> &raquo; </li>';
+			$panListHtml .= '<li><a href="'.esc_url($postTopUrl).'">'.$postLabelName.'</a> &raquo; </li>';
 		} else {
 			$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
 		}
@@ -129,7 +139,11 @@ if ( is_404() ){
 } elseif ( is_tag() ) {
 	// 投稿の場合
 	if ($postType == 'post') {
-		$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
+		if ($postTopUrl) {
+			$panListHtml .= '<li><a href="'.esc_url($postTopUrl).'">'.$postLabelName.'</a> &raquo; </li>';
+		} else {
+			$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
+		}
 	// カスタム投稿タイプの場合
 	} else {
 		$panListHtml .= '<li>'.$postTypeName.' &raquo; </li>';
@@ -142,7 +156,11 @@ if ( is_404() ){
 	if (is_year() || is_month()){
 		// 投稿の場合
 		if ($postType == 'post') {
-			$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
+			if ($postTopUrl) {
+				$panListHtml .= '<li><a href="'.esc_url($postTopUrl).'">'.$postLabelName.'</a> &raquo; </li>';
+			} else {
+				$panListHtml .= '<li>'.$postLabelName.' &raquo; </li>';
+			}
 		// カスタム投稿タイプの場合
 		} else {
 			$panListHtml .= '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
