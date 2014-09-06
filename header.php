@@ -11,6 +11,7 @@ biz_vektor_get_theme_options(); ?>
 <meta name="description" content="<?php getHeadDescription(); ?>" />
 <meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
+<!-- bizvektor-v<?php echo BizVektor_Theme_Version; ?> -->
 <?php
 /* We add some JavaScript to pages with the comment form
  * to support sites with threaded comments (when in use).

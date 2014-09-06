@@ -38,8 +38,7 @@ if (have_posts()) :
 		$layout	= 'odd';
 	} else {
 		$layout	= 'even';
-	}
-?>
+	} ?>
 <!-- .child_page_block -->
 <div class="child_page_block layout_<?php echo $layout ?>">
 <div class="child_page_blockInner">

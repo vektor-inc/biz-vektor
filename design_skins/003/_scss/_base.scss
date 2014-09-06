@@ -209,7 +209,47 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*-------------------------------------------*/
 /*	#gMenu
 /*-------------------------------------------*/
-@import "base_gmenu_float";
+#gMenu	{ clear:both; display:block; overflow:visible; position:relative;width:100%;
+	.assistive-text  { display:block; overflow:hidden; font-weight:lighter;font-family:'Lato', sans-serif;cursor:pointer; background-color:#f5f5f5;width:2.5em;position: absolute; top:-45px;right:15px; text-align: center;
+		span	{ display:block; overflow:hidden; padding:3px 0;margin:0; }
+		span:before { font-family: 'vektor_kado_icons';margin-right:0px; }
+	}
+	.screen-reader-text { position: absolute; left: -9000px; }
+	.innerBox	{ overflow:visible; display:block; position:relative;padding:0px;margin:0px;width:100%;}
+}
+.headSubMenu { 
+	li { float:left;
+			a { text-decoration: none;color:#666; }
+	}
+}
+.headMainMenu { font-size: $font_size_13;list-style: none; margin:0px 0px 0px;padding:0px; display:block; overflow:visible;
+	li { position: relative;width:100%;display:block;
+		&:last-child { border-bottom:none;}
+		a	{ display: block; overflow:hidden;position:relative;color: #333; padding: 13px 10px 11px; margin:0px; line-height:110%; text-decoration: none; letter-spacing:0px; }
+	}
+} // .headMainMenu .menu
+@media (max-width: 969px) {
+.headMainMenu {
+		li {
+		a { padding-left:10px;text-align:left;border-bottom:1px solid $color_border; }
+		a span { display:none; }
+		ul li {
+			a { padding-left:20px; }
+			ul li a { padding-left:30px; }
+		}
+	}
+}
+// メニュー開閉
+#header,
+#header.itemClose {
+		.assistive-text span:before { @include vektor_kado_icons;content: "\29";}
+		.headMainMenu .menu	{ display:none; }
+}
+#header.itemOpen {
+		.assistive-text span:before { @include vektor_kado_icons;content: "\2a";}
+		.headMainMenu .menu	{ display:block;border-top:1px solid $color_border; }
+}
+} // @media (max-width: 969px)
 
 /*-------------------------------------------*/
 /*	#pageTitBnr

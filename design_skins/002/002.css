@@ -505,8 +505,8 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 #sideTower ul#snsBnr li		{ border-bottom:1px solid #eeeeee; }
 
 #sideTower .sideWidget { margin-bottom:20px; }
-#sideTower .sideWidget .textwidget	{ padding-top:10px; }
-#sideTower .sideWidget .textwidget img	{ display:block; margin: 0 auto; }
+#sideTower .sideWidget .textwidget	{ padding-bottom:10px; }
+#sideTower .sideWidget .textwidget img	{ display:block; margin-left:auto;margin-right:auto; }
 #sideTower .sideWidget h4	{ clear:both; font-size:14px;margin:0px 0px 15px; padding:4px 0px 2px 12px; border-left-style:solid; border-left-width:3px; background-color:#f5f5f5; }
 
 #sideTower .sideWidget ul#recentcomments li	{ padding:13px 10px 11px 10px;background:url(images/icon_arrow1_gray.gif) 10px 50% no-repeat; }

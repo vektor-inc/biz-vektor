@@ -95,17 +95,15 @@ form#searchform {
 	}
 } // @media (max-width: 969px)
 
-
 #pageTitBnr { 
 	border-top:1px solid $color_border;border-bottom:1px solid $color_border;
 	background-color:$color_bg_lgray;
 	background-color:#fff;
 	color:#fff;
 	#pageTitInner	{ background:url(../images/pageTit_bg.png) left 50% no-repeat;padding:0 17px;
-		#pageTit { font-weight: lighter; }
+		#pageTit { font-weight: lighter;width:100%; }
 	}
 }
-
 
 #panList { background-color: #fcfcfc;
 	ul { width:100%; }
@@ -125,11 +123,11 @@ form#searchform {
 	h3 { border-bottom:1px solid #ccc; position: relative;font-weight: lighter;padding-bottom: 5px;font-size:150%;  }
 	h3:after { @include h3_after; }
 	blockquote,
-	.sectionFrame { @include wakubox;padding:20px 20px 5px;
+	.sectionFrame { @include wakubox;padding:20px 20px 5px;margin-bottom:20px;
 		h2,
 		h3,
 		h4,
-		h5 { margin-top:0px; margin-bottom:15px;}
+		h5 { margin-top:0px; margin-bottom:15px; }
 	}
 	h3,h4,h5,h6 { font-weight: lighter; }
 	h4 { padding-top:0;border-bottom:1px solid $color_border;box-shadow:0px 1px 0px rgba(255,255,255,1);  }

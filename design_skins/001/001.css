@@ -99,7 +99,7 @@ background: -moz-linear-gradient(#e5e5e5, #fff);
 #content table th	{ box-shadow:inset 1px 1px 0px #ffffff;}
 
 #content blockquote,
-#content .sectionFrame { border-radius:5px; box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0); }
+#content .sectionFrame { border-radius:5px; box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0);margin-bottom:20px; }
 
 
 /*		.infoList
