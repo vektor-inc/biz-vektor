@@ -184,6 +184,15 @@ class wp_widget_page extends WP_Widget {
 		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
 		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
+		if ( is_user_logged_in() == TRUE ) {
+			global $user_level;
+			get_currentuserinfo();
+			if (10 <= $user_level) { 
+				?>
+				<div class="adminEdit">
+				<a href="<?php echo site_url(); ?>/wp-admin/post.php?post=<?php echo $pageid ;?>&action=edit" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
+				</div>
+			<?php } }		
 		echo '</div>';
 	}
 }
