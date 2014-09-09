@@ -41,6 +41,7 @@ function bizvektor_customize_register($wp_customize) {
     $wp_customize->add_setting( 'biz_vektor_theme_options[theme_layout]',  $add_setting_array );
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_title]',  $add_setting_array );
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_menu]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[topSideBarDisplay]', array('default' => false, 'type'=>'option','capability' => 'edit_theme_options'));
 
 		// Create BizVektor Theme styles Array
 		global $biz_vektor_theme_styles;
@@ -144,7 +145,13 @@ function bizvektor_customize_register($wp_customize) {
 				),
 			'priority' => 502,
 		));
-
+		$wp_customize->add_control( 'display_side',array(
+			'label'     => 'トップページのサイドバーを表示しない',
+			'section'   => 'biz_vektor_design',
+			'settings'  => 'biz_vektor_theme_options[topSideBarDisplay]',
+			'type' => 'checkbox',
+			'priority' => 503,
+		));
 
 	/*	Contact information
 	/*-------------------------------------------*/
