@@ -279,8 +279,11 @@ msgstr "↑ タイトルの表示設定"
 msgid "Change the page to be displayed"
 msgstr "↑ 表示するページを変更する"
 
+msgid "%s List page"
+msgstr "%s一覧"
+
 # ---------------
-# Google Analytics settings
+# 3PR
 # ---------------
 msgid "Rich theme options"
 msgstr "豊富なオプション"

@@ -34,8 +34,8 @@ function biz_vektor_theme_options_render_page() {
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
-		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), wp_get_theme() ); ?></h2>
-		BizVektor_v<?php echo BizVektor_Theme_Version; ?>
+		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), get_biz_vektor_name() ); ?></h2>
+		<?php echo get_biz_vektor_name(); ?>_v<?php echo BizVektor_Theme_Version; ?>
 		<?php settings_errors(); ?>
 
 		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
@@ -454,12 +454,9 @@ $i++;
 
 	<dl>
 		<dt><?php echo $infoLabelName;?> のトップのURL</dt>
-		<dd><?php $infoTopUrl = esc_html(home_url().'/info/'); ?>
-			* 通常 <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
-				<?php /*
-			<br>
-			* <?php echo $infoLabelName;?> 用のトップページを独自に設定していない場合は空欄のままで構いません。
-			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />	*/ ?>
+		<dd><?php $infoTopUrl = home_url().'/info/'; ?>
+			* 通常 <a href="<?php echo esc_url($infoTopUrl);?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
+			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
 		</dd>
 	</dl>
 
