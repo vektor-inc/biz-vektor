@@ -149,7 +149,7 @@ endif;
 
 function biz_vektor_setup(){
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'fcfcfc',
+		'default-color' => 'ffffff',
 	) );
 }
 add_action( 'after_setup_theme', 'biz_vektor_setup' );
@@ -700,5 +700,5 @@ function is_biz_vektor_extra_single(){
 	return apply_filters('is_biz_vektor_archive_loop', false);
 }
 function biz_vektor_extra_single(){
-	do_action('biz_vektor_extra_single');	
+	do_action('biz_vektor_extra_single');
 }
