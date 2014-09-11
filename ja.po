@@ -763,7 +763,7 @@ msgstr "この項目はテーマカスタマイザーからは設定出来ませ
 # Contact Information Setting
 # ######################################
 msgid "Please feel free to inquire."
-msgstr "お気軽にお問い合わせください。"
+msgstr "お気軽にお問い合わせください"
 
 msgid "Weekdays except holidays"
 msgstr "土・日・祝日除く"
