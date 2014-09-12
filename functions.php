@@ -702,3 +702,12 @@ function is_biz_vektor_extra_single(){
 function biz_vektor_extra_single(){
 	do_action('biz_vektor_extra_single');
 }
+
+/*-------------------------------------------*/
+/*	Aceept favicon upload
+/*-------------------------------------------*/
+function my_mime_type($a) {
+    $a['ico'] = 'image/x-icon';
+    return $a;
+}
+add_filter('upload_mimes', 'my_mime_type');
