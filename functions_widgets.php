@@ -306,10 +306,10 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		$instance = wp_parse_args((array) $instance, $defaults);
 
 		?>
-		<Label for="<?php echo $this->get_field_id('url');  ?>">見出しタイトル</label><br/>
+		<Label for="<?php echo $this->get_field_id('label'); ?>">見出しタイトル</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
-		<Label for="<?php echo $this->get_field_id('url');  ?>">URL</label><br/>
+		<Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
 		<?php
 	}
