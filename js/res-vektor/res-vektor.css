@@ -22,9 +22,10 @@
 	.show-full-only { display: none;}
 }
 
-.ttBox {display:block; overflow:hidden;clear:both;margin-bottom:15px;}
-.ttBox .ttBoxleft { float:left; }
-.ttBox .ttBoxright { float:right; }
+.ttBox {display:block; overflow:hidden;clear:both;padding:15px 0;}
+.ttBox .ttBoxLeft { float:left; }
+.ttBox .ttBoxRight { float:right; }
+.ttBox .ttBoxThumb img { height:auto; }
 
 /*
 body.riseNavOpen #contents,

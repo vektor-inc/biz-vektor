@@ -418,6 +418,12 @@ msgstr "カテゴリー"
 msgid "RSS Entry"
 msgstr "RSSエントリー"
 
+msgid "Recent Posts"
+msgstr "最近の投稿"
+
+msgid "Display count"
+msgstr "表示件数"
+
 # ############################################################################
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "

@@ -10,6 +10,11 @@
 
 #wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item:hover { background-color: #cc0; color: #fff; cursor: pointer; }
 
+#sideTower .ttBoxSection { padding: 15px 0 15px; }
+#sideTower .ttBox a { text-decoration: none; color: #333; }
+#sideTower .ttBox a:hover { text-decoration: underline; }
+#sideTower .ttBox .ttBoxThumb { width: 80px; }
+
 /*			contactform7
 /*-------------------------------------------*/
 #content .wpcf7 { margin-top: 20px; }
