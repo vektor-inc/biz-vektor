@@ -20,44 +20,17 @@ msgstr ""
 "く別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって"
 "新たに選択出来るデザインを増やす事も出来ます。"
 
-#: 503.php:19
-msgid "Maintenance in progress."
-msgstr "只今メンテナンス作業中です。"
-
-#: archive.php:19
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr "Y年"
-
-#: archive.php:21
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr "Y年n月"
-
-#: archive.php:19
-msgid "Yearly Archives: %s"
-msgstr "年別アーカイブ: %s"
-
-#: archive.php:21
-msgid "Monthly Archives: %s"
-msgstr "月別アーカイブ: %s"
-
-#: archive.php:25
-msgid "Tags : "
-msgstr "タグ : "
-
-msgid "Comment"
-msgstr "コメント"
-
-msgid "&laquo; Older Comments"
-msgstr "&laquo; 古いコメント"
-
-msgid "Newer Comments &raquo;"
-msgstr "新しいコメント &raquo;"
-
-msgid "Meta Keywords"
-msgstr "メタキーワード"
-
+# ############################################################################
+# admin header menu
+# ############################################################################
+# contents
+# ############################################################################
+# front-page
+# ############################################################################
+# functions_widget
+# ############################################################################
+# Theme options / Customizer
+# ############################################################################
 # ############################################################################
 # admin header menu
 # ############################################################################
@@ -177,15 +150,57 @@ msgctxt "BizVektor admin header menu"
 msgid "Change page order [My page order plugin]"
 msgstr "固定ページの並び替え [ My page order プラグイン]"
 
-#: front-page.php:25
+msgctxt "BizVektor admin header menu"
+msgid "Edit guide : OPEN"
+msgstr "編集ガイド : OPEN"
+
+# ############################################################################
+# contents
+# ############################################################################
+#: 503.php:19
+msgid "Maintenance in progress."
+msgstr "只今メンテナンス作業中です。"
+
+#: archive.php:19
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y年"
+
+#: archive.php:21
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "Y年n月"
+
+#: archive.php:19
+msgid "Yearly Archives: %s"
+msgstr "年別アーカイブ: %s"
+
+#: archive.php:21
+msgid "Monthly Archives: %s"
+msgstr "月別アーカイブ: %s"
+
+#: archive.php:25
+msgid "Tags : "
+msgstr "タグ : "
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "&laquo; Older Comments"
+msgstr "&laquo; 古いコメント"
+
+msgid "Newer Comments &raquo;"
+msgstr "新しいコメント &raquo;"
+
+msgid "Meta Keywords"
+msgstr "メタキーワード"
+
 msgid "Posted on"
 msgstr "投稿日"
 
-#: front-page.php:26
 msgid "Category"
 msgstr "カテゴリー"
 
-#: front-page.php:38 page.php:16
 msgid "Edit"
 msgstr "編集"
 
