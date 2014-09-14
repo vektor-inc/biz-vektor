@@ -77,9 +77,10 @@ if ( $tag_posts ) { ?>
 	</ul><!-- [ /.child_outer ] -->
 	</div><!-- [ /.subPostListSection ] -->
 <?php } // if ( $tag_posts )
-
 } // if ($terms)
-endif; ?>
+endif;
+wp_reset_postdata();
+?>
 
 <div id="nav-below" class="navigation">
 	<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span> %title' ); ?></div>
