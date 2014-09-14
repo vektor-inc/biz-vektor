@@ -39,6 +39,48 @@
 
 <?php biz_vektor_snsBtns(); ?>
 
+<?php
+/*-------------------------------------------*/
+/*	Related posts
+/*-------------------------------------------*/
+if ( get_post_type() == 'post' ) :
+$terms = get_the_terms($post->ID,'post_tag');
+$tag_count = count($terms);
+if ($terms) {
+
+$args = array( 'post-type' => 'post' ,'post__not_in' => array($post->ID) );
+if ( $terms && $tag_count == 1 ) {
+	foreach ( $terms as $key => $value) {
+		$args['tag_id'] = $key ;
+	}
+} else if ( $terms ) {
+	foreach ( $terms as $key => $value) {
+		$args['tag__in'][] = $key ;
+	}
+}
+$tag_posts = get_posts($args);
+if ( $tag_posts ) { ?>
+	<!-- [ .subPostListSection ] -->
+	<div class="subPostListSection">
+	<h3>関連記事</h3>
+	<ul class="child_outer">
+	<?php foreach ($tag_posts as $key => $post) { ?>
+		<li class="ttBox">
+		<div class="entryTxtBox<?php if ( has_post_thumbnail()) echo ' ttBoxTxt ttBoxRight haveThumbnail'; ?>">
+		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+		</div><!-- [ /.entryTxtBox ] -->
+		<?php if ( has_post_thumbnail()) { ?>
+			<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
+		<?php } ?>
+		</li>
+	<?php } // foreach ?>
+	</ul><!-- [ /.child_outer ] -->
+	</div><!-- [ /.subPostListSection ] -->
+<?php } // if ( $tag_posts )
+
+} // if ($terms)
+endif; ?>
+
 <div id="nav-below" class="navigation">
 	<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span> %title' ); ?></div>
 	<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">&rarr;</span>' ); ?></div>

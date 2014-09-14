@@ -21,6 +21,25 @@
 		.ttBoxThumb { width:80px; }
 	}
 }
+#content .subPostListSection { display:block; overflow:hidden;position: relative; padding-bottom:20px;
+	ul { margin:0; }
+	li.ttBox { display:block; overflow:hidden; position: relative;padding:15px 0;
+		h4 { margin-top:0; }
+		a { text-decoration: none;color:#333;
+			&:hover { text-decoration: underline; }
+		}
+		.ttBoxThumb { width:80px; }
+	}
+}
+@media (min-width: 500px) {
+	#content .subPostListSection {
+		.ttBox { width:47%;
+			&:nth-child(odd){ clear:both;float:left; }
+			&:nth-child(2n){ float:right; }
+		}
+	}
+}
+
 
 /*			contactform7
 /*-------------------------------------------*/
