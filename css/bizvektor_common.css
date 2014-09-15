@@ -10,6 +10,22 @@
 
 #wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item:hover { background-color: #cc0; color: #fff; cursor: pointer; }
 
+#sideTower .ttBoxSection { padding: 15px 0 15px; }
+#sideTower .ttBox a { text-decoration: none; color: #333; }
+#sideTower .ttBox a:hover { text-decoration: underline; }
+#sideTower .ttBox .ttBoxThumb { width: 80px; }
+
+#content .subPostListSection { display: block; overflow: hidden; position: relative; padding-bottom: 20px; }
+#content .subPostListSection ul { margin: 0; }
+#content .subPostListSection li.ttBox { display: block; overflow: hidden; position: relative; padding: 15px 0; }
+#content .subPostListSection li.ttBox h4 { margin-top: 0; }
+#content .subPostListSection li.ttBox a { text-decoration: none; color: #333; }
+#content .subPostListSection li.ttBox a:hover { text-decoration: underline; }
+#content .subPostListSection li.ttBox .ttBoxThumb { width: 80px; }
+
+@media (min-width: 500px) { #content .subPostListSection .ttBox { width: 47%; }
+  #content .subPostListSection .ttBox:nth-child(odd) { clear: both; float: left; }
+  #content .subPostListSection .ttBox:nth-child(2n) { float: right; } }
 /*			contactform7
 /*-------------------------------------------*/
 #content .wpcf7 { margin-top: 20px; }

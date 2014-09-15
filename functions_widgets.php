@@ -280,44 +280,119 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 /*	RSS widget
 /*-------------------------------------------*/
-class wp_widget_bektor_rss extends WP_Widget {
-	function wp_widget_bektor_rss() {
+class wp_widget_bizvektor_rss extends WP_Widget {
+	function wp_widget_bizvektor_rss() {
 		$widget_ops = array(
-			'classname' => 'wp_widget_bektor_rss',
+			'classname' => 'wp_widget_bizvektor_rss',
 			//'description' => __( 'this is RSS', 'biz-vektor' ),
 			'description' => 'RSSエントリーを設置します',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_RSSエントリー';
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
-    function widget($args, $instance){
-    	$options = biz_vektor_get_theme_options();
+	function widget($args, $instance){
+		$options = biz_vektor_get_theme_options();
 		if(preg_match('/^http.*$/',$instance['url'])){
 			echo '<div id="rss_widget">';
 			biz_vektor_blogList($instance);
 			echo '</div>';
 		}
-    }
-    function form($instance){
-        $defaults = array(
-            'url' => '',
-            'label' => 'ブログエントリー',
+	}
+	function form($instance){
+		$defaults = array(
+			'url' => '',
+			'label' => 'ブログエントリー',
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
 
 		?>
-		<Label for="<?php echo $this->get_field_id('url');  ?>">見出しタイトル</label><br/>
+		<Label for="<?php echo $this->get_field_id('label'); ?>">見出しタイトル</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
-		<Label for="<?php echo $this->get_field_id('url');  ?>">URL</label><br/>
+		<Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
 		<?php
-    }
-    function update($new_instance, $old_instance){
+	}
+	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['url'] = $new_instance['url'];
 		$instance['label'] = $new_instance['label'];
-        return $instance;
-    }
+		return $instance;
+	}
 }
-add_action('widgets_init', create_function('', 'return register_widget("wp_widget_bektor_rss");'));
+add_action('widgets_init', create_function('', 'return register_widget("wp_widget_bizvektor_rss");'));
+
+/*-------------------------------------------*/
+/*	Side Post list widget
+/*-------------------------------------------*/
+class WP_Widget_bizvektor_post_list extends WP_Widget {
+
+	function WP_Widget_bizvektor_post_list() {
+		$widget_ops = array(
+			'classname' => 'WP_Widget_bizvektor_post_list',
+			'description' => '最近の投稿を表示します。',
+		);
+		$widget_name = get_biz_vektor_name().'_'.__('Recent Posts', 'biz-vektor' );
+		$this->WP_Widget('bizvektor_post_list', $widget_name, $widget_ops);
+	}
+
+	function widget($args, $instance) {
+		// print '<pre>';print_r($instance);print '</pre>';
+		echo '<div class="sideWidget">';
+		echo '<h3 class="localHead">';
+		if ( $instance['label'] ) {
+			echo $instance['label'];
+		} else {
+			_e('Recent Posts', 'biz-vektor' );
+		}
+		echo '</h3>';
+		echo '<div class="ttBoxSection">';
+		$count = ( $instance['count'] ) ? $instance['count'] : 10;
+		$post_loop = new WP_Query( array(
+			'post_type' => 'post',
+			'posts_per_page' => $count,
+			'paged' => 1,
+		) );
+
+		if ($post_loop->have_posts()):
+			while ( $post_loop->have_posts() ) : $post_loop->the_post(); ?>
+				<div class="ttBox">
+				<?php if ( has_post_thumbnail()) : ?>
+				<div class="ttBoxTxt ttBoxRight"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
+				<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
+				<?php else : ?>
+				<div><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
+				<?php endif; ?>
+				</div>
+			<?php endwhile;
+		endif;
+		echo '</div>';
+		echo '</div>';
+		wp_reset_postdata();
+		wp_reset_query();
+
+	} // widget($args, $instance)
+
+	function form($instance){
+		$defaults = array(
+			'count' => 10,
+			'label' => __('Recent Posts', 'biz-vektor' ),
+		);
+		$instance = wp_parse_args((array) $instance, $defaults);
+		?>
+		<Label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
+		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+		<br/>
+		<Label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?></label><br/>
+		<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo $instance['count']; ?>" />
+		<?php
+	}
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['count'] = $new_instance['count'];
+		$instance['label'] = $new_instance['label'];
+		return $instance;
+	}
+
+} // class WP_Widget_top_list_post
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_bizvektor_post_list");'));
