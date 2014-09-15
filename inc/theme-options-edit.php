@@ -879,6 +879,17 @@ px</dd>
 
 </td>
 </tr>
+<!-- twitter card -->
+<tr>
+<th>Twitter Card の設定</th>
+<td>
+<p>
+* Twitter Card のタグは、上記フォームでtwitterアカウントが入力されていないと表示されません。<br />
+* Twitter Card の利用はtwitterへの申請が必要です。<a href="https://cards-dev.twitter.com/validator" target="_blank">こちら</a>から申請してください。<br />
+* Twitter Card の画像は各記事のアイキャッチ画像が適用されます。アイキャッチ画像が無いページはデフォルトのOGP画像が適用されます。
+</p>
+</td>
+</tr>
 </table>
 <?php submit_button(); ?>
 </div>
