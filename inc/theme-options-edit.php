@@ -459,7 +459,6 @@ $i++;
 			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
 		</dd>
 	</dl>
-
 </td>
 </tr>
 <!-- Post -->
@@ -522,6 +521,23 @@ $i++;
 			<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?>
 		</dd>
 	</dl>
+
+	<dl>
+		<dt>広告の挿入 [ moreタグ ]</dt>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_moretag]" id="ad_content_moretag" value="" style="width:90%;" /><?php echo isset($options['ad_content_moretag']) ? $options['ad_content_moretag'] : ''; ?></textarea>
+		</dd>
+	</dl>
+	<dl>
+		<dt>広告の挿入 [ 本文下 ]</dt>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_after]" id="ad_content_after" value="" style="width:90%;" /><?php echo isset($options['ad_content_after']) ? $options['ad_content_after'] : ''; ?></textarea>
+		</dd>
+	</dl>
+	<dl>
+		<dt>広告の挿入 [ 関連記事下 ]</dt>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_related_after]" id="ad_related_after" value="" style="width:90%;" /><?php echo isset($options['ad_related_after']) ? $options['ad_related_after'] : ''; ?></textarea>
+		</dd>
+	</dl>
+
 </td>
 </tr>
 

@@ -74,6 +74,9 @@ function biz_vektor_generate_default_options(){
 		'listBlogTop' => 'listType_set',
 		'listBlogArchive' => 'listType_set',
 		'postRelatedCount' => '6',
+		'ad_conent_moretag' => '',
+		'ad_conent_after' => '',
+		'ad_related_after' => '',
 		'twitter' => '',
 		'facebook' => '',
 		'fbAppId' => '',
@@ -233,6 +236,9 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['postTopUrl']             = $input['postTopUrl'];
 	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 5 : $input['postTopCount'];
 	$output['postRelatedCount']       = (preg_match('/^(\s|[ 　]*)$/', $input['postRelatedCount']))? 6 : $input['postRelatedCount'];
+	$output['ad_content_moretag']     = $input['ad_content_moretag'];
+	$output['ad_content_after']       = $input['ad_content_after'];
+	$output['ad_related_after']       = $input['ad_related_after'];
 	// SEO 
 	$output['topTitle']               = $input['topTitle'];
 	$output['commonKeyWords']         = $input['commonKeyWords'];

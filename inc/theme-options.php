@@ -746,11 +746,11 @@ function biz_vektor_sideChildDisplay(){
 /*
 add_action("admin_head", 'suffix2console');
 function suffix2console() {
-    global $hook_suffix;
-    if (is_user_logged_in()) {
-        $str = "<script type=\"text/javascript\">console.log('%s')</script>";
-        printf($str, $hook_suffix);
-    }
+	global $hook_suffix;
+	if (is_user_logged_in()) {
+		$str = "<script type=\"text/javascript\">console.log('%s')</script>";
+		printf($str, $hook_suffix);
+	}
 }
 */
 
@@ -777,4 +777,32 @@ function get_biz_vektor_name() {
 	$name = 'BizVektor';
 	$name = apply_filters( 'bizvektor_name', $name );
 	return $name;
+}
+
+/*-------------------------------------------*/
+/*	Ad insert
+/*-------------------------------------------*/
+
+add_filter('the_content', 'biz_vektor_ad_contet_more');
+function biz_vektor_ad_contet_more($post_content) {
+	if (is_single() && get_post_type() == 'post') :
+	// moreタグとすぐ次の</p>まで取得
+	$moreTag = '/<span id="more-[0-9]+"><\/span>.*[\/a-z]+>/' ;
+	// 広告タグ
+	global $biz_vektor_options;
+	$adTags = apply_filters( 'widget_text', $biz_vektor_options['ad_content_moretag'] );
+
+	preg_match($moreTag, $post_content, $matches);
+	$match = $matches[0];
+	if(is_null($match) == false){
+		if(strpos($match, '</p>') !== false){
+			$post_content = preg_replace($moreTag, '</p>'.$adTags, $post_content);
+		} else {
+			$post_content = preg_replace($moreTag, '</p>'.$adTags.'<p>', $post_content);
+		}
+	}
+	if ($biz_vektor_options['ad_content_after']) 
+		$post_content = $post_content.'<div class="sectionBox">'.$biz_vektor_options['ad_content_after'].'</div>';
+	endif; // post
+	return $post_content;
 }
