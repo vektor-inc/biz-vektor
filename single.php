@@ -44,11 +44,13 @@
 /*	Related posts
 /*-------------------------------------------*/
 if ( get_post_type() == 'post' ) :
+Global $biz_vektor_options;
+if (isset($biz_vektor_options['postRelatedCount']) && $biz_vektor_options['postRelatedCount'] ) {
 $terms = get_the_terms($post->ID,'post_tag');
 $tag_count = count($terms);
 if ($terms) {
-
-$args = array( 'post-type' => 'post' ,'post__not_in' => array($post->ID) );
+$posts_count = mb_convert_kana($biz_vektor_options['postRelatedCount'], "a", "UTF-8");
+$args = array( 'post-type' => 'post' ,'post__not_in' => array($post->ID), 'posts_per_page' => $posts_count );
 if ( $terms && $tag_count == 1 ) {
 	foreach ( $terms as $key => $value) {
 		$args['tag_id'] = $key ;
@@ -77,7 +79,8 @@ if ( $tag_posts ) { ?>
 	</ul><!-- [ /.child_outer ] -->
 	</div><!-- [ /.subPostListSection ] -->
 <?php } // if ( $tag_posts )
-} // if ($terms)
+} // if ( $terms )
+} // if ( $biz_vektor_options['postRelatedCount'] ) {
 endif;
 wp_reset_postdata();
 ?>

@@ -910,6 +910,19 @@ msgstr "件"
 msgid "If you enter &quot0&quot, this section will disappear."
 msgstr "0 にするとタイトルごと表示されなくなります。"
 
+msgid "Number of related posts"
+msgstr "関連記事の表示件数"
+
+msgid "Post of the same tag appears as a related posts under the content."
+msgstr "同じタグの記事が本文の下に関連記事として表示されます。"
+
+msgid "Nothing is displayed when there is no article of the same tag."
+msgstr "同じタグの記事が無い場合は何も表示されません。"
+
+msgctxt "post count"
+msgid "posts"
+msgstr "件"
+
 # ######################################
 # SEO and Google Analytics Settings
 # ######################################

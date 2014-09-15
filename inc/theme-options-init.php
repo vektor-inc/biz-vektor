@@ -65,15 +65,15 @@ function biz_vektor_generate_default_options(){
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
-		'postTopCount' => '5',
 		'infoTopCount' => '5',
-		'postTopUrl' => '',
 		'infoTopUrl' => '/info/',
 		'listInfoTop' => 'listType_set',
 		'listInfoArchive' => 'listType_set',
+		'postTopCount' => '5',
+		'postTopUrl' => '',
 		'listBlogTop' => 'listType_set',
 		'listBlogArchive' => 'listType_set',
-		'blogRss' => '',
+		'postRelatedCount' => '6',
 		'twitter' => '',
 		'facebook' => '',
 		'fbAppId' => '',
@@ -229,9 +229,10 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
 	$output['infoTopUrl']             = $input['infoTopUrl'];
-	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 0 : $input['infoTopCount'];
+	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
-	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 0 : $input['postTopCount'];
+	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 5 : $input['postTopCount'];
+	$output['postRelatedCount']       = (preg_match('/^(\s|[ 　]*)$/', $input['postRelatedCount']))? 6 : $input['postRelatedCount'];
 	// SEO 
 	$output['topTitle']               = $input['topTitle'];
 	$output['commonKeyWords']         = $input['commonKeyWords'];

@@ -514,6 +514,14 @@ $i++;
 			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
 			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
 	</dl>
+	<dl>
+		<dt><?php _e('Number of related posts', 'biz-vektor'); ?></dt>
+		<dd><?php _e('Post of the same tag appears as a related posts under the content.', 'biz-vektor'); ?><br />
+			<?php _e('Nothing is displayed when there is no article of the same tag.', 'biz-vektor'); ?><br />
+			<input type="text" name="biz_vektor_theme_options[postRelatedCount]" id="postRelatedCount" value="<?php echo esc_attr( $options['postRelatedCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'post count', 'biz-vektor') ;?><br />
+			<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?>
+		</dd>
+	</dl>
 </td>
 </tr>
 
