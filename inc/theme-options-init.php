@@ -260,7 +260,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbAdminId']              = $input['fbAdminId'];
 	$output['twitter']                = $input['twitter'];
 	$output['facebook']               = $input['facebook'];
-	$output['ogpImage']               = $input['ogpImage'];
+	$output['ogpImage']               = (preg_match("/.+\.(jp(e|)g|png|gif|bmp)/i", $input['ogpImage']))? $input['ogpImage'] : '';
 	$output['snsBtnsFront']           = (isset($input['snsBtnsFront']) && $input['snsBtnsFront'] == 'false')? 'false' : '';
 	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
 	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';
