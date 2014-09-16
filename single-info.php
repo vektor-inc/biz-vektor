@@ -8,7 +8,7 @@
 
 <!-- [ #post- ] -->
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<h1 class="entryPostTitle"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
+	<h1 class="entryPostTitle entry-title"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
 	<?php $taxo_catelist = get_the_term_list( $post->ID, 'info-cat', '', ', ', '' ); ?>
 	<div class="entry-meta">
 	<?php _e('Posted on', 'biz-vektor'); ?> : <?php echo esc_html( get_the_date() ); ?>

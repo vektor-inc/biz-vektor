@@ -1,7 +1,5 @@
 <?php
 
-register_nav_menus( array( 'headerSubMenu' => 'Header sub menu', ) );
-
 /*-------------------------------------------*/
 /*  Print header menu to head contact area
 /*-------------------------------------------*/

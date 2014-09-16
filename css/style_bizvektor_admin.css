@@ -80,10 +80,7 @@ button.media_btn { padding:4px 5px; border:1px solid #ccc; border-radius: 2px; c
 #biz_vektor_options table.form-table { margin-bottom:1em;border-top:1px solid #ccc; }
 #biz_vektor_options table.form-table th,
 #biz_vektor_options table.form-table td { border-bottom:1px solid #ccc; line-height: 1.7em; }
-/*
-#biz_vektor_options .sectionBox	{ padding-top:50px; }
-#biz_vektor_options #design.sectionBox	{ padding-top:10px; }
-*/
+
 #biz_vektor_options #prBox { display:block; overflow:hidden; }
 #biz_vektor_options #prBox h5 {background-color:#e5e5e5;padding:5px 10px;}
 #biz_vektor_options #prBox .prItem { width:30%;padding:0 3% 20px 0; float:left; }

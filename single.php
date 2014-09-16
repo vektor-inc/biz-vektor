@@ -12,7 +12,7 @@
 
 		<?php biz_vektor_extra_single(); ?>
 	<?php else: ?>
-	<h1 class="entryPostTitle"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
+	<h1 class="entryPostTitle entry-title"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
 	<div class="entry-meta">
 		<?php _e('Posted on', 'biz-vektor'); ?> : <?php echo esc_html( get_the_date() ); ?> | 
 		<?php _e('Category', 'biz-vektor'); ?> : <?php the_category(', ') ?>
@@ -39,6 +39,61 @@
 
 <?php biz_vektor_snsBtns(); ?>
 
+<?php
+/*-------------------------------------------*/
+/*	Related posts
+/*-------------------------------------------*/
+if ( get_post_type() == 'post' ) :
+Global $biz_vektor_options;
+if (isset($biz_vektor_options['postRelatedCount']) && $biz_vektor_options['postRelatedCount'] ) {
+$terms = get_the_terms($post->ID,'post_tag');
+$tag_count = count($terms);
+if ($terms) {
+$posts_count = mb_convert_kana($biz_vektor_options['postRelatedCount'], "a", "UTF-8");
+$args = array( 'post-type' => 'post' ,'post__not_in' => array($post->ID), 'posts_per_page' => $posts_count );
+if ( $terms && $tag_count == 1 ) {
+	foreach ( $terms as $key => $value) {
+		$args['tag_id'] = $key ;
+	}
+} else if ( $terms ) {
+	foreach ( $terms as $key => $value) {
+		$args['tag__in'][] = $key ;
+	}
+}
+$tag_posts = get_posts($args);
+if ( $tag_posts ) { ?>
+	<!-- [ .subPostListSection ] -->
+	<div class="subPostListSection">
+	<h3>関連記事</h3>
+	<ul class="child_outer">
+	<?php foreach ($tag_posts as $key => $post) { ?>
+		<li class="ttBox">
+		<div class="entryTxtBox<?php if ( has_post_thumbnail()) echo ' ttBoxTxt ttBoxRight haveThumbnail'; ?>">
+		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+		</div><!-- [ /.entryTxtBox ] -->
+		<?php if ( has_post_thumbnail()) { ?>
+			<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
+		<?php } ?>
+		</li>
+	<?php } // foreach ?>
+	</ul><!-- [ /.child_outer ] -->
+	</div><!-- [ /.subPostListSection ] -->
+<?php } // if ( $tag_posts )
+} // if ( $terms )
+} // if ( $biz_vektor_options['postRelatedCount'] ) {
+endif;
+wp_reset_postdata();
+
+/*-------------------------------------------*/
+/*	ad_related_after
+/*-------------------------------------------*/
+if ( get_post_type() == 'post' ) :
+Global $biz_vektor_options;
+if (isset($biz_vektor_options['ad_related_after']) && $biz_vektor_options['ad_related_after']) {
+	echo '<div class="sectionBox">'.apply_filters('widget_text',$biz_vektor_options['ad_related_after']).'</div>';
+}
+endif;
+?>
 <div id="nav-below" class="navigation">
 	<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span> %title' ); ?></div>
 	<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">&rarr;</span>' ); ?></div>

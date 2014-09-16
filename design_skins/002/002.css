@@ -238,10 +238,8 @@ background-color:#f9f9f9; }
 /*	#pageTitBnr
 /*-------------------------------------------*/
 #pageTitBnr { background-color:#f5f5f5; box-shadow:inset 0px 1px 5px rgba(0,0,0,0.20); margin:0px; clear:both;border-bottom:1px solid #e5e5e5;z-index:0; }
-
-
-#pageTitBnr #pageTitInner	{ display:block;overflow:hidden;height:80px;}/* position:relative; を使うとIE7でプルダウンメニューがおかしくなる*/
-#pageTitBnr #pageTitInner #pageTit	{ text-shadow: 0 1px #ffffff; font-size:22px; display:inline; float:left;margin-right:20px;margin-top:32px; line-height:105%; }
+#pageTitBnr #pageTitInner	{ display:block;overflow:hidden;}/* position:relative; を使うとIE7でプルダウンメニューがおかしくなる*/
+#pageTitBnr #pageTitInner #pageTit	{  font-size:22px; display:inline; float:left;margin:25px 0 21px; line-height:110%;width:100%;text-shadow: 0 1px #ffffff; }
 #pageTitBnr #pageTitInner #titleTxtSub	{text-align:left; color:#999; font-family: 'Comfortaa', cursive; font-size:14px; letter-spacing:3px;float:left;margin-top:25px; line-height:105%;}
 
 /*-------------------------------------------*/

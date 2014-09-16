@@ -119,18 +119,18 @@ class WP_Widget_infoTerms extends WP_Widget {
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		extract( $args );
-		$args = array(
+		$arg = array(
 			'show_option_none'		=> '',
 			'title_li'				=> '',
 			'taxonomy' 				=> 'info-cat',
 			'orderby'				=> 'order',
 			'echo'					=> 0    /* 直接出力させない為 */
 		);
-		$catlist = wp_list_categories( $args );
-		if ( !empty($catlist) ) { ?>
+		$catlist = wp_list_categories( $arg );
+		if ( !empty($catlist)) { ?>
 			<div class="localSection sideWidget">
 			<div class="localNaviBox">
-			<h3 class="localHead"><?php _e('Category', 'biz-vektor'); ?></h3>
+			<h3 class="localHead"><?php echo htmlspecialchars($instance['title']); ?></h3>
 			<ul class="localNavi">
 		    <?php echo $catlist; ?>
 			</ul>
@@ -141,17 +141,20 @@ class WP_Widget_infoTerms extends WP_Widget {
 
 	/** @see WP_Widget::update */
 	function update($new_instance, $old_instance) {
-		return $new_instance;
+		$old_instance['title'] = $new_instance['title'];
+		return $old_instance;
 	}
 
 	/** @see WP_Widget::form */
 	function form($instance) {
-		/*
+		$defaults = array(
+			'title' => 'カテゴリー',
+		);
+		$instance = wp_parse_args((array) $instance, $defaults);
 		$title = esc_attr($instance['title']);
 		?>
 			<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
 		<?php
-		*/
 	}
 
 } // class WP_Widget_infoTerms

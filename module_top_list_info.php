@@ -22,7 +22,12 @@ if ( isset($biz_vektor_options['listInfoTop']) &&  $biz_vektor_options['listInfo
 		<?php get_template_part('module_loop_post'); ?>
 	<?php endwhile; ?>
 	</ul>
-<?php } ?>
+<?php }
+$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']) && $biz_vektor_options['infoTopUrl'])? $biz_vektor_options['infoTopUrl'] : '/info/';
+echo '<div class="moreLink right"><a href="'.esc_url($infoTopUrl).'">';
+printf( __( '%s List page', 'biz-vektor' ), esc_html($biz_vektor_options['infoLabelName']) );
+echo '</a></div>';
+?>
 </div><!-- [ /#topInfo ] -->
 <?php endif;
 wp_reset_query();
