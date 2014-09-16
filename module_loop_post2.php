@@ -14,7 +14,7 @@ $taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
 ?>
 <!-- [ .infoListBox ] -->
 <div class="infoListBox ttBox">
-	<div class="entryTxtBox ttBoxTxt<?php if ( has_post_thumbnail()) echo ' haveThumbnail'; ?>">
+	<div class="entryTxtBox<?php if ( has_post_thumbnail()) echo ' ttBoxTxt haveThumbnail'; ?>">
 	<h4 class="entryTitle">
 	<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 	<?php if ( is_user_logged_in() == TRUE ) : edit_post_link(__('Edit', 'biz-vektor'), '<span class="edit-link edit-item">[ ', ' ]</span>');endif ?>

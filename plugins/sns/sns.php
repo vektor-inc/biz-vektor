@@ -3,6 +3,8 @@
 /*-------------------------------------------*/
 /*	Add OGP
 /*-------------------------------------------*/
+/*	Add twitter card
+/*-------------------------------------------*/
 /*	snsBtns
 /*-------------------------------------------*/
 /*	snsBtns _ display page
@@ -26,10 +28,8 @@
 /*-------------------------------------------*/
 add_action('wp_head', 'biz_vektor_ogp' );
 function biz_vektor_ogp() {
-	//if ( function_exists('biz_vektor_get_theme_options')) {
-	$options = biz_vektor_get_theme_options();
-	//$ogpImage = $options['ogpImage'];
-	//$fbAppId = $options['fbAppId'];
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_front_page()) {
@@ -99,20 +99,28 @@ function bizVektorAddSnsStyle(){
 	$snsStyle = apply_filters('snsStyleCustom', $snsStyle );
 	echo $snsStyle;
 }
+/*-------------------------------------------*/
+/*	Add twitter card
+/*-------------------------------------------*/
+add_action('wp_head', 'biz_vektor_twitter_card' );
+function biz_vektor_twitter_card() {
+	get_template_part('plugins/sns/module_twitter_card');
+}
 
 /*-------------------------------------------*/
 /*	snsBtns
 /*-------------------------------------------*/
 function twitterID() {
-	$options = biz_vektor_get_theme_options();
-	return $options['twitter'];
+	global $biz_vektor_options;
+	return $biz_vektor_options['twitter'];
 }
 
 /*-------------------------------------------*/
 /*	snsBtns _ display page
 /*-------------------------------------------*/
 function biz_vektor_snsBtns() {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	$snsBtnsFront = ( isset($options['snsBtnsFront']) ) ? $options['snsBtnsFront'] : '';
 	$snsBtnsPage = ( isset($options['snsBtnsPage']) ) ? $options['snsBtnsPage'] : '';
 	$snsBtnsPost = ( isset($options['snsBtnsPost']) ) ? $options['snsBtnsPost'] : '';
@@ -145,7 +153,8 @@ function biz_vektor_snsBtns() {
 /*	facebook comment display page
 /*-------------------------------------------*/
 function biz_vektor_fbComments() {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	$fbCommentHiddenFlag = false ;
@@ -184,19 +193,22 @@ function biz_vektor_fbComments() {
 /*	facebookLikeBox
 /*-------------------------------------------*/
 function biz_vektor_fbLikeBoxFront() {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	if ( isset($options['fbLikeBoxFront']) && $options['fbLikeBoxFront'] ) {
 		biz_vektor_fbLikeBox();
 	}
 }
 function biz_vektor_fbLikeBoxSide() {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	if ( isset($options['fbLikeBoxSide']) && $options['fbLikeBoxSide'] ) {
 		biz_vektor_fbLikeBox();
 	}
 }
 function biz_vektor_fbLikeBox() {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	$fbLikeBoxStream = $options['fbLikeBoxStream'];
 	$fbLikeBoxFace = $options['fbLikeBoxFace'];
 	$fbLikeBoxHeight = $options['fbLikeBoxHeight'];
@@ -216,7 +228,8 @@ function biz_vektor_fbLikeBox() {
 /*	Print facebook Application ID 
 /*-------------------------------------------*/
 function biz_vektor_fbAppId () {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	$fbAppId = $options['fbAppId'];
 	echo $fbAppId;
 }
@@ -225,7 +238,8 @@ function biz_vektor_fbAppId () {
 /*	facebook twitter banner
 /*-------------------------------------------*/
 function biz_vektor_snsBnrs() {
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
+	$options = $biz_vektor_options;
 	if (isset($options['facebook'])) : $facebook = $options['facebook'] ; else : $facebook = ''; endif ;
 	if (isset($options['twitter'])) : $twitter = $options['twitter'] ; else : $twitter = ''; endif ;
 	if ($facebook || $twitter) {
@@ -269,12 +283,6 @@ class WP_Widget_snsBnrs extends WP_Widget {
 
 	/** @see WP_Widget::form */
 	function form($instance) {
-		// $title = esc_attr($instance['title']);
-		/*
-		?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
-		<?php
-		*/
 	}
 
 } // class WP_Widget_snsBnrs

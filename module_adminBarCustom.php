@@ -240,5 +240,20 @@ function bizvektor_adminbar_custom_menu() {
 				'href' => get_admin_url().'edit-tags.php?taxonomy=info-cat',
 			));
 		}
+
 }
 add_action( 'admin_bar_menu', 'bizvektor_adminbar_custom_menu',20 );
+
+function bizvektor_adminbar_custom_edit_guide(){
+	global $user_level;
+	get_currentuserinfo();
+	global $wp_admin_bar;
+	if (7 <= $user_level && !is_admin()) {
+	$wp_admin_bar->add_menu( array(
+		'id' => 'editGuide',
+		'title' => _x( 'Edit guide : OPEN', 'BizVektor admin header menu', 'biz-vektor' ),
+		'href' => '',
+	));
+	}
+}
+add_action( 'admin_bar_menu', 'bizvektor_adminbar_custom_edit_guide',1000 );

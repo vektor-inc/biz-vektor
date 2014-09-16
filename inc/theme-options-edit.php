@@ -34,8 +34,8 @@ function biz_vektor_theme_options_render_page() {
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
-		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), wp_get_theme() ); ?></h2>
-		BizVektor_v<?php echo BizVektor_Theme_Version; ?>
+		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), get_biz_vektor_name() ); ?></h2>
+		<?php echo get_biz_vektor_name(); ?>_v<?php echo BizVektor_Theme_Version; ?>
 		<?php settings_errors(); ?>
 
 		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
@@ -282,7 +282,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<th scope="row"><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[contact_time]" id="contact_time" value="" style="width:50%;" /><?php echo esc_attr( $options['contact_time'] ); ?></textarea><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9:00 - 18:00 (<?php _e('Weekdays except holidays', 'biz-vektor') ;?>)</span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9:00 - 18:00 [ <?php _e('Weekdays except holidays', 'biz-vektor') ;?> ]</span>
 	</td>
 	</tr>
 	<tr>
@@ -454,15 +454,11 @@ $i++;
 
 	<dl>
 		<dt><?php echo $infoLabelName;?> のトップのURL</dt>
-		<dd><?php $infoTopUrl = esc_html(home_url().'/info/'); ?>
-			* 通常 <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
-				<?php /*
-			<br>
-			* <?php echo $infoLabelName;?> 用のトップページを独自に設定していない場合は空欄のままで構いません。
-			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />	*/ ?>
+		<dd><?php $infoTopUrl = home_url().'/info/'; ?>
+			* 通常 <a href="<?php echo esc_url($infoTopUrl);?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
+			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
 		</dd>
 	</dl>
-
 </td>
 </tr>
 <!-- Post -->
@@ -517,6 +513,31 @@ $i++;
 			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
 			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
 	</dl>
+	<dl>
+		<dt><?php _e('Number of related posts', 'biz-vektor'); ?></dt>
+		<dd><?php _e('Post of the same tag appears as a related posts under the content.', 'biz-vektor'); ?><br />
+			<?php _e('Nothing is displayed when there is no article of the same tag.', 'biz-vektor'); ?><br />
+			<input type="text" name="biz_vektor_theme_options[postRelatedCount]" id="postRelatedCount" value="<?php echo esc_attr( $options['postRelatedCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'post count', 'biz-vektor') ;?><br />
+			<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?>
+		</dd>
+	</dl>
+
+	<dl>
+		<dt>広告の挿入 [ moreタグ ]</dt>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_moretag]" id="ad_content_moretag" value="" style="width:90%;" /><?php echo isset($options['ad_content_moretag']) ? $options['ad_content_moretag'] : ''; ?></textarea>
+		</dd>
+	</dl>
+	<dl>
+		<dt>広告の挿入 [ 本文下 ]</dt>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_after]" id="ad_content_after" value="" style="width:90%;" /><?php echo isset($options['ad_content_after']) ? $options['ad_content_after'] : ''; ?></textarea>
+		</dd>
+	</dl>
+	<dl>
+		<dt>広告の挿入 [ 関連記事下 ]</dt>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_related_after]" id="ad_related_after" value="" style="width:90%;" /><?php echo isset($options['ad_related_after']) ? $options['ad_related_after'] : ''; ?></textarea>
+		</dd>
+	</dl>
+
 </td>
 </tr>
 
@@ -856,6 +877,17 @@ px</dd>
 <label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
 <label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
 
+</td>
+</tr>
+<!-- twitter card -->
+<tr>
+<th>Twitter Card の設定</th>
+<td>
+<p>
+* Twitter Card のタグは、上記フォームでtwitterアカウントが入力されていないと表示されません。<br />
+* Twitter Card の利用はtwitterへの申請が必要です。<a href="https://cards-dev.twitter.com/validator" target="_blank">こちら</a>から申請してください。<br />
+* Twitter Card の画像は各記事のアイキャッチ画像が適用されます。アイキャッチ画像が無いページはデフォルトのOGP画像が適用されます。
+</p>
 </td>
 </tr>
 </table>
