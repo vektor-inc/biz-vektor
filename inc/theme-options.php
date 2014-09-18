@@ -793,8 +793,9 @@ function biz_vektor_ad_contet_more($post_content) {
 	$adTags = apply_filters( 'widget_text', $biz_vektor_options['ad_content_moretag'] );
 
 	preg_match($moreTag, $post_content, $matches);
-	$match = $matches[0];
-	if(is_null($match) == false){
+	$match = (isset($matches[0]))? $matches[0] : '';
+	if($match){
+		// $matchしている（moreタグが存在する）場合
 		if(strpos($match, '</p>') !== false){
 			$post_content = preg_replace($moreTag, '</p>'.$adTags, $post_content);
 		} else {
