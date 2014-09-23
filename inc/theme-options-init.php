@@ -66,7 +66,7 @@ function biz_vektor_generate_default_options(){
 		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
 		'infoTopCount' => '5',
-		'infoTopUrl' => '/info/',
+		'infoTopUrl' => home_url().'/info/',
 		'listInfoTop' => 'listType_set',
 		'listInfoArchive' => 'listType_set',
 		'postTopCount' => '5',
