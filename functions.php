@@ -393,7 +393,7 @@ function bizVektorAddWebFonts(){
 // Add BizVektor option css
 add_action('wp_head','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140914" type="text/css" media="all" />'."\n";
+	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140923a" type="text/css" media="all" />'."\n";
 	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
 	echo $optionStyle;
 }
