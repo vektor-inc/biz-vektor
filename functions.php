@@ -70,6 +70,8 @@ define('BizVektor_Theme_Version', '1.1.2');
 /*-------------------------------------------*/
 /*	HomePage _ add action filters
 /*-------------------------------------------*/
+/*	Archive _ loop custom filters
+/*-------------------------------------------*/
 /*	Aceept favicon upload
 /*-------------------------------------------*/
 
@@ -692,6 +694,9 @@ function biz_vektor_contentMain_before(){
 function biz_vektor_contentMain_after(){
 	do_action('biz_vektor_contentMain_after');
 }
+/*-------------------------------------------*/
+/*	Archive _ loop custom filters
+/*-------------------------------------------*/
 function biz_vektor_archive_loop(){
 	do_action('biz_vektor_archive_loop');
 }
