@@ -28,11 +28,24 @@ function biz_vektor_theme_options_render_page() {
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
+	$biz_vektor_name = get_biz_vektor_name();
 	//echo "<pre>";print_r($options);echo "</pre>";
  ?>
 	<div class="wrap" id="biz_vektor_options">
 		<?php screen_icon(); ?>
-		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), get_biz_vektor_name() ); ?></h2>
+		<h2>
+			<?php
+			if (function_exists('biz_vektor_oem_get_options')) {
+				$oem_options = biz_vektor_oem_get_options();
+				if ($oem_options['system_logo']) {
+					echo '<img src="'.$oem_options['system_logo'].'" alt="'.$biz_vektor_name.'" />';
+				} else {
+					printf( __( '%s Theme Options', 'biz-vektor' ), $biz_vektor_name );
+				}
+			} else {
+				printf( __( '%s Theme Options', 'biz-vektor' ), $biz_vektor_name );
+			} ?>
+		</h2>
 		<div>Version <?php echo BizVektor_Theme_Version; ?></div>
 		<?php settings_errors(); ?>
 
@@ -53,7 +66,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 		<div id="main-content">
 		<p class="message_intro">
 	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
-	<?php _e('Thank you for using BizVektor.', 'biz-vektor');?> 
+	<?php printf(__('Thank you for using %s.', 'biz-vektor'),$biz_vektor_name);?> 
 	<?php printf(__('You can change basic design settings from %s', 'biz-vektor'),$customizer_link); ?> <br />
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
 		</p>
@@ -274,7 +287,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('BizVektor, Inc.', 'biz-vektor') ;?></span><br />
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('Sample,Inc.', 'biz-vektor') ;?></span><br />
 	<?php _e('* Use this feature when the site name has become too long for SEO purposes.', 'biz-vektor') ;?>
 	</td>
 	</tr>
@@ -514,7 +527,7 @@ $i++;
 <p>
 <?php
 $sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_blank">'.__('title of the site', 'biz-vektor').'</a>';
-printf( __( 'Normally, BizVektor will include the %s in the title tag.', 'biz-vektor' ), $sitetitle_link );?><br />
+printf( __( 'Normally, %1$s will include the %2$s in the title tag.', 'biz-vektor' ), $biz_vektor_name, $sitetitle_link );?><br />
 <?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if using a static page.', 'biz-vektor'); ?>
 <?php
 printf( __('However, it might have negative impact on search engine rankings if the &lt;title&gt; is too long, <strong>therefore please include the most popular keywords in a summarized manner, keeping the %s as short as possible.</strong>', 'biz-vektor'),$sitetitle_link) ; ?>
@@ -816,11 +829,9 @@ px</dd>
 <tr>
 <th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
 <td>
-<p><?php _e('If other plug-ins are used for the OGP, do not output the OGP using BizVektor.', 'biz-vektor'); ?></p>
-
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
-
+<p><?php printf(__('If other plug-ins are used for the OGP, do not output the OGP using %s.', 'biz-vektor'),$biz_vektor_name); ?></p>
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php printf( __('I want to output the OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php printf( __('Do not output OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
 </td>
 </tr>
 <!-- twitter card -->
