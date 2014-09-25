@@ -23,7 +23,7 @@ if ( isset($biz_vektor_options['listInfoTop']) &&  $biz_vektor_options['listInfo
 	<?php endwhile; ?>
 	</ul>
 <?php }
-$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']) && $biz_vektor_options['infoTopUrl'])? $biz_vektor_options['infoTopUrl'] : '/info/';
+$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']) && $biz_vektor_options['infoTopUrl'])? $biz_vektor_options['infoTopUrl'] : home_url().'/info/';
 echo '<div class="moreLink right"><a href="'.esc_url($infoTopUrl).'">';
 printf( __( '%s List page', 'biz-vektor' ), esc_html($biz_vektor_options['infoLabelName']) );
 echo '</a></div>';

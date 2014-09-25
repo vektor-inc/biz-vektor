@@ -762,9 +762,12 @@ function get_biz_vektor_contactBtn(){
 	if ($biz_vektor_options['contact_link']) :
 	$contactBtn = '<ul>';
 	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$biz_vektor_options['contact_link'].'">'."\n";
-	$contactBtn .= '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'">';
+	$sideContactBtnImage = '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'">';
+	$sideContactBtnImage = apply_filters( 'bizvektor_side_contact_btn_image', $sideContactBtnImage );
+	$contactBtn .= $contactBtnImage.'</a></li>'."\n";
 	$contactBtn .= '</a></li>'."\n";
 	$contactBtn .= '</ul>'."\n";
+	$contactBtn = apply_filters( 'biz_vektor_side_contactBtn', $contactBtn );
 	return $contactBtn;
 	endif;
 }
@@ -775,7 +778,7 @@ function biz_vektor_contactBtn(){
 
 function get_biz_vektor_name() {
 	$name = 'BizVektor';
-	$name = apply_filters( 'bizvektor_name', $name );
+	$name = apply_filters( 'biz_vektor_name', $name );
 	return $name;
 }
 

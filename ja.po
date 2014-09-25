@@ -840,6 +840,12 @@ msgstr "PRエリア"
 # ######################################
 # Information and Blog
 # ######################################
+msgid "Information"
+msgstr "お知らせ"
+
+msgid "Blog"
+msgstr "ブログ"
+
 msgid "Settings for [ %s ] and [ %s ]."
 msgstr "「%s」と「%s」の設定"
 
