@@ -206,8 +206,8 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*	#pageTitBnr
 /*-------------------------------------------*/
 #pageTitBnr { margin:0px; clear:both; }
-#pageTitBnr #pageTitInner	{ display:block; overflow:hidden;height:60px;  }
-#pageTitBnr #pageTitInner #pageTit	{ font-size:22px; display:inline; float:left;margin-right:20px;margin-top:20px; line-height:105%; font-weight:lighter;  }
+#pageTitBnr #pageTitInner	{ display:block; overflow:hidden; }
+#pageTitBnr #pageTitInner #pageTit	{ font-size:22px; display:inline;float:left;margin:20px 0 18px;width:100%; line-height:115%; font-weight:lighter;  }
 #pageTitBnr #pageTitInner #titleTxtSub	{text-align:left; color:#999; font-family: 'Comfortaa', cursive; font-size:14px; letter-spacing:3px;float:left;margin-top:25px; line-height:105%;}
 
 /*-------------------------------------------*/

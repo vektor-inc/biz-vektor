@@ -65,15 +65,18 @@ function biz_vektor_generate_default_options(){
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay' => false,
 		'top3PrDisplay' => '',
-		'postTopCount' => '0',
-		'infoTopCount' => '0',
-		'postTopUrl' => '',
-		'infoTopUrl' => '',
+		'infoTopCount' => '5',
+		'infoTopUrl' => '/info/',
 		'listInfoTop' => 'listType_set',
 		'listInfoArchive' => 'listType_set',
+		'postTopCount' => '5',
+		'postTopUrl' => '',
 		'listBlogTop' => 'listType_set',
 		'listBlogArchive' => 'listType_set',
-		'blogRss' => '',
+		'postRelatedCount' => '6',
+		'ad_conent_moretag' => '',
+		'ad_conent_after' => '',
+		'ad_related_after' => '',
 		'twitter' => '',
 		'facebook' => '',
 		'fbAppId' => '',
@@ -228,9 +231,14 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
-	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 0 : $input['infoTopCount'];
+	$output['infoTopUrl']             = $input['infoTopUrl'];
+	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
-	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 0 : $input['postTopCount'];
+	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 5 : $input['postTopCount'];
+	$output['postRelatedCount']       = (preg_match('/^(\s|[ 　]*)$/', $input['postRelatedCount']))? 6 : $input['postRelatedCount'];
+	$output['ad_content_moretag']     = $input['ad_content_moretag'];
+	$output['ad_content_after']       = $input['ad_content_after'];
+	$output['ad_related_after']       = $input['ad_related_after'];
 	// SEO 
 	$output['topTitle']               = $input['topTitle'];
 	$output['commonKeyWords']         = $input['commonKeyWords'];
@@ -252,7 +260,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbAdminId']              = $input['fbAdminId'];
 	$output['twitter']                = $input['twitter'];
 	$output['facebook']               = $input['facebook'];
-	$output['ogpImage']               = $input['ogpImage'];
+	$output['ogpImage']               = (preg_match("/^.+\.(jp(e|)g|png|gif|bmp)$/i", $input['ogpImage']))? $input['ogpImage'] : '';
 	$output['snsBtnsFront']           = (isset($input['snsBtnsFront']) && $input['snsBtnsFront'] == 'false')? 'false' : '';
 	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
 	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';

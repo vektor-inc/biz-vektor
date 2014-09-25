@@ -1,6 +1,6 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.0.3');
+define('BizVektor_Theme_Version', '1.1.2');
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -69,6 +69,8 @@ define('BizVektor_Theme_Version', '1.0.3');
 /*	Page _ Child page lists
 /*-------------------------------------------*/
 /*	HomePage _ add action filters
+/*-------------------------------------------*/
+/*	Aceept favicon upload
 /*-------------------------------------------*/
 
 get_template_part('functions_widgets');
@@ -149,7 +151,7 @@ endif;
 
 function biz_vektor_setup(){
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'fcfcfc',
+		'default-color' => 'ffffff',
 	) );
 }
 add_action( 'after_setup_theme', 'biz_vektor_setup' );
@@ -391,7 +393,7 @@ function bizVektorAddWebFonts(){
 // Add BizVektor option css
 add_action('wp_head','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140519" type="text/css" media="all" />'."\n";
+	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140914" type="text/css" media="all" />'."\n";
 	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
 	echo $optionStyle;
 }
@@ -700,5 +702,14 @@ function is_biz_vektor_extra_single(){
 	return apply_filters('is_biz_vektor_archive_loop', false);
 }
 function biz_vektor_extra_single(){
-	do_action('biz_vektor_extra_single');	
+	do_action('biz_vektor_extra_single');
 }
+
+/*-------------------------------------------*/
+/*	Aceept favicon upload
+/*-------------------------------------------*/
+function my_mime_type($a) {
+    $a['ico'] = 'image/x-icon';
+    return $a;
+}
+add_filter('upload_mimes', 'my_mime_type');

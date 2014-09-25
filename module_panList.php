@@ -19,10 +19,14 @@ if($post_type_object){
 	$postTypeName = esc_html($post_type_object->labels->name);
 }
 
-// 標準のpost のラベル名
+// post のラベル名
 $postLabelName = $biz_vektor_options['postLabelName'];
-// 標準のpost のトップのURL
+// info のラベル名
+$infoLabelName = $biz_vektor_options['infoLabelName'];
+// post のトップのURL
 $postTopUrl = (isset($biz_vektor_options['postTopUrl']))? $biz_vektor_options['postTopUrl'] : '';
+// info のトップのURL
+$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']))? $biz_vektor_options['infoTopUrl'] : '/info/';
 
 	$panListHtml .= '<ul>';
 	$panListHtml .= '<li id="panHome"><a href="'. home_url() .'">HOME</a> &raquo; </li>';
@@ -50,6 +54,34 @@ if ( is_404() ){
 				$panListHtml .= '<li>'. strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) .'</li>';
 			}
 		}
+	}
+
+} else if ( $postType == 'info' ) {
+	// マルチサイトや、infoのトップを固定ページで作った場合にURLが変動するため
+	if ( is_tax() ) {
+		$panListHtml .= '<li><a href="'.$infoTopUrl.'">'.$infoLabelName.'</a> &raquo; </li>';
+		$panListHtml .= '<li>'.single_cat_title('','', FALSE).'</li>';
+	} else if ( is_tag() ) {
+		$panListHtml .= '<li><a href="'.$infoTopUrl.'">'.$infoLabelName.'</a> &raquo; </li>';
+		$panListHtml .= '<li>'.single_tag_title('','', FALSE).'</li>';
+	} else if (is_year()){
+		$panListHtml .= '<li><a href="'.$infoTopUrl.'">'.$infoLabelName.'</a> &raquo; </li>';
+		$panListHtml .= "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
+	} else if (is_month()){
+		$panListHtml .= '<li><a href="'.$infoTopUrl.'">'.$infoLabelName.'</a> &raquo; </li>';
+		$panListHtml .= "<li>".sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) )."</li>";
+	} else if ( is_single() ){
+		$panListHtml .= '<li><a href="'.$infoTopUrl.'">'.$infoLabelName.'</a> &raquo; </li>';
+		$taxonomies = get_the_taxonomies();
+		// 複数のタクソノミーを跨ぐ事が無い前提なので、forechじゃなくても良いはず...
+		foreach ( $taxonomies as $taxonomySlug => $taxonomy ) {}
+		if ($taxonomies):
+			$taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, '', ' , ', '' );
+			$panListHtml .= '<li>'.$taxo_catelist.' &raquo; </li>';
+		endif;
+		$panListHtml .= '<li>'.get_the_title()."</li>";
+	} else {
+		$panListHtml .= '<li>'.$postTypeName.'</li>';
 	}
 
 // ▼▼ 投稿者ページ
