@@ -32,7 +32,13 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 #biz_vektor_options {  }
 #biz_vektor_options #sub-content { display:block; overflow:hidden;width:23%;float:right;height:100%;border:1px solid #ccc;}
 #biz_vektor_options #sub-content iframe { width: 100%; margin:0; height:1600px; }
+#biz_vektor_options #sub-content.rss_content { background-color: #fff; }
+#biz_vektor_options #sub-content.rss_content h3 { margin: 10px;font-size:14px; }
+#biz_vektor_options #sub-content.rss_content ul { margin: 10px 15px; }
+#biz_vektor_options #sub-content.rss_content ul li { padding-bottom:10px;border-bottom:1px dotted #333; }
+
 #biz_vektor_options #main-content { display:block; overflow:hidden;width:75%;float:left;}
+#biz_vektor_options #main-content #version { background-color: #666; color:#fff; padding: 5px; }
 
 #biz_vektor_options .sectionBox { padding-top:4em; position: relative;display:block; overflow:hidden; }
 #biz_vektor_options #design.sectionBox { padding-top:4em; }

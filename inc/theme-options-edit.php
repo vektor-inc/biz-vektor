@@ -48,14 +48,12 @@ function biz_vektor_theme_options_render_page() {
 		</h2>
 		<div>Version <?php echo BizVektor_Theme_Version; ?></div>
 		<?php settings_errors(); ?>
-
-		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
+		
+		<?php if ( function_exists( 'biz_vektor_activation_information' ) ) {
 		biz_vektor_activation_information();
 		} else { ?>
 		<div id="sub-content">
-
 		<iframe frameborder="0" height="200" marginheight="0" marginwidth="0" scrolling="auto" src="http://bizvektor.com/info-admin/"></iframe>
-
 		</div>
 		<?php } ?>
 
