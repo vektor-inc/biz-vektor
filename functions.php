@@ -186,9 +186,10 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
-	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
-	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
-	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
+	// enqueue の場合あとで読み込まれてしまうため
+	echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/css/style_bizvektor_admin.css" />';
+	// $adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
+	// wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
 }
 add_action('admin_head', 'bizVektor_admin_css', 11);
 
