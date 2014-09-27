@@ -31,14 +31,14 @@ function biz_vektor_theme_options_render_page() {
 	$biz_vektor_name = get_biz_vektor_name();
 	//echo "<pre>";print_r($options);echo "</pre>";
  ?>
-	<div class="wrap" id="biz_vektor_options">
+	<div class="wrap biz_vektor_options">
 		<?php screen_icon(); ?>
 		<h2>
 			<?php
-			if (function_exists('biz_vektor_oem_get_options')) {
-				$oem_options = biz_vektor_oem_get_options();
-				if ($oem_options['system_logo']) {
-					echo '<img src="'.$oem_options['system_logo'].'" alt="'.$biz_vektor_name.'" />';
+			if (function_exists('biz_vektor_obu_get_options')) {
+				$obu_options = biz_vektor_obu_get_options();
+				if ($obu_options['system_logo']) {
+					echo '<img src="'.$obu_options['system_logo'].'" alt="'.$biz_vektor_name.'" />';
 				} else {
 					printf( __( '%s Theme Options', 'biz-vektor' ), $biz_vektor_name );
 				}
@@ -46,7 +46,7 @@ function biz_vektor_theme_options_render_page() {
 				printf( __( '%s Theme Options', 'biz-vektor' ), $biz_vektor_name );
 			} ?>
 		</h2>
-		<div>Version <?php echo BizVektor_Theme_Version; ?></div>
+		<div class="bv_version">Version <?php echo BizVektor_Theme_Version; ?></div>
 		<?php settings_errors(); ?>
 		
 		<?php if ( function_exists( 'biz_vektor_activation_information' ) ) {
@@ -62,12 +62,12 @@ global $biz_vektor_options;
 $biz_vektor_options = biz_vektor_get_theme_options();
 ?>
 		<div id="main-content">
-		<p class="message_intro">
+		<div class="message_intro">
 	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
 	<?php printf(__('Thank you for using %s.', 'biz-vektor'),$biz_vektor_name);?> 
 	<?php printf(__('You can change basic design settings from %s', 'biz-vektor'),$customizer_link); ?> <br />
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
-		</p>
+		</div>
 		<form method="post" action="options.php">
 		<input type="hidden" name="post_status" value="bvo" />
 			<?php
