@@ -303,9 +303,10 @@ function biz_vektor_theme_style() {
 	// wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
 
 	$themePath = $biz_vektor_theme_styles[$theme_style]['cssPath'];
-	print '<!-- BizVektorStyle-->'."\n";
-	print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
-	print '<!-- /BizVektorStyle-->'."\n";
+	$system_name = get_biz_vektor_name();
+	echo '<!-- '.$system_name.' Style-->'."\n";
+	echo '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
+	echo '<!-- /'.$system_name.' Style-->'."\n";
 
 	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
 
