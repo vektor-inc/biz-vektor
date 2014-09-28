@@ -26,7 +26,7 @@ $infoLabelName = $biz_vektor_options['infoLabelName'];
 // post のトップのURL
 $postTopUrl = (isset($biz_vektor_options['postTopUrl']))? $biz_vektor_options['postTopUrl'] : '';
 // info のトップのURL
-$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']))? $biz_vektor_options['infoTopUrl'] : '/info/';
+$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']) && $biz_vektor_options['infoTopUrl'])? $biz_vektor_options['infoTopUrl'] : home_url().'/info/';
 
 	$panListHtml .= '<ul>';
 	$panListHtml .= '<li id="panHome"><a href="'. home_url() .'">HOME</a> &raquo; </li>';

@@ -29,15 +29,22 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 /*-------------------------------------------*/
 /* テーマオプション
 /*-------------------------------------------*/
-#biz_vektor_options {  }
-#biz_vektor_options #sub-content { display:block; overflow:hidden;width:23%;float:right;height:100%;border:1px solid #ccc;}
-#biz_vektor_options #sub-content iframe { width: 100%; margin:0; height:1600px; }
-#biz_vektor_options #main-content { display:block; overflow:hidden;width:75%;float:left;}
+.biz_vektor_options h2 img { display:block; overflow:hidden; }
+.biz_vektor_options .bv_version	{ margin-bottom:10px; }
+.biz_vektor_options .message_intro { padding: 1em; line-height: 170%;border:3px solid #e5e5e5; background-color: #f5f5f5;box-shadow:inset 0px 0px 0px 1px rgba(255,255,255,1); }
+.biz_vektor_options #sub-content { display:block; overflow:hidden;width:23%;float:right;height:100%;border:1px solid #ccc;}
+.biz_vektor_options #sub-content iframe { width: 100%; margin:0; height:1600px; }
+.biz_vektor_options #sub-content { background-color: #fff; }
+.biz_vektor_options #sub-content .sub-content-inner { background-color: #fff;padding:10px; }
+.biz_vektor_options #sub-content .sub-content-inner h3 { font-size:14px; }
+.biz_vektor_options #sub-content .sub-content-inner ul { margin: 10px 5px; }
+.biz_vektor_options #sub-content .sub-content-inner ul li { padding-bottom:10px;border-bottom:1px dotted #333; }
 
-#biz_vektor_options .sectionBox { padding-top:4em; position: relative;display:block; overflow:hidden; }
-#biz_vektor_options #design.sectionBox { padding-top:4em; }
+.biz_vektor_options #main-content { display:block; overflow:hidden;width:75%;float:left;}
+.biz_vektor_options #main-content #version { background-color: #666; color:#fff; padding: 5px; }
 
-.message_intro { position: padding: 1em; line-height: 170%; }
+.biz_vektor_options .sectionBox { padding-top:4em; position: relative;display:block; overflow:hidden; }
+.biz_vektor_options #design.sectionBox { padding-top:4em; }
 
 .optionNav	{ display:block !important; overflow:hidden; }
 .optionNav ul { display:block; overflow:hidden;margin:0;padding:0 5px; }
@@ -67,40 +74,40 @@ body.publish #submitdiv	{ border:2px solid #39C; }
 #slideSetting	.optionNav ul li#btn_slideSetting a,
 #snsSetting 	.optionNav ul li#btn_snsSetting a { color:#fff;}
 
-#biz_vektor_options h3 .message_box { font-size:12px; font-weight: lighter;padding-left:20px; }
-#biz_vektor_options h3 .message_box a { color:#fff; }
+.biz_vektor_options h3 .message_box { font-size:12px; font-weight: lighter;padding-left:20px; }
+.biz_vektor_options h3 .message_box a { color:#fff; }
 
 button.media_btn { padding:4px 5px; border:1px solid #ccc; border-radius: 2px; cursor: pointer; }
 
-#biz_vektor_options h3			{ background-color:#333; color:#fff; padding:10px 15px;font-size:150%;margin-top:0;border-left:5px solid #e50000;}
-#biz_vektor_options h4			{ border-bottom:1px dotted #000; font-size:150%; padding:0px 0px 4px; margin-bottom:10px;margin-top:0px; }
+.biz_vektor_options h3			{ background-color:#333; color:#fff; padding:10px 15px;font-size:150%;margin-top:0;border-left:5px solid #e50000;}
+.biz_vektor_options h4			{ border-bottom:1px dotted #000; font-size:150%; padding:0px 0px 4px; margin-bottom:10px;margin-top:0px; }
 
-#biz_vektor_options textarea	{ width:200px; }
+.biz_vektor_options textarea	{ width:200px; }
 
-#biz_vektor_options table.form-table { margin-bottom:1em;border-top:1px solid #ccc; }
-#biz_vektor_options table.form-table th,
-#biz_vektor_options table.form-table td { border-bottom:1px solid #ccc; line-height: 1.7em; }
+.biz_vektor_options table.form-table { margin-bottom:1em;border-top:1px solid #ccc; }
+.biz_vektor_options table.form-table th,
+.biz_vektor_options table.form-table td { border-bottom:1px solid #ccc; line-height: 1.7em; }
 
-#biz_vektor_options #prBox { display:block; overflow:hidden; }
-#biz_vektor_options #prBox h5 {background-color:#e5e5e5;padding:5px 10px;}
-#biz_vektor_options #prBox .prItem { width:30%;padding:0 3% 20px 0; float:left; }
-#biz_vektor_options #prBox .prItem dl { margin:0px; padding:0px; }
-#biz_vektor_options #prBox .prItem dl dt { font-weight:bold; }
-#biz_vektor_options #prBox .prItem dl dd { margin:0 0 10px; }
-#biz_vektor_options #prBox .prItem input[type="text"],
-#biz_vektor_options #prBox .prItem textarea { width:95%; }
+.biz_vektor_options #prBox { display:block; overflow:hidden; }
+.biz_vektor_options #prBox h5 {background-color:#e5e5e5;padding:5px 10px;}
+.biz_vektor_options #prBox .prItem { width:30%;padding:0 3% 20px 0; float:left; }
+.biz_vektor_options #prBox .prItem dl { margin:0px; padding:0px; }
+.biz_vektor_options #prBox .prItem dl dt { font-weight:bold; }
+.biz_vektor_options #prBox .prItem dl dd { margin:0 0 10px; }
+.biz_vektor_options #prBox .prItem input[type="text"],
+.biz_vektor_options #prBox .prItem textarea { width:95%; }
 
 .mediaSet { display:block; overflow:hidden; }
-#biz_vektor_options #prBox .prItem input.media_text { width:60%;float:left; }
+.biz_vektor_options #prBox .prItem input.media_text { width:60%;float:left; }
 
 .alert	{ color:#f00; }
 
-#biz_vektor_options #wpcontent select option { padding-right: 5px; }
-#biz_vektor_options .image-radio-option td { padding-top: 15px; }
-#biz_vektor_options .image-radio-option label { display: block; float: left; margin: 0 15px 20px 2px; position: relative; }
-#biz_vektor_options .image-radio-option input { margin: 0 0 10px; }
-#biz_vektor_options .image-radio-option span { display: block; }
-#biz_vektor_options .image-radio-option img { margin: 0 0 0 -2px; }
+.biz_vektor_options #wpcontent select option { padding-right: 5px; }
+.biz_vektor_options .image-radio-option td { padding-top: 15px; }
+.biz_vektor_options .image-radio-option label { display: block; float: left; margin: 0 15px 20px 2px; position: relative; }
+.biz_vektor_options .image-radio-option input { margin: 0 0 10px; }
+.biz_vektor_options .image-radio-option span { display: block; }
+.biz_vektor_options .image-radio-option img { margin: 0 0 0 -2px; }
 #link-color-example { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; border: 1px solid #dfdfdf; margin: 0 7px 0 3px; padding: 4px 14px; }
 
 body.rtl .image-radio-option label { float: right; margin: 0 2px 20px 30px; }

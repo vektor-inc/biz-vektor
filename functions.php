@@ -1,6 +1,6 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.1.2');
+define('BizVektor_Theme_Version', '1.1.3');
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -69,6 +69,8 @@ define('BizVektor_Theme_Version', '1.1.2');
 /*	Page _ Child page lists
 /*-------------------------------------------*/
 /*	HomePage _ add action filters
+/*-------------------------------------------*/
+/*	Archive _ loop custom filters
 /*-------------------------------------------*/
 /*	Aceept favicon upload
 /*-------------------------------------------*/
@@ -184,9 +186,10 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
-	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
-	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
-	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
+	// enqueue の場合あとで読み込まれてしまうため
+	echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/css/style_bizvektor_admin.css" />';
+	// $adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
+	// wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
 }
 add_action('admin_head', 'bizVektor_admin_css', 11);
 
@@ -393,7 +396,7 @@ function bizVektorAddWebFonts(){
 // Add BizVektor option css
 add_action('wp_head','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140914" type="text/css" media="all" />'."\n";
+	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140923a" type="text/css" media="all" />'."\n";
 	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
 	echo $optionStyle;
 }
@@ -692,6 +695,9 @@ function biz_vektor_contentMain_before(){
 function biz_vektor_contentMain_after(){
 	do_action('biz_vektor_contentMain_after');
 }
+/*-------------------------------------------*/
+/*	Archive _ loop custom filters
+/*-------------------------------------------*/
 function biz_vektor_archive_loop(){
 	do_action('biz_vektor_archive_loop');
 }

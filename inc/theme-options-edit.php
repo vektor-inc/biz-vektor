@@ -25,26 +25,35 @@
 /*  Theme option edit page
 /*-------------------------------------------*/
 function biz_vektor_theme_options_render_page() {
-	$updata = new biz_vektor_veryfi_tool;
-	$updata->update();
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
+	$biz_vektor_name = get_biz_vektor_name();
 	//echo "<pre>";print_r($options);echo "</pre>";
  ?>
-	<div class="wrap" id="biz_vektor_options">
+	<div class="wrap biz_vektor_options">
 		<?php screen_icon(); ?>
-		<h2><?php printf( __( '%s Theme Options', 'biz-vektor' ), get_biz_vektor_name() ); ?></h2>
-		<?php echo get_biz_vektor_name(); ?>_v<?php echo BizVektor_Theme_Version; ?>
+		<h2>
+			<?php
+			if (function_exists('biz_vektor_obu_get_options')) {
+				$obu_options = biz_vektor_obu_get_options();
+				if ($obu_options['system_logo']) {
+					echo '<img src="'.$obu_options['system_logo'].'" alt="'.$biz_vektor_name.'" />';
+				} else {
+					printf( __( '%s Theme Options', 'biz-vektor' ), $biz_vektor_name );
+				}
+			} else {
+				printf( __( '%s Theme Options', 'biz-vektor' ), $biz_vektor_name );
+			} ?>
+		</h2>
+		<div class="bv_version">Version <?php echo BizVektor_Theme_Version; ?></div>
 		<?php settings_errors(); ?>
-
-		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
+		
+		<?php if ( function_exists( 'biz_vektor_activation_information' ) ) {
 		biz_vektor_activation_information();
 		} else { ?>
 		<div id="sub-content">
-
 		<iframe frameborder="0" height="200" marginheight="0" marginwidth="0" scrolling="auto" src="http://bizvektor.com/info-admin/"></iframe>
-
 		</div>
 		<?php } ?>
 
@@ -52,14 +61,13 @@ function biz_vektor_theme_options_render_page() {
 global $biz_vektor_options;
 $biz_vektor_options = biz_vektor_get_theme_options();
 ?>
-
 		<div id="main-content">
-		<p class="message_intro">
+		<div class="message_intro">
 	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
-	<?php _e('Thank you for using BizVektor.', 'biz-vektor');?> 
+	<?php printf(__('Thank you for using %s.', 'biz-vektor'),$biz_vektor_name);?> 
 	<?php printf(__('You can change basic design settings from %s', 'biz-vektor'),$customizer_link); ?> <br />
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
-		</p>
+		</div>
 		<form method="post" action="options.php">
 		<input type="hidden" name="post_status" value="bvo" />
 			<?php
@@ -184,15 +192,10 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<th><?php _ex('Heading font', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
-	$biz_vektor_font_titles = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
-	foreach( $biz_vektor_font_titles as $biz_vektor_font_titleValue => $biz_vektor_font_titleLavel) {
-		if ( $biz_vektor_font_titleValue == $options['font_title'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="<?php echo $biz_vektor_font_titleValue ?>" checked> <?php echo $biz_vektor_font_titleLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="<?php echo $biz_vektor_font_titleValue ?>"> <?php echo $biz_vektor_font_titleLavel ?></label>
-		<?php }
-	}
+		if(!isset($options['font_title'])){ $options['font_title'] = 'sanserif'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="serif" <?php echo ($options['font_title'] != 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="sanserif" <?php echo ($options['font_title'] == 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
 	<td>
 	</tr>
 	<!-- Global Menu font -->
@@ -200,15 +203,10 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<th><?php _ex('Global Menu font', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
 	<?php
-	$biz_vektor_font_menus = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
-	foreach( $biz_vektor_font_menus as $biz_vektor_font_menuValue => $biz_vektor_font_menuLavel) {
-		if ($biz_vektor_font_menuValue == $options['font_menu'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>" checked> <?php echo $biz_vektor_font_menuLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>"> <?php echo $biz_vektor_font_menuLavel ?></label>
-		<?php }
-	}
+		if(!isset($options['font_menu'])){ $options['font_menu'] = 'sanserif'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="serif" <?php echo ($options['font_menu'] != 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="sanserif" <?php echo ($options['font_menu'] == 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
 	<td>
 	</tr>
 	<!-- Sidebar Child page menu display -->
@@ -216,16 +214,13 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<th><?php _e('Deployment of the sidebar menu', 'biz-vektor') ;?></th>
 	<td>
 		<p><?php _e('If the site hierarchy is deep, you can choose to hide this menu hierarchy other than the Page you are currently viewing.', 'biz-vektor');?></p>
-	<?php
-	$biz_vektor_side_childs = array('side_child_display' => __('Display', 'biz-vektor'),'side_child_hidden' => __('Hide', 'biz-vektor'),);
-	foreach( $biz_vektor_side_childs as $biz_vektor_side_childValue => $biz_vektor_side_childLavel) {
-		if ( $biz_vektor_side_childValue == $options['side_child_display'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[side_child_display]" value="<?php echo $biz_vektor_side_childValue ?>" checked> <?php echo $biz_vektor_side_childLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[side_child_display]" value="<?php echo $biz_vektor_side_childValue ?>"> <?php echo $biz_vektor_side_childLavel ?></label>
-		<?php }
-	}
+	<?php 
+		if(!isset($options['side_child_display'])){ $options['side_child_display'] = 'side_child_display'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[side_child_display]" value="side_child_display" <?php echo ($options['side_child_display'] != 'side_child_hidden')? 'checked' : ''; ?> > <?php _e('Display', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[side_child_display]" value="side_child_hidden" <?php echo ($options['side_child_display'] == 'side_child_hidden')? 'checked' : ''; ?> > <?php _e('Hide', 'biz-vektor'); ?></label>
+
+
 	<p>* <?php _e('This setting can not be changed from the theme customizer.', 'biz-vektor') ;?></p>
 	<td>
 	</tr>
@@ -290,7 +285,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('BizVektor, Inc.', 'biz-vektor') ;?></span><br />
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('Sample,Inc.', 'biz-vektor') ;?></span><br />
 	<?php _e('* Use this feature when the site name has become too long for SEO purposes.', 'biz-vektor') ;?>
 	</td>
 	</tr>
@@ -416,34 +411,18 @@ $i++;
 	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $infoLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array(
-		'listType_title' => __('Title only', 'biz-vektor'),
-		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
-	);
-	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
-		if ( $biz_vektor_listTypeValue == $options['listInfoTop'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php }
-	}
+		if(!isset($options['listInfoTop'])){ $options['listInfoTop'] = 'listType_set'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="listType_title" <?php echo ($options['listInfoTop'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="listType_set" <?php echo ($options['listInfoTop'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
 	</dd>
 	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $infoLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array(
-		'listType_title' => __('Title only', 'biz-vektor'),
-		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
-	);
-	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
-		if ( $biz_vektor_listTypeValue == $options['listInfoArchive'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php }
-	}
+		if(!isset($options['listInfoArchive'])){ $options['listInfoArchive'] = 'listType_set'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="listType_title" <?php echo ($options['listInfoArchive'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="listType_set" <?php echo ($options['listInfoArchive'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
 	</dd>
 	</dl>
 	<dl>
@@ -470,34 +449,18 @@ $i++;
 	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $postLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array(
-		'listType_title' => __('Title only', 'biz-vektor'),
-		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
-	);
-	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
-		if ( $biz_vektor_listTypeValue == $options['listBlogTop'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listBlogTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listBlogTop]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php }
-	}
+		if(!isset($options['listBlogTop'])){ $options['listBlogTop'] = 'listType_set'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[listBlogTop]" value="listType_title" <?php echo ($options['listBlogTop'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[listBlogTop]" value="listType_set" <?php echo ($options['listBlogTop'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
 	</dd>
 	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $postLabelName ); ?></dt>
 	<dd>
 	<?php
-	$biz_vektor_listTypes = array(
-		'listType_title' => __('Title only', 'biz-vektor'),
-		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
-	);
-	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
-		if ( $biz_vektor_listTypeValue == $options['listBlogArchive'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listBlogArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listBlogArchive]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php }
-	}
+		if(!isset($options['listBlogArchive'])){ $options['listBlogArchive'] = 'listType_set'; }
 	?>
+	<label><input type="radio" name="biz_vektor_theme_options[listBlogArchive]" value="listType_title" <?php echo ($options['listBlogArchive'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[listBlogArchive]" value="listType_set" <?php echo ($options['listBlogArchive'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
 	</dd>
 	</dl>
 	<!-- Post display count -->
@@ -562,7 +525,7 @@ $i++;
 <p>
 <?php
 $sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_blank">'.__('title of the site', 'biz-vektor').'</a>';
-printf( __( 'Normally, BizVektor will include the %s in the title tag.', 'biz-vektor' ), $sitetitle_link );?><br />
+printf( __( 'Normally, %1$s will include the %2$s in the title tag.', 'biz-vektor' ), $biz_vektor_name, $sitetitle_link );?><br />
 <?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if using a static page.', 'biz-vektor'); ?>
 <?php
 printf( __('However, it might have negative impact on search engine rankings if the &lt;title&gt; is too long, <strong>therefore please include the most popular keywords in a summarized manner, keeping the %s as short as possible.</strong>', 'biz-vektor'),$sitetitle_link) ; ?>
@@ -601,20 +564,12 @@ printf( __('However, it might have negative impact on search engine rankings if 
 	<dl>
 	<dt><?php _e('Please select the type of Analytics code . (If you are unsure you can skip this.)', 'biz-vektor'); ?></dt>
 	<dd>
-<?php
-$biz_vektor_gaTypes = array(
-	'gaType_normal' => __('To output only normal code (default)', 'biz-vektor'),
-	'gaType_universal' => __('To output the Universal Analytics code', 'biz-vektor'),
-	'gaType_both' => __('To output both types', 'biz-vektor')
-	);
-foreach( $biz_vektor_gaTypes as $biz_vektor_gaTypeValue => $biz_vektor_gaTypeLavel) {
-	if ( $biz_vektor_gaTypeValue == $options['gaType'] ) { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="<?php echo $biz_vektor_gaTypeValue ?>" checked> <?php echo $biz_vektor_gaTypeLavel ?></label><br />
-	<?php } else { ?>
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="<?php echo $biz_vektor_gaTypeValue ?>"> <?php echo $biz_vektor_gaTypeLavel ?></label><br />
-	<?php }
-}
-?>
+	<?php
+		if(!isset($options['gaType'])){ $options['gaType'] = 'gaType_normal'; }
+	?>
+	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_normal" <?php echo ($options['gaType'] != 'gaType_universal' && $options['gaType'] != 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output only normal code (default)', 'biz-vektor'); ?></label><br />
+	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_universal" <?php echo ($options['gaType'] == 'gaType_universal')? 'checked' : ''; ?> > <?php _e('To output the Universal Analytics code', 'biz-vektor'); ?></label><br />
+	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_both" <?php echo ($options['gaType'] == 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output both types', 'biz-vektor'); ?></label>
 	</dd>
 	</dl>
 </td>
@@ -872,11 +827,9 @@ px</dd>
 <tr>
 <th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
 <td>
-<p><?php _e('If other plug-ins are used for the OGP, do not output the OGP using BizVektor.', 'biz-vektor'); ?></p>
-
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php echo __('I want to output the OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php echo __('Do not output OGP tags using BizVektor', 'biz-vektor'); ?></label><br />
-
+<p><?php printf(__('If other plug-ins are used for the OGP, do not output the OGP using %s.', 'biz-vektor'),$biz_vektor_name); ?></p>
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php printf( __('I want to output the OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php printf( __('Do not output OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
 </td>
 </tr>
 <!-- twitter card -->
@@ -896,9 +849,16 @@ px</dd>
 </form>
 
 <?php if(false){ ?>
+<?php $resetkey = rand(1000,9999); ?>
 <div class="option Advanced"><form action="" method="post">
+<?php settings_fields( 'biz_vektor_options' ); ?>
 <input type="hidden" name="bizvektor_action_mode" value="reset" />
-<p class="submit"><label style="font-weight:bold;color:red;"><input type="submit" name="submit" id="submit" class="button button-primary" value="設定を初期化"  />   ※ ビズベクトルテーマの設定がすべて初期化されます。</label></p>
+<input type="hidden" name="bizvektor_reset_key"  value="<?php echo $resetkey; ?>" />
+<p style="font-weight: bold;font-size: 23px;font-family: ariel;color:red"><?php echo $resetkey; ?></p>
+<p>設定項目のリセットを行います。テーマカスタマイザーを含め全てのBizVektor設定がデフォルトに戻ります。了承される場合は上の数字を入力し、チェックボックスをクリックして「設定を初期化」ボタンをクリックしてください。</p>
+<input type="text" name="bizvektor_reset_key_port" value="" />
+<label><input type="checkbox" name="bizvektor_reset_check" value="True" />私は設定を初期化します</label>
+<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="設定を初期化"  /></p>
 </form></div>
 
 <div class="optionNav bottomNav">

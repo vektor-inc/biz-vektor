@@ -1,3 +1,9 @@
+<?php /* If search null ,redirect to top */
+if (isset($_GET['s']) && empty($_GET['s'])) {
+	header("Location: ".home_url());
+	exit;
+}
+?>
 <?php get_header(); ?>
 
 <!-- [ #container ] -->

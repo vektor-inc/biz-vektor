@@ -656,8 +656,8 @@ msgstr "【記入例】"
 msgid "Theme customizer"
 msgstr "テーマカスタマイザー"
 
-msgid "Thank you for using BizVektor."
-msgstr "BizVektorのご利用ありがとうございます。"
+msgid "Thank you for using %s."
+msgstr "%sのご利用ありがとうございます。"
 
 msgid "You can change basic design settings from %s"
 msgstr "デザインなど基本的な設定は %s から行う事が出来ます。"
@@ -789,8 +789,8 @@ msgstr "お気軽にお問い合わせください"
 msgid "Weekdays except holidays"
 msgstr "土・日・祝日除く"
 
-msgid "BizVektor, Inc."
-msgstr "BizVektor株式会社"
+msgid "Sample,Inc."
+msgstr "株式会社サンプル"
 
 msgid "This is displayed in the left bottom part of the footer."
 msgstr "* フッター左下に表示されます"
@@ -840,6 +840,12 @@ msgstr "PRエリア"
 # ######################################
 # Information and Blog
 # ######################################
+msgid "Information"
+msgstr "お知らせ"
+
+msgid "Blog"
+msgstr "ブログ"
+
 msgid "Settings for [ %s ] and [ %s ]."
 msgstr "「%s」と「%s」の設定"
 
@@ -935,8 +941,8 @@ msgstr "トップページの&lt;title&gt;タグ"
 msgid "title of the site"
 msgstr "サイトタイトル"
 
-msgid "Normally, BizVektor will include the %s in the title tag."
-msgstr "BizVektorは通常 %s が全ページの&lt;title&gt;に入ります。"
+msgid "Normally, %1$s will include the %2$s in the title tag."
+msgstr "%1$s は通常 %2$s が全ページの&lt;title&gt;に入ります。"
 
 msgid ""
 "For example, it appears in the form of <br />&lt;title&gt;page title | site "
@@ -1389,18 +1395,16 @@ msgstr "LikeBoxの高さ"
 msgid "Do not output the OGP"
 msgstr "OGPを出力しない"
 
-msgid ""
-"If other plug-ins are used for the OGP, do not output the OGP using "
-"BizVektor."
+msgid "If other plug-ins are used for the OGP, do not output the OGP using %s."
 msgstr ""
-"他のプラグインがOGPを出力している場合はBizVektorのOGPを出力しないようにして下"
-"さい。"
+"他のプラグインがOGPを出力している場合は %s のOGPを出力しないようにして下さ"
+"い。"
 
-msgid "I want to output the OGP tags using BizVektor"
-msgstr "BizVektorのOGPタグを出力する"
+msgid "I want to output the OGP tags using %s"
+msgstr "%s のOGPタグを出力する"
 
-msgid "Do not output OGP tags using BizVektor"
-msgstr "BizVektorのOGPタグを出力しない"
+msgid "Do not output OGP tags using %s"
+msgstr "%s のOGPタグを出力しない"
 
 msgid "Page top"
 msgstr "このページの先頭へ戻る"
