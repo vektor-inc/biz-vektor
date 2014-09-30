@@ -765,7 +765,7 @@ function get_biz_vektor_contactBtn(){
 	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$biz_vektor_options['contact_link'].'">'."\n";
 	$sideContactBtnImage = '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'">';
 	$sideContactBtnImage = apply_filters( 'bizvektor_side_contact_btn_image', $sideContactBtnImage );
-	$contactBtn .= $contactBtnImage."\n";
+	$contactBtn .= $sideContactBtnImage."\n";
 	$contactBtn .= '</a></li>'."\n";
 	$contactBtn .= '</ul>'."\n";
 	$contactBtn = apply_filters( 'biz_vektor_side_contactBtn', $contactBtn );
