@@ -14,6 +14,7 @@
 #sideTower .ttBox a { text-decoration: none; color: #333; }
 #sideTower .ttBox a:hover { text-decoration: underline; }
 #sideTower .ttBox .ttBoxThumb { width: 80px; }
+#sideTower .sideWidget .tagcloud { margin-top: 10px; }
 
 #content .subPostListSection { display: block; overflow: hidden; position: relative; padding-bottom: 20px; }
 #content .subPostListSection ul { margin: 0; }
