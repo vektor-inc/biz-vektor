@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <![endif]-->
 <?php global $biz_vektor_options;
 biz_vektor_get_theme_options(); ?>
