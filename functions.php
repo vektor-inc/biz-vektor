@@ -85,6 +85,8 @@ get_template_part('plugins/sns/sns');
 
 get_template_part('plugins/add_post_type/add_post_type');
 
+get_template_part('plugins/css_customize/css-customize');
+
 add_post_type_support( 'info', 'front-end-editor' );
 
 /*-------------------------------------------*/
