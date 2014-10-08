@@ -6,8 +6,8 @@
 function biz_vektor_css_customize_menu() 
 {
 	add_theme_page(
-		__( 'CSSをカスタマイズ', 'biz_vektor_css_customize_title'),
-		__( 'CSSをカスタマイズ', 'biz_vektor_css_customize_menu'),
+		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_title'),
+		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_menu'),
 		'manage_options',
 		'biz-vektor-css-customize-menu',
 		'biz_vektor_css_customize_render_page'
@@ -21,6 +21,38 @@ function biz_vektor_css_customize_render_page()
 	$data = biz_vektor_css_customize_valid_form();
 
 	include(locate_template('plugins/css_customize/css-customize-html.php'));
+}
+/*-------------------------------------------*/
+/*	設定画面のCSSとJS
+/*-------------------------------------------*/
+add_action( 'admin_footer', 'css_customize_page_js_and_css');
+function css_customize_page_js_and_css( $hook_suffix ) {
+	global $hook_suffix;
+	if ( $hook_suffix == 'appearance_page_biz-vektor-css-customize-menu' ){
+	?>
+<style type="text/css">
+#tipsList h3 { background-color: #333; color:#fff; padding: 5px 10px; border-left:4px solid #e50000; }
+#tipsList ul li { font-size:16px; }
+#tipsBody { margin-top:20px; border-top:1px solid #ccc;padding-top:20px; }
+#tipsBody code{ display:block; overflow:hidden; }
+#tipsBody dl { margin-bottom:20px; }
+#tipsBody dl dt { margin-bottom:5px; }
+</style>
+ <script type="text/javascript">
+jQuery(document).ready(function($){
+	jQuery("#tipsBody dl").each(function(){
+		var targetId = jQuery(this).attr("id");
+		var targetTxt = jQuery(this).find("dt").text();
+		// console.log(targetId+" : "+targetTxt);
+		var listItem = '<li><a href="#'+ targetId +'">'+ targetTxt +'</a></li>'
+		jQuery('#tipsList ul').append(listItem);
+	});
+});
+</script>
+
+
+	<?php
+	}
 }
 
 function biz_vektor_css_customize_valid_form()
