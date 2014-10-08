@@ -9,7 +9,7 @@ function biz_vektor_css_customize_menu()
 		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_title'),
 		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_menu'),
 		'manage_options',
-		'biz-vektor-css-customize-menu',
+		'theme-css-customize',
 		'biz_vektor_css_customize_render_page'
 	);
 }
@@ -20,7 +20,7 @@ function biz_vektor_css_customize_render_page()
 {
 	$data = biz_vektor_css_customize_valid_form();
 
-	include(locate_template('plugins/css_customize/css-customize-html.php'));
+	include(locate_template('plugins/css_customize/css-customize-edit.php'));
 }
 /*-------------------------------------------*/
 /*	設定画面のCSSとJS
@@ -28,7 +28,7 @@ function biz_vektor_css_customize_render_page()
 add_action( 'admin_footer', 'css_customize_page_js_and_css');
 function css_customize_page_js_and_css( $hook_suffix ) {
 	global $hook_suffix;
-	if ( $hook_suffix == 'appearance_page_biz-vektor-css-customize-menu' ){
+	if ( $hook_suffix == 'appearance_page_theme-css-customize' ){
 	?>
 <style type="text/css">
 #tipsList h3 { background-color: #333; color:#fff; padding: 5px 10px; border-left:4px solid #e50000; }
