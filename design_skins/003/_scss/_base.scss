@@ -189,7 +189,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 /*-------------------------------------------*/
 /*	#headerTop
 /*-------------------------------------------*/
-#headerTop	{ overflow:hidden;color:#666;  width:100%; clear:both; font-size:85.7%; 
+#headerTop	{ overflow:hidden;color:#666;  width:100%; clear:both; font-size:85.7%;
 	#site-description { font-size:10px;line-height:$line_low;padding:2px 0px;display:none; }
 }
 
@@ -217,7 +217,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 	.screen-reader-text { position: absolute; left: -9000px; }
 	.innerBox	{ overflow:visible; display:block; position:relative;padding:0px;margin:0px;width:100%;}
 }
-.headSubMenu { 
+.headSubMenu {
 	li { float:left;
 			a { text-decoration: none;color:#666; }
 	}
@@ -329,13 +329,15 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 		tfoot th,
 		tfoot td	{font-weight:bold;}
 		th,
-		td { border: 1px solid $color_border; padding: 10px 10px; vertical-align:top; display: block;
+		td { border: 1px solid $color_border; padding: 10px 10px; vertical-align:top;
 			ul,
 			ol	{ margin-bottom:0px;margin-left:15px;
 				li	{ margin:2px 0px; }
 			}
 		}
 	}
+	table.mobile-block th,
+	table.mobile-block td { border-top:none;display: block; }
 	dt		{ padding-bottom:3px;margin-bottom:10px; }
 	dd		{ margin:0px 0px 30px;padding:0px;}
 } // #content
@@ -553,7 +555,7 @@ border:1px solid $color_key;padding:5px 15px 5px;}
 /*		#footerSiteMap
 /*-------------------------------------------*/
 #footerSiteMap	{ display:block; overflow:hidden;width:100%;padding-top:15px;
-	.menu	{ font-size:87.5%; vertical-align:text-top; 
+	.menu	{ font-size:87.5%; vertical-align:text-top;
 		a	{ text-decoration:none;}
 		a:hover	{ color:#f00; }
 		li	{ display:block;vertical-align:text-top; line-height:116.7%; }
@@ -721,5 +723,5 @@ h1,h2,h3,h4,h4,h6,
 #header #site-title,
 #pageTitBnr #pageTitInner #pageTit,
 .leadTxt,
-.menu li a strong, 
+.menu li a strong,
 #sideTower .localHead {font-family: $font_face;}

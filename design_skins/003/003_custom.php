@@ -106,7 +106,7 @@ function biz_vektor_rebuild_print_css(){
 	if (is_rebuild()){
 	$rebuildOptions = biz_vektor_get_theme_options_rebuild();
 	$rebuild_array = array(
-		array( 
+		array(
 			'key' => 'theme_plusKeyColor',
 			'name' => 'Keycolor',
 			'default' => '#e90000'
@@ -193,6 +193,8 @@ form#searchform input#searchsubmit:hover { background-color:<?php echo $color_ke
 #sideTower .sideWidget li > a:hover,
 #sideTower .sideWidget li.current_page_item > a,
 #sideTower .sideWidget li.current-cat > a	{ color:<?php echo $color_key['theme_plusKeyColor'];?>; background-color:<?php echo $color_key['theme_plusKeyColorVeryLight'];?>; }
+
+#sideTower .ttBoxSection .ttBox a:hover { color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 #footMenu { border-top-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 #footMenu .menu li a:hover { color:<?php echo $color_key['theme_plusKeyColor']; ?> }

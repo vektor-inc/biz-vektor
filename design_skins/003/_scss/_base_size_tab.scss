@@ -4,8 +4,8 @@
 #main #container	{ padding-top:20px;}
 #main #container #content	{ margin:0px auto; }
 #content p	{ line-height:170%; }
-#content table th,
-#content table td { display:table-cell; }
+#content table.mobile-block th,
+#content table.mobile-block td { display: table-cell; }
 #content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
 #content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
 #content .mainFootContact .mainFootBt	{ float:right; }
@@ -13,7 +13,7 @@
 #content .mainFootContact .mainFootBt a img	{ width:auto; }
 .paging span.pageIndex { display:inline; }
 #content {
-	.topPr { display:block; overflow:hidden; 
+	.topPr { display:block; overflow:hidden;
 		.topPrOuter	{ padding:0px;border-bottom:none;margin-bottom:20px; }
 		#topPrLeft 	{ width:33.1%; text-align:left; float:left;display:block; overflow:visible; }
 		#topPrCenter { width:33.1%; text-align:center;float:left;display:block; overflow:visible; }

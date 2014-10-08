@@ -7,7 +7,7 @@
 
 #content p { line-height: 170%; }
 
-#content table th, #content table td { display: table-cell; }
+#content table.mobile-block th, #content table.mobile-block td { display: table-cell; }
 
 #content .mainFootContact p.mainFootTxt { float: left; margin-bottom: 0px; text-align: left; }
 
