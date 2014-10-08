@@ -31,7 +31,7 @@ function biz_vektor_css_customize_valid_form()
 	);
 
 	if( isset($_POST['bv-css-submit']) && !empty($_POST['bv-css-submit'])
-		&& isset($_POST['bv-css-css']) && !empty($_POST['bv-css-css'])
+		&& isset($_POST['bv-css-css']) 
 		&& isset($_POST['biz-vektor-css-nonce']) && wp_verify_nonce( $_POST['biz-vektor-css-nonce'], 'biz-vektor-css-submit' ) )
 	{
 		require_once(TEMPLATEPATH . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'css_customize' . DIRECTORY_SEPARATOR . 'class.inputfilter_clean.php');	
@@ -43,8 +43,6 @@ function biz_vektor_css_customize_valid_form()
 
 		if( update_option('biz_vektor_css_custom', $cleanCSS) )
 			$data['mess'] = '<div id="message" class="updated"><p>' . __( 'CSSが保存されました。', 'biz_vektor_css_customize_success') . '</p></div>';
-		else
-			$data['mess'] = '<div id="message" class="error"><p>' . __( 'エラーが発生しました。', 'biz_vektor_css_customize_error') . '</p></div>';
 	}
 	else
 	{
