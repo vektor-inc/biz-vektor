@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <![endif]-->
 <?php global $biz_vektor_options;
 biz_vektor_get_theme_options(); ?>
@@ -36,6 +36,9 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 	print '<![endif]-->'."\n";
 } ?>
 <meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<style type="text/css">
+	<?php echo esc_attr(biz_vektor_css_customize_get_css()); ?>
+</style>
 </head>
 
 <body <?php body_class(); ?>>

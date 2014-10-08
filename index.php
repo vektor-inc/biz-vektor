@@ -48,7 +48,11 @@ if ( !$postType ) {
 	<?php
 	$options = biz_vektor_get_theme_options();
 
-	if ($postType == 'info') : ?>
+	if (is_biz_vektor_archive_loop()) : ?>
+
+		<?php biz_vektor_archive_loop(); ?>
+
+	<?php elseif ($postType == 'info') : ?>
 
 		<?php if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -61,10 +65,6 @@ if ( !$postType ) {
 			<?php endwhile; ?>
 			</ul>
 		<?php endif; //$options['listInfoArchive'] ?>
-
-	<?php elseif (is_biz_vektor_archive_loop()) : ?>
-
-		<?php biz_vektor_archive_loop(); ?>
 
 	<?php else : ?>
 

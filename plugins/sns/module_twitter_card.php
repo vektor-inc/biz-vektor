@@ -14,6 +14,7 @@ if ( ( is_single() || is_page() ) && has_post_thumbnail() ) {
 preg_match( '/https?:\/\/(.+?)\//i', admin_url(), $match );
 // image size
 if (isset($card_image_url) && $card_image_url){
+	ini_set('allow_url_fopen',"On");
 	list($width,$height) = getimagesize($card_image_url);
 }
 if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && $card_image_url ) :?>

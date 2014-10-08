@@ -54,7 +54,7 @@ if (have_posts()) :
 	<p><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
 	<div class="moreLink"><a href="<?php the_permalink(); ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
 	</div>
-	<span class="linkBtn linkBtnS linkBtnAdmin"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
+	<span class="linkBtn linkBtnS linkBtnAdmin adminEdit"><?php edit_post_link(__('Edit', 'biz-vektor')); ?></span>
 </div>
 </div>
 <!-- /.child_page_block -->

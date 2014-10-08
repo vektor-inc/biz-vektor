@@ -1,6 +1,6 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.1.2');
+define('BizVektor_Theme_Version', '1.1.4');
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -84,6 +84,10 @@ add_theme_support( 'automatic-feed-links' );
 get_template_part('plugins/sns/sns');
 
 get_template_part('plugins/add_post_type/add_post_type');
+
+get_template_part('plugins/css_customize/css-customize');
+
+get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
 add_post_type_support( 'info', 'front-end-editor' );
 
@@ -186,9 +190,10 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
-	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
-	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
-	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
+	// enqueue の場合あとで読み込まれてしまうため
+	echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/css/style_bizvektor_admin.css" />';
+	// $adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
+	// wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
 }
 add_action('admin_head', 'bizVektor_admin_css', 11);
 

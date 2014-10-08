@@ -303,9 +303,10 @@ function biz_vektor_theme_style() {
 	// wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
 
 	$themePath = $biz_vektor_theme_styles[$theme_style]['cssPath'];
-	print '<!-- BizVektorStyle-->'."\n";
-	print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
-	print '<!-- /BizVektorStyle-->'."\n";
+	$system_name = get_biz_vektor_name();
+	echo '<!-- '.$system_name.' Style-->'."\n";
+	echo '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
+	echo '<!-- /'.$system_name.' Style-->'."\n";
 
 	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
 
@@ -764,7 +765,7 @@ function get_biz_vektor_contactBtn(){
 	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$biz_vektor_options['contact_link'].'">'."\n";
 	$sideContactBtnImage = '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'biz-vektor').'" alt="'.__('Contact us by e-mail', 'biz-vektor').'">';
 	$sideContactBtnImage = apply_filters( 'bizvektor_side_contact_btn_image', $sideContactBtnImage );
-	$contactBtn .= $contactBtnImage.'</a></li>'."\n";
+	$contactBtn .= $sideContactBtnImage."\n";
 	$contactBtn .= '</a></li>'."\n";
 	$contactBtn .= '</ul>'."\n";
 	$contactBtn = apply_filters( 'biz_vektor_side_contactBtn', $contactBtn );

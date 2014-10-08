@@ -207,6 +207,7 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 
 @media (min-width: 770px) {
 #gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current-menu-item > a,
 #gMenu .menu > li.current_page_ancestor > a ,
 #gMenu .menu > li.current-page-ancestor > a ,
 #gMenu .menu > li > a:hover	{
@@ -222,6 +223,7 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 <!--[if lte IE 8]>
 <style type="text/css">
 #gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current_menu_item > a,
 #gMenu .menu > li.current_page_ancestor > a ,
 #gMenu .menu > li.current-page-ancestor > a ,
 #gMenu .menu > li > a:hover	{
