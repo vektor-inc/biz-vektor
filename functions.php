@@ -87,6 +87,8 @@ get_template_part('plugins/add_post_type/add_post_type');
 
 get_template_part('plugins/css_customize/css-customize');
 
+get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
+
 add_post_type_support( 'info', 'front-end-editor' );
 
 /*-------------------------------------------*/
