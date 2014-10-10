@@ -246,13 +246,16 @@ position:relative; line-height:114.3%;}
 #content h2	a	{ text-decoration:none; }
 #content h2.imageTit	{ margin:0px 0px 30px; border:none; padding:0px; background:none; }
 #content h3	{ clear:both; font-size:18px;margin:30px 0px 25px; padding:2px 0px 0px 15px; border-left:3px solid #666;color:#333; }
-#content h4 { clear:both; font-size:16px;margin:30px 0px 10px; padding:10px 0px 2px; border-bottom:1px dotted #ccc;}
-#content h5 { clear:both; font-size:16px;margin:30px 0px 10px; padding:10px 0px 0px;}
-#content h6 { clear:both; font-size:14px;margin:30px 0px 8px; padding:10px 0px 0px;}
+#content h4 { clear:both; font-size:16px;margin:30px 0px 10px; padding:0px 0px 2px; border-bottom:1px dotted #ccc;}
+#content h5 { clear:both; font-size:16px;margin:30px 0px 10px; padding:0;}
+#content h6 { clear:both; font-size:14px;margin:30px 0px 8px; padding:0;}
 
 #content p { margin-bottom: 20px;padding:0px 5px; }
 #content blockquote,
-#content .sectionFrame { border:1px solid #ccc; background-color:#f5f5f5; padding:20px 15px 0px;margin-bottom:20px; clear:both; }
+#content .sectionFrame { border:1px solid #ccc; background-color:#f5f5f5; padding:20px 25px 0px;margin-bottom:20px; clear:both; }
+#content blockquote h2,#content blockquote h3,#content blockquote h4,#content blockquote h5,#content blockquote h6,
+#content .sectionFrame h2,#content .sectionFrame h3,#content .sectionFrame h4,#content .sectionFrame h5,#content .sectionFrame h6 { margin-top:0; }
+
 #content strong	{ font-weight:bold; }
 #content address { margin-bottom:20px; }
 
