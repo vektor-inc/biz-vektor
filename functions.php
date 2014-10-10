@@ -157,7 +157,7 @@ endif;
 
 function biz_vektor_setup(){
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'ffffff',
+		'default-color' => '#ffffff',
 	) );
 }
 add_action( 'after_setup_theme', 'biz_vektor_setup' );
