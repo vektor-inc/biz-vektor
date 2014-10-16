@@ -55,12 +55,12 @@ function biz_vektor_dashboard_widget_function()
 					$content 	= $item->get_content();
 
 					if( isset($test_date) && !is_null($test_date) )
-						$item_date = $item->get_date( get_option('date_format') ) . '&nbsp;&nbsp;';
+						$item_date = $item->get_date( get_option('date_format') ) . '<br />';
 					else
 						$item_date = '';
 
-					$output .= '<li>';
-					$output .= '<span class="rss-date">' . $item_date . '</span>';
+					$output .= '<li style="color:#777;">';
+					$output .= $item_date;
 					$output .= '<a href="' . esc_url( $item->get_permalink() ) . '" title="' . $item_date . '">';
 					$output .= esc_html( $item->get_title() );
 					$output .= '</a>';

@@ -10,6 +10,7 @@ if ( !$postType ) {
 	<!-- [ #content ] -->
 	<div id="content">
 	<?php
+
 /*-------------------------------------------*/
 /*	Archive title
 /*-------------------------------------------*/
@@ -46,6 +47,7 @@ if ( !$postType ) {
 	?>
 	<div class="infoList">
 	<?php
+
 	$options = biz_vektor_get_theme_options();
 
 	if (is_biz_vektor_archive_loop()) : ?>
