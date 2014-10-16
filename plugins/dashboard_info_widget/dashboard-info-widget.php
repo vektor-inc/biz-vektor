@@ -19,7 +19,8 @@ function biz_vektor_dashboard_widget_function()
 
 	$my_feeds = array( 
 		array('feed_url' => 'http://bizvektor.com/feed/?post_type=info', 'feed_title' => 'BizVektorからのお知らせ' ),
-		array('feed_url' => 'http://bizvektor.com/forum/feed/?post_type=topic', 'feed_title' => 'BizVektorフォーラム' ) 
+		array('feed_url' => 'http://bizvektor.com/forum/feed/?post_type=topic', 'feed_title' => 'BizVektorフォーラム' ), 
+		array('feed_url' => 'http://bizvektor.com/feed/?post_type=blog', 'feed_title' => 'BizVektor Developers Blog' ) 
 	);
 
 	foreach ( $my_feeds as $feed )
