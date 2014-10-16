@@ -39,7 +39,7 @@ function biz_vektor_ogp() {
 	} else {
 		$linkUrl = get_permalink();
 	}
-	$bizVektorOGP = '<!-- [ BizVektorOGP ] -->'."\n";
+	$bizVektorOGP = '<!-- [ '.get_biz_vektor_name().' OGP ] -->'."\n";
 	$bizVektorOGP .= '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
 	$bizVektorOGP .= '<meta property="og:url" content="'.$linkUrl.'" />'."\n";
 	if (isset($options['fbAppId'])){
@@ -83,7 +83,7 @@ function biz_vektor_ogp() {
 			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
 		}
 	}
-	$bizVektorOGP .= '<!-- [ /BizVektorOGP ] -->'."\n";
+	$bizVektorOGP .= '<!-- [ /'.get_biz_vektor_name().' OGP ] -->'."\n";
 	if ( isset($options['ogpTagDisplay']) && $options['ogpTagDisplay'] == 'ogp_off' ) {
 		$bizVektorOGP = '';
 	}
