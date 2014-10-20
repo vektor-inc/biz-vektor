@@ -342,14 +342,14 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		// print '<pre>';print_r($instance);print '</pre>';
 		echo '<div class="sideWidget">';
 		echo '<h3 class="localHead">';
-		if ( $instance['label'] ) {
+		if ( isset($instance['label']) && $instance['label'] ) {
 			echo $instance['label'];
 		} else {
 			_e('Recent Posts', 'biz-vektor' );
 		}
 		echo '</h3>';
 		echo '<div class="ttBoxSection">';
-		$count = ( $instance['count'] ) ? $instance['count'] : 10;
+		$count = ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
 		$post_loop = new WP_Query( array(
 			'post_type' => 'post',
 			'posts_per_page' => $count,
