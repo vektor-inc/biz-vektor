@@ -104,7 +104,10 @@ form#searchform input#searchsubmit,
 a.btn,
 .linkBtn a,
 input[type=button],
-input[type=submit]	{ display:inline-block; overflow:hidden; margin-top:15px; position:relative;padding:8px 20px 6px;text-decoration:none;cursor:pointer;border:none; }
+input[type=submit]	{ display:inline-block; overflow:hidden; margin-top:15px; position:relative;padding:8px 20px 6px;text-decoration:none;cursor:pointer;border:none;background-color:#efefef; }
+
+a.btn:hover,
+.linkBtn a:hover { background-color:#e5e5e5;color:#666; }
 
 a.btn.btnS,
 .linkBtn.linkBtnS a { padding:5px 10px; font-size:85.7%; }
@@ -242,7 +245,8 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 position:relative; line-height:114.3%;}
 #content h1.entryPostTitle	{ margin:0px 0px 5px; }
 #content h1,
-#content h2	{ margin:0px 0px 25px; }
+#content h2:first-child	{ margin:0px 0px 25px; }
+#content h2	{ margin:30px 0px 25px; }
 #content h2	a	{ text-decoration:none; }
 #content h2.imageTit	{ margin:0px 0px 30px; border:none; padding:0px; background:none; }
 #content h3	{ clear:both; font-size:18px;margin:30px 0px 25px; padding:2px 0px 0px 15px; border-left:3px solid #666;color:#333; }
