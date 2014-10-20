@@ -27,8 +27,6 @@
 @media (min-width: 500px) { #content .subPostListSection .ttBox { width: 47%; }
   #content .subPostListSection .ttBox:nth-child(odd) { clear: both; float: left; }
   #content .subPostListSection .ttBox:nth-child(2n) { float: right; } }
-.dummyImage { padding: 20px; display: table-cell; vertical-align: middle; text-align: center; background-color: #f5f5f5; border: 1px solid #ccc; }
-
 /*			contactform7
 /*-------------------------------------------*/
 #content .wpcf7 { margin-top: 20px; }
@@ -79,6 +77,12 @@
 #content .flowBox dl dd p { margin-bottom: 10px; }
 
 #content .flowBox dl dd ul { margin-bottom: 0px; }
+
+.dummyImage { padding: 20px; display: block; vertical-align: middle; text-align: center; background-color: #f5f5f5; border: 1px solid #ccc; margin-bottom: 15px; }
+
+.floatLeft { float: left; margin-right: 20px; }
+
+.floatRight { float: right; margin-left: 20px; }
 
 /*
 Grunt で統合するファイル
