@@ -141,7 +141,7 @@ class wp_widget_page extends WP_Widget {
 	function wp_widget_page() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_page_post',
-			'description' => '固定ページの内容を出力します',
+			'description' => '固定ページの内容を出力します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
@@ -332,7 +332,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	function WP_Widget_bizvektor_post_list() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_bizvektor_post_list',
-			'description' => '最近の投稿を表示します。',
+			'description' => '最近の投稿一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_'.__('Recent Posts', 'biz-vektor' );
 		$this->WP_Widget('bizvektor_post_list', $widget_name, $widget_ops);
