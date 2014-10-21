@@ -236,7 +236,7 @@ class WP_Widget_top_list_post extends WP_Widget {
 		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_post',
-			'description' => $biz_vektor_options['postLabelName'].'の新着記事を表示します。',
+			'description' => $biz_vektor_options['postLabelName'].'の新着記事一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_'.$biz_vektor_options['postLabelName'].'リスト';
 		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
@@ -262,7 +262,7 @@ class WP_Widget_top_list_info extends WP_Widget {
 		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_info',
-			'description' => $biz_vektor_options['infoLabelName'].'の新着記事を表示します。',
+			'description' => $biz_vektor_options['infoLabelName'].'の新着記事一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_'.$biz_vektor_options['infoLabelName'].'リスト';
 		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
