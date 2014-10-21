@@ -1,67 +1,73 @@
 <?php global $biz_vektor_options; ?>
 <!-- [ #sitemapOuter ] -->
 <div id="sitemapOuter">
-<div id="sitemapPageList">
-<ul class="linkList">
-<?php wp_list_pages('title_li='); ?>
-</ul>
-</div>
+	<div id="sitemapPageList">
+		<ul class="linkList">
+			<?php wp_list_pages('title_li='); ?>
+		</ul>
+	</div>
 
-<!-- [ #sitemapPostList ] -->
-<div id="sitemapPostList">
+	<!-- [ #sitemapPostList ] -->
+	<div id="sitemapPostList">
 
-	<!-- [ info ] -->
-	<?php
-	$args = array( 'post_type' => 'info');
-	$posts = get_posts($args);
-	if (isset($posts) && $posts): ?>
-	<h5><a href="<?php echo home_url(); ?>/info/"><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></a></h5>
-	<?php 
-	$args = array(
-		'taxonomy' => 'info-cat',
-		'title_li' => '',
-		'orderby' => 'order',
-		'show_option_none' => '',
-		'echo' => 0
-	);
-	$term_list = wp_list_categories( $args );
-	if ( !empty($term_list) ) {
-		echo '<ul class="linkList">'.$term_list.'</ul>';
-	}
-	endif;
-	wp_reset_postdata(); ?>
-	<!-- [ /info ] -->
-	<!-- [ post ] -->
-	<?php
-	unset($posts);
-	$args = array( 'post_type' => 'post');
-	$posts = get_posts($args);
-	if (isset($posts) && $posts): ?>
-	<h5><?php
-		$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
-		if ($postTopUrl) {
-			echo '<h5><a href="'.$postTopUrl.'">'.esc_html(bizVektorOptions('postLabelName')).'</a></h5>';
-		} else {
-			echo '<h5>'.esc_html(bizVektorOptions('postLabelName')).'</h5>';
+		<!-- [ info ] -->
+		<?php
+		$args = array( 'post_type' => 'info');
+		$posts = get_posts($args);
+		if (isset($posts) && $posts): ?>
+			<h5>
+				<a href="<?php echo home_url(); ?>/info/"><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></a>
+			</h5><?php 
+
+		$args = array(
+			'taxonomy' => 'info-cat',
+			'title_li' => '',
+			'orderby' => 'order',
+			'show_option_none' => '',
+			'echo' => 0
+		);
+		$term_list = wp_list_categories( $args );
+
+		if ( !empty($term_list) ) {
+			echo '<ul class="linkList">'.$term_list.'</ul>';
 		}
-	?></h5>
-	<?php 
-	$args = array(
-		'taxonomy' => 'category',
-		'title_li' => '',
-		'orderby' => 'order',
-		'show_option_none' => '',
-		'echo' => 0
-	);
-	$term_list = wp_list_categories( $args );
-	if ( !empty($term_list) ) {
-		echo '<ul class="linkList">'.$term_list.'</ul>';
-	}
-	endif;
-	wp_reset_postdata(); ?>
-	<!-- [ /post ] -->
+		endif;
+		wp_reset_postdata(); ?><!-- [ /info ] -->
 
-</div>
-<!-- [ #sitemapPostList ] -->
-</div>
-<!-- [ /#sitemapOuter ] -->
+		<!-- [ post ] -->
+		<?php
+
+		unset($posts);
+		$args = array( 'post_type' => 'post');
+		$posts = get_posts($args);
+
+		if (isset($posts) && $posts): ?>
+			<h5><?php
+
+				$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
+				if ($postTopUrl) {
+					echo '<h5><a href="'.$postTopUrl.'">'.esc_html(bizVektorOptions('postLabelName')).'</a></h5>';
+				} 
+				else {
+					echo '<h5>'.esc_html(bizVektorOptions('postLabelName')).'</h5>';
+				}
+			?>
+			</h5><?php 
+
+			$args = array(
+				'taxonomy' => 'category',
+				'title_li' => '',
+				'orderby' => 'order',
+				'show_option_none' => '',
+				'echo' => 0
+			);
+			$term_list = wp_list_categories( $args );
+
+			if ( !empty($term_list) ) {
+				echo '<ul class="linkList">'.$term_list.'</ul>';
+			}
+		endif;
+		wp_reset_postdata(); ?><!-- [ /post ] -->
+
+	</div><!-- [ /#sitemapPostList ] -->
+</div><!-- [ /#sitemapOuter ] -->

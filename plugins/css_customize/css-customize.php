@@ -22,6 +22,7 @@ function biz_vektor_css_customize_render_page()
 
 	include(locate_template('plugins/css_customize/css-customize-edit.php'));
 }
+
 /*-------------------------------------------*/
 /*	設定画面のCSSとJS
 /*-------------------------------------------*/

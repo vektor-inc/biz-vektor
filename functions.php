@@ -167,6 +167,12 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
 	require( dirname( __FILE__ ) . '/inc/theme-options-init.php' );
 
+
+/*-------------------------------------------*/
+/*	Load Advanced Settings (advanced theme options)
+/*-------------------------------------------*/
+	require( dirname( __FILE__ ) . '/inc/theme-ad-options.php' );	
+
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
@@ -178,6 +184,7 @@ add_action( 'after_setup_theme', 'biz_vektor_setup' );
 /*	Load Theme customizer
 /*-------------------------------------------*/
 	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
+
 
 /*-------------------------------------------*/
 /*	Admin admin_bar_custom
