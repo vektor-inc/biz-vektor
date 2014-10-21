@@ -349,9 +349,12 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		}
 		echo '</h3>';
 		echo '<div class="ttBoxSection">';
-		$count = ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
+
+		$count 		= ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
+		$post_type 	= $instance['post_type'];
+
 		$post_loop = new WP_Query( array(
-			'post_type' => 'post',
+			'post_type' => $post_type,
 			'posts_per_page' => $count,
 			'paged' => 1,
 		) );
@@ -360,10 +363,12 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 			while ( $post_loop->have_posts() ) : $post_loop->the_post(); ?>
 				<div class="ttBox">
 				<?php if ( has_post_thumbnail()) : ?>
-				<div class="ttBoxTxt ttBoxRight"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
-				<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
+					<div class="ttBoxTxt ttBoxRight"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
+					<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
 				<?php else : ?>
-				<div><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
+					<div>
+						<a href="<?php the_permalink();?>"><?php the_title();?></a>
+					</div>
 				<?php endif; ?>
 				</div>
 			<?php endwhile;
@@ -375,24 +380,43 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	} // widget($args, $instance)
 
-	function form($instance){
+	function form ($instance) {
+		
 		$defaults = array(
-			'count' => 10,
-			'label' => __('Recent Posts', 'biz-vektor' ),
+			'count' 	=> 10,
+			'label' 	=> __('Recent Posts', 'biz-vektor' ),
+			'post_type' => 'post'
 		);
+
 		$instance = wp_parse_args((array) $instance, $defaults);
+		
 		?>
-		<Label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
+		
+		<?php //タイトル ?>
+		<label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
-		<Label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?></label><br/>
+
+		<?php //表示数字 ?>
+		<label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?>:</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo $instance['count']; ?>" />
+		<br />
+
+		<?php //投稿タイプ ?>
+		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('表示する投稿タイプのスラッグ', 'biz-vektor') ?>:</label><br />
+		<input type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" value="<?php echo esc_attr($instance['post_type']) ?>" />
+		
 		<?php
 	}
-	function update($new_instance, $old_instance){
+
+	function update ($new_instance, $old_instance) {
+		
 		$instance = $old_instance;
-		$instance['count'] = $new_instance['count'];
-		$instance['label'] = $new_instance['label'];
+		
+		$instance['count'] 		= $new_instance['count'];
+		$instance['label'] 		= $new_instance['label'];
+		$instance['post_type']	= !empty($new_instance['post_type']) ? strip_tags($new_instance['post_type']) : 'post';
+
 		return $instance;
 	}
 
