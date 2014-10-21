@@ -11,22 +11,29 @@
 .show-tab-full,
 .show-full-only { display: none;}
 
+.ttBox { display:block; overflow:hidden; padding:15px 0; }
+.ttBox .ttBoxLeft { float:left; }
+.ttBox .ttBoxRight { float:right; }
+.ttBox .ttBoxThumb img { height:auto; }
+
+@media (max-width: 670px) {
+	.show-tab-only,
+	.show-tab-full,
+	.show-full-only { display: none;}
+	table.mobile-block th,
+	table.mobile-block td { display: block; }
+}
+@media (min-width: 671px) {
+	table.mobile-block th,
+	table.mobile-block td { display: table-cell; }
+}
 @media (min-width: 970px) {
 	.show-mobile-only,
 	.show-mobile-tab,
 	.show-tab-only{ display: none;}
 	span.txtBr-full-only { display: block; }
 }
-@media (max-width: 670px) {
-	.show-tab-only,
-	.show-tab-full,
-	.show-full-only { display: none;}
-}
 
-.ttBox { display:block; overflow:hidden; padding:15px 0; }
-.ttBox .ttBoxLeft { float:left; }
-.ttBox .ttBoxRight { float:right; }
-.ttBox .ttBoxThumb img { height:auto; }
 
 /*
 body.riseNavOpen #contents,

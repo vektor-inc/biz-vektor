@@ -50,14 +50,14 @@ function bizvektor_customize_register($wp_customize) {
 			$biz_vektor_style_array[$biz_vektor_theme_styleKey] = $biz_vektor_theme_styleValues['label'];
 		}
 		// Create section UI
-		$wp_customize->add_control( 'theme_style',array(
-			'label'     => _x('Design', 'biz-vektor theme-customizer', 'biz-vektor'),
-			'section'   => 'biz_vektor_design',
-			'settings'  => 'biz_vektor_theme_options[theme_style]',
-			'type' => 'select',
-			'choices' => $biz_vektor_style_array,
-			'priority' => 01,
-		));
+		// $wp_customize->add_control( 'theme_style',array(
+		// 	'label'     => _x('Design', 'biz-vektor theme-customizer', 'biz-vektor'),
+		// 	'section'   => 'biz_vektor_design',
+		// 	'settings'  => 'biz_vektor_theme_options[theme_style]',
+		// 	'type' => 'select',
+		// 	'choices' => $biz_vektor_style_array,
+		// 	'priority' => 01,
+		// ));
 		$wp_customize->add_control( new WP_Customize_Image_Control(
 			$wp_customize,
 			'head_logo',

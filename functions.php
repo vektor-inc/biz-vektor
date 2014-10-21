@@ -1,14 +1,12 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.1.4');
+define('BizVektor_Theme_Version', '1.2.0');
 
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
 /*-------------------------------------------*/
 /*	Custom menu
-/*-------------------------------------------*/
-/*	Widget
 /*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
@@ -85,6 +83,10 @@ get_template_part('plugins/sns/sns');
 
 get_template_part('plugins/add_post_type/add_post_type');
 
+get_template_part('plugins/css_customize/css-customize');
+
+get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
+
 add_post_type_support( 'info', 'front-end-editor' );
 
 /*-------------------------------------------*/
@@ -153,7 +155,7 @@ endif;
 
 function biz_vektor_setup(){
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'ffffff',
+		'default-color' => '#ffffff',
 	) );
 }
 add_action( 'after_setup_theme', 'biz_vektor_setup' );
@@ -705,7 +707,7 @@ function is_biz_vektor_archive_loop(){
 	return apply_filters('is_biz_vektor_archive_loop', false);
 }
 function is_biz_vektor_extra_single(){
-	return apply_filters('is_biz_vektor_archive_loop', false);
+	return apply_filters('is_biz_vektor_single_loop', false);
 }
 function biz_vektor_extra_single(){
 	do_action('biz_vektor_extra_single');

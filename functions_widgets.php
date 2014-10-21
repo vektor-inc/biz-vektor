@@ -17,6 +17,8 @@
 /*-------------------------------------------*/
 /*	RSS Widget
 /*-------------------------------------------*/
+/*	Side Post list widget
+/*-------------------------------------------*/
 
 
 /*-------------------------------------------*/
@@ -139,7 +141,7 @@ class wp_widget_page extends WP_Widget {
 	function wp_widget_page() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_page_post',
-			'description' => '固定ページの内容を出力します',
+			'description' => '固定ページの内容を出力します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
@@ -234,7 +236,7 @@ class WP_Widget_top_list_post extends WP_Widget {
 		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_post',
-			'description' => $biz_vektor_options['postLabelName'].'の新着記事を表示します。',
+			'description' => $biz_vektor_options['postLabelName'].'の新着記事一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_'.$biz_vektor_options['postLabelName'].'リスト';
 		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
@@ -260,7 +262,7 @@ class WP_Widget_top_list_info extends WP_Widget {
 		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_info',
-			'description' => $biz_vektor_options['infoLabelName'].'の新着記事を表示します。',
+			'description' => $biz_vektor_options['infoLabelName'].'の新着記事一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_'.$biz_vektor_options['infoLabelName'].'リスト';
 		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
@@ -330,7 +332,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	function WP_Widget_bizvektor_post_list() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_bizvektor_post_list',
-			'description' => '最近の投稿を表示します。',
+			'description' => '最近の投稿一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_'.__('Recent Posts', 'biz-vektor' );
 		$this->WP_Widget('bizvektor_post_list', $widget_name, $widget_ops);
@@ -340,14 +342,14 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		// print '<pre>';print_r($instance);print '</pre>';
 		echo '<div class="sideWidget">';
 		echo '<h3 class="localHead">';
-		if ( $instance['label'] ) {
+		if ( isset($instance['label']) && $instance['label'] ) {
 			echo $instance['label'];
 		} else {
 			_e('Recent Posts', 'biz-vektor' );
 		}
 		echo '</h3>';
 		echo '<div class="ttBoxSection">';
-		$count = ( $instance['count'] ) ? $instance['count'] : 10;
+		$count = ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
 		$post_loop = new WP_Query( array(
 			'post_type' => 'post',
 			'posts_per_page' => $count,

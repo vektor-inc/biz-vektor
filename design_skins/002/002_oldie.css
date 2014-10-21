@@ -29,6 +29,8 @@ body { font-size:14px; }
 #content .mainFootContact .mainFootBt	{ float:right; }
 #content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
 #content .mainFootContact .mainFootBt a img	{ width:auto; }
+#content table.mobile-block th,
+#content table.mobile-block td { display: table-cell; }
 
 .paging span.pageIndex { display:inline; }
 

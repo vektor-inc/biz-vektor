@@ -34,8 +34,10 @@ background: -moz-linear-gradient(#e5e5e5, #fff);
 }
 #gMenu .menu > li > a:hover ,
 #gMenu .menu > li.current_page_item > a ,
+#gMenu .menu > li.current-menu-item > a ,
 #gMenu .menu > li.current_page_ancestor > a  { box-shadow:none;color:#fff; }
 #gMenu .menu > li > a:hover span,
+#gMenu .menu > li.current-menu-item > a span,
 #gMenu .menu > li.current_page_item > a span,
 #gMenu .menu > li.current_page_ancestor > a span { color:#fff; opacity: 0.6; }
 
