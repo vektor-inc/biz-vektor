@@ -72,8 +72,6 @@ function biz_vektor_css_customize_valid_form()
 
 		$cleanCSS = $inputFilter->process(stripslashes(trim($_POST['bv-css-css'])));;
 
-		$data['customCss'] = $cleanCSS;
-
 		if( update_option('biz_vektor_css_custom', $cleanCSS) )
 			$data['mess'] = '<div id="message" class="updated"><p>' . __( 'CSSが保存されました。', 'biz_vektor_css_customize_success') . '</p></div>';
 	}
