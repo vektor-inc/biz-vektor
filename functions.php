@@ -340,9 +340,10 @@ function getHeadDescription() {
 			$metadescription = get_bloginfo( 'description' );
 		}
 	} else if (is_category() || is_tax()) {
-		$metadescription = $post->category_description;
-		if ( ! $metadescription ) {
+		if ( ! $post->description ) {
 			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
+		} else {
+			$metadescription = esc_html( $post->description );
 		}
 	} else if (is_tag()) {
 		$metadescription = strip_tags(tag_description());
