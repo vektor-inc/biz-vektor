@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h2><?php echo __( 'CSSカスタマイズ', 'biz_vektor_css_customize_title') ?></h2>
+	<h2><?php echo get_biz_vektor_name(); ?> <?php echo __( 'CSSカスタマイズ', 'biz_vektor_css_customize_title') ?></h2>
 	<div class="fileedit-sub"></div>
 	<?php echo $data['mess']; ?>
 	<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" id="template">
