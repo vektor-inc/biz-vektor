@@ -704,6 +704,9 @@ function biz_vektor_contentMain_before(){
 function biz_vektor_contentMain_after(){
 	do_action('biz_vektor_contentMain_after');
 }
+function biz_vektor_sideTower_after(){
+	do_action('biz_vektor_sideTower_after');
+}
 /*-------------------------------------------*/
 /*	Archive _ loop custom filters
 /*-------------------------------------------*/

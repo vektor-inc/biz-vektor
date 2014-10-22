@@ -96,6 +96,7 @@ if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'c
 ?>
 	</div>
 	<!-- [ /#sideTower ] -->
+	<?php biz_vektor_sideTower_after();?>
 <?php } ?>
 </div>
 <!-- [ /#container ] -->
