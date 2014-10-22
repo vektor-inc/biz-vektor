@@ -8,7 +8,7 @@ function biz_vektor_css_customize_menu()
 	add_theme_page(
 		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_title'),
 		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_menu'),
-		'manage_options',
+		'edit_theme_options',
 		'theme-css-customize',
 		'biz_vektor_css_customize_render_page'
 	);
