@@ -1,9 +1,49 @@
-<?php global $biz_vektor_options; ?>
+<?php 
+global $biz_vektor_options;
+
+//advanced options for sitemap content
+$types = '';
+$pages = '';
+
+$advancedOptions = Biz_Vektor_Advanced_Options::getAdvancedOptions();
+
+if ( isset($advancedOptions) ) {
+	
+	if ( isset($advancedOptions['types']) && !empty($advancedOptions['types']) ) {
+
+		$length = count($advancedOptions['types']);
+
+		if ( $length > 1 )
+			$types = $advancedOptions['types'];
+		else
+			$types = $advancedOptions['types'][0];
+	}
+	
+
+	if ( isset($advancedOptions['pages']) && !empty($advancedOptions['pages']) ) {
+
+		$length = count($advancedOptions['pages']);
+
+		if ( $length > 1 )
+			$pages = implode( ',', $advancedOptions['pages'] );
+		else
+			$pages = $advancedOptions['pages'][0];
+	}
+}
+
+?>
 <!-- [ #sitemapOuter ] -->
 <div id="sitemapOuter">
 	<div id="sitemapPageList">
 		<ul class="linkList">
-			<?php wp_list_pages('title_li='); ?>
+			<?php 
+
+			$args = array(
+				'title_li' 	=> '',
+				'exclude'	=> $pages
+			);
+
+			wp_list_pages($args); ?>
 		</ul>
 	</div>
 
