@@ -9,13 +9,21 @@ global $biz_vektor_options;
 $types 			= array(
 					array(
 						'post-type' => 'info',
-						'taxonomy' 	=> array('info-cat'),
+						'taxonomy' 	=> array(
+											array(
+												'taxoName' 	=> 'info-cat',
+												'taxoLabel' => '')
+										),
 						'label' 	=> $biz_vektor_options['infoLabelName'],
-						'link'		=> get_bloginfo('url') . '/info/'
+						'link'		=> home_url( '/info/' )
 					),
 					array(
 						'post-type' => 'post',
-						'taxonomy' 	=> array('category'),
+						'taxonomy' 	=> array(
+											array(
+												'taxoName' 	=> 'category',
+												'taxoLabel' => '')
+											),
 						'label' 	=> $biz_vektor_options['postLabelName'],
 						'link'		=> $biz_vektor_options['postTopUrl']
 					));
@@ -44,7 +52,7 @@ if ( isset($advancedOptions) ) {
 				$types[$i]['post-type'] = $typeName;
 			
 				//gets custom post type infos based on default Wordpress behaviour
-				$types[$i]['link'] 		= get_bloginfo('url') . '/' . $typeName . '/';
+				$types[$i]['link'] 		= home_url( '/' . $typeName );
 				$types[$i]['label']		= get_post_type_object( $typeName )->labels->name;
 
 				//gets all taxonomies of custom type
@@ -53,10 +61,16 @@ if ( isset($advancedOptions) ) {
 				//looks for category (hierarchical taxonomy)
 				if ( isset($typeTaxo) && !empty($typeTaxo) ) {
 
+					$j = 0;
+
 					foreach ( $typeTaxo as $taxoName => $taxoObj ) {
 
-						if ( $taxoObj->hierarchical )
-							$types[$i]['taxonomy'][] = $taxoName;
+						if ( $taxoObj->hierarchical ) {
+							
+							$types[$i]['taxonomy'][$j]['taxoName'] 	= $taxoName;
+							$types[$i]['taxonomy'][$j]['taxoLabel'] = $taxoObj->labels->name;
+							$j++;
+						}
 					}
 				}
 				$i++;
@@ -105,12 +119,19 @@ if ( isset($advancedOptions) ) {
 			</h5>
 
 			<ul class="linkList">
-
-				<?php foreach ($type['taxonomy'] as $taxonomy)
+		
+				<?php foreach ($type['taxonomy'] as $i => $taxonomy)
 				{
 					
+					if ( count($type['taxonomy']) > 1 ) { ?>
+
+						<li class="custom-categ-label">
+							<?php echo $taxonomy['taxoLabel'] ?>
+						</li><?php
+					}
+
 					$args = array(
-						'taxonomy' => $taxonomy,
+						'taxonomy' => $taxonomy['taxoName'],
 						'title_li' => '',
 						'orderby' => 'order',
 						'show_option_none' => '',
