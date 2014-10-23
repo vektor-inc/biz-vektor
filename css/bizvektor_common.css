@@ -3,12 +3,12 @@
 #eradi_ie_box .alert_title { font-size: 150%; margin-bottom: 1em; }
 #eradi_ie_box a { color: #fff; }
 
-#sideTower .sideWidget li#sideContact { border: none; }
-#sideTower .sideWidget li#sideContact a { padding: 0; }
-
 #wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item { background-color: #069; cursor: pointer; }
 
 #wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item:hover { background-color: #cc0; color: #fff; cursor: pointer; }
+
+#sideTower .sideWidget li#sideContact { border: none; }
+#sideTower .sideWidget li#sideContact a { padding: 0; }
 
 #sideTower .ttBoxSection { padding: 15px 0 15px; }
 #sideTower .ttBox a { text-decoration: none; color: #333; }
@@ -27,6 +27,11 @@
 @media (min-width: 500px) { #content .subPostListSection .ttBox { width: 47%; }
   #content .subPostListSection .ttBox:nth-child(odd) { clear: both; float: left; }
   #content .subPostListSection .ttBox:nth-child(2n) { float: right; } }
+#content #sitemapPostList h5 { color: #666; }
+#content #sitemapPostList h5 a { color: #666; text-decoration: none; }
+#content #sitemapPostList h5 a:hover { text-decoration: underline; }
+#content #sitemapPostList h6 { margin-top: 0px; font-size: 85.7%; }
+
 /*			contactform7
 /*-------------------------------------------*/
 #content .wpcf7 { margin-top: 20px; }

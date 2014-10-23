@@ -5,13 +5,12 @@
 	a { color:#fff; }
 }
 
-#sideTower .sideWidget li#sideContact { border:none;
-	a { padding:0; }
-}
-
 #wpadminbar .ab-top-menu>li#wp-admin-bar-editGuide>.ab-item { background-color: #069;cursor: pointer; }
 #wpadminbar .ab-top-menu>li#wp-admin-bar-editGuide>.ab-item:hover { background-color: #cc0;color:#fff;cursor: pointer; }
 
+#sideTower .sideWidget li#sideContact { border:none;
+	a { padding:0; }
+}
 #sideTower {
 	.ttBoxSection { padding:15px 0 15px;}
 	.ttBox {
@@ -39,6 +38,14 @@
 			&:nth-child(2n){ float:right; }
 		}
 	}
+}
+
+#content #sitemapPostList {
+	h5{ color:#666;
+		a { color:#666; text-decoration: none; }
+		a:hover { text-decoration: underline; }
+	}
+	h6 { margin-top:0px;font-size:85.7%; }
 }
 
 /*			contactform7

@@ -111,34 +111,35 @@ if ( isset($advancedOptions) ) {
 	<div id="sitemapPostList">
 
 		<?php foreach ( $types as $type ) { ?>
+			<div class="sectionBox">
+				<h5>
+					<a href="<?php echo isset($type['link']) ? $type['link'] : '' ?>">
+						<?php echo isset($type['label']) ? $type['label'] : '' ?>
+					</a>
+				</h5>
 
-			<h5>
-				<a href="<?php echo isset($type['link']) ? $type['link'] : '' ?>">
-					<?php echo isset($type['label']) ? $type['label'] : '' ?>
-				</a>
-			</h5>
+				<?php foreach ($type['taxonomy'] as $i => $taxonomy) {
 
-			<?php foreach ($type['taxonomy'] as $i => $taxonomy) {
+					if ( count($type['taxonomy']) > 1 ) { ?>
 
-				if ( count($type['taxonomy']) > 1 ) { ?>
+						<h6><?php echo $taxonomy['taxoLabel'] ?></h6><?php
 
-					<h6><?php echo $taxonomy['taxoLabel'] ?></h6><?php
+					} ?>
+					<ul class="linkList"><?php
 
-				} ?>
-				<ul class="linkList"><?php
+						$args = array(
+							'taxonomy' => $taxonomy['taxoName'],
+							'title_li' => '',
+							'orderby' => 'order',
+							'show_option_none' => '',
+						);
 
-					$args = array(
-						'taxonomy' => $taxonomy['taxoName'],
-						'title_li' => '',
-						'orderby' => 'order',
-						'show_option_none' => '',
-					);
+						wp_list_categories( $args ); ?>
 
-					wp_list_categories( $args ); ?>
-
-				</ul><?php
-			} // foreach ($type['taxonomy']
-		} ?>
+					</ul>
+				<?php } // foreach ($type['taxonomy'] ?>
+			</div>
+		<?php } ?>
 
 	</div><!-- [ /#sitemapPostList ] -->
 </div><!-- [ /#sitemapOuter ] -->
