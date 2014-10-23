@@ -92,7 +92,7 @@ if ( isset($advancedOptions) ) {
 ?>
 <!-- [ #sitemapOuter ] -->
 <div id="sitemapOuter">
-	
+
 	<div id="sitemapPageList">
 		<ul class="linkList">
 			<?php 
@@ -118,17 +118,14 @@ if ( isset($advancedOptions) ) {
 				</a>
 			</h5>
 
-			<ul class="linkList">
-		
-				<?php foreach ($type['taxonomy'] as $i => $taxonomy)
-				{
-					
-					if ( count($type['taxonomy']) > 1 ) { ?>
+			<?php foreach ($type['taxonomy'] as $i => $taxonomy) {
 
-						<li class="custom-categ-label">
-							<?php echo $taxonomy['taxoLabel'] ?>
-						</li><?php
-					}
+				if ( count($type['taxonomy']) > 1 ) { ?>
+
+					<h6><?php echo $taxonomy['taxoLabel'] ?></h6><?php
+
+				} ?>
+				<ul class="linkList"><?php
 
 					$args = array(
 						'taxonomy' => $taxonomy['taxoName'],
@@ -137,9 +134,10 @@ if ( isset($advancedOptions) ) {
 						'show_option_none' => '',
 					);
 
-					wp_list_categories( $args ); 
-				} ?>
-			</ul><?php 
+					wp_list_categories( $args ); ?>
+
+				</ul><?php
+			} // foreach ($type['taxonomy']
 		} ?>
 
 	</div><!-- [ /#sitemapPostList ] -->
