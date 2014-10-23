@@ -1,25 +1,70 @@
 <?php 
 global $biz_vektor_options;
 
-//advanced options for sitemap content
-$types = '';
-$pages = '';
+/*------------------------
+--SITEMAP ADVANCED OPTIONS
+----------------------------*/
 
+//post types to display on sitemap
+$types 			= array(
+					array(
+						'post-type' => 'info',
+						'taxonomy' 	=> 'info-cat',
+						'label' 	=> $biz_vektor_options['infoLabelName'],
+						'link'		=> get_bloginfo('url') . '/info/'
+					),
+					array(
+						'post-type' => 'post',
+						'taxonomy' 	=> 'category',
+						'label' 	=> $biz_vektor_options['postLabelName'],
+						'link'		=> $biz_vektor_options['postTopUrl']
+					));
+
+//pages to exclude
+$pages 			= '';
+
+
+//gets advanced options data from DB
 $advancedOptions = Biz_Vektor_Advanced_Options::getAdvancedOptions();
 
 if ( isset($advancedOptions) ) {
 	
+	//adds custom post types names and hierarchical taxonomies (categories) to $types array
 	if ( isset($advancedOptions['types']) && !empty($advancedOptions['types']) ) {
 
-		$length = count($advancedOptions['types']);
+		$i = count($types);
 
-		if ( $length > 1 )
-			$types = $advancedOptions['types'];
-		else
-			$types = $advancedOptions['types'][0];
+		foreach ( $advancedOptions['types'] as $typeName ) {
+
+			//checks if post type exists
+			$typeObj = get_post_type_object($typeName);
+
+			if ( isset($typeObj) ) {
+
+				$types[$i]['post-type'] = $typeName;
+			
+				//gets custom post type infos based on default Wordpress behaviour
+				$types[$i]['link'] 		= get_bloginfo('url') . '/' . $typeName . '/';
+				$types[$i]['label']		= get_post_type_object( $typeName )->labels->name;
+
+				//gets all taxonomies of custom type
+				$typeTaxo = get_object_taxonomies( $typeName, 'objects' );
+
+				//looks for category (hierarchical taxonomy)
+				if ( isset($typeTaxo) && !empty($typeTaxo) ) {
+
+					foreach ( $typeTaxo as $taxoName => $taxoObj ) {
+
+						if ( $taxoObj->hierarchical )
+							$types[$i]['taxonomy'] = $taxoName;
+					}
+				}
+				$i++;
+			}
+		}
 	}
 	
-
+	//adds id of pages to remove from sitemap (array to string)
 	if ( isset($advancedOptions['pages']) && !empty($advancedOptions['pages']) ) {
 
 		$length = count($advancedOptions['pages']);
@@ -30,17 +75,18 @@ if ( isset($advancedOptions) ) {
 			$pages = $advancedOptions['pages'][0];
 	}
 }
-
 ?>
 <!-- [ #sitemapOuter ] -->
 <div id="sitemapOuter">
+	
 	<div id="sitemapPageList">
 		<ul class="linkList">
 			<?php 
 
+			//pages
 			$args = array(
 				'title_li' 	=> '',
-				'exclude'	=> $pages
+				'exclude_tree'	=> $pages //hides children
 			);
 
 			wp_list_pages($args); ?>
@@ -50,64 +96,26 @@ if ( isset($advancedOptions) ) {
 	<!-- [ #sitemapPostList ] -->
 	<div id="sitemapPostList">
 
-		<!-- [ info ] -->
-		<?php
-		$args = array( 'post_type' => 'info');
-		$posts = get_posts($args);
-		if (isset($posts) && $posts): ?>
+		<?php foreach ( $types as $type ) { ?>
+
 			<h5>
-				<a href="<?php echo home_url(); ?>/info/"><?php echo esc_html(bizVektorOptions('infoLabelName')); ?></a>
-			</h5><?php 
+				<a href="<?php echo isset($type['link']) ? $type['link'] : '' ?>">
+					<?php echo isset($type['label']) ? $type['label'] : '' ?>
+				</a>
+			</h5>
 
-		$args = array(
-			'taxonomy' => 'info-cat',
-			'title_li' => '',
-			'orderby' => 'order',
-			'show_option_none' => '',
-			'echo' => 0
-		);
-		$term_list = wp_list_categories( $args );
+			<ul class="linkList">
 
-		if ( !empty($term_list) ) {
-			echo '<ul class="linkList">'.$term_list.'</ul>';
-		}
-		endif;
-		wp_reset_postdata(); ?><!-- [ /info ] -->
+				<?php $args = array(
+					'taxonomy' => $type['taxonomy'],
+					'title_li' => '',
+					'orderby' => 'order',
+					'show_option_none' => '',
+				);
 
-		<!-- [ post ] -->
-		<?php
-
-		unset($posts);
-		$args = array( 'post_type' => 'post');
-		$posts = get_posts($args);
-
-		if (isset($posts) && $posts): ?>
-			<h5><?php
-
-				$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
-				if ($postTopUrl) {
-					echo '<h5><a href="'.$postTopUrl.'">'.esc_html(bizVektorOptions('postLabelName')).'</a></h5>';
-				} 
-				else {
-					echo '<h5>'.esc_html(bizVektorOptions('postLabelName')).'</h5>';
-				}
-			?>
-			</h5><?php 
-
-			$args = array(
-				'taxonomy' => 'category',
-				'title_li' => '',
-				'orderby' => 'order',
-				'show_option_none' => '',
-				'echo' => 0
-			);
-			$term_list = wp_list_categories( $args );
-
-			if ( !empty($term_list) ) {
-				echo '<ul class="linkList">'.$term_list.'</ul>';
-			}
-		endif;
-		wp_reset_postdata(); ?><!-- [ /post ] -->
+				wp_list_categories( $args ); ?>
+			</ul><?php 
+		} ?>
 
 	</div><!-- [ /#sitemapPostList ] -->
 </div><!-- [ /#sitemapOuter ] -->
