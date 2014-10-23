@@ -9,13 +9,13 @@ global $biz_vektor_options;
 $types 			= array(
 					array(
 						'post-type' => 'info',
-						'taxonomy' 	=> 'info-cat',
+						'taxonomy' 	=> array('info-cat'),
 						'label' 	=> $biz_vektor_options['infoLabelName'],
 						'link'		=> get_bloginfo('url') . '/info/'
 					),
 					array(
 						'post-type' => 'post',
-						'taxonomy' 	=> 'category',
+						'taxonomy' 	=> array('category'),
 						'label' 	=> $biz_vektor_options['postLabelName'],
 						'link'		=> $biz_vektor_options['postTopUrl']
 					));
@@ -24,12 +24,12 @@ $types 			= array(
 $pages 			= '';
 
 
-//gets advanced options data from DB
+//gets advanced options saved by administrator from DB
 $advancedOptions = Biz_Vektor_Advanced_Options::getAdvancedOptions();
 
 if ( isset($advancedOptions) ) {
 	
-	//adds custom post types names and hierarchical taxonomies (categories) to $types array
+	//adds custom post types names, hierarchical taxonomies (categories), details to $types array
 	if ( isset($advancedOptions['types']) && !empty($advancedOptions['types']) ) {
 
 		$i = count($types);
@@ -56,7 +56,7 @@ if ( isset($advancedOptions) ) {
 					foreach ( $typeTaxo as $taxoName => $taxoObj ) {
 
 						if ( $taxoObj->hierarchical )
-							$types[$i]['taxonomy'] = $taxoName;
+							$types[$i]['taxonomy'][] = $taxoName;
 					}
 				}
 				$i++;
@@ -106,14 +106,18 @@ if ( isset($advancedOptions) ) {
 
 			<ul class="linkList">
 
-				<?php $args = array(
-					'taxonomy' => $type['taxonomy'],
-					'title_li' => '',
-					'orderby' => 'order',
-					'show_option_none' => '',
-				);
+				<?php foreach ($type['taxonomy'] as $taxonomy)
+				{
+					
+					$args = array(
+						'taxonomy' => $taxonomy,
+						'title_li' => '',
+						'orderby' => 'order',
+						'show_option_none' => '',
+					);
 
-				wp_list_categories( $args ); ?>
+					wp_list_categories( $args ); 
+				} ?>
 			</ul><?php 
 		} ?>
 
