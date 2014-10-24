@@ -137,8 +137,8 @@ background: -moz-linear-gradient(#f5f5f5, #fff);
 /*-------------------------------------------*/
 /*	#sideTower
 /*-------------------------------------------*/
-#sideTower .localSection	{ }
-#sideTower .localHead	{ border-top:2px solid #c00;border-left:1px solid #e5e5e5;border-right:1px solid #e5e5e5;
+.sideTower .localSection	{ }
+.sideTower .localHead	{ border-top:2px solid #c00;border-left:1px solid #e5e5e5;border-right:1px solid #e5e5e5;
 -moz-box-shadow:inset 0 1px 0 #fff;
 -webkit-box-shadow:inset 0 1px 0 #fff;
 box-shadow:inset 0 1px 0 #fff;

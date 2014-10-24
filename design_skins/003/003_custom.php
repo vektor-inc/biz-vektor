@@ -146,7 +146,7 @@ a.btn,
 .linkBtn a,
 input[type=button],
 input[type=submit],
-#sideTower li#sideContact.sideBnr a,
+.sideTower li#sideContact.sideBnr a,
 #content .infoList .rssBtn a { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 .moreLink a { border-left-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
@@ -165,13 +165,13 @@ input[type=submit],
 #content h2,
 #content h1.contentTitle,
 #content h1.entryPostTitle,
-#sideTower h3.localHead,
+.sideTower h3.localHead,
 .sideWidget h4  { border-top-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 #content h3:after,
 #content .child_page_block h4:after { border-bottom-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
-#sideTower li#sideContact.sideBnr a:hover,
+.sideTower li#sideContact.sideBnr a:hover,
 #content .infoList .rssBtn a:hover,
 form#searchform input#searchsubmit:hover { background-color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
 
@@ -190,11 +190,11 @@ form#searchform input#searchsubmit:hover { background-color:<?php echo $color_ke
 .paging a:hover	{ background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 /* アクティブのページ */
-#sideTower .sideWidget li > a:hover,
-#sideTower .sideWidget li.current_page_item > a,
-#sideTower .sideWidget li.current-cat > a	{ color:<?php echo $color_key['theme_plusKeyColor'];?>; background-color:<?php echo $color_key['theme_plusKeyColorVeryLight'];?>; }
+.sideTower .sideWidget li > a:hover,
+.sideTower .sideWidget li.current_page_item > a,
+.sideTower .sideWidget li.current-cat > a	{ color:<?php echo $color_key['theme_plusKeyColor'];?>; background-color:<?php echo $color_key['theme_plusKeyColorVeryLight'];?>; }
 
-#sideTower .ttBoxSection .ttBox a:hover { color:<?php echo $color_key['theme_plusKeyColor'];?>; }
+.sideTower .ttBoxSection .ttBox a:hover { color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 #footMenu { border-top-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 #footMenu .menu li a:hover { color:<?php echo $color_key['theme_plusKeyColor']; ?> }

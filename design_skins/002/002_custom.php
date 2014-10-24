@@ -145,7 +145,7 @@ a:active,
 .paging span.current,
 .paging a:hover,
 #content .infoList .infoCate a:hover,
-#sideTower li.sideBnr#sideContact a,
+.sideTower li.sideBnr#sideContact a,
 form#searchform input#searchsubmit,
 #pagetop a:hover,
 a.btn,
@@ -175,7 +175,7 @@ form#searchform input#searchsubmit	{ border-color:<?php echo $calmlyOptions['the
 #content h2,
 #content h1.contentTitle,
 #content h1.entryPostTitle,
-#sideTower .localHead,
+.sideTower .localHead,
 #topPr h3 a	{ border-bottom-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
 
 @media (min-width: 770px) {
