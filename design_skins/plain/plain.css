@@ -430,59 +430,59 @@ position:relative; line-height:114.3%;}
 /*	#sideTower
 /*-------------------------------------------*/
 #sideTower	{ clear:both; }
-#sideTower .localSection	{ margin-bottom:50px; }
-#sideTower .localHead	{ font-size:14px; border-top:2px solid #666;border-bottom:1px solid #ccc; padding:13px 10px 10px; font-weight:bold; position:relative; }
-#sideTower .localHead a	{ text-decoration:none;color:#666; }
-#sideTower .localHead a:hover	{ text-decoration:underline; }
-#sideTower .sideWidget 	{ margin:0px; }
-#sideTower .sideWidget li	{ list-style:none;border-bottom:1px solid #ccc; line-height:121.4%;  }
-#sideTower .sideWidget li a	{ display:block;padding:13px 10px 11px 28px; text-decoration:none; color:#666; background:url(images/icon_arrow1_gray.gif) 10px 50% no-repeat; }
-#sideTower .sideWidget li a:hover,
-#sideTower .sideWidget li.current_page_item a,
-#sideTower .sideWidget li.current-cat a	{ background-color:#efefef;}
-#sideTower .sideWidget li ul	{ display:block;margin:0px; }
-#sideTower .sideWidget li ul	li { display:block;border-bottom:none;border-top:1px solid #ccc; }
-#sideTower .sideWidget li ul	li a	{ padding:11px 10px 9px 28px;background:url(images/icon_arrow2_gray.gif) 12px 14px no-repeat; }
+.sideTower .localSection	{ margin-bottom:50px; }
+.sideTower .localHead	{ font-size:14px; border-top:2px solid #666;border-bottom:1px solid #ccc; padding:13px 10px 10px; font-weight:bold; position:relative; }
+.sideTower .localHead a	{ text-decoration:none;color:#666; }
+.sideTower .localHead a:hover	{ text-decoration:underline; }
+.sideTower .sideWidget 	{ margin:0px; }
+.sideTower .sideWidget li	{ list-style:none;border-bottom:1px solid #ccc; line-height:121.4%;  }
+.sideTower .sideWidget li a	{ display:block;padding:13px 10px 11px 28px; text-decoration:none; color:#666; background:url(images/icon_arrow1_gray.gif) 10px 50% no-repeat; }
+.sideTower .sideWidget li a:hover,
+.sideTower .sideWidget li.current_page_item a,
+.sideTower .sideWidget li.current-cat a	{ background-color:#efefef;}
+.sideTower .sideWidget li ul	{ display:block;margin:0px; }
+.sideTower .sideWidget li ul	li { display:block;border-bottom:none;border-top:1px solid #ccc; }
+.sideTower .sideWidget li ul	li a	{ padding:11px 10px 9px 28px;background:url(images/icon_arrow2_gray.gif) 12px 14px no-repeat; }
 
 /* 親ページのアクティブだと背景色が子ページにも適応される為 */
-#sideTower .sideWidget li ul	li a,
-#sideTower .sideWidget li.current-cat ul li a,
-#sideTower .sideWidget li.current_page_item ul li a	{ background-color:inherit; }
+.sideTower .sideWidget li ul	li a,
+.sideTower .sideWidget li.current-cat ul li a,
+.sideTower .sideWidget li.current_page_item ul li a	{ background-color:inherit; }
 
-#sideTower .sideWidget li ul	li a:hover,
-#sideTower .sideWidget li.current-cat ul li a:hover,
-#sideTower .sideWidget li.current_page_item ul li a:hover	{ background-color:#efefef; }
+.sideTower .sideWidget li ul	li a:hover,
+.sideTower .sideWidget li.current-cat ul li a:hover,
+.sideTower .sideWidget li.current_page_item ul li a:hover	{ background-color:#efefef; }
 
-#sideTower .sideWidget li ul	li.current-cat a,
-#sideTower .sideWidget li ul	li.current_page_item a,
-#sideTower .sideWidget li ul	li a:hover { background-image:#efefef; }
+.sideTower .sideWidget li ul	li.current-cat a,
+.sideTower .sideWidget li ul	li.current_page_item a,
+.sideTower .sideWidget li ul	li a:hover { background-image:#efefef; }
 /* 曾孫 */
-#sideTower .sideWidget li ul li ul li a	{ padding-left:33px; }
-#sideTower .sideWidget li ul li ul li a,
-#sideTower .sideWidget li ul li.current-cat ul li a,
+.sideTower .sideWidget li ul li ul li a	{ padding-left:33px; }
+.sideTower .sideWidget li ul li ul li a,
+.sideTower .sideWidget li ul li.current-cat ul li a,
 #sideTower .sideWidget li ul li.current_page_item ul li a	{ background-position:17px 14px; }
 
-#sideTower li ul	{ margin-left:15px; }
-#sideTower li.sideBnr	{ margin-bottom:10px; }
-#sideTower li.sideBnr#sideContact a	{ display:block; overflow:hidden; width:auto; background-color:#999;width:220px;margin:0px auto; text-align:center; }
-#sideTower ul#snsBnr		{ border-top:1px solid #ccc;margin-bottom:20px; text-align:center }
-#sideTower ul#snsBnr li		{ border-bottom:1px solid #ccc; }
+.sideTower li ul	{ margin-left:15px; }
+.sideTower li.sideBnr	{ margin-bottom:10px; }
+.sideTower li.sideBnr#sideContact a	{ display:block; overflow:hidden; width:auto; background-color:#999;width:220px;margin:0px auto; text-align:center; }
+.sideTower ul#snsBnr		{ border-top:1px solid #ccc;margin-bottom:20px; text-align:center }
+.sideTower ul#snsBnr li		{ border-bottom:1px solid #ccc; }
 
-#sideTower .sideWidget { margin-bottom:20px; }
-#sideTower .sideWidget .textwidget	{ padding-top:10px; }
-#sideTower .sideWidget h4	{ clear:both; font-size:14px;margin:0px 0px 15px; padding:4px 0px 2px 12px; border-left-style:solid; border-left-width:3px; background-color:#f5f5f5; }
+.sideTower .sideWidget { margin-bottom:20px; }
+.sideTower .sideWidget .textwidget	{ padding-top:10px; }
+.sideTower .sideWidget h4	{ clear:both; font-size:14px;margin:0px 0px 15px; padding:4px 0px 2px 12px; border-left-style:solid; border-left-width:3px; background-color:#f5f5f5; }
 
-#sideTower .sideWidget ul#recentcomments li	{ padding:13px 10px 11px 30px;background:url(images/icon_arrow1_gray.gif) 10px 50% no-repeat; }
-#sideTower .sideWidget ul#recentcomments li	a	{ padding:0;background:none; }
+.sideTower .sideWidget ul#recentcomments li	{ padding:13px 10px 11px 30px;background:url(images/icon_arrow1_gray.gif) 10px 50% no-repeat; }
+.sideTower .sideWidget ul#recentcomments li	a	{ padding:0;background:none; }
 
-#sideTower .sideWidget select	{ margin:10px 0; padding:5px; width:100%;border:1px solid #ccc;}
-#sideTower .sideWidget select option	{ padding:2px 5px; }
+.sideTower .sideWidget select	{ margin:10px 0; padding:5px; width:100%;border:1px solid #ccc;}
+.sideTower .sideWidget select option	{ padding:2px 5px; }
 
-#sideTower .ttBoxSection { padding: 0; }
-#sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px solid #ccc; font-size: 85.7%; line-height: 135.7%; }
-#sideTower .ttBoxSection .ttBox a { color: #666; }
-#sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
-#sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #ccc; }
+.sideTower .ttBoxSection { padding: 0; }
+.sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px solid #ccc; font-size: 85.7%; line-height: 135.7%; }
+.sideTower .ttBoxSection .ttBox a { color: #666; }
+.sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
+.sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #ccc; }
 
 form#searchform { padding:5px 0px 5px 7px; background-color:#e5e5e5; display:block; overflow:hidden; position:relative;}
 form#searchform input#s	{ margin:0px 0px 0px 5px; padding:5px; width:70%; float:left; }

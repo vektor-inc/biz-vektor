@@ -154,7 +154,7 @@ form#searchform {
 	}
 }
 
-#sideTower {
+.sideTower {
 	.localHead { @include h2 }
 	.sideWidget {
 			li a:before { @include vektor_kado_icons;content: "\32";margin-right:5px;padding-top:3px;}
@@ -346,7 +346,7 @@ a.btn,
 .linkBtn a,
 input[type=button],
 input[type=submit],
-#sideTower li#sideContact.sideBnr a,
+.sideTower li#sideContact.sideBnr a,
 #content .infoList .rssBtn a { background-color:$color_key; }
 
 .moreLink a { border-left:1px solid $color_key; }
@@ -365,13 +365,13 @@ input[type=submit],
 #content h2,
 #content h1.contentTitle,
 #content h1.entryPostTitle,
-#sideTower h3.localHead,
+.sideTower h3.localHead,
 .sideWidget h4  { border-top-color: $color_key; }
 
 #content h3:after,
 #content .child_page_block h4:after { border-bottom-color:$color_key; }
 
-#sideTower li#sideContact.sideBnr a:hover,
+.sideTower li#sideContact.sideBnr a:hover,
 #content .infoList .rssBtn a:hover,
 form#searchform input#searchsubmit:hover { background-color: $color_key_light; }
 
@@ -390,11 +390,11 @@ form#searchform input#searchsubmit:hover { background-color: $color_key_light; }
 .paging a:hover	{ background-color:$color_key;}
 
 	/* アクティブのページ */
-#sideTower .sideWidget li > a:hover,
-#sideTower .sideWidget li.current_page_item > a,
-#sideTower .sideWidget li.current-cat > a	{ color:$color_key;background-color: $color_key_slight;}
+.sideTower .sideWidget li > a:hover,
+.sideTower .sideWidget li.current_page_item > a,
+.sideTower .sideWidget li.current-cat > a	{ color:$color_key;background-color: $color_key_slight;}
 
-#sideTower .ttBoxSection .ttBox a:hover { color:$color_key; }
+.sideTower .ttBoxSection .ttBox a:hover { color:$color_key; }
 
 #footMenu { border-top-color: $color_key;}
 #footMenu .menu li a:hover { color:$color_key; }

@@ -7,14 +7,14 @@
 
 #wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item:hover { background-color: #cc0; color: #fff; cursor: pointer; }
 
-#sideTower .sideWidget li#sideContact { border: none; }
-#sideTower .sideWidget li#sideContact a { padding: 0; }
+.sideTower .sideWidget li#sideContact { border: none; }
+.sideTower .sideWidget li#sideContact a { padding: 0; }
 
-#sideTower .ttBoxSection { padding: 15px 0 15px; }
-#sideTower .ttBox a { text-decoration: none; color: #333; }
-#sideTower .ttBox a:hover { text-decoration: underline; }
-#sideTower .ttBox .ttBoxThumb { width: 80px; }
-#sideTower .sideWidget .tagcloud { margin-top: 10px; }
+.sideTower .ttBoxSection { padding: 15px 0 15px; }
+.sideTower .ttBox a { text-decoration: none; color: #333; }
+.sideTower .ttBox a:hover { text-decoration: underline; }
+.sideTower .ttBox .ttBoxThumb { width: 80px; }
+.sideTower .sideWidget .tagcloud { margin-top: 10px; }
 
 #content .subPostListSection { display: block; overflow: hidden; position: relative; padding-bottom: 20px; }
 #content .subPostListSection ul { margin: 0; }
