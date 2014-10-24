@@ -491,7 +491,7 @@ $i++;
 		</dd>
 	</dl>
 	<dl>
-		<?php if(!isset($options['postRelatedCount'])){ $options['postRelatedCount'] == 0; } ?>
+		<?php if(!isset($options['postRelatedCount'])){ $options['postRelatedCount'] = 0; } ?>
 		<dt><?php _e('Number of related posts', 'biz-vektor'); ?></dt>
 		<dd><?php _e('Post of the same tag appears as a related posts under the content.', 'biz-vektor'); ?><br />
 			<?php _e('Nothing is displayed when there is no article of the same tag.', 'biz-vektor'); ?><br />
