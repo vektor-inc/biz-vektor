@@ -203,6 +203,10 @@ if ( is_404() ){
 			$panListHtml .= "<li>".sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) )."</li>";
 		}
 	} else {
+		if(!isset($postTyeName)){
+			global $wp_query;
+			$postTypeName = $wp_query->queried_object->labels->name;
+		}
 		$panListHtml .= '<li>'.$postTypeName.'</li>';
 	}
 

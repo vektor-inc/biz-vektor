@@ -185,10 +185,10 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 #content .mainFootContact .mainFootBt a			{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 #content .mainFootContact .mainFootBt a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
 
-#sideTower .localHead	{ border-top-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#sideTower li.sideBnr#sideContact a		{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#sideTower li.sideBnr#sideContact a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
-#sideTower .sideWidget h4	{ border-left-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.sideTower .localHead	{ border-top-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.sideTower li.sideBnr#sideContact a		{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.sideTower li.sideBnr#sideContact a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
+.sideTower .sideWidget h4	{ border-left-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
 #pagetop a	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 #footMenu	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;border-top-color:<?php echo $default_design_options['theme_plusKeyColorDark'] ?>; }

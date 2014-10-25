@@ -56,3 +56,12 @@ jQuery(document).ready(function($){
 //}
 
 });
+
+/*-------------------------------------------*/
+/* ページ内の表示／非表示切り替えセクションの追加
+/*-------------------------------------------*/
+jQuery(document).ready(function($){
+    jQuery('.showHideSection .showHideBtn').on("click", function() {
+            jQuery(this).next().slideToggle();
+     });
+});

@@ -46,7 +46,7 @@
 <!-- [ /#content ] -->
 
 <!-- [ #sideTower ] -->
-<div id="sideTower">
+<div id="sideTower" class="sideTower">
 	<?php get_sidebar('page'); ?>
 </div>
 <!-- [ /#sideTower ] -->

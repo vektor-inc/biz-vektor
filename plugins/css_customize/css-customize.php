@@ -8,7 +8,7 @@ function biz_vektor_css_customize_menu()
 	add_theme_page(
 		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_title'),
 		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_menu'),
-		'manage_options',
+		'edit_theme_options',
 		'theme-css-customize',
 		'biz_vektor_css_customize_render_page'
 	);
@@ -22,6 +22,7 @@ function biz_vektor_css_customize_render_page()
 
 	include(locate_template('plugins/css_customize/css-customize-edit.php'));
 }
+
 /*-------------------------------------------*/
 /*	設定画面のCSSとJS
 /*-------------------------------------------*/
@@ -70,8 +71,6 @@ function biz_vektor_css_customize_valid_form()
 		$inputFilter 	= new InputFilter();
 
 		$cleanCSS = $inputFilter->process(stripslashes(trim($_POST['bv-css-css'])));;
-
-		$data['customCss'] = $cleanCSS;
 
 		if( update_option('biz_vektor_css_custom', $cleanCSS) )
 			$data['mess'] = '<div id="message" class="updated"><p>' . __( 'CSSが保存されました。', 'biz_vektor_css_customize_success') . '</p></div>';

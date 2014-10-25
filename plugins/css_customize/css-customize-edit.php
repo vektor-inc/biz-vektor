@@ -1,7 +1,8 @@
 <div class="wrap">
-	<h2><?php echo __( 'CSSカスタマイズ', 'biz_vektor_css_customize_title') ?></h2>
+	<h2><?php echo get_biz_vektor_name(); ?> <?php echo __( 'CSSカスタマイズ', 'biz_vektor_css_customize_title') ?></h2>
 	<div class="fileedit-sub"></div>
 	<?php echo $data['mess']; ?>
+	<p><?php _e('デザインをカスタマイズしたい場合は下記のテキストエリアにCSSを入力してください。');?></p>
 	<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" id="template">
 		<textarea name="bv-css-css" cols="70" rows="10" id="newcontent"><?php echo esc_attr($data['customCss']); ?></textarea>
 		<?php wp_nonce_field( 'biz-vektor-css-submit', 'biz-vektor-css-nonce'); ?>
@@ -45,6 +46,24 @@
 <dd>
 <code>#content .infoList .infoListBox div.thumbImage { float:left; }<br>
 #content .infoList .infoListBox div.entryTxtBox.haveThumbnail { float:right }
+</code>
+</dd>
+</dl>
+
+<dl id="postThumbnailLeft">
+<dt>投稿のサムネイルを画像のサイズを大きくする</dt>
+<dd>
+<code>
+#content .infoList .infoListBox div.thumbImage div.thumbImageInner img { width:120px; }
+</code>
+</dd>
+</dl>
+
+<dl id="postThumbnailLeft">
+<dt>本文の文字サイズを大きくする</dt>
+<dd>
+<code>
+#content p { font-size:16px; }
 </code>
 </dd>
 </dl>

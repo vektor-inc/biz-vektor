@@ -240,7 +240,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<span>Internet Explorer8への警告を表示する</span></label>
 	</td>
 	</tr>
- 
+
 	</table>
 	<?php submit_button(); ?>
 </div>
@@ -474,9 +474,24 @@ $i++;
 		<dt><?php echo $postLabelName;?> のトップのURL</dt>
 		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
 			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
-			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
+			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" />
+			<dl class="showHideSection">
+				<dt class="showHideBtn">[ <a><?php echo $postLabelName;?>のトップページの設定方法</a> ]</dt>
+				<dd class="showHideBody">
+					<ol>
+					<li>
+					まずは<?php echo $postLabelName;?> のトップページとして使う固定ページを作成してください。
+					[ <a href="<?php echo admin_url().'edit.php?post-new.php?post_type=page';?>" target="_blank">&raquo; 固定ページ新規作成</a> ]
+					</li>
+					<li>次に『<a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">表示設定</a>』画面の『投稿ページ』のプルダウンで、<?php echo $postLabelName;?>のトップページ用に作成した固定ページを選択してください。
+					</li>
+					</ol>
+				</dd>
+			</dl>
+		</dd>
 	</dl>
 	<dl>
+		<?php if(!isset($options['postRelatedCount'])){ $options['postRelatedCount'] = 0; } ?>
 		<dt><?php _e('Number of related posts', 'biz-vektor'); ?></dt>
 		<dd><?php _e('Post of the same tag appears as a related posts under the content.', 'biz-vektor'); ?><br />
 			<?php _e('Nothing is displayed when there is no article of the same tag.', 'biz-vektor'); ?><br />
@@ -610,8 +625,7 @@ printf( __('However, it might have negative impact on search engine rankings if 
 </li>
 <li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
 [ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
-<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
-<span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
+<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?></p>
 </li>
 <li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
 <a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。

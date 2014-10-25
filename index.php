@@ -1,16 +1,16 @@
 <?php get_header(); ?>
 <?php $postType = get_post_type();
 if ( !$postType ) {
-	// カスタム投稿タイプで該当記事が0件の場合、 get_post_type()で取得できないのでタクソノミーから取得
-	$taxonomy = get_queried_object()->taxonomy;
-	$postType = get_taxonomy( $taxonomy )->object_type[0];
+  global $wp_query;
+  if ($wp_query->query_vars['post_type']) {
+      $postType = $wp_query->query_vars['post_type'];
+  }
 } ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
 	<div id="content">
 	<?php
-
 /*-------------------------------------------*/
 /*	Archive title
 /*-------------------------------------------*/
@@ -90,7 +90,7 @@ if ( !$postType ) {
 	<!-- [ /#content ] -->
 
 <!-- [ #sideTower ] -->
-<div id="sideTower">
+<div id="sideTower" class="sideTower">
 <?php get_sidebar($postType); ?>
 </div>
 <!-- [ /#sideTower ] -->

@@ -17,6 +17,7 @@ $pageTitHtml_after .= '</div><!-- [ /#pageTitBnr ] -->'."\n";
 /*	title
 /*-------------------------------------------*/
 global $biz_vektor_options;
+$pageTitle = '';
 if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_archive() || is_single() ) {
 	// ポストタイプを取得
 	$postType = get_post_type();

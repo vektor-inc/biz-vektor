@@ -2,12 +2,7 @@ module.exports = function(grunt) {
  
   grunt.initConfig({
  
-    uglify: {
-      dist: {
-        src: "js/biz-vektor.js",
-         dest: "js/biz-vektor-min.js"
-      }
-    },
+
 
     cssmin:{
     compress: {
@@ -30,14 +25,25 @@ module.exports = function(grunt) {
           'js/jquery.flatheights.js'
         ],
           dest : 'js/biz-vektor.js'
-        },
+        }
+    },
+
+    uglify: {
+      dist: {
+        src: "js/biz-vektor.js",
+         dest: "js/biz-vektor-min.js"
+      }
     },
 
     watch: {
-      dev: {
-        files: ["js/*.js"],
-        tasks: ['concat','uglify','cssmin']
+      scripts_css_min: {
+        files: ["css/*.css"],
+        tasks: ['cssmin']
       },
+      script_js: {
+        files: ["js/*.js"],
+        tasks: ['concat','uglify']
+      }
     }
 
   });
