@@ -339,7 +339,6 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	}
 
 	function widget($args, $instance) {
-		// print '<pre>';print_r($instance);print '</pre>';
 		echo '<div class="sideWidget">';
 		echo '<h3 class="localHead">';
 		if ( isset($instance['label']) && $instance['label'] ) {
@@ -351,7 +350,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		echo '<div class="ttBoxSection">';
 
 		$count 		= ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
-		$post_type 	= $instance['post_type'];
+		$post_type 	= ( isset($instance['post_type']) && $instance['post_type'] ) ? $instance['post_type'] : 'post';
 
 		$post_loop = new WP_Query( array(
 			'post_type' => $post_type,
@@ -397,14 +396,17 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
 
-		<?php //表示数字 ?>
+		<?php //表示件数 ?>
 		<label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?>:</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo $instance['count']; ?>" />
 		<br />
 
 		<?php //投稿タイプ ?>
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('表示する投稿タイプのスラッグ', 'biz-vektor') ?>:</label><br />
-		<input type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" value="<?php echo esc_attr($instance['post_type']) ?>" />
+		<input type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" value="<?php echo esc_attr($instance['post_type']) ?>" /><br />
+		<?php
+		global $biz_vektor_options;
+		printf(  __('%s の場合は post、<br />%s の場合は info になります。', 'biz-vektor' ), esc_html( $biz_vektor_options['postLabelName']), esc_html( $biz_vektor_options['infoLabelName']) ); ?>
 		
 		<?php
 	}
