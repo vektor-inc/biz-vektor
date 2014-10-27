@@ -127,10 +127,14 @@ class WP_Widget_infoTerms extends WP_Widget {
 			'echo'					=> 0    /* 直接出力させない為 */
 		);
 		$catlist = wp_list_categories( $arg );
-		if ( !empty($catlist)) { ?>
+		if ( !empty($catlist)) {
+			if ( !isset($instance['title']) || !$instance['title'] ) {
+				global $biz_vektor_options;
+				$instance['title'] = sprintf( __( '%s category', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] );
+			} ?>
 			<div class="localSection sideWidget">
 			<div class="localNaviBox">
-			<h3 class="localHead"><?php echo htmlspecialchars($instance['title']); ?></h3>
+			<h3 class="localHead"><?php echo esc_html($instance['title']); ?></h3>
 			<ul class="localNavi">
 		    <?php echo $catlist; ?>
 			</ul>
