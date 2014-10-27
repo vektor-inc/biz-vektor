@@ -312,6 +312,7 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 #content h2, #content h1.contentTitle, #content h1.entryPostTitle { clear: both; font-size: 128.6%; padding: 0; font-weight: bold; color: #333; position: relative; line-height: 114.3%; }
 #content h1, #content h2, #content h3, #content h4, #content h4, #content h5, #content h6, #content .leadTxt { color: #333333; }
 #content h1.entryPostTitle { margin: 0px 0px 5px; }
+#content h1.contentTitle { margin: 0 0 25px; }
 #content h2 { margin: 30px 0px 25px; }
 #content h2:nth-child(1) { margin-top: 0; }
 #content h2 a { text-decoration: none; }
