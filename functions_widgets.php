@@ -312,7 +312,7 @@ class WP_Widget_top_list_archive extends WP_Widget {
 		<h2><?php echo $post_label; ?></h2>
 		<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=<?php echo $instance['post_type']; ?>" id="infoRss" target="_blank">RSS</a></div>
 		<?php
-		if ( isset($biz_vektor_options['listInfoTop']) &&  $biz_vektor_options['listInfoTop'] == 'listType_set' ) { ?>
+		if ( $instance['display_type'] ) { ?>
 			<?php while ( $loop->have_posts() ) : $loop->the_post();?>
 				<?php get_template_part('module_loop_post2'); ?>
 			<?php endwhile ?>
@@ -353,7 +353,8 @@ class WP_Widget_top_list_archive extends WP_Widget {
 	function form($instance){
 		$defaults = array(
 			'post_type' => 'blog',
-			'year_list' => false
+			'year_list' => false,
+			'display_type' => 0,
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -362,7 +363,7 @@ class WP_Widget_top_list_archive extends WP_Widget {
 		<?php 	$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');	?>
 		<?php 
 			$pages[] = 'blog';
-			print_r($pages);
+			print_r($instance);
 		?>
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
@@ -371,6 +372,11 @@ class WP_Widget_top_list_archive extends WP_Widget {
 		<?php } ?>
 		</select>
 		<br/>
+		<label for="<?php echo $this->get_field_id('display_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<select name="<?php echo $this->get_field_name('display_type'); ?>" >
+			<option value="0" <?php if($instance['display_type'] != "2") echo 'selected="selected"'; ?> >type1</option>
+			<option value="2" <?php if($instance['display_type'] == "2") echo 'selected="selected"'; ?> >type2</option>
+		</select>		
 		<input type="checkbox" name="<?php echo $this->get_field_name('year_list'); ?>" value="true" <?php echo ($instance['year_list'])? 'checked': '' ; ?> >
 		<label for="<?php echo $this->get_field_id('year_list'); ?>">年別リストに変更する</label>
 		</p>
@@ -380,6 +386,7 @@ class WP_Widget_top_list_archive extends WP_Widget {
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['post_type'] = $new_instance['post_type'];
+		$instance['display_type'] = $new_instance['display_type'];
 		$instance['year_list'] = ($new_instance['year_list'] == 'true')? true : false;
 		return $instance;
 	}
