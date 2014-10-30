@@ -15,6 +15,8 @@
 /*-------------------------------------------*/
 /*	Top Info list widget
 /*-------------------------------------------*/
+/*	Top Archive list widget
+/*-------------------------------------------*/
 /*	RSS Widget
 /*-------------------------------------------*/
 /*	Side Post list widget
@@ -278,6 +280,88 @@ class WP_Widget_top_list_info extends WP_Widget {
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
+
+/*-------------------------------------------*/
+/*	Top Archive list widget
+/*-------------------------------------------*/
+class WP_Widget_archive_list extends WP_Widget {
+    // ウィジェット定義
+	function WP_Widget_archive_list() {
+		global $bizvektor_works_unit;
+		$works_label = esc_html($bizvektor_works_unit->options['post_name_label']);
+		$widget_ops = array(
+			'classname' => 'WP_Widget_archive_list',
+			'description' => $works_label.'アーカイブリストを表示します',
+		);
+		$widget_name = get_biz_vektor_name().'_サイド用アーカイブリスト';
+		$this->WP_Widget('WP_Widget_archive_list', $widget_name, $widget_ops);
+	}
+
+	function widget($args, $instance) {
+		$arg = array(
+			'echo' => 1,
+			);
+
+		if($instance['display_type'] == 'y'){
+			$arg['type'] = "yearly";
+			$arg['post_type'] = $instance['post_type'];
+			$arg['after'] = '年';
+		}
+		else{
+			$arg['type'] = "monthly";
+			$arg['post_type'] = $instance['post_type'];
+		}
+
+		$abc = get_post_type_object($instance['post_type']);
+		$post_label = $abc->label;
+	?>
+	<div class="localSection sideWidget">
+	<div class="sectionBox">
+		<h3 class="localHead"><?php echo $post_label; ?></h3>
+		<ul class="localNavi">
+			<?php wp_get_archives($arg); ?>
+		</ul>
+	</div>
+	</div>
+	<?php	
+	}
+
+	function form($instance){
+		$defaults = array(
+			'post_type' => 'blog',
+			'display_type' => 'm',
+		);
+
+		$instance = wp_parse_args((array) $instance, $defaults);
+		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names'); 
+		$pages[] = 'blog';
+		?>
+		<p>
+
+		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
+		<?php foreach($pages as $page){ ?>
+		<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
+		<?php } ?>
+		</select>
+		<br/>
+		<label for="<?php echo $this->get_field_id('display_type'); ?>">表示タイプ</label>
+		<select name="<?php echo $this->get_field_name('display_type'); ?>" >
+			<option value="m" <?php if($instance['display_type'] != "y") echo 'selected="selected"'; ?> >月別</option>
+			<option value="y" <?php if($instance['display_type'] == "y") echo 'selected="selected"'; ?> >年別</option>
+		</select>	
+		</p>
+		<?php
+	}
+
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['post_type'] = $new_instance['post_type'];
+		$instance['display_type'] = $new_instance['display_type'];
+		return $instance;
+	}
+} // class WP_Widget_top_list_info
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_archive_list");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
