@@ -732,3 +732,139 @@ function my_mime_type($a) {
     return $a;
 }
 add_filter('upload_mimes', 'my_mime_type');
+
+
+
+
+add_action('admin_menu', 'biz_vektor_csv_set_admin_page');
+function biz_vektor_csv_set_admin_page(){
+	add_submenu_page('themes.php', 'CSV', 'CSV-importer', 'administrator', __FILE__, 'biz_vektor_csv_admin_page');
+}
+
+
+
+
+
+function biz_vektor_csv_make_json_code(){
+	$options = biz_vektor_get_theme_options();
+	$jsonoption = json_encode($options);
+	return $jsonoption;		
+}
+
+function biz_vektor_csv_make_json_file(){
+
+}
+
+
+function biz_vektor_csv_upload_modify(){
+	if(isset($_POST['_wpnonce_bvcu']) && $_POST['_wpnonce_bvcu'] && check_admin_referer( 'efasdbasereafa', '_wpnonce_bvcu' )){
+		if($_POST['bizvektor_csv_uploader_flag'] == 'upload'){
+			if(is_uploaded_file($_FILES["json"]["tmp_name"])){
+				$data = file_get_contents($_FILES["json"]["tmp_name"]);
+				return array('mode'=>'upload','data'=>$data);
+
+			}
+		}
+		elseif($_POST['bizvektor_csv_uploader_flag'] == 'makejson'){
+			$filename =  biz_vektor_csv_make_jsonfile(biz_vektor_csv_make_json_code());
+			return array('mode'=>'make','url'=>$filename);
+		}
+	}
+	return null;
+}
+
+function biz_vektor_csv_make_jsonfile($string){
+	if($string){
+		$updir =  wp_upload_dir();
+		$filename = 'bizvektor_'.date("Y_m_d").'_option';
+		if(!file_exists($updir['basedir'].'/bizvektor_json')){
+			mkdir($updir['basedir'].'/bizvektor_json');
+		}
+		$f = '';
+		//print_r($updir['basedir'].'/bizvektor_json'.'/'.$filename.$f.'.json');
+		while(file_exists($updir['basedir'].'/bizvektor_json'.'/'.$filename.$f.'.json')){
+			if($f == ''){ $f = 2; }
+			else{ $f++; } 
+		}
+		//$file = fopen($updir.'/'.$filename.$f.'json', "w");
+		file_put_contents($updir['basedir'].'/bizvektor_json'.'/'.$filename.$f.'.json', $string);
+		return '/bizvektor_json'.'/'.$filename.$f.'.json';
+	}
+	return null;
+}
+
+function biz_vektor_csv_rm_jsonfile($dir) {
+  if ($handle = opendir("$dir")) {
+   while (false !== ($item = readdir($handle))) {
+     if ($item != "." && $item != "..") {
+       if (is_dir("$dir/$item")) {
+         biz_vektor_csv_rm_jsonfile("$dir/$item");
+       } else {
+         unlink("$dir/$item");
+         echo " removing $dir/$item<br>\n";
+       }
+     }
+   }
+   closedir($handle);
+   rmdir($dir);
+  }
+}
+
+
+function biz_vektor_csv_admin_page(){
+	$return=null;
+	if(isset($_POST['bizvektor_csv_uploader_flag']) && $_POST['bizvektor_csv_uploader_flag']){
+	   $return = biz_vektor_csv_upload_modify($_POST['options']);
+	}
+		?>
+<div class="wrap">
+	<h2>CSVアップローダー</h2>
+	<form action="" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="bizvektor_csv_uploader_flag" value="upload" />
+	<?php wp_nonce_field('efasdbasereafa', '_wpnonce_bvcu'); ?>
+	 <table>
+	   <tr>
+	     <th>ファイルを選択<br><span class="f10">※CSVファイルのみ</span></th>
+	     <td><input name="csv" type="file" size="30"></td>
+	   </tr>
+	   <tr>
+	     <td colspan="2"><input type="submit" value="アップロード"></td>
+	   </tr>
+	 </table>
+	 <?php
+	 if($return&&$return['mode'] == 'upload'){
+	 	echo $return['data'];
+	 }
+	 ?>
+	</form>
+	<form action="" method="post">
+	<input type="hidden" name="bizvektor_csv_uploader_flag" value="makejson" />
+	<?php wp_nonce_field('efasdbasereafa', '_wpnonce_bvcu'); ?>
+	<input type="submit" value="make file"/>
+	</form>
+	<?php 
+		if($return&&$return['mode'] == 'make'){
+			$dir = wp_upload_dir();
+			echo '<a href="'.$dir['baseurl'].$return['url'].'">get_json</a>';
+		}
+	?>
+
+</div><!-- end .wrap -->
+		<?php
+}
+
+
+
+
+
+class biz_vektor_csv{
+
+	function __construct(){
+
+	}
+	public static function init(){
+		self::admin_page();
+	}
+
+
+}
