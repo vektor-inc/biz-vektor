@@ -77,6 +77,7 @@ function biz_vektor_generate_default_options(){
 		'ad_conent_moretag' => '',
 		'ad_conent_after' => '',
 		'ad_related_after' => '',
+		'header_image_height'  => 250,
 		'twitter' => '',
 		'facebook' => '',
 		'fbAppId' => '',
@@ -246,6 +247,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['gaType']                 = $input['gaType'];
 	// TopPage
 	$output['topSideBarDisplay']      = (isset($input['topSideBarDisplay']) && $input['topSideBarDisplay'] == 'true')? true : false;
+	$output['header_image_height']    = (isset($input['header_image_height']) && $input['header_image_height'])? $input['header_image_height'] : $output['header_image_height'];
 	// SlideShow
 	for ( $i = 1; $i <= 5 ;){
 		$output['slide'.$i.'link']     = $input['slide'.$i.'link'];

@@ -112,9 +112,14 @@ define( 'HEADER_TEXTCOLOR', '' );
 // Kill custom header test
 define( 'NO_HEADER_TEXT', true );
 
+
+$options = get_option('biz_vektor_theme_options');
+if(isset($options['header_image_height']) && $options['header_image_height']){ $custom_height = $options['header_image_height']; }
+else{ $custom_height = 250; }
+
 define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
 define('HEADER_IMAGE_WIDTH', 950);
-define('HEADER_IMAGE_HEIGHT', 250);
+define('HEADER_IMAGE_HEIGHT', $custom_height);
 register_default_headers( array(
 	'accelerate' => array(
 		'url' => '%s/images/headers/accelerate.jpg',

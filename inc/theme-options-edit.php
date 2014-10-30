@@ -634,6 +634,14 @@ printf( __('However, it might have negative impact on search engine rankings if 
 </td>
 </td>
 </tr>
+<!-- MainVisual Size -->
+<tr>
+<th>メインビジュアルの高さ</th>
+<td>
+<ul>
+<li><input type="text" name="biz_vektor_theme_options[header_image_height]" value="<?php echo (isset($options['header_image_height']))? $options['header_image_height'] : 250 ; ?>" />px</li>
+</ul></td>
+</tr>
 <!-- Home 3PR area -->
 <tr>
 <th><?php _e('Home 3PR area', 'biz-vektor'); ?></th>
