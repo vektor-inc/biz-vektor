@@ -279,6 +279,113 @@ class WP_Widget_top_list_info extends WP_Widget {
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
 
+
+
+/*-------------------------------------------*/
+/*	Top Archive list widget
+/*-------------------------------------------*/
+class WP_Widget_top_list_archive extends WP_Widget {
+    // ウィジェット定義
+	function WP_Widget_top_list_archive() {
+		global $bizvektor_works_unit;
+		$works_label = esc_html($bizvektor_works_unit->options['post_name_label']);
+		$widget_ops = array(
+			'classname' => 'WP_Widget_top_list_archive',
+			'description' => $works_label.'新着記事一覧を表示します。',
+		);
+		$widget_name = get_biz_vektor_name().'_トップ用_アーカイブリスト';
+		$this->WP_Widget('WP_Widget_top_list_archive', $widget_name, $widget_ops);
+	}
+
+	function widget($args, $instance) {
+		$loop = new WP_Query( 
+			array( 
+				'post_type' => $instance['post_type'], 
+				'posts_per_page' => 5,
+			 ) ); 
+		$abc = get_post_type_object($instance['post_type']);
+		$post_label = $abc->label;
+		 ?>
+
+		<?php if ($loop->have_posts()) : ?>
+		<div id="topInfo" class="infoList">
+		<h2><?php echo $post_label; ?></h2>
+		<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=<?php echo $instance['post_type']; ?>" id="infoRss" target="_blank">RSS</a></div>
+		<?php
+		if ( isset($biz_vektor_options['listInfoTop']) &&  $biz_vektor_options['listInfoTop'] == 'listType_set' ) { ?>
+			<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+				<?php get_template_part('module_loop_post2'); ?>
+			<?php endwhile ?>
+		<?php } else { ?>
+			<ul class="entryList">
+			<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+				<?php get_template_part('module_loop_post'); ?>
+			<?php endwhile; ?>
+			</ul>
+		<?php }
+		$infoTopUrl = (isset($biz_vektor_options['infoTopUrl']) && $biz_vektor_options['infoTopUrl'])? $biz_vektor_options['infoTopUrl'] : home_url().'/info/';
+		echo '<div class="moreLink right"><a href="'.site_url('/?post_type='.$instance['post_type']).'">';
+		printf( __( '%s List page', 'biz-vektor' ),  $post_label );
+		echo '</a></div>';
+		?>
+		</div><!-- [ /#topInfo ] -->
+		<?php endif;
+		wp_reset_query();
+	}
+
+	function display_page($pageid,$titleflag=false) {
+		$page = get_page($pageid);
+		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
+		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
+		echo apply_filters('the_content', $page->post_content );
+		if ( is_user_logged_in() == TRUE ) {
+			global $user_level;
+			get_currentuserinfo();
+			if (10 <= $user_level) { 
+				?>
+				<div class="adminEdit">
+				<a href="<?php echo site_url(); ?>/wp-admin/post.php?post=<?php echo $pageid ;?>&action=edit" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
+				</div>
+			<?php } }		
+		echo '</div>';
+	}
+
+	function form($instance){
+		$defaults = array(
+			'post_type' => 'blog',
+			'year_list' => false
+		);
+
+		$instance = wp_parse_args((array) $instance, $defaults);
+		?>
+		<p>
+		<?php 	$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');	?>
+		<?php 
+			$pages[] = 'blog';
+			print_r($pages);
+		?>
+		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
+		<?php foreach($pages as $page){ ?>
+		<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
+		<?php } ?>
+		</select>
+		<br/>
+		<input type="checkbox" name="<?php echo $this->get_field_name('year_list'); ?>" value="true" <?php echo ($instance['year_list'])? 'checked': '' ; ?> >
+		<label for="<?php echo $this->get_field_id('year_list'); ?>">年別リストに変更する</label>
+		</p>
+		<?php
+	}
+
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['post_type'] = $new_instance['post_type'];
+		$instance['year_list'] = ($new_instance['year_list'] == 'true')? true : false;
+		return $instance;
+	}
+} // class WP_Widget_top_list_info
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_archive");'));
+
 /*-------------------------------------------*/
 /*	RSS widget
 /*-------------------------------------------*/
