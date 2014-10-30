@@ -1,2 +1,6 @@
-sftp-config.json
+*sftp-config.json
 node_modules/
+.sass-cache/
+.DS_Store
+htumbs.db
+*~
