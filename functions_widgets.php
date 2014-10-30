@@ -284,17 +284,17 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 /*	Top Archive list widget
 /*-------------------------------------------*/
-class WP_Widget_top_list_archive extends WP_Widget {
+class WP_Widget_top_archives extends WP_Widget {
     // ウィジェット定義
-	function WP_Widget_top_list_archive() {
+	function WP_Widget_top_archives() {
 		global $bizvektor_works_unit;
 		$works_label = esc_html($bizvektor_works_unit->options['post_name_label']);
 		$widget_ops = array(
-			'classname' => 'WP_Widget_top_list_archive',
+			'classname' => 'WP_Widget_top_archives',
 			'description' => $works_label.'新着記事一覧を表示します。',
 		);
 		$widget_name = get_biz_vektor_name().'_トップ用_アーカイブリスト';
-		$this->WP_Widget('WP_Widget_top_list_archive', $widget_name, $widget_ops);
+		$this->WP_Widget('WP_Widget_top_archives', $widget_name, $widget_ops);
 	}
 
 	function widget($args, $instance) {
@@ -353,18 +353,14 @@ class WP_Widget_top_list_archive extends WP_Widget {
 	function form($instance){
 		$defaults = array(
 			'post_type' => 'blog',
-			'year_list' => false,
 			'display_type' => 0,
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
+		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names'); 
+		$pages[] = 'blog';
 		?>
 		<p>
-		<?php 	$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');	?>
-		<?php 
-			$pages[] = 'blog';
-			print_r($instance);
-		?>
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
 		<?php foreach($pages as $page){ ?>
@@ -372,13 +368,11 @@ class WP_Widget_top_list_archive extends WP_Widget {
 		<?php } ?>
 		</select>
 		<br/>
-		<label for="<?php echo $this->get_field_id('display_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<label for="<?php echo $this->get_field_id('display_type'); ?>">表示タイプ</label>
 		<select name="<?php echo $this->get_field_name('display_type'); ?>" >
 			<option value="0" <?php if($instance['display_type'] != "2") echo 'selected="selected"'; ?> >type1</option>
 			<option value="2" <?php if($instance['display_type'] == "2") echo 'selected="selected"'; ?> >type2</option>
-		</select>		
-		<input type="checkbox" name="<?php echo $this->get_field_name('year_list'); ?>" value="true" <?php echo ($instance['year_list'])? 'checked': '' ; ?> >
-		<label for="<?php echo $this->get_field_id('year_list'); ?>">年別リストに変更する</label>
+		</select>	
 		</p>
 		<?php
 	}
@@ -387,11 +381,10 @@ class WP_Widget_top_list_archive extends WP_Widget {
 		$instance = $old_instance;
 		$instance['post_type'] = $new_instance['post_type'];
 		$instance['display_type'] = $new_instance['display_type'];
-		$instance['year_list'] = ($new_instance['year_list'] == 'true')? true : false;
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_archive");'));
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_archives");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
