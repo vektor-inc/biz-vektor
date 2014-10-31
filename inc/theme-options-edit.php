@@ -863,7 +863,7 @@ px</dd>
 </form>
 
 
-<?php if(true){ ?>
+<?php if(false){ ?>
 <div>
 <?php
 	$csv_fname = get_option('biz_vektor_csv_filename');
@@ -881,7 +881,7 @@ px</dd>
 <form action="" method="post" enctype="multipart/form-data">
 <input type="hidden" name="bizvektor_action_mode" value="upload_csv" />
 <?php wp_nonce_field('efafsdewcsvwreafa', '_wpnonce_bvtf'); ?>
- <table>
+<table class="form-table">
    <tr>
      <th>ファイルを選択<br><span class="f10">※CSVファイルのみ</span></th>
      <td><input name="csv" type="file" size="30"></td>

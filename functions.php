@@ -733,24 +733,6 @@ function my_mime_type($a) {
 }
 add_filter('upload_mimes', 'my_mime_type');
 
-
-
-
-add_action('admin_menu', 'biz_vektor_csv_set_admin_page');
-function biz_vektor_csv_set_admin_page(){
-	add_submenu_page('themes.php', 'CSV', 'CSV-importer', 'administrator', __FILE__, 'biz_vektor_csv_admin_page');
-}
-
-
-
-
-
-function biz_vektor_csv_make_json_code(){
-	$options = biz_vektor_get_theme_options();
-	$jsonoption = json_encode($options);
-	return $jsonoption;		
-}
-
 function biz_vektor_csv_make_csv_code(){
 	$options = biz_vektor_get_theme_options();
 	$keys = array_keys($options);
@@ -768,11 +750,6 @@ function biz_vektor_csv_make_csv_code(){
 	$csv_string = implode("\n", $csv_data);
 	return $csv_string;
 }
-
-function biz_vektor_csv_make_json_file(){
-
-}
-
 
 function biz_vektor_csv_upload_modify(){
 	/// noonceチェック
@@ -830,31 +807,6 @@ function biz_vektor_csv_make_csvfile($string){
 	return null;
 }
 
-
-function biz_vektor_csv_rm_jsonfile($dir) {
-  if ($handle = opendir("$dir")) {
-   while (false !== ($item = readdir($handle))) {
-     if ($item != "." && $item != "..") {
-       if (is_dir("$dir/$item")) {
-         biz_vektor_csv_rm_jsonfile("$dir/$item");
-       } else {
-         unlink("$dir/$item");
-         echo " removing $dir/$item<br>\n";
-       }
-     }
-   }
-   closedir($handle);
-   rmdir($dir);
-  }
-}
-
-function biz_vektor_csv_decode($input){
-	$strings = mb_split("\n", $input);
-	foreach($strings as $line){
-		$string = mb_split("");
-	}
-}
-
 function biz_vektor_csv_pase_option($input){
 
 	$new_options = biz_vektor_theme_options_validate($input);
@@ -866,61 +818,3 @@ function biz_vektor_csv_pase_option($input){
 	}
 }
 
-function biz_vektor_csv_admin_page(){
-	$return=null;
-	if(isset($_POST['bizvektor_csv_uploader_flag']) && $_POST['bizvektor_csv_uploader_flag'] ){
-	   $return = biz_vektor_csv_upload_modify();
-	}
-		?>
-<div class="wrap">
-	<h2>CSVアップローダー</h2>
-	<form action="" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="bizvektor_csv_uploader_flag" value="upload" />
-	<?php wp_nonce_field('efasdbasereafa', '_wpnonce_bvcu'); ?>
-	 <table>
-	   <tr>
-	     <th>ファイルを選択<br><span class="f10">※CSVファイルのみ</span></th>
-	     <td><input name="csv" type="file" size="30"></td>
-	   </tr>
-	   <tr>
-	     <td colspan="2"><input type="submit" value="アップロード"></td>
-	   </tr>
-	 </table>
-	 <?php
-	 if($return&&$return['mode'] == 'upload'){
-	 	echo $return['data'];
-	 }
-	 ?>
-	</form>
-	<form action="" method="post">
-	<input type="hidden" name="bizvektor_csv_uploader_flag" value="makejson" />
-	<?php wp_nonce_field('efasdbasereafa', '_wpnonce_bvcu'); ?>
-	<input type="hidden" name="options" value=" "/>
-	<input type="submit" value="make file"/>
-	</form>
-	<?php 
-		if($return&&$return['mode'] == 'make'){
-			$dir = wp_upload_dir();
-			echo '<a href="'.$dir['baseurl'].$return['url'].'">get_json</a>';
-		}
-	?>
-
-</div><!-- end .wrap -->
-		<?php
-}
-
-
-
-
-
-class biz_vektor_csv{
-
-	function __construct(){
-
-	}
-	public static function init(){
-		self::admin_page();
-	}
-
-
-}
