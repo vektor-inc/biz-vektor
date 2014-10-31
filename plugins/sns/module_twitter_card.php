@@ -27,7 +27,6 @@ if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && 
 <meta name="twitter:domain" content="<?php echo $match[1] ?>">
 <meta name="twitter:image:width" content="<?php echo $width ?>">
 <meta name="twitter:image:height" content="<?php echo $height ?>">
-<meta name="twitter:creator" content="@<?php echo $biz_vektor_options['twitter'];?>">
 <meta name="twitter:site" content="@<?php echo $biz_vektor_options['twitter'];?>">
 <!-- /twitter card -->
 <?php endif; ?>
