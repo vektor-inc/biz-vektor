@@ -751,47 +751,85 @@ function biz_vektor_csv_make_json_code(){
 	return $jsonoption;		
 }
 
+function biz_vektor_csv_make_csv_code(){
+	$options = biz_vektor_get_theme_options();
+	$keys = array_keys($options);
+
+	$csv_data = array();
+	$csv_data[] = "'key','value'";
+	$lengh = count($keys);
+	for($v = 0;$v < $lengh;$v++){
+
+		$csv_data[] = "'".$keys[$v]."','".$options[$keys[$v]]."'";
+
+		if($v > 500){break;}
+
+	}
+	$csv_string = implode("\n", $csv_data);
+	return $csv_string;
+}
+
 function biz_vektor_csv_make_json_file(){
 
 }
 
 
 function biz_vektor_csv_upload_modify(){
+	/// noonceチェック
 	if(isset($_POST['_wpnonce_bvcu']) && $_POST['_wpnonce_bvcu'] && check_admin_referer( 'efasdbasereafa', '_wpnonce_bvcu' )){
-		if($_POST['bizvektor_csv_uploader_flag'] == 'upload'){
-			if(is_uploaded_file($_FILES["json"]["tmp_name"])){
-				$data = file_get_contents($_FILES["json"]["tmp_name"]);
-				return array('mode'=>'upload','data'=>$data);
 
+
+		/// 動作振り分け
+		// UPLOAD		
+		if($_POST['bizvektor_csv_uploader_flag'] == 'upload'){
+			if(is_uploaded_file($_FILES["csv"]["tmp_name"])){
+				if (($handle = fopen($_FILES["csv"]["tmp_name"], "r")) !== FALSE) {
+
+					$data_array = array();
+				   while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+
+				   	$key = mb_split("'", $data[0]);
+				   	$value = mb_split("'", $data[1]);
+				   	//echo "\n<br>".$key[1] ." : ". $value[1];
+				    	$data_array[$key[1]] = $value[1];
+				    }
+				    fclose($handle);
+				}
+
+				biz_vektor_csv_pase_option($data_array);
+				return array('mode'=>'upload','data'=>$data_array);
 			}
 		}
+		// MAKE_CSV
 		elseif($_POST['bizvektor_csv_uploader_flag'] == 'makejson'){
-			$filename =  biz_vektor_csv_make_jsonfile(biz_vektor_csv_make_json_code());
+			$filename =  biz_vektor_csv_make_csvfile(biz_vektor_csv_make_csv_code());
 			return array('mode'=>'make','url'=>$filename);
 		}
 	}
 	return null;
 }
 
-function biz_vektor_csv_make_jsonfile($string){
+function biz_vektor_csv_make_csvfile($string){
 	if($string){
 		$updir =  wp_upload_dir();
 		$filename = 'bizvektor_'.date("Y_m_d").'_option';
-		if(!file_exists($updir['basedir'].'/bizvektor_json')){
-			mkdir($updir['basedir'].'/bizvektor_json');
+		if(!file_exists($updir['basedir'].'/bizvektor_csv')){
+			mkdir($updir['basedir'].'/bizvektor_csv');
 		}
 		$f = '';
-		//print_r($updir['basedir'].'/bizvektor_json'.'/'.$filename.$f.'.json');
-		while(file_exists($updir['basedir'].'/bizvektor_json'.'/'.$filename.$f.'.json')){
+		//print_r($updir['basedir'].'/bizvektor_csv'.'/'.$filename.$f.'.csv');
+		while(file_exists($updir['basedir'].'/bizvektor_csv'.'/'.$filename.$f.'.csv')){
 			if($f == ''){ $f = 2; }
 			else{ $f++; } 
+			if($f > 50){ break; }
 		}
-		//$file = fopen($updir.'/'.$filename.$f.'json', "w");
-		file_put_contents($updir['basedir'].'/bizvektor_json'.'/'.$filename.$f.'.json', $string);
-		return '/bizvektor_json'.'/'.$filename.$f.'.json';
+		//$file = fopen($updir.'/'.$filename.$f.'csv', "w");
+		file_put_contents($updir['basedir'].'/bizvektor_csv'.'/'.$filename.$f.'.csv', $string);
+		return '/bizvektor_csv'.'/'.$filename.$f.'.csv';
 	}
 	return null;
 }
+
 
 function biz_vektor_csv_rm_jsonfile($dir) {
   if ($handle = opendir("$dir")) {
@@ -810,11 +848,28 @@ function biz_vektor_csv_rm_jsonfile($dir) {
   }
 }
 
+function biz_vektor_csv_decode($input){
+	$strings = mb_split("\n", $input);
+	foreach($strings as $line){
+		$string = mb_split("");
+	}
+}
+
+function biz_vektor_csv_pase_option($input){
+
+	$new_options = biz_vektor_theme_options_validate($input);
+	$before_options = biz_vektor_get_theme_options();
+
+	$save_result = update_option('biz_vektor_theme_options', $new_options[0]);
+	if(!$save_result){
+		update_option('biz_vektor_theme_options', $before_options);
+	}
+}
 
 function biz_vektor_csv_admin_page(){
 	$return=null;
-	if(isset($_POST['bizvektor_csv_uploader_flag']) && $_POST['bizvektor_csv_uploader_flag']){
-	   $return = biz_vektor_csv_upload_modify($_POST['options']);
+	if(isset($_POST['bizvektor_csv_uploader_flag']) && $_POST['bizvektor_csv_uploader_flag'] ){
+	   $return = biz_vektor_csv_upload_modify();
 	}
 		?>
 <div class="wrap">
@@ -840,6 +895,7 @@ function biz_vektor_csv_admin_page(){
 	<form action="" method="post">
 	<input type="hidden" name="bizvektor_csv_uploader_flag" value="makejson" />
 	<?php wp_nonce_field('efasdbasereafa', '_wpnonce_bvcu'); ?>
+	<input type="hidden" name="options" value=" "/>
 	<input type="submit" value="make file"/>
 	</form>
 	<?php 

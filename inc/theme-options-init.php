@@ -35,7 +35,8 @@ function biz_vektor_option_register(){
 	register_setting(
 		'biz_vektor_options',					// 設定のグループ名。ここで指定した名前をsettings_fields関数の引数に指定します。
 		'biz_vektor_theme_options',				// 登録するオプションの名前。input要素などのname属性を指定します。
-		'biz_vektor_theme_options_validate'		// オプションの値をサニタイズするためのコールバック関数。
+		'biz_vektor_theme_options_save_opt'
+//		'biz_vektor_theme_options_validate'		// オプションの値をサニタイズするためのコールバック関数。
 	);
 }
 add_action('admin_init', 'biz_vektor_option_register');
@@ -292,11 +293,46 @@ function biz_vektor_theme_options_validate( $input ) {
 	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
 
 	if(isset($nowdata['version'])&&$nowdata['version']){ $output['version'] = $nowdata['version']; }
-	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
+
+	return array($output, $input, $defaults);
+}
+
+
+function biz_vektor_theme_options_save_opt($input){
+	$return = biz_vektor_theme_options_validate($input);
+
+	return apply_filters( 'biz_vektor_theme_options_save_opt', $return[0], $return[1], $return[2] );
 }
 
 function biz_vektor_them_edit_function($post){
 	switch ($post['bizvektor_action_mode']) {
+		case 'make_csv':
+			$filename = biz_vektor_csv_make_csvfile(biz_vektor_csv_make_csv_code());
+			update_option('biz_vektor_csv_filename',$filename);
+			break;
+
+		case 'upload_csv':
+			if(isset($_POST['_wpnonce_bvtf']) && $_POST['_wpnonce_bvtf'] && check_admin_referer( 'efafsdewcsvwreafa', '_wpnonce_bvtf' )){
+
+				if(is_uploaded_file($_FILES["csv"]["tmp_name"])){
+					if (($handle = fopen($_FILES["csv"]["tmp_name"], "r")) !== FALSE) {
+
+						$data_array = array();
+					   while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+
+					   	$key = mb_split("'", $data[0]);
+					   	$value = mb_split("'", $data[1]);
+					   	//echo "\n<br>".$key[1] ." : ". $value[1];
+					    	$data_array[$key[1]] = $value[1];
+					    }
+					    fclose($handle);
+					}
+
+					biz_vektor_csv_pase_option($data_array);
+				}
+			}
+			break;
+
 		case 'reset':
 			$default_theme_options = biz_vektor_generate_default_options();
 			delete_option('biz_vektor_theme_options');

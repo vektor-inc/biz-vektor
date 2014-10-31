@@ -862,10 +862,44 @@ px</dd>
 </div>
 </form>
 
+
+<?php if(true){ ?>
+<div>
+<?php
+	$csv_fname = get_option('biz_vektor_csv_filename');
+	if($csv_fname){
+		$dir = wp_upload_dir();
+		echo '<a href="'.$dir['baseurl'].$csv_fname.'">get_csv</a>';
+	}
+?>
+<form action="" method="POST">
+<?php wp_nonce_field('efafsdewcsvwreafa', '_wpnonce_bvtf'); ?>
+<input type="hidden" name="bizvektor_action_mode" value="make_csv" />
+<p class="submit"><input type="submit" name="csv_submit" id="submit" class="button button-primary" value="CSVを作成"  /></p></div>
+</form>
+
+<form action="" method="post" enctype="multipart/form-data">
+<input type="hidden" name="bizvektor_action_mode" value="upload_csv" />
+<?php wp_nonce_field('efafsdewcsvwreafa', '_wpnonce_bvtf'); ?>
+ <table>
+   <tr>
+     <th>ファイルを選択<br><span class="f10">※CSVファイルのみ</span></th>
+     <td><input name="csv" type="file" size="30"></td>
+   </tr>
+   <tr>
+     <td colspan="2"><input type="submit" value="アップロード"></td>
+   </tr>
+ </table>
+</form>
+</div>
+<?php } ?>
+
+
 <?php if(false){ ?>
 <?php $resetkey = rand(1000,9999); ?>
 <div class="option Advanced"><form action="" method="post">
 <?php settings_fields( 'biz_vektor_options' ); ?>
+<?php wp_nonce_field('efafsdewwwreafa', '_wpnonce_bvtf'); ?>
 <input type="hidden" name="bizvektor_action_mode" value="reset" />
 <input type="hidden" name="bizvektor_reset_key"  value="<?php echo $resetkey; ?>" />
 <p style="font-weight: bold;font-size: 23px;font-family: ariel;color:red"><?php echo $resetkey; ?></p>
