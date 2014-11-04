@@ -396,19 +396,15 @@ remove_action('wp_head', 'wp_generator');
 // remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
 // Add Google Web Fonts
-add_action('wp_head','bizVektorAddWebFonts');
+add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
-	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
-	$webFonts = apply_filters('webFontsCustom', $webFonts );
-	echo $webFonts;
+	wp_enqueue_style('Biz_Vektor_common_style', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), false, 'all');
 }
 
 // Add BizVektor option css
-add_action('wp_head','bizVektorAddCommonStyle');
-function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140923a" type="text/css" media="all" />'."\n";
-	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
-	echo $optionStyle;
+add_action('wp_enqueue_scripts', 'bizVektorSetCommonStyle');
+function bizVektorSetCommonStyle(){
+	wp_enqueue_style('Biz_Vektor_common_style', get_template_directory_uri().'/css/bizvektor_common_min.css', array(), false, 'all');
 }
 
 // add pingback

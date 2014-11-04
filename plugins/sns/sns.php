@@ -93,12 +93,11 @@ function biz_vektor_ogp() {
 }
 
 // Add BizVektor SNS module style
-add_action('wp_head','bizVektorAddSnsStyle');
+add_action('wp_enqueue_scripts','bizVektorAddSnsStyle');
 function bizVektorAddSnsStyle(){
-	$snsStyle = '<link rel="stylesheet" id="bizvektor-sns-css"  href="'.get_template_directory_uri().'/plugins/sns/style_bizvektor_sns.css" type="text/css" media="all" />'."\n";
-	$snsStyle = apply_filters('snsStyleCustom', $snsStyle );
-	echo $snsStyle;
+	wp_enqueue_style('Biz_Vektor_plugin_sns_style', get_template_directory_uri().'/plugins/sns/style_bizvektor_sns.css', array('Biz_Vektor_Design_style'), false, 'all');
 }
+
 /*-------------------------------------------*/
 /*	Add twitter card
 /*-------------------------------------------*/

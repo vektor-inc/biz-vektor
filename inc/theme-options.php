@@ -279,7 +279,7 @@ function biz_vektor_theme_styleSetting() {
 }
 
 // [4] Print theme style css
-add_action('wp_head','biz_vektor_theme_style',100 );
+add_action('wp_enqueue_scripts','biz_vektor_theme_style',100 );
 function biz_vektor_theme_style() {
 	$options = biz_vektor_get_theme_options();
 	// Set bbiz_vektor_theme_styles
@@ -304,10 +304,30 @@ function biz_vektor_theme_style() {
 
 	$themePath = $biz_vektor_theme_styles[$theme_style]['cssPath'];
 	$system_name = get_biz_vektor_name();
-	echo '<!-- '.$system_name.' Style-->'."\n";
-	echo '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
-	echo '<!-- /'.$system_name.' Style-->'."\n";
 
+	wp_enqueue_style('Biz_Vektor_Design_style', $themePath, array('Biz_Vektor_common_style'), false, 'all');
+
+}
+
+add_action('wp_head','biz_vektor_theme_style_oldie',100 );
+function biz_vektor_theme_style_oldie() {
+	global $biz_vektor_theme_styles;
+	biz_vektor_theme_styleSetting();
+
+	if ( isset($options['theme_style']) ) {
+		$theme_style = $options['theme_style'];
+		/*
+		一度保存されているラベルのスキンプラグインが停止またはアンインストールされている事があるので、
+		保存されているスキンが使用出来るか判別するために変数の配列を確認。なければ変わりにrebuildを適用する
+		*/
+		if ( !isset($biz_vektor_theme_styles[$theme_style]) ) {
+			$theme_style = 'rebuild';
+		}
+	} else {
+		// set default style
+		$theme_style = 'rebuild';
+	}
+	
 	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
 
 	if ($themePathOldIe){
@@ -315,6 +335,7 @@ function biz_vektor_theme_style() {
 		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
 		print '<![endif]-->'."\n";
 	}
+
 }
 
 /*-------------------------------------------*/
