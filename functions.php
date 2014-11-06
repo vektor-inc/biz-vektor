@@ -398,13 +398,13 @@ remove_action('wp_head', 'wp_generator');
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
-	wp_enqueue_style('Biz_Vektor_common_style', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), false, 'all');
+	wp_enqueue_style('Biz_Vektor_add_web_fonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), false, 'all');
 }
 
 // Add BizVektor option css
 add_action('wp_enqueue_scripts', 'bizVektorSetCommonStyle');
 function bizVektorSetCommonStyle(){
-	wp_enqueue_style('Biz_Vektor_common_style', get_template_directory_uri().'/css/bizvektor_common_min.css', array(), false, 'all');
+	wp_enqueue_style('Biz_Vektor_common_style', get_template_directory_uri().'/css/bizvektor_common_min.css', array(), '20141106', 'all');
 }
 
 // add pingback
