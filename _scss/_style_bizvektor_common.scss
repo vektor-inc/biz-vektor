@@ -26,8 +26,11 @@
 #wpadminbar .ab-top-menu>li#wp-admin-bar-editGuide>.ab-item { background-color: #069;cursor: pointer; }
 #wpadminbar .ab-top-menu>li#wp-admin-bar-editGuide>.ab-item:hover { background-color: #cc0;color:#fff;cursor: pointer; }
 
-#sideTower .sideWidget li#sideContact { border:none;
-	a { padding:0; }
+.sideTower,
+#sideTower {
+	.sideWidget li#sideContact { border:none;
+		a { padding:0; }
+	}
 }
 
 /*-------------------------------------------*/
@@ -38,6 +41,7 @@
 /*-------------------------------------------*/
 /*	#sideTower
 /*-------------------------------------------*/
+.sideTower,
 #sideTower {
 	.ttBoxSection { padding:15px 0 15px;}
 	.ttBox {
