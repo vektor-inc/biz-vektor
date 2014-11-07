@@ -1,5 +1,8 @@
-<?php 
-if ( is_home() || is_page() || is_attachment() || is_search() || is_404() ) {
+<?php
+
+$current_type = get_post_type();
+
+if ( is_home() || is_page() || is_attachment() || is_search() || is_404() || ( $current_type == 'info' && is_archive() ) ) {
 	$pageTitTag = 'h1';
 } else if ( is_category() || is_tag() || is_author() || is_tax() || is_archive() || is_single() ) {
 	$pageTitTag = 'div';
