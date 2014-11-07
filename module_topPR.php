@@ -86,12 +86,8 @@ if ( !isset($biz_vektor_options['top3PrDisplay']) || !$biz_vektor_options['top3P
 	<!-- [ #topPr ] -->
 
 <?php } ?>
-<?php if ( is_user_logged_in() == TRUE ) {
-global $user_level;
-get_currentuserinfo();
-if (10 <= $user_level) { ?>
+<?php if ( is_user_logged_in() == TRUE && current_user_can('edit_theme_options') ) { ?>
 <div class="adminEdit">
 <a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#prBox" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
 </div>
-<?php }
-} ?>
+<?php } ?>
