@@ -22,7 +22,7 @@ $pageTitHtml_after .= '</div><!-- [ /#pageTitBnr ] -->'."\n";
 global $biz_vektor_options;
 $pageTitle = '';
 if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_archive() || is_single() ) {
-	// ポストタイプを取得
+	// get post type
 	$postType = get_post_type();
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
 	// 投稿が0件の場合はget_post_typeが効かないので is_category()とis_tag()も追加
@@ -39,12 +39,12 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 			$postTypeSlug = get_taxonomy( $taxonomy )->object_type[0];
 			$pageTitle = get_post_type_object($postTypeSlug)->labels->name;
 		}
-	} 
+	}
 } else if (is_page() || is_attachment()) {
 	$pageTitle = get_the_title();
 } else if (is_search()) {
 	$pageTitle = sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query());
-} else if (is_404()){ 
+} else if (is_404()){
 	$pageTitle = __('Not found', 'biz-vektor');
 }
 $pageTitle = apply_filters( 'biz_vektor_pageTitCustom', $pageTitle );
