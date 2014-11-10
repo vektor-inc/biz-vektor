@@ -348,6 +348,7 @@ function biz_vektor_favicon(){
 	}
 }
 add_action('wp_head', 'biz_vektor_favicon');
+add_action('admin_head', 'biz_vektor_favicon');
 
 /*-------------------------------------------*/
 /*	Menu divide
