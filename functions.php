@@ -60,7 +60,7 @@ define('BizVektor_Theme_Version', '1.3.3');
 /*-------------------------------------------*/
 /*	Archive page link ( don't erase )
 /*-------------------------------------------*/
-/*	Pasing
+/*	Paging
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
@@ -591,7 +591,7 @@ function biz_vektor_content_nav( $nav_id ) {
 }
 
 /*-------------------------------------------*/
-/*	Pasing
+/*	Paging
 /*-------------------------------------------*/
 function pagination($max_num_pages = '', $range = 1) {
 	$showitems = ($range * 2)+1;
