@@ -174,6 +174,10 @@ function getHeadTitle() {
 	} else {
 		$headTitle = get_bloginfo('name');
 	}
+	global $paged;
+	if ( $paged != '1'){
+		$headTitle = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$headTitle;
+	}
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
 	return esc_html($headTitle);
 }
