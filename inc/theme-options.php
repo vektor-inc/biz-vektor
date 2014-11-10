@@ -175,12 +175,14 @@ function getHeadTitle() {
 		$headTitle = get_bloginfo('name');
 	}
 	global $paged;
-	if ( $paged != '1'){
+	if ( $paged != '0' ){
 		$headTitle = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$headTitle;
 	}
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
 	return esc_html($headTitle);
 }
+add_filter( 'wp_title', 'getHeadTitle', 10, 2 );
+
 /*-------------------------------------------*/
 /*	layout
 /*-------------------------------------------*/
