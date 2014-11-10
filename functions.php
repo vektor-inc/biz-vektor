@@ -381,6 +381,10 @@ function getHeadDescription() {
 	} else {
 		$metadescription = get_bloginfo('description');
 	}
+	global $paged;
+	if ( $paged != '1'){
+		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
+	}
 	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
 	echo $metadescription;
 }
