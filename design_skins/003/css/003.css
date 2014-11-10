@@ -1123,7 +1123,9 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
   #footerSiteMap .menu > li { margin-right: 10px; }
   #footerSiteMap .menu li { width: 150px; }
   #footerSiteMap .menu li a { padding: 2px 0 2px 18px; background-position: left 50%; border-bottom: none; }
-  #footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 5px; } }
+  #footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 5px; }
+  .three_column #main #container { position: relative; }
+  .three_column #main #container #thirdTower { margin-right: 0; } }
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/

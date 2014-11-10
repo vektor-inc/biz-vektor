@@ -289,7 +289,11 @@ form#searchform {
 		} //li
 		// li:first-child	{ border-top:none; }
 	} //.menu
-} // #footerSiteMap
+} // #footerSiteMapzz
+
+.three_column #main #container { position: relative;
+	#thirdTower {margin-right:0;}
+}
 
 // #topMainBnrFrame	{ width:94%; padding-right:3%;padding-left:3%;margin:0 auto; }
 } // min-width: 770px
