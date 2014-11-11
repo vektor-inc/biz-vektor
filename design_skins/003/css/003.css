@@ -1042,7 +1042,7 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 .sideTower .sideWidget li ul li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2b"; margin-right: 5px; padding-top: 3px; }
 .sideTower .sideWidget li ul li a:first-letter { margin-left: -20px; border: 1px solid rgba(255, 255, 255, 0); }
 .sideTower .ttBoxSection { padding: 0; }
-.sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px dotted #ccc; font-size: 85.7%; line-height: 135.7%; }
+.sideTower .ttBoxSection .ttBox { padding: 13px 0px 11px; border-bottom: 1px dotted #ccc; font-size: 85.7%; line-height: 135.7%; }
 .sideTower .ttBoxSection .ttBox a { color: #666; }
 .sideTower .ttBoxSection .ttBox a:hover { text-decoration: none !important; }
 .sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
