@@ -288,10 +288,9 @@ class WP_Widget_archive_list extends WP_Widget {
     // ウィジェット定義
 	function WP_Widget_archive_list() {
 		global $bizvektor_works_unit;
-		$works_label = esc_html($bizvektor_works_unit->options['post_name_label']);
 		$widget_ops = array(
 			'classname' => 'WP_Widget_archive_list',
-			'description' => $works_label.'アーカイブリストを表示します',
+			'description' => 'アーカイブリストを表示します',
 		);
 		$widget_name = get_biz_vektor_name().'_サイド用アーカイブリスト';
 		$this->WP_Widget('WP_Widget_archive_list', $widget_name, $widget_ops);
