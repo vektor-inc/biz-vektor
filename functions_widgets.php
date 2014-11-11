@@ -17,6 +17,8 @@
 /*-------------------------------------------*/
 /*	Top Archive list widget
 /*-------------------------------------------*/
+/*	Top taxonomy list widget
+/*-------------------------------------------*/
 /*	RSS Widget
 /*-------------------------------------------*/
 /*	Side Post list widget
@@ -416,6 +418,124 @@ class WP_Widget_archive_list extends WP_Widget {
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_archive_list");'));
+
+/*-------------------------------------------*/
+/*	Top taxonomy list widget
+/*-------------------------------------------*/
+class WP_Widget_taxonomy_list extends WP_Widget {
+    // ウィジェット定義
+	function WP_Widget_taxonomy_list() {
+		global $bizvektor_works_unit;
+		$widget_ops = array(
+			'classname' => 'WP_Widget_taxonomy_list',
+			'description' => 'カテゴリーリストを表示します',
+		);
+		$lab = get_biz_vektor_name();
+		if($lab == 'BizVektor'){
+			$lab = 'BV';
+		}
+		$widget_name = $lab.'_サイド用カテゴリーリスト';
+		$this->WP_Widget('WP_Widget_taxonomy_list', $widget_name, $widget_ops);
+	}
+
+	function widget($args, $instance) {
+		$arg = array(
+			'echo'               => 1,
+			'style'              => 'list',
+			'show_count'         => true,
+			'show_option_all'    => false,
+			'hierarchical'       => false,
+			'title_li'           => '',
+			);
+
+		$arg['taxonomy'] = $instance['tax_name'];
+		$arg['order']   = $instance['order'];
+		$arg['orderby'] = $instance['orderby'];
+
+	?>
+	<div class="localSection sideWidget">
+	<div class="sectionBox">
+		<h3 class="localHead"><?php echo $instance['label']; ?></h3>
+		<ul class="localNavi">
+			<?php wp_list_categories($arg); ?>
+		</ul>
+	</div>
+	</div>
+	<?php	
+	}
+
+	function form($instance){
+		$defaults = array(
+			'tax_name'     => 'blog',
+			'label'        => 'アーカイブ',
+			'hide'         => 'アーカイブ',
+			'orderby'      => 'ID',
+			'order'        => 'ASC'
+		);
+		$instance = wp_parse_args((array) $instance, $defaults);
+		$taxs = get_taxonomies( array('public'=> true),'objects'); 
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id('label'); ?>">表示ラベル</label>
+		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
+		
+		<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<select name="<?php echo $this->get_field_name('tax_name'); ?>" >
+		<?php foreach($taxs as $tax){ ?>
+			<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
+		<?php } ?>
+		</select>
+		<br/>
+		<label for="<?php echo $this->get_field_id('orderby'); ?>">ソート項目</label>
+		<select name="<?php echo $this->get_field_name('orderby'); ?>" >
+			<option value="name"  <?php if($instance['orderby'] == "name")  echo 'selected="selected"'; ?> >カテゴリー名</option>
+			<option value="ID"    <?php if($instance['orderby'] == "ID")    echo 'selected="selected"'; ?> >ID</option>
+			<option value="slug"  <?php if($instance['orderby'] == "slug")  echo 'selected="selected"'; ?> >スラッグ</option>
+			<option value="count" <?php if($instance['orderby'] == "count") echo 'selected="selected"'; ?> >投稿数</option>
+		</select>
+
+		<br/>
+		<label for="<?php echo $this->get_field_id('order'); ?>">ソート順</label>
+		<select name="<?php echo $this->get_field_name('order'); ?>" >
+			<option value="ASC"  <?php if($instance['order'] == "ASC") echo 'selected="selected"'; ?> >昇順</option>
+			<option value="DESC" <?php if($instance['order'] != "ASC") echo 'selected="selected"'; ?> >降順</option>
+		</select>	
+		</p>
+		<script type="text/javascript">
+		jQuery(document).ready(function($){
+			var post_labels = new Array();
+			<?php
+				foreach($taxs as $tax){
+					if(isset($tax->labels->name)){
+						echo 'post_labels["'.$tax->name.'"] = "'.$tax->labels->name.'";';
+					}
+				}
+				echo 'post_labels["blog"] = "ブログ";'."\n";
+			?>
+			var posttype = jQuery("[name=\"<?php echo $this->get_field_name('tax_name'); ?>\"]");
+			var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
+			posttype.change(function(){
+				lablfeld.val(post_labels[posttype.val()]+'アーカイブ');
+			});
+		});
+		</script>
+		<?php
+	}
+
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['order'] = $new_instance['order'];
+		$instance['orderby'] = $new_instance['orderby'];
+		$instance['tax_name'] = $new_instance['tax_name'];
+		if(!$new_instance['label']){
+			$new_instance['label'] = $new_instance['hide'];
+		}
+		$instance['label'] = esc_html($new_instance['label']);
+		return $instance;
+	}
+} // class WP_Widget_top_list_info
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
