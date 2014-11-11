@@ -313,6 +313,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		}
 
 		$abc = get_post_type_object($instance['post_type']);
+		if(!isset($abc -> label)){ return; }
 		$post_label = $abc->label;
 	?>
 	<div class="localSection sideWidget">
