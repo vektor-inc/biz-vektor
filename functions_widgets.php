@@ -311,13 +311,10 @@ class WP_Widget_archive_list extends WP_Widget {
 			$arg['post_type'] = $instance['post_type'];
 		}
 
-		$abc = get_post_type_object($instance['post_type']);
-		if(!isset($abc -> label)){ return; }
-		$post_label = $abc->label;
 	?>
 	<div class="localSection sideWidget">
 	<div class="sectionBox">
-		<h3 class="localHead"><?php echo $post_label; ?></h3>
+		<h3 class="localHead"><?php echo $instance['label']; ?></h3>
 		<ul class="localNavi">
 			<?php wp_get_archives($arg); ?>
 		</ul>
@@ -330,6 +327,8 @@ class WP_Widget_archive_list extends WP_Widget {
 		$defaults = array(
 			'post_type' => 'blog',
 			'display_type' => 'm',
+			'label' => 'アーカイブ',
+			'hide' => 'アーカイブ',
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -338,6 +337,10 @@ class WP_Widget_archive_list extends WP_Widget {
 		?>
 		<p>
 
+		<label for="<?php echo $this->get_field_id('label'); ?>">表示ラベル</label>
+		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
+		
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
 		<?php foreach($pages as $page){ ?>
@@ -351,6 +354,25 @@ class WP_Widget_archive_list extends WP_Widget {
 			<option value="y" <?php if($instance['display_type'] == "y") echo 'selected="selected"'; ?> >年別</option>
 		</select>	
 		</p>
+		<script type="text/javascript">
+		jQuery(document).ready(function($){
+			var post_labels = new Array();
+			<?php	
+				foreach($pages as $page){
+					$page_labl = get_post_type_object($page);
+					if(isset($page_labl->labels->name)){
+						echo 'post_labels["'.$page.'"] = "'.$page_labl->labels->name.'";';
+					}
+				}
+				echo 'post_labels["blog"] = "ブログ";'."\n";
+			?>
+			var posttype = jQuery("[name=\"<?php echo $this->get_field_name('post_type'); ?>\"]");
+			var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
+			posttype.change(function(){
+				lablfeld.val(post_labels[posttype.val()]+'アーカイブ');
+			});
+		});
+		</script>
 		<?php
 	}
 
@@ -358,6 +380,10 @@ class WP_Widget_archive_list extends WP_Widget {
 		$instance = $old_instance;
 		$instance['post_type'] = $new_instance['post_type'];
 		$instance['display_type'] = $new_instance['display_type'];
+		if(!$new_instance['label']){
+			$new_instance['label'] = $new_instance['hide'];
+		}
+		$instance['label'] = $new_instance['label'];
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
