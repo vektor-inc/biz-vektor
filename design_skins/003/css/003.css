@@ -1033,20 +1033,20 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 #content .child_page_block h4 { border-bottom: 1px solid #e9e9e9; position: relative; font-size: 114.3%; }
 #content .child_page_block h4:after { content: "."; line-height: 0; width: 30%; display: block; overflow: hidden; border-bottom: 1px solid #e90000; position: absolute; bottom: -1px; }
 
-#sideTower .localHead, .sideTower .localHead { border-top: 2px solid #666; border-bottom: 1px solid #efefef; background-color: #f9f9f9; padding: 12px 12px 9px; font-weight: lighter; }
-#sideTower .sideWidget li a:before, .sideTower .sideWidget li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\32"; margin-right: 5px; padding-top: 3px; }
-#sideTower .sideWidget li a, .sideTower .sideWidget li a { padding-left: 25px; color: #666; }
-#sideTower .sideWidget li a:first-letter, .sideTower .sideWidget li a:first-letter { margin-left: -20px; }
-#sideTower .sideWidget li ul li, .sideTower .sideWidget li ul li { font-size: 12px; }
-#sideTower .sideWidget li ul li a, .sideTower .sideWidget li ul li a { padding-left: 25px; }
-#sideTower .sideWidget li ul li a:before, .sideTower .sideWidget li ul li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2b"; margin-right: 5px; padding-top: 3px; }
-#sideTower .sideWidget li ul li a:first-letter, .sideTower .sideWidget li ul li a:first-letter { margin-left: -20px; border: 1px solid rgba(255, 255, 255, 0); }
-#sideTower .ttBoxSection, .sideTower .ttBoxSection { padding: 0; }
-#sideTower .ttBoxSection .ttBox, .sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px dotted #ccc; font-size: 85.7%; line-height: 135.7%; }
-#sideTower .ttBoxSection .ttBox a, .sideTower .ttBoxSection .ttBox a { color: #666; }
-#sideTower .ttBoxSection .ttBox a:hover, .sideTower .ttBoxSection .ttBox a:hover { text-decoration: none !important; }
-#sideTower .ttBoxSection .ttBox .ttBoxThumb, .sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
-#sideTower .ttBoxSection .ttBox .ttBoxThumb img, .sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #cccccc; }
+.sideTower .localHead { border-top: 2px solid #666; border-bottom: 1px solid #efefef; background-color: #f9f9f9; padding: 12px 12px 9px; font-weight: lighter; }
+.sideTower .sideWidget li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\32"; margin-right: 5px; padding-top: 3px; }
+.sideTower .sideWidget li a { padding-left: 25px; color: #666; }
+.sideTower .sideWidget li a:first-letter { margin-left: -20px; }
+.sideTower .sideWidget li ul li { font-size: 12px; }
+.sideTower .sideWidget li ul li a { padding-left: 25px; }
+.sideTower .sideWidget li ul li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2b"; margin-right: 5px; padding-top: 3px; }
+.sideTower .sideWidget li ul li a:first-letter { margin-left: -20px; border: 1px solid rgba(255, 255, 255, 0); }
+.sideTower .ttBoxSection { padding: 0; }
+.sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px dotted #ccc; font-size: 85.7%; line-height: 135.7%; }
+.sideTower .ttBoxSection .ttBox a { color: #666; }
+.sideTower .ttBoxSection .ttBox a:hover { text-decoration: none !important; }
+.sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
+.sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #cccccc; }
 
 #footerSection #pagetop { display: none; }
 
