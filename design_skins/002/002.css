@@ -516,7 +516,7 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 .sideTower .sideWidget select option	{ padding:2px 5px; }
 
 .sideTower .ttBoxSection { padding: 0; }
-.sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px solid #eee; font-size: 85.7%; line-height: 135.7%; }
+.sideTower .ttBoxSection .ttBox { padding: 13px 0 11px; border-bottom: 1px solid #eee; font-size: 85.7%; line-height: 135.7%; }
 .sideTower .ttBoxSection .ttBox a { color: #666; }
 .sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
 .sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #eee; }
