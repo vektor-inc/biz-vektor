@@ -46,7 +46,7 @@
 /*-------------------------------------------*/
 /*	#sideTower
 /*-------------------------------------------*/
-.sideTower .ttBoxSection, #sideTower .ttBoxSection { padding: 15px 0 15px; }
+.sideTower .ttBoxSection, #sideTower .ttBoxSection { padding: 0 0 15px; }
 .sideTower .ttBox a, #sideTower .ttBox a { text-decoration: none; color: #333; }
 .sideTower .ttBox a:hover, #sideTower .ttBox a:hover { text-decoration: underline; }
 .sideTower .ttBox .ttBoxThumb, #sideTower .ttBox .ttBoxThumb { width: 80px; }
