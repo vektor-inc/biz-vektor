@@ -4,6 +4,8 @@
 /*-------------------------------------------*/
 /*	#wpadminbar
 /*-------------------------------------------*/
+/*	3column
+/*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
 /*	#sideTower
@@ -27,6 +29,14 @@
 .sideTower .sideWidget li#sideContact, #sideTower .sideWidget li#sideContact { border: none; }
 .sideTower .sideWidget li#sideContact a, #sideTower .sideWidget li#sideContact a { padding: 0; }
 
+/*-------------------------------------------*/
+/*	3column
+/*-------------------------------------------*/
+@media (min-width: 970px) { .three_column .sideTower, .three_column #sideTower { clear: none; }
+  .three_column #main #container { position: relative; }
+  .three_column #main #container #content { float: left; position: relative; left: 240px; width: 470px; }
+  .three_column #main #container #sideTower { float: left; position: relative; left: -470px; }
+  .three_column #main #container #thirdTower { float: right; position: relative; width: 220px; } }
 /*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
