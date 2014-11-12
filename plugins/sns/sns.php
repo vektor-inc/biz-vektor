@@ -265,11 +265,7 @@ class WP_Widget_snsBnrs extends WP_Widget {
 			'classname' => 'WP_Widget_snsBnrs',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_'.__('facebook&twitter banner', 'biz-vektor');
+		$widget_name = biz_vektor_get_short_name().'_'.__('facebook&twitter banner', 'biz-vektor');
 		$this->WP_Widget('snsBnrs', $widget_name, $widget_ops);
 	}
 
@@ -304,11 +300,7 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 			'classname' => 'WP_Widget_fbLikeBox',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_facebook Like Box';
+		$widget_name = biz_vektor_get_short_name().'_facebook Like Box';
 		$this->WP_Widget('fbLikeBox', $widget_name, $widget_ops);
 	}
 

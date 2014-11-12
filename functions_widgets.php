@@ -93,11 +93,7 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			'classname' => 'WP_Widget_childPageList',
 			'description' => '表示している固定ページが属する階層のページリストを表示',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_固定ページ子ページリスト';
+		$widget_name = biz_vektor_get_short_name().'_固定ページ子ページリスト';
 		$this->WP_Widget('childPageList', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -124,11 +120,7 @@ class WP_Widget_topPR extends WP_Widget {
 			'classname' => 'WP_Widget_topPR',
 			'description' => 'トップページの３PRエリアウィジェットです。※サイドバーでは正しく表示されません。',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_トップ用_3PR';
+		$widget_name = biz_vektor_get_short_name().'_トップ用_3PR';
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -153,11 +145,7 @@ class wp_widget_page extends WP_Widget {
 			'classname' => 'WP_Widget_page_post',
 			'description' => '固定ページの内容を出力します。',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_トップ用_固定ページ本文';
+		$widget_name = biz_vektor_get_short_name().'_トップ用_固定ページ本文';
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
 	}
 
@@ -223,11 +211,7 @@ class WP_Widget_contact_link extends WP_Widget {
 			'classname' => 'WP_Widget_contact_link',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_'.__('Contact button', 'biz-vektor');
+		$widget_name = biz_vektor_get_short_name().'_'.__('Contact button', 'biz-vektor');
 		$this->WP_Widget('contact_link', $widget_name, $widget_ops);
 	}
 
@@ -256,11 +240,7 @@ class WP_Widget_top_list_post extends WP_Widget {
 			'classname' => 'WP_Widget_top_list_post',
 			'description' => $biz_vektor_options['postLabelName'].'の新着記事一覧を表示します。',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_トップ用_'.$biz_vektor_options['postLabelName'].'リスト';
+		$widget_name = biz_vektor_get_short_name().'_トップ用_'.$biz_vektor_options['postLabelName'].'リスト';
 		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -286,11 +266,7 @@ class WP_Widget_top_list_info extends WP_Widget {
 			'classname' => 'WP_Widget_top_list_info',
 			'description' => $biz_vektor_options['infoLabelName'].'の新着記事一覧を表示します。',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_トップ用_'.$biz_vektor_options['infoLabelName'].'リスト';
+		$widget_name = biz_vektor_get_short_name().'_トップ用_'.$biz_vektor_options['infoLabelName'].'リスト';
 		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -316,11 +292,7 @@ class WP_Widget_archive_list extends WP_Widget {
 			'classname' => 'WP_Widget_archive_list',
 			'description' => 'アーカイブリストを表示します',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_サイド用アーカイブリスト';
+		$widget_name = biz_vektor_get_short_name().'_サイド用アーカイブリスト';
 		$this->WP_Widget('WP_Widget_archive_list', $widget_name, $widget_ops);
 	}
 
@@ -427,11 +399,7 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 			//'description' => __( 'this is RSS', 'biz-vektor' ),
 			'description' => 'RSSエントリーを設置します',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_トップ用_RSSエントリー';
+		$widget_name = biz_vektor_get_short_name().'_トップ用_RSSエントリー';
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance){
@@ -476,11 +444,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 			'classname' => 'WP_Widget_bizvektor_post_list',
 			'description' => '最近の投稿一覧を表示します。',
 		);
-		$lab = get_biz_vektor_name();
-		if($lab == 'BizVektor'){
-			$lab = 'BV';
-		}
-		$widget_name = $lab.'_'.__('Recent Posts', 'biz-vektor' );
+		$widget_name = biz_vektor_get_short_name().'_'.__('Recent Posts', 'biz-vektor' );
 		$this->WP_Widget('bizvektor_post_list', $widget_name, $widget_ops);
 	}
 
@@ -570,3 +534,12 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_bizvektor_post_list");'));
+
+function biz_vektor_get_short_name(){
+	$lab = get_biz_vektor_name();
+	if($lab == 'BizVektor'){
+		$lab = 'BV';
+	}
+
+	return $lab;
+}
