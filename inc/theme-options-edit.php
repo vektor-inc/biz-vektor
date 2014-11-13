@@ -226,18 +226,18 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- Favicon -->
 	<tr>
-	<th><?php _e('Favicon Setting', 'biz-vektor') ; ?></th>
+	<th><?php _e('Favicon Setting', 'biz-vektor'); ?></th>
 	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
 	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
-	<p>作成したicoファイルをアップロードしてください。</p>
+	<p><?php _e('Please upload a .ico file.', 'biz-vektor') ; ?>作成したicoファイルをアップロードしてください。</p>
 	</td>
 	</tr>
 
 	<!-- Ie8Warning -->
 	<tr>
-	<th>IE8警告表示</th>
+	<th><?php _e('IE8 Warning message', 'biz-vektor'); ?>IE8警告表示</th>
 	<td><label><input type="checkbox" name="biz_vektor_theme_options[enableie8Warning]" id="ie8warning" value="true" <?php echo (isset($options['enableie8Warning']) && $options['enableie8Warning'])? 'checked': ''; ?> /> 
-	<span>Internet Explorer8への警告を表示する</span></label>
+	<span><?php _e('Display a warning message about Internet Explorer 8', 'biz-vektor'); ?>Internet Explorer8への警告を表示する</span></label>
 	</td>
 	</tr>
 
@@ -471,19 +471,23 @@ $i++;
 	</dl>
 	<!-- /Post display count -->
 	<dl>
-		<dt><?php echo $postLabelName;?> のトップのURL</dt>
+		<dt><?php echo $postLabelName;?> のトップのURL<?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $postLabelName ); ?></dt>
 		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
-			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
+			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。<?php printf( __( '* If you don\'t want to set a top page for %1$s just leave this field blank.', 'biz-vektor' ), $postLabelName ); ?>
 			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" />
 			<dl class="showHideSection">
-				<dt class="showHideBtn">[ <a><?php echo $postLabelName;?>のトップページの設定方法</a> ]</dt>
+				<dt class="showHideBtn">[ <a><?php echo $postLabelName;?>のトップページの設定方法<?php printf( __( 'How to set a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?></a> ]</dt>
 				<dd class="showHideBody">
 					<ol>
 					<li>
-					まずは<?php echo $postLabelName;?> のトップページとして使う固定ページを作成してください。
-					[ <a href="<?php echo admin_url().'edit.php?post-new.php?post_type=page';?>" target="_blank">&raquo; 固定ページ新規作成</a> ]
+					まずは
+					<?php printf( __( 'Number of %s posts to be displayed on the home page.', 'biz-vektor' ), $postLabelName );?>
+					<?php echo $postLabelName;?> のトップページとして使う固定ページを作成してください。<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?>
+					[ <a href="<?php echo admin_url().'edit.php?post-new.php?post_type=page';?>" target="_blank">&raquo; <?php _e('Make new page', 'biz-vektor'); ?></a> ]
 					</li>
-					<li>次に『<a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">表示設定</a>』画面の『投稿ページ』のプルダウンで、<?php echo $postLabelName;?>のトップページ用に作成した固定ページを選択してください。
+					<li>
+						<?php printf( __( 'Next select the page you want to use as %1$s top page in the Posts page dropdown menu of the <a href="%2$s" target="_blank">%3$s</a> page (Front page displays section)', 'biz-vektor' ), $postLabelName, admin_url() . 'options-reading.php', __( 'Reading', 'biz-vektor' ) );?>
+						次に『<a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">表示設定</a>』画面の『投稿ページ』のプルダウンで、<?php echo $postLabelName;?>のトップページ用に作成した固定ページを選択してください。
 					</li>
 					</ol>
 				</dd>
@@ -501,17 +505,17 @@ $i++;
 	</dl>
 
 	<dl>
-		<dt>広告の挿入 [ moreタグ ]</dt>
+		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'more tag', 'biz-vektor' ) ); ?>広告の挿入 [ moreタグ ]</dt>
 		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_moretag]" id="ad_content_moretag" value="" style="width:90%;" /><?php echo isset($options['ad_content_moretag']) ? $options['ad_content_moretag'] : ''; ?></textarea>
 		</dd>
 	</dl>
 	<dl>
-		<dt>広告の挿入 [ 本文下 ]</dt>
+		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'main content', 'biz-vektor' ) ); ?>広告の挿入 [ 本文下 ]</dt>
 		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_after]" id="ad_content_after" value="" style="width:90%;" /><?php echo isset($options['ad_content_after']) ? $options['ad_content_after'] : ''; ?></textarea>
 		</dd>
 	</dl>
 	<dl>
-		<dt>広告の挿入 [ 関連記事下 ]</dt>
+		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'related articles', 'biz-vektor' ) ); ?>広告の挿入 [ 関連記事下 ]</dt>
 		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_related_after]" id="ad_related_after" value="" style="width:90%;" /><?php echo isset($options['ad_related_after']) ? $options['ad_related_after'] : ''; ?></textarea>
 		</dd>
 	</dl>
@@ -619,16 +623,16 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <td>
 <ol>
 <li>
-まずはトップページ用の固定ページを作成してください。<br />
-[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; 固定ページ</a> ]<br />
+まずはトップページ用の固定ページを作成してください。<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?><br />
+[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; <?php _e( 'Pages', 'biz-vektor' ); ?>固定ページ</a> ]<br />
 <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
 </li>
-<li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
-[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
+<li><?php _e( 'Then you can choose the page to use under the Settings > Reading Settings page', 'biz-vektor' ); ?>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
+[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; <?php _e( 'Reading Settings', 'biz-vektor' ); ?>表示設定</a> ]<br />
 <p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?></p>
 </li>
-<li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
-<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。
+<li><?php printf( __( 'Items to be displayed in the top page and their display order can be modified in the <a href="%1$s" target="_blank">%2$s</a>', 'biz-vektor' ), admin_url() . 'widgets.php', __( 'Widgets edition page', 'biz-vektor' ) ); ?>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
+<?php printf( __( 'Please set the widget called Main content(Homepage) under the <a href="%1$s" target="_blank">%2$s</a>', 'biz-vektor' ), admin_url() . 'widgets.php', __( 'Widgets edition page', 'biz-vektor' ) ); ?><a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。
 </li>
 </ol>
 </td>
@@ -848,12 +852,12 @@ px</dd>
 </tr>
 <!-- twitter card -->
 <tr>
-<th>Twitter Card の設定</th>
+<th><?php printf( __( '%1$s Settings', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ); ?>Twitter Card の設定</th>
 <td>
 <p>
-* Twitter Card のタグは、上記フォームでtwitterアカウントが入力されていないと表示されません。<br />
+* <?php printf( __( '%1$s related tags won\'t display if you don\'t fill a Twitter account above.', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ) ?>Twitter Card のタグは、上記フォームでtwitterアカウントが入力されていないと表示されません。<br />
 * Twitter Card の利用はtwitterへの申請が必要です。<a href="https://cards-dev.twitter.com/validator" target="_blank">こちら</a>から申請してください。<br />
-* Twitter Card の画像は各記事のアイキャッチ画像が適用されます。アイキャッチ画像が無いページはデフォルトのOGP画像が適用されます。
+* <?php printf( __( 'Image used for %1$s is the Featured Image set for each post. In case there is no Featured Image, the default OGP image will be used.', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ); ?>Twitter Card の画像は各記事のアイキャッチ画像が適用されます。アイキャッチ画像が無いページはデフォルトのOGP画像が適用されます。
 </p>
 </td>
 </tr>
