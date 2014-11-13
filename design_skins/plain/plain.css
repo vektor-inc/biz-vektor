@@ -784,7 +784,7 @@ body.home.one-column #main #container #sideTower	{ float:none; display:none; }
 
 form#searchform input#s	{width:110px; }
 
-#sideTower form#searchform input#searchsubmit	{ width:30%; }
+.sideTower form#searchform input#searchsubmit	{ width:30%; }
 
 #topMainBnr			{ width:100%; }
 #topMainBnr img		{ width:950px !important; }
