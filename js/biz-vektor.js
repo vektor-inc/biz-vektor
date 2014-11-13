@@ -41,6 +41,7 @@ jQuery('#wp-admin-bar-editGuide .ab-item').click(function(){
 /*-------------------------------------------*/
 jQuery('iframe').each(function(i){
 	var iframeUrl = jQuery(this).attr("src");
+	if(!iframeUrl){return;}
 	// iframeのURLの中に youtube が存在する位置を検索する
 	idx = iframeUrl.indexOf("youtube");
 	// 見つからなかった場合には -1 が返される

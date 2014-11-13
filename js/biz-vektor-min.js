@@ -1,7 +1,7 @@
 jQuery("#wp-admin-bar-editGuide .ab-item").click(function(){if(!jQuery(this).hasClass("close")){var a=jQuery(this).html();jQuery(this).html(a.replace(/OPEN/,"CLOSE")).addClass("close");
 jQuery(".adminEdit").each(function(c){jQuery(this).hide();});jQuery(".edit-link").each(function(c){jQuery(this).hide();});}else{var b=jQuery(this).html();
 jQuery(this).html(b.replace(/CLOSE/,"OPEN")).removeClass("close");jQuery(".adminEdit").each(function(c){jQuery(this).show();});jQuery(".edit-link").each(function(c){jQuery(this).show();
-});}});jQuery("iframe").each(function(e){var d=jQuery(this).attr("src");idx=d.indexOf("youtube");if(idx!=-1){console.log(d);jQuery(this).addClass("iframeYoutube").css({"max-width":"100%"});
+});}});jQuery("iframe").each(function(e){var d=jQuery(this).attr("src");if(!d){return;}idx=d.indexOf("youtube");if(idx!=-1){console.log(d);jQuery(this).addClass("iframeYoutube").css({"max-width":"100%"});
 var b=jQuery(this).attr("width");var f=jQuery(this).attr("height");var a=f/b;var g=jQuery(this).width();var c=g*a;jQuery(this).css({"max-width":"100%",height:c});
 }});likeBoxReSize();jQuery(window).resize(function(){likeBoxReSize();});function likeBoxReSize(){jQuery(".fb-like-box").each(function(){var a=jQuery(this).parent().width();
 jQuery(this).attr("data-width",a);jQuery(this).children("span:first").css({width:a});jQuery(this).children("span iframe.fb_ltr").css({width:a});});}fbCommentReSize();
