@@ -5,8 +5,8 @@ jQuery(this).html(b.replace(/CLOSE/,"OPEN")).removeClass("close");jQuery(".admin
 var b=jQuery(this).attr("width");var f=jQuery(this).attr("height");var a=f/b;var g=jQuery(this).width();var c=g*a;jQuery(this).css({"max-width":"100%",height:c});
 }});likeBoxReSize();jQuery(window).resize(function(){likeBoxReSize();});function likeBoxReSize(){jQuery(".fb-like-box").each(function(){var a=jQuery(this).parent().width();
 jQuery(this).attr("data-width",a);jQuery(this).children("span:first").css({width:a});jQuery(this).children("span iframe.fb_ltr").css({width:a});});}fbCommentReSize();
-jQuery(window).resize(function(){fbCommentReSize();});function fbCommentReSize(){var a=number;jQuery(".fb-comments").each(function(c){var b=jQuery(this).parent().width();
-jQuery(this).attr("data-width",b);jQuery(this).children("span:first").css({width:b});jQuery(this).children("span iframe.fb_ltr").css({width:b});});}var initRollovers=window.onload;
+jQuery(window).resize(function(){fbCommentReSize();});function fbCommentReSize(){jQuery(".fb-comments").each(function(){var a=jQuery(this).parent().width();
+jQuery(this).attr("data-width",a);jQuery(this).children("span:first").css({width:a});jQuery(this).children("span iframe.fb_ltr").css({width:a});});}var initRollovers=window.onload;
 window.onload=function(){if(!document.getElementById){return;}var c=new Array();var b;var a=function(k){for(var g=0;g<k.length;g++){if(k[g].className=="imgover"){var j=k[g].getAttribute("src");
 var f=j.substring(j.lastIndexOf("."),j.length);var h=j.replace(f,"_on"+f);k[g].setAttribute("hsrc",h);c[g]=new Image();c[g].src=h;k[g].onmouseover=function(){b=this.getAttribute("src");
 this.setAttribute("src",this.getAttribute("hsrc"));};k[g].onmouseout=function(){if(!b){b=this.getAttribute("src").replace("_on"+f,f);}this.setAttribute("src",b);

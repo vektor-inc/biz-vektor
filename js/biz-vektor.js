@@ -81,8 +81,7 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function fbCommentReSize(){
-	var i = number;
-	jQuery('.fb-comments').each(function(i){
+	jQuery('.fb-comments').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
 		jQuery(this).children('span:first').css({"width":element});
