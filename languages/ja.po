@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2014-11-14 18:34+0900\n"
+"POT-Creation-Date: 2014-11-14 18:51+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -59,7 +59,7 @@ msgstr ""
 "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
 "ん。"
 
-#: front-page.php:53 functions.php:580 functions_widgets.php:197
+#: front-page.php:53 functions.php:575 functions_widgets.php:197
 #: module_loop_post.php:18 module_loop_post2.php:20 module_PageDisp.php:95
 #: module_topPR.php:91 page-no-mainfoot.php:19 page-onecolumn.php:20
 #: page-parent.php:24 page-parent.php:57 page.php:14 single-info.php:11
@@ -75,73 +75,73 @@ msgstr "↑ タイトルの表示設定"
 msgid "Change the page to be displayed"
 msgstr "↑ 表示するページを変更する"
 
-#: functions.php:270 functions.php:271 functions.php:272 functions.php:279
+#: functions.php:265 functions.php:266 functions.php:267 functions.php:274
 msgid "Meta Keywords"
 msgstr "メタキーワード"
 
-#: functions.php:280
+#: functions.php:275
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "
 "(optional)."
 msgstr ""
 "このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
 
-#: functions.php:282
+#: functions.php:277
 #, php-format
 msgid "* keywords common to the entire site can be set from %s."
 msgstr "※サイト全体に共通して設定するキーワードは %s から設定出来ます。"
 
-#: functions.php:353 functions.php:361
+#: functions.php:348 functions.php:356
 #, php-format
 msgid "About %s"
 msgstr "%s について。"
 
-#: functions.php:365 index.php:19 module_panList.php:69 module_panList.php:201
+#: functions.php:360 index.php:19 module_panList.php:69 module_panList.php:201
 #: inc/theme-options.php:134 inc/theme-options.php:161
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y年"
 
-#: functions.php:366
+#: functions.php:361
 #, php-format
 msgctxt "Yearly archive description"
 msgid "Article of %s."
 msgstr "%s 年の記事。"
 
-#: functions.php:369 index.php:21 module_panList.php:72 module_panList.php:203
+#: functions.php:364 index.php:21 module_panList.php:72 module_panList.php:203
 #: inc/theme-options.php:136 inc/theme-options.php:159
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "Y年n月"
 
-#: functions.php:370 functions.php:374 functions.php:378
+#: functions.php:365 functions.php:369 functions.php:373
 #, php-format
 msgctxt "Archive description"
 msgid "Article of %s."
 msgstr "%s の記事。"
 
-#: functions.php:395 inc/theme-options.php:179
+#: functions.php:390 inc/theme-options.php:179
 #, php-format
 msgid "Page of %s"
 msgstr "%sページ目"
 
-#: functions.php:560
+#: functions.php:555
 msgid "Your comment is awaiting approval."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:570
+#: functions.php:565
 msgid "Reply"
 msgstr "返信する"
 
-#: functions.php:594
+#: functions.php:589
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: functions.php:595
+#: functions.php:590
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
-#: functions.php:596
+#: functions.php:591
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
@@ -895,7 +895,7 @@ msgstr "チェックを入れると3PRエリアが表示されなくなります
 
 #: inc/theme-options-edit.php:336
 msgid "Do not show the top 3PR area"
-msgstr "Do not show the top 3PR area"
+msgstr "3PRエリアを表示しない"
 
 #: inc/theme-options-edit.php:344
 msgid "PR area"
