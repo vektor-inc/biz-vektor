@@ -6,7 +6,7 @@ function biz_vektor_dashboard_widget()
 {
 	wp_add_dashboard_widget(
 		'biz_vektor_dashboard_widget',
-		__('BizVektorニュース', 'biz_vektor_dashboard_widget_title'),
+		__( 'BizVektor news', 'biz-vektor' ),
 		'biz_vektor_dashboard_widget_function'
 	);
 }
@@ -18,9 +18,9 @@ function biz_vektor_dashboard_widget_function()
 	include_once(ABSPATH . WPINC . '/feed.php');
 
 	$my_feeds = array( 
-		array('feed_url' => 'http://bizvektor.com/feed/?post_type=info', 'feed_title' => 'BizVektorからのお知らせ' ),
-		array('feed_url' => 'http://bizvektor.com/forum/feed/?post_type=topic', 'feed_title' => 'BizVektorフォーラム' ), 
-		array('feed_url' => 'http://bizvektor.com/feed/?post_type=blog', 'feed_title' => 'BizVektor Developers Blog' ) 
+		array('feed_url' => 'http://bizvektor.com/feed/?post_type=info', 'feed_title' => __( 'BizVektor News', 'biz-vektor' ), ),
+		array('feed_url' => 'http://bizvektor.com/forum/feed/?post_type=topic', 'feed_title' => __( 'BizVektor Forum', 'biz-vektor' ), ), 
+		array('feed_url' => 'http://bizvektor.com/feed/?post_type=blog', 'feed_title' => __( 'BizVektor Developers Blog', 'biz-vektor' ), ) 
 	);
 
 	foreach ( $my_feeds as $feed )
@@ -45,7 +45,7 @@ function biz_vektor_dashboard_widget_function()
 			if ( $maxitems == 0 )
 			{
 				$output .= '<li>';
-				$output .= __( '表示できるニュースがありません。', 'biz_vektor_dashboard_widget_no_feed_error');	
+				$output .= __( 'There is no news to display', 'biz-vektor' );	
 				$output .= '</li>';
 			}
 			else

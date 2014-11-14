@@ -1,18 +1,18 @@
 <div class="wrap">
-	<h2><?php echo get_biz_vektor_name(); ?> <?php echo __( 'CSSカスタマイズ', 'biz_vektor_css_customize_title') ?></h2>
+	<h2><?php echo get_biz_vektor_name(); ?> <?php _e( 'CSS Customize', 'biz-vektor' ) ?></h2>
 	<div class="fileedit-sub"></div>
 	<?php echo $data['mess']; ?>
-	<p><?php _e('デザインをカスタマイズしたい場合は下記のテキストエリアにCSSを入力してください。');?></p>
+	<p><?php _e( 'You can add custom CSS here.', 'biz-vektor' );?></p>
 	<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" id="template">
 		<textarea name="bv-css-css" cols="70" rows="10" id="newcontent"><?php echo esc_attr($data['customCss']); ?></textarea>
 		<?php wp_nonce_field( 'biz-vektor-css-submit', 'biz-vektor-css-nonce'); ?>
 		<p class="submit">
-			<input type="submit" name="bv-css-submit" class="button button-primary" value="<?php echo __( 'CSSを更新', 'biz_vektor_css_customize_submit') ?>" />
+			<input type="submit" name="bv-css-submit" class="button button-primary" value="<?php _e( 'Save CSS', 'biz-vektor' ); ?>" />
 		</p>
 	</form>
 
 <div id="tipsList">
-<h3>デザインカスタマイズ例文リスト</h3>
+<h3><?php _e( 'Examples of design customization', 'biz-vektor' ); ?></h3>
 <ul>
 </ul>
 </div>
@@ -20,7 +20,7 @@
 <div id="tipsBody">
 
 <dl id="mainContentWidth">
-<dt>PC画面でメインエリアの幅を広くする</dt>
+<dt><?php _e( 'Increase the main area width on desktop screens', 'biz-vektor' ); ?></dt>
 <dd>
 <code>
 @media (min-width: 970px) {<br>
@@ -31,7 +31,7 @@
 </dl>
 
 <dl id="sideBarWidth">
-<dt>PC画面でサイドバーの幅を広くする</dt>
+<dt><?php _e( 'Increase the sidebar width on desktop screens', 'biz-vektor' ); ?></dt>
 <dd>
 <code>
 @media (min-width: 970px) {<br>
@@ -42,7 +42,7 @@
 </dl>
 
 <dl id="postThumbnailLeft">
-<dt>投稿のサムネイルを画像を左側にする</dt>
+<dt><?php _e( 'Set the thumbnail images on the left side', 'biz-vektor' ); ?></dt>
 <dd>
 <code>#content .infoList .infoListBox div.thumbImage { float:left; }<br>
 #content .infoList .infoListBox div.entryTxtBox.haveThumbnail { float:right }
@@ -51,7 +51,7 @@
 </dl>
 
 <dl id="postThumbnailLeft">
-<dt>投稿のサムネイルを画像のサイズを大きくする</dt>
+<dt><?php _e( 'Make the thumbnail images bigger', 'biz-vektor' ); ?></dt>
 <dd>
 <code>
 #content .infoList .infoListBox div.thumbImage div.thumbImageInner img { width:120px; }
@@ -60,7 +60,7 @@
 </dl>
 
 <dl id="postThumbnailLeft">
-<dt>本文の文字サイズを大きくする</dt>
+<dt><?php _e( 'Make the content paragraphs text bigger', 'biz-vektor' ); ?></dt>
 <dd>
 <code>
 #content p { font-size:16px; }

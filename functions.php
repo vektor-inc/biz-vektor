@@ -75,8 +75,6 @@ define('BizVektor_Theme_Version', '1.3.3');
 
 get_template_part('functions_widgets');
 
-load_theme_textdomain('biz-vektor');
-
 add_theme_support( 'automatic-feed-links' );
 
 get_template_part('plugins/sns/sns');
@@ -88,6 +86,17 @@ get_template_part('plugins/css_customize/css-customize');
 get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
 add_post_type_support( 'info', 'front-end-editor' );
+
+//load_theme_textdomain('biz-vektor');
+
+add_action('after_setup_theme', 'my_theme_setup');
+function my_theme_setup() {
+	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
+}
+
+
+//load_theme_textdomain( 'biz-vektor', get_template_directory() . '/languages' );
+
 
 /*-------------------------------------------*/
 /*	Set content width
