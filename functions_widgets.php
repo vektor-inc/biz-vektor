@@ -414,9 +414,9 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		$arg = array(
 			'echo'               => 1,
 			'style'              => 'list',
-			'show_count'         => true,
+			'show_count'         => false,
 			'show_option_all'    => false,
-			'hierarchical'       => false,
+			'hierarchical'       => true,
 			'title_li'           => '',
 			);
 
