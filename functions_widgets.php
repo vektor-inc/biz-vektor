@@ -15,7 +15,7 @@
 /*-------------------------------------------*/
 /*	Top Info list widget
 /*-------------------------------------------*/
-/*	Top Archive list widget
+/*	Archive list widget
 /*-------------------------------------------*/
 /*	RSS Widget
 /*-------------------------------------------*/
@@ -282,7 +282,7 @@ class WP_Widget_top_list_info extends WP_Widget {
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
 
 /*-------------------------------------------*/
-/*	Top Archive list widget
+/*	Archive list widget
 /*-------------------------------------------*/
 class WP_Widget_archive_list extends WP_Widget {
     // ウィジェット定義
@@ -290,9 +290,9 @@ class WP_Widget_archive_list extends WP_Widget {
 		global $bizvektor_works_unit;
 		$widget_ops = array(
 			'classname' => 'WP_Widget_archive_list',
-			'description' => 'アーカイブリストを表示します',
+			'description' => __('投稿タイプを指定して年別か月別のアーカイブリストを表示します'),
 		);
-		$widget_name = biz_vektor_get_short_name().'_サイド用アーカイブリスト';
+		$widget_name = biz_vektor_get_short_name().'_アーカイブリスト';
 		$this->WP_Widget('WP_Widget_archive_list', $widget_name, $widget_ops);
 	}
 
@@ -320,28 +320,28 @@ class WP_Widget_archive_list extends WP_Widget {
 		</ul>
 	</div>
 	</div>
-	<?php	
+	<?php
 	}
 
 	function form($instance){
 		$defaults = array(
 			'post_type' => 'blog',
 			'display_type' => 'm',
-			'label' => 'アーカイブ',
-			'hide' => 'アーカイブ',
+			'label' => __('月別アーカイブ','biz-vektor'),
+			'hide' => __('月別アーカイブ','biz-vektor'),
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
-		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names'); 
+		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');
 		$pages[] = 'blog';
 		?>
 		<p>
 
-		<label for="<?php echo $this->get_field_id('label'); ?>">表示ラベル</label>
+		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e('Title','biz-vektor');?>:</label>
 		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 		
-		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('投稿タイプ', 'biz-vektor') ?>:</label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
 		<?php foreach($pages as $page){ ?>
 		<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
@@ -357,7 +357,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
 			var post_labels = new Array();
-			<?php	
+			<?php
 				foreach($pages as $page){
 					$page_labl = get_post_type_object($page);
 					if(isset($page_labl->labels->name)){
