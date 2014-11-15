@@ -392,7 +392,7 @@ class WP_Widget_archive_list extends WP_Widget {
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_archive_list");'));
 
 /*-------------------------------------------*/
-/*	Top taxonomy list widget
+/*	taxonomy list widget
 /*-------------------------------------------*/
 class WP_Widget_taxonomy_list extends WP_Widget {
     // ウィジェット定義
@@ -400,13 +400,13 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		global $bizvektor_works_unit;
 		$widget_ops = array(
 			'classname' => 'WP_Widget_taxonomy_list',
-			'description' => 'カテゴリーリストを表示します',
+			'description' => 'カテゴリーやカスタム分類のリストを表示します',
 		);
 		$lab = get_biz_vektor_name();
 		if($lab == 'BizVektor'){
 			$lab = 'BV';
 		}
-		$widget_name = $lab.'_サイド用カテゴリーリスト';
+		$widget_name = $lab.'_カテゴリー／カスタム分類リスト';
 		$this->WP_Widget('WP_Widget_taxonomy_list', $widget_name, $widget_ops);
 	}
 
@@ -438,10 +438,10 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 
 	function form($instance){
 		$defaults = array(
-			'tax_name'     => 'blog',
-			'label'        => 'アーカイブ',
-			'hide'         => 'アーカイブ',
-			'orderby'      => 'ID',
+			'tax_name'     => 'category',
+			'label'        => __('Category','biz-vektor'),
+			'hide'         => __('Category','biz-vektor'),
+			'orderby'      => 'menu_order',
 			'order'        => 'ASC'
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -459,8 +459,9 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		<?php } ?>
 		</select>
 		<br/>
-		<label for="<?php echo $this->get_field_id('orderby'); ?>">ソート項目</label>
+		<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e('表示順');?></label>
 		<select name="<?php echo $this->get_field_name('orderby'); ?>" >
+			<option value="menu_order"  <?php if($instance['orderby'] == "menu_order")  echo 'selected="selected"'; ?> >指定順</option>
 			<option value="name"  <?php if($instance['orderby'] == "name")  echo 'selected="selected"'; ?> >カテゴリー名</option>
 			<option value="ID"    <?php if($instance['orderby'] == "ID")    echo 'selected="selected"'; ?> >ID</option>
 			<option value="slug"  <?php if($instance['orderby'] == "slug")  echo 'selected="selected"'; ?> >スラッグ</option>
@@ -507,7 +508,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
+// add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
