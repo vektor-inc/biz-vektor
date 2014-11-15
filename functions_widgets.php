@@ -17,7 +17,7 @@
 /*-------------------------------------------*/
 /*	Archive list widget
 /*-------------------------------------------*/
-/*	Top taxonomy list widget
+/*	Taxonomy list widget
 /*-------------------------------------------*/
 /*	RSS Widget
 /*-------------------------------------------*/
@@ -392,7 +392,7 @@ class WP_Widget_archive_list extends WP_Widget {
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_archive_list");'));
 
 /*-------------------------------------------*/
-/*	taxonomy list widget
+/*	Taxonomy list widget
 /*-------------------------------------------*/
 class WP_Widget_taxonomy_list extends WP_Widget {
     // ウィジェット定義
@@ -441,7 +441,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 			'tax_name'     => 'category',
 			'label'        => __('Category','biz-vektor'),
 			'hide'         => __('Category','biz-vektor'),
-			'orderby'      => 'menu_order',
+			'orderby'      => '',
 			'order'        => 'ASC'
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -508,7 +508,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
-// add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
