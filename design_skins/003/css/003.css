@@ -309,7 +309,7 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 #content .nowrap { white-space: nowrap; }
 #content .sectionBox { margin-bottom: 30px; display: block; overflow: hidden; clear: both; }
 #content .entry-meta { margin-bottom: 15px; font-size: 11px; color: #666; }
-#content h2, #content h1.contentTitle, #content h1.entryPostTitle { clear: both; font-size: 128.6%; padding: 0; font-weight: bold; color: #333; position: relative; line-height: 114.3%; }
+#content h2, #content h1.contentTitle, #content h1.entryPostTitle { clear: both; font-size: 128.6%; padding: 0; font-weight: bold; color: #333; position: relative; line-height: 133.3%; }
 #content h1, #content h2, #content h3, #content h4, #content h4, #content h5, #content h6, #content .leadTxt { color: #333333; }
 #content h1.entryPostTitle { margin: 0px 0px 5px; }
 #content h1.contentTitle { margin: 0 0 25px; }
@@ -525,7 +525,6 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 /*-------------------------------------------*/
 /*	#sideTower
 /*-------------------------------------------*/
-.sideTower { clear: both; }
 .sideTower .localSection { margin-bottom: 50px; }
 .sideTower .localHead { font-size: 14px; color: #333; padding: 13px 0px 10px; font-weight: bold; position: relative; }
 .sideTower .localHead a { text-decoration: none; color: #333; }
@@ -1043,9 +1042,8 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 .sideTower .sideWidget li ul li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2b"; margin-right: 5px; padding-top: 3px; }
 .sideTower .sideWidget li ul li a:first-letter { margin-left: -20px; border: 1px solid rgba(255, 255, 255, 0); }
 .sideTower .ttBoxSection { padding: 0; }
-.sideTower .ttBoxSection .ttBox { padding: 13px 10px 11px; border-bottom: 1px dotted #ccc; font-size: 85.7%; line-height: 135.7%; }
+.sideTower .ttBoxSection .ttBox { padding: 13px 0px 11px; border-bottom: 1px dotted #ccc; font-size: 85.7%; line-height: 135.7%; }
 .sideTower .ttBoxSection .ttBox a { color: #666; }
-.sideTower .ttBoxSection .ttBox a:hover { text-decoration: none !important; }
 .sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
 .sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #cccccc; }
 
@@ -1123,7 +1121,9 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
   #footerSiteMap .menu > li { margin-right: 10px; }
   #footerSiteMap .menu li { width: 150px; }
   #footerSiteMap .menu li a { padding: 2px 0 2px 18px; background-position: left 50%; border-bottom: none; }
-  #footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 5px; } }
+  #footerSiteMap .menu li ul li a { padding: 2px 0 2px 18px; background-position: 2px 5px; }
+  .three_column #main #container { position: relative; }
+  .three_column #main #container #thirdTower { margin-right: 0; } }
 /*-------------------------------------------*/
 /*	フルサイズ
 /*-------------------------------------------*/

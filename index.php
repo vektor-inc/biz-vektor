@@ -67,6 +67,15 @@ if ( !$postType ) {
 			<?php endwhile; ?>
 			</ul>
 		<?php endif; //$options['listInfoArchive'] ?>
+	
+
+	<?php elseif (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
+		
+		<?php while ( have_posts() ) : the_post(); ?>
+		
+			<?php get_template_part('module_loop_'.$post_type); ?>
+		
+		<?php endwhile; ?>
 
 	<?php else : ?>
 

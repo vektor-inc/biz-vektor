@@ -166,9 +166,8 @@ form#searchform {
 			li ul li a:first-letter { margin-left:-20px;border:1px solid rgba(255,255,255,0); }
 	}
 	.ttBoxSection { padding: 0;
-		.ttBox { padding: 13px 10px 11px; border-bottom: 1px dotted #ccc;font-size: 85.7%; line-height: 135.7%;
+		.ttBox { padding: 13px 0px 11px; border-bottom: 1px dotted #ccc;font-size: 85.7%; line-height: 135.7%;
 			a { color: #666; }
-			a:hover { text-decoration: none !important; }
 			.ttBoxThumb { width: 64px; }
 			.ttBoxThumb img { border: 1px solid #cccccc; }
 			} //ttBox
@@ -288,7 +287,11 @@ form#searchform {
 		} //li
 		// li:first-child	{ border-top:none; }
 	} //.menu
-} // #footerSiteMap
+} // #footerSiteMapzz
+
+.three_column #main #container { position: relative;
+	#thirdTower {margin-right:0;}
+}
 
 // #topMainBnrFrame	{ width:94%; padding-right:3%;padding-left:3%;margin:0 auto; }
 } // min-width: 770px

@@ -1,6 +1,6 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.3.3');
+define('BizVektor_Theme_Version', '1.4.0');
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -60,7 +60,7 @@ define('BizVektor_Theme_Version', '1.3.3');
 /*-------------------------------------------*/
 /*	Archive page link ( don't erase )
 /*-------------------------------------------*/
-/*	Pasing
+/*	Paging
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
@@ -75,8 +75,6 @@ define('BizVektor_Theme_Version', '1.3.3');
 
 get_template_part('functions_widgets');
 
-load_theme_textdomain('biz-vektor');
-
 add_theme_support( 'automatic-feed-links' );
 
 get_template_part('plugins/sns/sns');
@@ -88,6 +86,12 @@ get_template_part('plugins/css_customize/css-customize');
 get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
 add_post_type_support( 'info', 'front-end-editor' );
+
+add_action('after_setup_theme', 'my_theme_setup');
+
+function my_theme_setup() {
+		load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
+}
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -381,6 +385,10 @@ function getHeadDescription() {
 	} else {
 		$metadescription = get_bloginfo('description');
 	}
+	global $paged;
+	if ( $paged != '0'){
+		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
+	}
 	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
 	echo $metadescription;
 }
@@ -396,19 +404,15 @@ remove_action('wp_head', 'wp_generator');
 // remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
 // Add Google Web Fonts
-add_action('wp_head','bizVektorAddWebFonts');
+add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
-	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
-	$webFonts = apply_filters('webFontsCustom', $webFonts );
-	echo $webFonts;
+	wp_enqueue_style('Biz_Vektor_add_web_fonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), false, 'all');
 }
 
 // Add BizVektor option css
-add_action('wp_head','bizVektorAddCommonStyle');
-function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140923a" type="text/css" media="all" />'."\n";
-	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
-	echo $optionStyle;
+add_action('wp_enqueue_scripts', 'bizVektorSetCommonStyle');
+function bizVektorSetCommonStyle(){
+	wp_enqueue_style('Biz_Vektor_common_style', get_template_directory_uri().'/css/bizvektor_common_min.css', array(), '20141106', 'all');
 }
 
 // add pingback
@@ -591,7 +595,7 @@ function biz_vektor_content_nav( $nav_id ) {
 }
 
 /*-------------------------------------------*/
-/*	Pasing
+/*	Paging
 /*-------------------------------------------*/
 function pagination($max_num_pages = '', $range = 1) {
 	$showitems = ($range * 2)+1;

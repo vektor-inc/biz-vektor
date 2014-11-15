@@ -4,6 +4,8 @@
 /*-------------------------------------------*/
 /*	#wpadminbar
 /*-------------------------------------------*/
+/*	3column
+/*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
 /*	#sideTower
@@ -26,20 +28,39 @@
 #wpadminbar .ab-top-menu>li#wp-admin-bar-editGuide>.ab-item { background-color: #069;cursor: pointer; }
 #wpadminbar .ab-top-menu>li#wp-admin-bar-editGuide>.ab-item:hover { background-color: #cc0;color:#fff;cursor: pointer; }
 
-#sideTower .sideWidget li#sideContact { border:none;
-	a { padding:0; }
+.sideTower,
+#sideTower {
+	.sideWidget li#sideContact { border:none;
+		a { padding:0; }
+	}
 }
+
+/*-------------------------------------------*/
+/*	3column
+/*-------------------------------------------*/
+@media (min-width: 970px) {
+.three_column .sideTower,
+.three_column #sideTower { clear:none; }
+.three_column #main #container { position: relative; }
+.three_column #main #container #content { float:left; position: relative;left:240px; width: 470px; }
+.three_column #main #container #sideTower { float:left; position: relative;left:-470px; }
+.three_column #main #container #thirdTower { float:right; position: relative; width: 220px;}
+}// .three_column #main #container
 
 /*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
-
+.entry-meta .entry-meta-items{
+	&:before { content:" | "; }
+	&.author { display: none; }
+}
 
 /*-------------------------------------------*/
 /*	#sideTower
 /*-------------------------------------------*/
+.sideTower,
 #sideTower {
-	.ttBoxSection { padding:15px 0 15px;}
+	.ttBoxSection { padding:0 0 15px;}
 	.ttBox {
 		a { text-decoration: none;color:#333;
 			&:hover { text-decoration: underline; }

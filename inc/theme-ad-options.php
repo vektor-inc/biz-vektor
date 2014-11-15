@@ -8,8 +8,8 @@ class Biz_Vektor_Advanced_Options {
 	public static function init() {
 
 		add_theme_page( 
-			__('高度な設定', 'biz-vektor'),
-			__('高度な設定', 'biz-vektor'),
+			__('Advanced Options', 'biz-vektor'),
+			__('Advanced Options', 'biz-vektor'),
 			'edit_theme_options',
 			'theme_advanced_options',
 			array('Biz_Vektor_Advanced_Options', 'displayView') 
@@ -62,11 +62,11 @@ class Biz_Vektor_Advanced_Options {
 			 && wp_verify_nonce( $_POST['nonce-sitemap'], 'submit-sitemap' ) ) {
 
 			if ( self::updateAdvancedOptions( $_POST['types'], $_POST['pages'] ) )
-				$mess = '<div id="message" class="updated"><p>' . __( '設定が保存されました。', 'biz-vektor') . '</p></div>';	
+				$mess = '<div id="message" class="updated"><p>' . __( 'Settings were saved.', 'biz-vektor') . '</p></div>';	
 		}
 		else {
 			if ( isset($_POST['submit']) && !empty($_POST['submit']) )
-				$mess = '<div id="message" class="error"><p>' . __( 'エラーが発生しました。', 'biz-vektor') . '</p></div>';
+				$mess = '<div id="message" class="error"><p>' . __( 'Error occured. Please try again.', 'biz-vektor') . '</p></div>';
 		}
 
 		return $mess;

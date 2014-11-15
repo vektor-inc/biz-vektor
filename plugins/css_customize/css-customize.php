@@ -6,8 +6,8 @@
 function biz_vektor_css_customize_menu() 
 {
 	add_theme_page(
-		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_title'),
-		__( 'CSSカスタマイズ', 'biz_vektor_css_customize_menu'),
+		__( 'CSS Customize', 'biz-vektor' ),
+		__( 'CSS Customize', 'biz-vektor' ),
 		'edit_theme_options',
 		'theme-css-customize',
 		'biz_vektor_css_customize_render_page'
@@ -64,12 +64,12 @@ function biz_vektor_css_customize_valid_form()
 		$cleanCSS = strip_tags(stripslashes(trim($_POST['bv-css-css'])));
 
 		if( update_option('biz_vektor_css_custom', $cleanCSS) )
-			$data['mess'] = '<div id="message" class="updated"><p>' . __( 'CSSが保存されました。', 'biz_vektor_css_customize_success') . '</p></div>';
+			$data['mess'] = '<div id="message" class="updated"><p>' . __( 'Your custom CSS was saved.', 'biz-vektor') . '</p></div>';
 	}
 	else
 	{
 		if( isset($_POST['bv-css-submit']) && !empty($_POST['bv-css-submit']) )
-			$data['mess'] = '<div id="message" class="error"><p>' . __( 'エラーが発生しました。', 'biz_vektor_css_customize_error') . '</p></div>';
+			$data['mess'] = '<div id="message" class="error"><p>' . __( 'Error occured. Please try again.', 'biz-vektor') . '</p></div>';
 	}
 
 	$data['customCss'] = biz_vektor_css_customize_get_css();

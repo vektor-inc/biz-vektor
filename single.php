@@ -13,11 +13,7 @@
 		<?php biz_vektor_extra_single(); ?>
 	<?php else: ?>
 	<h1 class="entryPostTitle entry-title"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
-	<div class="entry-meta">
-		<?php _e('Posted on', 'biz-vektor'); ?> : <?php echo esc_html( get_the_date() ); ?> | 
-		<?php _e('Category', 'biz-vektor'); ?> : <?php the_category(', ') ?>
-	</div>
-	<!-- .entry-meta -->
+	<?php get_template_part('module_entry_meta');?>
 	<div class="entry-content post-content">
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
