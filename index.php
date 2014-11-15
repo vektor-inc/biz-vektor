@@ -75,7 +75,7 @@ if ( !$postType ) {
 		
 			<?php get_template_part('module_loop_'.$post_type); ?>
 		
-		<?php endwhile; ?>	
+		<?php endwhile; ?>
 
 	<?php else : ?>
 

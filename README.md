@@ -11,7 +11,7 @@ Vektor,Inc.
 ## Author URI
 http://www.vektor-inc.co.jp/
 ## Version
-1.3.3
+1.4.0
 ## License
 GNU General Public License
 
@@ -37,16 +37,16 @@ GNU General Public License
 
 利用者・開発者が増えてきたので、より読み易い構成になるように以下のルールになるように調整していくものとします。
 
-### ファイル構成
+### ディレクトリ構成
 
-#### design_skins
+#### /design_skins
 デザインが指定してあるファイル。一つのデザインスキンに対して１つのフォルダ
 
-#### inc
+#### /inc
 
 BizVektor 固有のテーマオプション項目 biz-vektor-options に関する処理
 
-#### plugins
+#### /plugins
 
 そのほかの独自機能は機能ごとにディレクトリを作ってこの中に入れる
 
