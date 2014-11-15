@@ -17,6 +17,8 @@
 /*-------------------------------------------*/
 /*	Archive list widget
 /*-------------------------------------------*/
+/*	Top taxonomy list widget
+/*-------------------------------------------*/
 /*	RSS Widget
 /*-------------------------------------------*/
 /*	Side Post list widget
@@ -191,12 +193,12 @@ class wp_widget_page extends WP_Widget {
 		if ( is_user_logged_in() == TRUE ) {
 			global $user_level;
 			get_currentuserinfo();
-			if (10 <= $user_level) { 
+			if (10 <= $user_level) {
 				?>
 				<div class="adminEdit">
 				<a href="<?php echo site_url(); ?>/wp-admin/post.php?post=<?php echo $pageid ;?>&action=edit" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
 				</div>
-			<?php } }		
+			<?php } }
 		echo '</div>';
 	}
 }
@@ -325,7 +327,7 @@ class WP_Widget_archive_list extends WP_Widget {
 
 	function form($instance){
 		$defaults = array(
-			'post_type' => 'blog',
+			'post_type' => 'post',
 			'display_type' => 'm',
 			'label' => __('月別アーカイブ','biz-vektor'),
 			'hide' => __('月別アーカイブ','biz-vektor'),
@@ -333,14 +335,14 @@ class WP_Widget_archive_list extends WP_Widget {
 
 		$instance = wp_parse_args((array) $instance, $defaults);
 		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');
-		$pages[] = 'blog';
+		$pages[] = 'post';
 		?>
 		<p>
 
 		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e('Title','biz-vektor');?>:</label>
 		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
-		
+
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('投稿タイプ', 'biz-vektor') ?>:</label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
 		<?php foreach($pages as $page){ ?>
@@ -352,7 +354,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		<select name="<?php echo $this->get_field_name('display_type'); ?>" >
 			<option value="m" <?php if($instance['display_type'] != "y") echo 'selected="selected"'; ?> >月別</option>
 			<option value="y" <?php if($instance['display_type'] == "y") echo 'selected="selected"'; ?> >年別</option>
-		</select>	
+		</select>
 		</p>
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
@@ -388,6 +390,125 @@ class WP_Widget_archive_list extends WP_Widget {
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_archive_list");'));
+
+/*-------------------------------------------*/
+/*	taxonomy list widget
+/*-------------------------------------------*/
+class WP_Widget_taxonomy_list extends WP_Widget {
+    // ウィジェット定義
+	function WP_Widget_taxonomy_list() {
+		global $bizvektor_works_unit;
+		$widget_ops = array(
+			'classname' => 'WP_Widget_taxonomy_list',
+			'description' => 'カテゴリーやカスタム分類のリストを表示します',
+		);
+		$lab = get_biz_vektor_name();
+		if($lab == 'BizVektor'){
+			$lab = 'BV';
+		}
+		$widget_name = $lab.'_カテゴリー／カスタム分類リスト';
+		$this->WP_Widget('WP_Widget_taxonomy_list', $widget_name, $widget_ops);
+	}
+
+	function widget($args, $instance) {
+		$arg = array(
+			'echo'               => 1,
+			'style'              => 'list',
+			'show_count'         => false,
+			'show_option_all'    => false,
+			'hierarchical'       => true,
+			'title_li'           => '',
+			);
+
+		$arg['taxonomy'] = $instance['tax_name'];
+		$arg['order']   = $instance['order'];
+		$arg['orderby'] = $instance['orderby'];
+
+	?>
+	<div class="localSection sideWidget">
+	<div class="sectionBox">
+		<h3 class="localHead"><?php echo $instance['label']; ?></h3>
+		<ul class="localNavi">
+			<?php wp_list_categories($arg); ?>
+		</ul>
+	</div>
+	</div>
+	<?php	
+	}
+
+	function form($instance){
+		$defaults = array(
+			'tax_name'     => 'category',
+			'label'        => __('Category','biz-vektor'),
+			'hide'         => __('Category','biz-vektor'),
+			'orderby'      => 'menu_order',
+			'order'        => 'ASC'
+		);
+		$instance = wp_parse_args((array) $instance, $defaults);
+		$taxs = get_taxonomies( array('public'=> true),'objects'); 
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id('label'); ?>">表示ラベル</label>
+		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
+		
+		<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+		<select name="<?php echo $this->get_field_name('tax_name'); ?>" >
+		<?php foreach($taxs as $tax){ ?>
+			<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
+		<?php } ?>
+		</select>
+		<br/>
+		<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e('表示順');?></label>
+		<select name="<?php echo $this->get_field_name('orderby'); ?>" >
+			<option value="menu_order"  <?php if($instance['orderby'] == "menu_order")  echo 'selected="selected"'; ?> >指定順</option>
+			<option value="name"  <?php if($instance['orderby'] == "name")  echo 'selected="selected"'; ?> >カテゴリー名</option>
+			<option value="ID"    <?php if($instance['orderby'] == "ID")    echo 'selected="selected"'; ?> >ID</option>
+			<option value="slug"  <?php if($instance['orderby'] == "slug")  echo 'selected="selected"'; ?> >スラッグ</option>
+			<option value="count" <?php if($instance['orderby'] == "count") echo 'selected="selected"'; ?> >投稿数</option>
+		</select>
+
+		<br/>
+		<label for="<?php echo $this->get_field_id('order'); ?>">ソート順</label>
+		<select name="<?php echo $this->get_field_name('order'); ?>" >
+			<option value="ASC"  <?php if($instance['order'] == "ASC") echo 'selected="selected"'; ?> >昇順</option>
+			<option value="DESC" <?php if($instance['order'] != "ASC") echo 'selected="selected"'; ?> >降順</option>
+		</select>	
+		</p>
+		<script type="text/javascript">
+		jQuery(document).ready(function($){
+			var post_labels = new Array();
+			<?php
+				foreach($taxs as $tax){
+					if(isset($tax->labels->name)){
+						echo 'post_labels["'.$tax->name.'"] = "'.$tax->labels->name.'";';
+					}
+				}
+				echo 'post_labels["blog"] = "ブログ";'."\n";
+			?>
+			var posttype = jQuery("[name=\"<?php echo $this->get_field_name('tax_name'); ?>\"]");
+			var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
+			posttype.change(function(){
+				lablfeld.val(post_labels[posttype.val()]+'アーカイブ');
+			});
+		});
+		</script>
+		<?php
+	}
+
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['order'] = $new_instance['order'];
+		$instance['orderby'] = $new_instance['orderby'];
+		$instance['tax_name'] = $new_instance['tax_name'];
+		if(!$new_instance['label']){
+			$new_instance['label'] = $new_instance['hide'];
+		}
+		$instance['label'] = esc_html($new_instance['label']);
+		return $instance;
+	}
+} // class WP_Widget_top_list_info
+// add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
