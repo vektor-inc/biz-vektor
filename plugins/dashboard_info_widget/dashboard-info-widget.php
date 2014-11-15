@@ -19,7 +19,7 @@ function biz_vektor_dashboard_widget_function()
 
 	$my_feeds = array( 
 		array('feed_url' => 'http://bizvektor.com/feed/?post_type=info', 'feed_title' => __( 'BizVektor News', 'biz-vektor' ), ),
-		array('feed_url' => 'http://bizvektor.com/forum/feed/?post_type=topic', 'feed_title' => __( 'BizVektor Forum', 'biz-vektor' ), ), 
+		array('feed_url' => 'http://forum.bizvektor.com/feed/?post_type=topic', 'feed_title' => __( 'BizVektor Forum', 'biz-vektor' ), ), 
 		array('feed_url' => 'http://bizvektor.com/feed/?post_type=blog', 'feed_title' => __( 'BizVektor Developers Blog', 'biz-vektor' ), ) 
 	);
 
