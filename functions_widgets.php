@@ -191,12 +191,12 @@ class wp_widget_page extends WP_Widget {
 		if ( is_user_logged_in() == TRUE ) {
 			global $user_level;
 			get_currentuserinfo();
-			if (10 <= $user_level) { 
+			if (10 <= $user_level) {
 				?>
 				<div class="adminEdit">
 				<a href="<?php echo site_url(); ?>/wp-admin/post.php?post=<?php echo $pageid ;?>&action=edit" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
 				</div>
-			<?php } }		
+			<?php } }
 		echo '</div>';
 	}
 }
@@ -325,7 +325,7 @@ class WP_Widget_archive_list extends WP_Widget {
 
 	function form($instance){
 		$defaults = array(
-			'post_type' => 'blog',
+			'post_type' => 'post',
 			'display_type' => 'm',
 			'label' => __('月別アーカイブ','biz-vektor'),
 			'hide' => __('月別アーカイブ','biz-vektor'),
@@ -333,14 +333,14 @@ class WP_Widget_archive_list extends WP_Widget {
 
 		$instance = wp_parse_args((array) $instance, $defaults);
 		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');
-		$pages[] = 'blog';
+		$pages[] = 'post';
 		?>
 		<p>
 
 		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e('Title','biz-vektor');?>:</label>
 		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
-		
+
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('投稿タイプ', 'biz-vektor') ?>:</label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
 		<?php foreach($pages as $page){ ?>
@@ -352,7 +352,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		<select name="<?php echo $this->get_field_name('display_type'); ?>" >
 			<option value="m" <?php if($instance['display_type'] != "y") echo 'selected="selected"'; ?> >月別</option>
 			<option value="y" <?php if($instance['display_type'] == "y") echo 'selected="selected"'; ?> >年別</option>
-		</select>	
+		</select>
 		</p>
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
