@@ -421,8 +421,6 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 			);
 
 		$arg['taxonomy'] = $instance['tax_name'];
-		$arg['order']   = $instance['order'];
-		$arg['orderby'] = $instance['orderby'];
 
 	?>
 	<div class="localSection sideWidget">
@@ -441,8 +439,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 			'tax_name'     => 'category',
 			'label'        => __('Category','biz-vektor'),
 			'hide'         => __('Category','biz-vektor'),
-			'orderby'      => '',
-			'order'        => 'ASC'
+			'_builtin'		=> false,
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
 		$taxs = get_taxonomies( array('public'=> true),'objects'); 
@@ -457,24 +454,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		<?php foreach($taxs as $tax){ ?>
 			<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
 		<?php } ?>
-		</select>
-		<br/>
-		<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e('表示順');?></label>
-		<select name="<?php echo $this->get_field_name('orderby'); ?>" >
-			<option value="menu_order"  <?php if($instance['orderby'] == "menu_order")  echo 'selected="selected"'; ?> >指定順</option>
-			<option value="name"  <?php if($instance['orderby'] == "name")  echo 'selected="selected"'; ?> >カテゴリー名</option>
-			<option value="ID"    <?php if($instance['orderby'] == "ID")    echo 'selected="selected"'; ?> >ID</option>
-			<option value="slug"  <?php if($instance['orderby'] == "slug")  echo 'selected="selected"'; ?> >スラッグ</option>
-			<option value="count" <?php if($instance['orderby'] == "count") echo 'selected="selected"'; ?> >投稿数</option>
-		</select>
-
-		<br/>
-		<label for="<?php echo $this->get_field_id('order'); ?>">ソート順</label>
-		<select name="<?php echo $this->get_field_name('order'); ?>" >
-			<option value="ASC"  <?php if($instance['order'] == "ASC") echo 'selected="selected"'; ?> >昇順</option>
-			<option value="DESC" <?php if($instance['order'] != "ASC") echo 'selected="selected"'; ?> >降順</option>
-		</select>	
-		</p>
+		</select>		</p>
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
 			var post_labels = new Array();
@@ -498,8 +478,6 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
-		$instance['order'] = $new_instance['order'];
-		$instance['orderby'] = $new_instance['orderby'];
 		$instance['tax_name'] = $new_instance['tax_name'];
 		if(!$new_instance['label']){
 			$new_instance['label'] = $new_instance['hide'];
