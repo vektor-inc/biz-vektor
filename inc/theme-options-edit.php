@@ -426,15 +426,15 @@ $i++;
 	</dd>
 	</dl>
 	<dl>
-		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$infoLabelName);?></dt>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'), $infoLabelName);?></dt>
 		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
 		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
 	</dl>
 
 	<dl>
-		<dt><?php echo $infoLabelName;?> のトップのURL</dt>
-		<dd><?php $infoTopUrl = home_url().'/info/'; ?>
-			* 通常 <a href="<?php echo esc_url($infoTopUrl);?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
+		<dt><?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $infoLabelName ); ?></dt>
+		<dd><?php $infoTopUrl = home_url() . '/info/'; ?>
+			<?php printf( __( 'By default <a href="%1$s" target="_blank">%1$s</a> is the top URL for %2$s', 'biz-vektor' ), esc_url( $infoTopUrl ), $infoLabelName ); ?>
 			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
 		</dd>
 	</dl>
@@ -620,7 +620,7 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <td>
 <ol>
 <li>
-まずはトップページ用の固定ページを作成してください。<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?><br />
+<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?><br />
 [ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; <?php _e( 'Pages', 'biz-vektor' ); ?></a> ]<br />
 <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
 </li>

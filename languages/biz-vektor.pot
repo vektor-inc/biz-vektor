@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2014-11-14 18:50+0900\n"
+"POT-Creation-Date: 2014-11-17 13:06+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -55,7 +55,7 @@ msgid ""
 "display anything."
 msgstr ""
 
-#: front-page.php:53 functions.php:575 functions_widgets.php:197
+#: front-page.php:53 functions.php:575 functions_widgets.php:199
 #: module_loop_post.php:18 module_loop_post2.php:20 module_PageDisp.php:95
 #: module_topPR.php:91 page-no-mainfoot.php:19 page-onecolumn.php:20
 #: page-parent.php:24 page-parent.php:57 page.php:14 single-info.php:11
@@ -91,7 +91,7 @@ msgstr ""
 msgid "About %s"
 msgstr ""
 
-#: functions.php:360 index.php:19 module_panList.php:69 module_panList.php:201
+#: functions.php:360 index.php:19 module_panList.php:69 module_panList.php:199
 #: inc/theme-options.php:134 inc/theme-options.php:161
 msgctxt "yearly archives date format"
 msgid "Y"
@@ -103,7 +103,7 @@ msgctxt "Yearly archive description"
 msgid "Article of %s."
 msgstr ""
 
-#: functions.php:364 index.php:21 module_panList.php:72 module_panList.php:203
+#: functions.php:364 index.php:21 module_panList.php:71 module_panList.php:201
 #: inc/theme-options.php:136 inc/theme-options.php:159
 msgctxt "monthly archives date format"
 msgid "F Y"
@@ -140,84 +140,182 @@ msgstr ""
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions_widgets.php:31
+#: functions_widgets.php:33
 msgid "Sidebar(Front page only)"
 msgstr ""
 
-#: functions_widgets.php:33
+#: functions_widgets.php:35
 msgid "This widget area appears on the front page only."
 msgstr ""
 
-#: functions_widgets.php:40
+#: functions_widgets.php:42
 msgid "Main content(Homepage)"
 msgstr ""
 
-#: functions_widgets.php:42
+#: functions_widgets.php:44
 msgid "This widget area appears on the front page main content area only."
 msgstr ""
 
-#: functions_widgets.php:49
+#: functions_widgets.php:51
 msgid "Sidebar(Post content only)"
 msgstr ""
 
-#: functions_widgets.php:51
+#: functions_widgets.php:53
 msgid "This widget area appears only on the post content pages."
 msgstr ""
 
-#: functions_widgets.php:58
+#: functions_widgets.php:60
 msgid "Sidebar(Page content only)"
 msgstr ""
 
-#: functions_widgets.php:60
+#: functions_widgets.php:62
 msgid "This widget area appears only on the page content pages."
 msgstr ""
 
-#: functions_widgets.php:67
+#: functions_widgets.php:69
 msgid "Sidebar(Common top)"
 msgstr ""
 
-#: functions_widgets.php:69
+#: functions_widgets.php:71
 msgid "This widget area appears at top of sidebar."
 msgstr ""
 
-#: functions_widgets.php:76
+#: functions_widgets.php:78
 msgid "Sidebar(Common bottom)"
 msgstr ""
 
-#: functions_widgets.php:78
+#: functions_widgets.php:80
 msgid "This widget area appears at bottom of sidebar."
 msgstr ""
 
-#: functions_widgets.php:166 functions_widgets.php:344
+#: functions_widgets.php:96
+msgid "Displays list of child page for the current page."
+msgstr ""
+
+#: functions_widgets.php:98
+msgid "child pages list"
+msgstr ""
+
+#: functions_widgets.php:123
+msgid "Displays 3PR area on the top page (does not adapt well on the sidebar)."
+msgstr ""
+
+#: functions_widgets.php:125
+msgid "3PR for top"
+msgstr ""
+
+#: functions_widgets.php:148
+msgid "Displays the content of a chosen page."
+msgstr ""
+
+#: functions_widgets.php:150
+msgid "page content for top"
+msgstr ""
+
+#: functions_widgets.php:168 functions_widgets.php:452
 msgid "Display page"
 msgstr ""
 
-#: functions_widgets.php:212 plugins/sns/sns.php:266 plugins/sns/sns.php:301
+#: functions_widgets.php:176
+msgid "display title"
+msgstr ""
+
+#: functions_widgets.php:214 plugins/sns/sns.php:266 plugins/sns/sns.php:301
 msgid "*　It is necessary to set the Theme options page."
 msgstr ""
 
-#: functions_widgets.php:214
+#: functions_widgets.php:216
 msgid "Contact button"
 msgstr ""
 
-#: functions_widgets.php:447 functions_widgets.php:457
-#: functions_widgets.php:496
-msgid "Recent Posts"
+#: functions_widgets.php:243 functions_widgets.php:269
+#, php-format
+msgid "Displays recent %1$s posts."
 msgstr ""
 
-#: functions_widgets.php:505 plugins/add_post_type/add_post_type.php:160
-msgid "Title:"
+#: functions_widgets.php:245 functions_widgets.php:271
+#, php-format
+msgid "%1$s list for top"
 msgstr ""
 
-#: functions_widgets.php:510
-msgid "Display count"
+#: functions_widgets.php:295
+msgid ""
+"Displays a list of archives. You can choose the post type and also to "
+"display archives by month or by year."
 msgstr ""
 
-#: functions_widgets.php:515
-msgid "Slug for the custom type you want to display"
+#: functions_widgets.php:297
+msgid "archive list"
+msgstr ""
+
+#: functions_widgets.php:332 functions_widgets.php:333
+msgid "Monthly archives"
+msgstr ""
+
+#: functions_widgets.php:342 inc/theme-customizer.php:242
+#: inc/theme-options-edit.php:346
+msgid "Title"
+msgstr ""
+
+#: functions_widgets.php:346
+msgid "Post type"
+msgstr ""
+
+#: functions_widgets.php:403
+msgid "Displays a categories, tags or format list."
+msgstr ""
+
+#: functions_widgets.php:409
+msgid "categories/tags list"
+msgstr ""
+
+#: functions_widgets.php:440 functions_widgets.php:441
+#: module_entry_meta.php:20 sidebar-info.php:17 sidebar-post.php:10
+msgid "Category"
+msgstr ""
+
+#: functions_widgets.php:448
+msgid "Label to display"
+msgstr ""
+
+#: functions_widgets.php:498
+msgid "Displays entries list from a RSS feed link."
+msgstr ""
+
+#: functions_widgets.php:500
+msgid "RSS entries for top"
+msgstr ""
+
+#: functions_widgets.php:514
+msgid "Blog entries"
 msgstr ""
 
 #: functions_widgets.php:519
+msgid "Heading title"
+msgstr ""
+
+#: functions_widgets.php:543
+msgid "Displays a list of your most recent posts"
+msgstr ""
+
+#: functions_widgets.php:545 functions_widgets.php:555
+#: functions_widgets.php:594
+msgid "Recent Posts"
+msgstr ""
+
+#: functions_widgets.php:603 plugins/add_post_type/add_post_type.php:160
+msgid "Title:"
+msgstr ""
+
+#: functions_widgets.php:608
+msgid "Display count"
+msgstr ""
+
+#: functions_widgets.php:613
+msgid "Slug for the custom type you want to display"
+msgstr ""
+
+#: functions_widgets.php:617
 #, php-format
 msgid "For %1$s use \"post\"<br />for %2$s use \"info\""
 msgstr ""
@@ -226,13 +324,13 @@ msgstr ""
 msgid "Skip menu"
 msgstr ""
 
-#: index.php:19 module_panList.php:69 module_panList.php:201
+#: index.php:19 module_panList.php:69 module_panList.php:199
 #: inc/theme-options.php:134 inc/theme-options.php:161
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: index.php:21 module_panList.php:72 module_panList.php:203
+#: index.php:21 module_panList.php:71 module_panList.php:201
 #: inc/theme-options.php:136 inc/theme-options.php:159
 #, php-format
 msgid "Monthly Archives: %s"
@@ -392,10 +490,6 @@ msgstr ""
 
 #: module_entry_meta.php:18
 msgid "Author"
-msgstr ""
-
-#: module_entry_meta.php:20 sidebar-info.php:17 sidebar-post.php:10
-msgid "Category"
 msgstr ""
 
 #: module_mainfoot.php:15
@@ -655,10 +749,6 @@ msgstr ""
 
 #: inc/theme-customizer.php:229 inc/theme-options-edit.php:324
 msgid "3PR area settings"
-msgstr ""
-
-#: inc/theme-customizer.php:242 inc/theme-options-edit.php:346
-msgid "Title"
 msgstr ""
 
 #: inc/theme-customizer.php:251 inc/theme-options-edit.php:348
@@ -979,9 +1069,16 @@ msgstr ""
 msgid "If you enter &quot0&quot, this section will disappear."
 msgstr ""
 
-#: inc/theme-options-edit.php:474
+#: inc/theme-options-edit.php:435 inc/theme-options-edit.php:474
 #, php-format
 msgid "Top URL for %1$s"
+msgstr ""
+
+#: inc/theme-options-edit.php:437
+#, php-format
+msgid ""
+"By default <a href=\"%1$s\" target=\"_blank\">%1$s</a> is the top URL for "
+"%2$s"
 msgstr ""
 
 #: inc/theme-options-edit.php:476

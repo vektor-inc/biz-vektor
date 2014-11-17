@@ -93,9 +93,9 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	function WP_Widget_childPageList() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_childPageList',
-			'description' => '表示している固定ページが属する階層のページリストを表示',
+			'description' => __( 'Displays list of child page for the current page.', 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_固定ページ子ページリスト';
+		$widget_name = biz_vektor_get_short_name() . '_' . __( 'child pages list', 'biz-vektor' );
 		$this->WP_Widget('childPageList', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -120,9 +120,9 @@ class WP_Widget_topPR extends WP_Widget {
 	function WP_Widget_topPR() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_topPR',
-			'description' => 'トップページの３PRエリアウィジェットです。※サイドバーでは正しく表示されません。',
+			'description' => __( 'Displays 3PR area on the top page (does not adapt well on the sidebar).', 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_トップ用_3PR';
+		$widget_name = biz_vektor_get_short_name() . '_' . __( '3PR for top', 'biz-vektor' );
 		$this->WP_Widget('topPR', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -145,9 +145,9 @@ class wp_widget_page extends WP_Widget {
 	function wp_widget_page() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_page_post',
-			'description' => '固定ページの内容を出力します。',
+			'description' => __( 'Displays the content of a chosen page.', 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_トップ用_固定ページ本文';
+		$widget_name = biz_vektor_get_short_name() . '_' . __( 'page content for top', 'biz-vektor' );
 		$this->WP_Widget('pudge', $widget_name, $widget_ops);
 	}
 
@@ -173,7 +173,7 @@ class wp_widget_page extends WP_Widget {
 		</select>
 		<br/>
 		<input type="checkbox" name="<?php echo $this->get_field_name('set_title'); ?>" value="true" <?php echo ($instance['set_title'])? 'checked': '' ; ?> >
-		<label for="<?php echo $this->get_field_id('set_title'); ?>"> タイトルを表示させる</label>
+		<label for="<?php echo $this->get_field_id('set_title'); ?>"> <?php _e( 'display title', 'biz-vektor' ); ?></label>
 		</p>
 		<?php
 	}
@@ -240,9 +240,9 @@ class WP_Widget_top_list_post extends WP_Widget {
 		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_post',
-			'description' => $biz_vektor_options['postLabelName'].'の新着記事一覧を表示します。',
+			'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['postLabelName'] ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_トップ用_'.$biz_vektor_options['postLabelName'].'リスト';
+		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['postLabelName'] );
 		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -266,9 +266,9 @@ class WP_Widget_top_list_info extends WP_Widget {
 		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_info',
-			'description' => $biz_vektor_options['infoLabelName'].'の新着記事一覧を表示します。',
+			'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_トップ用_'.$biz_vektor_options['infoLabelName'].'リスト';
+		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
 		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance) {
@@ -292,9 +292,9 @@ class WP_Widget_archive_list extends WP_Widget {
 		global $bizvektor_works_unit;
 		$widget_ops = array(
 			'classname' => 'WP_Widget_archive_list',
-			'description' => __('投稿タイプを指定して年別か月別のアーカイブリストを表示します'),
+			'description' => __( 'Displays a list of archives. You can choose the post type and also to display archives by month or by year.' , 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_アーカイブリスト';
+		$widget_name = biz_vektor_get_short_name() . '_' . __( 'archive list', 'biz-vektor' );
 		$this->WP_Widget('WP_Widget_archive_list', $widget_name, $widget_ops);
 	}
 
@@ -329,8 +329,8 @@ class WP_Widget_archive_list extends WP_Widget {
 		$defaults = array(
 			'post_type' => 'post',
 			'display_type' => 'm',
-			'label' => __('月別アーカイブ','biz-vektor'),
-			'hide' => __('月別アーカイブ','biz-vektor'),
+			'label' => __( 'Monthly archives', 'biz-vektor' ),
+			'hide' => __( 'Monthly archives', 'biz-vektor' ),
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
@@ -343,7 +343,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
-		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('投稿タイプ', 'biz-vektor') ?>:</label>
+		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e( 'Post type', 'biz-vektor' ) ?>:</label>
 		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
 		<?php foreach($pages as $page){ ?>
 		<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
@@ -400,13 +400,13 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		global $bizvektor_works_unit;
 		$widget_ops = array(
 			'classname' => 'WP_Widget_taxonomy_list',
-			'description' => 'カテゴリーやカスタム分類のリストを表示します',
+			'description' => __( 'Displays a categories, tags or format list.', 'biz-vektor' ),
 		);
 		$lab = get_biz_vektor_name();
 		if($lab == 'BizVektor'){
 			$lab = 'BV';
 		}
-		$widget_name = $lab.'_カテゴリー／カスタム分類リスト';
+		$widget_name = $lab . '_' . __( 'categories/tags list', 'biz-vektor' );
 		$this->WP_Widget('WP_Widget_taxonomy_list', $widget_name, $widget_ops);
 	}
 
@@ -437,15 +437,15 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 	function form($instance){
 		$defaults = array(
 			'tax_name'     => 'category',
-			'label'        => __('Category','biz-vektor'),
-			'hide'         => __('Category','biz-vektor'),
+			'label'        => __( 'Category', 'biz-vektor' ),
+			'hide'         => __( 'Category', 'biz-vektor' ),
 			'_builtin'		=> false,
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
 		$taxs = get_taxonomies( array('public'=> true),'objects'); 
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id('label'); ?>">表示ラベル</label>
+		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
 		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 		
@@ -464,12 +464,12 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 						echo 'post_labels["'.$tax->name.'"] = "'.$tax->labels->name.'";';
 					}
 				}
-				echo 'post_labels["blog"] = "ブログ";'."\n";
+				echo 'post_labels["blog"] = "'. __( 'Blog', 'biz-vektor' ) . '";'."\n";
 			?>
 			var posttype = jQuery("[name=\"<?php echo $this->get_field_name('tax_name'); ?>\"]");
 			var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
 			posttype.change(function(){
-				lablfeld.val(post_labels[posttype.val()]+'アーカイブ');
+				lablfeld.val(post_labels[posttype.val()]+" <?php _e( 'Archives', 'biz-vektor' ) ?>");
 			});
 		});
 		</script>
@@ -495,10 +495,9 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 	function wp_widget_bizvektor_rss() {
 		$widget_ops = array(
 			'classname' => 'wp_widget_bizvektor_rss',
-			//'description' => __( 'this is RSS', 'biz-vektor' ),
-			'description' => 'RSSエントリーを設置します',
+			'description' => __( 'Displays entries list from a RSS feed link.', 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_トップ用_RSSエントリー';
+		$widget_name = biz_vektor_get_short_name().'_' . __( 'RSS entries for top', 'biz-vektor' );
 		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
 	}
 	function widget($args, $instance){
@@ -512,12 +511,12 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 	function form($instance){
 		$defaults = array(
 			'url' => '',
-			'label' => 'ブログエントリー',
+			'label' => __( 'Blog entries', 'biz-vektor' ),
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
 
 		?>
-		<Label for="<?php echo $this->get_field_id('label'); ?>">見出しタイトル</label><br/>
+		<Label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Heading title', 'biz-vektor' ) ?></label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
 		<Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
@@ -541,9 +540,9 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	function WP_Widget_bizvektor_post_list() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_bizvektor_post_list',
-			'description' => '最近の投稿一覧を表示します。',
+			'description' => __( 'Displays a list of your most recent posts', 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_'.__('Recent Posts', 'biz-vektor' );
+		$widget_name = biz_vektor_get_short_name(). '_' . __( 'Recent Posts', 'biz-vektor' );
 		$this->WP_Widget('bizvektor_post_list', $widget_name, $widget_ops);
 	}
 
