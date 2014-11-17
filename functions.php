@@ -1,6 +1,7 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.4.2');
+$theme_opt = wp_get_theme();
+define('BizVektor_Theme_Version', preg_replace('/^.+(\d\.\d\.\d.*)$/i', '$1', $theme_opt->Version));
 
 /*-------------------------------------------*/
 /*	Set content width
