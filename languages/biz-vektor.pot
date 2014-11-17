@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2014-11-17 13:06+0900\n"
+"POT-Creation-Date: 2014-11-17 15:31+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -55,7 +55,7 @@ msgid ""
 "display anything."
 msgstr ""
 
-#: front-page.php:53 functions.php:575 functions_widgets.php:199
+#: front-page.php:53 functions.php:576 functions_widgets.php:199
 #: module_loop_post.php:18 module_loop_post2.php:20 module_PageDisp.php:95
 #: module_topPR.php:91 page-no-mainfoot.php:19 page-onecolumn.php:20
 #: page-parent.php:24 page-parent.php:57 page.php:14 single-info.php:11
@@ -71,72 +71,72 @@ msgstr ""
 msgid "Change the page to be displayed"
 msgstr ""
 
-#: functions.php:265 functions.php:266 functions.php:267 functions.php:274
+#: functions.php:266 functions.php:267 functions.php:268 functions.php:275
 msgid "Meta Keywords"
 msgstr ""
 
-#: functions.php:275
+#: functions.php:276
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "
 "(optional)."
 msgstr ""
 
-#: functions.php:277
+#: functions.php:278
 #, php-format
 msgid "* keywords common to the entire site can be set from %s."
 msgstr ""
 
-#: functions.php:348 functions.php:356
+#: functions.php:349 functions.php:357
 #, php-format
 msgid "About %s"
 msgstr ""
 
-#: functions.php:360 index.php:19 module_panList.php:69 module_panList.php:199
+#: functions.php:361 index.php:19 module_panList.php:69 module_panList.php:199
 #: inc/theme-options.php:134 inc/theme-options.php:161
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: functions.php:361
+#: functions.php:362
 #, php-format
 msgctxt "Yearly archive description"
 msgid "Article of %s."
 msgstr ""
 
-#: functions.php:364 index.php:21 module_panList.php:71 module_panList.php:201
+#: functions.php:365 index.php:21 module_panList.php:71 module_panList.php:201
 #: inc/theme-options.php:136 inc/theme-options.php:159
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: functions.php:365 functions.php:369 functions.php:373
+#: functions.php:366 functions.php:370 functions.php:374
 #, php-format
 msgctxt "Archive description"
 msgid "Article of %s."
 msgstr ""
 
-#: functions.php:390 inc/theme-options.php:179
+#: functions.php:391 inc/theme-options.php:179
 #, php-format
 msgid "Page of %s"
 msgstr ""
 
-#: functions.php:555
+#: functions.php:556
 msgid "Your comment is awaiting approval."
 msgstr ""
 
-#: functions.php:565
+#: functions.php:566
 msgid "Reply"
 msgstr ""
 
-#: functions.php:589
+#: functions.php:590
 msgid "Navigation"
 msgstr ""
 
-#: functions.php:590
+#: functions.php:591
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr ""
 
-#: functions.php:591
+#: functions.php:592
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
@@ -276,6 +276,14 @@ msgstr ""
 
 #: functions_widgets.php:448
 msgid "Label to display"
+msgstr ""
+
+#: functions_widgets.php:467 inc/theme-options-init.php:106
+msgid "Blog"
+msgstr ""
+
+#: functions_widgets.php:472
+msgid "Archives"
 msgstr ""
 
 #: functions_widgets.php:498
@@ -1683,10 +1691,6 @@ msgstr ""
 
 #: inc/theme-options-edit.php:879
 msgid "Page top"
-msgstr ""
-
-#: inc/theme-options-init.php:106
-msgid "Blog"
 msgstr ""
 
 #: inc/theme-options-init.php:107
