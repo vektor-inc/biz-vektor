@@ -340,7 +340,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		<p>
 
 		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e('Title','biz-vektor');?>:</label>
-		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+		<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e( 'Post type', 'biz-vektor' ) ?>:</label>
@@ -439,14 +439,16 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 			'tax_name'     => 'category',
 			'label'        => __( 'Category', 'biz-vektor' ),
 			'hide'         => __( 'Category', 'biz-vektor' ),
+			'title'		=> 'test',
 			'_builtin'		=> false,
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
+		var_dump($instance);
 		$taxs = get_taxonomies( array('public'=> true),'objects'); 
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
-		<input type="text" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+		<input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 		
 		<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
@@ -517,7 +519,7 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 
 		?>
 		<Label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Heading title', 'biz-vektor' ) ?></label><br/>
-		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+		<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
 		<Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
@@ -601,7 +603,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		
 		<?php //タイトル ?>
 		<label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
-		<input type="text" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+		<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
 		<br/>
 
 		<?php //表示件数 ?>
