@@ -107,7 +107,7 @@ if ( is_404() ){
 		$category = get_the_category();
 		$category_id = get_cat_ID( $category[0]->cat_name );
 		if ($category_id) :  // カスタム投稿タイプを追加した場合にカテゴリー指定が無い場合の為
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'. get_category_parents( $category_id, TRUE, ' &raquo; ' ).'</span></li>';
+			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category_id ) ) . '" itemprop="url"><span itemprop="title"> '. get_cat_name( $category_id ) . '</span></a> &raquo; </li>';
 		endif;
 	// カスタム投稿タイプのsingleページの場合
 	} else {
