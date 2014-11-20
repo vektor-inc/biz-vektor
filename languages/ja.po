@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2014-11-20 15:45+0900\n"
+"POT-Creation-Date: 2014-11-20 16:50+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -22,6 +22,33 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
+
+# Theme presentation (no text domain)
+msgid ""
+"BizVektor theme will allow you to build a high-quality web site. It is "
+"possible to change the color, to switch to a completely different design. In "
+"addition, it is also possible to increase the number of designs by plug-ins."
+msgstr ""
+"BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
+"トを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まった"
+"く別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって"
+"新たに選択出来るデザインを増やす事も出来ます。"
+
+# Template name (no text domain)
+msgid "Child index page"
+msgstr "子ページインデックス"
+
+# Template name (no text domain)
+msgid "No sidebar"
+msgstr "サイドバーなし"
+
+# Template name (no text domain)
+msgid "Sitemap（Slug:sitemap-page）"
+msgstr "サイトマップ（スラッグ：sitemap-page）"
+
+# Template name (no text domain)
+msgid "Don't show contact at the bottom of the page"
+msgstr "ページ下部問い合わせなし"
 
 #: 503.php:19
 msgid "Maintenance in progress."
@@ -228,7 +255,7 @@ msgstr "固定ページの内容を出力します。"
 msgid "page content for top"
 msgstr "トップ用_固定ページ本文"
 
-#: functions_widgets.php:168 functions_widgets.php:454
+#: functions_widgets.php:168 functions_widgets.php:453
 msgid "Display page"
 msgstr "表示するページ"
 
@@ -290,56 +317,56 @@ msgstr "カテゴリー／カスタム分類リスト"
 msgid "Category"
 msgstr "カテゴリー"
 
-#: functions_widgets.php:450
+#: functions_widgets.php:449
 msgid "Label to display"
 msgstr "表示ラベル"
 
-#: functions_widgets.php:469 inc/theme-options-init.php:106
+#: functions_widgets.php:468 inc/theme-options-init.php:106
 msgid "Blog"
 msgstr "ブログ"
 
-#: functions_widgets.php:474
+#: functions_widgets.php:473
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: functions_widgets.php:500
+#: functions_widgets.php:499
 msgid "Displays entries list from a RSS feed link."
 msgstr "RSSエントリーを設置します。"
 
-#: functions_widgets.php:502
+#: functions_widgets.php:501
 msgid "RSS entries for top"
 msgstr "トップ用_RSSエントリー"
 
-#: functions_widgets.php:516
+#: functions_widgets.php:515
 msgid "Blog entries"
 msgstr "ブログエントリー"
 
-#: functions_widgets.php:521
+#: functions_widgets.php:520
 msgid "Heading title"
 msgstr "見出しタイトル"
 
-#: functions_widgets.php:545
+#: functions_widgets.php:544
 msgid "Displays a list of your most recent posts"
 msgstr "最近の投稿一覧を表示します。"
 
-#: functions_widgets.php:547 functions_widgets.php:557
-#: functions_widgets.php:596
+#: functions_widgets.php:546 functions_widgets.php:556
+#: functions_widgets.php:595
 msgid "Recent Posts"
 msgstr "最近の投稿"
 
-#: functions_widgets.php:605 plugins/add_post_type/add_post_type.php:160
+#: functions_widgets.php:604 plugins/add_post_type/add_post_type.php:160
 msgid "Title:"
 msgstr "タイトル:"
 
-#: functions_widgets.php:610
+#: functions_widgets.php:609
 msgid "Display count"
 msgstr "表示件数"
 
-#: functions_widgets.php:615
+#: functions_widgets.php:614
 msgid "Slug for the custom type you want to display"
 msgstr "表示する投稿タイプのスラッグ"
 
-#: functions_widgets.php:619
+#: functions_widgets.php:618
 #, php-format
 msgid "For %1$s use \"post\"<br />for %2$s use \"info\""
 msgstr "%1$s の場合は post、<br />%2$s の場合は info になります。"
