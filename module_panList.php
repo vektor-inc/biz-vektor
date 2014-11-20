@@ -42,7 +42,7 @@ if ( is_404() ){
 } elseif ( is_page() ) {
 	$post = $wp_query->get_queried_object();
 	if ( $post->post_parent == 0 ){
-		$panListHtml .= '<li><span>' . the_title() . '</span></li>';
+		$panListHtml .= '<li><span>' . get_the_title() . '</span></li>';
 	} else {
 		$ancestors = array_reverse( get_post_ancestors( $post->ID ) );
 		array_push( $ancestors, $post->ID );
@@ -133,7 +133,7 @@ if ( is_404() ){
 		}
 	// カスタム投稿タイプのsingleページの場合
 	} else {
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.home_url().'/'.$postType.'" itemprop="url"><span itemprop="title">'.$postTypeName.'</span></a> &raquo; </li>';
+		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.home_url().'/'.$postType.'/" itemprop="url"><span itemprop="title">'.$postTypeName.'</span></a> &raquo; </li>';
 		$taxonomies = get_the_taxonomies();
 		if ($taxonomies):
 			$taxo_catelist  = get_the_terms( get_the_ID(), key( $taxonomies ) );
@@ -208,50 +208,64 @@ if ( is_404() ){
 	$panListHtml .= '<li><span>'. $cat->cat_name. '</span></li>';
 // ▼▼ タグ
 } elseif ( is_tag() ) {
-	//here
 	// 投稿の場合
 	if ($postType == 'post') {
 		if ($postTopUrl) {
 			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.esc_url($postTopUrl).'" itemprop="url"><span itemprop="title">'.$postLabelName.'</span></a> &raquo; </li>';
 		} else {
-			$panListHtml .= '<li><span>'.$postLabelName.'</span> &raquo; </li>';
+			$panListHtml .= '<li><span>' . $postLabelName . '</span></a> &raquo; </li>';
 		}
 	// カスタム投稿タイプの場合
 	} else {
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.$postTypeName.'</span> &raquo; </li>';
+		$current_post_type = get_post_type_object( $postType );
+		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' .$current_post_type->name . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
 	}
 	$tagTitle = single_tag_title( "", false );
 	$panListHtml .= '<li><span>'. $tagTitle .'</span></li>';
 // ▼▼ アーカイブ
 } elseif ( is_archive() && (!is_category() || !is_tax()) ) {
-
+	//here
 	if (is_year() || is_month()){
 		// 投稿の場合
 		if ($postType == 'post') {
 			if ($postTopUrl) {
 				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.esc_url($postTopUrl).'" itemprop="url"><span itemprop="title">'.$postLabelName.'</span></a> &raquo; </li>';
 			} else {
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.$postLabelName.'</span> &raquo; </li>';
+				$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
 			}
 		// カスタム投稿タイプの場合
 		} else {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.home_url().'/'.$postType.'" itemprop="url"><span itemprop="title">'.$postTypeName.'</span></a> &raquo; </li>';
+			$post_type         = $wp_query->query_vars['post_type'];
+			$current_post_type = get_post_type_object( $post_type );
+			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
+		$details = $wp_query->query_vars;
 		if (is_year()){
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) ).'</span></li>';
-		} else if (is_month()){
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) ).'</span></li>';
+			$panListHtml .= '<li><span>' . sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ), strtotime( $details['year'] .'-01-01' ) ) ) . '</span></li>';
+		} else if (is_month()){ 
+			$month = ( $details['monthnum'] < 10 ) ? '0' . $details['monthnum'] : $details['monthnum'];
+			$panListHtml .= '<li><span>' . sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ), strtotime( $details['year'] . '-' . $month . '-01' ) ) ) . '</span></li>';
 		}
 	} else {
-		if(!isset($postTyeName)){
-			global $wp_query;
-			$postTypeName = $wp_query->queried_object->labels->name;
+		//is_dayの場合
+		$query = $wp_query->query_vars;
+		if ( empty( $query['post_type'] ) ) {
+			//普通の投稿
+			if ( $postTopUrl ) {
+				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url($postTopUrl) . '" itemprop="url"><span itemprop="title">'.$postLabelName.'</span></a> &raquo; </li>';
+			} else {
+				$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
+			}
+		} else {
+			//カスタム投稿タイプ
+			$current_post_type = get_post_type_object( $query['post_type']);
+			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.$postTypeName.'</span></li>';
+		$panListHtml .= '<li><span>' . sprintf( __( 'Daily Archives: %s', 'biz-vektor' ), date( _x( 'F jS, Y', 'daily archives date format', 'biz-vektor' ), strtotime( $query['year'] . '-' . $query['monthnum'] . '-' . $query['day'] ) ) ) . '</span></li>';
 	}
 
 } elseif ( is_attachment() ) {
-	$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.the_title('','', FALSE).'</span></li>';
+	$panListHtml .= '<li><span>'.the_title('','', FALSE).'</span></li>';
 }
 $panListHtml .= '</ul>';
 $panListHtml .= '</div>
