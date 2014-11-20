@@ -443,7 +443,6 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 			'_builtin'		=> false,
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
-		var_dump($instance);
 		$taxs = get_taxonomies( array('public'=> true),'objects'); 
 		?>
 		<p>
