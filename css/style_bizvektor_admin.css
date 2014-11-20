@@ -125,3 +125,14 @@ body.rtl .image-radio-option label { float: right; margin: 0 2px 20px 30px; }
 #tipsBody code{ display:block; overflow:hidden; }
 #tipsBody dl { margin-bottom:20px; }
 #tipsBody dl dt { margin-bottom:5px; }
+
+/*-------------------------------------------*/
+/* for theme setting
+/*-------------------------------------------*/
+
+.width-100 { width:100px; }
+.width-200 { width:200px; }
+.width-300 { width:300px; }
+.width-600 { width:600px; }
+.width-500 { width:500px; }
+.width-800 { width:800px; }
