@@ -9,7 +9,7 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
-"Language: en_US\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 "_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;"
 "__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ../\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 # Theme presentation (no text domain)
@@ -1659,6 +1659,14 @@ msgid ""
 msgstr ""
 "facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：hidekazu."
 "ishikawa）★ にアクセスするとわかります。"
+
+#: biz-vektor/inc/theme-options-edit.php:752
+msgid ""
+"You can see the personal Facebook ID when you access the following url "
+"http://graph.facebook.com/(own url name(example: TheStig ))."
+msgstr ""
+"facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：TheStig）★ に"
+"アクセスするとわかります。"
 
 #: inc/theme-options-edit.php:759
 msgid ""

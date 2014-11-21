@@ -308,7 +308,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<tr>
 	<th scope="row"><?php _ex('The contact page URL', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
 	<td>
-	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" /><br />
+	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" class="width-500" /><br />
 	<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.********.co.jp/contact/ <?php _e('or', 'biz-vektor') ;?> /******/</span><br />
 	<?php _e('* If you fill in the blank, contact banner will be displayed in the sidebar.', 'biz-vektor') ;?><br />
 	<span class="alert"><?php _e('If not, it does not appear.', 'biz-vektor') ;?></span>
@@ -432,7 +432,7 @@ $i++;
 	</dl>
 	<dl>
 		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'), $infoLabelName);?></dt>
-		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;text-align:right;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
 		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
 	</dl>
 
@@ -471,7 +471,7 @@ $i++;
 	<!-- Post display count -->
 	<dl>
 		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></dt>
-		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;text-align:right;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
 		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
 	</dl>
 	<!-- /Post display count -->
@@ -501,7 +501,7 @@ $i++;
 		<dt><?php _e('Number of related posts', 'biz-vektor'); ?></dt>
 		<dd><?php _e('Post of the same tag appears as a related posts under the content.', 'biz-vektor'); ?><br />
 			<?php _e('Nothing is displayed when there is no article of the same tag.', 'biz-vektor'); ?><br />
-			<input type="text" name="biz_vektor_theme_options[postRelatedCount]" id="postRelatedCount" value="<?php echo esc_attr( $options['postRelatedCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'post count', 'biz-vektor') ;?><br />
+			<input type="text" name="biz_vektor_theme_options[postRelatedCount]" id="postRelatedCount" value="<?php echo esc_attr( $options['postRelatedCount'] ); ?>" style="width:50px;text-align:right;" /> <?php _ex('posts', 'post count', 'biz-vektor') ;?><br />
 			<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?>
 		</dd>
 	</dl>
@@ -736,8 +736,8 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <tr>
 <th>facebook</th>
 <td><?php _e('If you wish to link to a personal account or a Facebook page  banner will be displayed if you enter the URL.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" />
-<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/hidekazu.ishikawa</span>
+<input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" class="width-600" /><br/>
+<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/FacebookJapan</span>
 </td>
 </tr>
 <!-- facebook application ID -->
@@ -753,9 +753,9 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <tr>
 <th><?php _e('Facebook user ID (optional)', 'biz-vektor'); ?></th>
 <td><?php _e('Please enter the Facebook user ID of the administrator.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[fbAdminId]" id="fbAdminId" value="<?php echo esc_attr( $options['fbAdminId'] ); ?>" /><br />
+<input type="text" name="biz_vektor_theme_options[fbAdminId]" id="fbAdminId" value="<?php echo esc_attr( $options['fbAdminId'] ); ?>" class="width-600" /><br />
 <?php _e('* It is not the application ID of the Facebook page.', 'biz-vektor'); ?><br />
-<?php _e('You can see the personal Facebook ID when you access the following url http://graph.facebook.com/(own url name(example: hidekazu.ishikawa)).', 'biz-vektor'); ?><br />
+<?php _e('You can see the personal Facebook ID when you access the following url http://graph.facebook.com/(own url name(example: TheStig )).', 'biz-vektor'); ?><br />
 <?php _e('Please search for terms as [find facebook user ID] if you are still not sure.', 'biz-vektor'); ?>
 </td>
 </tr>
@@ -774,7 +774,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <th><?php _e('OGP default image', 'biz-vektor'); ?></th>
 <td><?php _e('If, for example someone pressed the Facebook [Like] button, this is the image that appears on the Facebook timeline.', 'biz-vektor'); ?><br />
 <?php _e('If a featured image is specified for the page, it takes precedence.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" /> 
+<input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" class="width-300" /> 
 <button id="media_ogpImage" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button><br />
 <span><?php _e('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
 <?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is recommended.', 'biz-vektor'); ?>
@@ -831,14 +831,14 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 </ul>
 <dl>
 <dt><?php _e('URL of the Facebook page.', 'biz-vektor'); ?></dt>
-<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" /><br />
+<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" class="width-500" /><br />
 <span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
 <dt><?php _e('Display stream', 'biz-vektor'); ?></dt>
 <dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Display faces', 'biz-vektor'); ?></dt>
 <dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php echo ($options['fbLikeBoxFace']=='false')? "checked ":""; ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
 <dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
-<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" />
+<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" class="width-100" style="text-align:right;" />
 px</dd>
 </dl>
 </td>
