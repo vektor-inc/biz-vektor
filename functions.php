@@ -88,10 +88,10 @@ get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
 add_post_type_support( 'info', 'front-end-editor' );
 
-add_action('after_setup_theme', 'my_theme_setup');
+add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
-function my_theme_setup() {
-		load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
+function biz_vektor_theme_setup() {
+	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
 
 /*-------------------------------------------*/
