@@ -141,12 +141,12 @@ function getHeadTitle() {
 		}
 	// Single
 	} else if (is_single()) {
-		$category = get_the_category();
-		if (!empty($category)) :
-			$headTitle = get_the_title()." | ".$category[0]->cat_name." | ".get_bloginfo('name');
-		else :
+		// $category = get_the_category();
+		// if (!empty($category)) :
+		// 	$headTitle = get_the_title()." | ".$category[0]->cat_name." | ".get_bloginfo('name');
+		// else :
 			$headTitle = get_the_title()." | ".get_bloginfo('name');
-		endif;
+		// endif;
 	// Category
 	} else if (is_category()) {
 		$headTitle = single_cat_title('',false)." | ".get_bloginfo('name');
