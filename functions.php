@@ -90,6 +90,11 @@ add_post_type_support( 'info', 'front-end-editor' );
 
 add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
+/* Add Google Web Fonts for Global Version */
+if ( 'ja' != get_locale() ) {
+	require( dirname( __FILE__ ) . '/inc/fonts-global/class-fonts-global.php' );
+}
+
 function biz_vektor_theme_setup() {
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
