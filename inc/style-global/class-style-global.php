@@ -6,30 +6,33 @@
 class BizVektor_Style_Global {
 
 	static function init() {
-		return self::create_css_file();
+		return self::regroup_css();
 	}
 
-	//create css file from base style and custom style (font)
-	static function create_css_file() {
+	/**
+	* Regroup css from base style and custom style (font)
+	* 
+	* @return string css
+	*/
+	static function regroup_css() {
 
+		$css 	= '';
 		$folder = get_template_directory() . '/inc/style-global/';
 		require $folder . 'fonts-list.php';
 
-		//Google Web Fonts
-		$font_url 	  = $google_api . $fonts[3] . ':' . $styles;
-		$style_custom = '@import url(' . $font_url . ');';
+		//Google Web Fonts import 
+		if ( isset( $fonts ) ) {
+
+			$font_url = $google_api . $fonts['Lato'] . ':' . $styles;
+			$css 	 .= '@import url(' . $font_url . ");\r\n";
+			$css 	 .= '* { font-family: \'' . $fonts['Lato'] . "', sans-serif; }\r\n";
+		} 
 
 		//default global version style
 		$style_base   = file_get_contents( 'css/style-base.css', true );
+		$css 		 .= $style_base;
 
-		//comments for css file
-		$notes 		  = "/* This is a dynamic file.
-		 If you need to edit the css, edit this file: style-base.css.*/ \r\n";	
-
-		 //generates css file
-		 $style = fopen( $folder . 'css/style.css', 'w' );
-		 fwrite( $style, $notes . $style_custom . $style_base );
-		 fclose( $style );
+		return $css;
 	}
 
 }

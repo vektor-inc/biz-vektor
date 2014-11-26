@@ -11,14 +11,14 @@ $styles     = '400,700,700italic,300,300italic,400italic';
 
 /* Supported Fonts */
 $fonts = array(
-	'Open Sans',
-	'Josefin Slab',
-	'Arvo',
-	'Lato',
-	'Vollkorn',
-	'Abril Fatface',
-	'Ubuntu',
-	'PT Sans',
-	'Old Standard TT',
-	'Droid Sans',
+	'Open+Sans'    	  => __( 'Open Sans', 'biz-vektor' ),
+	'Josefin+Slab' 	  => __( 'Josefin Slab', 'biz-vektor' ),
+	'Arvo' 		   	  => __( 'Arvo', 'biz-vektor' ),
+	'Lato' 		   	  => __( 'Lato', 'biz-vektor' ),
+	'Vollkorn' 	   	  => __( 'Vollkorn', 'biz-vektor' ),
+	'Abril+Fatface'   => __( 'Abril Fatface', 'biz-vektor' ),
+	'Ubuntu' 		  => __( 'Ubuntu', 'biz-vektor' ),
+	'PT+Sans' 		  => __( 'PT Sans', 'biz-vektor' ),
+	'Old+Standard+TT' => __( 'Old Standard TT', 'biz-vektor' ),
+	'Droid+Sans' 	  => __( 'Droid Sans', 'biz-vektor' ),
 );
