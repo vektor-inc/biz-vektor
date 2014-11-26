@@ -246,7 +246,7 @@ if ( is_404() ){
 			$month = ( $details['monthnum'] < 10 ) ? '0' . $details['monthnum'] : $details['monthnum'];
 			$panListHtml .= '<li><span>' . sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ), strtotime( $details['year'] . '-' . $month . '-01' ) ) ) . '</span></li>';
 		}
-	} else {
+	} elseif(is_day()) {
 		//is_dayの場合
 		$query = $wp_query->query_vars;
 		if ( empty( $query['post_type'] ) ) {
@@ -262,6 +262,22 @@ if ( is_404() ){
 			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
 		$panListHtml .= '<li><span>' . sprintf( __( 'Daily Archives: %s', 'biz-vektor' ), date( _x( 'F jS, Y', 'daily archives date format', 'biz-vektor' ), strtotime( $query['year'] . '-' . $query['monthnum'] . '-' . $query['day'] ) ) ) . '</span></li>';
+	}
+	else{
+
+		$query = $wp_query->query_vars;
+		if ( empty( $query['post_type'] ) ) {
+			//普通の投稿
+			if ( $postTopUrl ) {
+				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url($postTopUrl) . '" itemprop="url"><span itemprop="title">'.$postLabelName.'</span></a> &raquo; </li>';
+			} else {
+				$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
+			}
+		} else {
+			//カスタム投稿タイプ
+			$current_post_type = get_post_type_object( $query['post_type']);
+			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a></li>';
+		}
 	}
 
 } elseif ( is_attachment() ) {
