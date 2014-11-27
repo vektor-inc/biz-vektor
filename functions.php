@@ -94,11 +94,6 @@ function biz_vektor_theme_setup() {
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
 
-/* Add Google Web Fonts and other styles for Global Version */
-if ( 'ja' != get_locale() ) {
-	require( dirname( __FILE__ ) . '/inc/style-global/style-global.php' );
-}
-
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)

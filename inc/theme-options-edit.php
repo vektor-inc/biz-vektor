@@ -214,6 +214,30 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="sanserif" <?php echo ($options['font_menu'] == 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
 	<td>
 	</tr>
+	<?php 
+	if ( 'ja' != get_locale() ) { ?>
+		<!-- Fonts -->
+		<tr>
+			<th>
+				<?php _ex( 'Google Web Fonts', 'biz-vektor theme-customizer', 'biz-vektor' ); ?>
+			</th>
+			<td>
+				<select name="biz_vektor_theme_options[global_font]">
+					<?php 
+					//getting $fonts
+					require get_template_directory() . '/inc/fonts-list.php';
+					$selected_font = $options['global_font'];
+
+					foreach ( $fonts as $value => $label ) { 
+						$selected = ( $selected_font == $value ) ? ' selected' : ''; ?>
+						<option value="<?php echo $value; ?>"<?php echo $selected; ?>><?php echo $label; ?></option><?php
+					}
+
+					?>
+				</select>
+			</td>
+		</tr><?php
+	} ?>
 	<!-- Sidebar Child page menu display -->
 	<tr>
 	<th><?php _e('Deployment of the sidebar menu', 'biz-vektor') ;?></th>

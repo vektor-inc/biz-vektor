@@ -43,6 +43,9 @@ function bizvektor_customize_register($wp_customize) {
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_menu]',  $add_setting_array );
     $wp_customize->add_setting( 'biz_vektor_theme_options[topSideBarDisplay]', array('default' => false, 'type'=>'option','capability' => 'edit_theme_options'));
 
+	/* English Fonts */
+	$wp_customize->add_setting( 'biz_vektor_theme_options[global_font]', $add_setting_array ); 
+
 		// Create BizVektor Theme styles Array
 		global $biz_vektor_theme_styles;
 		biz_vektor_theme_styleSetting();
@@ -134,6 +137,7 @@ function bizvektor_customize_register($wp_customize) {
 				),
 			'priority' => 501,
 		));
+
 		$wp_customize->add_control( 'font_menu',array(
 			'label'     => _x('Global Menu font', 'biz-vektor theme-customizer', 'biz-vektor'),
 			'section'   => 'biz_vektor_design',
@@ -145,12 +149,34 @@ function bizvektor_customize_register($wp_customize) {
 				),
 			'priority' => 502,
 		));
+
+		if ( 'ja' != get_locale() ) {
+
+			//gets fonts list $fonts
+			require get_template_directory() . '/inc/fonts-list.php';
+
+			$wp_customize->add_control( 
+				new WP_Customize_Control(
+					$wp_customize,
+					'theme_bizvektor_global_font',
+					array(
+						'label'          => _x( 'Google Web Fonts', 'biz-vektor theme-customizer', 'biz-vektor' ),
+						'section'        => 'biz_vektor_design',
+						'settings'       => 'biz_vektor_theme_options[global_font]',
+						'type'           => 'select',
+						'choices'        => $fonts,
+						'priority'		 => 503,
+					)
+				)
+			);
+		}
+
 		$wp_customize->add_control( 'display_side',array(
 			'label'     => 'トップページのサイドバーを表示しない',
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[topSideBarDisplay]',
 			'type' => 'checkbox',
-			'priority' => 503,
+			'priority' => 504,
 		));
 
 	/*	Contact information

@@ -23,6 +23,7 @@ function biz_vektor_theme_options_init() {
 	if ( false === get_option('biz_vektor_theme_options') ){
 		add_option( 'biz_vektor_theme_options', biz_vektor_generate_default_options() );
 	}
+
 	global $biz_vektor_options;
 	$biz_vektor_options = get_option('biz_vektor_theme_options' );
 }
@@ -48,6 +49,7 @@ function biz_vektor_generate_default_options(){
 		$default_theme_options = array(
 		'font_title' => 'sanserif',
 		'font_menu' => 'sanserif',
+		'global_font' => 'Open+Sans',
 		'gMenuDivide' => '',
 		'head_logo' => '',
 		'foot_logo' => '',
@@ -190,12 +192,17 @@ function biz_vektor_theme_options_validate( $input ) {
 	$nowdata = biz_vektor_get_theme_options();
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
+	//var_dump($input);
+
 	// Design
 	$output['gMenuDivide']            = $input['gMenuDivide'];
 	$output['head_logo']              = $input['head_logo'];
 	$output['foot_logo']              = $input['foot_logo'];
 	$output['font_title']             = $input['font_title'];
 	$output['font_menu']              = $input['font_menu'];
+	if ( 'ja' != get_locale() ) {
+		$output['global_font']            = $input['global_font'];
+	}
 	$output['side_child_display']     = $input['side_child_display'];
 	$output['favicon']                = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
 	$output['enableie8Warning']       = (isset($input['enableie8Warning']) && $input['enableie8Warning'] == 'true')? true: false;

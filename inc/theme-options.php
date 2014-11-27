@@ -44,6 +44,8 @@
 /*-------------------------------------------*/
 /*	Updata
 /*-------------------------------------------*/
+/* CSS and Google Web Fonts for Global Version
+/*-------------------------------------------*/
 
 
 /*-------------------------------------------*/
@@ -849,4 +851,49 @@ function biz_vektor_ad_contet_more($post_content) {
 		$post_content = $post_content.'<div class="sectionBox">'.$biz_vektor_options['ad_content_after'].'</div>';
 	endif; // post
 	return $post_content;
+}
+
+/*-------------------------------------------*/
+/*	CSS and Google Web Fonts for Global Version
+/*-------------------------------------------*/
+
+function displays_global_css() {
+	Global $biz_vektor_options;
+	$font = $biz_vektor_options['global_font'];
+	
+	?>
+		<style type="text/css">
+	<?php
+
+	//Google Web Fonts import 
+	if ( isset( $font ) ) { ?>
+		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
+
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif!important;}
+	<?php } ?>
+
+		/*-------------------------------------------*/
+		/*	default global version style
+		/*-------------------------------------------*/
+		body { font-size: 1.05em; }
+				
+		.sideTower .localSection li ul li, 
+		#sideTower .localSection li ul li { font-size: 0.9em; }
+		</style>
+	<?php
+}
+if ( 'ja' != get_locale() ) {
+	add_action( 'wp_head','displays_global_css');	
 }
