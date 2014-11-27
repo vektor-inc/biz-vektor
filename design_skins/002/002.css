@@ -218,9 +218,9 @@ background-color:#f9f9f9; }
 #gMenu .menu li a	{ background:url(images/arrow_gray.png) right bottom no-repeat; color: #333; display: block; overflow:hidden;padding: 20px 15px 18px; margin:0px; line-height:140%; text-decoration: none; letter-spacing:0px; text-align:left; position:relative;border-bottom:1px solid #ccc; }
 #gMenu .menu li a strong	{ font-weight:bold; }
 #gMenu .menu li a span 		{ color:#5ead3c; display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; display:none; }
-#gMenu .menu li.current_page_item > a ,
-#gMenu .menu li > a:hover,
-#gMenu .menu .current-menu-ancestor	a { background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
+#gMenu .menu li.current_page_item > a,
+#gMenu .menu li.current-menu-item > a,
+#gMenu .menu li > a:hover { background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
 #gMenu .menu li li span	{ display:none; }
 #gMenu .menu li li a { padding-left:25px; }
 #gMenu .menu li li li a { padding-left:35px; }
@@ -793,18 +793,15 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #gMenu .menu li li li a,
 #gMenu .menu li li li li a { padding-left:15px; }
 
+#gMenu .menu li a:hover,
+#gMenu .menu li.current_page_item > a,
+#gMenu .menu li.current-menu-ancestor > a,
+#gMenu .menu li.current-page-ancestor > a,
+#gMenu .menu li.current_page_ancestor > a { background-color:#f5f5f5;}
+
 #gMenu .menu li:hover ul	{ display:block; position:absolute;z-index:1000;border-top:1px solid #ccc; width:200px;box-shadow:1px 1px 3px rgba(0,0,0,0.2);opacity:0.97; }
-#gMenu .menu li:hover li	{ background:#fff;width:200px; position:relative; }
-#gMenu .menu li:hover li a,
-#gMenu .menu li.current_page_item li a,
-#gMenu .menu li.current-menu-ancestor li a,
-#gMenu .menu li.current-page-ancestor li a,
-#gMenu .menu li.current_page_ancestor li a { background:none; background-color:#fff;color:#4d4d4d;text-align:left;border-right:none;}
-#gMenu .menu li:hover li a:hover,
-#gMenu .menu li.current_page_item li a:hover,
-#gMenu .menu li.current-menu-ancestor li a:hover,
-#gMenu .menu li.current-page-ancestor li a:hover,
-#gMenu .menu li.current_page_ancestor li a:hover { background-color:#f5f5f5;}
+#gMenu .menu li:hover li	{ background:#fff;width:200px; position:relative;text-align:left; }
+#gMenu .menu li:hover li a	{ text-align:left; }
 
 #gMenu .menu li:hover ul li ul	{ position:absolute;left:200px;top:10px; border-top:none;}
 #gMenu .menu li:hover ul li ul,
