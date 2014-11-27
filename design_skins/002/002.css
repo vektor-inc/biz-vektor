@@ -219,7 +219,8 @@ background-color:#f9f9f9; }
 #gMenu .menu li a strong	{ font-weight:bold; }
 #gMenu .menu li a span 		{ color:#5ead3c; display:block; font-size:10px; line-height:140%;letter-spacing:1px; font-family:verdana, Arial, Helvetica, sans-serif; display:none; }
 #gMenu .menu li.current_page_item > a ,
-#gMenu .menu li > a:hover	{ background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
+#gMenu .menu li > a:hover,
+#gMenu .menu .current-menu-ancestor	a { background:url(images/arrow_bk.png) right bottom no-repeat #eeeeee; }
 #gMenu .menu li li span	{ display:none; }
 #gMenu .menu li li a { padding-left:25px; }
 #gMenu .menu li li li a { padding-left:35px; }
