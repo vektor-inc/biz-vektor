@@ -160,7 +160,7 @@ function bizvektor_customize_register($wp_customize) {
 					$wp_customize,
 					'theme_bizvektor_global_font',
 					array(
-						'label'          => _x( 'Google Web Fonts', 'biz-vektor theme-customizer', 'biz-vektor' ),
+						'label'          => _x( 'Google Web Fonts' , 'biz-vektor theme-customizer', 'biz-vektor' ),
 						'section'        => 'biz_vektor_design',
 						'settings'       => 'biz_vektor_theme_options[global_font]',
 						'type'           => 'select',
@@ -172,7 +172,7 @@ function bizvektor_customize_register($wp_customize) {
 		}
 
 		$wp_customize->add_control( 'display_side',array(
-			'label'     => 'トップページのサイドバーを表示しない',
+			'label'     => _x( 'Don\'t show on top page' , 'biz-vektor theme-customizer', 'biz-vektor' ),
 			'section'   => 'biz_vektor_design',
 			'settings'  => 'biz_vektor_theme_options[topSideBarDisplay]',
 			'type' => 'checkbox',
