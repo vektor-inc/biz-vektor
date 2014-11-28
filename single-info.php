@@ -42,6 +42,7 @@
 	<?php get_sidebar('info'); ?>
 </div>
 <!-- [ /#sideTower ] -->
+<?php biz_vektor_sideTower_after();?>
 </div>
 <!-- [ /#container ] -->
 
