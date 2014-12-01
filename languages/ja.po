@@ -23,6 +23,33 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
+# Theme presentation (no text domain)
+msgid ""
+"BizVektor theme will allow you to build a high-quality web site. It is "
+"possible to change the color, to switch to a completely different design. In "
+"addition, it is also possible to increase the number of designs by plug-ins."
+msgstr ""
+"BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
+"トを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まった"
+"く別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって"
+"新たに選択出来るデザインを増やす事も出来ます。"
+
+# Template name (no text domain)
+msgid "Child index page"
+msgstr "子ページインデックス"
+
+# Template name (no text domain)
+msgid "No sidebar"
+msgstr "サイドバーなし"
+
+# Template name (no text domain)
+msgid "Sitemap（Slug:sitemap-page）"
+msgstr "サイトマップ（スラッグ：sitemap-page）"
+
+# Template name (no text domain)
+msgid "Don't show contact at the bottom of the page"
+msgstr "ページ下部問い合わせなし"
+
 #: 503.php:19
 msgid "Maintenance in progress."
 msgstr "只今メンテナンス作業中です。"
