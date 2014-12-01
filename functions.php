@@ -1,6 +1,6 @@
 <?php
 
-$theme_opt = wp_get_theme();
+$theme_opt = wp_get_theme('biz-vektor');
 define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
 
 /*-------------------------------------------*/
