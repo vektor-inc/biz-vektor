@@ -38,6 +38,8 @@
 /*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
+/*	Change fonts
+/*-------------------------------------------*/
 /*	Side menu hidden
 /*-------------------------------------------*/
 /*	Contact Btn
@@ -719,7 +721,10 @@ function admin_theme_options_plugins( $hook_suffix ) {
 /*-------------------------------------------*/
 /*	Change fonts
 /*-------------------------------------------*/
-add_action( 'wp_head','biz_vektor_fontStyle',170);
+
+if ( 'ja' == get_locale() ) {
+	add_action( 'wp_head','biz_vektor_fontStyle',170);
+}
 function biz_vektor_fontStyle(){
 	$options = biz_vektor_get_theme_options();
 	$font_face_serif = _x('serif', 'Font select', 'biz-vektor');
@@ -761,6 +766,7 @@ function biz_vektor_fontStyle(){
 	// Output font style
 	if ( isset($font_style_head) && $font_style_head ) echo $font_style_head;
 }
+
 
 /*-------------------------------------------*/
 /*	Side menu hidden
@@ -869,19 +875,7 @@ function displays_global_css() {
 	if ( isset( $font ) ) { ?>
 		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
 
-		html, body, div, span, applet, object, iframe,
-		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-		a, abbr, acronym, address, big, cite, code,
-		del, dfn, em, img, ins, kbd, q, s, samp,
-		small, strike, strong, sub, sup, tt, var,
-		b, u, i, center,
-		dl, dt, dd, ol, ul, li,
-		fieldset, form, label, legend,
-		table, caption, tbody, tfoot, thead, tr, th, td,
-		article, aside, canvas, details, embed, 
-		figure, figcaption, footer, header, hgroup, 
-		menu, nav, output, ruby, section, summary,
-		time, mark, audio, video {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif!important;}
+		body {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif;}
 	<?php } ?>
 
 		/*-------------------------------------------*/

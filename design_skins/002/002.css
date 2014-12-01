@@ -549,7 +549,7 @@ box-shadow: inset 0 1px 0 white; }
 /*-------------------------------------------*/
 /*	#footer
 /*-------------------------------------------*/
-#footer	{ margin:0px; padding:20px 0px 20px; display:block; overflow:hidden; font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif; }
+#footer	{ margin:0px; padding:20px 0px 20px; display:block; overflow:hidden; }
 #footer	{ border-bottom: 1px solid #5f5e63; background:url(images/bg_bk.jpg) left top repeat; text-align:left; }
 #footer dl#footerOutline	{ margin:0px; line-height:150%;width:220px; }
 #footer dl#footerOutline dt	{ color: #d2d2d3; margin-bottom:8px;line-height:150%; }
@@ -852,8 +852,8 @@ body.home.one-column #main #container #sideTower	{ float:none; display:none; }
 #main #container #content.wide,
 body.left-sidebar #main #container #content.wide	{ float:none; }
 
-form#searchform input#s	{width:120px; }
-form#searchform input#searchsubmit	{ width:20%; }
+form#searchform input#s	{width:110px; }
+form#searchform input#searchsubmit	{ width:30%; }
 
 #topMainBnr			{ width:100%; }
 #topMainBnr img		{ width:950px !important; }
