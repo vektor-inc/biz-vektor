@@ -3,13 +3,13 @@
 /*-------------------------------------------*/
 /*	Theme Option の初期設定
 /*-------------------------------------------*/
-/*	Theme Option Default
+/*	送信した値をデータベースに登録したり、サニタイズする
 /*-------------------------------------------*/
 /*	Set option default
 /*-------------------------------------------*/
 /*	入力された値の処理
 /*-------------------------------------------*/
-/*	出力する
+/*	テーマオプション取得
 /*-------------------------------------------*/
 /*	Print option
 /*-------------------------------------------*/
@@ -138,51 +138,6 @@ function biz_vektor_generate_default_options(){
 	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
 }
 
-	/*-------------------------------------------*/
-	/*	Updator
-	/*-------------------------------------------*/
-
-class biz_vektor_veryfi_tool{
-	public $version;
-
-	public function __construct(){
-		$this->check_version();
-	}
-
-	public function update(){
-		switch (BizVektor_Theme_Version) {
-			case '1.0.0':
-				if($this->version == '0.11.5.2'){
-					$this->rebuild_option_0_11_5_2();
-				}
-				break;
-			default:
-				break;
-		}
-	}
-
-	public function check_version(){
-		// テーマバージョンの確認
-		$options = get_option('biz_vektor_theme_options');
-		if(isset($options['version'])){
-			$this->version = $options['version'];
-		}else{
-			$this->version = '0.11.5.2';
-		}
-	}
-
-	public function rebuild_option_0_11_5_2(){
-		$options = get_option('biz_vektor_theme_options');
-		$default = biz_vektor_generate_default_options();
-		$keylist = array_keys($options);
-		foreach($keylist as $key){
-			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
-		}
-		delete_option('biz_vektor_theme_options');
-		add_option('biz_vektor_theme_options', $default);
-		biz_vektor_theme_options_init();
-	}
-}
 
 /*-------------------------------------------*/
 /*	入力された値の処理
@@ -277,6 +232,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['fbCommentsPage']         = (isset($input['fbCommentsPage']) && $input['fbCommentsPage'] == 'false')? 'false' : '';
 	$output['fbCommentsPost']         = (isset($input['fbCommentsPost']) && $input['fbCommentsPost'] == 'false')? 'false' : '';
 	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
+	$output['fbCommentsHidden']          = $input['fbCommentsHidden'];
 	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
 	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
@@ -316,7 +272,7 @@ function biz_vektor_them_edit_function($post){
 }
 
 /*-------------------------------------------*/
-/*	出力する
+/*	テーマオプション取得
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;

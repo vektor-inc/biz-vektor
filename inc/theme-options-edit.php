@@ -2,8 +2,6 @@
 /*-------------------------------------------*/
 /*  Theme option edit page
 /*-------------------------------------------*/
-
-/*-------------------------------------------*/
 /*	Design setting
 /*-------------------------------------------*/
 /*	Contact information
@@ -29,7 +27,6 @@ function biz_vektor_theme_options_render_page() {
 	global $options_bizvektor;
 	$options_bizvektor = $options = biz_vektor_get_theme_options();
 	$biz_vektor_name = get_biz_vektor_name();
-	//echo "<pre>";print_r($options);echo "</pre>";
  ?>
 	<div class="wrap biz_vektor_options">
 		<?php screen_icon(); ?>
