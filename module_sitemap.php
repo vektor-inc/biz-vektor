@@ -6,30 +6,30 @@ global $biz_vektor_options;
 ----------------------------*/
 
 //post types to display on sitemap
-$types 			= array(
-					array(
-						'post-type' => 'info',
-						'taxonomy' 	=> array(
-											array(
-												'taxoName' 	=> 'info-cat',
-												'taxoLabel' => '')
-										),
-						'label' 	=> $biz_vektor_options['infoLabelName'],
-						'link'		=> home_url( '/info/' )
-					),
-					array(
-						'post-type' => 'post',
-						'taxonomy' 	=> array(
-											array(
-												'taxoName' 	=> 'category',
-												'taxoLabel' => '')
-											),
-						'label' 	=> $biz_vektor_options['postLabelName'],
-						'link'		=> $biz_vektor_options['postTopUrl']
-					));
+$types 	= array(
+			array(
+				'post-type' => 'info',
+				'taxonomy' 	=> array(
+									array(
+										'taxoName' 	=> 'info-cat',
+										'taxoLabel' => '')
+								),
+				'label' 	=> $biz_vektor_options['infoLabelName'],
+				'link'		=> home_url( '/info/' )
+			),
+			array(
+				'post-type' => 'post',
+				'taxonomy' 	=> array(
+									array(
+										'taxoName' 	=> 'category',
+										'taxoLabel' => '')
+									),
+				'label' 	=> $biz_vektor_options['postLabelName'],
+				'link'		=> $biz_vektor_options['postTopUrl']
+			));
 
 //pages to exclude
-$pages 			= '';
+$pages 	= '';
 
 
 //gets advanced options saved by administrator from DB
@@ -110,36 +110,46 @@ if ( isset($advancedOptions) ) {
 	<!-- [ #sitemapPostList ] -->
 	<div id="sitemapPostList">
 
-		<?php foreach ( $types as $type ) { ?>
-			<div class="sectionBox">
-				<h5>
-					<a href="<?php echo isset($type['link']) ? $type['link'] : '' ?>">
-						<?php echo isset($type['label']) ? $type['label'] : '' ?>
-					</a>
-				</h5>
+		<?php foreach ( $types as $type ) { 
 
-				<?php foreach ($type['taxonomy'] as $i => $taxonomy) {
+			//test query to know if there is posts in this post type
+			$args =  array( 
+				'posts_per__page' => 1,
+				'post_type'		  => $type['post-type'],	
+			);
+			$query = new WP_Query( $args );
+			
+			if ( $query->found_posts > 0 ) {
+				?>
+				<div class="sectionBox">
+					<h5>
+						<a href="<?php echo isset( $type['link'] ) ? $type['link'] : '' ?>">
+							<?php echo isset( $type['label'] ) ? $type['label'] : '' ?>
+						</a>
+					</h5>
 
-					if ( count($type['taxonomy']) > 1 ) { ?>
+					<?php foreach ( $type['taxonomy'] as $i => $taxonomy ) {
 
-						<h6><?php echo $taxonomy['taxoLabel'] ?></h6><?php
+						if ( count( $type['taxonomy'] ) > 1 ) { ?>
 
-					} ?>
-					<ul class="linkList"><?php
+							<h6><?php echo $taxonomy['taxoLabel'] ?></h6><?php
 
-						$args = array(
-							'taxonomy' => $taxonomy['taxoName'],
-							'title_li' => '',
-							'orderby' => 'order',
-							'show_option_none' => '',
-						);
+						} ?>
+						<ul class="linkList"><?php
 
-						wp_list_categories( $args ); ?>
+							$args = array(
+								'taxonomy' => $taxonomy['taxoName'],
+								'title_li' => '',
+								'orderby' => 'order',
+								'show_option_none' => '',
+							);
 
-					</ul>
-				<?php } // foreach ($type['taxonomy'] ?>
-			</div>
-		<?php } ?>
+							wp_list_categories( $args ); ?>
+						</ul>
+					<?php } ?>
+				</div>
+			<?php }
+		} ?>
 
 	</div><!-- [ /#sitemapPostList ] -->
 </div><!-- [ /#sitemapOuter ] -->
