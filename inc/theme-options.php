@@ -38,6 +38,8 @@
 /*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
+/*	Change fonts
+/*-------------------------------------------*/
 /*	Side menu hidden
 /*-------------------------------------------*/
 /*	Contact Btn
@@ -761,6 +763,7 @@ function biz_vektor_fontStyle(){
 	// Output font style
 	if ( isset($font_style_head) && $font_style_head ) echo $font_style_head;
 }
+
 
 /*-------------------------------------------*/
 /*	Side menu hidden
