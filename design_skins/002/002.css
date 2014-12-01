@@ -852,8 +852,8 @@ body.home.one-column #main #container #sideTower	{ float:none; display:none; }
 #main #container #content.wide,
 body.left-sidebar #main #container #content.wide	{ float:none; }
 
-form#searchform input#s	{width:120px; }
-form#searchform input#searchsubmit	{ width:20%; }
+form#searchform input#s	{width:110px; }
+form#searchform input#searchsubmit	{ width:30%; }
 
 #topMainBnr			{ width:100%; }
 #topMainBnr img		{ width:950px !important; }
