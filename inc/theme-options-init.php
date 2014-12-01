@@ -3,13 +3,13 @@
 /*-------------------------------------------*/
 /*	Theme Option の初期設定
 /*-------------------------------------------*/
-/*	Theme Option Default
+/*	送信した値をデータベースに登録したり、サニタイズする
 /*-------------------------------------------*/
 /*	Set option default
 /*-------------------------------------------*/
 /*	入力された値の処理
 /*-------------------------------------------*/
-/*	出力する
+/*	テーマオプション取得
 /*-------------------------------------------*/
 /*	Print option
 /*-------------------------------------------*/
@@ -47,142 +47,97 @@ add_action('admin_init', 'biz_vektor_option_register');
 
 function biz_vektor_generate_default_options(){
 		$default_theme_options = array(
-		'font_title' => 'sanserif',
-		'font_menu' => 'sanserif',
-		'global_font' => 'Open+Sans',
-		'gMenuDivide' => '',
-		'head_logo' => '',
-		'foot_logo' => '',
-		'contact_txt' => '',
-		'tel_number' => '',
-		'contact_time' => '',
-		'sub_sitename' => '',
-		'contact_address' => '',
-		'contact_link' => '',
-		'topTitle' => '',
-		'commonKeyWords' => '',
-		'gaID' => '',
-		'gaType' => 'gaType_normal',
-		'enableie8Warning' => true,
-		'topEntryTitleDisplay' => '',
-		'topSideBarDisplay' => false,
-		'top3PrDisplay' => '',
-		'infoTopCount' => '5',
-		'infoTopUrl' => home_url().'/info/',
-		'listInfoTop' => 'listType_set',
-		'listInfoArchive' => 'listType_set',
-		'postTopCount' => '5',
-		'postTopUrl' => '',
-		'listBlogTop' => 'listType_set',
-		'listBlogArchive' => 'listType_set',
-		'postRelatedCount' => '6',
-		'ad_conent_moretag' => '',
-		'ad_conent_after' => '',
-		'ad_related_after' => '',
-		'twitter' => '',
-		'facebook' => '',
-		'fbAppId' => '',
-		'fbAdminId' => '',
-		'ogpImage' => '',
-		'ogpTagDisplay' => 'ogp_on',
-		'snsBtnsFront' => '',
-		'snsBtnsPage' => '',
-		'snsBtnsPost' => '',
-		'snsBtnsInfo' => '',
-		'snsBtnsHidden' => '',
-		'fbCommentsFront' => '',
-		'fbCommentsPage' => '',
-		'fbCommentsPost' => '',
-		'fbCommentsInfo' => '',
-		'fbCommentsHidden' => '',
-		'fbLikeBoxFront' => '',
-		'fbLikeBoxSide' => '',
-		'fbLikeBoxURL' => '',
-		'fbLikeBoxStream' => '',
-		'fbLikeBoxFace' => '',
-		'fbLikeBoxHeight' => '',
-		'side_child_display' => 'side_child_display',
-		'rssLabelName' => 'Blog entries',
-		'favicon' => '',
-		'theme_layout' => 'content-sidebar',
-		'postLabelName' => __('Blog', 'biz-vektor'),
-		'infoLabelName' => __('Information', 'biz-vektor'),
-		'theme_style' => 'rebuild',
-		'pr1_title' => __('Rich theme options', 'biz-vektor'),
-		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
-		'pr1_link' => '',
-		'pr1_image' => get_template_directory_uri().'/images/samples/pr_image_demo_1.jpg',
-		'pr1_image_s' => get_template_directory_uri().'/images/samples/pr_image_demo_sq_1.jpg',
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
-		'pr2_link' => '',
-		'pr2_image' => get_template_directory_uri().'/images/samples/pr_image_demo_2.jpg',
-		'pr2_image_s' => get_template_directory_uri().'/images/samples/pr_image_demo_sq_2.jpg',
-		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
-		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
-		'pr3_link' => '',
-		'pr3_image' => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
-		'pr3_image_s' => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
-		'version' => BizVektor_Theme_Version,
-		'SNSuse' => false
+		'font_title'                  => 'sanserif',
+		'font_menu'                   => 'sanserif',
+		'global_font'                 => 'Open+Sans',
+		'gMenuDivide'                 => '',
+		'head_logo'                   => '',
+		'foot_logo'                   => '',
+		'contact_txt'                 => '',
+		'tel_number'                  => '',
+		'contact_time'                => '',
+		'sub_sitename'                => '',
+		'contact_address'             => '',
+		'contact_link'                => '',
+		'topTitle'                    => '',
+		'commonKeyWords'              => '',
+		'gaID'                        => '',
+		'gaType'                      => 'gaType_normal',
+		'enableie8Warning'            => true,
+		'topEntryTitleDisplay'        => '',
+		'topSideBarDisplay'           => false,
+		'top3PrDisplay'               => '',
+		'infoTopCount'                => '5',
+		'infoTopUrl'                  => home_url().'/info/',
+		'listInfoTop'                 => 'listType_set',
+		'listInfoArchive'             => 'listType_set',
+		'postTopCount'                => '5',
+		'postTopUrl'                  => '',
+		'listBlogTop'                 => 'listType_set',
+		'listBlogArchive'             => 'listType_set',
+		'postRelatedCount'            => '6',
+		'ad_conent_moretag'           => '',
+		'ad_conent_after'             => '',
+		'ad_related_after'            => '',
+		'twitter'                     => '',
+		'facebook'                    => '',
+		'fbAppId'                     => '',
+		'fbAdminId'                   => '',
+		'ogpImage'                    => '',
+		'ogpTagDisplay'               => 'ogp_on',
+		'snsBtnsFront'                => '',
+		'snsBtnsPage'                 => '',
+		'snsBtnsPost'                 => '',
+		'snsBtnsInfo'                 => '',
+		'snsBtnsHidden'               => '',
+		'fbCommentsFront'             => '',
+		'fbCommentsPage'              => '',
+		'fbCommentsPost'              => '',
+		'fbCommentsInfo'              => '',
+		'fbCommentsHidden'            => '',
+		'fbLikeBoxFront'              => '',
+		'fbLikeBoxSide'               => '',
+		'fbLikeBoxURL'                => '',
+		'fbLikeBoxStream'             => '',
+		'fbLikeBoxFace'               => '',
+		'fbLikeBoxHeight'             => '',
+		'side_child_display'          => 'side_child_display',
+		'rssLabelName'                => 'Blog entries',
+		'favicon'                     => '',
+		'theme_layout'                => 'content-sidebar',
+		'postLabelName'               => __('Blog', 'biz-vektor'),
+		'infoLabelName'               => __('Information', 'biz-vektor'),
+		'theme_style'                 => 'rebuild',
+		'pr1_title'                   => __('Rich theme options', 'biz-vektor'),
+		'pr1_description'             => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
+		'pr1_link'                    => '',
+		'pr1_image'                   => get_template_directory_uri().'/images/samples/pr_image_demo_1.jpg',
+		'pr1_image_s'                 => get_template_directory_uri().'/images/samples/pr_image_demo_sq_1.jpg',
+		'pr2_title'                   => __('Various designs available', 'biz-vektor'),
+		'pr2_description'             => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr2_link'                    => '',
+		'pr2_image'                   => get_template_directory_uri().'/images/samples/pr_image_demo_2.jpg',
+		'pr2_image_s'                 => get_template_directory_uri().'/images/samples/pr_image_demo_sq_2.jpg',
+		'pr3_title'                   => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description'             => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
+		'pr3_link'                    => '',
+		'pr3_image'                   => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
+		'pr3_image_s'                 => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
+		'version'                     => BizVektor_Theme_Version,
+		'SNSuse'                      => false
 	);
 
 	for ( $i = 1; $i <= 5 ;){
-		$default_theme_options['slide'.$i.'link'] = '';
-		$default_theme_options['slide'.$i.'image'] = '';
-		$default_theme_options['slide'.$i.'alt'] = '';
-		$default_theme_options['slide'.$i.'display'] = '';
-		$default_theme_options['slide'.$i.'blank'] = '';
+		$default_theme_options['slide'.$i.'link']     = '';
+		$default_theme_options['slide'.$i.'image']    = '';
+		$default_theme_options['slide'.$i.'alt']      = '';
+		$default_theme_options['slide'.$i.'display']  = '';
+		$default_theme_options['slide'.$i.'blank']    = '';
 	$i++;
 	}
 	return apply_filters( 'biz_vektor_default_options', $default_theme_options );
 }
 
-	/*-------------------------------------------*/
-	/*	Updator
-	/*-------------------------------------------*/
-
-class biz_vektor_veryfi_tool{
-	public $version;
-
-	public function __construct(){
-		$this->check_version();
-	}
-
-	public function update(){
-		switch (BizVektor_Theme_Version) {
-			case '1.0.0':
-				if($this->version == '0.11.5.2'){
-					$this->rebuild_option_0_11_5_2();
-				}
-				break;
-			default:
-				break;
-		}
-	}
-
-	public function check_version(){
-		// テーマバージョンの確認
-		$options = get_option('biz_vektor_theme_options');
-		if(isset($options['version'])){
-			$this->version = $options['version'];
-		}else{
-			$this->version = '0.11.5.2';
-		}
-	}
-
-	public function rebuild_option_0_11_5_2(){
-		$options = get_option('biz_vektor_theme_options');
-		$default = biz_vektor_generate_default_options();
-		$keylist = array_keys($options);
-		foreach($keylist as $key){
-			if(isset($options[$key]) && preg_match('/(\s|[ 　]*)/', $options[$key])) { $default[$key] = $options[$key]; }
-		}
-		delete_option('biz_vektor_theme_options');
-		add_option('biz_vektor_theme_options', $default);
-		biz_vektor_theme_options_init();
-	}
-}
 
 /*-------------------------------------------*/
 /*	入力された値の処理
@@ -192,8 +147,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	$nowdata = biz_vektor_get_theme_options();
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
-	//var_dump($input);
-
 	// Design
 	$output['gMenuDivide']            = $input['gMenuDivide'];
 	$output['head_logo']              = $input['head_logo'];
@@ -201,7 +154,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['font_title']             = $input['font_title'];
 	$output['font_menu']              = $input['font_menu'];
 	if ( 'ja' != get_locale() ) {
-		$output['global_font']            = $input['global_font'];
+		$output['global_font']         = $input['global_font'];
 	}
 	$output['side_child_display']     = $input['side_child_display'];
 	$output['favicon']                = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
@@ -272,11 +225,12 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
 	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';
 	$output['snsBtnsInfo']            = (isset($input['snsBtnsInfo']) && $input['snsBtnsInfo'] == 'false')? 'false' : '';
-	$output['snsBtnsHidden']          = $input['snsBtnsHidden'];
+	$output['snsBtnsHidden']          = (isset($input['snsBtnsHidden']))? $input['snsBtnsHidden'] : $nowdata['snsBtnsHidden'];
 	$output['fbCommentsFront']        = (isset($input['fbCommentsFront']) && $input['fbCommentsFront'] == 'false')? 'false' : '';
 	$output['fbCommentsPage']         = (isset($input['fbCommentsPage']) && $input['fbCommentsPage'] == 'false')? 'false' : '';
 	$output['fbCommentsPost']         = (isset($input['fbCommentsPost']) && $input['fbCommentsPost'] == 'false')? 'false' : '';
 	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
+	$output['fbCommentsHidden']       = (isset($input['fbCommentsHidden']))? $input['fbCommentsHidden'] : $nowdata['fbCommentsHidden'];
 	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
 	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
@@ -316,7 +270,7 @@ function biz_vektor_them_edit_function($post){
 }
 
 /*-------------------------------------------*/
-/*	出力する
+/*	テーマオプション取得
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;
