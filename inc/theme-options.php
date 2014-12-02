@@ -38,11 +38,15 @@
 /*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
+/*	Change fonts
+/*-------------------------------------------*/
 /*	Side menu hidden
 /*-------------------------------------------*/
 /*	Contact Btn
 /*-------------------------------------------*/
 /*	Updata
+/*-------------------------------------------*/
+/* CSS and Google Web Fonts for Global Version
 /*-------------------------------------------*/
 
 
@@ -141,12 +145,12 @@ function getHeadTitle() {
 		}
 	// Single
 	} else if (is_single()) {
-		$category = get_the_category();
-		if (!empty($category)) :
-			$headTitle = get_the_title()." | ".$category[0]->cat_name." | ".get_bloginfo('name');
-		else :
+		// $category = get_the_category();
+		// if (!empty($category)) :
+		// 	$headTitle = get_the_title()." | ".$category[0]->cat_name." | ".get_bloginfo('name');
+		// else :
 			$headTitle = get_the_title()." | ".get_bloginfo('name');
-		endif;
+		// endif;
 	// Category
 	} else if (is_category()) {
 		$headTitle = single_cat_title('',false)." | ".get_bloginfo('name');
@@ -620,8 +624,19 @@ function biz_vektor_footerCopyRight() 		{
 	}
 	print '</a> All Rights Reserved.</div>';
 
+	$wordpressUrl = 'https://ja.wordpress.org/';
+	$bizvektorUrl = 'http://bizvektor.com';
+
+	//links for Global version
+	if ( 'ja' != get_locale() ) {
+		$wordpressUrl = 'https://wordpress.org/';
+		$bizvektorUrl = 'http://bizvektor.com/en/';
+	}
+
 	// **** Don't change id name!
-	$footerPowerd = '<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizVektor.com" target="_blank" title="'.__('Free WordPress Theme BizVektor for business', 'biz-vektor').'">BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="'._x('Vektor,Inc.', 'footer', 'biz-vektor').'">Vektor,Inc.</a> technology.</div>';
+	$footerPowerd = '<div id="powerd">Powered by <a href="' . $wordpressUrl .'">WordPress</a> &amp; ';
+	$footerPowerd .= '<a href="' . $bizvektorUrl . '" target="_blank" title="' . __( 'Free WordPress Theme BizVektor for business', 'biz-vektor' ) . '">';
+	$footerPowerd .= ' BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="' . _x( 'Vektor,Inc.', 'footer', 'biz-vektor' ) . '">Vektor,Inc.</a> technology.</div>';
 	// **** Dont change filter name! Oh I already know 'Powerd' id miss spell !!!!!
 	$footerPowerd = apply_filters( 'footerPowerdCustom', $footerPowerd );
 	echo $footerPowerd;
@@ -706,7 +721,10 @@ function admin_theme_options_plugins( $hook_suffix ) {
 /*-------------------------------------------*/
 /*	Change fonts
 /*-------------------------------------------*/
-add_action( 'wp_head','biz_vektor_fontStyle',170);
+
+if ( 'ja' == get_locale() ) {
+	add_action( 'wp_head','biz_vektor_fontStyle',170);
+}
 function biz_vektor_fontStyle(){
 	$options = biz_vektor_get_theme_options();
 	$font_face_serif = _x('serif', 'Font select', 'biz-vektor');
@@ -748,6 +766,7 @@ function biz_vektor_fontStyle(){
 	// Output font style
 	if ( isset($font_style_head) && $font_style_head ) echo $font_style_head;
 }
+
 
 /*-------------------------------------------*/
 /*	Side menu hidden
@@ -838,4 +857,37 @@ function biz_vektor_ad_contet_more($post_content) {
 		$post_content = $post_content.'<div class="sectionBox">'.$biz_vektor_options['ad_content_after'].'</div>';
 	endif; // post
 	return $post_content;
+}
+
+/*-------------------------------------------*/
+/*	CSS and Google Web Fonts for Global Version
+/*-------------------------------------------*/
+
+function displays_global_css() {
+	Global $biz_vektor_options;
+	$font = $biz_vektor_options['global_font'];
+	
+	?>
+		<style type="text/css">
+	<?php
+
+	//Google Web Fonts import 
+	if ( isset( $font ) ) { ?>
+		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
+
+		body {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif;}
+	<?php } ?>
+
+		/*-------------------------------------------*/
+		/*	default global version style
+		/*-------------------------------------------*/
+		body { font-size: 1.05em; }
+				
+		.sideTower .localSection li ul li, 
+		#sideTower .localSection li ul li { font-size: 0.9em; }
+		</style>
+	<?php
+}
+if ( 'ja' != get_locale() ) {
+	add_action( 'wp_head','displays_global_css');	
 }

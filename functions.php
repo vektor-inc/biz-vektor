@@ -1,6 +1,7 @@
 <?php
 
-define('BizVektor_Theme_Version', '1.4.2');
+$theme_opt = wp_get_theme('biz-vektor');
+define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -87,10 +88,10 @@ get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
 add_post_type_support( 'info', 'front-end-editor' );
 
-add_action('after_setup_theme', 'my_theme_setup');
+add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
-function my_theme_setup() {
-		load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
+function biz_vektor_theme_setup() {
+	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
 
 /*-------------------------------------------*/

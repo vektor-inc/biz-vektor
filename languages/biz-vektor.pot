@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2014-11-14 18:50+0900\n"
+"POT-Creation-Date: 2014-11-27 17:09+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -22,6 +22,29 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
+
+# Theme presentation (no text domain)
+msgid ""
+"BizVektor theme will allow you to build a high-quality web site. It is "
+"possible to change the color, to switch to a completely different design. In "
+"addition, it is also possible to increase the number of designs by plug-ins."
+msgstr ""
+
+# Template name (no text domain)
+msgid "Child index page"
+msgstr ""
+
+# Template name (no text domain)
+msgid "No sidebar"
+msgstr ""
+
+# Template name (no text domain)
+msgid "Don't show contact at the bottom of the page"
+msgstr ""
+
+# Template name (no text domain)
+msgid "Sitemap（Slug:sitemap-page）"
+msgstr ""
 
 #: 503.php:19
 msgid "Maintenance in progress."
@@ -55,7 +78,7 @@ msgid ""
 "display anything."
 msgstr ""
 
-#: front-page.php:53 functions.php:575 functions_widgets.php:197
+#: front-page.php:53 functions.php:576 functions_widgets.php:199
 #: module_loop_post.php:18 module_loop_post2.php:20 module_PageDisp.php:95
 #: module_topPR.php:91 page-no-mainfoot.php:19 page-onecolumn.php:20
 #: page-parent.php:24 page-parent.php:57 page.php:14 single-info.php:11
@@ -71,153 +94,259 @@ msgstr ""
 msgid "Change the page to be displayed"
 msgstr ""
 
-#: functions.php:265 functions.php:266 functions.php:267 functions.php:274
+#: functions.php:266 functions.php:267 functions.php:268 functions.php:275
 msgid "Meta Keywords"
 msgstr ""
 
-#: functions.php:275
+#: functions.php:276
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "
 "(optional)."
 msgstr ""
 
-#: functions.php:277
+#: functions.php:278
 #, php-format
 msgid "* keywords common to the entire site can be set from %s."
 msgstr ""
 
-#: functions.php:348 functions.php:356
+#: functions.php:349 functions.php:357
 #, php-format
 msgid "About %s"
 msgstr ""
 
-#: functions.php:360 index.php:19 module_panList.php:69 module_panList.php:201
-#: inc/theme-options.php:134 inc/theme-options.php:161
+#: functions.php:361 index.php:19 module_panList.php:80 module_panList.php:244
+#: inc/theme-options.php:136 inc/theme-options.php:163
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: functions.php:361
+#: functions.php:362
 #, php-format
 msgctxt "Yearly archive description"
 msgid "Article of %s."
 msgstr ""
 
-#: functions.php:364 index.php:21 module_panList.php:72 module_panList.php:203
-#: inc/theme-options.php:136 inc/theme-options.php:159
+#: functions.php:365 index.php:21 module_panList.php:82 module_panList.php:247
+#: inc/theme-options.php:138 inc/theme-options.php:161
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: functions.php:365 functions.php:369 functions.php:373
+#: functions.php:366 functions.php:370 functions.php:374
 #, php-format
 msgctxt "Archive description"
 msgid "Article of %s."
 msgstr ""
 
-#: functions.php:390 inc/theme-options.php:179
+#: functions.php:391 inc/theme-options.php:181
 #, php-format
 msgid "Page of %s"
 msgstr ""
 
-#: functions.php:555
+#: functions.php:556
 msgid "Your comment is awaiting approval."
 msgstr ""
 
-#: functions.php:565
+#: functions.php:566
 msgid "Reply"
 msgstr ""
 
-#: functions.php:589
+#: functions.php:590
 msgid "Navigation"
 msgstr ""
 
-#: functions.php:590
+#: functions.php:591
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr ""
 
-#: functions.php:591
+#: functions.php:592
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions_widgets.php:31
+#: functions_widgets.php:33
 msgid "Sidebar(Front page only)"
 msgstr ""
 
-#: functions_widgets.php:33
+#: functions_widgets.php:35
 msgid "This widget area appears on the front page only."
 msgstr ""
 
-#: functions_widgets.php:40
+#: functions_widgets.php:42
 msgid "Main content(Homepage)"
 msgstr ""
 
-#: functions_widgets.php:42
+#: functions_widgets.php:44
 msgid "This widget area appears on the front page main content area only."
 msgstr ""
 
-#: functions_widgets.php:49
+#: functions_widgets.php:51
 msgid "Sidebar(Post content only)"
 msgstr ""
 
-#: functions_widgets.php:51
+#: functions_widgets.php:53
 msgid "This widget area appears only on the post content pages."
 msgstr ""
 
-#: functions_widgets.php:58
+#: functions_widgets.php:60
 msgid "Sidebar(Page content only)"
 msgstr ""
 
-#: functions_widgets.php:60
+#: functions_widgets.php:62
 msgid "This widget area appears only on the page content pages."
 msgstr ""
 
-#: functions_widgets.php:67
+#: functions_widgets.php:69
 msgid "Sidebar(Common top)"
 msgstr ""
 
-#: functions_widgets.php:69
+#: functions_widgets.php:71
 msgid "This widget area appears at top of sidebar."
 msgstr ""
 
-#: functions_widgets.php:76
+#: functions_widgets.php:78
 msgid "Sidebar(Common bottom)"
 msgstr ""
 
-#: functions_widgets.php:78
+#: functions_widgets.php:80
 msgid "This widget area appears at bottom of sidebar."
 msgstr ""
 
-#: functions_widgets.php:166 functions_widgets.php:344
+#: functions_widgets.php:96
+msgid "Displays list of child page for the current page."
+msgstr ""
+
+#: functions_widgets.php:98
+msgid "child pages list"
+msgstr ""
+
+#: functions_widgets.php:123
+msgid "Displays 3PR area on the top page (does not adapt well on the sidebar)."
+msgstr ""
+
+#: functions_widgets.php:125
+msgid "3PR for top"
+msgstr ""
+
+#: functions_widgets.php:148
+msgid "Displays the content of a chosen page."
+msgstr ""
+
+#: functions_widgets.php:150
+msgid "page content for top"
+msgstr ""
+
+#: functions_widgets.php:168 functions_widgets.php:453
 msgid "Display page"
 msgstr ""
 
-#: functions_widgets.php:212 plugins/sns/sns.php:266 plugins/sns/sns.php:301
+#: functions_widgets.php:176
+msgid "display title"
+msgstr ""
+
+#: functions_widgets.php:214 plugins/sns/sns.php:266 plugins/sns/sns.php:301
 msgid "*　It is necessary to set the Theme options page."
 msgstr ""
 
-#: functions_widgets.php:214
+#: functions_widgets.php:216
 msgid "Contact button"
 msgstr ""
 
-#: functions_widgets.php:447 functions_widgets.php:457
-#: functions_widgets.php:496
-msgid "Recent Posts"
+#: functions_widgets.php:243 functions_widgets.php:269
+#, php-format
+msgid "Displays recent %1$s posts."
 msgstr ""
 
-#: functions_widgets.php:505 plugins/add_post_type/add_post_type.php:160
-msgid "Title:"
+#: functions_widgets.php:245 functions_widgets.php:271
+#, php-format
+msgid "%1$s list for top"
 msgstr ""
 
-#: functions_widgets.php:510
-msgid "Display count"
+#: functions_widgets.php:295
+msgid ""
+"Displays a list of archives. You can choose the post type and also to "
+"display archives by month or by year."
+msgstr ""
+
+#: functions_widgets.php:297
+msgid "archive list"
+msgstr ""
+
+#: functions_widgets.php:332 functions_widgets.php:333
+msgid "Monthly archives"
+msgstr ""
+
+#: functions_widgets.php:342 inc/theme-customizer.php:268
+#: inc/theme-options-edit.php:375
+msgid "Title"
+msgstr ""
+
+#: functions_widgets.php:346
+msgid "Post type"
+msgstr ""
+
+#: functions_widgets.php:403
+msgid "Displays a categories, tags or format list."
+msgstr ""
+
+#: functions_widgets.php:409
+msgid "categories/tags list"
+msgstr ""
+
+#: functions_widgets.php:440 functions_widgets.php:441
+#: module_entry_meta.php:20 sidebar-info.php:17 sidebar-post.php:10
+msgid "Category"
+msgstr ""
+
+#: functions_widgets.php:449
+msgid "Label to display"
+msgstr ""
+
+#: functions_widgets.php:468 inc/theme-options-init.php:108
+msgid "Blog"
+msgstr ""
+
+#: functions_widgets.php:473
+msgid "Archives"
+msgstr ""
+
+#: functions_widgets.php:499
+msgid "Displays entries list from a RSS feed link."
+msgstr ""
+
+#: functions_widgets.php:501
+msgid "RSS entries for top"
 msgstr ""
 
 #: functions_widgets.php:515
+msgid "Blog entries"
+msgstr ""
+
+#: functions_widgets.php:520
+msgid "Heading title"
+msgstr ""
+
+#: functions_widgets.php:544
+msgid "Displays a list of your most recent posts"
+msgstr ""
+
+#: functions_widgets.php:546 functions_widgets.php:556
+#: functions_widgets.php:595
+msgid "Recent Posts"
+msgstr ""
+
+#: functions_widgets.php:604 plugins/add_post_type/add_post_type.php:160
+msgid "Title:"
+msgstr ""
+
+#: functions_widgets.php:609
+msgid "Display count"
+msgstr ""
+
+#: functions_widgets.php:614
 msgid "Slug for the custom type you want to display"
 msgstr ""
 
-#: functions_widgets.php:519
+#: functions_widgets.php:618
 #, php-format
 msgid "For %1$s use \"post\"<br />for %2$s use \"info\""
 msgstr ""
@@ -226,14 +355,14 @@ msgstr ""
 msgid "Skip menu"
 msgstr ""
 
-#: index.php:19 module_panList.php:69 module_panList.php:201
-#: inc/theme-options.php:134 inc/theme-options.php:161
+#: index.php:19 module_panList.php:80 module_panList.php:244
+#: inc/theme-options.php:136 inc/theme-options.php:163
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: index.php:21 module_panList.php:72 module_panList.php:203
-#: inc/theme-options.php:136 inc/theme-options.php:159
+#: index.php:21 module_panList.php:82 module_panList.php:247
+#: inc/theme-options.php:138 inc/theme-options.php:161
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr ""
@@ -394,15 +523,11 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: module_entry_meta.php:20 sidebar-info.php:17 sidebar-post.php:10
-msgid "Category"
-msgstr ""
-
 #: module_mainfoot.php:15
 msgid "bt_contact.png"
 msgstr ""
 
-#: module_mainfoot.php:15 inc/theme-options.php:794
+#: module_mainfoot.php:15 inc/theme-options.php:807
 msgid "Contact us by e-mail"
 msgstr ""
 
@@ -419,13 +544,23 @@ msgctxt "Link to page"
 msgid "Read more"
 msgstr ""
 
-#: module_pageTit.php:46 module_panList.php:37 inc/theme-options.php:172
+#: module_pageTit.php:46 module_panList.php:37 inc/theme-options.php:174
 #, php-format
 msgid "Search Results for : %s"
 msgstr ""
 
 #: module_pageTit.php:48 module_panList.php:35
 msgid "Not found"
+msgstr ""
+
+#: module_panList.php:264
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: module_panList.php:264
+msgctxt "daily archives date format"
+msgid "F jS, Y"
 msgstr ""
 
 #: module_top_list_info.php:28 module_top_list_post.php:35
@@ -492,6 +627,46 @@ msgstr ""
 msgid "Keycolor(VeryLight)"
 msgstr ""
 
+#: inc/fonts-list.php:10
+msgid "Open Sans"
+msgstr ""
+
+#: inc/fonts-list.php:11
+msgid "Josefin Slab"
+msgstr ""
+
+#: inc/fonts-list.php:12
+msgid "Arvo"
+msgstr ""
+
+#: inc/fonts-list.php:13
+msgid "Lato"
+msgstr ""
+
+#: inc/fonts-list.php:14
+msgid "Vollkorn"
+msgstr ""
+
+#: inc/fonts-list.php:15
+msgid "Abril Fatface"
+msgstr ""
+
+#: inc/fonts-list.php:16
+msgid "Ubuntu"
+msgstr ""
+
+#: inc/fonts-list.php:17
+msgid "PT Sans"
+msgstr ""
+
+#: inc/fonts-list.php:18
+msgid "Old Standard TT"
+msgstr ""
+
+#: inc/fonts-list.php:19
+msgid "Droid Sans"
+msgstr ""
+
 #: inc/theme-ad-options-edit.php:3 inc/theme-ad-options.php:11
 #: inc/theme-ad-options.php:12
 msgid "Advanced Options"
@@ -538,143 +713,144 @@ msgctxt "biz-vektor theme-customizer"
 msgid "Design settings"
 msgstr ""
 
-#: inc/theme-customizer.php:65 inc/theme-options-edit.php:146
+#: inc/theme-customizer.php:68 inc/theme-options-edit.php:151
 msgctxt "biz-vektor theme-customizer"
 msgid "Header logo image"
 msgstr ""
 
-#: inc/theme-customizer.php:73
+#: inc/theme-customizer.php:76
 msgctxt "biz-vektor theme-customizer"
 msgid "Header logo image URL"
 msgstr ""
 
-#: inc/theme-customizer.php:85 inc/theme-options-edit.php:154
+#: inc/theme-customizer.php:88 inc/theme-options-edit.php:159
 msgctxt "biz-vektor theme-customizer"
 msgid "Footer logo image"
 msgstr ""
 
-#: inc/theme-customizer.php:93
+#: inc/theme-customizer.php:96
 msgctxt "biz-vektor theme-customizer"
 msgid "Footer logo image URL"
 msgstr ""
 
-#: inc/theme-customizer.php:101 inc/theme-options-edit.php:124
+#: inc/theme-customizer.php:104 inc/theme-options-edit.php:129
 msgctxt "biz-vektor theme-customizer"
 msgid "Not specified (left-justified)"
 msgstr ""
 
-#: inc/theme-customizer.php:102 inc/theme-options-edit.php:125
+#: inc/theme-customizer.php:105 inc/theme-options-edit.php:130
 msgctxt "biz-vektor theme-customizer"
 msgid "4"
 msgstr ""
 
-#: inc/theme-customizer.php:103 inc/theme-options-edit.php:126
+#: inc/theme-customizer.php:106 inc/theme-options-edit.php:131
 msgctxt "biz-vektor theme-customizer"
 msgid "5"
 msgstr ""
 
-#: inc/theme-customizer.php:104 inc/theme-options-edit.php:127
+#: inc/theme-customizer.php:107 inc/theme-options-edit.php:132
 msgctxt "biz-vektor theme-customizer"
 msgid "6"
 msgstr ""
 
-#: inc/theme-customizer.php:105 inc/theme-options-edit.php:128
+#: inc/theme-customizer.php:108 inc/theme-options-edit.php:133
 msgctxt "biz-vektor theme-customizer"
 msgid "7"
 msgstr ""
 
-#: inc/theme-customizer.php:107 inc/theme-options-edit.php:118
+#: inc/theme-customizer.php:110 inc/theme-options-edit.php:123
 msgctxt "biz-vektor theme-customizer"
 msgid "Number of header menus"
 msgstr ""
 
-#: inc/theme-customizer.php:119 inc/theme-options-edit.php:162
+#: inc/theme-customizer.php:122 inc/theme-options-edit.php:167
 msgctxt "biz-vektor theme-customizer"
 msgid "Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:127 inc/theme-options-edit.php:192
+#: inc/theme-customizer.php:130 inc/theme-options-edit.php:197
 msgctxt "biz-vektor theme-customizer"
 msgid "Heading font"
 msgstr ""
 
-#: inc/theme-customizer.php:132 inc/theme-customizer.php:143
-#: inc/theme-options-edit.php:197 inc/theme-options-edit.php:208
+#: inc/theme-customizer.php:135 inc/theme-customizer.php:147
+#: inc/theme-options-edit.php:202 inc/theme-options-edit.php:213
 msgctxt "biz-vektor theme-customizer"
 msgid "Serif"
 msgstr ""
 
-#: inc/theme-customizer.php:133 inc/theme-customizer.php:144
-#: inc/theme-options-edit.php:198 inc/theme-options-edit.php:209
+#: inc/theme-customizer.php:136 inc/theme-customizer.php:148
+#: inc/theme-options-edit.php:203 inc/theme-options-edit.php:214
 msgctxt "biz-vektor theme-customizer"
 msgid "Sanserif"
 msgstr ""
 
-#: inc/theme-customizer.php:138 inc/theme-options-edit.php:203
+#: inc/theme-customizer.php:142 inc/theme-options-edit.php:208
 msgctxt "biz-vektor theme-customizer"
 msgid "Global Menu font"
 msgstr ""
 
-#: inc/theme-customizer.php:160 inc/theme-options-edit.php:256
+#: inc/theme-customizer.php:175
+msgctxt "biz-vektor theme-customizer"
+msgid "Don't show on top page"
+msgstr ""
+
+#: inc/theme-customizer.php:186 inc/theme-options-edit.php:285
 msgctxt "biz-vektor theme-customizer"
 msgid "Contact settings"
 msgstr ""
 
-#: inc/theme-customizer.php:178 inc/theme-options-edit.php:263
+#: inc/theme-customizer.php:204 inc/theme-options-edit.php:292
 msgctxt "biz-vektor theme-customizer"
 msgid "Message"
 msgstr ""
 
-#: inc/theme-customizer.php:186 inc/theme-options-edit.php:270
+#: inc/theme-customizer.php:212 inc/theme-options-edit.php:299
 msgctxt "biz-vektor theme-customizer"
 msgid "Phone number"
 msgstr ""
 
-#: inc/theme-customizer.php:194 inc/theme-options-edit.php:277
-#: inc/theme-options-edit.php:280
+#: inc/theme-customizer.php:220 inc/theme-options-edit.php:306
+#: inc/theme-options-edit.php:309
 msgctxt "biz-vektor theme-customizer"
 msgid "Office hours"
 msgstr ""
 
-#: inc/theme-customizer.php:202 inc/theme-options-edit.php:284
+#: inc/theme-customizer.php:228 inc/theme-options-edit.php:313
 msgctxt "biz-vektor theme-customizer"
 msgid ""
 "Site / Company / Store / Service name. This is displayed in the left part of "
 "the footer bottom and footer copyright section."
 msgstr ""
 
-#: inc/theme-customizer.php:210 inc/theme-options-edit.php:294
+#: inc/theme-customizer.php:236 inc/theme-options-edit.php:323
 msgctxt "biz-vektor theme-customizer"
 msgid "Company address"
 msgstr ""
 
-#: inc/theme-customizer.php:218 inc/theme-options-edit.php:304
+#: inc/theme-customizer.php:244 inc/theme-options-edit.php:333
 msgctxt "biz-vektor theme-customizer"
 msgid "The contact page URL"
 msgstr ""
 
-#: inc/theme-customizer.php:229 inc/theme-options-edit.php:324
+#: inc/theme-customizer.php:255 inc/theme-options-edit.php:353
 msgid "3PR area settings"
 msgstr ""
 
-#: inc/theme-customizer.php:242 inc/theme-options-edit.php:346
-msgid "Title"
-msgstr ""
-
-#: inc/theme-customizer.php:251 inc/theme-options-edit.php:348
+#: inc/theme-customizer.php:277 inc/theme-options-edit.php:377
 msgid "Description"
 msgstr ""
 
-#: inc/theme-customizer.php:258 inc/theme-options-edit.php:350
+#: inc/theme-customizer.php:284 inc/theme-options-edit.php:379
 msgid "URL"
 msgstr ""
 
-#: inc/theme-customizer.php:267
+#: inc/theme-customizer.php:293
 msgctxt "biz-vektor theme-customizer"
 msgid "Image (Desktop version) : 310px width is recommended."
 msgstr ""
 
-#: inc/theme-customizer.php:275
+#: inc/theme-customizer.php:301
 msgctxt "biz-vektor theme-customizer"
 msgid "Image (Smartphone version) : 120px by 120px is recommended."
 msgstr ""
@@ -684,327 +860,339 @@ msgstr ""
 msgid "%s Theme Options"
 msgstr ""
 
-#: inc/theme-options-edit.php:66
+#: inc/theme-options-edit.php:71
 msgid "Theme customizer"
 msgstr ""
 
-#: inc/theme-options-edit.php:67
+#: inc/theme-options-edit.php:72
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
 
-#: inc/theme-options-edit.php:68
+#: inc/theme-options-edit.php:73
 #, php-format
 msgid "You can change basic design settings from %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:69
+#: inc/theme-options-edit.php:74
 msgid "Here you can change social media settings."
 msgstr ""
 
-#: inc/theme-options-edit.php:83
+#: inc/theme-options-edit.php:88
 msgctxt "biz-vektor theme-options-edit"
 msgid "Design settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:85 inc/theme-options-edit.php:258
-#: inc/theme-options-edit.php:326
+#: inc/theme-options-edit.php:90 inc/theme-options-edit.php:287
+#: inc/theme-options-edit.php:355
 #, php-format
 msgid "You can change settings for this section also from %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:90
+#: inc/theme-options-edit.php:95
 msgid "Design skin"
 msgstr ""
 
-#: inc/theme-options-edit.php:93 inc/theme-options-edit.php:121
+#: inc/theme-options-edit.php:98 inc/theme-options-edit.php:126
 msgid "Select"
 msgstr ""
 
-#: inc/theme-options-edit.php:110
+#: inc/theme-options-edit.php:115
 msgid ""
 "* If there are settings for the particular design skin, after you save your "
 "changes, you can update them from theme customizer."
 msgstr ""
 
-#: inc/theme-options-edit.php:140
+#: inc/theme-options-edit.php:145
 msgid "How to set up Menus"
 msgstr ""
 
-#: inc/theme-options-edit.php:148 inc/theme-options-edit.php:156
-#: inc/theme-options-edit.php:231 inc/theme-options-edit.php:356
-#: inc/theme-options-edit.php:362
+#: inc/theme-options-edit.php:153 inc/theme-options-edit.php:161
+#: inc/theme-options-edit.php:260 inc/theme-options-edit.php:385
+#: inc/theme-options-edit.php:391
 msgid "Select image"
 msgstr ""
 
-#: inc/theme-options-edit.php:149
+#: inc/theme-options-edit.php:154
 msgid "Recommended : less than 60px height"
 msgstr ""
 
-#: inc/theme-options-edit.php:157
+#: inc/theme-options-edit.php:162
 msgid "Recommended : 180-250px width"
 msgstr ""
 
-#: inc/theme-options-edit.php:179
+#: inc/theme-options-edit.php:184
 msgid "You can select 1-column from below: "
 msgstr ""
 
-#: inc/theme-options-edit.php:183 inc/theme-options-edit.php:605
+#: inc/theme-options-edit.php:188 inc/theme-options-edit.php:634
 msgid "Home page settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:184
+#: inc/theme-options-edit.php:189
 #, php-format
 msgid "[Top page] %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:186
+#: inc/theme-options-edit.php:191
 msgid "[page] Edit Page > Page Attributes > Template"
 msgstr ""
 
-#: inc/theme-options-edit.php:214
+#: inc/theme-options-edit.php:222
+msgctxt "biz-vektor theme-customizer"
+msgid "Google Web Fonts"
+msgstr ""
+
+#: inc/theme-options-edit.php:243
 msgid "Deployment of the sidebar menu"
 msgstr ""
 
-#: inc/theme-options-edit.php:216
+#: inc/theme-options-edit.php:245
 msgid ""
 "If the site hierarchy is deep, you can choose to hide this menu hierarchy "
 "other than the Page you are currently viewing."
 msgstr ""
 
-#: inc/theme-options-edit.php:220 inc/theme-options-edit.php:832
-#: inc/theme-options-edit.php:834
+#: inc/theme-options-edit.php:249 inc/theme-options-edit.php:861
+#: inc/theme-options-edit.php:863
 msgid "Display"
 msgstr ""
 
-#: inc/theme-options-edit.php:221
+#: inc/theme-options-edit.php:250
 msgid "Hide"
 msgstr ""
 
-#: inc/theme-options-edit.php:224
+#: inc/theme-options-edit.php:253
 msgid "This setting can not be changed from the theme customizer."
 msgstr ""
 
-#: inc/theme-options-edit.php:229
+#: inc/theme-options-edit.php:258
 msgid "Favicon Setting"
 msgstr ""
 
-#: inc/theme-options-edit.php:232
+#: inc/theme-options-edit.php:261
 msgid "Please upload a .ico file."
 msgstr ""
 
-#: inc/theme-options-edit.php:238
+#: inc/theme-options-edit.php:267
 msgid "IE8 Warning message"
 msgstr ""
 
-#: inc/theme-options-edit.php:240
+#: inc/theme-options-edit.php:269
 msgid "Display a warning message about Internet Explorer 8"
 msgstr ""
 
-#: inc/theme-options-edit.php:266 inc/theme-options-edit.php:273
-#: inc/theme-options-edit.php:280 inc/theme-options-edit.php:288
-#: inc/theme-options-edit.php:297 inc/theme-options-edit.php:307
-#: inc/theme-options-edit.php:578 inc/theme-options-edit.php:735
-#: inc/theme-options-edit.php:774 inc/theme-options-edit.php:794
-#: inc/theme-options-edit.php:813 inc/theme-options-edit.php:830
+#: inc/theme-options-edit.php:295 inc/theme-options-edit.php:302
+#: inc/theme-options-edit.php:309 inc/theme-options-edit.php:317
+#: inc/theme-options-edit.php:326 inc/theme-options-edit.php:336
+#: inc/theme-options-edit.php:607 inc/theme-options-edit.php:764
+#: inc/theme-options-edit.php:803 inc/theme-options-edit.php:823
+#: inc/theme-options-edit.php:842 inc/theme-options-edit.php:859
 msgid "ex) "
 msgstr ""
 
-#: inc/theme-options-edit.php:266
+#: inc/theme-options-edit.php:295
 msgid "Please feel free to inquire."
 msgstr ""
 
-#: inc/theme-options-edit.php:280
+#: inc/theme-options-edit.php:309
 msgid "Weekdays except holidays"
 msgstr ""
 
-#: inc/theme-options-edit.php:288
+#: inc/theme-options-edit.php:317
 msgid "Sample,Inc."
 msgstr ""
 
-#: inc/theme-options-edit.php:289
+#: inc/theme-options-edit.php:318
 msgid ""
 "* Use this feature when the site name has become too long for SEO purposes."
 msgstr ""
 
-#: inc/theme-options-edit.php:294
+#: inc/theme-options-edit.php:323
 msgid "This is displayed in the left bottom part of the footer."
 msgstr ""
 
-#: inc/theme-options-edit.php:298
+#: inc/theme-options-edit.php:327
 msgid ""
 "316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br /"
 ">Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176"
 msgstr ""
 
-#: inc/theme-options-edit.php:307
+#: inc/theme-options-edit.php:336
 msgid "or"
 msgstr ""
 
-#: inc/theme-options-edit.php:308
+#: inc/theme-options-edit.php:337
 msgid ""
 "* If you fill in the blank, contact banner will be displayed in the sidebar."
 msgstr ""
 
-#: inc/theme-options-edit.php:309
+#: inc/theme-options-edit.php:338
 msgid "If not, it does not appear."
 msgstr ""
 
-#: inc/theme-options-edit.php:333
+#: inc/theme-options-edit.php:362
 msgid "The display of the home page 3PR area."
 msgstr ""
 
-#: inc/theme-options-edit.php:335
+#: inc/theme-options-edit.php:364
 msgid "Check this box if you do not want to see the 3PR area on the home page."
 msgstr ""
 
-#: inc/theme-options-edit.php:336
+#: inc/theme-options-edit.php:365
 msgid "Do not show the top 3PR area"
 msgstr ""
 
-#: inc/theme-options-edit.php:344
+#: inc/theme-options-edit.php:373
 msgid "PR area"
 msgstr ""
 
-#: inc/theme-options-edit.php:352
+#: inc/theme-options-edit.php:381
 msgid "Image (Desktop version)"
 msgstr ""
 
-#: inc/theme-options-edit.php:357
+#: inc/theme-options-edit.php:386
 msgid "310px width is recommended."
 msgstr ""
 
-#: inc/theme-options-edit.php:358
+#: inc/theme-options-edit.php:387
 msgid "Image (Smartphone version)"
 msgstr ""
 
-#: inc/theme-options-edit.php:363
+#: inc/theme-options-edit.php:392
 msgid "120px by 120px is recommended."
 msgstr ""
 
-#: inc/theme-options-edit.php:371
+#: inc/theme-options-edit.php:400
 msgid "* If you are unsure about the image, you can leave this field blank."
 msgstr ""
 
-#: inc/theme-options-edit.php:373
+#: inc/theme-options-edit.php:402
 msgid ""
 "* You can set different image for desktop and smartphone versions of the "
 "site."
 msgstr ""
 
-#: inc/theme-options-edit.php:389
+#: inc/theme-options-edit.php:418
 #, php-format
 msgid "Settings for [ %s ] and [ %s ]."
 msgstr ""
 
-#: inc/theme-options-edit.php:392
+#: inc/theme-options-edit.php:421
 msgid "* Does not appear if there are no posts."
 msgstr ""
 
-#: inc/theme-options-edit.php:393
+#: inc/theme-options-edit.php:422
 msgid ""
 "* If the excerpt field is not empty, the content will appear in the &quot;"
 "excerpt&quot;. Otherwise, the text will be displayed in a certain number of"
 msgstr ""
 
-#: inc/theme-options-edit.php:395
+#: inc/theme-options-edit.php:424
 msgctxt "no link"
 msgid "Plugins page"
 msgstr ""
 
-#: inc/theme-options-edit.php:397
+#: inc/theme-options-edit.php:426
 msgid ""
 "The full text will be displayed if the plug-in [WP Multibyte Patch] is not "
 "activated (Japanese version)."
 msgstr ""
 
-#: inc/theme-options-edit.php:399
+#: inc/theme-options-edit.php:428
 #, php-format
 msgid "Please enable [WP Multibyte Patch] from the %s."
 msgstr ""
 
-#: inc/theme-options-edit.php:400
+#: inc/theme-options-edit.php:429
 msgid ""
 "<span class=\"alert\">Featured image of the article</span> is displayed."
 msgstr ""
 
-#: inc/theme-options-edit.php:401
+#: inc/theme-options-edit.php:430
 msgid ""
 "You can set the &quot;featured image&quot;, from the bottom right widget "
 "area of particular article edit screen."
 msgstr ""
 
-#: inc/theme-options-edit.php:402
+#: inc/theme-options-edit.php:431
 msgid ""
 "If there is no widget, please check &quot;Featured image&quot; at the top "
 "right of the screen from the &quot;Screen options&quot; tab."
 msgstr ""
 
-#: inc/theme-options-edit.php:409 inc/theme-options-edit.php:447
+#: inc/theme-options-edit.php:438 inc/theme-options-edit.php:476
 msgid "Change the title"
 msgstr ""
 
-#: inc/theme-options-edit.php:411 inc/theme-options-edit.php:449
+#: inc/theme-options-edit.php:440 inc/theme-options-edit.php:478
 #, php-format
 msgid "Display layout of &quot; %s &quot on the top page."
 msgstr ""
 
-#: inc/theme-options-edit.php:416 inc/theme-options-edit.php:424
-#: inc/theme-options-edit.php:454 inc/theme-options-edit.php:462
+#: inc/theme-options-edit.php:445 inc/theme-options-edit.php:453
+#: inc/theme-options-edit.php:483 inc/theme-options-edit.php:491
 msgid "Title only"
 msgstr ""
 
-#: inc/theme-options-edit.php:417 inc/theme-options-edit.php:425
-#: inc/theme-options-edit.php:455 inc/theme-options-edit.php:463
+#: inc/theme-options-edit.php:446 inc/theme-options-edit.php:454
+#: inc/theme-options-edit.php:484 inc/theme-options-edit.php:492
 msgid "With excerpt and thumbnail"
 msgstr ""
 
-#: inc/theme-options-edit.php:419 inc/theme-options-edit.php:457
+#: inc/theme-options-edit.php:448 inc/theme-options-edit.php:486
 #, php-format
 msgid "Display layout of &quot; %s &quot on the archive page."
 msgstr ""
 
-#: inc/theme-options-edit.php:429 inc/theme-options-edit.php:468
+#: inc/theme-options-edit.php:458 inc/theme-options-edit.php:497
 #, php-format
 msgid "Number of %s posts to be displayed on the home page."
 msgstr ""
 
-#: inc/theme-options-edit.php:430 inc/theme-options-edit.php:469
+#: inc/theme-options-edit.php:459 inc/theme-options-edit.php:498
 msgctxt "top page post count"
 msgid "posts"
 msgstr ""
 
-#: inc/theme-options-edit.php:431 inc/theme-options-edit.php:470
-#: inc/theme-options-edit.php:500
+#: inc/theme-options-edit.php:460 inc/theme-options-edit.php:499
+#: inc/theme-options-edit.php:529
 msgid "If you enter &quot0&quot, this section will disappear."
 msgstr ""
 
-#: inc/theme-options-edit.php:474
+#: inc/theme-options-edit.php:464 inc/theme-options-edit.php:503
 #, php-format
 msgid "Top URL for %1$s"
 msgstr ""
 
-#: inc/theme-options-edit.php:476
+#: inc/theme-options-edit.php:466
+#, php-format
+msgid ""
+"By default <a href=\"%1$s\" target=\"_blank\">%1$s</a> is the top URL for "
+"%2$s"
+msgstr ""
+
+#: inc/theme-options-edit.php:505
 #, php-format
 msgid ""
 "* If you don't want to set a top page for %1$s just leave this field blank."
 msgstr ""
 
-#: inc/theme-options-edit.php:479
+#: inc/theme-options-edit.php:508
 #, php-format
 msgid "How to set a top page for %1$s"
 msgstr ""
 
-#: inc/theme-options-edit.php:483 inc/theme-options-edit.php:623
+#: inc/theme-options-edit.php:512 inc/theme-options-edit.php:652
 #, php-format
 msgid "First you need to create a page to use as a top page for %1$s"
 msgstr ""
 
-#: inc/theme-options-edit.php:484
+#: inc/theme-options-edit.php:513
 msgid "Make new page"
 msgstr ""
 
-#: inc/theme-options-edit.php:487
+#: inc/theme-options-edit.php:516
 #, php-format
 msgid ""
 "Next select the page you want to use as %1$s top page in the Posts page "
@@ -1012,69 +1200,69 @@ msgid ""
 "page displays section)"
 msgstr ""
 
-#: inc/theme-options-edit.php:487
+#: inc/theme-options-edit.php:516
 msgid "Reading"
 msgstr ""
 
-#: inc/theme-options-edit.php:496
+#: inc/theme-options-edit.php:525
 msgid "Number of related posts"
 msgstr ""
 
-#: inc/theme-options-edit.php:497
+#: inc/theme-options-edit.php:526
 msgid "Post of the same tag appears as a related posts under the content."
 msgstr ""
 
-#: inc/theme-options-edit.php:498
+#: inc/theme-options-edit.php:527
 msgid "Nothing is displayed when there is no article of the same tag."
 msgstr ""
 
-#: inc/theme-options-edit.php:499
+#: inc/theme-options-edit.php:528
 msgctxt "post count"
 msgid "posts"
 msgstr ""
 
-#: inc/theme-options-edit.php:505 inc/theme-options-edit.php:510
-#: inc/theme-options-edit.php:515
+#: inc/theme-options-edit.php:534 inc/theme-options-edit.php:539
+#: inc/theme-options-edit.php:544
 #, php-format
 msgid "Insert ad after %1$s"
 msgstr ""
 
-#: inc/theme-options-edit.php:505
+#: inc/theme-options-edit.php:534
 msgid "more tag"
 msgstr ""
 
-#: inc/theme-options-edit.php:510
+#: inc/theme-options-edit.php:539
 msgid "main content"
 msgstr ""
 
-#: inc/theme-options-edit.php:515
+#: inc/theme-options-edit.php:544
 msgid "related articles"
 msgstr ""
 
-#: inc/theme-options-edit.php:536
+#: inc/theme-options-edit.php:565
 msgid "SEO and Google Analytics Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:539
+#: inc/theme-options-edit.php:568
 msgid "&lt;title&gt; tag of homepage"
 msgstr ""
 
-#: inc/theme-options-edit.php:543
+#: inc/theme-options-edit.php:572
 msgid "title of the site"
 msgstr ""
 
-#: inc/theme-options-edit.php:544
+#: inc/theme-options-edit.php:573
 #, php-format
 msgid "Normally, %1$s will include the %2$s in the title tag."
 msgstr ""
 
-#: inc/theme-options-edit.php:545
+#: inc/theme-options-edit.php:574
 msgid ""
 "For example, it appears in the form of <br />&lt;title&gt;page title | site "
 "title&lt;/title&gt;<br /> if using a static page."
 msgstr ""
 
-#: inc/theme-options-edit.php:547
+#: inc/theme-options-edit.php:576
 #, php-format
 msgid ""
 "However, it might have negative impact on search engine rankings if the &lt;"
@@ -1083,276 +1271,276 @@ msgid ""
 "strong>"
 msgstr ""
 
-#: inc/theme-options-edit.php:548
+#: inc/theme-options-edit.php:577
 msgid ""
 "However, in the home page, as described above, other title will not be "
 "added, it is possible to make the &lt;title&gt; little longer, which can be "
 "set separately here."
 msgstr ""
 
-#: inc/theme-options-edit.php:550
+#: inc/theme-options-edit.php:579
 msgid "Site title will be used if this field is blank."
 msgstr ""
 
-#: inc/theme-options-edit.php:554
+#: inc/theme-options-edit.php:583
 msgid "Common keywords"
 msgstr ""
 
-#: inc/theme-options-edit.php:555
+#: inc/theme-options-edit.php:584
 msgid ""
 "For the keywords meta tag, please enter the keywords to be used throughout "
 "the site, comma separated."
 msgstr ""
 
-#: inc/theme-options-edit.php:557
+#: inc/theme-options-edit.php:586
 msgid ""
 "* You do not have to take keywords very seriously, because it does not "
 "affect the search engine rankings anymore."
 msgstr ""
 
-#: inc/theme-options-edit.php:558
+#: inc/theme-options-edit.php:587
 msgid ""
 "* The keywords for each particular page are entered from that page's edit "
 "screen. About up to 10 keywords in conjunction with the number of common "
 "keywords is desirable."
 msgstr ""
 
-#: inc/theme-options-edit.php:559
+#: inc/theme-options-edit.php:588
 msgid "* Not required , at the end of the last keyword."
 msgstr ""
 
-#: inc/theme-options-edit.php:560
+#: inc/theme-options-edit.php:589
 msgid "ex) WordPress,Template,Theme,Free,GPL"
 msgstr ""
 
-#: inc/theme-options-edit.php:564
+#: inc/theme-options-edit.php:593
 msgctxt "Description settings"
 msgid "Description"
 msgstr ""
 
-#: inc/theme-options-edit.php:566
+#: inc/theme-options-edit.php:595
 msgid ""
 "Content from the particular page's \"excerpt\" field will be reflected in "
 "the description meta tag."
 msgstr ""
 
-#: inc/theme-options-edit.php:567
+#: inc/theme-options-edit.php:596
 msgid ""
 "In the Google and other search engine results pages (SERPs), part of the "
 "meta tag description appears under the site title."
 msgstr ""
 
-#: inc/theme-options-edit.php:568
+#: inc/theme-options-edit.php:597
 msgid ""
 "If the excerpt field is blank, the first 240 characters from the page's "
 "content are used."
 msgstr ""
 
-#: inc/theme-options-edit.php:569
+#: inc/theme-options-edit.php:598
 msgid ""
 "Description of the site will be applied to the meta description of the top "
 "page.However, the content will be reflected if the excerpt is fill in the "
 "page that is set on the home."
 msgstr ""
 
-#: inc/theme-options-edit.php:570
+#: inc/theme-options-edit.php:599
 msgid ""
 "* If the excerpt field is not visible, in the tab called \"View\" in the "
 "upper right corner of the edit page, please check the box to display the "
 "\"excerpt\" field."
 msgstr ""
 
-#: inc/theme-options-edit.php:575
+#: inc/theme-options-edit.php:604
 msgid "Google Analytics Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:576
+#: inc/theme-options-edit.php:605
 msgid ""
 "Please fill in the Google Analytics ID from the Analytics embed code used in "
 "the site."
 msgstr ""
 
-#: inc/theme-options-edit.php:581
+#: inc/theme-options-edit.php:610
 msgid ""
 "Please select the type of Analytics code . (If you are unsure you can skip "
 "this.)"
 msgstr ""
 
-#: inc/theme-options-edit.php:586
+#: inc/theme-options-edit.php:615
 msgid "To output only normal code (default)"
 msgstr ""
 
-#: inc/theme-options-edit.php:587
+#: inc/theme-options-edit.php:616
 msgid "To output the Universal Analytics code"
 msgstr ""
 
-#: inc/theme-options-edit.php:588
+#: inc/theme-options-edit.php:617
 msgid "To output both types"
 msgstr ""
 
-#: inc/theme-options-edit.php:608
+#: inc/theme-options-edit.php:637
 msgid "Main visual"
 msgstr ""
 
-#: inc/theme-options-edit.php:609
+#: inc/theme-options-edit.php:638
 msgid "You can use a slide show or a still image."
 msgstr ""
 
-#: inc/theme-options-edit.php:612
+#: inc/theme-options-edit.php:641
 msgid "Still image settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:614
+#: inc/theme-options-edit.php:643
 msgid "Slide show settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:619
+#: inc/theme-options-edit.php:648
 msgid "Page to be displayed below the main visual"
 msgstr ""
 
-#: inc/theme-options-edit.php:624
+#: inc/theme-options-edit.php:653
 msgid "Pages"
 msgstr ""
 
-#: inc/theme-options-edit.php:625
+#: inc/theme-options-edit.php:654
 msgid ""
 "If the main page content of the set page is blank, the 3PR area will be "
 "displayed just below the main visual. Therefore, if you don't have any "
 "particular content to use it can be left blank."
 msgstr ""
 
-#: inc/theme-options-edit.php:627
+#: inc/theme-options-edit.php:656
 msgid ""
 "Then you can choose the page to use under the Settings > Reading Settings "
 "page"
 msgstr ""
 
-#: inc/theme-options-edit.php:628
+#: inc/theme-options-edit.php:657
 msgid "Reading Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:629
+#: inc/theme-options-edit.php:658
 msgid ""
 "In the pull-down of the &quot;front page&quot;, please select the page that "
 "you created for the homepage."
 msgstr ""
 
-#: inc/theme-options-edit.php:631
+#: inc/theme-options-edit.php:660
 #, php-format
 msgid ""
 "Items to be displayed in the top page and their display order can be "
 "modified in the <a href=\"%1$s\" target=\"_blank\">%2$s</a>"
 msgstr ""
 
-#: inc/theme-options-edit.php:631 inc/theme-options-edit.php:632
+#: inc/theme-options-edit.php:660 inc/theme-options-edit.php:661
 msgid "Widgets edition page"
 msgstr ""
 
-#: inc/theme-options-edit.php:632
+#: inc/theme-options-edit.php:661
 #, php-format
 msgid ""
 "Please set the widget called Main content(Homepage) under the <a href=\"%1$s"
 "\" target=\"_blank\">%2$s</a>"
 msgstr ""
 
-#: inc/theme-options-edit.php:640
+#: inc/theme-options-edit.php:669
 msgid "Home 3PR area"
 msgstr ""
 
-#: inc/theme-options-edit.php:643
+#: inc/theme-options-edit.php:672
 msgid "Settings for the Home page 3PR area are here"
 msgstr ""
 
-#: inc/theme-options-edit.php:648
+#: inc/theme-options-edit.php:677
 msgid "The display of the home page side bar."
 msgstr ""
 
-#: inc/theme-options-edit.php:650
+#: inc/theme-options-edit.php:679
 msgid ""
 "Check this box if you do not want to display the side bar on the home page."
 msgstr ""
 
-#: inc/theme-options-edit.php:651
+#: inc/theme-options-edit.php:680
 msgid "I want to hide the sidebar"
 msgstr ""
 
-#: inc/theme-options-edit.php:657
+#: inc/theme-options-edit.php:686
 #, php-format
 msgid "Display a number of %s posts"
 msgstr ""
 
-#: inc/theme-options-edit.php:662
+#: inc/theme-options-edit.php:691
 #, php-format
 msgid "Please set from the [ Setting the %s and %s ] section."
 msgstr ""
 
-#: inc/theme-options-edit.php:679
+#: inc/theme-options-edit.php:708
 msgid "Slideshow Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:680
+#: inc/theme-options-edit.php:709
 msgid "Please enter the URL of the image to be used in the slideshow."
 msgstr ""
 
-#: inc/theme-options-edit.php:681
+#: inc/theme-options-edit.php:710
 msgid "The recommended size of the image is 950 × 250px."
 msgstr ""
 
-#: inc/theme-options-edit.php:683
+#: inc/theme-options-edit.php:712
 msgid "Home page Main visual"
 msgstr ""
 
-#: inc/theme-options-edit.php:684
+#: inc/theme-options-edit.php:713
 #, php-format
 msgid "%s will be displayed if the slideshow is not set."
 msgstr ""
 
-#: inc/theme-options-edit.php:685
+#: inc/theme-options-edit.php:714
 msgid ""
 "It can be only the URL of an image. However, the link is set for the image "
 "if you enter a link URL."
 msgstr ""
 
-#: inc/theme-options-edit.php:686
+#: inc/theme-options-edit.php:715
 msgid "Please type in the alternate text for the image."
 msgstr ""
 
-#: inc/theme-options-edit.php:687
+#: inc/theme-options-edit.php:716
 msgid "When filled in, will be more likely to match the search."
 msgstr ""
 
-#: inc/theme-options-edit.php:688
+#: inc/theme-options-edit.php:717
 msgid ""
 "Moreover, for visually impaired visitors using a text-to-speech device, it "
 "reads out the text."
 msgstr ""
 
-#: inc/theme-options-edit.php:699
+#: inc/theme-options-edit.php:728
 msgid "Link URL"
 msgstr ""
 
-#: inc/theme-options-edit.php:701
+#: inc/theme-options-edit.php:730
 msgid "Image URL"
 msgstr ""
 
-#: inc/theme-options-edit.php:702 inc/theme-options-edit.php:773
+#: inc/theme-options-edit.php:731 inc/theme-options-edit.php:802
 msgid "Select an image"
 msgstr ""
 
-#: inc/theme-options-edit.php:704
+#: inc/theme-options-edit.php:733
 msgid "Alternate text"
 msgstr ""
 
-#: inc/theme-options-edit.php:707
+#: inc/theme-options-edit.php:736
 msgctxt "Slide not displayed"
 msgid "Do not display"
 msgstr ""
 
-#: inc/theme-options-edit.php:708
+#: inc/theme-options-edit.php:737
 msgid "Open in a blank window"
 msgstr ""
 
-#: inc/theme-options-edit.php:716
+#: inc/theme-options-edit.php:745
 msgid ""
 "* The slideshow can be set to up to 5 images, but when accessing the site "
 "using a slow internet connection, because of the time it takes to display "
@@ -1360,267 +1548,263 @@ msgid ""
 "negative effect. Therefore using three or less images is recommended."
 msgstr ""
 
-#: inc/theme-options-edit.php:728
+#: inc/theme-options-edit.php:757
 msgid "Social media"
 msgstr ""
 
-#: inc/theme-options-edit.php:729
+#: inc/theme-options-edit.php:758
 msgid "If you are unsure, you can leave for later."
 msgstr ""
 
-#: inc/theme-options-edit.php:733
+#: inc/theme-options-edit.php:762
 msgid ""
 "If you wish to link to a personal account or a Facebook page  banner will be "
 "displayed if you enter the URL."
 msgstr ""
 
-#: inc/theme-options-edit.php:740
+#: inc/theme-options-edit.php:769
 msgid "facebook application ID"
 msgstr ""
 
-#: inc/theme-options-edit.php:742
+#: inc/theme-options-edit.php:771
 msgid "I will check and get the application ID"
 msgstr ""
 
-#: inc/theme-options-edit.php:743
+#: inc/theme-options-edit.php:772
 msgid ""
 "* If an application ID is not specified, neither a Like button nor the "
 "comment field displays and operates correctly."
 msgstr ""
 
-#: inc/theme-options-edit.php:744
+#: inc/theme-options-edit.php:773
 msgid ""
 "Please search for terms as [get Facebook application ID] If you do not know "
 "much about how to get application ID for Facebook."
 msgstr ""
 
-#: inc/theme-options-edit.php:749
+#: inc/theme-options-edit.php:778
 msgid "Facebook user ID (optional)"
 msgstr ""
 
-#: inc/theme-options-edit.php:750
+#: inc/theme-options-edit.php:779
 msgid "Please enter the Facebook user ID of the administrator."
 msgstr ""
 
-#: inc/theme-options-edit.php:752
+#: inc/theme-options-edit.php:781
 msgid "* It is not the application ID of the Facebook page."
 msgstr ""
 
-#: inc/theme-options-edit.php:753
+#: inc/theme-options-edit.php:782
 msgid ""
 "You can see the personal Facebook ID when you access the following url "
-"http://graph.facebook.com/(own url name(example: hidekazu.ishikawa))."
+"http://graph.facebook.com/(own url name(example: TheStig ))."
 msgstr ""
 
-#: inc/theme-options-edit.php:754
+#: inc/theme-options-edit.php:783
 msgid ""
 "Please search for terms as [find facebook user ID] if you are still not sure."
 msgstr ""
 
-#: inc/theme-options-edit.php:759
+#: inc/theme-options-edit.php:788
 msgid "twitter account"
 msgstr ""
 
-#: inc/theme-options-edit.php:760
+#: inc/theme-options-edit.php:789
 msgid ""
 "If you would like to link to a Twitter account, banner will be displayed if "
 "you enter the account name."
 msgstr ""
 
-#: inc/theme-options-edit.php:762
+#: inc/theme-options-edit.php:791
 msgid "widget"
 msgstr ""
 
-#: inc/theme-options-edit.php:763
+#: inc/theme-options-edit.php:792
 #, php-format
 msgid ""
 "* If you prefer to use Twitter widgets etc, this can be left blank, paste "
 "the source code into a [text] %s here."
 msgstr ""
 
-#: inc/theme-options-edit.php:769
+#: inc/theme-options-edit.php:798
 msgid "OGP default image"
 msgstr ""
 
-#: inc/theme-options-edit.php:770
+#: inc/theme-options-edit.php:799
 msgid ""
 "If, for example someone pressed the Facebook [Like] button, this is the "
 "image that appears on the Facebook timeline."
 msgstr ""
 
-#: inc/theme-options-edit.php:771
+#: inc/theme-options-edit.php:800
 msgid "If a featured image is specified for the page, it takes precedence."
 msgstr ""
 
-#: inc/theme-options-edit.php:775
+#: inc/theme-options-edit.php:804
 msgid ""
 "* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is "
 "recommended."
 msgstr ""
 
-#: inc/theme-options-edit.php:780
+#: inc/theme-options-edit.php:809
 msgid "Social buttons"
 msgstr ""
 
-#: inc/theme-options-edit.php:781
+#: inc/theme-options-edit.php:810
 msgid "Please check the type of page that displays the social button."
 msgstr ""
 
-#: inc/theme-options-edit.php:784 inc/theme-options-edit.php:803
-#: inc/theme-options-edit.php:823
+#: inc/theme-options-edit.php:813 inc/theme-options-edit.php:832
+#: inc/theme-options-edit.php:852
 msgctxt "sns display"
 msgid "Home page"
 msgstr ""
 
-#: inc/theme-options-edit.php:786 inc/theme-options-edit.php:805
+#: inc/theme-options-edit.php:815 inc/theme-options-edit.php:834
 msgctxt "sns display"
 msgid "Page"
 msgstr ""
 
-#: inc/theme-options-edit.php:788 inc/theme-options-edit.php:790
-#: inc/theme-options-edit.php:807 inc/theme-options-edit.php:809
+#: inc/theme-options-edit.php:817 inc/theme-options-edit.php:819
+#: inc/theme-options-edit.php:836 inc/theme-options-edit.php:838
 msgctxt "sns display"
 msgid "Post"
 msgstr ""
 
-#: inc/theme-options-edit.php:792 inc/theme-options-edit.php:811
+#: inc/theme-options-edit.php:821 inc/theme-options-edit.php:840
 msgid ""
 "Within the type of page that is checked, if there is a particular page you "
 "do not wish to display, enter the Page ID. If multiple pages, please "
 "separate by commas."
 msgstr ""
 
-#: inc/theme-options-edit.php:799
+#: inc/theme-options-edit.php:828
 msgid "facebook comments box"
 msgstr ""
 
-#: inc/theme-options-edit.php:800
+#: inc/theme-options-edit.php:829
 msgid "Please check the type of the page to display Facebook comments."
 msgstr ""
 
-#: inc/theme-options-edit.php:819
+#: inc/theme-options-edit.php:848
 msgid "If you wish to use Facebook LikeBox, please check the location."
 msgstr ""
 
-#: inc/theme-options-edit.php:820
+#: inc/theme-options-edit.php:849
 msgid "* Please be sure to set Facebook application ID."
 msgstr ""
 
-#: inc/theme-options-edit.php:825
+#: inc/theme-options-edit.php:854
 msgctxt "sns display"
 msgid "Side bar"
 msgstr ""
 
-#: inc/theme-options-edit.php:828
+#: inc/theme-options-edit.php:857
 msgid "URL of the Facebook page."
 msgstr ""
 
-#: inc/theme-options-edit.php:831
+#: inc/theme-options-edit.php:860
 msgid "Display stream"
 msgstr ""
 
-#: inc/theme-options-edit.php:833
+#: inc/theme-options-edit.php:862
 msgid "Display faces"
 msgstr ""
 
-#: inc/theme-options-edit.php:835
+#: inc/theme-options-edit.php:864
 msgid "Height of LikeBox"
 msgstr ""
 
-#: inc/theme-options-edit.php:843
+#: inc/theme-options-edit.php:872
 msgid "Do not output the OGP"
 msgstr ""
 
-#: inc/theme-options-edit.php:845
+#: inc/theme-options-edit.php:874
 #, php-format
 msgid "If other plug-ins are used for the OGP, do not output the OGP using %s."
 msgstr ""
 
-#: inc/theme-options-edit.php:846
+#: inc/theme-options-edit.php:875
 #, php-format
 msgid "I want to output the OGP tags using %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:847
+#: inc/theme-options-edit.php:876
 #, php-format
 msgid "Do not output OGP tags using %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:852
+#: inc/theme-options-edit.php:881
 #, php-format
 msgid "%1$s Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:852 inc/theme-options-edit.php:855
-#: inc/theme-options-edit.php:856
+#: inc/theme-options-edit.php:881 inc/theme-options-edit.php:884
+#: inc/theme-options-edit.php:885
 msgid "Twitter Card"
 msgstr ""
 
-#: inc/theme-options-edit.php:855
+#: inc/theme-options-edit.php:884
 #, php-format
 msgid ""
 "%1$s related tags won't display if you don't fill a Twitter account above."
 msgstr ""
 
-#: inc/theme-options-edit.php:856
+#: inc/theme-options-edit.php:885
 #, php-format
 msgid ""
 "Image used for %1$s is the Featured Image set for each post. In case there "
 "is no Featured Image, the default OGP image will be used."
 msgstr ""
 
-#: inc/theme-options-edit.php:872
+#: inc/theme-options-edit.php:901
 msgid ""
 "Reset all settings options incluing design customization you've modified "
 "through the Theme Customizer. The theme is entirely reset. To reset the "
 "theme please enter the number above and click on Reset Settings button."
 msgstr ""
 
-#: inc/theme-options-edit.php:874
+#: inc/theme-options-edit.php:903
 msgid "I want to reset ALL theme settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:875
+#: inc/theme-options-edit.php:904
 msgid "Reset Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:879
+#: inc/theme-options-edit.php:908
 msgid "Page top"
 msgstr ""
 
-#: inc/theme-options-init.php:106
-msgid "Blog"
-msgstr ""
-
-#: inc/theme-options-init.php:107
+#: inc/theme-options-init.php:109
 msgid "Information"
 msgstr ""
 
-#: inc/theme-options-init.php:109
+#: inc/theme-options-init.php:111
 msgid "Rich theme options"
 msgstr ""
 
-#: inc/theme-options-init.php:110
+#: inc/theme-options-init.php:112
 msgid ""
 "This area can be changed from the theme customizer as well as from the theme "
 "options section."
 msgstr ""
 
-#: inc/theme-options-init.php:114
+#: inc/theme-options-init.php:116
 msgid "Various designs available"
 msgstr ""
 
-#: inc/theme-options-init.php:115
+#: inc/theme-options-init.php:117
 msgid ""
 "BizVektor will allow you not only to change the color of the site, but also "
 "to switch to a different design."
 msgstr ""
 
-#: inc/theme-options-init.php:119
+#: inc/theme-options-init.php:121
 msgid "Optimized for business web sites"
 msgstr ""
 
-#: inc/theme-options-init.php:120
+#: inc/theme-options-init.php:122
 msgid ""
 "Various indispensable business features as child page templates or enquiry "
 "capture are included."
@@ -1656,46 +1840,46 @@ msgctxt "BizVektor option tab label"
 msgid "SNS"
 msgstr ""
 
-#: inc/theme-options.php:54 inc/theme-options.php:55
+#: inc/theme-options.php:56 inc/theme-options.php:57
 msgid "Theme Options"
 msgstr ""
 
-#: inc/theme-options.php:193
+#: inc/theme-options.php:195
 msgid "Left sidebar"
 msgstr ""
 
-#: inc/theme-options.php:198
+#: inc/theme-options.php:200
 msgid "Right sidebar"
 msgstr ""
 
-#: inc/theme-options.php:273
+#: inc/theme-options.php:275
 msgid "Plain"
 msgstr ""
 
-#: inc/theme-options.php:366
+#: inc/theme-options.php:368
 msgid "[ Select ]"
 msgstr ""
 
-#: inc/theme-options.php:624
+#: inc/theme-options.php:636
 msgid "Free WordPress Theme BizVektor for business"
 msgstr ""
 
-#: inc/theme-options.php:624
+#: inc/theme-options.php:637
 msgctxt "footer"
 msgid "Vektor,Inc."
 msgstr ""
 
-#: inc/theme-options.php:712
+#: inc/theme-options.php:725
 msgctxt "Font select"
 msgid "serif"
 msgstr ""
 
-#: inc/theme-options.php:714
+#: inc/theme-options.php:727
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 
-#: inc/theme-options.php:794
+#: inc/theme-options.php:807
 msgid "bnr_contact.png"
 msgstr ""
 
@@ -1778,23 +1962,23 @@ msgstr ""
 msgid "Your custom CSS was saved."
 msgstr ""
 
-#: plugins/dashboard_info_widget/dashboard-info-widget.php:9
+#: plugins/dashboard_info_widget/dashboard-info-widget.php:15
 msgid "BizVektor news"
 msgstr ""
 
-#: plugins/dashboard_info_widget/dashboard-info-widget.php:21
+#: plugins/dashboard_info_widget/dashboard-info-widget.php:26
 msgid "BizVektor News"
 msgstr ""
 
-#: plugins/dashboard_info_widget/dashboard-info-widget.php:22
+#: plugins/dashboard_info_widget/dashboard-info-widget.php:27
 msgid "BizVektor Forum"
 msgstr ""
 
-#: plugins/dashboard_info_widget/dashboard-info-widget.php:23
+#: plugins/dashboard_info_widget/dashboard-info-widget.php:28
 msgid "BizVektor Developers Blog"
 msgstr ""
 
-#: plugins/dashboard_info_widget/dashboard-info-widget.php:48
+#: plugins/dashboard_info_widget/dashboard-info-widget.php:53
 msgid "There is no news to display"
 msgstr ""
 

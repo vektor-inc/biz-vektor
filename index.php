@@ -103,6 +103,7 @@ if ( !$postType ) {
 <?php get_sidebar($postType); ?>
 </div>
 <!-- [ /#sideTower ] -->
+<?php biz_vektor_sideTower_after();?>
 </div>
 <!-- [ /#container ] -->
 

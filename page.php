@@ -50,6 +50,7 @@
 	<?php get_sidebar('page'); ?>
 </div>
 <!-- [ /#sideTower ] -->
+<?php biz_vektor_sideTower_after();?>
 </div>
 <!-- [ /#container ] -->
 

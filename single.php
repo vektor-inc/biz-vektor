@@ -112,6 +112,7 @@ endif;
 <?php get_sidebar(get_post_type()); ?>
 </div>
 <!-- [ /#sideTower ] -->
+<?php biz_vektor_sideTower_after();?>
 </div>
 <!-- [ /#container ] -->
 

@@ -2,6 +2,12 @@
 /*-------------------------------------------*/
 /*	ダッシュボードにBizVektorのお知らせを表示
 /*-------------------------------------------*/
+
+//displays dashboard widget only for Japanese version
+if ( 'ja' == get_locale() ) {
+	add_action( 'wp_dashboard_setup', 'biz_vektor_dashboard_widget' );
+}
+
 function biz_vektor_dashboard_widget()
 {
 	wp_add_dashboard_widget(
@@ -10,7 +16,6 @@ function biz_vektor_dashboard_widget()
 		'biz_vektor_dashboard_widget_function'
 	);
 }
-add_action( 'wp_dashboard_setup', 'biz_vektor_dashboard_widget' );
 
 function biz_vektor_dashboard_widget_function()
 {
