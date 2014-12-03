@@ -36,9 +36,11 @@ if ( !$postType ) {
 /*-------------------------------------------*/
 	if ( is_category() || is_tax() || is_tag() ) {
 		$category_description = term_description();
+		$page 				  = get_query_var( 'paged', 0 );
+		if ( ! empty( $category_description ) && $page == 0 ) {
+			echo '<div class="archive-meta">' . $category_description . '</div>';
+		}
 	}
-	if ( ! empty( $category_description ) ) 
-		echo '<div class="archive-meta">' . $category_description . '</div>';
 	?>
 	<?php
 /*-------------------------------------------*/
