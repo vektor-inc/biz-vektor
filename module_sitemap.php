@@ -122,10 +122,14 @@ if ( isset($advancedOptions) ) {
 			if ( $query->found_posts > 0 ) {
 				?>
 				<div class="sectionBox">
-					<h5>
-						<a href="<?php echo isset( $type['link'] ) ? $type['link'] : '' ?>">
-							<?php echo isset( $type['label'] ) ? $type['label'] : '' ?>
-						</a>
+					<h5><?php 
+						if ( isset( $type['link'] ) && ! empty( $type['link'] ) ) { ?>
+							<a href="<?php echo $type['link']; ?>">
+								<?php echo isset( $type['label'] ) ? $type['label'] : ''; ?>
+							</a><?php
+						} else {
+							echo isset( $type['label'] ) ? $type['label'] : '';
+						} ?>
 					</h5>
 
 					<?php foreach ( $type['taxonomy'] as $i => $taxonomy ) {
