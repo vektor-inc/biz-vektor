@@ -10,7 +10,7 @@ if ($postType == 'post') {
 		$taxonomySlug = '';
 	}
 }
-$taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
+$taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ', ', ' ,'' );
 ?>
 <div class="entry-meta">
 <span class="published"><?php _e('Posted on', 'biz-vektor'); ?> : <?php echo esc_html( get_the_date() ); ?></span>
