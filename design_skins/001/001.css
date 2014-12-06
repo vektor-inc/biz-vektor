@@ -256,14 +256,16 @@ background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e5e5e5), to(#fff));
 background: -moz-linear-gradient(#e5e5e5, #fff);
 -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#e5e5e5, EndColorStr=#ffffff)";
 }
-#gMenu .menu > li > a:hover ,
-#gMenu .menu > li.current-menu-item > a ,
-#gMenu .menu > li.current_page_item > a ,
-#gMenu .menu > li.current_page_ancestor > a  { box-shadow:none;color:#fff; }
-#gMenu .menu > li > a:hover span,
-#gMenu .menu > li.current-menu-item > a span,
+#gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current-menu-item > a,
+#gMenu .menu > li.current_page_ancestor > a ,
+#gMenu .menu > li.current-page-ancestor > a ,
+#gMenu .menu > li > a:hover  { box-shadow:none;color:#fff; }
 #gMenu .menu > li.current_page_item > a span,
-#gMenu .menu > li.current_page_ancestor > a span { color:#fff; opacity: 0.6; }
+#gMenu .menu > li.current-menu-item > a span,
+#gMenu .menu > li.current_page_ancestor > a span ,
+#gMenu .menu > li.current-page-ancestor > a span ,
+#gMenu .menu > li > a:hover span { color:#fff; opacity: 0.6; }
 }
 
 @media (min-width: 970px) {

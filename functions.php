@@ -424,6 +424,15 @@ function bizVektorAddPingback(){
 	echo $pingback;
 }
 
+//html5 shiv
+add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts' );
+
+if ( ! function_exists( 'biz_vektor_load_scripts' ) ) {
+	function biz_vektor_load_scripts() {
+		wp_enqueue_script( 'html5shiv', '//html5shiv.googlecode.com/svn/trunk/html5.js', array(), null );
+	}
+}
+
 /*-------------------------------------------*/
 /*	footer_wp_footer clean and add items
 /*-------------------------------------------*/
