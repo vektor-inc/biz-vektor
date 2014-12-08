@@ -229,7 +229,7 @@ add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
-add_editor_style('editor-style.css');
+add_editor_style('/css/editor-style.css');
 
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
