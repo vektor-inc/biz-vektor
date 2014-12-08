@@ -33,7 +33,7 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 		// 普通のポストタイプが取得出来る場合
 		if ($postType) {
 			$pageTitle = get_post_type_object($postType)->labels->name;
-		// 該当記事が0件の場合に投稿タイプ名が取得出来ないのでタクソノミー経由で取得する
+		// 該当記事が0件の場合に投稿タイプ名が取得出来ないので$wp_query経由で取得する
 		} elseif (is_category() || is_tag()){
 			global $wp_query;
 			$pageTitle = $wp_query->queried_object->name;
