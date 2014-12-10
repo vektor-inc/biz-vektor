@@ -47,86 +47,86 @@ add_action('admin_init', 'biz_vektor_option_register');
 
 function biz_vektor_generate_default_options(){
 		$default_theme_options = array(
-		'font_title' => 'sanserif',
-		'font_menu' => 'sanserif',
-		'global_font' => 'Open+Sans',
-		'gMenuDivide' => '',
-		'head_logo' => '',
-		'foot_logo' => '',
-		'contact_txt' => '',
-		'tel_number' => '',
-		'contact_time' => '',
-		'sub_sitename' => '',
-		'contact_address' => '',
-		'contact_link' => '',
-		'topTitle' => '',
-		'commonKeyWords' => '',
-		'gaID' => '',
-		'gaType' => 'gaType_normal',
-		'enableie8Warning' => true,
+		'font_title'           => 'sanserif',
+		'font_menu'            => 'sanserif',
+		'global_font'          => 'Open+Sans',
+		'gMenuDivide'          => '',
+		'head_logo'            => '',
+		'foot_logo'            => '',
+		'contact_txt'          => '',
+		'tel_number'           => '',
+		'contact_time'         => '',
+		'sub_sitename'         => '',
+		'contact_address'      => '',
+		'contact_link'         => '',
+		'topTitle'             => '',
+		'commonKeyWords'       => '',
+		'gaID'                 => '',
+		'gaType'               => 'gaType_normal',
+		'enableie8Warning'     => true,
 		'topEntryTitleDisplay' => '',
-		'topSideBarDisplay' => false,
-		'top3PrDisplay' => '',
-		'infoTopCount' => '5',
-		'infoTopUrl' => home_url().'/info/',
-		'listInfoTop' => 'listType_set',
-		'listInfoArchive' => 'listType_set',
-		'postTopCount' => '5',
-		'postTopUrl' => '',
-		'listBlogTop' => 'listType_set',
-		'listBlogArchive' => 'listType_set',
-		'postRelatedCount' => '6',
+		'topSideBarDisplay'    => false,
+		'top3PrDisplay'        => '',
+		'infoTopCount'         => '5',
+		'infoTopUrl'           => home_url().'/info/',
+		'listInfoTop'          => 'listType_set',
+		'listInfoArchive'      => 'listType_set',
+		'postTopCount'         => '5',
+		'postTopUrl'           => '',
+		'listBlogTop'          => 'listType_set',
+		'listBlogArchive'      => 'listType_set',
+		'postRelatedCount'     => '6',
 		'blogRss'              => '',
-		'ad_conent_moretag' => '',
-		'ad_conent_after' => '',
-		'ad_related_after' => '',
-		'twitter' => '',
-		'facebook' => '',
-		'fbAppId' => '',
-		'fbAdminId' => '',
-		'ogpImage' => '',
-		'ogpTagDisplay' => 'ogp_on',
-		'snsBtnsFront' => '',
-		'snsBtnsPage' => '',
-		'snsBtnsPost' => '',
-		'snsBtnsInfo' => '',
-		'snsBtnsHidden' => '',
-		'fbCommentsFront' => '',
-		'fbCommentsPage' => '',
-		'fbCommentsPost' => '',
-		'fbCommentsInfo' => '',
-		'fbCommentsHidden' => '',
-		'fbLikeBoxFront' => '',
-		'fbLikeBoxSide' => '',
-		'fbLikeBoxURL' => '',
-		'fbLikeBoxStream' => '',
-		'fbLikeBoxFace' => '',
-		'fbLikeBoxHeight' => '',
-		'side_child_display' => 'side_child_display',
-		'rssLabelName' => 'Blog entries',
-		'favicon' => '',
-		'theme_layout' => 'content-sidebar',
-		'postLabelName' => __('Blog', 'biz-vektor'),
-		'infoLabelName' => __('Information', 'biz-vektor'),
-		'theme_style' => 'rebuild',
+		'ad_conent_moretag'    => '',
+		'ad_conent_after'      => '',
+		'ad_related_after'     => '',
+		'twitter'              => '',
+		'facebook'             => '',
+		'fbAppId'              => '',
+		'fbAdminId'            => '',
+		'ogpImage'             => '',
+		'ogpTagDisplay'        => 'ogp_on',
+		'snsBtnsFront'         => '',
+		'snsBtnsPage'          => '',
+		'snsBtnsPost'          => '',
+		'snsBtnsInfo'          => '',
+		'snsBtnsHidden'        => '',
+		'fbCommentsFront'      => '',
+		'fbCommentsPage'       => '',
+		'fbCommentsPost'       => '',
+		'fbCommentsInfo'       => '',
+		'fbCommentsHidden'     => '',
+		'fbLikeBoxFront'       => '',
+		'fbLikeBoxSide'        => '',
+		'fbLikeBoxURL'         => '',
+		'fbLikeBoxStream'      => '',
+		'fbLikeBoxFace'        => '',
+		'fbLikeBoxHeight'      => '',
+		'side_child_display'   => 'side_child_display',
+		'rssLabelName'         => 'Blog entries',
+		'favicon'              => '',
+		'theme_layout'         => 'content-sidebar',
+		'postLabelName'        => __('Blog', 'biz-vektor'),
+		'infoLabelName'        => __('Information', 'biz-vektor'),
+		'theme_style'          => 'rebuild',
 		'enable_google_font'   => 'true',
-		'pr1_title' => __('Rich theme options', 'biz-vektor'),
-		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
-		'pr1_link' => '',
-		'pr1_image' => get_template_directory_uri().'/images/samples/pr_image_demo_1.jpg',
-		'pr1_image_s' => get_template_directory_uri().'/images/samples/pr_image_demo_sq_1.jpg',
-		'pr2_title' => __('Various designs available', 'biz-vektor'),
-		'pr2_description' => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
-		'pr2_link' => '',
-		'pr2_image' => get_template_directory_uri().'/images/samples/pr_image_demo_2.jpg',
-		'pr2_image_s' => get_template_directory_uri().'/images/samples/pr_image_demo_sq_2.jpg',
-		'pr3_title' => __('Optimized for business web sites', 'biz-vektor'),
-		'pr3_description' => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
-		'pr3_link' => '',
-		'pr3_image' => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
-		'pr3_image_s' => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
-		'version' => BizVektor_Theme_Version,
-		'SNSuse' => false
+		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
+		'pr1_description'      => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
+		'pr1_link'             => '',
+		'pr1_image'            => get_template_directory_uri().'/images/samples/pr_image_demo_1.jpg',
+		'pr1_image_s'          => get_template_directory_uri().'/images/samples/pr_image_demo_sq_1.jpg',
+		'pr2_title'            => __('Various designs available', 'biz-vektor'),
+		'pr2_description'      => __('BizVektor will allow you not only to change the color of the site, but also to switch to a different design.', 'biz-vektor'),
+		'pr2_link'             => '',
+		'pr2_image'            => get_template_directory_uri().'/images/samples/pr_image_demo_2.jpg',
+		'pr2_image_s'          => get_template_directory_uri().'/images/samples/pr_image_demo_sq_2.jpg',
+		'pr3_title'            => __('Optimized for business web sites', 'biz-vektor'),
+		'pr3_description'      => __('Various indispensable business features as child page templates or enquiry capture are included.', 'biz-vektor'),
+		'pr3_link'             => '',
+		'pr3_image'            => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
+		'pr3_image_s'          => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
+		'version'              => BizVektor_Theme_Version,
+		'SNSuse'               => false
 	);
 
 	for ( $i = 1; $i <= 5 ;){
@@ -145,11 +145,9 @@ function biz_vektor_generate_default_options(){
 /*	入力された値の処理
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
-	$output = biz_vektor_get_theme_options();
+	$output = biz_bektor_option_validate();
 	$defaults = biz_vektor_generate_default_options();
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
-
-	//var_dump($input);
 
 	// Design
 	$output['gMenuDivide']            = $input['gMenuDivide'];
@@ -173,17 +171,17 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['contact_link']           = $input['contact_link'];
 	// 3PR
 	$output['top3PrDisplay']          = (isset($input['top3PrDisplay']) && $input['top3PrDisplay'] == 'true')?	 true : false;
-	$output['pr1_title']              = ($input['pr1_title'] == '')?			 $defaults['pr1_title'] : $input['pr1_title'] ;
+	$output['pr1_title']              = ($input['pr1_title'] == '')?		$defaults['pr1_title'] : $input['pr1_title'] ;
 	$output['pr1_description']        = ($input['pr1_description'] == '')?	 $defaults['pr1_description'] : $input['pr1_description'] ;
 	$output['pr1_link']               = $input['pr1_link'];
 	$output['pr1_image']              = $input['pr1_image'];
 	$output['pr1_image_s']            = $input['pr1_image_s'];
-	$output['pr2_title']              = ($input['pr2_title'] == '')?			 $defaults['pr2_title'] : $input['pr2_title'] ;
+	$output['pr2_title']              = ($input['pr2_title'] == '')?		$defaults['pr2_title'] : $input['pr2_title'] ;
 	$output['pr2_description']        = ($input['pr2_description'] == '')?	 $defaults['pr2_description'] : $input['pr2_description'] ;
 	$output['pr2_link']               = $input['pr2_link'];
 	$output['pr2_image']              = $input['pr2_image'];
 	$output['pr2_image_s']            = $input['pr2_image_s'];
-	$output['pr3_title']              = ($input['pr3_title'] == '')?			 $defaults['pr3_title'] : $input['pr3_title'] ;
+	$output['pr3_title']              = ($input['pr3_title'] == '')?		$defaults['pr3_title'] : $input['pr3_title'] ;
 	$output['pr3_description']        = ($input['pr3_description'] == '')?	 $defaults['pr3_description'] : $input['pr3_description'] ;
 	$output['pr3_link']               = $input['pr3_link'];
 	$output['pr3_image']              = $input['pr3_image'];
@@ -297,4 +295,26 @@ function bizVektorOptions($optionLabel) {
 		if (isset($options_default[$optionLabel]))
 		return $options_default[$optionLabel];
 	}
+}
+
+/*-------------------------------------------*/
+/*	
+/*	@return array(options)
+/*-------------------------------------------*/
+function biz_bektor_option_validate(){
+	$option = get_option('biz_vektor_theme_options');
+	$default = biz_vektor_generate_default_options();
+
+	if($option && is_array($option)){
+		$keys = array_keys($option);
+		foreach($keys as $key){
+			if( !isset($option[$key]) && $key != 'version'){
+				$option[$key] = $default[$key];
+			}
+		}
+	}
+	else {
+		$option = $default;
+	}
+	return $option;
 }
