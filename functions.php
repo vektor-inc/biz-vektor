@@ -229,15 +229,7 @@ add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
-add_editor_style('editor-style.css');
-
-/*-------------------------------------------*/
-/*	Admin page _ Add original admin bar
-/*-------------------------------------------*/
-// function original_header_menu_output() {
-// 	get_template_part('module_adminHeader');
-// }
-// add_action('admin_notices','original_header_menu_output');
+add_editor_style('/css/editor-style.css');
 
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
