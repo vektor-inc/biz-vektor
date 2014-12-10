@@ -76,6 +76,7 @@ function biz_vektor_generate_default_options(){
 		'listBlogTop' => 'listType_set',
 		'listBlogArchive' => 'listType_set',
 		'postRelatedCount' => '6',
+		'blogRss'              => '',
 		'ad_conent_moretag' => '',
 		'ad_conent_after' => '',
 		'ad_related_after' => '',
@@ -108,6 +109,7 @@ function biz_vektor_generate_default_options(){
 		'postLabelName' => __('Blog', 'biz-vektor'),
 		'infoLabelName' => __('Information', 'biz-vektor'),
 		'theme_style' => 'rebuild',
+		'enable_google_font'   => 'true',
 		'pr1_title' => __('Rich theme options', 'biz-vektor'),
 		'pr1_description' => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr1_link' => '',
@@ -143,8 +145,8 @@ function biz_vektor_generate_default_options(){
 /*	入力された値の処理
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
-	$output = $defaults = biz_vektor_generate_default_options();
-	$nowdata = biz_vektor_get_theme_options();
+	$output = biz_vektor_get_theme_options();
+	$defaults = biz_vektor_generate_default_options();
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ return $defaults; }
 
 	//var_dump($input);
@@ -254,7 +256,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	// sidebar child menu display
 	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
 
-	if(isset($nowdata['version'])&&$nowdata['version']){ $output['version'] = $nowdata['version']; }
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
 
@@ -279,7 +280,7 @@ function biz_vektor_get_theme_options() {
 	// global 変数が上手く取得出来てない場合はDBから持ってくる。
 	// if (!isset($biz_vektor_options)) 
 	// やはりDBから持ってこないとカスタマイザーが効かない。
-		$biz_vektor_options = get_option('biz_vektor_theme_options' );
+	$biz_vektor_options = get_option('biz_vektor_theme_options', biz_vektor_generate_default_options());
 	return $biz_vektor_options;
 }
 
