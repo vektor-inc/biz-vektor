@@ -75,27 +75,24 @@ function bizvektor_default_design_customize_register($wp_customize) {
         'title'          => _x('Default color settings','Default color settings', 'biz-vektor'),
         'priority'       => 110,
     ) );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
 		'label'    => __('Keycolor(Light)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorDark', array(
 		'label'    => __('Keycolor(Dark)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	}
 }

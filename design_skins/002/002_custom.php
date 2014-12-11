@@ -80,13 +80,12 @@ function biz_vektor_calmly_customize_register($wp_customize) {
         'priority'       => 110,
     ) );
 
-	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => _x('Keycolor', 'Calmly color settings', 'biz-vektor'),
 		'section'  => 'biz_vektor_calmly',
 		'settings' => 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	}
 }
