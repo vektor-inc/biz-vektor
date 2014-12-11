@@ -83,16 +83,19 @@ function bizvektor_default_design_customize_register($wp_customize) {
 		'label'    => __('Keycolor', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
 		'label'    => __('Keycolor(Light)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorDark', array(
 		'label'    => __('Keycolor(Dark)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	}
 }
@@ -112,8 +115,8 @@ function themePlusSettingNavi_default_design(){
 /*-------------------------------------------*/
 /*	Print head
 /*-------------------------------------------*/
-add_action( 'wp_head','default_design_WpHead', 150);
-function default_design_WpHead(){
+add_action( 'wp_head','biz_vektor_default_design_WpHead', 150);
+function biz_vektor_default_design_WpHead(){
 	if (is_bizvektor_default_design()){
 		$default_design_options = biz_vektor_get_theme_options_default_design();
 		if( !isset($default_design_options['theme_plusKeyColor']) || $default_design_options['theme_plusKeyColor'] == '' ) $default_design_options['theme_plusKeyColor'] = '#c30000';

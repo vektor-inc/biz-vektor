@@ -71,8 +71,8 @@ function biz_vektor_theme_options_calmly_validate( $input ) {
 /*-------------------------------------------*/
 /*	Setting customizer
 /*-------------------------------------------*/
-add_action( 'customize_register', 'bizvektor_calmly_customize_register' );
-function bizvektor_calmly_customize_register($wp_customize) {
+add_action( 'customize_register', 'biz_vektor_calmly_customize_register' );
+function biz_vektor_calmly_customize_register($wp_customize) {
 	if (is_calmly()){
     // Add section
     $wp_customize->add_section( 'biz_vektor_calmly', array(
@@ -86,6 +86,7 @@ function bizvektor_calmly_customize_register($wp_customize) {
 		'label'    => _x('Keycolor', 'Calmly color settings', 'biz-vektor'),
 		'section'  => 'biz_vektor_calmly',
 		'settings' => 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	}
 }
@@ -93,8 +94,8 @@ function bizvektor_calmly_customize_register($wp_customize) {
 /*-------------------------------------------*/
 /*	Admin page _ Add link bottom of pulldown
 /*-------------------------------------------*/
-add_filter('themePlusSettingNavi','themePlusSettingNaviCalmly');
-function themePlusSettingNaviCalmly(){
+add_filter('themePlusSettingNavi','biz_vektor_themePlusSettingNaviCalmly');
+function biz_vektor_themePlusSettingNaviCalmly(){
 	global $themePlusSettingNavi;
 	if (is_calmly()){
 		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
@@ -106,8 +107,8 @@ function themePlusSettingNaviCalmly(){
 /*-------------------------------------------*/
 /*	Print head
 /*-------------------------------------------*/
-add_action( 'wp_head','calmlyWpHead', 150);
-function calmlyWpHead(){
+add_action( 'wp_head','biz_vektor_WpHead_calmly', 150);
+function biz_vektor_WpHead_calmly(){
 	if (is_calmly()){
 	$calmlyOptions = biz_vektor_get_theme_options_calmly();
 		if ( $calmlyOptions ) : ?>
