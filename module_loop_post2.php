@@ -13,7 +13,7 @@ if ($postType == 'post') {
 $taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
 ?>
 <!-- [ .infoListBox ] -->
-<div class="infoListBox ttBox">
+<div id="post-<?php the_ID(); ?>" class="infoListBox ttBox">
 	<div class="entryTxtBox<?php if ( has_post_thumbnail()) echo ' ttBoxTxt haveThumbnail'; ?>">
 	<h4 class="entryTitle">
 	<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
