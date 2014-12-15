@@ -1,3 +1,7 @@
+/*
+master.js 他複数のファイルをGruntなどのビルドツールでマージして biz-vektor.jsになるので、biz-vektor.jsは直接編集しない
+*/
+
 /*-------------------------------------------*/
 /*  編集ガイド
 /*-------------------------------------------*/
@@ -67,6 +71,8 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function likeBoxReSize(){
+	// var i = number;
+	// jQuery('.fb-like-box').each(function(i){
 	jQuery('.fb-like-box').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
@@ -80,6 +86,8 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function fbCommentReSize(){
+	// var i = number;
+	// jQuery('.fb-comments').each(function(i){
 	jQuery('.fb-comments').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
@@ -100,7 +108,8 @@ window.onload = function(){
 
 	var setup = function(aImages) {
 		for (var i = 0; i < aImages.length; i++) {
-			if (aImages[i].className == 'imgover') {
+			// if (aImages[i].className == 'imgover') {
+			if (aImages[i].hasClass('imgover')) {
 				var src = aImages[i].getAttribute('src');
 				var ftype = src.substring(src.lastIndexOf('.'), src.length);
 				var hsrc = src.replace(ftype, '_on'+ftype);
@@ -966,6 +975,7 @@ function resVektorRun(){
 			mode = "mode_full";
 		}
 	}
+	// console.log('_|＼○_ﾋｬｯ ε=＼＿○ﾉ ﾎｰｳ!!2');
 }
 
 /*----------------------------------------------------------*/
@@ -1211,6 +1221,8 @@ function showHide(targetID) {
 			document.getElementById(targetID).className = "itemOpen";
 		}
 	}
+	// resVektorRun();
+	// console.log('_|＼○_ﾋｬｯ ε=＼＿○ﾉ ﾎｰｳ!!');
 }
 
 /*-------------------------------------------*/
