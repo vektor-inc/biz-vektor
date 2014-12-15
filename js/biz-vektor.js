@@ -46,7 +46,6 @@ jQuery('iframe').each(function(i){
 	idx = iframeUrl.indexOf("youtube");
 	// 見つからなかった場合には -1 が返される
 	if(idx != -1) {
-	    console.log(iframeUrl);
 	    // youtube が含まれていたらそのクラスを返す
 	    jQuery(this).addClass('iframeYoutube').css({"max-width":"100%"});
 	    var iframeWidth = jQuery(this).attr("width");
