@@ -33,11 +33,14 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 		// 普通のポストタイプが取得出来る場合
 		if ($postType) {
 			$pageTitle = get_post_type_object($postType)->labels->name;
-		// 該当記事が0件の場合に投稿タイプ名が取得出来ないのでタクソノミー経由で取得する
-		} else if ( is_tax( ) ) {
-			$taxonomy = get_queried_object()->taxonomy;
-			$postTypeSlug = get_taxonomy( $taxonomy )->object_type[0];
-			$pageTitle = get_post_type_object($postTypeSlug)->labels->name;
+		// 該当記事が0件の場合に投稿タイプ名が取得出来ないので$wp_query経由で取得する
+		} elseif (is_category() || is_tag()){
+			global $wp_query;
+			$pageTitle = $wp_query->queried_object->name;
+		}
+		elseif(is_archive()) {
+			global $wp_query;
+			$pageTitle = $wp_query->queried_object->label;
 		}
 	}
 } else if (is_page() || is_attachment()) {

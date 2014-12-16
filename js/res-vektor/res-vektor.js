@@ -123,6 +123,7 @@ function resVektorRun(){
 			mode = "mode_full";
 		}
 	}
+	// console.log('_|＼○_ﾋｬｯ ε=＼＿○ﾉ ﾎｰｳ!!2');
 }
 
 /*----------------------------------------------------------*/
@@ -368,6 +369,8 @@ function showHide(targetID) {
 			document.getElementById(targetID).className = "itemOpen";
 		}
 	}
+	// resVektorRun();
+	// console.log('_|＼○_ﾋｬｯ ε=＼＿○ﾉ ﾎｰｳ!!');
 }
 
 /*-------------------------------------------*/

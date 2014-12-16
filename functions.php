@@ -229,15 +229,7 @@ add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
-add_editor_style('editor-style.css');
-
-/*-------------------------------------------*/
-/*	Admin page _ Add original admin bar
-/*-------------------------------------------*/
-// function original_header_menu_output() {
-// 	get_template_part('module_adminHeader');
-// }
-// add_action('admin_notices','original_header_menu_output');
+add_editor_style('/css/editor-style.css');
 
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
@@ -425,10 +417,10 @@ function bizVektorAddPingback(){
 }
 
 //html5 shiv
-add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts' );
+add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
 
-if ( ! function_exists( 'biz_vektor_load_scripts' ) ) {
-	function biz_vektor_load_scripts() {
+if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
+	function biz_vektor_load_scripts_html5shiv() {
 		wp_enqueue_script( 'html5shiv', '//html5shiv.googlecode.com/svn/trunk/html5.js', array(), null );
 	}
 }

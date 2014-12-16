@@ -129,6 +129,9 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 		'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),
 		'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor')
 	);
+	if( $options['gMenuDivide'] == ''){
+		$options['gMenuDivide'] = 'divide_natural';
+	}
 	foreach( $biz_vektor_gMenuDivides as $biz_vektor_gMenuDivideKey => $biz_vektor_gMenuDivideValue) {
 		if ( $biz_vektor_gMenuDivideKey == $options['gMenuDivide'] ) {
 			print ('<option value="'.$biz_vektor_gMenuDivideKey.'" selected>'.$biz_vektor_gMenuDivideValue.'</option>');
@@ -253,6 +256,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<!-- Favicon -->
 	<tr>
 	<th><?php _e('Favicon Setting', 'biz-vektor'); ?></th>
+	<?php if( !isset( $options['favicon'] ) ){ $options['favicon'] = ''; } ?>
 	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
 	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
 	<p><?php _e('Please upload a .ico file.', 'biz-vektor') ; ?></p>

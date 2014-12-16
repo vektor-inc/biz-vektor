@@ -1,3 +1,7 @@
+/*
+master.js 他複数のファイルをGruntなどのビルドツールでマージして biz-vektor.jsになるので、biz-vektor.jsは直接編集しない
+*/
+
 /*-------------------------------------------*/
 /*  編集ガイド
 /*-------------------------------------------*/
@@ -41,6 +45,7 @@ jQuery('#wp-admin-bar-editGuide .ab-item').click(function(){
 /*-------------------------------------------*/
 jQuery('iframe').each(function(i){
 	var iframeUrl = jQuery(this).attr("src");
+	if(!iframeUrl){return;}
 	// iframeのURLの中に youtube が存在する位置を検索する
 	idx = iframeUrl.indexOf("youtube");
 	// 見つからなかった場合には -1 が返される
@@ -66,8 +71,9 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function likeBoxReSize(){
-	var i = number;
-	jQuery('.fb-like-box').each(function(i){
+	// var i = number;
+	// jQuery('.fb-like-box').each(function(i){
+	jQuery('.fb-like-box').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
 		jQuery(this).children('span:first').css({"width":element});
@@ -80,8 +86,9 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function fbCommentReSize(){
-	var i = number;
-	jQuery('.fb-comments').each(function(i){
+	// var i = number;
+	// jQuery('.fb-comments').each(function(i){
+	jQuery('.fb-comments').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
 		jQuery(this).children('span:first').css({"width":element});
