@@ -186,8 +186,11 @@ class wp_widget_page extends WP_Widget {
 	}
 
 	function display_page($pageid,$titleflag=false) {
-		$page = get_page($pageid);
-		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
+		$page = get_post($pageid);
+		
+		echo '<div id="widget-'.$page->post_name.'" ';
+			post_class('sectionBox', $pageid);
+		echo '>';
 		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
 		if ( is_user_logged_in() == TRUE ) {
