@@ -71,7 +71,7 @@ if ( !$postType ) {
 		<?php endif; //$options['listInfoArchive'] ?>
 	
 
-	<?php elseif (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
+	<?php elseif (file_exists(get_stylesheet_directory( ).'/module_loop_'.$post_type.'.php')): ?>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
 		
