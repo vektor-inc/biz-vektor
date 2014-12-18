@@ -217,31 +217,6 @@ function biz_vektor_theme_options_validate( $input ) {
 		$output['slide'.$i.'blank']    = (isset($input['slide'.$i.'blank']) && $input['slide'.$i.'blank'])? "true" : '';
 	$i++;
 	}
-	// SNS
-	$output['fbAppId']                = $input['fbAppId'];
-	$output['fbAdminId']              = $input['fbAdminId'];
-	$output['twitter']                = $input['twitter'];
-	$output['facebook']               = $input['facebook'];
-	$output['ogpImage']               = (preg_match("/^.+\.(jp(e|)g|png|gif|bmp)$/i", $input['ogpImage']))? $input['ogpImage'] : '';
-	$output['snsBtnsFront']           = (isset($input['snsBtnsFront']) && $input['snsBtnsFront'] == 'false')? 'false' : '';
-	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
-	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';
-	$output['snsBtnsInfo']            = (isset($input['snsBtnsInfo']) && $input['snsBtnsInfo'] == 'false')? 'false' : '';
-	$output['snsBtnsHidden']          = $input['snsBtnsHidden'];
-	$output['fbCommentsFront']        = (isset($input['fbCommentsFront']) && $input['fbCommentsFront'] == 'false')? 'false' : '';
-	$output['fbCommentsPage']         = (isset($input['fbCommentsPage']) && $input['fbCommentsPage'] == 'false')? 'false' : '';
-	$output['fbCommentsPost']         = (isset($input['fbCommentsPost']) && $input['fbCommentsPost'] == 'false')? 'false' : '';
-	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
-	$output['fbCommentsHidden']          = $input['fbCommentsHidden'];
-	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
-	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
-	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
-	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
-	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
-
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 
