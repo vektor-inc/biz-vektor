@@ -8,6 +8,6 @@
     <li id="btn_seoSetting"><a href="#seoSetting">SEO & GA</a></li>
     <li id="btn_topPage"><a href="#topPage"><?php echo _x( 'Homepage', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
     <li id="btn_slideSetting"><a href="#slideSetting"><?php echo _x( 'Slide', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
-    <li id="btn_snsSetting"><a href="#snsSetting"><?php echo _x( 'SNS', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
+    <?php do_action('biz_vektor_options_nav_tab'); ?>
 </ul>
 </div>
