@@ -188,7 +188,7 @@ class wp_widget_page extends WP_Widget {
 	function display_page($pageid,$titleflag=false) {
 		$page = get_post($pageid);
 		
-		echo '<div id="widget-'.$page->post_name.'" ';
+		echo '<div id="widget-page-'.$pageid.'" ';
 			post_class('sectionBox', $pageid);
 		echo '>';
 		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
