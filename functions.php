@@ -78,13 +78,7 @@ get_template_part('functions_widgets');
 
 add_theme_support( 'automatic-feed-links' );
 
-get_template_part('plugins/sns/sns');
-
-get_template_part('plugins/add_post_type/add_post_type');
-
-get_template_part('plugins/css_customize/css-customize');
-
-get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
+get_template_part('plugins/plugins');
 
 add_post_type_support( 'info', 'front-end-editor' );
 
@@ -738,3 +732,4 @@ function my_mime_type($a) {
     return $a;
 }
 add_filter('upload_mimes', 'my_mime_type');
+
