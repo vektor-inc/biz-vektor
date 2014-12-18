@@ -15,13 +15,9 @@ if(class_exists('WP_Customize_Control')):
 	}
 endif;
 
-add_action( 'customize_register', 'bizvektor_customize_register' );
+add_action( 'customize_register', 'bizvektor_customize_register', 8);
 function bizvektor_customize_register($wp_customize) {
 	
-	// remove section
-	$wp_customize->remove_section( 'static_front_page' );	// front page
-	$wp_customize->remove_section( 'nav' );
-
 	/*	Design setting
 	/*-------------------------------------------*/
     $wp_customize->add_section( 'biz_vektor_design', array(

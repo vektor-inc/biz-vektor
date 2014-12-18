@@ -70,9 +70,9 @@ else :
 	<?php get_template_part('module_top_list_post'); ?>
 <?php endif; ?>
 
-<?php biz_vektor_fbLikeBoxFront(); ?>
-<?php biz_vektor_snsBtns(); ?>
-<?php biz_vektor_fbComments(); ?>
+<?php do_action( 'biz_vektor_fbLikeBoxFront'); ?>
+<?php do_action( 'biz_vektor_snsBtns' ); ?>
+<?php do_action( 'biz_vektor_fbComments'); ?>
 
 	</div>
 	<!-- #content-main -->
