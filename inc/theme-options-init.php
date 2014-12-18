@@ -67,10 +67,6 @@ function biz_vektor_generate_default_options(){
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay'    => false,
 		'top3PrDisplay'        => '',
-		'infoTopCount'         => '5',
-		'infoTopUrl'           => home_url().'/info/',
-		'listInfoTop'          => 'listType_set',
-		'listInfoArchive'      => 'listType_set',
 		'postTopCount'         => '5',
 		'postTopUrl'           => '',
 		'listBlogTop'          => 'listType_set',
@@ -107,7 +103,6 @@ function biz_vektor_generate_default_options(){
 		'favicon'              => '',
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => __('Blog', 'biz-vektor'),
-		'infoLabelName'        => __('Information', 'biz-vektor'),
 		'theme_style'          => 'rebuild',
 		'enable_google_font'   => 'true',
 		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
@@ -188,13 +183,8 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['pr3_image_s']            = $input['pr3_image_s'];
 	// Infomation & Blog	
 	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
-	$output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
-	$output['listInfoTop']            = $input['listInfoTop'];
-	$output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
-	$output['infoTopUrl']             = $input['infoTopUrl'];
-	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
 	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 5 : $input['postTopCount'];
 	$output['postRelatedCount']       = (preg_match('/^(\s|[ 　]*)$/', $input['postRelatedCount']))? 6 : $input['postRelatedCount'];

@@ -13,8 +13,8 @@
 /*-------------------------------------------*/
 /*	Custom post type _ add info
 /*-------------------------------------------*/
-add_action( 'init', 'create_post_type', 0 );
-function create_post_type() {
+add_action( 'init', 'biz_vektor_info_create_post_type', 0 );
+function biz_vektor_info_create_post_type() {
 	$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
 	register_post_type( 'info', /* post-type */
 	array(
@@ -43,8 +43,8 @@ function create_post_type() {
 	);
 }
 
-add_action( 'generate_rewrite_rules', 'my_rewrite' );
-function my_rewrite( $wp_rewrite ){
+add_action( 'generate_rewrite_rules', 'biz_vektor_info_set_rewrite' );
+function biz_vektor_info_set_rewrite( $wp_rewrite ){
     $taxonomies = get_taxonomies();
     // exclude default post types [category,post_tag,nav_menu,link_category ]
     $taxonomies = array_slice($taxonomies,4,count($taxonomies)-1);
@@ -61,8 +61,8 @@ function my_rewrite( $wp_rewrite ){
 /*		Archive of custom post type
 /*-------------------------------------------*/
 global $my_archives_post_type;
-add_filter( 'getarchives_where', 'my_getarchives_where', 10, 2 );
-function my_getarchives_where( $where, $r ) {
+add_filter( 'getarchives_where', 'biz_vektor_info_getarchives_where', 10, 2 );
+function biz_vektor_info_getarchives_where( $where, $r ) {
   global $my_archives_post_type;
   if ( isset($r['post_type']) ) {
     $my_archives_post_type = $r['post_type'];
@@ -72,8 +72,8 @@ function my_getarchives_where( $where, $r ) {
   }
   return $where;
 }
-add_filter( 'get_archives_link', 'my_get_archives_link' );
-function my_get_archives_link($link_html) {
+add_filter( 'get_archives_link', 'biz_vektor_info_get_archives_link' );
+function biz_vektor_info_get_archives_link($link_html) {
     global $my_archives_post_type;
     if ($my_archives_post_type != '') {
         $add_link = '?post_type=' . $my_archives_post_type;
@@ -216,3 +216,81 @@ class WP_Widget_infoArchives extends WP_Widget {
 
 // register WP_Widget_infoArchives widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_infoArchives");'));
+
+
+add_filter('biz_vektor_extra_posttype_config', 'biz_vektor_info_config', 5);
+function biz_vektor_info_config(){
+	
+	$options = biz_vektor_get_theme_options();
+	$biz_vektor_name = get_biz_vektor_name();
+	$infoLabelName = esc_html( $options['infoLabelName'] );
+
+?>
+<!-- Information -->
+<tr>
+	<th><?php echo esc_html( $infoLabelName ); ?></th>
+	<td>
+		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
+	<dl>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $infoLabelName ); ?></dt>
+	<dd>
+	<?php
+		if(!isset($options['listInfoTop'])){ $options['listInfoTop'] = 'listType_set'; }
+	?>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="listType_title" <?php echo ($options['listInfoTop'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="listType_set" <?php echo ($options['listInfoTop'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
+	</dd>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $infoLabelName ); ?></dt>
+	<dd>
+	<?php
+		if(!isset($options['listInfoArchive'])){ $options['listInfoArchive'] = 'listType_set'; }
+	?>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="listType_title" <?php echo ($options['listInfoArchive'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="listType_set" <?php echo ($options['listInfoArchive'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
+	</dd>
+	</dl>
+	<dl>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'), $infoLabelName);?></dt>
+		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;text-align:right;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
+	</dl>
+
+	<dl>
+		<dt><?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $infoLabelName ); ?></dt>
+		<dd><?php $infoTopUrl = home_url() . '/info/'; ?>
+			<?php printf( __( 'By default <a href="%1$s" target="_blank">%1$s</a> is the top URL for %2$s', 'biz-vektor' ), esc_url( $infoTopUrl ), $infoLabelName ); ?>
+			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
+		</dd>
+	</dl>
+</td>
+</tr>
+<?php
+}
+
+
+add_filter('biz_vektor_theme_options_validate', 'biz_vektor_info_validate', 10, 2);
+function biz_vektor_info_validate($output, $input){
+
+	$output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
+	$output['listInfoTop']            = $input['listInfoTop'];
+	$output['listInfoArchive']        = $input['listInfoArchive'];
+	$output['infoTopUrl']             = $input['infoTopUrl'];
+	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
+
+	return $output;
+}
+
+
+add_filter('biz_vektor_default_options', 'biz_vektor_info_default_option');
+function biz_vektor_info_default_option($original_options){
+
+	$options = array(
+		'infoLabelName'        => __('Information', 'biz-vektor'),
+		'infoTopCount'         => '5',
+		'infoTopUrl'           => home_url().'/info/',
+		'listInfoTop'          => 'listType_set',
+		'listInfoArchive'      => 'listType_set',
+	);
+
+	return array_merge($original_options, $options);
+}
