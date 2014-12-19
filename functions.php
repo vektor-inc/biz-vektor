@@ -114,7 +114,7 @@ if ( ! isset( $content_width ) )
 /*-------------------------------------------*/
 /*	Widget
 /*-------------------------------------------*/
-function biz_vektor_widgets_init() {
+function biz_vektor_widgetarea_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
 		'id' => 'top-side-widget-area',
@@ -161,7 +161,7 @@ function biz_vektor_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'biz_vektor_widgets_init' );
+add_action( 'widgets_init', 'biz_vektor_widgetarea_init' );
 
 /*-------------------------------------------*/
 /*	Custom header
@@ -604,7 +604,7 @@ function biz_vektor_content_nav( $nav_id ) {
 /*-------------------------------------------*/
 /*	Paging
 /*-------------------------------------------*/
-function pagination($max_num_pages = '', $range = 1) {
+function biz_vektor_pagination($max_num_pages = '', $range = 1) {
 	$showitems = ($range * 2)+1;
 
 	global $paged;

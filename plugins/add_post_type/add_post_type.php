@@ -337,3 +337,25 @@ function biz_vektor_info_add_custom_field_metaKeyword(){
 	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
   }
 }
+
+add_filter('biz_vektor_index_loop_hack', 'biz_vektor_info_hack_index', 10, 1);
+function biz_vektor_info_hack_index($flag){
+
+	if($flag){ return $flag; }
+	
+	$options = biz_vektor_get_theme_options();
+
+	if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part('module_loop_post2'); ?>
+		<?php endwhile ?>
+	<?php else : ?>
+		<ul class="entryList">
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part('module_loop_post'); ?>
+		<?php endwhile; ?>
+		</ul>
+	<?php endif; //$options['listInfoArchive'] 
+
+	return true;
+}

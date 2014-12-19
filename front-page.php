@@ -1,4 +1,13 @@
-<?php get_header(); ?>
+<?php
+/**
+ * BizVektor Front-Page.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
+ get_header();
+  ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->

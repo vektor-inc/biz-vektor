@@ -28,7 +28,7 @@ $post_loop = new WP_Query( array(
 		<?php endwhile; ?>
 		</ul>
 	<?php } ?>
-	<?php // pagination($post_loop->max_num_pages);
+	<?php // biz_vektor_pagination($post_loop->max_num_pages);
 $postTopUrl = (isset($biz_vektor_options['postTopUrl']))? $biz_vektor_options['postTopUrl'] : '';
 if ($postTopUrl) {
 	echo '<div class="moreLink right"><a href="'.esc_url($postTopUrl).'">';

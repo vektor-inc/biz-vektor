@@ -1,5 +1,14 @@
-<?php get_header(); ?>
-<?php $postType = get_post_type();
+<?php
+/**
+ * BizVektor index.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
+ get_header();
+ $postType = get_post_type();
+
 if ( !$postType ) {
   global $wp_query;
   if ($wp_query->query_vars['post_type']) {
@@ -56,20 +65,9 @@ if ( !$postType ) {
 
 		<?php biz_vektor_archive_loop(); ?>
 
-	<?php elseif ($postType == 'info') : ?>
+	<?php elseif ( apply_filters( 'biz_vektor_index_loop_hack', false ) ): ?>
 
-		<?php if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('module_loop_post2'); ?>
-			<?php endwhile ?>
-		<?php else : ?>
-			<ul class="entryList">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('module_loop_post'); ?>
-			<?php endwhile; ?>
-			</ul>
-		<?php endif; //$options['listInfoArchive'] ?>
-	
+		<?php ///--- doing extra function ---/// ?>
 
 	<?php elseif (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
 		
@@ -95,7 +93,7 @@ if ( !$postType ) {
 		<?php } ?>
 
 	<?php endif; // $postType == 'info' ?>
-	<?php pagination(); ?>
+	<?php biz_vektor_pagination(); ?>
 	</div><!-- [ /.infoList ] -->
 	</div>
 	<!-- [ /#content ] -->
