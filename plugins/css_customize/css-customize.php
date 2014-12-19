@@ -84,3 +84,15 @@ function biz_vektor_css_customize_get_css()
 	else
 		return '';
 }
+
+add_action('wp_head', 'biz_vektor_css_customize_push_css', 200);
+function biz_vektor_css_customize_push_css(){
+
+	if( get_option('biz_vektor_css_custom') ){
+	?>
+<style type="text/css">
+<?php echo get_option('biz_vektor_css_custom') ?>
+</style>
+	<?php
+	}
+}

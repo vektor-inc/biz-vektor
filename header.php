@@ -22,7 +22,7 @@ if ( is_singular() && get_option( 'thread_comments' ) )
  * generally use this hook to add elements to <head> such
  * as styles, scripts, and meta tags.
  */
-wp_head(); ?>
+?>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <?php
 /* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
@@ -35,9 +35,9 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 	print '<![endif]-->'."\n";
 } ?>
 <meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
-<style type="text/css">
-	<?php echo biz_vektor_css_customize_get_css(); ?>
-</style>
+
+
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
