@@ -6,9 +6,7 @@
 	<?php biz_vektor_contentMain_before();?>
 	<div id="content-main">
 <?php
-if ( is_active_sidebar( 'top-main-widget-area' ) ) :
-	dynamic_sidebar( 'top-main-widget-area' );
-else :
+if ( !apply_filters('biz_vektor_extra_main_content', false) ):
 
 	/*-------------------------------------------*/
 	/*	No use main content widget
@@ -79,7 +77,8 @@ else :
 	<?php biz_vektor_contentMain_after();?>
 	</div>
 	<!-- [ /#content ] -->
-<?php $option = biz_vektor_get_theme_options();if(!$option['topSideBarDisplay']){ ?>
+
+<?php $option = biz_vektor_get_theme_options(); if( !$option['topSideBarDisplay'] ): ?>
 	<!-- [ #sideTower ] -->
 	<div id="sideTower" class="sideTower">
 <?php
@@ -97,7 +96,7 @@ if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'c
 	</div>
 	<!-- [ /#sideTower ] -->
 	<?php biz_vektor_sideTower_after();?>
-<?php } ?>
+<?php endif; ?>
 </div>
 <!-- [ /#container ] -->
 

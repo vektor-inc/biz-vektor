@@ -41,6 +41,16 @@ function biz_vektor_maincontent_widgetarea_init() {
 }
 add_action( 'widgets_init', 'biz_vektor_maincontent_widgetarea_init' );
 
+add_filter('biz_vektor_extra_main_content', 'biz_vektor_widget_extra_content', 512, 1);
+function biz_vektor_widget_extra_content($flag){
+	if ( !$flag && is_active_sidebar( 'top-main-widget-area' ) ) {
+	 	dynamic_sidebar( 'top-main-widget-area' );
+		$flag = true;
+	}
+	return $flag;
+}
+
+
 /*-------------------------------------------*/
 /*	ChildPageList widget
 /*-------------------------------------------*/
