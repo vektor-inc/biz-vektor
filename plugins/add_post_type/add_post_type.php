@@ -342,7 +342,11 @@ add_filter('biz_vektor_index_loop_hack', 'biz_vektor_info_hack_index', 10, 1);
 function biz_vektor_info_hack_index($flag){
 
 	if($flag){ return $flag; }
-	
+
+	$postType = get_post_type();
+
+	if($postType != 'info'){ return $flag; }
+
 	$options = biz_vektor_get_theme_options();
 
 	if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
