@@ -7,6 +7,7 @@ Biz_Vektor_plugin_controller::$enable_packages = array(
 		'css_customize',
 		'dashboard_info_widget',
 		'extra_module',
+		'widgets',
 	);
 
 

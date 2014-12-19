@@ -330,3 +330,10 @@ function biz_vektor_info_adminvar_custom_menu(){
 		));
 	}
 }
+
+add_action('admin_menu', 'biz_vektor_info_add_custom_field_metaKeyword');
+function biz_vektor_info_add_custom_field_metaKeyword(){
+  if(function_exists('add_custom_field_metaKeyword')){
+	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
+  }
+}

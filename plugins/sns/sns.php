@@ -355,12 +355,41 @@ function biz_vektor_sns_validate($output, $input, $defaults){
 	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
-	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
 	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
 
 	return $output;
 }
 
+add_filter('biz_vektor_default_options', 'biz_vektor_sns_default_option');
+function biz_vektor_sns_default_option($original_options){
+
+	$options = array(
+		'fbAppId'              => '',
+		'fbAdminId'            => '',
+		'twitter'              => '',
+		'facebook'             => '',
+		'ogpImage'             => '',
+		'snsBtnsFront'         => '',
+		'snsBtnsPage'          => '',
+		'snsBtnsPost'          => '',
+		'snsBtnsInfo'          => '',
+		'snsBtnsHidden'        => '',
+		'fbCommentsFront'      => '',
+		'fbCommentsPage'       => '',
+		'fbCommentsPost'       => '',
+		'fbCommentsInfo'       => '',
+		'fbCommentsHidden'     => '',
+		'fbLikeBoxFront'       => '',
+		'fbLikeBoxSide'        => '',
+		'fbLikeBoxURL'         => '',
+		'fbLikeBoxStream'      => '',
+		'fbLikeBoxFace'        => '',
+		'fbLikeBoxHeight'      => '',
+		'ogpTagDisplay'        => 'ogp_on',
+	);
+
+	return array_merge($original_options, $options);
+}
 
 add_action('biz_vektor_options_nav_tab', 'biz_vektor_sns_options_nav', 10);
 function biz_vektor_sns_options_nav(){?>

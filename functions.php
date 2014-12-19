@@ -112,6 +112,58 @@ if ( ! isset( $content_width ) )
 	$content_width = 640;
 
 /*-------------------------------------------*/
+/*	Widget
+/*-------------------------------------------*/
+function biz_vektor_widgets_init() {
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
+		'id' => 'top-side-widget-area',
+		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
+		'id' => 'post-widget-area',
+		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
+		'id' => 'page-widget-area',
+		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
+		'id' => 'common-side-top-widget-area',
+		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
+		'id' => 'common-side-bottom-widget-area',
+		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'biz_vektor_widgets_init' );
+
+/*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
 
@@ -230,7 +282,6 @@ function add_custom_field_metaKeyword(){
   if(function_exists('add_custom_field_metaKeyword')){
 	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
 	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
   }
 }
 
@@ -675,9 +726,9 @@ function biz_vektor_extra_single(){
 /*-------------------------------------------*/
 /*	Aceept favicon upload
 /*-------------------------------------------*/
-function my_mime_type($a) {
+function biz_vektor_mine_types($a) {
     $a['ico'] = 'image/x-icon';
     return $a;
 }
-add_filter('upload_mimes', 'my_mime_type');
+add_filter('upload_mimes', 'biz_vektor_mine_types');
 
