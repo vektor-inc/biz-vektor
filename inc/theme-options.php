@@ -49,6 +49,7 @@
 /* CSS and Google Web Fonts for Global Version
 /*-------------------------------------------*/
 
+require( get_template_directory() . '/inc/theme-options-init.php' );
 
 /*-------------------------------------------*/
 /*	テーマオプションのメニューとページを設定

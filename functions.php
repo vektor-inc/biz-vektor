@@ -76,17 +76,33 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 
 get_template_part('functions_widgets');
 
-add_theme_support( 'automatic-feed-links' );
-
 get_template_part('plugins/plugins');
 
-add_post_type_support( 'info', 'front-end-editor' );
-
-add_action('after_setup_theme', 'biz_vektor_theme_setup');
-
 function biz_vektor_theme_setup() {
+	add_theme_support( 'automatic-feed-links' );
+
+	add_theme_support( 'custom-header' );
+
+	add_theme_support( 'custom-background', array(
+		'default-color' => '#ffffff',
+	) );
+
+	/*-------------------------------------------*/
+	/*	Admin page _ Eye catch
+	/*-------------------------------------------*/
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 200, 200, true );
+
+	/*-------------------------------------------*/
+	/*	Custom menu
+	/*-------------------------------------------*/
+	register_nav_menus( array( 'Header' => 'Header Navigation', ) );
+	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
+	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
+
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
+add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
 /*-------------------------------------------*/
 /*	Set content width
@@ -94,13 +110,6 @@ function biz_vektor_theme_setup() {
 /*-------------------------------------------*/
 if ( ! isset( $content_width ) )
 	$content_width = 640;
-
-/*-------------------------------------------*/
-/*	Custom menu
-/*-------------------------------------------*/
-register_nav_menus( array( 'Header' => 'Header Navigation', ) );
-register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
-register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
 /*-------------------------------------------*/
 /*	Custom header
@@ -141,48 +150,29 @@ register_default_headers( array(
 		'description' => 'Johnny'
 	),
 ) );
-add_theme_support( 'custom-header' );
-if ( ! function_exists( 'admin_header_style' ) ) :
-function admin_header_style() { }
-endif;
-
-
-
-/*-------------------------------------------*/
-/*	Custom background
-/*-------------------------------------------*/
-
-function biz_vektor_setup(){
-	add_theme_support( 'custom-background', array(
-		'default-color' => '#ffffff',
-	) );
-}
-add_action( 'after_setup_theme', 'biz_vektor_setup' );
-
 
 /*-------------------------------------------*/
 /*	Load theme options
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
-	require( dirname( __FILE__ ) . '/inc/theme-options-init.php' );
+	require( get_template_directory() . '/inc/theme-options.php' );
 
 
 /*-------------------------------------------*/
 /*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-ad-options.php' );	
+	require( get_template_directory() . '/inc/theme-ad-options.php' );	
 
 /*-------------------------------------------*/
-/*	Load Setting of Default / Calmly
+/*	Load Setting of Default / Calmly /rebuild
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/design_skins/001/001_custom.php' );
-	require( dirname( __FILE__ ) . '/design_skins/002/002_custom.php' );
-	require( dirname( __FILE__ ) . '/design_skins/003/003_custom.php' );
+	require( get_template_directory() . '/design_skins/001/001_custom.php' );
+	require( get_template_directory() . '/design_skins/002/002_custom.php' );
+	require( get_template_directory() . '/design_skins/003/003_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
+	require( get_template_directory() . '/inc/theme-customizer.php' );
 
 
 /*-------------------------------------------*/
@@ -229,12 +219,6 @@ function hide_welcome_panel() {
 	update_user_meta( $user_id, 'show_welcome_panel', 0 );
 }
 add_action( 'load-index.php', 'hide_welcome_panel' );
-
-/*-------------------------------------------*/
-/*	Admin page _ Eye catch
-/*-------------------------------------------*/
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 200, true );
 
 /*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
@@ -348,11 +332,32 @@ function getHeadDescription() {
 /*-------------------------------------------*/
 /*	head_wp_head clean and add items
 /*-------------------------------------------*/
+function biz_vektor_slug_fonts_url(){
+	$font_families = array();
+	$options = biz_vektor_get_theme_options();
+	if(isset($options['enable_google_font']) && $options['enable_google_font'] == 'true'){
+		$font_families[] = 'Droid Sans:700';
+		$font_families[] = 'Lato:900';
+		$font_families[] = 'Anton';
+	}
+	$query_args = array(
+		'family' => urlencode( implode( '|', $font_families ) ),
+	);
+
+	$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
+	return $fonts_url;
+}
+
+add_action('wp_enqueue_scripts','biz_vektor_comment_reply');
+function biz_vektor_comment_reply(){
+	if ( is_singular() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+}
 
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
-	wp_enqueue_style('Biz_Vektor_add_web_fonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), false, 'all');
+	wp_enqueue_style( 'bizvektoraddwebfonts', biz_vektor_slug_fonts_url(), array(), null);
 }
 
 // Add BizVektor option css
@@ -381,8 +386,8 @@ if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 /*-------------------------------------------*/
 /*	footer_wp_footer clean and add items
 /*-------------------------------------------*/
-add_action('wp_head','bizVektorAddJsScripts');
-function bizVektorAddJsScripts(){
+add_action('wp_head','biz_vektor_addJScripts');
+function biz_vektor_addJScripts(){
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
@@ -454,10 +459,10 @@ class description_walker extends Walker_Nav_Menu {
 /*-------------------------------------------*/
 /*	Excerpt _ change ... 
 /*-------------------------------------------*/
-function change_excerpt_more($post) {
+function biz_vektor_change_excerpt_more($post) {
 	return ' ...';
 }
-add_filter('excerpt_more', 'change_excerpt_more');
+add_filter('excerpt_more', 'biz_vektor_change_excerpt_more');
 
 
 /*-------------------------------------------*/
@@ -471,21 +476,21 @@ add_filter('get_archives_link', 'my_archives_link');
 /*-------------------------------------------*/
 /*	Category list 'count insert to inner </a>
 /*-------------------------------------------*/
-function my_list_categories( $output, $args ) {
+function biz_vektor_add_my_list_categories( $output, $args ) {
 	$output = preg_replace('/<\/a>\s*\((\d+)\)/',' ($1)</a>',$output);
 	return $output;
 }
-add_filter( 'wp_list_categories', 'my_list_categories', 10, 2 );
+add_filter( 'wp_list_categories', 'biz_vektor_add_my_list_categories', 10, 2 );
 
 
 /*-------------------------------------------*/
 /*	Block to delete iframe tag from TinyMCE
 /*-------------------------------------------*/
-function add_iframe($initArray) {
+function biz_vektor_add_iframe($initArray) {
 $initArray['extended_valid_elements'] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]";
 return $initArray;
 }
-add_filter('tiny_mce_before_init', 'add_iframe');
+add_filter('tiny_mce_before_init', 'biz_vektor_add_iframe');
 
 /*-------------------------------------------*/
 /*	Comment
@@ -610,18 +615,6 @@ function pagination($max_num_pages = '', $range = 1) {
 		echo "</div>\n";
 	 }
 }
-
-/*-------------------------------------------*/
-/*	Comment out short code
-/*-------------------------------------------*/
-/*
-If there is a place that you want to hide temporarily in the text field,
-[ignore] When enclosing [/ ignore], can be commented out the relevant sections in the html mode.
-*/
-function ignore_shortcode( $atts, $content = null ) {
-	return null;
-}
-add_shortcode('ignore', 'ignore_shortcode');
 
 /*-------------------------------------------*/
 /*	Page _ Child page lists

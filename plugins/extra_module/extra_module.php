@@ -50,3 +50,15 @@ function biz_vektor_exmodule_remove_customizer_section(){
 
 
 require( 'adminBarCustom.php' );
+
+/*-------------------------------------------*/
+/*	Comment out short code
+/*-------------------------------------------*/
+/*
+If there is a place that you want to hide temporarily in the text field,
+[ignore] When enclosing [/ ignore], can be commented out the relevant sections in the html mode.
+*/
+function ignore_shortcode( $atts, $content = null ) {
+	return null;
+}
+add_shortcode('ignore', 'ignore_shortcode');
