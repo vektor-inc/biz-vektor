@@ -447,6 +447,12 @@ msgctxt "BizVektor admin header menu"
 msgid "%1$s & %2$s settings"
 msgstr "%1$s と %2$s の設定"
 
+#: module_adminBarCustom.php:115
+#, php-format
+msgctxt "BizVektor admin header menu"
+msgid "Posts setting"
+msgstr "投稿の設定"
+
 #: module_adminBarCustom.php:122
 msgctxt "BizVektor admin header menu"
 msgid "SEO & GA"
