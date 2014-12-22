@@ -204,7 +204,8 @@ register_default_headers( array(
 /*-------------------------------------------*/
 /*	Load theme options
 /*-------------------------------------------*/
-	require( get_template_directory() . '/inc/theme-options.php' );
+	require( get_template_directory() . '/inc/theme-options-core.php' );
+	require( get_template_directory() . '/inc/theme-options-includes.php' );
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly /rebuild

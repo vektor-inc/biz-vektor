@@ -398,12 +398,14 @@ function biz_vektor_sns_default_option($original_options){
 	return array_merge($original_options, $options);
 }
 
-add_action('biz_vektor_options_nav_tab', 'biz_vektor_sns_options_nav', 10);
+add_action('biz_vektor_options_nav_tab', 'biz_vektor_sns_options_nav', 19);
 function biz_vektor_sns_options_nav(){?>
     <li id="btn_snsSetting"><a href="#snsSetting"><?php echo _x( 'SNS', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
 <?php }
 
-add_action('biz_vektor_extra_module_config', 'biz_vektor_sns_config');
+add_action('biz_vektor_extra_module_config', 'biz_vektor_sns_config', 19);
+
+
 function biz_vektor_sns_config(){
 $options = biz_vektor_get_theme_options();
 $biz_vektor_name = get_biz_vektor_name();
@@ -412,7 +414,7 @@ $biz_vektor_name = get_biz_vektor_name();
 /*-------------------------------------------*/
 ?>
 <div id="snsSetting" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
+<?php get_template_part('inc/views/nav'); ?>
 <h3><?php _e('Social media', 'biz-vektor'); ?></h3>
 <?php _e('If you are unsure, you can leave for later.', 'biz-vektor'); ?>
 <table class="form-table">

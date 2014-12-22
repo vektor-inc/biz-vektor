@@ -81,7 +81,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 /*-------------------------------------------*/
 ?>
 <div id="design" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
+<?php get_template_part('inc/views/nav'); ?>
 <h3><?php _ex('Design settings', 'biz-vektor theme-options-edit', 'biz-vektor'); ?>
 	<span class="message_box">
 		<?php printf(__('You can change settings for this section also from %s', 'biz-vektor'), $customizer_link ); ?>
@@ -282,7 +282,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 /*-------------------------------------------*/
 ?>
 <div id="contactInfo" class="sectionBox">
-	<?php get_template_part('inc/theme-options-nav'); ?>
+	<?php get_template_part('inc/views/nav'); ?>
 	<h3><?php _ex('Contact settings', 'biz-vektor theme-customizer', 'biz-vektor') ;?>
 		<span class="message_box">
 			<?php printf(__('You can change settings for this section also from %s', 'biz-vektor'), $customizer_link ); ?>
@@ -350,7 +350,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 /*-------------------------------------------*/
 ?>
 <div id="prBox" class="sectionBox">
-	<?php get_template_part('inc/theme-options-nav'); ?>
+	<?php get_template_part('inc/views/nav'); ?>
 	<h3><?php _e('3PR area settings', 'biz-vektor') ;?>
 		<span class="message_box">
 			<?php printf(__('You can change settings for this section also from %s', 'biz-vektor'), $customizer_link ); ?>
@@ -411,7 +411,7 @@ $i++;
 /*-------------------------------------------*/
 ?>
 <div id="postSetting" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
+<?php get_template_part('inc/views/nav'); ?>
 <h3><?php echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor'); ?></h3>
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
 <?php _e('* If the excerpt field is not empty, the content will appear in the &quot;excerpt&quot;. Otherwise, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
@@ -515,198 +515,6 @@ $i++;
 
 </div>
 <!-- [ /#postSetting ] -->
-
-<?php
-/*-------------------------------------------*/
-/*	SEO and Google Analytics Setting
-/*-------------------------------------------*/
-?>
-<div id="seoSetting" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('SEO and Google Analytics Settings', 'biz-vektor'); ?></h3>
-<table class="form-table">
-<tr>
-<th><?php _e('&lt;title&gt; tag of homepage', 'biz-vektor'); ?></th>
-<td>
-<p>
-<?php
-$sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_blank">'.__('title of the site', 'biz-vektor').'</a>';
-printf( __( 'Normally, %1$s will include the %2$s in the title tag.', 'biz-vektor' ), $biz_vektor_name, $sitetitle_link );?><br />
-<?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if using a static page.', 'biz-vektor'); ?>
-<?php
-printf( __('However, it might have negative impact on search engine rankings if the &lt;title&gt; is too long, <strong>therefore please include the most popular keywords in a summarized manner, keeping the %s as short as possible.</strong>', 'biz-vektor'),$sitetitle_link) ; ?>
-<?php _e('However, in the home page, as described above, other title will not be added, it is possible to make the &lt;title&gt; little longer, which can be set separately here.', 'biz-vektor'); ?></p>
-<input type="text" name="biz_vektor_theme_options[topTitle]" id="topTitle" value="<?php echo esc_attr( $options['topTitle'] ); ?>" style="width:90%;" />
-<p>* <?php _e('Site title will be used if this field is blank.', 'biz-vektor'); ?></p>
-</td>
-</tr>
-<tr>
-<th><?php _e('Common keywords', 'biz-vektor'); ?></th>
-<td><?php _e('For the keywords meta tag, please enter the keywords to be used throughout the site, comma separated.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[commonKeyWords]" id="commonKeyWords" value="<?php echo esc_attr( $options['commonKeyWords'] ); ?>" style="width:90%;" /><br />
-<?php _e('* You do not have to take keywords very seriously, because it does not affect the search engine rankings anymore.', 'biz-vektor'); ?><br />
-<?php _e('* The keywords for each particular page are entered from that page\'s edit screen. About up to 10 keywords in conjunction with the number of common keywords is desirable.', 'biz-vektor'); ?><br />
-<?php _e('* Not required , at the end of the last keyword.', 'biz-vektor'); ?><br />
-<?php _e('ex) WordPress,Template,Theme,Free,GPL', 'biz-vektor'); ?>
-</td>
-</tr>
-<tr>
-<th><?php _ex('Description', 'Description settings', 'biz-vektor'); ?></th>
-<td>
-<?php _e("Content from the particular page's \"excerpt\" field will be reflected in the description meta tag.", 'biz-vektor'); ?><br />
-<?php _e('In the Google and other search engine results pages (SERPs), part of the meta tag description appears under the site title.', 'biz-vektor'); ?><br />
-<?php _e('If the excerpt field is blank, the first 240 characters from the page\'s content are used.', 'biz-vektor'); ?><br />
-<?php _e("Description of the site will be applied to the meta description of the top page.However, the content will be reflected if the excerpt is fill in the page that is set on the home.", 'biz-vektor'); ?><br />
-<?php _e("* If the excerpt field is not visible, in the tab called \"View\" in the upper right corner of the edit page, please check the box to display the \"excerpt\" field.", 'biz-vektor'); ?><br />
-</td>
-</tr>
-<!-- Google Analytics -->
-<tr>
-<th><?php _e('Google Analytics Settings', 'biz-vektor'); ?></th>
-<td><?php _e('Please fill in the Google Analytics ID from the Analytics embed code used in the site.', 'biz-vektor'); ?><br />
-<p>UA-<input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
-<?php _e('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
-
-	<dl>
-	<dt><?php _e('Please select the type of Analytics code . (If you are unsure you can skip this.)', 'biz-vektor'); ?></dt>
-	<dd>
-	<?php
-		if(!isset($options['gaType'])){ $options['gaType'] = 'gaType_normal'; }
-	?>
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_normal" <?php echo ($options['gaType'] != 'gaType_universal' && $options['gaType'] != 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output only normal code (default)', 'biz-vektor'); ?></label><br />
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_universal" <?php echo ($options['gaType'] == 'gaType_universal')? 'checked' : ''; ?> > <?php _e('To output the Universal Analytics code', 'biz-vektor'); ?></label><br />
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_both" <?php echo ($options['gaType'] == 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output both types', 'biz-vektor'); ?></label>
-	</dd>
-	</dl>
-</td>
-</tr>
-</table>
-<?php submit_button(); ?>
-</div>
-<!-- [ /#seoSetting ] -->
-
-<?php
-/*-------------------------------------------*/
-/*	Toppage setting
-/*-------------------------------------------*/
-?>
-<div id="topPage" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('Home page settings', 'biz-vektor') ;?></h3>
-<table class="form-table">
-<tr>
-<th><?php _e('Main visual', 'biz-vektor') ;?></th>
-<td><?php _e('You can use a slide show or a still image.', 'biz-vektor') ;?>
-<ul>
-<li>[ <a href="<?php echo get_admin_url(); ?>themes.php?page=custom-header" target="_blank">
-	&raquo; <?php _e('Still image settings', 'biz-vektor') ;?></a> ]</li>
-<li>[ <a href="#slideSetting">
-	&raquo; <?php _e('Slide show settings', 'biz-vektor') ;?></a> ]</li>
-</ul></td>
-</tr>
-<!-- Page to be displayed below the main visual -->
-<tr>
-<th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<td>
-<ol>
-<li>
-<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?><br />
-[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; <?php _e( 'Pages', 'biz-vektor' ); ?></a> ]<br />
-<?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
-</li>
-<li><?php _e( 'Then you can choose the page to use under the Settings > Reading Settings page', 'biz-vektor' ); ?><br />
-[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; <?php _e( 'Reading Settings', 'biz-vektor' ); ?></a> ]<br />
-<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?></p>
-</li>
-<li><?php printf( __( 'Items to be displayed in the top page and their display order can be modified in the <a href="%1$s" target="_blank">%2$s</a>', 'biz-vektor' ), admin_url() . 'widgets.php', __( 'Widgets edition page', 'biz-vektor' ) ); ?>
-<?php printf( __( 'Please set the widget called Main content(Homepage) under the <a href="%1$s" target="_blank">%2$s</a>', 'biz-vektor' ), admin_url() . 'widgets.php', __( 'Widgets edition page', 'biz-vektor' ) ); ?>
-</li>
-</ol>
-</td>
-</td>
-</tr>
-<!-- Home 3PR area -->
-<tr>
-<th><?php _e('Home 3PR area', 'biz-vektor'); ?></th>
-<td>
-<ul>
-<li>[ <a href="#prBox">&raquo; <?php _e('Settings for the Home page 3PR area are here', 'biz-vektor'); ?></a> ]</li>
-</ul></td>
-</tr>
-<!-- Home page side bar hidden -->
-<tr>
-<th><?php _e('The display of the home page side bar.', 'biz-vektor'); ?></th>
-<td><p>
-	<?php _e('Check this box if you do not want to display the side bar on the home page.', 'biz-vektor'); ?></p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topSideBarDisplay]" id="topSideBarDisplay" value="true" <?php if ($options['topSideBarDisplay']) {?> checked<?php } ?>> <?php _e('I want to hide the sidebar', 'biz-vektor'); ?></p></td>
-</tr>
-<!-- Display number of Blog -->
-<tr>
-	<th><?php
-	$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-	printf(__('Display a number of %s posts', 'biz-vektor'), $postLabelName ); ?></th>
-	<td><a href="#postSetting">
-		<?php
-		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
-		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Please set from the [ Setting the %s and %s ] section.', 'biz-vektor'),$infoLabelName,$postLabelName);
-		?>
-		</a>
-	</td>
-</tr>
-</table>
-
-<?php submit_button(); ?>
-</div>
-
-<?php
-/*-------------------------------------------*/
-/*	Slideshow Settings
-/*-------------------------------------------*/
-?>
-<div id="slideSetting" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('Slideshow Settings', 'biz-vektor'); ?></h3>
-<p><?php _e('Please enter the URL of the image to be used in the slideshow.', 'biz-vektor'); ?><br />
-<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
-<?php
-$topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Home page Main visual', 'biz-vektor').'</a>';
-printf(__('%s will be displayed if the slideshow is not set.', 'biz-vektor'),$topVisualLink); ?><br />
-<?php _e('It can be only the URL of an image. However, the link is set for the image if you enter a link URL.', 'biz-vektor'); ?><br />
-<?php _e('Please type in the alternate text for the image.', 'biz-vektor'); ?>
-<?php _e('When filled in, will be more likely to match the search.', 'biz-vektor'); ?>
-<?php _e('Moreover, for visually impaired visitors using a text-to-speech device, it reads out the text.', 'biz-vektor'); ?>
-</p>
-<table class="form-table">
-<?php
-for ( $i = 1; $i <= 5 ;){
-$slideLink = 'slide'.$i.'link';
-$slideImage = 'slide'.$i.'image';
-$slideAlt = 'slide'.$i.'alt';
-$slideDisplay = 'slide'.$i.'display';
-$slideBlank = 'slide'.$i.'blank'; ?>
-<tr>
-<td><?php _e('Link URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
-	<input type="text" name="biz_vektor_theme_options[<?php echo $slideLink ?>]" id="<?php echo $slideLink ?>" value="<?php echo esc_attr( $options[$slideLink] ) ?>" /></td>
-<td><?php _e('Image URL', 'biz-vektor'); ?> [<?php echo $i ?>]<br />
-	<input type="text" name="biz_vektor_theme_options[<?php echo $slideImage ?>]" id="<?php echo $slideImage ?>" value="<?php echo esc_attr( $options[$slideImage] ) ?>" /> <button id="media_<?php echo $slideImage ?>" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button>
-</td>
-<td><?php _e('Alternate text', 'biz-vektor'); ?> (alt) [<?php echo $i ?>]<br />
-	<input type="text" name="biz_vektor_theme_options[<?php echo $slideAlt ?>]" id="<?php echo $slideAlt ?>" value="<?php echo esc_attr( $options[$slideAlt] ) ?>" /></td>
-<td>
-<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideDisplay ?>]" id="<?php echo $slideDisplay ?>" value="true" <?php if ($options[$slideDisplay]) :echo ' checked';endif; ?>> <?php _ex('Do not display', 'Slide not displayed', 'biz-vektor'); ?></label><br />
-<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideBlank ?>]" id="<?php echo $slideBlank ?>" value="true" <?php if ($options[$slideBlank]) :echo ' checked';endif; ?>> <?php _e('Open in a blank window', 'biz-vektor'); ?></label>
-</td>
-</tr>
-<?php
-	$i++;
-} ?>
-
-</table>
-<p><?php _e('* The slideshow can be set to up to 5 images, but when accessing the site using a slow internet connection, because of the time it takes to display all images, the visitor might leave the page early onwhich might have a negative effect. Therefore using three or less images is recommended.', 'biz-vektor'); ?>
-	</p>
-<?php submit_button(); ?>
-</div>
 
 <?php do_action('biz_vektor_extra_module_config'); ?>
 

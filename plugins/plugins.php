@@ -8,7 +8,8 @@ Biz_Vektor_plugin_controller::$enable_packages = array(
 		'dashboard_info_widget',
 		'extra_module',
 		'widgets',
-		'theme-ad-options'
+		'theme-ad-options',
+		'seo',
 	);
 
 

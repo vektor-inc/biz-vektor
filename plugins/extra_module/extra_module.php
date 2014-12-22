@@ -6,6 +6,10 @@
  * @version 1.6.0
  */
 
+
+require( 'adminBarCustom.php' );
+require( 'google_analytics.php' );
+
 /*-------------------------------------------*/
 /*	Admin page _ page _ customize
 /*-------------------------------------------*/
@@ -56,7 +60,6 @@ function biz_vektor_exmodule_remove_customizer_section(){
 	$wp_customize->remove_section( 'nav' );
 }
 
-require( 'adminBarCustom.php' );
 
 /*-------------------------------------------*/
 /*	Comment out short code
