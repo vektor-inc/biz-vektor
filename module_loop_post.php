@@ -1,4 +1,11 @@
 <?php
+/**
+ * BizVektor module_loop_post.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
 $postType = get_post_type();
 if ($postType == 'post') {
 	$taxonomySlug = 'category';

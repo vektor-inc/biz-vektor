@@ -1,4 +1,10 @@
 <?php
+/**
+ * BizVektor widgets.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
 
 /*-------------------------------------------*/
 /*	Widget area setting

@@ -1,4 +1,11 @@
 <?php
+/**
+ * BizVektor extra_module.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
 /*-------------------------------------------*/
 /*	Admin page _ page _ customize
 /*-------------------------------------------*/

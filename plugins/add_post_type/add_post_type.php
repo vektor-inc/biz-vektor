@@ -1,4 +1,10 @@
 <?php
+/**
+ * BizVektor add_post_type.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
 
 /*-------------------------------------------*/
 /*	Custom post type _ add info

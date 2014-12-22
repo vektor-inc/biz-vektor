@@ -1,7 +1,11 @@
 <?php
-/*-------------------------------------------*/
-/*	Post
-/*-------------------------------------------*/
+/**
+ * BizVektor module_top_list_post.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
 global $biz_vektor_options;
 $postTopCount = $biz_vektor_options['postTopCount'];
 if ($postTopCount != '0' ) :
