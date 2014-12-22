@@ -11,7 +11,7 @@
 /*-------------------------------------------*/
 add_post_type_support( 'page', 'excerpt' ); // add excerpt
 
-function remove_default_page_screen_metaboxes() {
+function biz_vektor_ex_remove_default_page_screen_metaboxes() {
 //	remove_meta_box( 'postcustom','page','normal' );		// cutom field
 //	remove_meta_box( 'postexcerpt','page','normal' );		// excerpt
 	remove_meta_box( 'commentstatusdiv','page','normal' );	// discussion
@@ -21,12 +21,12 @@ function remove_default_page_screen_metaboxes() {
 //	remove_meta_box( 'slugdiv','page','normal' );			// slug
 //	remove_meta_box( 'revisionsdiv','page','normal' );		// revision
  }
-add_action('admin_menu','remove_default_page_screen_metaboxes');
+add_action('admin_menu','biz_vektor_ex_remove_default_page_screen_metaboxes');
 
 /*-------------------------------------------*/
 /*	Admin page _ post _ customize
 /*-------------------------------------------*/
-function remove_default_post_screen_metaboxes() {
+function biz_vektor_ex_remove_default_post_screen_metaboxes() {
 //	remove_meta_box( 'postcustom','post','normal' );			// cutom field
 //	remove_meta_box( 'postexcerpt','post','normal' );			// excerpt
 //	remove_meta_box( 'commentstatusdiv','post','normal' );		// comment
@@ -34,7 +34,7 @@ function remove_default_post_screen_metaboxes() {
 //	remove_meta_box( 'slugdiv','post','normal' );				// slug
 //	remove_meta_box( 'authordiv','post','normal' );				// author
  }
- add_action('admin_menu','remove_default_post_screen_metaboxes');
+ add_action('admin_menu','biz_vektor_ex_remove_default_post_screen_metaboxes');
 
 //	Remove WordPress information
 remove_action('wp_head', 'wp_generator');
@@ -50,11 +50,11 @@ remove_filter('the_excerpt', 'wpautop');
 
 add_action('customize_register', 'biz_vektor_exmodule_remove_customizer_section', 5);
 function biz_vektor_exmodule_remove_customizer_section(){
+	global $wp_customize;
 	// remove section
 	$wp_customize->remove_section( 'static_front_page' );	// front page
 	$wp_customize->remove_section( 'nav' );
 }
-
 
 require( 'adminBarCustom.php' );
 

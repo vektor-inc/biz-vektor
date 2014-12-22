@@ -74,8 +74,6 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*	Aceept favicon upload
 /*-------------------------------------------*/
 
-get_template_part('functions_widgets');
-
 get_template_part('plugins/plugins');
 
 function biz_vektor_theme_setup() {
@@ -208,12 +206,6 @@ register_default_headers( array(
 /*-------------------------------------------*/
 	require( get_template_directory() . '/inc/theme-options.php' );
 
-
-/*-------------------------------------------*/
-/*	Load Advanced Settings (advanced theme options)
-/*-------------------------------------------*/
-	require( get_template_directory() . '/inc/theme-ad-options.php' );	
-
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly /rebuild
 /*-------------------------------------------*/
@@ -230,13 +222,16 @@ register_default_headers( array(
 /*-------------------------------------------*/
 /*	Admin page _ Add style
 /*-------------------------------------------*/
-function bizVektor_admin_css(){
-	// enqueue の場合あとで読み込まれてしまうため
-	echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/css/style_bizvektor_admin.css" />';
-	// $adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
-	// wp_enqueue_style( 'theme', $adminCssPath , false, '2014-08-20');
+function biz_vektor_admin_css(){
+	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
+	wp_enqueue_style( 'bizVektor_admin', $adminCssPath , false, '2014-04-29');
 }
-add_action('admin_head', 'bizVektor_admin_css', 11);
+add_action('admin_enqueue_scripts', 'biz_vektor_admin_css', 1);
+
+function biz_vektor_wp_css(){
+	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.6.0');
+}
+add_action('wp_enqueue_scripts', 'biz_vektor_wp_css', 1);
 
 /*-------------------------------------------*/
 /*	Admin page _ Add post status to body class
