@@ -110,7 +110,7 @@ function getHeadTitle() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_page('home') || is_front_page()) {
-		if ($options['topTitle'])	{
+		if (isset($options['topTitle']) && $options['topTitle'])	{
 			$headTitle = $options['topTitle'];
 		} else {
 			$headTitle = get_bloginfo('name');
@@ -353,15 +353,6 @@ function biz_vektor_theme_style_oldie() {
 		// set default style
 		$theme_style = 'rebuild';
 	}
-	
-	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
-
-	if ($themePathOldIe){
-		print '<!--[if lte IE 8]>'."\n";
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
-		print '<![endif]-->'."\n";
-	}
-
 }
 
 /*-------------------------------------------*/
@@ -394,28 +385,27 @@ function biz_vektor_gMenuDivide() {
 			);
 		$menuWidthActive = $menuWidth[$options['gMenuDivide']][0];
 		$menuWidthNonActive = $menuWidth[$options['gMenuDivide']][1];
-?>
-<style type="text/css">
+
+echo '<style type="text/css">
 /*-------------------------------------------*/
 /*	menu divide
 /*-------------------------------------------*/
 @media (min-width: 970px) {
-#gMenu .menu > li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
+#gMenu .menu > li { width:'.$menuWidthNonActive.'px; text-align:center; }
 #gMenu .menu > li.current_menu_item,
 #gMenu .menu > li.current-menu-ancestor,
 #gMenu .menu > li.current_page_item,
 #gMenu .menu > li.current_page_ancestor,
-#gMenu .menu > li.current-page-ancestor { width:<?php echo $menuWidthActive ?>px; }
+#gMenu .menu > li.current-page-ancestor { width:'.$menuWidthActive.'px; }
 }
 </style>
 <!--[if lte IE 8]>
 <style type="text/css">
-#gMenu .menu li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
+#gMenu .menu li { width:'.$menuWidthNonActive.'px; text-align:center; }
 #gMenu .menu li.current_page_item,
-#gMenu .menu li.current_page_ancestor { width:<?php echo $menuWidthActive ?>px; }
+#gMenu .menu li.current_page_ancestor { width:'.$menuWidthActive.'px; }
 </style>
-<![endif]-->
-<?php
+<![endif]-->'."\n";
 	}
 }
 
@@ -466,7 +456,7 @@ function biz_vektor_print_headContact() {
 /*-------------------------------------------*/
 /*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
-function biz_vektor_blogList($option = array('url'=>null,'label'=>null))	{
+function biz_vektor_blogList($option = array('url'=>null,'label'=>null)){
 	if ($option['url']){ $blogRss = $option['url']; }
 	else{
 		$options = biz_vektor_get_theme_options();
@@ -548,25 +538,6 @@ function biz_vektor_mainfootContact() {
 		}
 	}
 }
-
-/*-------------------------------------------*/
-/*	Create keywords
-/*-------------------------------------------*/
-function biz_vektor_getHeadKeywords(){
-	$options = biz_vektor_get_theme_options();
-	$commonKeyWords = $options['commonKeyWords'];
-	// get custom field
-	$entryKeyWords = post_custom('metaKeyword');
-	// display common keywords
-	echo $commonKeyWords;
-	// If common and individual keywords exist, print ','.
-	if ($commonKeyWords && $entryKeyWords) {
-		echo ',';
-	}
-	// print individual keywords
-	echo $entryKeyWords;
-}
-
 
 
 /*-------------------------------------------*/
@@ -706,10 +677,9 @@ function admin_theme_options_plugins( $hook_suffix ) {
 /*	Change fonts
 /*-------------------------------------------*/
 
-if ( 'ja' == get_locale() ) {
-	add_action( 'wp_head','biz_vektor_fontStyle',170);
-}
+add_action( 'wp_head','biz_vektor_fontStyle',170);
 function biz_vektor_fontStyle(){
+	if ( 'ja' != get_locale() ) { return; }
 	$options = biz_vektor_get_theme_options();
 	$font_face_serif = _x('serif', 'Font select', 'biz-vektor');
 	$font_face_serif = apply_filters( 'font_face_serif_custom', $font_face_serif );
@@ -815,83 +785,6 @@ function get_biz_vektor_name() {
 }
 
 /*-------------------------------------------*/
-/*	Ad insert
-/*-------------------------------------------*/
-
-add_filter('the_content', 'biz_vektor_ad_contet_more');
-function biz_vektor_ad_contet_more($post_content) {
-	if (is_single() && get_post_type() == 'post') :
-	// moreタグとすぐ次の</p>まで取得
-	$moreTag = '/<span id="more-[0-9]+"><\/span>.*[\/a-z]+>/' ;
-	// 広告タグ
-	global $biz_vektor_options;
-	$adTags = apply_filters( 'widget_text', $biz_vektor_options['ad_content_moretag'] );
-
-	preg_match($moreTag, $post_content, $matches);
-	$match = (isset($matches[0]))? $matches[0] : '';
-	if($match){
-		// $matchしている（moreタグが存在する）場合
-		if(strpos($match, '</p>') !== false){
-			$post_content = preg_replace($moreTag, '</p>'.$adTags, $post_content);
-		} else {
-			$post_content = preg_replace($moreTag, '</p>'.$adTags.'<p>', $post_content);
-		}
-	}
-	if ($biz_vektor_options['ad_content_after']) 
-		$post_content = $post_content.'<div class="sectionBox">'.$biz_vektor_options['ad_content_after'].'</div>';
-	endif; // post
-	return $post_content;
-}
-
-/*-------------------------------------------*/
-/*	CSS and Google Web Fonts for Global Version
-/*-------------------------------------------*/
-
-function displays_global_css() {
-	Global $biz_vektor_options;
-	$font = $biz_vektor_options['global_font'];
-	
-	?>
-		<style type="text/css">
-	<?php
-
-	//Google Web Fonts import 
-	if ( isset( $font ) ) { ?>
-		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
-
-		body {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif;}
-	<?php } ?>
-
-		/*-------------------------------------------*/
-		/*	default global version style
-		/*-------------------------------------------*/
-		body { font-size: 1.05em; }
-				
-		.sideTower .localSection li ul li, 
-		#sideTower .localSection li ul li { font-size: 0.9em; }
-		</style>
-	<?php
-}
-if ( 'ja' != get_locale() ) {
-	add_action( 'wp_head','displays_global_css');	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*-------------------------------------------*/
 /*	Theme Option の初期設定
 /*-------------------------------------------*/
 function biz_vektor_theme_options_init() {
@@ -935,10 +828,6 @@ function biz_vektor_generate_default_options(){
 		'sub_sitename'         => '',
 		'contact_address'      => '',
 		'contact_link'         => '',
-		'topTitle'             => '',
-		'commonKeyWords'       => '',
-		'gaID'                 => '',
-		'gaType'               => 'gaType_normal',
 		'enableie8Warning'     => true,
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay'    => false,
@@ -1045,11 +934,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['ad_content_moretag']     = $input['ad_content_moretag'];
 	$output['ad_content_after']       = $input['ad_content_after'];
 	$output['ad_related_after']       = $input['ad_related_after'];
-	// SEO 
-	$output['topTitle']               = $input['topTitle'];
-	$output['commonKeyWords']         = $input['commonKeyWords'];
-	$output['gaID']                   = preg_replace('/^[ 　]*(.*)$/', "$1", $input['gaID']);
-	$output['gaType']                 = $input['gaType'];
 	// TopPage
 	$output['topSideBarDisplay']      = (isset($input['topSideBarDisplay']) && $input['topSideBarDisplay'] == 'true')? true : false;
 	// SlideShow

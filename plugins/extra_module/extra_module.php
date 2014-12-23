@@ -8,7 +8,6 @@
 
 
 require( 'adminBarCustom.php' );
-require( 'google_analytics.php' );
 
 /*-------------------------------------------*/
 /*	Admin page _ page _ customize
@@ -72,3 +71,83 @@ function ignore_shortcode( $atts, $content = null ) {
 	return null;
 }
 add_shortcode('ignore', 'ignore_shortcode');
+
+
+add_action('wp_head', 'biz_vektor_exmodule_anti_ie8');
+function biz_vektor_exmodule_anti_ie8(){
+	global $biz_vektor_theme_styles;
+
+	$options     = biz_vektor_get_theme_options();
+	$theme_style = $options['theme_style'];
+
+	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
+
+	if ($themePathOldIe){
+		print '<!--[if lte IE 8]>'."\n";
+		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
+		print '<![endif]-->'."\n";
+	}
+}
+
+
+/*-------------------------------------------*/
+/*	Ad insert
+/*-------------------------------------------*/
+
+add_filter('the_content', 'biz_vektor_ad_contet_more');
+function biz_vektor_ad_contet_more($post_content) {
+	if (is_single() && get_post_type() == 'post') :
+	// moreタグとすぐ次の</p>まで取得
+	$moreTag = '/<span id="more-[0-9]+"><\/span>.*[\/a-z]+>/' ;
+	// 広告タグ
+	global $biz_vektor_options;
+	$adTags = apply_filters( 'widget_text', $biz_vektor_options['ad_content_moretag'] );
+
+	preg_match($moreTag, $post_content, $matches);
+	$match = (isset($matches[0]))? $matches[0] : '';
+	if($match){
+		// $matchしている（moreタグが存在する）場合
+		if(strpos($match, '</p>') !== false){
+			$post_content = preg_replace($moreTag, '</p>'.$adTags, $post_content);
+		} else {
+			$post_content = preg_replace($moreTag, '</p>'.$adTags.'<p>', $post_content);
+		}
+	}
+	if ($biz_vektor_options['ad_content_after']) 
+		$post_content = $post_content.'<div class="sectionBox">'.$biz_vektor_options['ad_content_after'].'</div>';
+	endif; // post
+	return $post_content;
+}
+
+/*-------------------------------------------*/
+/*	CSS and Google Web Fonts for Global Version
+/*-------------------------------------------*/
+
+function displays_global_css() {
+	Global $biz_vektor_options;
+	$font = $biz_vektor_options['global_font'];
+	
+	?>
+		<style type="text/css">
+	<?php
+
+	//Google Web Fonts import 
+	if ( isset( $font ) ) { ?>
+		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
+
+		body {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif;}
+	<?php } ?>
+
+		/*-------------------------------------------*/
+		/*	default global version style
+		/*-------------------------------------------*/
+		body { font-size: 1.05em; }
+				
+		.sideTower .localSection li ul li, 
+		#sideTower .localSection li ul li { font-size: 0.9em; }
+		</style>
+	<?php
+}
+if ( 'ja' != get_locale() ) {
+	add_action( 'wp_head','displays_global_css');	
+}
