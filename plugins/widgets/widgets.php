@@ -605,11 +605,3 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_bizvektor_post_list");'));
 
-function biz_vektor_get_short_name(){
-	$lab = get_biz_vektor_name();
-	if($lab == 'BizVektor'){
-		$lab = 'BV';
-	}
-
-	return $lab;
-}

@@ -1022,3 +1022,12 @@ function biz_bektor_option_validate(){
 	return $option;
 }
 
+
+function biz_vektor_get_short_name(){
+	$lab = get_biz_vektor_name();
+	if($lab == 'BizVektor'){
+		$lab = 'BV';
+	}
+
+	return $lab;
+}
