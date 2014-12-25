@@ -208,7 +208,7 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 add_filter('biz_vektor_extra_posttype_config', 'biz_vektor_info_config', 5);
 function biz_vektor_info_config(){
 	
-	$options = biz_vektor_get_theme_options();
+	$options = biz_bektor_option_validate();
 	$biz_vektor_name = get_biz_vektor_name();
 	$infoLabelName = esc_html( $options['infoLabelName'] );
 ?>

@@ -140,7 +140,7 @@ function biz_vektor_seo_validate($output, $input){
 
 add_action('wp_head', 'biz_vektor_seo_set_HeadKeywords', 1);
 function biz_vektor_seo_set_HeadKeywords(){
-	$options = biz_vektor_get_theme_options();
+	$options = biz_bektor_option_validate();
 	$commonKeyWords = $options['commonKeyWords'];
 	// get custom field
 	$entryKeyWords = post_custom('metaKeyword');

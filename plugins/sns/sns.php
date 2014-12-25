@@ -400,8 +400,10 @@ function biz_vektor_sns_options_nav(){?>
 
 add_action('biz_vektor_extra_module_config', 'biz_vektor_sns_config');
 function biz_vektor_sns_config(){
-$options = biz_vektor_get_theme_options();
+
+$options = biz_bektor_option_validate();
 $biz_vektor_name = get_biz_vektor_name();
+
 /*-------------------------------------------*/
 /*	SNS
 /*-------------------------------------------*/

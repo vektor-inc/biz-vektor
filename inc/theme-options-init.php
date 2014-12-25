@@ -255,19 +255,20 @@ function bizVektorOptions($optionLabel) {
 /*	@return array(options)
 /*-------------------------------------------*/
 function biz_bektor_option_validate(){
-	$option = get_option('biz_vektor_theme_options');
+
+	$options = get_option('biz_vektor_theme_options');
 	$default = biz_vektor_generate_default_options();
 
-	if($option && is_array($option)){
-		$keys = array_keys($option);
+	if($options && is_array($options)){
+		$keys = array_keys($default);
 		foreach($keys as $key){
-			if( !isset($option[$key]) && $key != 'version'){
-				$option[$key] = $default[$key];
+			if( !isset($options[$key]) && $key != 'version'){
+				$options[$key] = $default[$key];
 			}
 		}
 	}
 	else {
-		$option = $default;
+		$options = $default;
 	}
-	return $option;
+	return $options;
 }
