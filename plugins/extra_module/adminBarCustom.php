@@ -69,6 +69,18 @@ function bizvektor_adminbar_custom_menu() {
 					'href' => get_admin_url().'options-general.php',
 				));
 			}
+			$wp_admin_bar->add_menu( array(
+				'parent' => 'bizvektor_theme_setting',
+				'id' => 'Widget settings',
+				'title' => _x( 'Widget settings', 'BizVektor admin header menu', 'biz-vektor' ),
+				'href' => get_admin_url().'widgets.php',
+			));
+			$wp_admin_bar->add_menu( array(
+				'parent' => 'bizvektor_theme_setting',
+				'id' => 'Menu settings',
+				'title' => _x( 'Menu settings', 'BizVektor admin header menu', 'biz-vektor' ),
+				'href' => get_admin_url().'nav-menus.php',
+			));
 			// $wp_admin_bar->add_menu( array(
 			// 	'parent' => 'bizvektor_theme_setting',
 			// 	'id' => 'Homepage feature',
@@ -112,7 +124,7 @@ function bizvektor_adminbar_custom_menu() {
 				// 'parent' => 'Theme options',
 				'parent' => 'bizvektor_theme_setting',
 				'id' => 'post setting',
-				'title' => sprintf(_x('%1$s & %2$s settings', 'BizVektor admin header menu', 'biz-vektor'),bizVektorOptions('infoLabelName'),bizVektorOptions('postLabelName')),
+				'title' => sprintf(_x('Posts setting', 'BizVektor admin header menu', 'biz-vektor')),
 				'href' => get_admin_url().'themes.php?page=theme_options#postSetting',
 			));
 			$wp_admin_bar->add_menu( array(
@@ -132,38 +144,19 @@ function bizvektor_adminbar_custom_menu() {
 			$wp_admin_bar->add_menu( array(
 				// 'parent' => 'Theme options',
 				'parent' => 'bizvektor_theme_setting',
-				'id' => 'SNS',
-				'title' => _x( 'SNS settings', 'BizVektor admin header menu', 'biz-vektor' ),
-				'href' => get_admin_url().'themes.php?page=theme_options#snsSetting',
-			));
-			$wp_admin_bar->add_menu( array(
-				// 'parent' => 'Theme options',
-				'parent' => 'bizvektor_theme_setting',
 				'id' => 'Slide',
 				'title' => _x( 'Slideshow settings', 'BizVektor admin header menu', 'biz-vektor' ),
 				'href' => get_admin_url().'themes.php?page=theme_options#slideSetting',
 			));
-			$wp_admin_bar->add_menu( array(
-				'parent' => 'bizvektor_theme_setting',
-				'id' => 'Menu settings',
-				'title' => _x( 'Menu settings', 'BizVektor admin header menu', 'biz-vektor' ),
-				'href' => get_admin_url().'nav-menus.php',
-			));
-			$wp_admin_bar->add_menu( array(
-				'parent' => 'bizvektor_theme_setting',
-				'id' => 'Widget settings',
-				'title' => _x( 'Widget settings', 'BizVektor admin header menu', 'biz-vektor' ),
-				'href' => get_admin_url().'widgets.php',
-			));
+
+			do_action('biz_vektor_admin_bar_init');
+
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'bizvektor_theme_setting',
 				'id' => 'Background settings',
 				'title' => _x( 'Background settings', 'BizVektor admin header menu', 'biz-vektor' ),
 				'href' => get_admin_url().'themes.php?page=custom-background',
 			));
-
-			do_action('biz_vektor_admin_bar_init');
-			
 	} // lebel 10
 
 	// page
@@ -184,12 +177,6 @@ function bizvektor_adminbar_custom_menu() {
 			'id' => 'adminMenu_post_new',
 			'title' => _x( 'Pages - Add new', 'BizVektor admin header menu', 'biz-vektor' ),
 			'href' => get_admin_url().'post-new.php?post_type=page',
-		));
-		$wp_admin_bar->add_menu( array(
-			'parent' => 'page_adminMenu',
-			'id' => 'adminMenu_post_order',
-			'title' => _x( 'Change page order [My page order plugin]', 'BizVektor admin header menu', 'biz-vektor' ),
-			'href' => get_admin_url().'edit.php?post_type=page&page=mypageorder',
 		));
 	}
 

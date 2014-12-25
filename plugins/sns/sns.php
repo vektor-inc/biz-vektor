@@ -545,3 +545,16 @@ px</dd>
 </div>
 <?php
 }
+
+add_action('biz_vektor_admin_bar_init', 'biz_vektor_sns_admin_bar_init');
+function biz_vektor_sns_admin_bar_init(){
+	global $wp_admin_bar;
+	
+	$wp_admin_bar->add_menu( array(
+		// 'parent' => 'Theme options',
+		'parent' => 'bizvektor_theme_setting',
+		'id' => 'SNS',
+		'title' => _x( 'SNS settings', 'BizVektor admin header menu', 'biz-vektor' ),
+		'href' => get_admin_url().'themes.php?page=theme_options#snsSetting',
+	));
+}
