@@ -648,7 +648,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 
 </form>
 
-<?php if(true){ ?>
+<?php if(false){ ?>
 <?php $resetkey = rand(1000,9999); ?>
 <div class="option Advanced"><form action="" method="post">
 <?php settings_fields( 'biz_vektor_options' ); ?>

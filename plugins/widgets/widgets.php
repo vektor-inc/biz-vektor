@@ -1,4 +1,10 @@
 <?php
+/**
+ * BizVektor widgets.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
 
 /*-------------------------------------------*/
 /*	Widget area setting
@@ -28,16 +34,7 @@
 /*-------------------------------------------*/
 /*	Widget area setting
 /*-------------------------------------------*/
-function biz_vektor_widgets_init() {
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
-		'id' => 'top-side-widget-area',
-		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
+function biz_vektor_maincontent_widgetarea_init() {
 	register_sidebar( array(
 		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',
@@ -47,44 +44,18 @@ function biz_vektor_widgets_init() {
 		'before_title' => '',
 		'after_title' => '',
 	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
-		'id' => 'post-widget-area',
-		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
-		'id' => 'page-widget-area',
-		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
-		'id' => 'common-side-top-widget-area',
-		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
-		'id' => 'common-side-bottom-widget-area',
-		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
 }
-add_action( 'widgets_init', 'biz_vektor_widgets_init' );
+add_action( 'widgets_init', 'biz_vektor_maincontent_widgetarea_init' );
+
+add_filter('biz_vektor_extra_main_content', 'biz_vektor_widget_extra_content', 512, 1);
+function biz_vektor_widget_extra_content($flag){
+	if ( !$flag && is_active_sidebar( 'top-main-widget-area' ) ) {
+	 	dynamic_sidebar( 'top-main-widget-area' );
+		$flag = true;
+	}
+	return $flag;
+}
+
 
 /*-------------------------------------------*/
 /*	ChildPageList widget
@@ -186,11 +157,8 @@ class wp_widget_page extends WP_Widget {
 	}
 
 	function display_page($pageid,$titleflag=false) {
-		$page = get_post($pageid);
-		
-		echo '<div id="widget-page-'.$pageid.'" ';
-			post_class('sectionBox', $pageid);
-		echo '>';
+		$page = get_page($pageid);
+		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
 		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
 		if ( is_user_logged_in() == TRUE ) {
@@ -637,11 +605,3 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_bizvektor_post_list");'));
 
-function biz_vektor_get_short_name(){
-	$lab = get_biz_vektor_name();
-	if($lab == 'BizVektor'){
-		$lab = 'BV';
-	}
-
-	return $lab;
-}
