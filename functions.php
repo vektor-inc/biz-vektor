@@ -76,8 +76,6 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 
 get_template_part('functions_widgets');
 
-add_theme_support( 'automatic-feed-links' );
-
 get_template_part('plugins/sns/sns');
 
 get_template_part('plugins/seo/seo');
@@ -90,11 +88,30 @@ get_template_part('plugins/css_customize/css-customize');
 
 get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
-add_post_type_support( 'info', 'front-end-editor' );
-
 add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
 function biz_vektor_theme_setup() {
+	add_theme_support( 'automatic-feed-links' );
+
+	add_theme_support( 'custom-header' );
+
+	add_theme_support( 'custom-background', array(
+		'default-color' => '#ffffff',
+	) );
+
+	/*-------------------------------------------*/
+	/*	Admin page _ Eye catch
+	/*-------------------------------------------*/
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 200, 200, true );
+
+	/*-------------------------------------------*/
+	/*	Custom menu
+	/*-------------------------------------------*/
+	register_nav_menus( array( 'Header' => 'Header Navigation', ) );
+	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
+	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
+
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
 
@@ -104,13 +121,6 @@ function biz_vektor_theme_setup() {
 /*-------------------------------------------*/
 if ( ! isset( $content_width ) )
 	$content_width = 640;
-
-/*-------------------------------------------*/
-/*	Custom menu
-/*-------------------------------------------*/
-register_nav_menus( array( 'Header' => 'Header Navigation', ) );
-register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
-register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
 /*-------------------------------------------*/
 /*	Custom header
@@ -151,48 +161,31 @@ register_default_headers( array(
 		'description' => 'Johnny'
 	),
 ) );
-add_theme_support( 'custom-header' );
-if ( ! function_exists( 'admin_header_style' ) ) :
-function admin_header_style() { }
-endif;
-
-
-
-/*-------------------------------------------*/
-/*	Custom background
-/*-------------------------------------------*/
-
-function biz_vektor_setup(){
-	add_theme_support( 'custom-background', array(
-		'default-color' => '#ffffff',
-	) );
-}
-add_action( 'after_setup_theme', 'biz_vektor_setup' );
 
 
 /*-------------------------------------------*/
 /*	Load theme options
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
-	require( dirname( __FILE__ ) . '/inc/theme-options-init.php' );
+	require( get_template_directory() . '/inc/theme-options.php' );
+	require( get_template_directory() . '/inc/theme-options-init.php' );
 
 
 /*-------------------------------------------*/
 /*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-ad-options.php' );	
+	require( get_template_directory() . '/inc/theme-ad-options.php' );	
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/design_skins/001/001_custom.php' );
-	require( dirname( __FILE__ ) . '/design_skins/002/002_custom.php' );
-	require( dirname( __FILE__ ) . '/design_skins/003/003_custom.php' );
+	require( get_template_directory() . '/design_skins/001/001_custom.php' );
+	require( get_template_directory() . '/design_skins/002/002_custom.php' );
+	require( get_template_directory() . '/design_skins/003/003_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
+	require( get_template_directory() . '/inc/theme-customizer.php' );
 
 
 /*-------------------------------------------*/
@@ -244,12 +237,6 @@ function hide_welcome_panel() {
 	update_user_meta( $user_id, 'show_welcome_panel', 0 );
 }
 add_action( 'load-index.php', 'hide_welcome_panel' );
-
-/*-------------------------------------------*/
-/*	Admin page _ Eye catch
-/*-------------------------------------------*/
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 200, true );
 
 /*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
@@ -742,3 +729,9 @@ function my_mime_type($a) {
     return $a;
 }
 add_filter('upload_mimes', 'my_mime_type');
+
+add_action('wp_enqueue_scripts','biz_vektor_comment_reply');
+function biz_vektor_comment_reply(){
+	if ( is_singular() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+}

@@ -17,7 +17,9 @@
 /*-------------------------------------------*/
 /*	Custom post type _ add info
 /*-------------------------------------------*/
+
 add_post_type_support( 'info', 'front-end-editor' );
+
 add_action( 'init', 'biz_vektor_info_create_post_type', 0 );
 function biz_vektor_info_create_post_type() {
 	$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
