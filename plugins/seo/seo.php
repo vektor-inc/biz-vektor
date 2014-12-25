@@ -52,7 +52,7 @@ function biz_vektor_seo_render_edit(){
 	$biz_vektor_name = get_biz_vektor_name();
 ?>
 <div id="seoSetting" class="sectionBox">
-<?php get_template_part('inc/views/nav'); ?>
+<?php get_template_part('inc/theme-options-nav'); ?>
 <h3><?php _e('SEO and Google Analytics Settings', 'biz-vektor'); ?></h3>
 <table class="form-table">
 <tr>
