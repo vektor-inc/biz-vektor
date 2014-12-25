@@ -648,10 +648,6 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 
 </form>
 
-<form>
-<input type=""
-</form>
-
 <?php if(false){ ?>
 <?php $resetkey = rand(1000,9999); ?>
 <div class="option Advanced"><form action="" method="post">
