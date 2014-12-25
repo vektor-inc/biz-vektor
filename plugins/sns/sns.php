@@ -331,7 +331,7 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 // register WP_Widget_fbLikeBox widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
 
-add_filter('biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 10, 3);
+add_filter('biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 19, 3);
 function biz_vektor_sns_validate($output, $input, $defaults){
 
 	// SNS
@@ -361,7 +361,6 @@ function biz_vektor_sns_validate($output, $input, $defaults){
 
 	return $output;
 }
-
 
 add_filter('biz_vektor_default_options', 'biz_vektor_sns_default_option');
 function biz_vektor_sns_default_option($original_options){
@@ -394,8 +393,7 @@ function biz_vektor_sns_default_option($original_options){
 	return array_merge($original_options, $options);
 }
 
-
-add_action('biz_vektor_options_nav_tab', 'biz_vektor_sns_options_nav', 10);
+add_action('biz_vektor_options_nav_tab', 'biz_vektor_sns_options_nav', 19);
 function biz_vektor_sns_options_nav(){?>
     <li id="btn_snsSetting"><a href="#snsSetting"><?php echo _x( 'SNS', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
 <?php }
