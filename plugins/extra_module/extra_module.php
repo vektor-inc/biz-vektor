@@ -152,3 +152,9 @@ function displays_global_css() {
 if ( 'ja' != get_locale() ) {
 	add_action( 'wp_head','displays_global_css');	
 }
+
+
+/*-------------------------------------------*/
+/*	Excerpt _ remove auto mark up to p
+/*-------------------------------------------*/
+remove_filter('the_excerpt', 'wpautop');

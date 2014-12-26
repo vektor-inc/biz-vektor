@@ -4,16 +4,18 @@ $theme_opt = wp_get_theme('biz-vektor');
 define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
 
 /*-------------------------------------------*/
+/*	Theme setup
+/*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
 /*-------------------------------------------*/
-/*	Custom menu
+/*	WidgetArea initiate
 /*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
-/*	Custom background
-/*-------------------------------------------*/
 /*	Load theme options
+/*-------------------------------------------*/
+/*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
@@ -27,29 +29,17 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
-/*	Admin page _ Eye catch
-/*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
-/*-------------------------------------------*/
-/*	Admin page _ page _ customize
-/*-------------------------------------------*/
-/*	Admin page _ post _ customize
-/*-------------------------------------------*/
-/*	Custom post type _ add info
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
-/*	head_wp_head clean and add items
-/*-------------------------------------------*/
-/*	footer_wp_footer clean and add items
+/*	wp_head add items
 /*-------------------------------------------*/
 /*	Term list no link
 /*-------------------------------------------*/
 /*	Global navigation add cptions
 /*-------------------------------------------*/
 /*	Excerpt _ change ... 
-/*-------------------------------------------*/
-/*	Excerpt _ remove auto mark up to p
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
@@ -63,8 +53,6 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Paging
 /*-------------------------------------------*/
-/*	Comment out short code
-/*-------------------------------------------*/
 /*	Page _ Child page lists
 /*-------------------------------------------*/
 /*	HomePage _ add action filters
@@ -74,13 +62,20 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*	Aceept favicon upload
 /*-------------------------------------------*/
 
+
+
 get_template_part('plugins/plugins');
 
-add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
 function biz_vektor_is_plugin_enable($plugin_name){
 	return apply_filters( 'biz_vektor_plugins_'. $plugin_name, false );
 }
+
+
+/*-------------------------------------------*/
+/*	Theme setup
+/*-------------------------------------------*/
+add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
 function biz_vektor_theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
@@ -115,7 +110,7 @@ if ( ! isset( $content_width ) )
 	$content_width = 640;
 
 /*-------------------------------------------*/
-/*	Widget
+/*	WidgetArea initiate
 /*-------------------------------------------*/
 function biz_vektor_widgets_init() {
 	register_sidebar( array(
@@ -386,7 +381,7 @@ function getHeadDescription() {
 }
 
 /*-------------------------------------------*/
-/*	head_wp_head clean and add items
+/*	wp_head add items
 /*-------------------------------------------*/
 
 // Add Google Web Fonts
@@ -418,9 +413,6 @@ if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 	}
 }
 
-/*-------------------------------------------*/
-/*	footer_wp_footer clean and add items
-/*-------------------------------------------*/
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
@@ -498,11 +490,6 @@ function change_excerpt_more($post) {
 	return ' ...';
 }
 add_filter('excerpt_more', 'change_excerpt_more');
-
-/*-------------------------------------------*/
-/*	Excerpt _ remove auto mark up to p
-/*-------------------------------------------*/
-remove_filter('the_excerpt', 'wpautop');
 
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>
