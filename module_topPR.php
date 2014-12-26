@@ -31,55 +31,169 @@ if ( !isset($biz_vektor_options['top3PrDisplay']) || !$biz_vektor_options['top3P
 	<div id="topPr" class="topPr">
 	<div id="topPrLeft" class="topPrOuter">
 	<div class="topPrInner">
-	<h3 class="topPrTit"><a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>"><?php echo $biz_vektor_options['pr1_title'] ?></a></h3>
-	<?php if ($biz_vektor_options['pr1_image']) { ?>
+	<?php 
+	//title
+	if ( isset( $biz_vektor_options['pr1_title'] ) && ! empty( $biz_vektor_options['pr1_title'] ) ) { ?>
+		<h3 class="topPrTit">
+		<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+			<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
+			<?php } ?>
+				<?php echo $biz_vektor_options['pr1_title'] ?>
+			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+			</a>
+			<?php } ?>
+		</h3>
+	<?php 
+	} 
+
+	//image
+	if ($biz_vektor_options['pr1_image']) { ?>
 		<div class="prImage">
-		<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
-		<img src="<?php echo$biz_vektor_options['pr1_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr1_title']) ; ?>" class="imageWide" />
-		<img src="<?php echo $biz_vektor_options['pr1_image_s'] ?>" alt="" class="imageSmall" />
-		</a>
+			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+			<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
+			<?php } ?>
+				<img src="<?php echo$biz_vektor_options['pr1_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr1_title']) ; ?>" class="imageWide" />
+				<img src="<?php echo $biz_vektor_options['pr1_image_s'] ?>" alt="" class="imageSmall" />
+			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+			</a>
+			<?php } ?>
+		</div>
+	<?php 
+	} 
+
+	//description
+	if ( isset( $biz_vektor_options['pr1_description'] )  && ! empty( $biz_vektor_options['pr1_description'] ) ) { ?>
+		<div class="topPrTxtBox">
+			<p class="topPrDescription">
+				<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+				<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
+				<?php } ?>
+					<?php echo nl2br(esc_html($biz_vektor_options['pr1_description'])) ?>
+				<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+				</a>
+				<?php } ?>
+			</p>
+			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
+				<div class="moreLink">
+					<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
+						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+					</a>
+				</div>
+			<?php } ?>
 		</div>
 	<?php } ?>
-	<div class="topPrTxtBox">
-		<p class="topPrDescription"><a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>"><?php echo nl2br(esc_textarea($biz_vektor_options['pr1_description'])) ?></a></p>
-		<div class="moreLink"><a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
-	</div>
 	</div>
 	</div><!-- /#topPrLeft -->
 	
 	<div id="topPrCenter" class="topPrOuter">
 	<div class="topPrInner">
-	<h3 class="topPrTit"><a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>"><?php echo $biz_vektor_options['pr2_title'] ?></a></h3>
-	<?php if ($biz_vektor_options['pr2_image']) { ?>
+	<?php 
+	//title
+	if ( isset( $biz_vektor_options['pr2_title'] ) && ! empty( $biz_vektor_options['pr2_title'] ) ) { ?>
+		<h3 class="topPrTit">
+			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+			<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
+			<?php } ?>
+				<?php echo $biz_vektor_options['pr2_title'] ?>
+			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+			</a>
+			<?php } ?>
+		</h3>
+		<?php 
+	} 
+
+	//image
+	if ( $biz_vektor_options['pr2_image'] ) { ?>
 		<div class="prImage">
-		<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
-		<img src="<?php echo $biz_vektor_options['pr2_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr2_title']) ; ?>" class="imageWide" />
-		<img src="<?php echo $biz_vektor_options['pr2_image_s'] ?>" alt="" class="imageSmall" />
-		</a>
+			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+			<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
+			<?php } ?>
+				<img src="<?php echo $biz_vektor_options['pr2_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr2_title']) ; ?>" class="imageWide" />
+				<img src="<?php echo $biz_vektor_options['pr2_image_s'] ?>" alt="" class="imageSmall" />
+			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+			</a>
+			<?php } ?>
+		</div>
+	<?php 
+	} 
+
+	//description
+	if ( isset( $biz_vektor_options['pr2_description'] )  && ! empty( $biz_vektor_options['pr2_description'] ) ) { ?>
+		<div class="topPrTxtBox">
+			<p class="topPrDescription">
+				<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+				<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
+				<?php } ?>
+					<?php echo nl2br(esc_textarea($biz_vektor_options['pr2_description'])) ?>
+				<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+				</a>
+				<?php } ?>
+			</p>
+			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
+				<div class="moreLink">
+					<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
+						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+					</a>
+				</div>
+			<?php } ?>
 		</div>
 	<?php } ?>
-	<div class="topPrTxtBox">
-		<p class="topPrDescription"><a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>"><?php echo nl2br(esc_textarea($biz_vektor_options['pr2_description'])) ?></a></p>
-		<div class="moreLink"><a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
-	</div>
 	</div>
 	</div><!-- /#topPrCenter -->
 	
 	<div id="topPrRight" class="topPrOuter">
 	<div class="topPrInner">
-	<h3 class="topPrTit"><a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>"><?php echo $biz_vektor_options['pr3_title'] ?></a></h3>
-	<?php if ($biz_vektor_options['pr3_image']) { ?>
+	<?php 
+	//title
+	if ( isset( $biz_vektor_options['pr3_title'] ) && ! empty( $biz_vektor_options['pr3_title'] ) ) { ?>
+		<h3 class="topPrTit">
+			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+			<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
+			<?php } ?>
+				<?php echo $biz_vektor_options['pr3_title'] ?>
+			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+			</a>
+			<?php } ?>
+		</h3>
+		<?php 
+	} 
+
+	//image
+	if ($biz_vektor_options['pr3_image']) { ?>
 		<div class="prImage">
-		<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
-		<img src="<?php echo $biz_vektor_options['pr3_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr3_title']) ; ?>" class="imageWide" />
-		<img src="<?php echo $biz_vektor_options['pr3_image_s'] ?>" alt="" class="imageSmall" />
-		</a>
+			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+			<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
+			<?php } ?>
+				<img src="<?php echo $biz_vektor_options['pr3_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr3_title']) ; ?>" class="imageWide" />
+				<img src="<?php echo $biz_vektor_options['pr3_image_s'] ?>" alt="" class="imageSmall" />
+			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+			</a>
+			<?php } ?>
+		</div>
+	<?php 
+	} 
+
+	//description
+	if ( isset( $biz_vektor_options['pr3_description'] )  && ! empty( $biz_vektor_options['pr3_description'] ) ) { ?>
+		<div class="topPrTxtBox">
+			<p class="topPrDescription">
+				<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+				<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
+				<?php } ?>
+					<?php echo nl2br(esc_textarea($biz_vektor_options['pr3_description'])) ?>
+				<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+				</a>
+				<?php } ?>
+			</p>
+			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
+				<div class="moreLink">
+					<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
+						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+					</a>
+				</div>
+			<?php } ?>
 		</div>
 	<?php } ?>
-	<div class="topPrTxtBox">
-		<p class="topPrDescription"><a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>"><?php echo nl2br(esc_textarea($biz_vektor_options['pr3_description'])) ?></a></p>
-		<div class="moreLink"><a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
-	</div>
 	</div>
 	</div><!-- /#topPrRight -->
 	</div>
