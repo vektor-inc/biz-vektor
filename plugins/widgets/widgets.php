@@ -37,7 +37,7 @@
 add_filter('biz_vektor_is_plugin_enable-widgets', 'biz_vektor_widget_beacon', 10, 1 );
 function biz_vektor_widget_beacon($flag){
 	$flag = true;
-	return $flag
+	return $flag;
 }
 
 function biz_vektor_maincontent_widgetarea_init() {
@@ -240,7 +240,7 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_top_list_info extends WP_Widget {
 	function WP_Widget_top_list_info() {
 		global $biz_vektor_options;
-		$biz_vektor_options = biz_vektor_get_theme_options();
+		$biz_vektor_options = biz_bektor_option_validate();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_top_list_info',
 			'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ),

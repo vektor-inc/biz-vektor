@@ -108,7 +108,7 @@ add_action( 'widgets_init', 'biz_vektor_info_widgets_init' );
 class WP_Widget_infoTerms extends WP_Widget {
 	/** constructor */
 	function WP_Widget_infoTerms() {
-		global $biz_vektor_options;
+		$biz_vektor_options = biz_bektor_option_validate();
 		$widget_ops = array(
 			'classname' => 'WP_Widget_infoTerms',
 			'description' => sprintf( __( 'Category list of %s', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] ),
