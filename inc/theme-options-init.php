@@ -59,18 +59,18 @@ function biz_vektor_generate_default_options(){
 		'sub_sitename'         => '',
 		'contact_address'      => '',
 		'contact_link'         => '',
-		'topTitle'             => '',
-		'commonKeyWords'       => '',
-		'gaID'                 => '',
-		'gaType'               => 'gaType_normal',
+		// 'topTitle'             => '',
+		// 'commonKeyWords'       => '',
+		// 'gaID'                 => '',
+		// 'gaType'               => 'gaType_normal',
 		'enableie8Warning'     => true,
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay'    => false,
 		'top3PrDisplay'        => '',
-		'infoTopCount'         => '5',
-		'infoTopUrl'           => home_url().'/info/',
-		'listInfoTop'          => 'listType_set',
-		'listInfoArchive'      => 'listType_set',
+		// 'infoTopCount'         => '5',
+		// 'infoTopUrl'           => home_url().'/info/',
+		// 'listInfoTop'          => 'listType_set',
+		// 'listInfoArchive'      => 'listType_set',
 		'postTopCount'         => '5',
 		'postTopUrl'           => '',
 		'listBlogTop'          => 'listType_set',
@@ -85,7 +85,7 @@ function biz_vektor_generate_default_options(){
 		'favicon'              => '',
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => __('Blog', 'biz-vektor'),
-		'infoLabelName'        => __('Information', 'biz-vektor'),
+		// 'infoLabelName'        => __('Information', 'biz-vektor'),
 		'theme_style'          => 'rebuild',
 		'enable_google_font'   => 'true',
 		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
@@ -166,24 +166,19 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['pr3_image_s']            = $input['pr3_image_s'];
 	// Infomation & Blog	
 	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
-	$output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
-	$output['listInfoTop']            = $input['listInfoTop'];
-	$output['listInfoArchive']        = $input['listInfoArchive'];
+	// $output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
+	// $output['listInfoTop']            = $input['listInfoTop'];
+	// $output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
-	$output['infoTopUrl']             = $input['infoTopUrl'];
-	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
+	// $output['infoTopUrl']             = $input['infoTopUrl'];
+	// $output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
 	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 5 : $input['postTopCount'];
 	$output['postRelatedCount']       = (preg_match('/^(\s|[ 　]*)$/', $input['postRelatedCount']))? 6 : $input['postRelatedCount'];
 	$output['ad_content_moretag']     = $input['ad_content_moretag'];
 	$output['ad_content_after']       = $input['ad_content_after'];
 	$output['ad_related_after']       = $input['ad_related_after'];
-	// SEO 
-	$output['topTitle']               = $input['topTitle'];
-	$output['commonKeyWords']         = $input['commonKeyWords'];
-	$output['gaID']                   = preg_replace('/^[ 　]*(.*)$/', "$1", $input['gaID']);
-	$output['gaType']                 = $input['gaType'];
 	// TopPage
 	$output['topSideBarDisplay']      = (isset($input['topSideBarDisplay']) && $input['topSideBarDisplay'] == 'true')? true : false;
 	// SlideShow
@@ -228,9 +223,6 @@ function biz_vektor_them_edit_function($post){
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;
-	// global 変数が上手く取得出来てない場合はDBから持ってくる。
-	// if (!isset($biz_vektor_options)) 
-	// やはりDBから持ってこないとカスタマイザーが効かない。
 	$biz_vektor_options = get_option('biz_vektor_theme_options', biz_vektor_generate_default_options());
 	return $biz_vektor_options;
 }
@@ -240,13 +232,15 @@ function biz_vektor_get_theme_options() {
 /*	global $biz_vektor_options に順次移行
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
-	$options = biz_vektor_get_theme_options();
+	$options = biz_bektor_option_validate();
 	if ( isset($options[$optionLabel]) && $options[$optionLabel] ) {
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_generate_default_options();
 		if (isset($options_default[$optionLabel]))
 		return $options_default[$optionLabel];
+
+		return false;
 	}
 }
 

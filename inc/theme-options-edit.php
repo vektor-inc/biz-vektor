@@ -412,13 +412,13 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>
-		<?php
-		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
-		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Settings for [ %s ] and [ %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
-		?>
-</h3>
+<h3><?php echo _x( 'TopPR', 'BizVektor option tab label', 'biz-vektor' ); ?></h3>
+
+<?php
+$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
+$postLabelName = esc_html( bizVektorOptions('postLabelName'));
+?>
+
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
 <?php _e('* If the excerpt field is not empty, the content will appear in the &quot;excerpt&quot;. Otherwise, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
 <?php

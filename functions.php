@@ -78,6 +78,10 @@ get_template_part('plugins/plugins');
 
 add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
+function biz_vektor_is_plugin_enable($plugin_name){
+	return apply_filters( 'biz_vektor_plugins_'. $plugin_name, false );
+}
+
 function biz_vektor_theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 

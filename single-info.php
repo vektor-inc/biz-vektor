@@ -18,7 +18,7 @@
 
 <?php edit_post_link(__('Edit', 'biz-vektor'),'<div class="adminEdit"><span class="linkBtn linkBtnS linkBtnAdmin">','</span></div>'); ?>
 
-<?php biz_vektor_snsBtns(); ?>
+<?php do_action('biz_vektor_snsBtns'); ?>
 
 </div>
 <!-- [ /#post- ] -->
@@ -28,7 +28,7 @@
 	<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">&rarr;</span>' ); ?></div>
 </div><!-- #nav-below -->
 
-<?php biz_vektor_fbComments(); ?>
+<?php do_action('biz_vektor_fbComments'); ?>
 
 <?php comments_template( '', true ); ?>
 

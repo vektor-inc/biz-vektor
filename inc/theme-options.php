@@ -94,7 +94,7 @@ function getHeadTitle() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_page('home') || is_front_page()) {
-		if ($options['topTitle'])	{
+		if (isset($options['topTitle']) && $options['topTitle'])	{
 			$headTitle = $options['topTitle'];
 		} else {
 			$headTitle = get_bloginfo('name');

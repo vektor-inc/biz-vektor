@@ -2,10 +2,10 @@
 /*-------------------------------------------*/
 /*	info
 /*-------------------------------------------*/
-$biz_vektor_options = biz_vektor_get_theme_options();
+$biz_vektor_options = biz_bektor_option_validate();
+
+if(isset($biz_vektor_options['infoTopCount']) && $biz_vektor_options['infoTopCount'] != 0):
 $infoTopCount = $biz_vektor_options['infoTopCount'];
-// print '<pre>';print_r($biz_vektor_options);print '</pre>';
-if ($infoTopCount != '0') :
 $loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => $infoTopCount, ) ); ?>
 <?php if ($loop->have_posts()) : ?>
 <div id="topInfo" class="infoList">

@@ -34,6 +34,12 @@
 /*-------------------------------------------*/
 /*	Widget area setting
 /*-------------------------------------------*/
+add_filter('biz_vektor_is_plugin_enable-widgets', 'biz_vektor_widget_beacon', 10, 1 );
+function biz_vektor_widget_beacon($flag){
+	$flag = true;
+	return $flag
+}
+
 function biz_vektor_maincontent_widgetarea_init() {
 	register_sidebar( array(
 		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),

@@ -6,7 +6,8 @@
 	<?php biz_vektor_contentMain_before();?>
 	<div id="content-main">
 <?php
-if ( is_active_sidebar( 'top-main-widget-area' ) ) :
+if ( biz_vektor_is_plugin_enable('widgets') && is_active_sidebar( 'top-main-widget-area' ) ) :
+
 	dynamic_sidebar( 'top-main-widget-area' );
 else :
 
@@ -70,9 +71,9 @@ else :
 	<?php get_template_part('module_top_list_post'); ?>
 <?php endif; ?>
 
-<?php biz_vektor_fbLikeBoxFront(); ?>
-<?php biz_vektor_snsBtns(); ?>
-<?php biz_vektor_fbComments(); ?>
+<?php do_action('biz_vektor_fbLikeBoxFront'); ?>
+<?php do_action('biz_vektor_snsBtns'); ?>
+<?php do_action('biz_vektor_fbComments'); ?>
 
 	</div>
 	<!-- #content-main -->

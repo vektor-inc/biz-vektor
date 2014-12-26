@@ -33,7 +33,7 @@
 
 <?php edit_post_link(__('Edit', 'biz-vektor'),'<div class="adminEdit"><span class="linkBtn linkBtnS linkBtnAdmin">','</span></div>'); ?>
 
-<?php biz_vektor_snsBtns(); ?>
+<?php do_action('biz_vektor_snsBtns'); ?>
 
 <?php
 /*-------------------------------------------*/
@@ -98,7 +98,7 @@ endif;
 </div>
 <!-- [ /#post- ] -->
 
-<?php biz_vektor_fbComments(); ?>
+<?php do_action('biz_vektor_fbComments'); ?>
 
 <?php comments_template( '', true ); ?>
 

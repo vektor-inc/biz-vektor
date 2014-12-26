@@ -22,7 +22,7 @@ if($post_type_object){
 // post のラベル名
 $postLabelName = $biz_vektor_options['postLabelName'];
 // info のラベル名
-$infoLabelName = $biz_vektor_options['infoLabelName'];
+$infoLabelName = (isset($biz_vektor_options['infoLabelName']))? $biz_vektor_options['infoLabelName'] : 'info';
 // post のトップのURL
 $postTopUrl = (isset($biz_vektor_options['postTopUrl']))? $biz_vektor_options['postTopUrl'] : '';
 // info のトップのURL
