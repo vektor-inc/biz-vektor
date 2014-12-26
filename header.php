@@ -30,18 +30,8 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 </head>
 
 <body <?php body_class(); ?>>
-<div id="fb-root"></div>
-<?php
-if ($biz_vektor_options['fbAppId']) :
-?>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php echo esc_html($biz_vektor_options['fbAppId']); ?>";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<?php endif; ?>
+
+<?php do_action('biz_vektor_sns_body'); ?>
 
 <div id="wrap">
 
