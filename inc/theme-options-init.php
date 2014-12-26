@@ -59,6 +59,8 @@ function biz_vektor_generate_default_options(){
 		'sub_sitename'         => '',
 		'contact_address'      => '',
 		'contact_link'         => '',
+		'ad_content_moretag'   => '',
+		'ad_content_after'     => '',
 		// 'topTitle'             => '',
 		// 'commonKeyWords'       => '',
 		// 'gaID'                 => '',

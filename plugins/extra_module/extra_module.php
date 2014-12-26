@@ -100,7 +100,8 @@ function biz_vektor_ad_contet_more($post_content) {
 	// moreタグとすぐ次の</p>まで取得
 	$moreTag = '/<span id="more-[0-9]+"><\/span>.*[\/a-z]+>/' ;
 	// 広告タグ
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_bektor_option_validate();
+
 	$adTags = apply_filters( 'widget_text', $biz_vektor_options['ad_content_moretag'] );
 
 	preg_match($moreTag, $post_content, $matches);
