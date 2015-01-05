@@ -144,9 +144,9 @@ form#searchform input#searchsubmit { width: 20%; }
 
 /*			.childPageBox
 /*-------------------------------------------*/
-#content .childPageBox { display: block; overflow: hidden; margin-top: 20px; border: 1px solid #cccccc; padding: 0px; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-bottom: 20px; }
+#content .childPageBox { display: block; overflow: hidden; margin-top: 20px; border: 1px solid #ccc; padding: 0px; width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin-bottom: 20px; }
 #content .childPageBox h4 { font-weight: lighter; margin: 15px 20px 10px; padding: 0px 0px 3px; font-size: 14px; }
-#content .childPageBox h4 a { text-decoration: none; color: #666666; }
+#content .childPageBox h4 a { text-decoration: none; color: #666; }
 #content .childPageBox ul { margin: 0px 20px 15px; padding: 0px; display: block; overflow: hidden; font-size: 85.7%; line-height: 125%; }
 #content .childPageBox ul li { float: left; display: block; width: 33%; list-style: none; margin: 0px; }
 #content .childPageBox ul li a { background: url(../images/icon_arrow1_gray.gif) left 5px no-repeat; padding: 3px 5px 3px 17px; text-decoration: none; display: block; overflow: hidden; color: #666; }
@@ -165,6 +165,8 @@ form#searchform input#searchsubmit { width: 20%; }
 #footer dl#footerOutline dd { padding-right: 20px; }
 
 #footerSiteMap .menu li { width: 150px; float: left; }
+
+#content .child_page_block .thumbImage .thumbImageInner img { height: 80px !important; }
 
 /* メニューのファイルのあとで 003*/
 #gMenu:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
@@ -205,7 +207,7 @@ form#searchform input#searchsubmit { width: 20%; }
 /*-------------------------------------------*/
 /* pc iPad3より大きい場合
 /*-------------------------------------------*/
-#footMenu { background-color: whitesmoke; }
+#footMenu { background-color: #f5f5f5; }
 #footMenu .innerBox { padding: 0px 25px 0px; }
 #footMenu .innerBox .menu { padding: 10px 0; }
 #footMenu .innerBox .menu li a { background-position: left 50%; padding: 0 20px 0 18px; }
