@@ -2,30 +2,6 @@
 global $biz_vektor_options;
 // 3PRが「表示しない」にチェックされていない場合
 if ( !isset($biz_vektor_options['top3PrDisplay']) || !$biz_vektor_options['top3PrDisplay'] ) {
-
-/*-------------------------------------------*/
-// 初期状態でもエラーが出ない事を確認したら削除
-/*-------------------------------------------*/
-// // load default
-// bizVektorOptions_default();
-// global $bizVektorOptions_default;
-
-// for ( $i = 1; $i <= 3 ;){
-// 	if ( !isset($biz_vektor_options['pr'.$i.'_title']) ) 
-// 		$biz_vektor_options['pr'.$i.'_title'] = $bizVektorOptions_default['pr'.$i.'_title'];
-// 	if ( !isset($biz_vektor_options['pr'.$i.'_description']) ) 
-// 		$biz_vektor_options['pr'.$i.'_description'] = $bizVektorOptions_default['pr'.$i.'_description'];
-// 	if ( !isset($biz_vektor_options['pr'.$i.'_link']) ) 
-// 		$biz_vektor_options['pr'.$i.'_link'] = $bizVektorOptions_default['pr'.$i.'_link'];
-// 	if ( !isset($biz_vektor_options['pr'.$i.'_image']) ) 
-// 		$biz_vektor_options['pr'.$i.'_image'] = $bizVektorOptions_default['pr'.$i.'_image'];
-// 	if ( !isset($biz_vektor_options['pr'.$i.'_image_s']) ) 
-// 		$biz_vektor_options['pr'.$i.'_image_s'] = $bizVektorOptions_default['pr'.$i.'_image_s'];
-// $i++;
-// }
-/*-------------------------------------------*/
-// ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-/*-------------------------------------------*/
 ?>
 	<!-- [ #topPr ] -->
 	<div id="topPr" class="topPr">
