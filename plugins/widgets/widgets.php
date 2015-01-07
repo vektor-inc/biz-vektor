@@ -546,7 +546,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 		if ($post_loop->have_posts()):
 			while ( $post_loop->have_posts() ) : $post_loop->the_post(); ?>
-				<div class="ttBox">
+				<div class="ttBox" id="post-<?php the_ID(); ?>">
 				<?php if ( has_post_thumbnail()) : ?>
 					<div class="ttBoxTxt ttBoxRight"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
 					<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>

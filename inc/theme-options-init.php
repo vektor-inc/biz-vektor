@@ -151,21 +151,21 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['contact_link']           = $input['contact_link'];
 	// 3PR
 	$output['top3PrDisplay']          = (isset($input['top3PrDisplay']) && $input['top3PrDisplay'] == 'true')?	 true : false;
-	$output['pr1_title']              = ($input['pr1_title'] == '')?		$defaults['pr1_title'] : $input['pr1_title'] ;
-	$output['pr1_description']        = ($input['pr1_description'] == '')?	 $defaults['pr1_description'] : $input['pr1_description'] ;
-	$output['pr1_link']               = $input['pr1_link'];
-	$output['pr1_image']              = $input['pr1_image'];
-	$output['pr1_image_s']            = $input['pr1_image_s'];
-	$output['pr2_title']              = ($input['pr2_title'] == '')?		$defaults['pr2_title'] : $input['pr2_title'] ;
-	$output['pr2_description']        = ($input['pr2_description'] == '')?	 $defaults['pr2_description'] : $input['pr2_description'] ;
-	$output['pr2_link']               = $input['pr2_link'];
-	$output['pr2_image']              = $input['pr2_image'];
-	$output['pr2_image_s']            = $input['pr2_image_s'];
-	$output['pr3_title']              = ($input['pr3_title'] == '')?		$defaults['pr3_title'] : $input['pr3_title'] ;
-	$output['pr3_description']        = ($input['pr3_description'] == '')?	 $defaults['pr3_description'] : $input['pr3_description'] ;
-	$output['pr3_link']               = $input['pr3_link'];
-	$output['pr3_image']              = $input['pr3_image'];
-	$output['pr3_image_s']            = $input['pr3_image_s'];
+	$output['pr1_title']              = sanitize_text_field( $input['pr1_title'] );
+	$output['pr1_description']        = esc_html( $input['pr1_description'] );
+	$output['pr1_link']               = esc_url( $input['pr1_link'] );
+	$output['pr1_image']              = esc_url( $input['pr1_image'] );
+	$output['pr1_image_s']            = esc_url( $input['pr1_image_s'] );
+	$output['pr2_title']              = sanitize_text_field( $input['pr2_title'] );
+	$output['pr2_description']        = esc_html( $input['pr2_description'] );
+	$output['pr2_link']               = esc_url( $input['pr2_link'] );
+	$output['pr2_image']              = esc_url( $input['pr2_image'] );
+	$output['pr2_image_s']            = esc_url( $input['pr2_image_s'] );
+	$output['pr3_title']              = sanitize_text_field( $input['pr3_title'] );
+	$output['pr3_description']        = esc_html( $input['pr3_description'] );
+	$output['pr3_link']               = esc_url( $input['pr3_link'] );
+	$output['pr3_image']              = esc_url( $input['pr3_image'] );
+	$output['pr3_image_s']            = esc_url( $input['pr3_image_s'] );
 	// Infomation & Blog	
 	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
 	// $output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
