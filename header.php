@@ -9,21 +9,9 @@ biz_vektor_get_theme_options(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title(); ?></title>
 <meta name="description" content="<?php getHeadDescription(); ?>" />
-<meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
 <!-- <?php echo get_biz_vektor_name();?> v<?php echo BizVektor_Theme_Version; ?> -->
-<?php
-/* We add some JavaScript to pages with the comment form
- * to support sites with threaded comments (when in use).
- */
-if ( is_singular() && get_option( 'thread_comments' ) )
-	wp_enqueue_script( 'comment-reply' );
-/* Always have wp_head() just before the closing </head>
- * tag of your theme, or you will break many plugins, which
- * generally use this hook to add elements to <head> such
- * as styles, scripts, and meta tags.
- */
-wp_head(); ?>
+
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <?php
 /* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
@@ -36,24 +24,14 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 	print '<![endif]-->'."\n";
 } ?>
 <meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
-<style type="text/css">
-	<?php echo biz_vektor_css_customize_get_css(); ?>
-</style>
+
+
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div id="fb-root"></div>
-<?php
-if ($biz_vektor_options['fbAppId']) :
-?>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php echo esc_html($biz_vektor_options['fbAppId']); ?>";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<?php endif; ?>
+
+<?php do_action('biz_vektor_sns_body'); ?>
 
 <div id="wrap">
 

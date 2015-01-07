@@ -94,7 +94,7 @@ function getHeadTitle() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_page('home') || is_front_page()) {
-		if ($options['topTitle'])	{
+		if (isset($options['topTitle']) && $options['topTitle'])	{
 			$headTitle = $options['topTitle'];
 		} else {
 			$headTitle = get_bloginfo('name');
@@ -338,14 +338,6 @@ function biz_vektor_theme_style_oldie() {
 		$theme_style = 'rebuild';
 	}
 	
-	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
-
-	if ($themePathOldIe){
-		print '<!--[if lte IE 8]>'."\n";
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
-		print '<![endif]-->'."\n";
-	}
-
 }
 
 /*-------------------------------------------*/
@@ -529,62 +521,6 @@ function biz_vektor_mainfootContact() {
 		}
 		if ($contact_time) {
 			print '<span class="mainFootTime">'.$contact_time.'</span>'."\n";
-		}
-	}
-}
-
-/*-------------------------------------------*/
-/*	Create keywords
-/*-------------------------------------------*/
-function biz_vektor_getHeadKeywords(){
-	$options = biz_vektor_get_theme_options();
-	$commonKeyWords = $options['commonKeyWords'];
-	// get custom field
-	$entryKeyWords = post_custom('metaKeyword');
-	// display common keywords
-	echo $commonKeyWords;
-	// If common and individual keywords exist, print ','.
-	if ($commonKeyWords && $entryKeyWords) {
-		echo ',';
-	}
-	// print individual keywords
-	echo $entryKeyWords;
-}
-
-/*-------------------------------------------*/
-/*	GoogleAnalytics
-/*-------------------------------------------*/
-add_action('wp_head', 'biz_vektor_googleAnalytics', 10000 );
-function biz_vektor_googleAnalytics(){
-	global $biz_vektor_options;
-	$gaType = (isset($biz_vektor_options['gaType'])) ? $biz_vektor_options['gaType'] : '';
-	if (isset($biz_vektor_options['gaID']) && $biz_vektor_options['gaID']) {
-		if ((!$gaType) || ($gaType == 'gaType_normal') || ($gaType == 'gaType_both')){ ?>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-<?php echo $biz_vektor_options['gaID'] ?>']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<?php }
-if (($gaType == 'gaType_both') || ($gaType == 'gaType_universal')){
-	$domainUrl = site_url();
-	$delete = array("http://", "https://");
-	$domain = str_replace($delete, "", $domainUrl); ?>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-<?php echo $biz_vektor_options['gaID'] ?>', '<?php echo $domain ?>');
-ga('send', 'pageview');
-</script>
-<?php
 		}
 	}
 }
@@ -828,66 +764,4 @@ function get_biz_vektor_name() {
 	$name = 'BizVektor';
 	$name = apply_filters( 'biz_vektor_name', $name );
 	return $name;
-}
-
-/*-------------------------------------------*/
-/*	Ad insert
-/*-------------------------------------------*/
-
-add_filter('the_content', 'biz_vektor_ad_contet_more');
-function biz_vektor_ad_contet_more($post_content) {
-	if (is_single() && get_post_type() == 'post') :
-	// moreタグとすぐ次の</p>まで取得
-	$moreTag = '/<span id="more-[0-9]+"><\/span>.*[\/a-z]+>/' ;
-	// 広告タグ
-	global $biz_vektor_options;
-	$adTags = apply_filters( 'widget_text', $biz_vektor_options['ad_content_moretag'] );
-
-	preg_match($moreTag, $post_content, $matches);
-	$match = (isset($matches[0]))? $matches[0] : '';
-	if($match){
-		// $matchしている（moreタグが存在する）場合
-		if(strpos($match, '</p>') !== false){
-			$post_content = preg_replace($moreTag, '</p>'.$adTags, $post_content);
-		} else {
-			$post_content = preg_replace($moreTag, '</p>'.$adTags.'<p>', $post_content);
-		}
-	}
-	if ($biz_vektor_options['ad_content_after']) 
-		$post_content = $post_content.'<div class="sectionBox">'.$biz_vektor_options['ad_content_after'].'</div>';
-	endif; // post
-	return $post_content;
-}
-
-/*-------------------------------------------*/
-/*	CSS and Google Web Fonts for Global Version
-/*-------------------------------------------*/
-
-function displays_global_css() {
-	Global $biz_vektor_options;
-	$font = $biz_vektor_options['global_font'];
-	
-	?>
-		<style type="text/css">
-	<?php
-
-	//Google Web Fonts import 
-	if ( isset( $font ) ) { ?>
-		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
-
-		body {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif;}
-	<?php } ?>
-
-		/*-------------------------------------------*/
-		/*	default global version style
-		/*-------------------------------------------*/
-		body { font-size: 1.05em; }
-				
-		.sideTower .localSection li ul li, 
-		#sideTower .localSection li ul li { font-size: 0.9em; }
-		</style>
-	<?php
-}
-if ( 'ja' != get_locale() ) {
-	add_action( 'wp_head','displays_global_css');	
 }

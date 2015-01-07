@@ -21,8 +21,8 @@ if ( is_user_logged_in() == TRUE ) { ?>
 </div>
 <?php } ?>
 
-<?php biz_vektor_snsBtns(); ?>
-<?php biz_vektor_fbComments(); ?>
+<?php do_action('biz_vektor_snsBtns'); ?>
+<?php do_action('biz_vektor_fbComments'); ?>
 
 	<?php endwhile; ?>
 </div>

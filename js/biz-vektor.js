@@ -108,7 +108,7 @@ window.onload = function(){
 
 	var setup = function(aImages) {
 		for (var i = 0; i < aImages.length; i++) {
-			if (aImages[i].className == 'imgover') {
+			if (aImages[i].className.match(/(^| )imgover( |$)/i)) {
 				var src = aImages[i].getAttribute('src');
 				var ftype = src.substring(src.lastIndexOf('.'), src.length);
 				var hsrc = src.replace(ftype, '_on'+ftype);
@@ -1505,7 +1505,7 @@ jQuery.changeLetterSize = {
 
 jQuery(document).ready(function($){
     // .topPrTitには高さのpaddingを入れる事もあるので a に対して指定
-    jQuery('.topPrTit a').flatHeights();
+    jQuery('.topPrTit').flatHeights();
     jQuery('.topPrDescription').flatHeights();
     jQuery('.child_page_block').flatHeights();
     jQuery('.child_page_block p').flatHeights();

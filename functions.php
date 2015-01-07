@@ -4,16 +4,18 @@ $theme_opt = wp_get_theme('biz-vektor');
 define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
 
 /*-------------------------------------------*/
+/*	Theme setup
+/*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
 /*-------------------------------------------*/
-/*	Custom menu
+/*	WidgetArea initiate
 /*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
-/*	Custom background
-/*-------------------------------------------*/
 /*	Load theme options
+/*-------------------------------------------*/
+/*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
@@ -27,29 +29,17 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
-/*	Admin page _ Eye catch
-/*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
-/*-------------------------------------------*/
-/*	Admin page _ page _ customize
-/*-------------------------------------------*/
-/*	Admin page _ post _ customize
-/*-------------------------------------------*/
-/*	Custom post type _ add info
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
-/*	head_wp_head clean and add items
-/*-------------------------------------------*/
-/*	footer_wp_footer clean and add items
+/*	wp_head add items
 /*-------------------------------------------*/
 /*	Term list no link
 /*-------------------------------------------*/
 /*	Global navigation add cptions
 /*-------------------------------------------*/
 /*	Excerpt _ change ... 
-/*-------------------------------------------*/
-/*	Excerpt _ remove auto mark up to p
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
@@ -63,8 +53,6 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Paging
 /*-------------------------------------------*/
-/*	Comment out short code
-/*-------------------------------------------*/
 /*	Page _ Child page lists
 /*-------------------------------------------*/
 /*	HomePage _ add action filters
@@ -74,23 +62,43 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*	Aceept favicon upload
 /*-------------------------------------------*/
 
-get_template_part('functions_widgets');
 
-add_theme_support( 'automatic-feed-links' );
 
-get_template_part('plugins/sns/sns');
+get_template_part('plugins/plugins');
 
-get_template_part('plugins/add_post_type/add_post_type');
 
-get_template_part('plugins/css_customize/css-customize');
+function biz_vektor_is_plugin_enable($plugin_name){
+	return apply_filters( 'biz_vektor_plugins_'. $plugin_name, false );
+}
 
-get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
-add_post_type_support( 'info', 'front-end-editor' );
-
+/*-------------------------------------------*/
+/*	Theme setup
+/*-------------------------------------------*/
 add_action('after_setup_theme', 'biz_vektor_theme_setup');
 
 function biz_vektor_theme_setup() {
+	add_theme_support( 'automatic-feed-links' );
+
+	add_theme_support( 'custom-header' );
+
+	add_theme_support( 'custom-background', array(
+		'default-color' => '#ffffff',
+	) );
+
+	/*-------------------------------------------*/
+	/*	Admin page _ Eye catch
+	/*-------------------------------------------*/
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 200, 200, true );
+
+	/*-------------------------------------------*/
+	/*	Custom menu
+	/*-------------------------------------------*/
+	register_nav_menus( array( 'Header' => 'Header Navigation', ) );
+	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
+	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
+
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
 }
 
@@ -102,11 +110,56 @@ if ( ! isset( $content_width ) )
 	$content_width = 640;
 
 /*-------------------------------------------*/
-/*	Custom menu
+/*	WidgetArea initiate
 /*-------------------------------------------*/
-register_nav_menus( array( 'Header' => 'Header Navigation', ) );
-register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
-register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
+function biz_vektor_widgets_init() {
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
+		'id' => 'top-side-widget-area',
+		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
+		'id' => 'post-widget-area',
+		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
+		'id' => 'page-widget-area',
+		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
+		'id' => 'common-side-top-widget-area',
+		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
+		'id' => 'common-side-bottom-widget-area',
+		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
+		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="localHead">',
+		'after_title' => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
 /*-------------------------------------------*/
 /*	Custom header
@@ -147,54 +200,32 @@ register_default_headers( array(
 		'description' => 'Johnny'
 	),
 ) );
-add_theme_support( 'custom-header' );
-if ( ! function_exists( 'admin_header_style' ) ) :
-function admin_header_style() { }
-endif;
-
-
-
-/*-------------------------------------------*/
-/*	Custom background
-/*-------------------------------------------*/
-
-function biz_vektor_setup(){
-	add_theme_support( 'custom-background', array(
-		'default-color' => '#ffffff',
-	) );
-}
-add_action( 'after_setup_theme', 'biz_vektor_setup' );
 
 
 /*-------------------------------------------*/
 /*	Load theme options
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
-	require( dirname( __FILE__ ) . '/inc/theme-options-init.php' );
+	require( get_template_directory() . '/inc/theme-options.php' );
+	require( get_template_directory() . '/inc/theme-options-init.php' );
 
 
 /*-------------------------------------------*/
 /*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-ad-options.php' );	
+	require( get_template_directory() . '/inc/theme-ad-options.php' );	
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/design_skins/001/001_custom.php' );
-	require( dirname( __FILE__ ) . '/design_skins/002/002_custom.php' );
-	require( dirname( __FILE__ ) . '/design_skins/003/003_custom.php' );
+	require( get_template_directory() . '/design_skins/001/001_custom.php' );
+	require( get_template_directory() . '/design_skins/002/002_custom.php' );
+	require( get_template_directory() . '/design_skins/003/003_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
+	require( get_template_directory() . '/inc/theme-customizer.php' );
 
-
-/*-------------------------------------------*/
-/*	Admin admin_bar_custom
-/*-------------------------------------------*/
-	get_template_part('module_adminBarCustom');
 
 /*-------------------------------------------*/
 /*	Admin page _ Add style
@@ -242,12 +273,6 @@ function hide_welcome_panel() {
 add_action( 'load-index.php', 'hide_welcome_panel' );
 
 /*-------------------------------------------*/
-/*	Admin page _ Eye catch
-/*-------------------------------------------*/
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 200, true );
-
-/*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
 /*-------------------------------------------*/
 add_action('admin_menu', 'add_custom_field_metaKeyword');
@@ -292,37 +317,6 @@ function save_custom_field_metaKeyword($post_id){
 	delete_post_meta($post_id, 'metaKeyword', get_post_meta($post_id, 'metaKeyword', true));
   }
 }
-
-/*-------------------------------------------*/
-/*	Admin page _ page _ customize
-/*-------------------------------------------*/
-add_post_type_support( 'page', 'excerpt' ); // add excerpt
-
-function remove_default_page_screen_metaboxes() {
-//	remove_meta_box( 'postcustom','page','normal' );		// cutom field
-//	remove_meta_box( 'postexcerpt','page','normal' );		// excerpt
-	remove_meta_box( 'commentstatusdiv','page','normal' );	// discussion
-	remove_meta_box( 'commentsdiv','page','normal' );		// comment
-	remove_meta_box( 'trackbacksdiv','page','normal' );		// trackback
-//	remove_meta_box( 'authordiv','page','normal' );			// author
-//	remove_meta_box( 'slugdiv','page','normal' );			// slug
-//	remove_meta_box( 'revisionsdiv','page','normal' );		// revision
- }
-add_action('admin_menu','remove_default_page_screen_metaboxes');
-
-/*-------------------------------------------*/
-/*	Admin page _ post _ customize
-/*-------------------------------------------*/
-function remove_default_post_screen_metaboxes() {
-//	remove_meta_box( 'postcustom','post','normal' );			// cutom field
-//	remove_meta_box( 'postexcerpt','post','normal' );			// excerpt
-//	remove_meta_box( 'commentstatusdiv','post','normal' );		// comment
-//	remove_meta_box( 'trackbacksdiv','post','normal' );			// trackback
-//	remove_meta_box( 'slugdiv','post','normal' );				// slug
-//	remove_meta_box( 'authordiv','post','normal' );				// author
- }
- add_action('admin_menu','remove_default_post_screen_metaboxes');
-
 
 /*-------------------------------------------*/
 /*	head_description
@@ -387,14 +381,8 @@ function getHeadDescription() {
 }
 
 /*-------------------------------------------*/
-/*	head_wp_head clean and add items
+/*	wp_head add items
 /*-------------------------------------------*/
-
-//	Remove WordPress information
-remove_action('wp_head', 'wp_generator');
-
-//	Remove prev,next
-// remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
@@ -425,9 +413,6 @@ if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 	}
 }
 
-/*-------------------------------------------*/
-/*	footer_wp_footer clean and add items
-/*-------------------------------------------*/
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
@@ -505,11 +490,6 @@ function change_excerpt_more($post) {
 	return ' ...';
 }
 add_filter('excerpt_more', 'change_excerpt_more');
-
-/*-------------------------------------------*/
-/*	Excerpt _ remove auto mark up to p
-/*-------------------------------------------*/
-remove_filter('the_excerpt', 'wpautop');
 
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>
@@ -663,18 +643,6 @@ function pagination($max_num_pages = '', $range = 1) {
 }
 
 /*-------------------------------------------*/
-/*	Comment out short code
-/*-------------------------------------------*/
-/*
-If there is a place that you want to hide temporarily in the text field,
-[ignore] When enclosing [/ ignore], can be commented out the relevant sections in the html mode.
-*/
-function ignore_shortcode( $atts, $content = null ) {
-	return null;
-}
-add_shortcode('ignore', 'ignore_shortcode');
-
-/*-------------------------------------------*/
 /*	Page _ Child page lists
 /*-------------------------------------------*/
 function biz_vektor_childPageList(){
@@ -738,3 +706,19 @@ function my_mime_type($a) {
     return $a;
 }
 add_filter('upload_mimes', 'my_mime_type');
+
+add_action('wp_enqueue_scripts','biz_vektor_comment_reply');
+function biz_vektor_comment_reply(){
+	if ( is_singular() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+}
+
+
+function biz_vektor_get_short_name(){
+	$lab = get_biz_vektor_name();
+	if($lab == 'BizVektor'){
+		$lab = 'BV';
+	}
+
+	return $lab;
+}
