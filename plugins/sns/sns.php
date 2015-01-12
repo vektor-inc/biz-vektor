@@ -118,7 +118,7 @@ function twitterID() {
 /*-------------------------------------------*/
 /*	snsBtns _ display page
 /*-------------------------------------------*/
-add_action('biz_vektor_fbComments', 'biz_vektor_fbComments');
+add_action('biz_vektor_snsBtns', 'biz_vektor_snsBtns');
 function biz_vektor_snsBtns() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
