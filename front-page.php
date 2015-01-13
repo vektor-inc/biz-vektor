@@ -2,7 +2,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
 	<?php biz_vektor_contentMain_before();?>
 	<div id="content-main">
 <?php

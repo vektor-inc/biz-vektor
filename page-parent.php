@@ -7,7 +7,7 @@ get_header(); ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 <!-- [ #content ] -->
-<div id="content">
+<div id="content" class="content">
 
 <?php if ( have_posts()) : the_post(); ?>
 	<?php
