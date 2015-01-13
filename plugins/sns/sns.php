@@ -26,6 +26,13 @@
 /*-------------------------------------------*/
 /*	Add OGP
 /*-------------------------------------------*/
+
+add_filter('biz_vektor_is_plugin_sns', 'biz_vektor_sns_beacon', 10, 1 );
+function biz_vektor_sns_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 add_action('wp_head', 'biz_vektor_ogp' );
 function biz_vektor_ogp() {
 	global $biz_vektor_options;
@@ -109,6 +116,7 @@ function biz_vektor_twitter_card() {
 /*-------------------------------------------*/
 /*	snsBtns
 /*-------------------------------------------*/
+add_action('biz_vektor_fbComments', 'biz_vektor_fbComments');
 function twitterID() {
 	global $biz_vektor_options;
 	return $biz_vektor_options['twitter'];
@@ -117,6 +125,7 @@ function twitterID() {
 /*-------------------------------------------*/
 /*	snsBtns _ display page
 /*-------------------------------------------*/
+add_action('biz_vektor_snsBtns', 'biz_vektor_snsBtns');
 function biz_vektor_snsBtns() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -151,6 +160,7 @@ function biz_vektor_snsBtns() {
 /*-------------------------------------------*/
 /*	facebook comment display page
 /*-------------------------------------------*/
+add_action('biz_vektor_fbComments', 'biz_vektor_fbComments');
 function biz_vektor_fbComments() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -191,6 +201,7 @@ function biz_vektor_fbComments() {
 /*-------------------------------------------*/
 /*	facebookLikeBox
 /*-------------------------------------------*/
+add_action('biz_vektor_fbLikeBoxFront', 'biz_vektor_fbLikeBoxFront');
 function biz_vektor_fbLikeBoxFront() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -198,6 +209,7 @@ function biz_vektor_fbLikeBoxFront() {
 		biz_vektor_fbLikeBox();
 	}
 }
+add_action('biz_vektor_fbLikeBoxSide', 'biz_vektor_fbLikeBoxSide');
 function biz_vektor_fbLikeBoxSide() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -205,6 +217,7 @@ function biz_vektor_fbLikeBoxSide() {
 		biz_vektor_fbLikeBox();
 	}
 }
+add_action('biz_vektor_fbLikeBox', 'biz_vektor_fbLikeBox');
 function biz_vektor_fbLikeBox() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -226,6 +239,7 @@ function biz_vektor_fbLikeBox() {
 /*-------------------------------------------*/
 /*	Print facebook Application ID 
 /*-------------------------------------------*/
+add_action('biz_vektor_fbAppId', 'biz_vektor_fbAppId');
 function biz_vektor_fbAppId () {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -236,6 +250,7 @@ function biz_vektor_fbAppId () {
 /*-------------------------------------------*/
 /*	facebook twitter banner
 /*-------------------------------------------*/
+add_action('biz_vektor_snsBnrs', 'biz_vektor_snsBnrs');
 function biz_vektor_snsBnrs() {
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
@@ -322,3 +337,251 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 
 // register WP_Widget_fbLikeBox widget
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
+
+add_filter('biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 19, 3);
+function biz_vektor_sns_validate($output, $input, $defaults){
+
+	// SNS
+	$output['fbAppId']                = $input['fbAppId'];
+	$output['fbAdminId']              = $input['fbAdminId'];
+	$output['twitter']                = $input['twitter'];
+	$output['facebook']               = $input['facebook'];
+	$output['ogpImage']               = (preg_match("/^.+\.(jp(e|)g|png|gif|bmp)$/i", $input['ogpImage']))? $input['ogpImage'] : '';
+	$output['snsBtnsFront']           = (isset($input['snsBtnsFront']) && $input['snsBtnsFront'] == 'false')? 'false' : '';
+	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
+	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';
+	$output['snsBtnsInfo']            = (isset($input['snsBtnsInfo']) && $input['snsBtnsInfo'] == 'false')? 'false' : '';
+	$output['snsBtnsHidden']          = $input['snsBtnsHidden'];
+	$output['fbCommentsFront']        = (isset($input['fbCommentsFront']) && $input['fbCommentsFront'] == 'false')? 'false' : '';
+	$output['fbCommentsPage']         = (isset($input['fbCommentsPage']) && $input['fbCommentsPage'] == 'false')? 'false' : '';
+	$output['fbCommentsPost']         = (isset($input['fbCommentsPost']) && $input['fbCommentsPost'] == 'false')? 'false' : '';
+	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
+	$output['fbCommentsHidden']       = $input['fbCommentsHidden'];
+	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
+	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
+	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
+	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
+	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
+
+	return $output;
+}
+
+add_filter('biz_vektor_default_options', 'biz_vektor_sns_default_option');
+function biz_vektor_sns_default_option($original_options){
+
+	$options = array(
+		'fbAppId'              => '',
+		'fbAdminId'            => '',
+		'twitter'              => '',
+		'facebook'             => '',
+		'ogpImage'             => '',
+		'snsBtnsFront'         => '',
+		'snsBtnsPage'          => '',
+		'snsBtnsPost'          => '',
+		'snsBtnsInfo'          => '',
+		'snsBtnsHidden'        => '',
+		'fbCommentsFront'      => '',
+		'fbCommentsPage'       => '',
+		'fbCommentsPost'       => '',
+		'fbCommentsInfo'       => '',
+		'fbCommentsHidden'     => '',
+		'fbLikeBoxFront'       => '',
+		'fbLikeBoxSide'        => '',
+		'fbLikeBoxURL'         => '',
+		'fbLikeBoxStream'      => '',
+		'fbLikeBoxFace'        => '',
+		'fbLikeBoxHeight'      => '',
+		'ogpTagDisplay'        => 'ogp_on',
+	);
+
+	return array_merge($original_options, $options);
+}
+
+add_action('biz_vektor_options_nav_tab', 'biz_vektor_sns_options_nav', 19);
+function biz_vektor_sns_options_nav(){?>
+    <li id="btn_snsSetting"><a href="#snsSetting"><?php echo _x( 'SNS', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
+<?php }
+
+add_action('biz_vektor_extra_module_config', 'biz_vektor_sns_config');
+function biz_vektor_sns_config(){
+
+$options = biz_bektor_option_validate();
+$biz_vektor_name = get_biz_vektor_name();
+
+/*-------------------------------------------*/
+/*	SNS
+/*-------------------------------------------*/
+?>
+<div id="snsSetting" class="sectionBox">
+<?php get_template_part('inc/theme-options-nav'); ?>
+<h3><?php _e('Social media', 'biz-vektor'); ?></h3>
+<?php _e('If you are unsure, you can leave for later.', 'biz-vektor'); ?>
+<table class="form-table">
+<tr>
+<th>facebook</th>
+<td><?php _e('If you wish to link to a personal account or a Facebook page  banner will be displayed if you enter<label> the URL.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" class="width-600" /><br/>
+<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/FacebookJapan</span>
+</td>
+</tr>
+<!-- facebook application ID -->
+<tr>
+<th><?php _e('facebook application ID', 'biz-vektor'); ?></th>
+<td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
+<span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo; <?php _e('I will check and get the application ID', 'biz-vektor'); ?></a> ]</span><br />
+<?php _e('* If an application ID is not specified, neither a Like button nor the comment field displays and operates correctly.', 'biz-vektor'); ?><br />
+<?php _e('Please search for terms as [get Facebook application ID] If you do not know much about how to get application ID for Facebook.', 'biz-vektor'); ?>
+</td>
+</tr>
+<!-- facebook user ID -->
+<tr>
+<th><?php _e('Facebook user ID (optional)', 'biz-vektor'); ?></th>
+<td><?php _e('Please enter the Facebook user ID of the administrator.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[fbAdminId]" id="fbAdminId" value="<?php echo esc_attr( $options['fbAdminId'] ); ?>" class="width-600" /><br />
+<?php _e('* It is not the application ID of the Facebook page.', 'biz-vektor'); ?><br />
+<?php _e('You can see the personal Facebook ID when you access the following url http://graph.facebook.com/(own url name(example: TheStig )).', 'biz-vektor'); ?><br />
+<?php _e('Please search for terms as [find facebook user ID] if you are still not sure.', 'biz-vektor'); ?>
+</td>
+</tr>
+<!-- twitter -->
+<tr>
+<th><?php _e('twitter account', 'biz-vektor'); ?></th>
+<td><?php _e('If you would like to link to a Twitter account, banner will be displayed if you enter the account name.', 'biz-vektor'); ?><br />
+@<input type="text" name="biz_vektor_theme_options[twitter]" id="twitter" value="<?php echo esc_attr( $options['twitter'] ); ?>" /><br />
+<?php $twitter_widget = '<a href="'.get_admin_url().'widgets.php" target="_blank">'.__('widget', 'biz-vektor').'</a>';
+printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, paste the source code into a [text] %s here.', 'biz-vektor'),$twitter_widget);
+?>
+</td>
+</tr>
+<!-- OGP -->
+<tr>
+<th><?php _e('OGP default image', 'biz-vektor'); ?></th>
+<td><?php _e('If, for example someone pressed the Facebook [Like] button, this is the image that appears on the Facebook timeline.', 'biz-vektor'); ?><br />
+<?php _e('If a featured image is specified for the page, it takes precedence.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" class="width-300" /> 
+<button id="media_ogpImage" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button><br />
+<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
+<?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is recommended.', 'biz-vektor'); ?>
+</td>
+</tr>
+<!-- Social buttons -->
+<tr>
+<th><?php _e('Social buttons', 'biz-vektor'); ?></th>
+<td><?php _e('Please check the type of page that displays the social button.', 'biz-vektor'); ?>
+<ul>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsFront]" id="snsBtnsFront" value="false" <?php if ($options['snsBtnsFront']) {?> checked<?php } ?>> 
+	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPage]" id="snsBtnsPage" value="false" <?php if ($options['snsBtnsPage']) {?> checked<?php } ?>> 
+	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPost]" id="snsBtnsPost" value="false" <?php if ($options['snsBtnsPost']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+</ul>
+<p><?php _e('Within the type of page that is checked, if there is a particular pa<label>ge you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
+<?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
+</td>
+</tr>
+<!-- facebook comment -->
+<tr>
+<th><?php _e('facebook comments box', 'biz-vektor'); ?></th>
+<td><?php _e('Please check the type of the page to display Facebook comments.', 'biz-vektor'); ?>
+<ul>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsFront]" id="fbCommentsFront" value="false" <?php if ($options['fbCommentsFront']) {?> checked<?php } ?>> 
+	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPage]" id="fbCommentsPage" value="false" <?php if ($options['fbCommentsPage']) {?> checked<?php } ?>> 
+	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPost]" id="fbCommentsPost" value="false" <?php if ($options['fbCommentsPost']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> 
+	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+</ul>
+<p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
+<input type="text" name="biz_vektor_theme_options[fbCommentsHidden]" value="<?php echo esc_attr( $options['fbCommentsHidden'] ); ?>" /><br />
+<?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
+</td>
+</tr>
+<!-- facebook LikeBox -->
+<tr>
+<th>facebook LikeBox</th>
+<td><?php _e('If you wish to use Facebook LikeBox, please check the location.', 'biz-vektor'); ?><br />
+<?php _e('* Please be sure to set Facebook application ID.', 'biz-vektor'); ?>
+<ul>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFront]" id="fbLikeBoxFront" value="false" <?php if ($options['fbLikeBoxFront']) {?> checked<?php } ?>> 
+	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxSide]" id="fbLikeBoxSide" value="false" <?php if ($options['fbLikeBoxSide']) {?> checked<?php } ?>> 
+	<?php _ex('Side bar', 'sns display', 'biz-vektor'); ?></label></li>
+</ul>
+<dl>
+<dt><?php _e('URL of the Facebook page.', 'biz-vektor'); ?></dt>
+<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" class="width-500" /><br />
+<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
+<dt><?php _e('Display stream', 'biz-vektor'); ?></dt>
+<dd><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></label></dd>
+<dt><?php _e('Display faces', 'biz-vektor'); ?></dt>
+<dd><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php echo ($options['fbLikeBoxFace']=='false')? "checked ":""; ?>> <?php _e('Display', 'biz-vektor'); ?></label></dd>
+<dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
+<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" class="width-100" style="text-align:right;" />
+px</dd>
+</dl>
+</td>
+</tr>
+<!-- OGP hidden -->
+<tr>
+<th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
+<td>
+<p><?php printf(__('If other plug-ins are used for the OGP, do not output the OGP using %s.', 'biz-vektor'),$biz_vektor_name); ?></p>
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php printf( __('I want to output the OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
+<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php printf( __('Do not output OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
+</td>
+</tr>
+<!-- twitter card -->
+<tr>
+<th><?php printf( __( '%1$s Settings', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ); ?></th>
+<td>
+<p>
+* <?php printf( __( '%1$s related tags won\'t display if you don\'t fill a Twitter account above.', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ) ?><br />
+* <?php printf( __( 'Image used for %1$s is the Featured Image set for each post. In case there is no Featured Image, the default OGP image will be used.', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ); ?>
+</p>
+</td>
+</tr>
+</table>
+<?php submit_button(); ?>
+</div>
+<?php
+}
+
+add_action('biz_vektor_admin_bar_init', 'biz_vektor_sns_admin_bar_init');
+function biz_vektor_sns_admin_bar_init(){
+	global $wp_admin_bar;
+	
+	$wp_admin_bar->add_menu( array(
+		// 'parent' => 'Theme options',
+		'parent' => 'bizvektor_theme_setting',
+		'id' => 'SNS',
+		'title' => _x( 'SNS settings', 'BizVektor admin header menu', 'biz-vektor' ),
+		'href' => get_admin_url().'themes.php?page=theme_options#snsSetting',
+	));
+}
+
+add_action('biz_vektor_sns_body', 'biz_vektor_sns_header_output');
+function biz_vektor_sns_header_output(){
+	$options = biz_vektor_get_theme_options();
+?>
+<div id="fb-root"></div>
+<?php
+if (isset($options['fbAppId']) && $options['fbAppId']) :
+?>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php echo esc_html($biz_vektor_options['fbAppId']); ?>";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	<?php endif;
+}

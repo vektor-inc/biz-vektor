@@ -1,4 +1,11 @@
 <?php
+
+add_filter('biz_vektor_is_css_customize_widgets', 'biz_vektor_csscustom_beacon', 10, 1 );
+function biz_vektor_csscustom_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 /*-------------------------------------------*/
 /*	CSSカスタマイズ」のメニュー
 /*-------------------------------------------*/
@@ -83,4 +90,16 @@ function biz_vektor_css_customize_get_css()
 		return get_option('biz_vektor_css_custom');
 	else
 		return '';
+}
+
+add_action('wp_head', 'biz_vektor_css_customize_push_css', 200);
+function biz_vektor_css_customize_push_css(){
+
+	if( get_option('biz_vektor_css_custom') ){
+	?>
+<style type="text/css">
+<?php echo get_option('biz_vektor_css_custom') ?>
+</style>
+	<?php
+	}
 }

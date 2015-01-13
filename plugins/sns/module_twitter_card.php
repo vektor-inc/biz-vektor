@@ -13,10 +13,6 @@ if ( ( is_single() || is_page() ) && has_post_thumbnail() ) {
 // domain
 preg_match( '/https?:\/\/(.+?)\//i', admin_url(), $match );
 // image size
-if (isset($card_image_url) && $card_image_url){
-	ini_set('allow_url_fopen',"On");
-	list($width,$height) = @getimagesize($card_image_url);
-}
 if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && $card_image_url ) :?>
 <!-- twitter card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -25,8 +21,6 @@ if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && 
 <meta name="twitter:url" content="<?php echo $linkUrl ?>">
 <meta name="twitter:image" content="<?php echo esc_url($card_image_url);?>">
 <meta name="twitter:domain" content="<?php echo $match[1] ?>">
-<meta name="twitter:image:width" content="<?php echo $width ?>">
-<meta name="twitter:image:height" content="<?php echo $height ?>">
 <meta name="twitter:site" content="@<?php echo $biz_vektor_options['twitter'];?>">
 <!-- /twitter card -->
 <?php endif; ?>

@@ -412,13 +412,13 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>
-		<?php
-		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
-		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Settings for [ %s ] and [ %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
-		?>
-</h3>
+<h3><?php echo _x( 'TopPR', 'BizVektor option tab label', 'biz-vektor' ); ?></h3>
+
+<?php
+$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
+$postLabelName = esc_html( bizVektorOptions('postLabelName'));
+?>
+
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
 <?php _e('* If the excerpt field is not empty, the content will appear in the &quot;excerpt&quot;. Otherwise, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
 <?php
@@ -432,44 +432,9 @@ $i++;
 	<?php _e('If there is no widget, please check &quot;Featured image&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
 <table class="form-table">
-<!-- Information -->
-<tr>
-	<th><?php echo esc_html( $infoLabelName ); ?></th>
-	<td>
-		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
-	<dl>
-	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $infoLabelName ); ?></dt>
-	<dd>
-	<?php
-		if(!isset($options['listInfoTop'])){ $options['listInfoTop'] = 'listType_set'; }
-	?>
-	<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="listType_title" <?php echo ($options['listInfoTop'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
-	<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="listType_set" <?php echo ($options['listInfoTop'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
-	</dd>
-	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $infoLabelName ); ?></dt>
-	<dd>
-	<?php
-		if(!isset($options['listInfoArchive'])){ $options['listInfoArchive'] = 'listType_set'; }
-	?>
-	<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="listType_title" <?php echo ($options['listInfoArchive'] != 'listType_set')? 'checked' : ''; ?> > <?php _e('Title only', 'biz-vektor'); ?></label>
-	<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="listType_set" <?php echo ($options['listInfoArchive'] == 'listType_set')? 'checked' : ''; ?> > <?php _e('With excerpt and thumbnail', 'biz-vektor'); ?></label>
-	</dd>
-	</dl>
-	<dl>
-		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'), $infoLabelName);?></dt>
-		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;text-align:right;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
-		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
-	</dl>
 
-	<dl>
-		<dt><?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $infoLabelName ); ?></dt>
-		<dd><?php $infoTopUrl = home_url() . '/info/'; ?>
-			<?php printf( __( 'By default <a href="%1$s" target="_blank">%1$s</a> is the top URL for %2$s', 'biz-vektor' ), esc_url( $infoTopUrl ), $infoLabelName ); ?>
-			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
-		</dd>
-	</dl>
-</td>
-</tr>
+<?php do_action('biz_vektor_extra_posttype_config'); ?>
+
 <!-- Post -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
@@ -555,75 +520,6 @@ $i++;
 
 </div>
 <!-- [ /#postSetting ] -->
-
-<?php
-/*-------------------------------------------*/
-/*	SEO and Google Analytics Setting
-/*-------------------------------------------*/
-?>
-<div id="seoSetting" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('SEO and Google Analytics Settings', 'biz-vektor'); ?></h3>
-<table class="form-table">
-<tr>
-<th><?php _e('&lt;title&gt; tag of homepage', 'biz-vektor'); ?></th>
-<td>
-<p>
-<?php
-$sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_blank">'.__('title of the site', 'biz-vektor').'</a>';
-printf( __( 'Normally, %1$s will include the %2$s in the title tag.', 'biz-vektor' ), $biz_vektor_name, $sitetitle_link );?><br />
-<?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if using a static page.', 'biz-vektor'); ?>
-<?php
-printf( __('However, it might have negative impact on search engine rankings if the &lt;title&gt; is too long, <strong>therefore please include the most popular keywords in a summarized manner, keeping the %s as short as possible.</strong>', 'biz-vektor'),$sitetitle_link) ; ?>
-<?php _e('However, in the home page, as described above, other title will not be added, it is possible to make the &lt;title&gt; little longer, which can be set separately here.', 'biz-vektor'); ?></p>
-<input type="text" name="biz_vektor_theme_options[topTitle]" id="topTitle" value="<?php echo esc_attr( $options['topTitle'] ); ?>" style="width:90%;" />
-<p>* <?php _e('Site title will be used if this field is blank.', 'biz-vektor'); ?></p>
-</td>
-</tr>
-<tr>
-<th><?php _e('Common keywords', 'biz-vektor'); ?></th>
-<td><?php _e('For the keywords meta tag, please enter the keywords to be used throughout the site, comma separated.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[commonKeyWords]" id="commonKeyWords" value="<?php echo esc_attr( $options['commonKeyWords'] ); ?>" style="width:90%;" /><br />
-<?php _e('* You do not have to take keywords very seriously, because it does not affect the search engine rankings anymore.', 'biz-vektor'); ?><br />
-<?php _e('* The keywords for each particular page are entered from that page\'s edit screen. About up to 10 keywords in conjunction with the number of common keywords is desirable.', 'biz-vektor'); ?><br />
-<?php _e('* Not required , at the end of the last keyword.', 'biz-vektor'); ?><br />
-<?php _e('ex) WordPress,Template,Theme,Free,GPL', 'biz-vektor'); ?>
-</td>
-</tr>
-<tr>
-<th><?php _ex('Description', 'Description settings', 'biz-vektor'); ?></th>
-<td>
-<?php _e("Content from the particular page's \"excerpt\" field will be reflected in the description meta tag.", 'biz-vektor'); ?><br />
-<?php _e('In the Google and other search engine results pages (SERPs), part of the meta tag description appears under the site title.', 'biz-vektor'); ?><br />
-<?php _e('If the excerpt field is blank, the first 240 characters from the page\'s content are used.', 'biz-vektor'); ?><br />
-<?php _e("Description of the site will be applied to the meta description of the top page.However, the content will be reflected if the excerpt is fill in the page that is set on the home.", 'biz-vektor'); ?><br />
-<?php _e("* If the excerpt field is not visible, in the tab called \"View\" in the upper right corner of the edit page, please check the box to display the \"excerpt\" field.", 'biz-vektor'); ?><br />
-</td>
-</tr>
-<!-- Google Analytics -->
-<tr>
-<th><?php _e('Google Analytics Settings', 'biz-vektor'); ?></th>
-<td><?php _e('Please fill in the Google Analytics ID from the Analytics embed code used in the site.', 'biz-vektor'); ?><br />
-<p>UA-<input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
-<?php _e('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
-
-	<dl>
-	<dt><?php _e('Please select the type of Analytics code . (If you are unsure you can skip this.)', 'biz-vektor'); ?></dt>
-	<dd>
-	<?php
-		if(!isset($options['gaType'])){ $options['gaType'] = 'gaType_normal'; }
-	?>
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_normal" <?php echo ($options['gaType'] != 'gaType_universal' && $options['gaType'] != 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output only normal code (default)', 'biz-vektor'); ?></label><br />
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_universal" <?php echo ($options['gaType'] == 'gaType_universal')? 'checked' : ''; ?> > <?php _e('To output the Universal Analytics code', 'biz-vektor'); ?></label><br />
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_both" <?php echo ($options['gaType'] == 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output both types', 'biz-vektor'); ?></label>
-	</dd>
-	</dl>
-</td>
-</tr>
-</table>
-<?php submit_button(); ?>
-</div>
-<!-- [ /#seoSetting ] -->
 
 <?php
 /*-------------------------------------------*/
@@ -748,148 +644,8 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <?php submit_button(); ?>
 </div>
 
-<?php
-/*-------------------------------------------*/
-/*	SNS
-/*-------------------------------------------*/
-?>
-<div id="snsSetting" class="sectionBox">
-<?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _e('Social media', 'biz-vektor'); ?></h3>
-<?php _e('If you are unsure, you can leave for later.', 'biz-vektor'); ?>
-<table class="form-table">
-<tr>
-<th>facebook</th>
-<td><?php _e('If you wish to link to a personal account or a Facebook page  banner will be displayed if you enter the URL.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[facebook]" id="facebook" value="<?php echo esc_attr( $options['facebook'] ); ?>" class="width-600" /><br/>
-<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/FacebookJapan</span>
-</td>
-</tr>
-<!-- facebook application ID -->
-<tr>
-<th><?php _e('facebook application ID', 'biz-vektor'); ?></th>
-<td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
-<span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo; <?php _e('I will check and get the application ID', 'biz-vektor'); ?></a> ]</span><br />
-<?php _e('* If an application ID is not specified, neither a Like button nor the comment field displays and operates correctly.', 'biz-vektor'); ?><br />
-<?php _e('Please search for terms as [get Facebook application ID] If you do not know much about how to get application ID for Facebook.', 'biz-vektor'); ?>
-</td>
-</tr>
-<!-- facebook user ID -->
-<tr>
-<th><?php _e('Facebook user ID (optional)', 'biz-vektor'); ?></th>
-<td><?php _e('Please enter the Facebook user ID of the administrator.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[fbAdminId]" id="fbAdminId" value="<?php echo esc_attr( $options['fbAdminId'] ); ?>" class="width-600" /><br />
-<?php _e('* It is not the application ID of the Facebook page.', 'biz-vektor'); ?><br />
-<?php _e('You can see the personal Facebook ID when you access the following url http://graph.facebook.com/(own url name(example: TheStig )).', 'biz-vektor'); ?><br />
-<?php _e('Please search for terms as [find facebook user ID] if you are still not sure.', 'biz-vektor'); ?>
-</td>
-</tr>
-<!-- twitter -->
-<tr>
-<th><?php _e('twitter account', 'biz-vektor'); ?></th>
-<td><?php _e('If you would like to link to a Twitter account, banner will be displayed if you enter the account name.', 'biz-vektor'); ?><br />
-@<input type="text" name="biz_vektor_theme_options[twitter]" id="twitter" value="<?php echo esc_attr( $options['twitter'] ); ?>" /><br />
-<?php $twitter_widget = '<a href="'.get_admin_url().'widgets.php" target="_blank">'.__('widget', 'biz-vektor').'</a>';
-printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, paste the source code into a [text] %s here.', 'biz-vektor'),$twitter_widget);
-?>
-</td>
-</tr>
-<!-- OGP -->
-<tr>
-<th><?php _e('OGP default image', 'biz-vektor'); ?></th>
-<td><?php _e('If, for example someone pressed the Facebook [Like] button, this is the image that appears on the Facebook timeline.', 'biz-vektor'); ?><br />
-<?php _e('If a featured image is specified for the page, it takes precedence.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" class="width-300" /> 
-<button id="media_ogpImage" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button><br />
-<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
-<?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is recommended.', 'biz-vektor'); ?>
-</td>
-</tr>
-<!-- Social buttons -->
-<tr>
-<th><?php _e('Social buttons', 'biz-vektor'); ?></th>
-<td><?php _e('Please check the type of page that displays the social button.', 'biz-vektor'); ?>
-<ul>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsFront]" id="snsBtnsFront" value="false" <?php if ($options['snsBtnsFront']) {?> checked<?php } ?>> 
-	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPage]" id="snsBtnsPage" value="false" <?php if ($options['snsBtnsPage']) {?> checked<?php } ?>> 
-	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPost]" id="snsBtnsPost" value="false" <?php if ($options['snsBtnsPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></li>
-</ul>
-<p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
-<?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
-</td>
-</tr>
-<!-- facebook comment -->
-<tr>
-<th><?php _e('facebook comments box', 'biz-vektor'); ?></th>
-<td><?php _e('Please check the type of the page to display Facebook comments.', 'biz-vektor'); ?>
-<ul>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsFront]" id="fbCommentsFront" value="false" <?php if ($options['fbCommentsFront']) {?> checked<?php } ?>> 
-	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPage]" id="fbCommentsPage" value="false" <?php if ($options['fbCommentsPage']) {?> checked<?php } ?>> 
-	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPost]" id="fbCommentsPost" value="false" <?php if ($options['fbCommentsPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></li>
-</ul>
-<p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
-<input type="text" name="biz_vektor_theme_options[fbCommentsHidden]" value="<?php echo esc_attr( $options['fbCommentsHidden'] ); ?>" /><br />
-<?php _e('ex) ', 'biz-vektor') ;?>1,3,7</p>
-</td>
-</tr>
-<!-- facebook LikeBox -->
-<tr>
-<th>facebook LikeBox</th>
-<td><?php _e('If you wish to use Facebook LikeBox, please check the location.', 'biz-vektor'); ?><br />
-<?php _e('* Please be sure to set Facebook application ID.', 'biz-vektor'); ?>
-<ul>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFront]" id="fbLikeBoxFront" value="false" <?php if ($options['fbLikeBoxFront']) {?> checked<?php } ?>> 
-	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></li>
-<li><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxSide]" id="fbLikeBoxSide" value="false" <?php if ($options['fbLikeBoxSide']) {?> checked<?php } ?>> 
-	<?php _ex('Side bar', 'sns display', 'biz-vektor'); ?></li>
-</ul>
-<dl>
-<dt><?php _e('URL of the Facebook page.', 'biz-vektor'); ?></dt>
-<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxURL]" id="fbLikeBoxURL" value="<?php echo esc_attr( $options['fbLikeBoxURL'] ); ?>" class="width-500" /><br />
-<span><?php _e('ex) ', 'biz-vektor') ;?>https://www.facebook.com/bizvektor</span></dd>
-<dt><?php _e('Display stream', 'biz-vektor'); ?></dt>
-<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
-<dt><?php _e('Display faces', 'biz-vektor'); ?></dt>
-<dd><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php echo ($options['fbLikeBoxFace']=='false')? "checked ":""; ?>> <?php _e('Display', 'biz-vektor'); ?></dd>
-<dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
-<dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" class="width-100" style="text-align:right;" />
-px</dd>
-</dl>
-</td>
-</tr>
-<!-- OGP hidden -->
-<tr>
-<th><?php _e('Do not output the OGP', 'biz-vektor'); ?></th>
-<td>
-<p><?php printf(__('If other plug-ins are used for the OGP, do not output the OGP using %s.', 'biz-vektor'),$biz_vektor_name); ?></p>
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_on" <?php echo ($options['ogpTagDisplay']=='ogp_on')? 'checked':''; ?>> <?php printf( __('I want to output the OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
-<label><input type="radio" name="biz_vektor_theme_options[ogpTagDisplay]" value="ogp_off" <?php echo ($options['ogpTagDisplay']!='ogp_on')? 'checked':'';?>> <?php printf( __('Do not output OGP tags using %s', 'biz-vektor'),$biz_vektor_name ); ?></label><br />
-</td>
-</tr>
-<!-- twitter card -->
-<tr>
-<th><?php printf( __( '%1$s Settings', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ); ?></th>
-<td>
-<p>
-* <?php printf( __( '%1$s related tags won\'t display if you don\'t fill a Twitter account above.', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ) ?><br />
-* <?php printf( __( 'Image used for %1$s is the Featured Image set for each post. In case there is no Featured Image, the default OGP image will be used.', 'biz-vektor' ), __( 'Twitter Card','biz-vektor' ) ); ?>
-</p>
-</td>
-</tr>
-</table>
-<?php submit_button(); ?>
-</div>
+<?php do_action('biz_vektor_extra_module_config'); ?>
+
 </form>
 
 <?php if(false){ ?>

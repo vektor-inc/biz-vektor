@@ -33,9 +33,11 @@
 <a href="https://plus.google.com/share?url=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="vk_icon_w_r_sns_google icon_sns"></span><span class="sns_txt">Google+</span></a>
 </li>
 
+<?php if ( wp_is_mobile() ) : ?>
 <li class="sb_line sb_icon">
-<a href="http://line.naver.jp/R/msg/text/?<?php echo urlencode(getHeadTitle()); ?>%0D%0A<?php echo $linkUrl; ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
+<a href="line://msg/text/<?php echo getHeadTitle().' '.$linkUrl; ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
 </li>
+<?php endif; ?>
 
 <li class="sb_pocket"><?php /* do not delete span */?><span></span>
 <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-save-url="<?php echo $linkUrl; ?>" data-lang="en"></a>

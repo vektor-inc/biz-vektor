@@ -59,18 +59,20 @@ function biz_vektor_generate_default_options(){
 		'sub_sitename'         => '',
 		'contact_address'      => '',
 		'contact_link'         => '',
-		'topTitle'             => '',
-		'commonKeyWords'       => '',
-		'gaID'                 => '',
-		'gaType'               => 'gaType_normal',
+		'ad_content_moretag'   => '',
+		'ad_content_after'     => '',
+		// 'topTitle'             => '',
+		// 'commonKeyWords'       => '',
+		// 'gaID'                 => '',
+		// 'gaType'               => 'gaType_normal',
 		'enableie8Warning'     => true,
 		'topEntryTitleDisplay' => '',
 		'topSideBarDisplay'    => false,
 		'top3PrDisplay'        => '',
-		'infoTopCount'         => '5',
-		'infoTopUrl'           => home_url().'/info/',
-		'listInfoTop'          => 'listType_set',
-		'listInfoArchive'      => 'listType_set',
+		// 'infoTopCount'         => '5',
+		// 'infoTopUrl'           => home_url().'/info/',
+		// 'listInfoTop'          => 'listType_set',
+		// 'listInfoArchive'      => 'listType_set',
 		'postTopCount'         => '5',
 		'postTopUrl'           => '',
 		'listBlogTop'          => 'listType_set',
@@ -80,34 +82,12 @@ function biz_vektor_generate_default_options(){
 		'ad_conent_moretag'    => '',
 		'ad_conent_after'      => '',
 		'ad_related_after'     => '',
-		'twitter'              => '',
-		'facebook'             => '',
-		'fbAppId'              => '',
-		'fbAdminId'            => '',
-		'ogpImage'             => '',
-		'ogpTagDisplay'        => 'ogp_on',
-		'snsBtnsFront'         => '',
-		'snsBtnsPage'          => '',
-		'snsBtnsPost'          => '',
-		'snsBtnsInfo'          => '',
-		'snsBtnsHidden'        => '',
-		'fbCommentsFront'      => '',
-		'fbCommentsPage'       => '',
-		'fbCommentsPost'       => '',
-		'fbCommentsInfo'       => '',
-		'fbCommentsHidden'     => '',
-		'fbLikeBoxFront'       => '',
-		'fbLikeBoxSide'        => '',
-		'fbLikeBoxURL'         => '',
-		'fbLikeBoxStream'      => '',
-		'fbLikeBoxFace'        => '',
-		'fbLikeBoxHeight'      => '',
 		'side_child_display'   => 'side_child_display',
 		'rssLabelName'         => 'Blog entries',
 		'favicon'              => '',
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => __('Blog', 'biz-vektor'),
-		'infoLabelName'        => __('Information', 'biz-vektor'),
+		// 'infoLabelName'        => __('Information', 'biz-vektor'),
 		'theme_style'          => 'rebuild',
 		'enable_google_font'   => 'true',
 		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
@@ -171,41 +151,36 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['contact_link']           = $input['contact_link'];
 	// 3PR
 	$output['top3PrDisplay']          = (isset($input['top3PrDisplay']) && $input['top3PrDisplay'] == 'true')?	 true : false;
-	$output['pr1_title']              = ($input['pr1_title'] == '')?		$defaults['pr1_title'] : $input['pr1_title'] ;
-	$output['pr1_description']        = ($input['pr1_description'] == '')?	 $defaults['pr1_description'] : $input['pr1_description'] ;
-	$output['pr1_link']               = $input['pr1_link'];
-	$output['pr1_image']              = $input['pr1_image'];
-	$output['pr1_image_s']            = $input['pr1_image_s'];
-	$output['pr2_title']              = ($input['pr2_title'] == '')?		$defaults['pr2_title'] : $input['pr2_title'] ;
-	$output['pr2_description']        = ($input['pr2_description'] == '')?	 $defaults['pr2_description'] : $input['pr2_description'] ;
-	$output['pr2_link']               = $input['pr2_link'];
-	$output['pr2_image']              = $input['pr2_image'];
-	$output['pr2_image_s']            = $input['pr2_image_s'];
-	$output['pr3_title']              = ($input['pr3_title'] == '')?		$defaults['pr3_title'] : $input['pr3_title'] ;
-	$output['pr3_description']        = ($input['pr3_description'] == '')?	 $defaults['pr3_description'] : $input['pr3_description'] ;
-	$output['pr3_link']               = $input['pr3_link'];
-	$output['pr3_image']              = $input['pr3_image'];
-	$output['pr3_image_s']            = $input['pr3_image_s'];
+	$output['pr1_title']              = sanitize_text_field( $input['pr1_title'] );
+	$output['pr1_description']        = esc_html( $input['pr1_description'] );
+	$output['pr1_link']               = esc_url( $input['pr1_link'] );
+	$output['pr1_image']              = esc_url( $input['pr1_image'] );
+	$output['pr1_image_s']            = esc_url( $input['pr1_image_s'] );
+	$output['pr2_title']              = sanitize_text_field( $input['pr2_title'] );
+	$output['pr2_description']        = esc_html( $input['pr2_description'] );
+	$output['pr2_link']               = esc_url( $input['pr2_link'] );
+	$output['pr2_image']              = esc_url( $input['pr2_image'] );
+	$output['pr2_image_s']            = esc_url( $input['pr2_image_s'] );
+	$output['pr3_title']              = sanitize_text_field( $input['pr3_title'] );
+	$output['pr3_description']        = esc_html( $input['pr3_description'] );
+	$output['pr3_link']               = esc_url( $input['pr3_link'] );
+	$output['pr3_image']              = esc_url( $input['pr3_image'] );
+	$output['pr3_image_s']            = esc_url( $input['pr3_image_s'] );
 	// Infomation & Blog	
 	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
-	$output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
-	$output['listInfoTop']            = $input['listInfoTop'];
-	$output['listInfoArchive']        = $input['listInfoArchive'];
+	// $output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
+	// $output['listInfoTop']            = $input['listInfoTop'];
+	// $output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
-	$output['infoTopUrl']             = $input['infoTopUrl'];
-	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
+	// $output['infoTopUrl']             = $input['infoTopUrl'];
+	// $output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
 	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 5 : $input['postTopCount'];
 	$output['postRelatedCount']       = (preg_match('/^(\s|[ 　]*)$/', $input['postRelatedCount']))? 6 : $input['postRelatedCount'];
 	$output['ad_content_moretag']     = $input['ad_content_moretag'];
 	$output['ad_content_after']       = $input['ad_content_after'];
 	$output['ad_related_after']       = $input['ad_related_after'];
-	// SEO 
-	$output['topTitle']               = $input['topTitle'];
-	$output['commonKeyWords']         = $input['commonKeyWords'];
-	$output['gaID']                   = preg_replace('/^[ 　]*(.*)$/', "$1", $input['gaID']);
-	$output['gaType']                 = $input['gaType'];
 	// TopPage
 	$output['topSideBarDisplay']      = (isset($input['topSideBarDisplay']) && $input['topSideBarDisplay'] == 'true')? true : false;
 	// SlideShow
@@ -217,31 +192,6 @@ function biz_vektor_theme_options_validate( $input ) {
 		$output['slide'.$i.'blank']    = (isset($input['slide'.$i.'blank']) && $input['slide'.$i.'blank'])? "true" : '';
 	$i++;
 	}
-	// SNS
-	$output['fbAppId']                = $input['fbAppId'];
-	$output['fbAdminId']              = $input['fbAdminId'];
-	$output['twitter']                = $input['twitter'];
-	$output['facebook']               = $input['facebook'];
-	$output['ogpImage']               = (preg_match("/^.+\.(jp(e|)g|png|gif|bmp)$/i", $input['ogpImage']))? $input['ogpImage'] : '';
-	$output['snsBtnsFront']           = (isset($input['snsBtnsFront']) && $input['snsBtnsFront'] == 'false')? 'false' : '';
-	$output['snsBtnsPage']            = (isset($input['snsBtnsPage']) && $input['snsBtnsPage'] == 'false')? 'false' : '';
-	$output['snsBtnsPost']            = (isset($input['snsBtnsPost']) && $input['snsBtnsPost'] == 'false')? 'false' : '';
-	$output['snsBtnsInfo']            = (isset($input['snsBtnsInfo']) && $input['snsBtnsInfo'] == 'false')? 'false' : '';
-	$output['snsBtnsHidden']          = $input['snsBtnsHidden'];
-	$output['fbCommentsFront']        = (isset($input['fbCommentsFront']) && $input['fbCommentsFront'] == 'false')? 'false' : '';
-	$output['fbCommentsPage']         = (isset($input['fbCommentsPage']) && $input['fbCommentsPage'] == 'false')? 'false' : '';
-	$output['fbCommentsPost']         = (isset($input['fbCommentsPost']) && $input['fbCommentsPost'] == 'false')? 'false' : '';
-	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
-	$output['fbCommentsHidden']          = $input['fbCommentsHidden'];
-	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
-	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
-	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
-	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
-	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
-
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 
@@ -275,9 +225,6 @@ function biz_vektor_them_edit_function($post){
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;
-	// global 変数が上手く取得出来てない場合はDBから持ってくる。
-	// if (!isset($biz_vektor_options)) 
-	// やはりDBから持ってこないとカスタマイザーが効かない。
 	$biz_vektor_options = get_option('biz_vektor_theme_options', biz_vektor_generate_default_options());
 	return $biz_vektor_options;
 }
@@ -287,13 +234,15 @@ function biz_vektor_get_theme_options() {
 /*	global $biz_vektor_options に順次移行
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
-	$options = biz_vektor_get_theme_options();
+	$options = biz_bektor_option_validate();
 	if ( isset($options[$optionLabel]) && $options[$optionLabel] ) {
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_generate_default_options();
 		if (isset($options_default[$optionLabel]))
 		return $options_default[$optionLabel];
+
+		return false;
 	}
 }
 
@@ -302,19 +251,20 @@ function bizVektorOptions($optionLabel) {
 /*	@return array(options)
 /*-------------------------------------------*/
 function biz_bektor_option_validate(){
-	$option = get_option('biz_vektor_theme_options');
+
+	$options = get_option('biz_vektor_theme_options');
 	$default = biz_vektor_generate_default_options();
 
-	if($option && is_array($option)){
-		$keys = array_keys($option);
+	if($options && is_array($options)){
+		$keys = array_keys($default);
 		foreach($keys as $key){
-			if( !isset($option[$key]) && $key != 'version'){
-				$option[$key] = $default[$key];
+			if( !isset($options[$key]) && $key != 'version'){
+				$options[$key] = $default[$key];
 			}
 		}
 	}
 	else {
-		$option = $default;
+		$options = $default;
 	}
-	return $option;
+	return $options;
 }
