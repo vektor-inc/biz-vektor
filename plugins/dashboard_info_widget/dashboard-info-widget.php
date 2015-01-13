@@ -3,6 +3,12 @@
 /*	ダッシュボードにBizVektorのお知らせを表示
 /*-------------------------------------------*/
 
+add_filter('biz_vektor_is_plugin_dashboard_info_widget', 'biz_vektor_dash_beacon', 10, 1 );
+function biz_vektor_dash_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 //displays dashboard widget only for Japanese version
 if ( 'ja' == get_locale() ) {
 	add_action( 'wp_dashboard_setup', 'biz_vektor_dashboard_widget' );

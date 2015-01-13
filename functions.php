@@ -68,7 +68,7 @@ get_template_part('plugins/plugins');
 
 
 function biz_vektor_is_plugin_enable($plugin_name){
-	return apply_filters( 'biz_vektor_plugins_'. $plugin_name, false );
+	return apply_filters( 'biz_vektor_is_plugin_'. $plugin_name, false );
 }
 
 

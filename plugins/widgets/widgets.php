@@ -34,7 +34,7 @@
 /*-------------------------------------------*/
 /*	Widget area setting
 /*-------------------------------------------*/
-add_filter('biz_vektor_is_plugin_enable-widgets', 'biz_vektor_widget_beacon', 10, 1 );
+add_filter('biz_vektor_is_plugin_widgets', 'biz_vektor_widget_beacon', 10, 1 );
 function biz_vektor_widget_beacon($flag){
 	$flag = true;
 	return $flag;

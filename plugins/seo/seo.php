@@ -2,6 +2,12 @@
 /*-------------------------------------------*/
 /*	GoogleAnalytics
 /*-------------------------------------------*/
+add_filter('biz_vektor_is_plugin_seo', 'biz_vektor_seo_beacon', 10, 1 );
+function biz_vektor_seo_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 add_action('wp_head', 'biz_vektor_googleAnalytics', 10000 );
 function biz_vektor_googleAnalytics(){
 	global $biz_vektor_options;

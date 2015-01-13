@@ -9,6 +9,13 @@
 
 require( 'adminBarCustom.php' );
 
+
+add_filter('biz_vektor_is_plugin_extra_module', 'biz_vektor_exm_beacon', 10, 1 );
+function biz_vektor_exm_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 /*-------------------------------------------*/
 /*	Admin page _ page _ customize
 /*-------------------------------------------*/

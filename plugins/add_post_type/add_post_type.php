@@ -5,6 +5,12 @@
  * @package BizVektor
  * @version 1.6.0
  */
+add_filter('biz_vektor_is_plugin_add_post_type', 'biz_vektor_posttype_beacon', 10, 1 );
+function biz_vektor_posttype_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 /*-------------------------------------------*/
 /*	Custom post type _ add info
 /*-------------------------------------------*/

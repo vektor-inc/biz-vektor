@@ -26,6 +26,13 @@
 /*-------------------------------------------*/
 /*	Add OGP
 /*-------------------------------------------*/
+
+add_filter('biz_vektor_is_plugin_sns', 'biz_vektor_sns_beacon', 10, 1 );
+function biz_vektor_sns_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
 add_action('wp_head', 'biz_vektor_ogp' );
 function biz_vektor_ogp() {
 	global $biz_vektor_options;
