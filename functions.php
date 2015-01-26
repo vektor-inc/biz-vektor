@@ -71,6 +71,10 @@ function biz_vektor_is_plugin_enable($plugin_name){
 	return apply_filters( 'biz_vektor_is_plugin_'. $plugin_name, false );
 }
 
+function biz_vektor_wp_css(){
+	wp_enqueue_style('Biz_Vektor_style', get_stylesheet_uri(), array(), false);
+}
+add_action('wp_enqueue_scripts', 'biz_vektor_wp_css', 100);
 
 /*-------------------------------------------*/
 /*	Theme setup

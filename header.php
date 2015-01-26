@@ -12,7 +12,6 @@ biz_vektor_get_theme_options(); ?>
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
 <!-- <?php echo get_biz_vektor_name();?> v<?php echo BizVektor_Theme_Version; ?> -->
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <?php
 /* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
 /* 備考:file_exists はセーフモードのサーバーで動作しないため不使用
