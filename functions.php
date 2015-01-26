@@ -71,6 +71,11 @@ function biz_vektor_is_plugin_enable($plugin_name){
 	return apply_filters( 'biz_vektor_is_plugin_'. $plugin_name, false );
 }
 
+function biz_vektor_wp_css(){
+	echo '<link rel="stylesheet" href="'.get_stylesheet_uri().'" type="text/css" media="all" />'."\n";
+//	wp_enqueue_style('Biz_Vektor_style', get_stylesheet_uri(), array(), false);
+}
+add_action('wp_head', 'biz_vektor_wp_css', 190);
 
 /*-------------------------------------------*/
 /*	Theme setup
@@ -117,7 +122,7 @@ function biz_vektor_widgets_init() {
 		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
 		'id' => 'top-side-widget-area',
 		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
@@ -126,7 +131,7 @@ function biz_vektor_widgets_init() {
 		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
 		'id' => 'post-widget-area',
 		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
@@ -135,7 +140,7 @@ function biz_vektor_widgets_init() {
 		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
 		'id' => 'page-widget-area',
 		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
@@ -144,7 +149,7 @@ function biz_vektor_widgets_init() {
 		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
 		'id' => 'common-side-top-widget-area',
 		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
@@ -153,7 +158,7 @@ function biz_vektor_widgets_init() {
 		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
 		'id' => 'common-side-bottom-widget-area',
 		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
