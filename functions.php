@@ -72,9 +72,10 @@ function biz_vektor_is_plugin_enable($plugin_name){
 }
 
 function biz_vektor_wp_css(){
-	wp_enqueue_style('Biz_Vektor_style', get_stylesheet_uri(), array(), false);
+	echo '<link rel="stylesheet" href="'.get_stylesheet_uri().'" type="text/css" media="all" />'."\n";
+//	wp_enqueue_style('Biz_Vektor_style', get_stylesheet_uri(), array(), false);
 }
-add_action('wp_enqueue_scripts', 'biz_vektor_wp_css', 100);
+add_action('wp_head', 'biz_vektor_wp_css', 190);
 
 /*-------------------------------------------*/
 /*	Theme setup
