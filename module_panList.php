@@ -112,6 +112,9 @@ if ( is_404() ){
 	}
 	$panListHtml .= '<li><span>' . esc_html( $userObj->display_name ) . '</span></li>';
 
+} elseif ( is_attachment() ) {
+	$panListHtml .= '<li><span>'.the_title('','', FALSE).'</span></li>';
+
 // ▼▼ 投稿記事ページ
 } elseif ( is_single() ) {
 	// 投稿の場合
@@ -280,8 +283,6 @@ if ( is_404() ){
 		}
 	}
 
-} elseif ( is_attachment() ) {
-	$panListHtml .= '<li><span>'.the_title('','', FALSE).'</span></li>';
 }
 $panListHtml .= '</ul>';
 $panListHtml .= '</div>
