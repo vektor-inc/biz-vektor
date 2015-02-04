@@ -43,12 +43,17 @@ function biz_vektor_ogp() {
 		$linkUrl = home_url();
 	} else if (is_single() || is_page()) {
 		$linkUrl = get_permalink();
+	} else if (is_category()) {
+		global $cat;
+		$linkUrl = get_category_link($cat);
+	} else if (is_tax()) {
+		$linkUrl = get_term_link($wp_query->query_vars['term'],$wp_query->query_vars['taxonomy']);
 	} else {
-		$linkUrl = get_permalink();
+		$linkUrl = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 	}
 	$bizVektorOGP = '<!-- [ '.get_biz_vektor_name().' OGP ] -->'."\n";
 	$bizVektorOGP .= '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
-	$bizVektorOGP .= '<meta property="og:url" content="'.$linkUrl.'" />'."\n";
+	$bizVektorOGP .= '<meta property="og:url" content="'.esc_url($linkUrl).'" />'."\n";
 	if (isset($options['fbAppId'])){
 		$bizVektorOGP = $bizVektorOGP.'<meta property="fb:app_id" content="'.$options['fbAppId'].'" />'."\n";
 	}
