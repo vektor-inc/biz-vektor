@@ -30,9 +30,9 @@ msgid ""
 "addition, it is also possible to increase the number of designs by plug-ins."
 msgstr ""
 "BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
-"トを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まった"
-"く別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって"
-"新たに選択出来るデザインを増やす事も出来ます。"
+"トを構築する事が出来ます。また、カスタマイザーで色を変更したり、まったく別の"
+"デザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって新たに"
+"選択出来るデザインを増やす事も出来ます。"
 
 # Template name (no text domain)
 msgid "Child index page"
@@ -419,7 +419,7 @@ msgstr "テーマの管理"
 #: module_adminBarCustom.php:61
 msgctxt "BizVektor admin header menu"
 msgid "Customizer"
-msgstr "テーマカスタマイザー"
+msgstr "カスタマイザー"
 
 #: module_adminBarCustom.php:68
 msgctxt "BizVektor admin header menu"
@@ -630,7 +630,7 @@ msgstr "キーカラー（暗）"
 #: design_skins/001/001_custom.php:107 design_skins/002/002_custom.php:100
 #: design_skins/003/003_custom.php:52
 msgid "Set the color from theme customizer"
-msgstr "テーマカスタマイザーで色を設定する"
+msgstr "カスタマイザーで色を設定する"
 
 #: design_skins/002/002_custom.php:79
 msgid "Calmly Setting"
@@ -889,7 +889,7 @@ msgstr "%s テーマオプション"
 
 #: inc/theme-options-edit.php:71
 msgid "Theme customizer"
-msgstr "テーマカスタマイザー"
+msgstr "カスタマイザー"
 
 #: inc/theme-options-edit.php:72
 #, php-format
@@ -929,8 +929,8 @@ msgid ""
 "* If there are settings for the particular design skin, after you save your "
 "changes, you can update them from theme customizer."
 msgstr ""
-"各デザインスキン固有のセッティング項目がある場合は、変更を保存した後で、テー"
-"マカスタマイザーより設定出来ます。"
+"各デザインスキン固有のセッティング項目がある場合は、変更を保存した後で、カス"
+"タマイザーより設定出来ます。"
 
 #: inc/theme-options-edit.php:145
 msgid "How to set up Menus"
@@ -998,7 +998,7 @@ msgstr "表示しない"
 
 #: inc/theme-options-edit.php:253
 msgid "This setting can not be changed from the theme customizer."
-msgstr "この項目はテーマカスタマイザーからは設定出来ません。"
+msgstr "この項目はカスタマイザーからは設定出来ません。"
 
 #: inc/theme-options-edit.php:258
 msgid "Favicon Setting"
@@ -1890,9 +1890,9 @@ msgid ""
 "through the Theme Customizer. The theme is entirely reset. To reset the "
 "theme please enter the number above and click on Reset Settings button."
 msgstr ""
-"設定項目のリセットを行います。テーマカスタマイザーを含め全てのBizVektor設定が"
-"デフォルトに戻ります。了承される場合は上の数字を入力し、チェックボックスをク"
-"リックして「設定を初期化」ボタンをクリックしてください。"
+"設定項目のリセットを行います。カスタマイザーを含め全てのBizVektor設定がデフォ"
+"ルトに戻ります。了承される場合は上の数字を入力し、チェックボックスをクリック"
+"して「設定を初期化」ボタンをクリックしてください。"
 
 #: inc/theme-options-edit.php:903
 msgid "I want to reset ALL theme settings"
@@ -1919,8 +1919,7 @@ msgid ""
 "This area can be changed from the theme customizer as well as from the theme "
 "options section."
 msgstr ""
-"この部分はテーマオプション画面か、テーマカスタマイザーから変更する事が出来ま"
-"す。"
+"この部分はテーマオプション画面か、カスタマイザーから変更する事が出来ます。"
 
 #: inc/theme-options-init.php:116
 msgid "Various designs available"
