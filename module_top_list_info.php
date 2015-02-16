@@ -9,7 +9,15 @@ $infoTopCount = $biz_vektor_options['infoTopCount'];
 $loop = new WP_Query( array( 'post_type' => 'info', 'posts_per_page' => $infoTopCount, ) ); ?>
 <?php if ($loop->have_posts()) : ?>
 <div id="topInfo" class="infoList">
-<h2><?php echo esc_html($biz_vektor_options['infoLabelName']); ?></h2>
+<h2>
+	<?php if ( isset( $biz_vektor_options['infoTopUrl'] ) && ! empty( $biz_vektor_options['infoTopUrl'] ) ) { ?>
+		<a href="<?php echo esc_html( $biz_vektor_options['infoTopUrl'] ); ?>"><?php
+	} ?>
+	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?>
+	<?php if ( isset( $biz_vektor_options['infoTopUrl'] ) && ! empty( $biz_vektor_options['infoTopUrl'] ) ) { ?>
+		</a><?php
+	} ?>
+</h2>
 <div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=info" id="infoRss" target="_blank">RSS</a></div>
 <?php
 if ( isset($biz_vektor_options['listInfoTop']) &&  $biz_vektor_options['listInfoTop'] == 'listType_set' ) { ?>

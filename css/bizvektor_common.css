@@ -42,6 +42,9 @@
 /*-------------------------------------------*/
 .entry-meta .entry-meta-items:before { content: " | "; }
 .entry-meta .entry-meta-items.author { display: none; }
+#content .infoList .rssBtn { float: right; }
+#content h2	a { color: inherit; }
+#content h2	a:hover { text-decoration: underline; }
 
 /*-------------------------------------------*/
 /*	#sideTower
