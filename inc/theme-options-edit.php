@@ -412,7 +412,19 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php echo _x( 'TopPR', 'BizVektor option tab label', 'biz-vektor' ); ?></h3>
+<h3><?php if ( isset( $options_bizvektor['infoLabelName'] ) && ! empty( $options_bizvektor['infoLabelName'] ) 
+    		&& isset( $options_bizvektor['postLabelName'] ) && ! empty( $options_bizvektor['postLabelName'] ) ) {
+
+			echo esc_html( $options_bizvektor['infoLabelName'] ) . ' & ' . esc_html( $options_bizvektor['postLabelName'] );
+    	} elseif ( isset( $options_bizvektor['infoLabelName'] ) && ! empty( $options_bizvektor['infoLabelName'] ) ) {
+
+    		echo esc_html( bizVektorOptions('infoLabelName') ) . ' & ' . _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' );
+    	} elseif ( isset( $options_bizvektor['postLabelName'] ) && ! empty( $options_bizvektor['postLabelName'] ) ) {
+
+    		echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' ) . ' & ' . esc_html( $options_bizvektor['postLabelName'] );
+    	} else {
+			echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' ); 
+    	} ?></h3>
 
 <?php
 $infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
