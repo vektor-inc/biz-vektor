@@ -93,9 +93,15 @@ function getHeadTitle() {
 	$options = biz_vektor_get_theme_options();
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	if (is_home() || is_page('home') || is_front_page()) {
+	if (is_front_page()) {
 		if (isset($options['topTitle']) && $options['topTitle'])	{
 			$headTitle = $options['topTitle'];
+		} else {
+			$headTitle = get_bloginfo('name');
+		}
+	} else if (is_home()) {
+		if (isset($options['postLabelName']) && $options['postLabelName'])	{
+			$headTitle = $options['postLabelName']." | ".get_bloginfo('name');
 		} else {
 			$headTitle = get_bloginfo('name');
 		}

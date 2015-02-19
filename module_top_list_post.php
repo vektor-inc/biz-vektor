@@ -14,7 +14,15 @@ $post_loop = new WP_Query( array(
 ) ); ?>
 <?php if ($post_loop->have_posts()): ?>
 	<div id="topBlog" class="infoList">
-	<h2><?php echo esc_html($biz_vektor_options['postLabelName']); ?></h2>
+	<h2>
+		<?php if ( isset( $biz_vektor_options['postTopUrl'] ) && ! empty( $biz_vektor_options['postTopUrl'] ) ) { ?>
+			<a href="<?php echo esc_html( $biz_vektor_options['postTopUrl'] ); ?>"><?php
+		} ?>
+		<?php echo esc_html($biz_vektor_options['postLabelName']); ?>
+		<?php if ( isset( $biz_vektor_options['postTopUrl'] ) && ! empty( $biz_vektor_options['postTopUrl'] ) ) { ?>
+			</a><?php
+		} ?>
+	</h2>
 	<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=post" id="blogRss" target="_blank">RSS</a></div>
 	<?php $options = biz_vektor_get_theme_options();
 	if ( $options['listBlogTop'] == 'listType_set' ) { ?>
