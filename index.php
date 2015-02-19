@@ -48,6 +48,7 @@ if ( !$postType ) {
 /*-------------------------------------------*/
 	?>
 	<div class="infoList">
+	<?php if (have_posts()) : ?>
 	<?php
 
 	$options = biz_vektor_get_theme_options();
@@ -96,6 +97,9 @@ if ( !$postType ) {
 
 	<?php endif; // $postType == 'info' ?>
 	<?php pagination(); ?>
+	<?php else: ?>
+	<div class="sectionFrame"><p><?php _e('No posts.','biz-vektor');?></p></div>
+	<?php endif; // have_post() ?>
 	</div><!-- [ /.infoList ] -->
 	</div>
 	<!-- [ /#content ] -->
