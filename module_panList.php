@@ -154,7 +154,7 @@ if ( is_404() ){
 	$panListHtml .= '<li><span>' . get_the_title() . '</span></li>';
 
 // ▼▼ タクソノミー
-} else if (is_tax()) { // 階層構造を反映しないので要検討
+} else if (is_tax()) {
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
 	if ( $postType == 'post') {
 		$postTopUrl = (isset($biz_vektor_options['postTopUrl']))? esc_html($biz_vektor_options['postTopUrl']) : '';
@@ -175,18 +175,34 @@ if ( is_404() ){
 		$postTypeName = get_post_type_object($postTypeSlug)->labels->name;
 		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.home_url().'/'.$postType.'" itemprop="url"><span itemprop="title">'.$postTypeName.'</span></a> &raquo; </li>';
 
-		$taxonomy   = $wp_query->query_vars['taxonomy'];
-		$term_slug  = $wp_query->query_vars['term'];
-		$taxonomies = get_the_taxonomies();
+		// $taxonomy   = $wp_query->query_vars['taxonomy'];
+		// $term_slug  = $wp_query->query_vars['term'];
+		// $taxonomies = get_the_taxonomies();
 
-		if ( isset( $taxonomy ) && isset( $term_slug ) ):
-			$term = get_term_by( 'slug', $term_slug, $taxonomy );
-			if ( 0 != $term->parent ) {
-				$parent_term = get_term_by( 'id', $term->parent, $taxonomy );
-				$parent_url = home_url() . '/' .  $parent_term->taxonomy . '/' . $parent_term->slug . '/';
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $parent_term->name . '</span></a> &raquo; </li>';
-			}
-		endif;	
+		// if ( isset( $taxonomy ) && isset( $term_slug ) ):
+		// 	$term = get_term_by( 'slug', $term_slug, $taxonomy );
+		// 	if ( 0 != $term->parent ) {
+		// 		$parent_term = get_term_by( 'id', $term->parent, $taxonomy );
+		// 		$parent_url = home_url() . '/' .  $parent_term->taxonomy . '/' . $parent_term->slug . '/';
+		// 		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $parent_term->name . '</span></a> &raquo; </li>';
+		// 	}
+		// endif;
+
+		$now_term = $wp_query->queried_object->term_id;
+		$now_term_parent = $wp_query->queried_object->parent;
+		$now_taxonomy = $wp_query->queried_object->taxonomy;
+
+		// parent が !0 の場合 = 親カテゴリーが存在する場合
+		if($now_term_parent != 0):
+			// 祖先のカテゴリー情報を逆順で取得
+			$ancestors = array_reverse(get_ancestors( $now_term, $now_taxonomy ));
+			// 祖先階層の配列回数分ループ
+			foreach($ancestors as $ancestor):
+				$pan_term = get_term($ancestor,$now_taxonomy);
+				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.get_term_link($ancestor,$now_taxonomy).'">'.$pan_term->name.'</a> &raquo; </li>';
+			endforeach;
+		endif;
+
 	}
 	$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.single_cat_title('','', FALSE).'</span></li>';
 // ▼▼ カテゴリー
