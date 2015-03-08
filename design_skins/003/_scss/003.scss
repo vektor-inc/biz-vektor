@@ -158,7 +158,7 @@ form#searchform {
 	.sideWidget {
 			li a:before { @include vektor_kado_icons;content: "\32";margin-right:5px;padding-top:3px; }
 			li a { padding-left:25px;color:$color_font; }
-			li a:first-letter { margin-left:-20px; }
+			li a:first-letter { margin-left:-20px;@include vektor_kado_icons; }
 			li ul li { font-size:12px; }
 			li ul li a { padding-left:25px; }
 			li ul li a:before { @include vektor_kado_icons;content: "\2b";margin-right:5px;padding-top:3px; }

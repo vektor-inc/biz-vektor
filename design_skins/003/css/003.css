@@ -951,7 +951,7 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 .sideTower .localHead { border-top: 2px solid #666; border-bottom: 1px solid #efefef; background-color: #f9f9f9; padding: 12px 12px 9px; font-weight: lighter; }
 .sideTower .sideWidget li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\32"; margin-right: 5px; padding-top: 3px; }
 .sideTower .sideWidget li a { padding-left: 25px; color: #666; }
-.sideTower .sideWidget li a:first-letter { margin-left: -20px; }
+.sideTower .sideWidget li a:first-letter { margin-left: -20px; font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; }
 .sideTower .sideWidget li ul li { font-size: 12px; }
 .sideTower .sideWidget li ul li a { padding-left: 25px; }
 .sideTower .sideWidget li ul li a:before { font-family: 'vektor_kado_icons'; speak: none; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1em; -webkit-font-smoothing: antialiased; content: "\2b"; margin-right: 5px; padding-top: 3px; }
