@@ -477,14 +477,13 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 		a	{ text-decoration:none;color:#333; }
 		a:hover	{ text-decoration:underline; }
 	} // .localHead
-
 	.sideWidget 	{ margin:0 0 20px;
 		li	{ list-style:none;border-bottom:1px dotted #ccc; font-size:$font_size_small; line-height:$line_low;
-			a	{ display:block;padding:13px 10px 11px; text-decoration:none;
-				img { margin:0 auto;}
+			a	{ display:block; padding:13px 10px 11px; text-decoration:none;
+				img { margin:0 auto; }
 			}
 			/* 子 */
-			ul	{ display:block;margin:0px;}
+			ul { display:block;margin:0px;}
 			li { display:block;border-bottom:none;border-top:1px dotted #ccc; }
 			li a { padding:11px 10px 9px 15px; }
 			/* 孫 */
@@ -494,15 +493,12 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 		li > a:hover,
 		li.current_page_item > a,
 		li.current-cat > a	{ background-color:#efefef;}
-
 	.textwidget	{ padding-top:10px; }
 	.textwidget img	{ display:block; margin: 0 auto; }
 
 	h4	{ clear:both; font-size:14px;margin:0px 0px 15px; padding:4px 0px 2px 12px; border-left-style:solid; border-left-width:3px; background-color:#f5f5f5; }
-
 	ul#recentcomments li	{ padding:13px 0px 11px; }
 	ul#recentcomments li	a	{ padding:0;background:none; }
-
 	select	{ margin:10px 0; padding:5px; width:100%;border:1px solid $color_border;}
 	select option	{ padding:2px 5px; }
 	}	 //.sideWidget
