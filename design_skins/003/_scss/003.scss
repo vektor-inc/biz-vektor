@@ -108,7 +108,7 @@ form#searchform {
 	ul { width:100%; }
 	ul a,
 	ul a:active { color:#666;text-decoration: none; }
-	ul li#panHome a:before { @include vektor_kado_icons;content: "\2d";padding-right:3px;  }
+	ul li#panHome a:before { @include vektor_kado_icons;content: "\2d";padding-right:3px; }
 }
 
 // グローバルメニューやスライドが存在しない場合があるため #main で線を引く
@@ -156,14 +156,14 @@ form#searchform {
 .sideTower {
 	.localHead { @include h2 }
 	.sideWidget {
-			li a:before { @include vektor_kado_icons;content: "\32";margin-right:5px;padding-top:3px;}
+			li a:before { @include vektor_kado_icons;content: "\32";margin-right:5px;padding-top:3px; }
 			li a { padding-left:25px;color:$color_font; }
 			li a:first-letter { margin-left:-20px; }
 			li ul li { font-size:12px; }
 			li ul li a { padding-left:25px; }
-			li ul li a:before { @include vektor_kado_icons;content: "\2b";margin-right:5px;padding-top:3px;}
-			li ul li a:first-letter { margin-left:-20px;border:1px solid rgba(255,255,255,0); }
+			li ul li a:before { @include vektor_kado_icons;content: "\2b";margin-right:5px;padding-top:3px; }
 	}
+
 	.ttBoxSection { padding: 0;
 		.ttBox { padding: 13px 0px 11px; border-bottom: 1px dotted #ccc;font-size: 85.7%; line-height: 135.7%;
 			a { color: #666; }
