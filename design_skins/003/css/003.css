@@ -935,7 +935,9 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 #content table th, #content table td { border: none; margin-right: 2px; border-bottom: 1px solid #e9e9e9; }
 #content table th { font-weight: lighter; }
 
+#content .infoList { /* ないと1件目がトップのRSSボタンで回り込まれる */ }
 #content .infoList .infoCate a { background: none; }
+#content .infoList .infoListBox { clear: both; }
 
 #content .childPageBox { box-shadow: inset 0px 0px 0px 4px rgba(0, 0, 0, 0.05); border: 1px solid #ccc; margin-bottom: 20px; }
 

@@ -138,7 +138,7 @@ form#searchform {
 
 #content .infoList {
 	.infoCate a { background: none; }
-	.infoListBox {  }
+	.infoListBox { clear: both; } /* ないと1件目がトップのRSSボタンで回り込まれる */
 }
 
 #content .childPageBox { @include wakubox; }
