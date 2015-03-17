@@ -253,7 +253,7 @@ function biz_vektor_event_widgets_init() {
 		'id' => 'event-widget-area',
 		/***************************/
 		'description' => 'イベント情報で表示されるウィジェットエリアです',
-		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="widget %2$s sideWidget" id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
