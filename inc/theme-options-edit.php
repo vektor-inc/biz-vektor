@@ -488,7 +488,7 @@ $postLabelName = esc_html( bizVektorOptions('postLabelName'));
 					<ol>
 					<li>
 					<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?>
-					[ <a href="<?php echo admin_url().'edit.php?post-new.php?post_type=page';?>" target="_blank">&raquo; <?php _e('Make new page', 'biz-vektor'); ?></a> ]
+					[ <a href="<?php echo admin_url().'post-new.php?post_type=page';?>" target="_blank">&raquo; <?php _e('Make new page', 'biz-vektor'); ?></a> ]
 					</li>
 					<li>
 						<?php printf( __( 'Next select the page you want to use as %1$s top page in the Posts page dropdown menu of the <a href="%2$s" target="_blank">%3$s</a> page (Front page displays section)', 'biz-vektor' ), $postLabelName, admin_url() . 'options-reading.php', __( 'Reading', 'biz-vektor' ) );?>
