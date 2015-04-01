@@ -43,7 +43,7 @@ for ( $i = 1; $i <= 3 ;)
 			<?php } ?>
 		</div>
 	<?php 
-	} 
+	}
 
 	//description
 	if ( isset( $biz_vektor_options['pr1_description'] )  && ! empty( $biz_vektor_options['pr1_description'] ) ) { ?>
@@ -68,7 +68,6 @@ for ( $i = 1; $i <= 3 ;)
 	<?php } ?>
 	</div>
 	</div><!-- /#topPrLeft -->
-
 
 <?php
 $i++;
