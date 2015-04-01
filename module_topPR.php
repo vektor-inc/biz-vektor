@@ -52,7 +52,7 @@ for ( $i = 1; $i <= 3 ;)
 				<?php if ( isset( $biz_vektor_options['pr'.$i.'_link'] ) && ! empty( $biz_vektor_options['pr'.$i.'_link'] ) ) { ?>
 				<a href="<?php echo esc_url($biz_vektor_options['pr'.$i.'_link']) ?>">
 				<?php } ?>
-					<?php echo nl2br(esc_html($biz_vektor_options['pr1_description'])) ?>
+					<?php echo nl2br(esc_html($biz_vektor_options['pr'.$i.'_description'])) ?>
 				<?php if ( isset( $biz_vektor_options['pr'.$i.'_link'] ) && ! empty( $biz_vektor_options['pr'.$i.'_link'] ) ) { ?>
 				</a>
 				<?php } ?>
