@@ -3,7 +3,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content" class="wide">
+	<div id="content" class="content wide">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 

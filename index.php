@@ -9,7 +9,7 @@ if ( !$postType ) {
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
 	<?php
 /*-------------------------------------------*/
 /*	Archive title

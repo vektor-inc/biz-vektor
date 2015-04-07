@@ -9,7 +9,7 @@ if (isset($_GET['s']) && empty($_GET['s'])) {
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 <!-- [ #content ] -->
-<div id="content" class="wide">
+<div id="content" class="content wide">
 
 	<?php if ( have_posts() ) : ?>
 	<ul class="linkList">

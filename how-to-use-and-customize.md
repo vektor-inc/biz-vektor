@@ -35,7 +35,7 @@ CSSでデザインを修正する対象をセレクタと呼びます。
 例えば下記のHTMLで、 h1の『投稿のタイトル』の部分を修正する場合
 
 ~~~
-<div id="content">
+<div id="content" class="content">
 <h1 class="entryPostTitle">投稿のタイトル</h1>
 </div>
 ~~~
