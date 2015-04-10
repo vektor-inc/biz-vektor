@@ -30,6 +30,6 @@ body     { line-height:150%; }
 } // #footMenu
 
 #sitemapOuter	{ padding:20px 50px; }
-#content #sitemapPageList { float:left;width:49%; }
-#content #sitemapPostList { float:right;width:49%;margin-top:0px; }
-#content ul.linkList li a	{ padding:3px 15px; }
+.content #sitemapPageList { float:left;width:49%; }
+.content #sitemapPostList { float:right;width:49%;margin-top:0px; }
+.content ul.linkList li a	{ padding:3px 15px; }

@@ -140,14 +140,14 @@ a { color:<?php echo $color_key['theme_plusKeyColorLight'];?> }
 #searchform input[type=submit],
 p.form-submit input[type=submit],
 form#searchform input#searchsubmit,
-#content form input.wpcf7-submit,
+.content form input.wpcf7-submit,
 #confirm-button input,
 a.btn,
 .linkBtn a,
 input[type=button],
 input[type=submit],
 .sideTower li#sideContact.sideBnr a,
-#content .infoList .rssBtn a { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
+.content .infoList .rssBtn a { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 .moreLink a { border-left-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 .moreLink a:hover { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
@@ -162,27 +162,27 @@ input[type=submit],
 
 #pageTitBnr { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
-#content h2,
-#content h1.contentTitle,
-#content h1.entryPostTitle,
+.content h2,
+.content h1.contentTitle,
+.content h1.entryPostTitle,
 .sideTower h3.localHead,
 .sideWidget h4  { border-top-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
-#content h3:after,
-#content .child_page_block h4:after { border-bottom-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
+.content h3:after,
+.content .child_page_block h4:after { border-bottom-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
 
 .sideTower li#sideContact.sideBnr a:hover,
-#content .infoList .rssBtn a:hover,
+.content .infoList .rssBtn a:hover,
 form#searchform input#searchsubmit:hover { background-color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
 
 #panList .innerBox ul a:hover { color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
 
-#content .mainFootContact p.mainFootTxt span.mainFootTel { color:<?php echo $color_key['theme_plusKeyColor'];?>; }
-#content .mainFootContact .mainFootBt a { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
-#content .mainFootContact .mainFootBt a:hover { background-color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
+.content .mainFootContact p.mainFootTxt span.mainFootTel { color:<?php echo $color_key['theme_plusKeyColor'];?>; }
+.content .mainFootContact .mainFootBt a { background-color:<?php echo $color_key['theme_plusKeyColor'];?>; }
+.content .mainFootContact .mainFootBt a:hover { background-color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
 
-#content .infoList .infoCate a { background-color:<?php echo $color_key['theme_plusKeyColorVeryLight'];?>;color:<?php echo $color_key['theme_plusKeyColor'];?>; }
-#content .infoList .infoCate a:hover { background-color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
+.content .infoList .infoCate a { background-color:<?php echo $color_key['theme_plusKeyColorVeryLight'];?>;color:<?php echo $color_key['theme_plusKeyColor'];?>; }
+.content .infoList .infoCate a:hover { background-color:<?php echo $color_key['theme_plusKeyColorLight'];?>; }
 
 .paging span,
 .paging a	{ color:<?php echo $color_key['theme_plusKeyColor'];?>;border-color:<?php echo $color_key['theme_plusKeyColor'];?>; }

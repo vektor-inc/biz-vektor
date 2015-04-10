@@ -2,17 +2,17 @@
 
 #header #site-title	{ float:left;}
 #main #container	{ padding-top:20px;}
-#main #container #content	{ margin:0px auto; }
-#content p	{ line-height:170%; }
-#content table.mobile-block th,
-#content table.mobile-block td { display: table-cell; }
-#content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
-#content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
-#content .mainFootContact .mainFootBt	{ float:right; }
-#content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
-#content .mainFootContact .mainFootBt a img	{ width:auto; }
+#main #container .content	{ margin:0px auto; }
+.content p	{ line-height:170%; }
+.content table.mobile-block th,
+.content table.mobile-block td { display: table-cell; }
+.content .mainFootContact p.mainFootTxt	{ float:left; margin-bottom:0px;  text-align:left; }
+.content .mainFootContact p.mainFootTxt .mainFootCatch	{font-size:120%;}
+.content .mainFootContact .mainFootBt	{ float:right; }
+.content .mainFootContact .mainFootBt a	{ width:350px;min-height:50px; }
+.content .mainFootContact .mainFootBt a img	{ width:auto; }
 .paging span.pageIndex { display:inline; }
-#content {
+.content {
 	.topPr { display:block; overflow:hidden;
 		.topPrOuter	{ padding:0px;border-bottom:none;margin-bottom:20px; }
 		#topPrLeft 	{ width:33.1%; text-align:left; float:left;display:block; overflow:visible; }
@@ -33,5 +33,5 @@
 	}
 }
 
-#content .child_page_block	{ width:48%; }
-#content .child_page_block.layout_odd	{ float:left; clear:both; }
+.content .child_page_block	{ width:48%; }
+.content .child_page_block.layout_odd	{ float:left; clear:both; }
