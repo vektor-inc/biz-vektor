@@ -88,19 +88,19 @@ body     { line-height:150%; }
 
 #header .innerBox { width:$width_container; }
 #main #container	{ padding-top:30px;}
-#main #container #content	{ float:left; width:$width_content; }
+#main #container .content	{ float:left; width:$width_content; }
 #main #container #sideTower	{ float:right; width:$width_side;clear:none; }
 
-body.left-sidebar #main #container #content	{ float:right; }
+body.left-sidebar #main #container .content	{ float:right; }
 body.left-sidebar #main #container #sideTower	{ float:left; }
 
-body.home.one-column #main #container #content	{ float:none;width:100%; }
+body.home.one-column #main #container .content	{ float:none;width:100%; }
 body.home.one-column #main #container #sideTower	{ float:none; display:none; }
 
 // form#searchform input#s	{width:120px; }
 form#searchform input#searchsubmit	{ width:20%; }
 
-#content .mainFootContact .mainFootBt a img	{ width:100%; }
+.content .mainFootContact .mainFootBt a img	{ width:100%; }
 
 #topMainBnr			{ width:100%; }
 #topMainBnr img		{ width:$width_container !important;max-width:$width_container !important; }
@@ -110,7 +110,7 @@ form#searchform input#searchsubmit	{ width:20%; }
 
 /*			.childPageBox
 /*-------------------------------------------*/
-#content .childPageBox { display:block;overflow:hidden;margin-top:20px; border:1px solid $color_border; padding:0px; width:100%;
+.content .childPageBox { display:block;overflow:hidden;margin-top:20px; border:1px solid $color_border; padding:0px; width:100%;
 	@include box-sizing(border-box); margin-bottom:20px;
 	h4	{ font-weight:lighter;margin:15px 20px 10px; padding:0px 0px 3px; font-size:14px;}
 	h4 a	{ text-decoration:none;color:#666 }

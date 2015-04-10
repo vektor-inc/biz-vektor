@@ -19,7 +19,7 @@
 #content .socialSet ul li.sb_icon.sb_line .icon_sns	{ color:#6ebd30; }
 #content .socialSet ul li.sb_pocket		{ margin-left:5px;}
 
-#fb-like-box { margin-bottom:20px; }
+#fb-like-box{ text-align: center; background-color: #f9f9f9; margin:40px auto;border:4px solid #efefef; }
 
 /*-------------------------------------------*/
 /*			import icon

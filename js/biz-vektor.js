@@ -75,9 +75,11 @@ function likeBoxReSize(){
 	// jQuery('.fb-like-box').each(function(i){
 	jQuery('.fb-like-box').each(function(){
 		var element = jQuery(this).parent().width();
-		jQuery(this).attr('data-width',element);
-		jQuery(this).children('span:first').css({"width":element});
-		jQuery(this).children('span iframe.fb_ltr').css({"width":element});
+		if ( 501 > element || element < 280 ) {
+			jQuery(this).attr('data-width',element);
+			jQuery(this).children('span:first').css({"width":element});
+			jQuery(this).children('span iframe.fb_ltr').css({"width":element});	
+		}
 	});
 }
 fbCommentReSize();

@@ -34,7 +34,7 @@ function rebuild_head_contact_custom($headContact){
 	<div id="gMenuInner" class="innerBox">
 	<h3 class="assistive-text" onclick="showHide(\'header\');"><span>MENU</span></h3>
 	<div class="skip-link screen-reader-text">
-		<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
+		<a href=".content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
 	</div>'."\n";
 
 	// メニューがセットされていたら実行

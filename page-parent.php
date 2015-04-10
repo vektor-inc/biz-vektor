@@ -65,8 +65,9 @@ endif;
 wp_reset_query();
 ?>
 
-<?php biz_vektor_snsBtns(); ?>
-<?php biz_vektor_fbComments(); ?>
+<?php do_action('biz_vektor_snsBtns'); ?>
+<?php do_action('biz_vektor_fbComments'); ?>
+<?php do_action('biz_vektor_fbLikeBoxDisplay'); ?>
 
 </div>
 <!-- [ /#content ] -->

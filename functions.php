@@ -11,6 +11,8 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	WidgetArea initiate
 /*-------------------------------------------*/
+/*	WidgetArea maincontent setting
+/*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
 /*	Load theme options
@@ -26,10 +28,6 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*	Admin page _ Add post status to body class
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
-/*-------------------------------------------*/
-/*	Admin page _ Hide youkoso
-/*-------------------------------------------*/
-/*	Admin page _ Add custom field of keywords
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
@@ -167,6 +165,37 @@ function biz_vektor_widgets_init() {
 add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
 /*-------------------------------------------*/
+/*	WidgetArea maincontent setting
+/*-------------------------------------------*/
+add_filter('biz_vektor_is_plugin_widgets', 'biz_vektor_widget_beacon', 10, 1 );
+function biz_vektor_widget_beacon($flag){
+	$flag = true;
+	return $flag;
+}
+
+function biz_vektor_maincontent_widgetarea_init() {
+	register_sidebar( array(
+		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
+		'id' => 'top-main-widget-area',
+		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
+	) );
+}
+add_action( 'widgets_init', 'biz_vektor_maincontent_widgetarea_init' );
+
+add_filter('biz_vektor_extra_main_content', 'biz_vektor_widget_extra_content', 512, 1);
+function biz_vektor_widget_extra_content($flag){
+	if ( !$flag && is_active_sidebar( 'top-main-widget-area' ) ) {
+	 	dynamic_sidebar( 'top-main-widget-area' );
+		$flag = true;
+	}
+	return $flag;
+}
+
+/*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
 
@@ -268,62 +297,6 @@ add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 add_editor_style('/css/editor-style.css');
 
 /*-------------------------------------------*/
-/*	Admin page _ Hide youkoso
-/*-------------------------------------------*/
-function hide_welcome_panel() {
-	$user_id = get_current_user_id();
-		if ( 1 == get_user_meta( $user_id, 'show_welcome_panel', true ) )
-	update_user_meta( $user_id, 'show_welcome_panel', 0 );
-}
-add_action( 'load-index.php', 'hide_welcome_panel' );
-
-/*-------------------------------------------*/
-/*	Admin page _ Add custom field of keywords
-/*-------------------------------------------*/
-add_action('admin_menu', 'add_custom_field_metaKeyword');
-add_action('save_post', 'save_custom_field_metaKeyword');
-
-function add_custom_field_metaKeyword(){
-  if(function_exists('add_custom_field_metaKeyword')){
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'info', 'normal', 'high');
-  }
-}
-
-function insert_custom_field_metaKeyword(){
-  global $post;
-  echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
-  echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
-  echo '<p>'.__('To distinguish between individual keywords, please enter a , delimiter (optional).', 'biz-vektor').'<br />';
-  $theme_option_seo_link = '<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">'._x('','link to seo setting', 'biz-vektor').'</a>';
-  sprintf(__('* keywords common to the entire site can be set from %s.', 'biz-vektor'),$theme_option_seo_link);
-  echo '</p>';
-}
-
-function save_custom_field_metaKeyword($post_id){
-	$metaKeyword = isset($_POST['noncename_custom_field_metaKeyword']) ? htmlspecialchars($_POST['noncename_custom_field_metaKeyword']) : null;
-	if(!wp_verify_nonce($metaKeyword, plugin_basename(__FILE__))){
-		return $post_id;
-	}
-	if('page' == $_POST['post_type']){
-		if(!current_user_can('edit_page', $post_id)) return $post_id;
-	}else{
-		if(!current_user_can('edit_post', $post_id)) return $post_id;
-	}
-
-  $data = $_POST['metaKeyword'];
-
-  if(get_post_meta($post_id, 'metaKeyword') == ""){
-	add_post_meta($post_id, 'metaKeyword', $data, true);
-  }elseif($data != get_post_meta($post_id, 'metaKeyword', true)){
-	update_post_meta($post_id, 'metaKeyword', $data);
-  }elseif($data == ""){
-	delete_post_meta($post_id, 'metaKeyword', get_post_meta($post_id, 'metaKeyword', true));
-  }
-}
-
-/*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
 function getHeadDescription() {
@@ -388,6 +361,12 @@ function getHeadDescription() {
 /*-------------------------------------------*/
 /*	wp_head add items
 /*-------------------------------------------*/
+
+// Add Font Awesome
+add_action('wp_enqueue_scripts','bizVektorAddFontAwesome');
+function bizVektorAddFontAwesome(){
+	wp_enqueue_style('Biz_Vektor_add_font_awesome', "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", array(), false, 'all');
+}
 
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');

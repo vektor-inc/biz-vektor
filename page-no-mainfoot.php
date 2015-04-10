@@ -43,8 +43,9 @@ if ( is_user_logged_in() == TRUE ) { ?>
 <?php } ?>
 <?php // /Child page list ?>
 
-<?php biz_vektor_snsBtns(); ?>
-<?php biz_vektor_fbComments(); ?>
+<?php do_action('biz_vektor_snsBtns'); ?>
+<?php do_action('biz_vektor_fbComments'); ?>
+<?php do_action('biz_vektor_fbLikeBoxDisplay'); ?>
 
 </div>
 <!-- [ /#content ] -->

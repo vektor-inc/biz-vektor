@@ -7,8 +7,6 @@
  */
 
 /*-------------------------------------------*/
-/*	Widget area setting
-/*-------------------------------------------*/
 /*	ChildPageList widget
 /*-------------------------------------------*/
 /*	Top PR widget
@@ -31,36 +29,7 @@
 /*-------------------------------------------*/
 
 
-/*-------------------------------------------*/
-/*	Widget area setting
-/*-------------------------------------------*/
-add_filter('biz_vektor_is_plugin_widgets', 'biz_vektor_widget_beacon', 10, 1 );
-function biz_vektor_widget_beacon($flag){
-	$flag = true;
-	return $flag;
-}
 
-function biz_vektor_maincontent_widgetarea_init() {
-	register_sidebar( array(
-		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
-		'id' => 'top-main-widget-area',
-		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-	) );
-}
-add_action( 'widgets_init', 'biz_vektor_maincontent_widgetarea_init' );
-
-add_filter('biz_vektor_extra_main_content', 'biz_vektor_widget_extra_content', 512, 1);
-function biz_vektor_widget_extra_content($flag){
-	if ( !$flag && is_active_sidebar( 'top-main-widget-area' ) ) {
-	 	dynamic_sidebar( 'top-main-widget-area' );
-		$flag = true;
-	}
-	return $flag;
-}
 
 
 /*-------------------------------------------*/

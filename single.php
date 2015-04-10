@@ -3,7 +3,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 <!-- [ #post- ] -->
@@ -103,6 +103,8 @@ endif;
 <?php comments_template( '', true ); ?>
 
 <?php endwhile; // end of the loop. ?>
+
+<?php do_action('biz_vektor_fbLikeBoxDisplay'); ?>
 
 </div>
 <!-- [ /#content ] -->

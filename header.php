@@ -22,7 +22,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 	print '<link rel="stylesheet" type="text/css" media="all" href="'.$stylePathOldIe.'" />'."\n";
 	print '<![endif]-->'."\n";
 } ?>
-<meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
 

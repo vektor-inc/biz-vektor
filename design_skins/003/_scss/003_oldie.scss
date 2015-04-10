@@ -72,7 +72,7 @@ $sidePadding : 25px;
 /*-------------------------------------------*/
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
-#content {
+.content {
 	#topPr { border-top:none;
 		.topPrOuter { border-bottom:none;
 			.topPrInner { padding:0 6%;width:88%;border-right:1px solid $color_border; }

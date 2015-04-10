@@ -40,7 +40,7 @@ $sidePadding : 25px;
 #searchform input[type=submit],
 p.form-submit input[type=submit],
 form#searchform input#searchsubmit,
-#content form input.wpcf7-submit,
+.content form input.wpcf7-submit,
 #confirm-button input,
 a.btn,
 .linkBtn a,
@@ -114,7 +114,7 @@ form#searchform {
 // グローバルメニューやスライドが存在しない場合があるため #main で線を引く
 #main { border-top:1px solid $color_border; }
 
-#content {
+.content {
 	h2,
 	h1.contentTitle,
 	h1.entryPostTitle,
@@ -136,17 +136,17 @@ form#searchform {
 	}
 }
 
-#content .infoList {
+.content .infoList {
 	.infoCate a { background: none; }
 	.infoListBox { clear: both; } /* ないと1件目がトップのRSSボタンで回り込まれる */
 }
 
-#content .childPageBox { @include wakubox; }
-#content .childPageBox h4 { border-bottom:1px solid $color_border; }
+.content .childPageBox { @include wakubox; }
+.content .childPageBox h4 { border-bottom:1px solid $color_border; }
 
-#content .mainFootContact { padding:15px 0; border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
+.content .mainFootContact { padding:15px 0; border-top:1px solid $color_border;border-bottom:1px solid $color_border; }
 
-#content .child_page_block { @include wakubox;
+.content .child_page_block { @include wakubox;
 	.child_page_blockInner { padding: 18px; margin:0; }
 	h4 { border-bottom:1px solid $color_border; position: relative;font-size:114.3%;
 		&:after { @include h3_after;}
@@ -241,14 +241,14 @@ form#searchform {
 	}
 }
 
-#content .infoList .rssBtn { margin-right:10px; }
+.content .infoList .rssBtn { margin-right:10px; }
 
 
 /*-------------------------------------------*/
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
 @media (min-width: 660px) { /* スクロール分余裕に20px */
-#content {
+.content {
 	#topPr { border-top:none;
 		.topPrOuter { border-bottom:none;
 			.topPrInner { padding:0 6%;width:88%;border-right:1px solid $color_border; }
@@ -342,14 +342,14 @@ a { color:$color_key_light; }
 #searchform input[type=submit],
 p.form-submit input[type=submit],
 form#searchform input#searchsubmit,
-#content form input.wpcf7-submit,
+.content form input.wpcf7-submit,
 #confirm-button input,
 a.btn,
 .linkBtn a,
 input[type=button],
 input[type=submit],
 .sideTower li#sideContact.sideBnr a,
-#content .infoList .rssBtn a { background-color:$color_key; }
+.content .infoList .rssBtn a { background-color:$color_key; }
 
 .moreLink a { border-left:1px solid $color_key; }
 .moreLink a:hover { background-color:$color_key; }
@@ -364,27 +364,27 @@ input[type=submit],
 
 #pageTitBnr { background-color:$color_key; }
 
-#content h2,
-#content h1.contentTitle,
-#content h1.entryPostTitle,
+.content h2,
+.content h1.contentTitle,
+.content h1.entryPostTitle,
 .sideTower h3.localHead,
 .sideWidget h4  { border-top-color: $color_key; }
 
-#content h3:after,
-#content .child_page_block h4:after { border-bottom-color:$color_key; }
+.content h3:after,
+.content .child_page_block h4:after { border-bottom-color:$color_key; }
 
 .sideTower li#sideContact.sideBnr a:hover,
-#content .infoList .rssBtn a:hover,
+.content .infoList .rssBtn a:hover,
 form#searchform input#searchsubmit:hover { background-color: $color_key_light; }
 
 #panList .innerBox ul a:hover { color:$color_key_light; }
 
-#content .mainFootContact p.mainFootTxt span.mainFootTel { color:$color_key; }
-#content .mainFootContact .mainFootBt a { background-color: $color_key; }
-#content .mainFootContact .mainFootBt a:hover { background-color: $color_key_light; }
+.content .mainFootContact p.mainFootTxt span.mainFootTel { color:$color_key; }
+.content .mainFootContact .mainFootBt a { background-color: $color_key; }
+.content .mainFootContact .mainFootBt a:hover { background-color: $color_key_light; }
 
-#content .infoList .infoCate a { background-color: $color_key_slight;color:$color_key; }
-#content .infoList .infoCate a:hover { background-color: $color_key_light; }
+.content .infoList .infoCate a { background-color: $color_key_slight;color:$color_key; }
+.content .infoList .infoCate a:hover { background-color: $color_key_light; }
 
 .paging span,
 .paging a	{ color:$color_key;border-color:$color_key;}

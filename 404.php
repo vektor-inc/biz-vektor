@@ -3,7 +3,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 <!-- [ #content ] -->
-<div id="content" class="wide">
+<div id="content" class="content wide">
 
 	<div class="error404">
 		<?php get_search_form(); ?>
