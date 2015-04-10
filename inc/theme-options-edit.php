@@ -480,7 +480,7 @@ $postLabelName = esc_html( bizVektorOptions('postLabelName'));
 	<dl>
 		<dt><?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $postLabelName ); ?></dt>
 		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
-			<?php printf( __( '* If you don\'t want to set a top page for %1$s just leave this field blank.', 'biz-vektor' ), $postLabelName ); ?>
+			<?php printf( __( '* If you don\'t want to set a top page for %1$s just leave this field blank.', 'biz-vektor' ), $postLabelName ); ?><br />
 			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" />
 			<dl class="showHideSection">
 				<dt class="showHideBtn">[ <a><?php printf( __( 'How to set a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?></a> ]</dt>

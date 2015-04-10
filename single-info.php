@@ -34,6 +34,8 @@
 
 <?php endwhile; // end of the loop. ?>
 
+<?php do_action('biz_vektor_fbLikeBoxDisplay'); ?>
+
 </div>
 <!-- [ /#content ] -->
 

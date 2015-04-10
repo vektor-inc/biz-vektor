@@ -71,7 +71,7 @@ else :
 	<?php get_template_part('module_top_list_post'); ?>
 <?php endif; ?>
 
-<?php do_action('biz_vektor_fbLikeBoxFront'); ?>
+<?php do_action('biz_vektor_fbLikeBoxDisplay'); ?>
 <?php do_action('biz_vektor_snsBtns'); ?>
 <?php do_action('biz_vektor_fbComments'); ?>
 
@@ -91,7 +91,6 @@ else :
 	// ウィジェットに設定がない場合
 	if (function_exists('biz_vektor_contactBtn'))    biz_vektor_contactBtn();
 	if (function_exists('biz_vektor_snsBnrs'))       biz_vektor_snsBnrs();
-	if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
 endif;
 if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' );
 ?>

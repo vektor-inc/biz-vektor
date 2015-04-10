@@ -23,6 +23,7 @@ if ( is_user_logged_in() == TRUE ) { ?>
 
 <?php do_action('biz_vektor_snsBtns'); ?>
 <?php do_action('biz_vektor_fbComments'); ?>
+<?php do_action('biz_vektor_fbLikeBoxDisplay'); ?>
 
 	<?php endwhile; ?>
 </div>

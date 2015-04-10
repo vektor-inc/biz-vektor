@@ -201,40 +201,38 @@ function biz_vektor_fbComments() {
 /*-------------------------------------------*/
 /*	facebookLikeBox
 /*-------------------------------------------*/
-add_action('biz_vektor_fbLikeBoxFront', 'biz_vektor_fbLikeBoxFront');
-function biz_vektor_fbLikeBoxFront() {
-	global $biz_vektor_options;
-	$options = $biz_vektor_options;
-	if ( isset($options['fbLikeBoxFront']) && $options['fbLikeBoxFront'] ) {
-		biz_vektor_fbLikeBox();
-	}
-}
-add_action('biz_vektor_fbLikeBoxSide', 'biz_vektor_fbLikeBoxSide');
-function biz_vektor_fbLikeBoxSide() {
-	global $biz_vektor_options;
-	$options = $biz_vektor_options;
-	if ( isset($options['fbLikeBoxSide']) && $options['fbLikeBoxSide'] ) {
-		biz_vektor_fbLikeBox();
-	}
-}
+
+// biz_vektor_fbLikeBoxFront は Global Edition で使われているから残しているだけ。
+add_action('biz_vektor_fbLikeBoxFront', 'biz_vektor_fbLikeBox');
+add_action('biz_vektor_fbLikeBoxDisplay', 'biz_vektor_fbLikeBox');
+
 add_action('biz_vektor_fbLikeBox', 'biz_vektor_fbLikeBox');
 function biz_vektor_fbLikeBox() {
+	// 変数を取得
 	global $biz_vektor_options;
 	$options = $biz_vektor_options;
+	$postType = get_post_type();
 	$fbLikeBoxStream = $options['fbLikeBoxStream'];
 	$fbLikeBoxFace = $options['fbLikeBoxFace'];
 	$fbLikeBoxHeight = $options['fbLikeBoxHeight'];
-
+	$fbLikeBoxHideCover = $options['fbLikeBoxHideCover'];
+	// LikeBoxの要素指定
 	if ($fbLikeBoxStream) { $fbLikeBoxStream = 'true'; } else { $fbLikeBoxStream = 'false'; }
 	if ($fbLikeBoxFace) { $fbLikeBoxFace = 'true'; } else { $fbLikeBoxFace = 'false'; }
-	if ($fbLikeBoxHeight) {
-		$fbLikeBoxHeight = 'data-height="'.$fbLikeBoxHeight.'" ';
-	}
-?>
+	if ($fbLikeBoxHideCover) { $fbLikeBoxHideCover = 'true'; } else { $fbLikeBoxHideCover = 'false'; }
+	if ($fbLikeBoxHeight) $fbLikeBoxHeight = 'data-height="'.$fbLikeBoxHeight.'" ';
+	// 表示の条件指定
+	if (
+		( is_front_page() && isset($options['fbLikeBoxFront']) && $options['fbLikeBoxFront'] ) || 
+		( is_page() && isset($options['fbLikeBoxPage']) && $options['fbLikeBoxPage'] ) || 
+		( is_single() && ($postType == 'post') && isset($options['fbLikeBoxPost']) && $options['fbLikeBoxPost'] ) || 
+		( is_single() && ($postType == 'info') && isset($options['fbLikeBoxInfo']) && $options['fbLikeBoxInfo'] ) 
+	) : ?>
 <div id="fb-like-box">
-<div class="fb-like-box" data-href="<?php echo $options['fbLikeBoxURL'] ?>" data-width="640" <?php echo $fbLikeBoxHeight ?>data-show-faces="<?php echo $fbLikeBoxFace ?>" data-stream="<?php echo $fbLikeBoxStream ?>" data-header="true"></div>
+<div class="fb-page fb-like-box" data-href="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>" data-width="500" <?php echo $fbLikeBoxHeight ?>data-hide-cover="<?php echo $fbLikeBoxHideCover ?>" data-show-facepile="<?php echo $fbLikeBoxFace ?>" data-show-posts="<?php echo $fbLikeBoxStream ?>"><div class="fb-xfbml-parse-ignore"><blockquote cite="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>"><a href="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>">Facebook page</a></blockquote></div></div>
 </div>
-<?php }
+<?php endif; 
+}
 
 /*-------------------------------------------*/
 /*	Print facebook Application ID 
@@ -336,7 +334,7 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 } // class WP_Widget_fbLikeBox
 
 // register WP_Widget_fbLikeBox widget
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
+// add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
 
 add_filter('biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 19, 3);
 function biz_vektor_sns_validate($output, $input, $defaults){
@@ -358,10 +356,13 @@ function biz_vektor_sns_validate($output, $input, $defaults){
 	$output['fbCommentsInfo']         = (isset($input['fbCommentsInfo']) && $input['fbCommentsInfo'] == 'false')? 'false' : '';
 	$output['fbCommentsHidden']       = $input['fbCommentsHidden'];
 	$output['fbLikeBoxFront']         = (isset($input['fbLikeBoxFront']) && $input['fbLikeBoxFront'] == 'false')? 'false' : '' ;
-	$output['fbLikeBoxSide']          = (isset($input['fbLikeBoxSide']) && $input['fbLikeBoxSide'] == 'false')? 'false ': '' ;
+	$output['fbLikeBoxPage']          = (isset($input['fbLikeBoxPage']) && $input['fbLikeBoxPage'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxPost']          = (isset($input['fbLikeBoxPost']) && $input['fbLikeBoxPost'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxInfo']          = (isset($input['fbLikeBoxInfo']) && $input['fbLikeBoxInfo'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxURL']	          = $input['fbLikeBoxURL'];
 	$output['fbLikeBoxStream']        = (isset($input['fbLikeBoxStream']) && $input['fbLikeBoxStream'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxFace']          = (isset($input['fbLikeBoxFace']) && $input['fbLikeBoxFace'] == 'false')? 'false' : '' ;
+	$output['fbLikeBoxHideCover']     = (isset($input['fbLikeBoxHideCover']) && $input['fbLikeBoxHideCover'] == 'false')? 'false' : '' ;
 	$output['fbLikeBoxHeight']        = $input['fbLikeBoxHeight'];
 	$output['ogpTagDisplay']          = $input['ogpTagDisplay'];
 	$output['ogpTagDisplay']          = (!isset($input['ogpTagDisplay']))? 'ogp_on' : $input['ogpTagDisplay'] ;
@@ -389,10 +390,13 @@ function biz_vektor_sns_default_option($original_options){
 		'fbCommentsInfo'       => '',
 		'fbCommentsHidden'     => '',
 		'fbLikeBoxFront'       => '',
-		'fbLikeBoxSide'        => '',
+		'fbLikeBoxPage'        => '',
+		'fbLikeBoxPost'        => '',
+		'fbLikeBoxInfo'        => '',
 		'fbLikeBoxURL'         => '',
 		'fbLikeBoxStream'      => '',
 		'fbLikeBoxFace'        => '',
+		'fbLikeBoxHideCover'   => '',
 		'fbLikeBoxHeight'      => '',
 		'ogpTagDisplay'        => 'ogp_on',
 	);
@@ -407,7 +411,7 @@ function biz_vektor_sns_options_nav(){?>
 
 add_action('biz_vektor_extra_module_config', 'biz_vektor_sns_config');
 function biz_vektor_sns_config(){
-
+global $biz_vektor_options;
 $options = biz_bektor_option_validate();
 $biz_vektor_name = get_biz_vektor_name();
 
@@ -477,9 +481,9 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPage]" id="snsBtnsPage" value="false" <?php if ($options['snsBtnsPage']) {?> checked<?php } ?>> 
 	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPost]" id="snsBtnsPost" value="false" <?php if ($options['snsBtnsPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($biz_vektor_options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 </ul>
 <p><?php _e('Within the type of page that is checked, if there is a particular pa<label>ge you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
@@ -491,14 +495,14 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <th><?php _e('facebook comments box', 'biz-vektor'); ?></th>
 <td><?php _e('Please check the type of the page to display Facebook comments.', 'biz-vektor'); ?>
 <ul>
-<li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsFront]" id="fbCommentsFront" value="false" <?php if ($options['fbCommentsFront']) {?> checked<?php } ?>> 
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsFront]" id="fbCommentsFront" value="false" <?php if ($options['fbCommentsFront']) {?> checked<?php } ?>>
 	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPage]" id="fbCommentsPage" value="false" <?php if ($options['fbCommentsPage']) {?> checked<?php } ?>> 
 	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPost]" id="fbCommentsPost" value="false" <?php if ($options['fbCommentsPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('postLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($biz_vektor_options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html(bizVektorOptions('infoLabelName')); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 </ul>
 <p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[fbCommentsHidden]" value="<?php echo esc_attr( $options['fbCommentsHidden'] ); ?>" /><br />
@@ -513,8 +517,12 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <ul>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFront]" id="fbLikeBoxFront" value="false" <?php if ($options['fbLikeBoxFront']) {?> checked<?php } ?>> 
 	<?php _ex('Home page', 'sns display', 'biz-vektor'); ?></label></li>
-<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxSide]" id="fbLikeBoxSide" value="false" <?php if ($options['fbLikeBoxSide']) {?> checked<?php } ?>> 
-	<?php _ex('Side bar', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxPage]" id="fbLikeBoxPage" value="false" <?php if ($options['fbLikeBoxPage']) {?> checked<?php } ?>> 
+	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxPost]" id="fbLikeBoxPost" value="false" <?php if ($options['fbLikeBoxPost']) {?> checked<?php } ?>> 
+	<?php echo esc_html($biz_vektor_options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxInfo]" id="fbLikeBoxInfo" value="false" <?php if ($options['fbLikeBoxInfo']) {?> checked<?php } ?>> 
+	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 </ul>
 <dl>
 <dt><?php _e('URL of the Facebook page.', 'biz-vektor'); ?></dt>
@@ -524,6 +532,8 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <dd><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxStream]" id="fbLikeBoxStream" value="false" <?php if ($options['fbLikeBoxStream']) {?> checked<?php } ?>> <?php _e('Display', 'biz-vektor'); ?></label></dd>
 <dt><?php _e('Display faces', 'biz-vektor'); ?></dt>
 <dd><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxFace]" id="fbLikeBoxFace" value="false" <?php echo ($options['fbLikeBoxFace']=='false')? "checked ":""; ?>> <?php _e('Display', 'biz-vektor'); ?></label></dd>
+<dt><?php _e('Hide Cover Photo', 'biz-vektor'); ?></dt>
+<dd><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxHideCover]" id="fbLikeBoxHideCover" value="false" <?php echo ($options['fbLikeBoxHideCover']=='false')? "checked ":""; ?>> <?php _e('Hide', 'biz-vektor'); ?></label></dd>
 <dt><?php _e('Height of LikeBox', 'biz-vektor'); ?></dt>
 <dd><input type="text" name="biz_vektor_theme_options[fbLikeBoxHeight]" id="fbLikeBoxHeight" value="<?php echo esc_attr( $options['fbLikeBoxHeight'] ); ?>" class="width-100" style="text-align:right;" />
 px</dd>
@@ -580,7 +590,7 @@ if (isset($options['fbAppId']) && $options['fbAppId']) :
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
 	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<?php echo esc_html($biz_vektor_options['fbAppId']); ?>";
+	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=?php echo esc_html($biz_vektor_options['fbAppId']); ?>";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 	<?php endif;
