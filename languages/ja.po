@@ -2047,7 +2047,7 @@ msgstr "トップ用_固定ページ本文"
 
 #: plugins/widgets/widgets.php:145 plugins/widgets/widgets.php:430
 msgid "Display page"
-msgstr "表示するページ"
+msgstr "表示する分類"
 
 #: plugins/widgets/widgets.php:153
 msgid "display title"
