@@ -125,13 +125,15 @@ if ( is_404() ){
 			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">'.$postLabelName.'</span> &raquo; </li>';
 		}
 		$category = get_the_category();
+		// 今のカテゴリーの親のカテゴリー情報を取得
 		$parents_str = get_category_parents( $category[0]->term_id, false, ',' );
+		// 親カテゴリーをループしやすいように配列に格納
 		$parents_name = explode( ',', $parents_str );
 		foreach ( $parents_name as $parent_name ) {
 			if ( ! empty( $parent_name ) ) {
-				$parent_obj = get_term_by( 'name', $parent_name, $category[0]->taxonomy );
-				$categ_url		= home_url() . '/' .  $parent_obj->taxonomy . '/' . $parent_obj->slug . '/';
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $categ_url . '" itemprop="url"><span itemprop="title">' . $parent_obj->name . '</span></a> &raquo; </li>';
+				$parent_obj 	= get_term_by( 'name', $parent_name, $category[0]->taxonomy );
+				$term_url		= get_term_link( $parent_obj->term_id,$parent_obj->taxonomy );
+				$panListHtml 	.= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $term_url . '" itemprop="url"><span itemprop="title">' . $parent_obj->name . '</span></a> &raquo; </li>';
 			}
 		}
 	// カスタム投稿タイプのsingleページの場合
@@ -143,9 +145,9 @@ if ( is_404() ){
 			//keeps only the first term (categ)
 			$taxo_categ 	= reset( $taxo_catelist );
 			if ( 0 != $taxo_categ->parent ) {
-				$taxo_parent = get_term( $taxo_categ->parent, $taxo_categ->taxonomy );
-				$parent_url = home_url() . '/' .  $taxo_parent->taxonomy . '/' . $taxo_parent->slug . '/';
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $taxo_parent->name . '</span></a> &raquo; </li>';
+				$taxo_parent 	= get_term( $taxo_categ->parent, $taxo_categ->taxonomy );
+				$term_url		= get_term_link( $parent_obj->term_id,$parent_obj->taxonomy );
+				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $term_url . '" itemprop="url"><span itemprop="title">' . $taxo_parent->name . '</span></a> &raquo; </li>';
 			}
 			$categ_url		= home_url() . '/' .  $taxo_categ->taxonomy . '/' . $taxo_categ->slug . '/';
 			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $categ_url . '" itemprop="url"><span itemprop="title">' . $taxo_categ->name . '</span></a> &raquo; </li>';
@@ -174,19 +176,6 @@ if ( is_404() ){
 		}
 		$postTypeName = get_post_type_object($postTypeSlug)->labels->name;
 		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.home_url().'/'.$postType.'" itemprop="url"><span itemprop="title">'.$postTypeName.'</span></a> &raquo; </li>';
-
-		// $taxonomy   = $wp_query->query_vars['taxonomy'];
-		// $term_slug  = $wp_query->query_vars['term'];
-		// $taxonomies = get_the_taxonomies();
-
-		// if ( isset( $taxonomy ) && isset( $term_slug ) ):
-		// 	$term = get_term_by( 'slug', $term_slug, $taxonomy );
-		// 	if ( 0 != $term->parent ) {
-		// 		$parent_term = get_term_by( 'id', $term->parent, $taxonomy );
-		// 		$parent_url = home_url() . '/' .  $parent_term->taxonomy . '/' . $parent_term->slug . '/';
-		// 		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $parent_term->name . '</span></a> &raquo; </li>';
-		// 	}
-		// endif;
 
 		$now_term = $wp_query->queried_object->term_id;
 		$now_term_parent = $wp_query->queried_object->parent;
