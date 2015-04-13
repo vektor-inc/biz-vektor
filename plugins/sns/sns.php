@@ -210,26 +210,51 @@ add_action('biz_vektor_fbLikeBox', 'biz_vektor_fbLikeBox');
 function biz_vektor_fbLikeBox() {
 	// 変数を取得
 	global $biz_vektor_options;
-	$options = $biz_vektor_options;
 	$postType = get_post_type();
-	$fbLikeBoxStream = $options['fbLikeBoxStream'];
-	$fbLikeBoxFace = $options['fbLikeBoxFace'];
-	$fbLikeBoxHeight = $options['fbLikeBoxHeight'];
-	$fbLikeBoxHideCover = $options['fbLikeBoxHideCover'];
+
 	// LikeBoxの要素指定
-	if ($fbLikeBoxStream) { $fbLikeBoxStream = 'true'; } else { $fbLikeBoxStream = 'false'; }
-	if ($fbLikeBoxFace) { $fbLikeBoxFace = 'true'; } else { $fbLikeBoxFace = 'false'; }
-	if ($fbLikeBoxHideCover) { $fbLikeBoxHideCover = 'true'; } else { $fbLikeBoxHideCover = 'false'; }
-	if ($fbLikeBoxHeight) $fbLikeBoxHeight = 'data-height="'.$fbLikeBoxHeight.'" ';
+	// php 初心者への可読性も踏まえてむやみに１行にしないよう注意
+
+	if ( isset($biz_vektor_options['fbLikeBoxStream']) && $biz_vektor_options['fbLikeBoxStream'] ) :
+	  	$biz_vektor_options['fbLikeBoxStream'] = 'true' ;
+	else :
+		$biz_vektor_options['fbLikeBoxStream'] = 'false' ;
+	endif;
+
+	if ( isset($biz_vektor_options['fbLikeBoxFace']) && $biz_vektor_options['fbLikeBoxFace'] ) :
+	  	$biz_vektor_options['fbLikeBoxFace'] = 'true' ;
+	else :
+		$biz_vektor_options['fbLikeBoxFace'] = 'false' ;
+	endif;
+
+	if ( isset($biz_vektor_options['fbLikeBoxHideCover']) && $biz_vektor_options['fbLikeBoxHideCover'] ) :
+	  	$biz_vektor_options['fbLikeBoxHideCover'] = 'true' ;
+	else :
+		$biz_vektor_options['fbLikeBoxHideCover'] = 'false' ;
+	endif;
+
+	if ( isset($biz_vektor_options['fbLikeBoxHeight']) && $biz_vektor_options['fbLikeBoxHeight'] ) :
+	  	$fbLikeBoxHeight = 'data-height="'.esc_attr( $biz_vektor_options['fbLikeBoxHeight'] ).'" ';
+	else :
+	 	$fbLikeBoxHeight = '';
+	endif;
+
 	// 表示の条件指定
 	if (
-		( is_front_page() && isset($options['fbLikeBoxFront']) && $options['fbLikeBoxFront'] ) || 
-		( is_page() && isset($options['fbLikeBoxPage']) && $options['fbLikeBoxPage'] ) || 
-		( is_single() && ($postType == 'post') && isset($options['fbLikeBoxPost']) && $options['fbLikeBoxPost'] ) || 
-		( is_single() && ($postType == 'info') && isset($options['fbLikeBoxInfo']) && $options['fbLikeBoxInfo'] ) 
+		( is_front_page() && isset($biz_vektor_options['fbLikeBoxFront']) && $biz_vektor_options['fbLikeBoxFront'] ) || 
+		( is_page() && isset($biz_vektor_options['fbLikeBoxPage']) && $biz_vektor_options['fbLikeBoxPage'] ) || 
+		( is_single() && ($postType == 'post') && isset($biz_vektor_options['fbLikeBoxPost']) && $biz_vektor_options['fbLikeBoxPost'] ) || 
+		( is_single() && ($postType == 'info') && isset($biz_vektor_options['fbLikeBoxInfo']) && $biz_vektor_options['fbLikeBoxInfo'] ) 
 	) : ?>
+
 <div id="fb-like-box">
-<div class="fb-page fb-like-box" data-href="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>" data-width="500" <?php echo $fbLikeBoxHeight ?>data-hide-cover="<?php echo $fbLikeBoxHideCover ?>" data-show-facepile="<?php echo $fbLikeBoxFace ?>" data-show-posts="<?php echo $fbLikeBoxStream ?>"><div class="fb-xfbml-parse-ignore"><blockquote cite="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>"><a href="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>">Facebook page</a></blockquote></div></div>
+	<div class="fb-page fb-like-box" data-href="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>" data-width="500" <?php echo $fbLikeBoxHeight; ?>data-hide-cover="<?php echo $biz_vektor_options['fbLikeBoxHideCover']; ?>" data-show-facepile="<?php echo $biz_vektor_options['fbLikeBoxFace']; ?>" data-show-posts="<?php echo $biz_vektor_options['fbLikeBoxStream']; ?>">
+	<div class="fb-xfbml-parse-ignore">
+		<blockquote cite="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>">
+		<a href="<?php echo $biz_vektor_options['fbLikeBoxURL'] ?>">Facebook page</a>
+		</blockquote>
+	</div>
+</div>
 </div>
 <?php endif; 
 }
