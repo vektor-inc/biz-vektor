@@ -177,19 +177,6 @@ if ( is_404() ){
 		$postTypeName = get_post_type_object($postTypeSlug)->labels->name;
 		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="'.home_url().'/'.$postType.'" itemprop="url"><span itemprop="title">'.$postTypeName.'</span></a> &raquo; </li>';
 
-		// $taxonomy   = $wp_query->query_vars['taxonomy'];
-		// $term_slug  = $wp_query->query_vars['term'];
-		// $taxonomies = get_the_taxonomies();
-
-		// if ( isset( $taxonomy ) && isset( $term_slug ) ):
-		// 	$term = get_term_by( 'slug', $term_slug, $taxonomy );
-		// 	if ( 0 != $term->parent ) {
-		// 		$parent_term = get_term_by( 'id', $term->parent, $taxonomy );
-		// 		$parent_url = home_url() . '/' .  $parent_term->taxonomy . '/' . $parent_term->slug . '/';
-		// 		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $parent_term->name . '</span></a> &raquo; </li>';
-		// 	}
-		// endif;
-
 		$now_term = $wp_query->queried_object->term_id;
 		$now_term_parent = $wp_query->queried_object->parent;
 		$now_taxonomy = $wp_query->queried_object->taxonomy;
