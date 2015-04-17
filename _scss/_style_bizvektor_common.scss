@@ -50,6 +50,8 @@
 /*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
+
+.content .infoList .infoListBox { clear: both; }
 .entry-meta .entry-meta-items{
 	&:before { content:" | "; }
 	&.author { display: none; }
