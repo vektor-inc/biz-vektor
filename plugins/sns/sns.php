@@ -605,11 +605,11 @@ function biz_vektor_sns_admin_bar_init(){
 
 add_action('biz_vektor_sns_body', 'biz_vektor_sns_header_output');
 function biz_vektor_sns_header_output(){
-	$options = biz_vektor_get_theme_options();
+	global $biz_vektor_options;
 ?>
 <div id="fb-root"></div>
 <?php
-if (isset($options['fbAppId']) && $options['fbAppId']) :
+if (isset($biz_vektor_options['fbAppId']) && $biz_vektor_options['fbAppId']) :
 ?>
 <script>(function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
