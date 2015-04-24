@@ -297,7 +297,11 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 	h1.entryPostTitle	{ margin:0px 0px 5px; }
 	h1.contentTitle 	{ margin:0 0 25px }
 	h2	{ margin:30px 0px 25px; }
-	h2:nth-child(1) { margin-top:0; }
+	h2:nth-child(1),
+	h3:nth-child(1),
+	h4:nth-child(1),
+	h5:nth-child(1),
+	h6:nth-child(1) { margin-top:0; }
 	h2	a	{ text-decoration:none; }
 	h2.imageTit	{ margin:0px 0px 30px; border:none; padding:0px; background:none; }
 	h3 { clear:both; font-size:128.6%; line-height: 130%; margin:35px 0px 25px; padding:0; }
@@ -305,9 +309,7 @@ html,body,#wrap	{ height:100%;min-height:100%; }
 	h5 { clear:both; font-size:114.3%; line-height: 130%; margin:40px 0px 10px; padding:0; }
 	h6 { clear:both; font-size:100.0%; line-height: 130%; margin:40px 0px 10px; padding:0; }
 	p { margin-bottom: 20px;padding:0px 5px; }
-	blockquote { padding:20px 15px 0px;margin-bottom:20px;border:3px solid $color_lgray;clear:both;
-		h2,h3,h4,h5,h6 { margin-top:0; }
-	}
+	blockquote { padding:20px 15px 0px;margin-bottom:20px;border:3px solid $color_lgray;clear:both;	}
 
 	strong	{ font-weight:bold; }
 
