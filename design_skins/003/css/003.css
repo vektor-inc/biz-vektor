@@ -307,22 +307,21 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 .content .right { text-align: right; }
 .content .nowrap { white-space: nowrap; }
 .content .sectionBox { margin-bottom: 30px; display: block; overflow: hidden; clear: both; }
-.content .entry-meta { margin-bottom: 15px; font-size: 11px; color: #666; }
+.content .entry-meta { margin-bottom: 2em; font-size: 11px; color: #666; }
 .content h1, .content h2, .content h3, .content h4, .content h4, .content h5, .content h6, .content .leadTxt { color: #333333; }
 .content h2, .content h1.contentTitle, .content h1.entryPostTitle { clear: both; font-size: 128.6%; line-height: 133.3%; padding: 0; font-weight: bold; color: #333; position: relative; }
 .content h1.entryPostTitle { margin: 0px 0px 5px; }
 .content h1.contentTitle { margin: 0 0 25px; }
 .content h2 { margin: 30px 0px 25px; }
-.content h2:nth-child(1) { margin-top: 0; }
+.content h2:nth-child(1), .content h3:nth-child(1), .content h4:nth-child(1), .content h5:nth-child(1), .content h6:nth-child(1) { margin-top: 0; }
 .content h2 a { text-decoration: none; }
 .content h2.imageTit { margin: 0px 0px 30px; border: none; padding: 0px; background: none; }
 .content h3 { clear: both; font-size: 128.6%; line-height: 130%; margin: 35px 0px 25px; padding: 0; }
 .content h4 { clear: both; font-size: 121.4%; line-height: 130%; margin: 40px 0px 10px; padding: 0; }
 .content h5 { clear: both; font-size: 114.3%; line-height: 130%; margin: 40px 0px 10px; padding: 0; }
 .content h6 { clear: both; font-size: 100.0%; line-height: 130%; margin: 40px 0px 10px; padding: 0; }
-.content p { margin-bottom: 20px; padding: 0px 5px; }
+.content p { margin-bottom: 20px; padding: 0px; }
 .content blockquote { padding: 20px 15px 0px; margin-bottom: 20px; border: 3px solid #efefef; clear: both; }
-.content blockquote h2, .content blockquote h3, .content blockquote h4, .content blockquote h5, .content blockquote h6 { margin-top: 0; }
 .content strong { font-weight: bold; }
 .content ul, .content ol { margin: 0px 0px 20px 30px; }
 .content ul li, .content ol li { list-style: disc; padding: 0px; }

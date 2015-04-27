@@ -189,7 +189,7 @@ function getHeadTitle() {
 		$headTitle = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$headTitle;
 	}
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
-	return esc_html($headTitle);
+	return strip_tags($headTitle);
 }
 add_filter( 'wp_title', 'getHeadTitle', 10, 2 );
 

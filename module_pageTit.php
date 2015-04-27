@@ -56,7 +56,15 @@ $pageTitle = apply_filters( 'biz_vektor_pageTitCustom', $pageTitle );
 /*	print
 /*-------------------------------------------*/
 $pageTitHtml = $pageTitHtml_before;
-$pageTitHtml .= esc_html( $pageTitle );
+// 特定のダグのみ許可
+$allowed_html = array(
+    'i' => array(
+    		'class' => array (),
+    	),
+    'br' => array(),
+    'strong' => array()
+);
+$pageTitHtml .= wp_kses($pageTitle,$allowed_html);
 $pageTitHtml .= $pageTitHtml_after;
 $pageTitHtml = apply_filters( 'bizvektor_pageTitHtml', $pageTitHtml );
 echo $pageTitHtml;

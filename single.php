@@ -41,19 +41,22 @@
 /*-------------------------------------------*/
 if ( get_post_type() == 'post' ) :
 Global $biz_vektor_options;
+// Get now post's tag(terms)
 if (isset($biz_vektor_options['postRelatedCount']) && $biz_vektor_options['postRelatedCount'] ) {
 $terms = get_the_terms($post->ID,'post_tag');
 $tag_count = count($terms);
 if ($terms) {
 $posts_count = mb_convert_kana($biz_vektor_options['postRelatedCount'], "a", "UTF-8");
+// Set basic arrays
 $args = array( 'post-type' => 'post' ,'post__not_in' => array($post->ID), 'posts_per_page' => $posts_count );
+// Set tag(term) arrays
 if ( $terms && $tag_count == 1 ) {
 	foreach ( $terms as $key => $value) {
-		$args['tag_id'] = $key ;
+		$args['tag_id'] = $value->term_id ;
 	}
 } else if ( $terms ) {
 	foreach ( $terms as $key => $value) {
-		$args['tag__in'][] = $key ;
+		$args['tag__in'][] = $value->term_id ;
 	}
 }
 $tag_posts = get_posts($args);
