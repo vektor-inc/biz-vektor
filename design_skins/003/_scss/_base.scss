@@ -546,7 +546,7 @@ border:1px solid $color_key;padding:5px 15px 5px;}
 #footer	{ margin:0px; padding:20px 0px 20px; display:block; overflow:hidden;text-align:left; }
 #footer dl#footerOutline	{ margin:0px; line-height:150%;width:300px; }
 #footer dl#footerOutline dt	{ margin-bottom:8px;line-height:150%; }
-#footer dl#footerOutline dt img	{ margin-bottom:5px;max-width:260px; }
+#footer dl#footerOutline dt img	{ margin-bottom:5px;max-width:260px;max-height:35px; }
 #footer dl#footerOutline dd	{ font-size:85.7%; line-height:150%; }
 
 /*		#footerSiteMap
