@@ -581,7 +581,7 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
 
 #footer dl#footerOutline dt { margin-bottom: 8px; line-height: 150%; }
 
-#footer dl#footerOutline dt img { margin-bottom: 5px; max-width: 260px; }
+#footer dl#footerOutline dt img { margin-bottom: 5px; max-width: 260px; max-height: 35px; }
 
 #footer dl#footerOutline dd { font-size: 85.7%; line-height: 150%; }
 
@@ -866,6 +866,7 @@ form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; bac
   .content .childPageBox ul li.current_page_item ul li a:hover { color: #c00; text-decoration: underline; background-image: url(../images/icon_arrow2_red.gif); }
   #footerSiteMap { width: 660px; float: right; padding-top: 0px; font-size: 12px; }
   #footer dl#footerOutline { float: left; width: 260px; }
+  #footer dl#footerOutline dt img { max-height: 45px; }
   #footer dl#footerOutline dd { padding-right: 20px; } }
 /*-------------------------------------------*/
 /*	Print Style

@@ -118,6 +118,7 @@ function biz_vektor_googleAnalytics(){
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-<?php echo $biz_vektor_options['gaID'] ?>']);
   _gaq.push(['_trackPageview']);
+  <?php do_action('biz_vektor_seo_extend_ga_norm'); ?>
   (function() {
 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -136,8 +137,10 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-<?php echo $biz_vektor_options['gaID'] ?>', '<?php echo $domain ?>');
 ga('send', 'pageview');
+<?php do_action('biz_vektor_seo_extend_ga_univ'); ?>
 </script>
 <?php
 		}
 	}
+    else{ do_action('biz_vektor_seo_extend_ga_none'); }
 }
