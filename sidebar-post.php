@@ -9,7 +9,7 @@ else :
 	<div class="localNaviBox">
 	<h3 class="localHead"><?php _e('Category', 'biz-vektor'); ?></h3>
 	<ul class="localNavi">
-	<?php wp_list_categories('title_li=&orderby=order'); ?> 
+	<?php wp_list_categories('title_li='); ?> 
 	</ul>
 	</div>
 	</div>
