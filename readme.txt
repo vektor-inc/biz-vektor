@@ -31,5 +31,5 @@ http://bizvektor.com/contact/
 
 
 == Changelog ==
-v1.7.5
+v1.7.6
 * Hello, world!
