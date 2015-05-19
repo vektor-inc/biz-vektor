@@ -146,7 +146,7 @@ if ( is_404() ){
 			$taxo_categ 	= reset( $taxo_catelist );
 			if ( 0 != $taxo_categ->parent ) {
 				$taxo_parent 	= get_term( $taxo_categ->parent, $taxo_categ->taxonomy );
-				$term_url		= get_term_link( $parent_obj->term_id,$parent_obj->taxonomy );
+				$term_url		= get_term_link( $taxo_parent->term_id,$taxo_parent->taxonomy );
 				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $term_url . '" itemprop="url"><span itemprop="title">' . $taxo_parent->name . '</span></a> &raquo; </li>';
 			}
 			$categ_url		= home_url() . '/' .  $taxo_categ->taxonomy . '/' . $taxo_categ->slug . '/';
