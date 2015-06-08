@@ -198,43 +198,48 @@ function biz_vektor_widget_extra_content($flag){
 /*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
+add_action('after_setup_theme', 'biz_vektor_set_customheader');
+function biz_vektor_set_customheader(){
+	// Use custom header text
+	define( 'HEADER_TEXTCOLOR', '' );
+	// Kill custom header test
+	define( 'NO_HEADER_TEXT', true );
 
-// Use custom header text
-define( 'HEADER_TEXTCOLOR', '' );
-// Kill custom header test
-define( 'NO_HEADER_TEXT', true );
+	define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
 
-define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
-define('HEADER_IMAGE_WIDTH', 950);
-define('HEADER_IMAGE_HEIGHT', 250);
-register_default_headers( array(
-	'accelerate' => array(
-		'url' => '%s/images/headers/accelerate.jpg',
-		'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
-		'description' => 'Accelerate your business'
-	),
-	'bussines_desk_02' => array(
-		'url' => '%s/images/headers/bussines_desk_02.jpg',
-		'thumbnail_url' => '%s/images/headers/bussines_desk_02-thumbnail.jpg',
-		'description' => 'Bussines desk01'
-	),
-	'bussines_desk_01' => array(
-		'url' => '%s/images/headers/bussines_desk_01.jpg',
-		'thumbnail_url' => '%s/images/headers/bussines_desk_01-thumbnail.jpg',
-		'description' => 'Bussines desk01'
-	),
-	'autumn-leaves' => array(
-		'url' => '%s/images/headers/autumn-leaves.jpg',
-		'thumbnail_url' => '%s/images/headers/autumn-leaves-thumbnail.jpg',
-		'description' => 'autumn-leaves'
-	),
-	'johnny_01' => array(
-		'url' => '%s/images/headers/johnny_01.jpg',
-		'thumbnail_url' => '%s/images/headers/johnny_01-thumbnail.jpg',
-		'description' => 'Johnny'
-	),
-) );
+	$header_size = apply_filters('biz_vektor_customheader_size',array(950,250));
+	print_r($header_size);
+	define('HEADER_IMAGE_WIDTH',  $header_size[0]);
+	define('HEADER_IMAGE_HEIGHT', $header_size[1]);
 
+	register_default_headers( array(
+		'accelerate' => array(
+			'url' => '%s/images/headers/accelerate.jpg',
+			'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
+			'description' => 'Accelerate your business'
+		),
+		'bussines_desk_02' => array(
+			'url' => '%s/images/headers/bussines_desk_02.jpg',
+			'thumbnail_url' => '%s/images/headers/bussines_desk_02-thumbnail.jpg',
+			'description' => 'Bussines desk01'
+		),
+		'bussines_desk_01' => array(
+			'url' => '%s/images/headers/bussines_desk_01.jpg',
+			'thumbnail_url' => '%s/images/headers/bussines_desk_01-thumbnail.jpg',
+			'description' => 'Bussines desk01'
+		),
+		'autumn-leaves' => array(
+			'url' => '%s/images/headers/autumn-leaves.jpg',
+			'thumbnail_url' => '%s/images/headers/autumn-leaves-thumbnail.jpg',
+			'description' => 'autumn-leaves'
+		),
+		'johnny_01' => array(
+			'url' => '%s/images/headers/johnny_01.jpg',
+			'thumbnail_url' => '%s/images/headers/johnny_01-thumbnail.jpg',
+			'description' => 'Johnny'
+		),
+	) );
+}
 
 /*-------------------------------------------*/
 /*	Load theme options
