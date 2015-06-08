@@ -208,7 +208,7 @@ function biz_vektor_set_customheader(){
 	define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
 
 	$header_size = apply_filters('biz_vektor_customheader_size',array(950,250));
-	print_r($header_size);
+
 	define('HEADER_IMAGE_WIDTH',  $header_size[0]);
 	define('HEADER_IMAGE_HEIGHT', $header_size[1]);
 
