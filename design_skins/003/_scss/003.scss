@@ -234,7 +234,7 @@ form#searchform {
 #topMainBnrFrame { padding:0px;width:100%;
 	ul.slides { border-left:1px solid $color_border;border-right:1px solid $color_border; }
 }
-#topPr { border-top:1px dotted $color_border;
+.topPr { border-top:1px dotted $color_border;
 	.topPrOuter {
 		border-bottom:1px dotted $color_border;
 		h3 { border-bottom:none; }
@@ -249,7 +249,7 @@ form#searchform {
 /*-------------------------------------------*/
 @media (min-width: 660px) { /* スクロール分余裕に20px */
 .content {
-	#topPr { border-top:none;
+	.topPr { border-top:none;
 		.topPrOuter { border-bottom:none;
 			.topPrInner { padding:0 6%;width:88%;border-right:1px solid $color_border; }
 		} // .topPrOuter

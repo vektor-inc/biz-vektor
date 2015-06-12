@@ -627,7 +627,7 @@ function get_biz_vektor_header_image_home(){
 add_action('admin_print_scripts-appearance_page_theme_options', 'admin_theme_options_plugins');
 function admin_theme_options_plugins( $hook_suffix ) {
 	wp_enqueue_media();
-	wp_register_script( 'biz_vektor-theme-options', get_template_directory_uri().'/inc/theme-options.js', array('jquery'), '20120902' );
+	wp_register_script( 'biz_vektor-theme-options', get_template_directory_uri().'/inc/theme-options.js', array('jquery'), '20150902' );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'biz_vektor-theme-options' );
 }
