@@ -1008,9 +1008,9 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 #topMainBnrFrame { padding: 0px; width: 100%; }
 #topMainBnrFrame ul.slides { border-left: 1px solid #e9e9e9; border-right: 1px solid #e9e9e9; }
 
-#topPr { border-top: 1px dotted #e9e9e9; }
-#topPr .topPrOuter { border-bottom: 1px dotted #e9e9e9; }
-#topPr .topPrOuter h3 { border-bottom: none; }
+.topPr { border-top: 1px dotted #e9e9e9; }
+.topPr .topPrOuter { border-bottom: 1px dotted #e9e9e9; }
+.topPr .topPrOuter h3 { border-bottom: none; }
 
 .content .infoList .rssBtn { margin-right: 10px; }
 
@@ -1018,12 +1018,12 @@ form#searchform input#searchsubmit { margin: 0; position: absolute; right: 0; }
 /* コンテンツ推奨サイズより大きい場合
 /*-------------------------------------------*/
 @media (min-width: 660px) { /* スクロール分余裕に20px */
-  .content #topPr { border-top: none; }
-  .content #topPr .topPrOuter { border-bottom: none; }
-  .content #topPr .topPrOuter .topPrInner { padding: 0 6%; width: 88%; border-right: 1px solid #e9e9e9; }
-  .content #topPr #topPrLeft .topPrInner { border-left: 1px solid #e9e9e9; }
-  .content #topPr h3 { border-bottom: 1px solid #e9e9e9; margin-bottom: 10px; padding-bottom: 2px; }
-  .content #topPr h3:after { border-bottom-width: 1px; bottom: -1px; } }
+  .content .topPr { border-top: none; }
+  .content .topPr .topPrOuter { border-bottom: none; }
+  .content .topPr .topPrOuter .topPrInner { padding: 0 6%; width: 88%; border-right: 1px solid #e9e9e9; }
+  .content .topPr #topPrLeft .topPrInner { border-left: 1px solid #e9e9e9; }
+  .content .topPr h3 { border-bottom: 1px solid #e9e9e9; margin-bottom: 10px; padding-bottom: 2px; }
+  .content .topPr h3:after { border-bottom-width: 1px; bottom: -1px; } }
 /*-------------------------------------------*/
 /* pc iPad3より大きい場合
 /*-------------------------------------------*/
