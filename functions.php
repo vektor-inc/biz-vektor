@@ -212,7 +212,7 @@ function biz_vektor_set_customheader(){
 	define('HEADER_IMAGE_WIDTH',  $header_size[0]);
 	define('HEADER_IMAGE_HEIGHT', $header_size[1]);
 
-	register_default_headers( array(
+	$custom_headers = array(
 		'accelerate' => array(
 			'url' => '%s/images/headers/accelerate.jpg',
 			'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
@@ -238,7 +238,11 @@ function biz_vektor_set_customheader(){
 			'thumbnail_url' => '%s/images/headers/johnny_01-thumbnail.jpg',
 			'description' => 'Johnny'
 		),
-	) );
+	);
+
+	$custom_headers = apply_filters('biz_vektor_customheader_images', $custom_headers);
+
+	register_default_headers( $custom_headers );
 }
 
 /*-------------------------------------------*/
