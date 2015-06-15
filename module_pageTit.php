@@ -21,7 +21,10 @@ $pageTitHtml_after .= '</div><!-- [ /#pageTitBnr ] -->'."\n";
 /*-------------------------------------------*/
 global $biz_vektor_options;
 $pageTitle = '';
-if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_archive() || is_single() ) {
+
+if (is_page() || is_attachment()){
+    $pageTitle = get_the_title();
+} else if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_archive() || is_single() ) {
 	// get post type
 	$postType = get_post_type();
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
@@ -43,8 +46,6 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 			$pageTitle = $wp_query->queried_object->label;
 		}
 	}
-} else if (is_page() || is_attachment()) {
-	$pageTitle = get_the_title();
 } else if (is_search()) {
 	$pageTitle = sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query());
 } else if (is_404()){
