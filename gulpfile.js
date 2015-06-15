@@ -15,7 +15,7 @@ var spritesmith = require('gulp.spritesmith');
 
 // ファイル結合
 gulp.task('scripts', function() {
-  return gulp.src(['js/master.js','js/res-vektor/res-vektor.js','js/jquery.cookie.js','js/jquery.flatheights.js'])
+  return gulp.src(['js/FlexSlider/jquery.flexslider.js','js/master.js','js/res-vektor/res-vektor.js','js/jquery.cookie.js','js/jquery.flatheights.js'])
     .pipe(concat('biz-vektor.js')) // ファイル結合
     .pipe(gulp.dest('./js/'));
 });
@@ -43,5 +43,4 @@ gulp.task('watch', function() {
     gulp.watch('js/biz-vektor.js', ['jsmin']);
 });
 
-// gulp.task('default', ['scripts','watch','sprite']);
-gulp.task('default', ['scripts','jsmin','watch']);
+gulp.task('default', ['scripts', 'jsmin', 'watch']);
