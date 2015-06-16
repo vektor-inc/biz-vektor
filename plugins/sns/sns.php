@@ -364,7 +364,7 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 } // class WP_Widget_fbLikeBox
 
 // register WP_Widget_fbLikeBox widget
-// add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
+add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
 
 add_filter('biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 19, 3);
 function biz_vektor_sns_validate($output, $input, $defaults){
