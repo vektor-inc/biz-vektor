@@ -384,6 +384,7 @@ function biz_vektor_gMenuDivide() {
 @media (min-width: 970px) {
 #gMenu .menu > li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
 #gMenu .menu > li.current_menu_item,
+#gMenu .menu > li.current-menu-item,
 #gMenu .menu > li.current-menu-ancestor,
 #gMenu .menu > li.current_page_item,
 #gMenu .menu > li.current_page_ancestor,
