@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2015-02-16 13:34+0900\n"
+"POT-Creation-Date: 2015-07-21 18:22+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -19,36 +19,9 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_x;esc_html_e;esc_html__;esc_attr_e;esc_attr__;"
 "_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;"
 "__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
-"X-Poedit-Basepath: ../\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.8.2\n"
 "X-Poedit-SearchPath-0: .\n"
-
-# Theme presentation (no text domain)
-msgid ""
-"BizVektor theme will allow you to build a high-quality web site. It is "
-"possible to change the color, to switch to a completely different design. In "
-"addition, it is also possible to increase the number of designs by plug-ins."
-msgstr ""
-"BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイ"
-"トを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、まった"
-"く別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグインによって"
-"新たに選択出来るデザインを増やす事も出来ます。"
-
-# Template name (no text domain)
-msgid "Child index page"
-msgstr "子ページインデックス"
-
-# Template name (no text domain)
-msgid "No sidebar"
-msgstr "サイドバーなし"
-
-# Template name (no text domain)
-msgid "Sitemap（Slug:sitemap-page）"
-msgstr "サイトマップ（スラッグ：sitemap-page）"
-
-# Template name (no text domain)
-msgid "Don't show contact at the bottom of the page"
-msgstr "ページ下部問い合わせなし"
 
 #: 503.php:19
 msgid "Maintenance in progress."
@@ -69,262 +42,6 @@ msgstr "&laquo; 古いコメント"
 #: comments.php:23 comments.php:35
 msgid "Newer Comments &raquo;"
 msgstr "新しいコメント &raquo;"
-
-#: front-page.php:49
-msgid ""
-"* In admin [Settings] &raquo; [Display Settings], if the front page is not "
-"set to a [page], nothing is displayed in this area."
-msgstr ""
-"※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外"
-"の場合は何も表示されません。"
-
-#: front-page.php:50
-msgid ""
-"* If empty, the body of a page that you set as the front page does not "
-"display anything."
-msgstr ""
-"※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
-"ん。"
-
-#: front-page.php:54 functions.php:562 module_loop_post.php:18
-#: module_loop_post2.php:20 module_PageDisp.php:72 module_topPR.php:181
-#: page-no-mainfoot.php:19 page-onecolumn.php:20 page-parent.php:24
-#: page-parent.php:57 page.php:14 single-info.php:11 single-info.php:19
-#: single.php:15 single.php:34 plugins/widgets/widgets.php:176
-msgid "Edit"
-msgstr "編集"
-
-#: front-page.php:57
-msgid "Title display settings"
-msgstr "↑ タイトルの表示設定"
-
-#: front-page.php:60
-msgid "Change the page to be displayed"
-msgstr "↑ 表示するページを変更する"
-
-#: functions.php:122
-msgid "Sidebar(Front page only)"
-msgstr "サイドバー（トップページ）"
-
-#: functions.php:124
-msgid "This widget area appears on the front page only."
-msgstr ""
-"トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
-"必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
-"ジェットを使用して、ソースコードを張り付けられます。"
-
-#: functions.php:131
-msgid "Sidebar(Post content only)"
-msgstr "サイドバー（投稿ページ）"
-
-#: functions.php:133
-msgid "This widget area appears only on the post content pages."
-msgstr ""
-"投稿コンテンツのページにのみ表示されるウィジェットです。設定がない場合はカテ"
-"ゴリーリストや問い合わせバナーなどが表示されます。非表示にしたい場合は空のテ"
-"キストウィジェットなどを設定してください。"
-
-#: functions.php:140
-msgid "Sidebar(Page content only)"
-msgstr "サイドバー（固定ページ）"
-
-#: functions.php:142
-msgid "This widget area appears only on the page content pages."
-msgstr ""
-"固定ページコンテンツのページにのみ表示されるウィジェットです。設定がない場合"
-"は子ページのリストや問い合わせバナーなどが自動的に表示されます。非表示にした"
-"い場合は空のテキストウィジェットなどを設定してください。"
-
-#: functions.php:149
-msgid "Sidebar(Common top)"
-msgstr "サイドバー（共通・上）"
-
-#: functions.php:151
-msgid "This widget area appears at top of sidebar."
-msgstr "サイドバー上部に表示されるウィジェットです。"
-
-#: functions.php:158
-msgid "Sidebar(Common bottom)"
-msgstr "サイドバー（共通・下）"
-
-#: functions.php:160
-msgid "This widget area appears at bottom of sidebar."
-msgstr "サイドバー下部に表示されるウィジェットです。"
-
-#: functions.php:288 functions.php:289 functions.php:290 functions.php:297
-#: plugins/add_post_type/add_post_type.php:320
-msgid "Meta Keywords"
-msgstr "メタキーワード"
-
-#: functions.php:298
-msgid ""
-"To distinguish between individual keywords, please enter a , delimiter "
-"(optional)."
-msgstr ""
-"このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
-
-#: functions.php:300
-#, php-format
-msgid "* keywords common to the entire site can be set from %s."
-msgstr "※サイト全体に共通して設定するキーワードは %s から設定出来ます。"
-
-#: functions.php:340 functions.php:348
-#, php-format
-msgid "About %s"
-msgstr "%s について。"
-
-#: functions.php:352 index.php:19 module_panList.php:80 module_panList.php:247
-#: inc/theme-options.php:138 inc/theme-options.php:165
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr "Y年"
-
-#: functions.php:353
-#, php-format
-msgctxt "Yearly archive description"
-msgid "Article of %s."
-msgstr "%s 年の記事。"
-
-#: functions.php:356 index.php:21 module_panList.php:82 module_panList.php:250
-#: inc/theme-options.php:140 inc/theme-options.php:163
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr "Y年n月"
-
-#: functions.php:357 functions.php:361 functions.php:365
-#, php-format
-msgctxt "Archive description"
-msgid "Article of %s."
-msgstr "%s の記事。"
-
-#: functions.php:382 inc/theme-options.php:183
-#, php-format
-msgid "Page of %s"
-msgstr "%sページ目"
-
-#: functions.php:542
-msgid "Your comment is awaiting approval."
-msgstr "あなたのコメントは承認待ちです。"
-
-#: functions.php:552
-msgid "Reply"
-msgstr "返信する"
-
-#: functions.php:576
-msgid "Navigation"
-msgstr "ナビゲーション"
-
-#: functions.php:577
-msgid "<span class=\"meta-nav\">&larr;</span> Older post"
-msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
-
-#: functions.php:578
-msgid "New post <span class=\"meta-nav\">&rarr;</span>"
-msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
-
-#: header.php:93 design_skins/003/functions_003.php:37
-msgid "Skip menu"
-msgstr "メニューを飛ばす"
-
-#: index.php:19 module_panList.php:80 module_panList.php:247
-#: inc/theme-options.php:138 inc/theme-options.php:165
-#, php-format
-msgid "Yearly Archives: %s"
-msgstr "年別アーカイブ: %s"
-
-#: index.php:21 module_panList.php:82 module_panList.php:250
-#: inc/theme-options.php:140 inc/theme-options.php:163
-#, php-format
-msgid "Monthly Archives: %s"
-msgstr "月別アーカイブ: %s"
-
-#: index.php:25
-msgid "Tags : "
-msgstr "タグ : "
-
-#: module_entry_meta.php:16
-msgid "Posted on"
-msgstr "投稿日"
-
-#: module_entry_meta.php:17
-msgid "Last updated"
-msgstr "最後の編集"
-
-#: module_entry_meta.php:18
-msgid "Author"
-msgstr "制作者"
-
-#: module_entry_meta.php:20 sidebar-info.php:17 sidebar-post.php:10
-#: plugins/widgets/widgets.php:417 plugins/widgets/widgets.php:418
-msgid "Category"
-msgstr "カテゴリー"
-
-#: module_mainfoot.php:15
-msgid "bt_contact.png"
-msgstr "bt_contact_ja.png"
-
-#: module_mainfoot.php:15 inc/theme-options.php:749
-msgid "Contact us by e-mail"
-msgstr "メールでお問い合わせはこちら"
-
-#: module_PageDisp.php:16 module_PageDisp.php:34 module_PageDisp.php:52
-#: module_topPR.php:31 module_topPR.php:87 module_topPR.php:143
-#, php-format
-msgid "Image of %s"
-msgstr "%sのイメージ"
-
-#: module_PageDisp.php:23 module_PageDisp.php:41 module_PageDisp.php:59
-#: module_topPR.php:55 module_topPR.php:111 module_topPR.php:167
-#: page-parent.php:55
-msgctxt "Link to page"
-msgid "Read more"
-msgstr "詳しくはこちら"
-
-#: module_pageTit.php:49 module_panList.php:37 inc/theme-options.php:176
-#, php-format
-msgid "Search Results for : %s"
-msgstr "『%s』の検索結果"
-
-#: module_pageTit.php:51 module_panList.php:35
-msgid "Not found"
-msgstr "ページが見つかりません"
-
-#: module_panList.php:267
-#, php-format
-msgid "Daily Archives: %s"
-msgstr "日付別アーカイブ: %s"
-
-#: module_panList.php:267
-msgctxt "daily archives date format"
-msgid "F jS, Y"
-msgstr "Y年n月j日"
-
-#: module_top_list_info.php:28 module_top_list_post.php:35
-#, php-format
-msgid "%s List page"
-msgstr "%s一覧"
-
-#: search.php:22
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with "
-"different keywords."
-msgstr ""
-"ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
-"てみてください。"
-
-#: sidebar-info.php:27 plugins/add_post_type/add_post_type.php:190
-msgid "Yearly archives"
-msgstr "年別アーカイブ"
-
-#: sidebar-info.php:33 plugins/add_post_type/add_post_type.php:196
-msgctxt "After year"
-msgid "&nbsp;"
-msgstr "年"
-
-#: single.php:27
-#, php-format
-msgid "<dt>Tags</dt><dd>%1$s</dd>"
-msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 
 #: design_skins/001/001_custom.php:75
 msgctxt "Default color settings"
@@ -364,6 +81,153 @@ msgstr "Rebuild カラー設定"
 #: design_skins/003/003_custom.php:87
 msgid "Keycolor(VeryLight)"
 msgstr "キーカラー（薄）"
+
+#: design_skins/003/functions_003.php:37 header.php:91
+msgid "Skip menu"
+msgstr "メニューを飛ばす"
+
+#: front-page.php:49
+msgid ""
+"* In admin [Settings] &raquo; [Display Settings], if the front page is not "
+"set to a [page], nothing is displayed in this area."
+msgstr ""
+"※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外"
+"の場合は何も表示されません。"
+
+#: front-page.php:50
+msgid ""
+"* If empty, the body of a page that you set as the front page does not "
+"display anything."
+msgstr ""
+"※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
+"ん。"
+
+#: front-page.php:54 functions.php:550 module_loop_post.php:18
+#: module_loop_post2.php:20 module_topPR.php:82 page-no-mainfoot.php:19
+#: page-onecolumn.php:20 page-parent.php:24 page-parent.php:57 page.php:14
+#: plugins/widgets/widgets.php:145 single-info.php:11 single-info.php:19
+#: single.php:15 single.php:34
+msgid "Edit"
+msgstr "編集"
+
+#: front-page.php:57
+msgid "Title display settings"
+msgstr "↑ タイトルの表示設定"
+
+#: front-page.php:60
+msgid "Change the page to be displayed"
+msgstr "↑ 表示するページを変更する"
+
+#: functions.php:120
+msgid "Sidebar(Front page only)"
+msgstr "サイドバー（トップページ）"
+
+#: functions.php:122
+msgid "This widget area appears on the front page only."
+msgstr ""
+"トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
+"必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
+"ジェットを使用して、ソースコードを張り付けられます。"
+
+#: functions.php:129
+msgid "Sidebar(Post content only)"
+msgstr "サイドバー（投稿ページ）"
+
+#: functions.php:131
+msgid "This widget area appears only on the post content pages."
+msgstr ""
+"投稿コンテンツのページにのみ表示されるウィジェットです。設定がない場合はカテ"
+"ゴリーリストや問い合わせバナーなどが表示されます。非表示にしたい場合は空のテ"
+"キストウィジェットなどを設定してください。"
+
+#: functions.php:138
+msgid "Sidebar(Page content only)"
+msgstr "サイドバー（固定ページ）"
+
+#: functions.php:140
+msgid "This widget area appears only on the page content pages."
+msgstr ""
+"固定ページコンテンツのページにのみ表示されるウィジェットです。設定がない場合"
+"は子ページのリストや問い合わせバナーなどが自動的に表示されます。非表示にした"
+"い場合は空のテキストウィジェットなどを設定してください。"
+
+#: functions.php:147
+msgid "Sidebar(Common top)"
+msgstr "サイドバー（共通・上）"
+
+#: functions.php:149
+msgid "This widget area appears at top of sidebar."
+msgstr "サイドバー上部に表示されるウィジェットです。"
+
+#: functions.php:156
+msgid "Sidebar(Common bottom)"
+msgstr "サイドバー（共通・下）"
+
+#: functions.php:158
+msgid "This widget area appears at bottom of sidebar."
+msgstr "サイドバー下部に表示されるウィジェットです。"
+
+#: functions.php:178
+msgid "Main content(Homepage)"
+msgstr "コンテンツエリア（トップページ）"
+
+#: functions.php:180
+msgid "This widget area appears on the front page main content area only."
+msgstr "トップページのメインコンテンツエリア表示されるウィジェットです。"
+
+#: functions.php:322 functions.php:330
+#, php-format
+msgid "About %s"
+msgstr "%s について。"
+
+#: functions.php:334 inc/theme-options.php:144 inc/theme-options.php:171
+#: index.php:19 module_panList.php:80 module_panList.php:252
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y年"
+
+#: functions.php:335
+#, php-format
+msgctxt "Yearly archive description"
+msgid "Article of %s."
+msgstr "%s 年の記事。"
+
+#: functions.php:338 inc/theme-options.php:146 inc/theme-options.php:169
+#: index.php:21 module_panList.php:82 module_panList.php:255
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "Y年n月"
+
+#: functions.php:339 functions.php:343 functions.php:347
+#, php-format
+msgctxt "Archive description"
+msgid "Article of %s."
+msgstr "%s の記事。"
+
+#: functions.php:364 inc/theme-options.php:189
+#, php-format
+msgid "Page of %s"
+msgstr "%sページ目"
+
+#: functions.php:530
+msgid "Your comment is awaiting approval."
+msgstr "あなたのコメントは承認待ちです。"
+
+#: functions.php:540
+msgid "Reply"
+msgstr "返信する"
+
+#: functions.php:564
+msgid "Navigation"
+msgstr "ナビゲーション"
+
+#: functions.php:565
+msgid "<span class=\"meta-nav\">&larr;</span> Older post"
+msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
+
+#: functions.php:566
+msgid "New post <span class=\"meta-nav\">&rarr;</span>"
+msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
 #: inc/fonts-list.php:10
 msgid "Open Sans"
@@ -586,7 +450,7 @@ msgid "3PR area settings"
 msgstr "トップページ3PRエリアの設定"
 
 #: inc/theme-customizer.php:264 inc/theme-options-edit.php:376
-#: plugins/widgets/widgets.php:319
+#: plugins/widgets/widgets.php:288
 msgid "Title"
 msgstr "タイトル"
 
@@ -708,12 +572,12 @@ msgstr ""
 "示している固定ページの子階層以外のメニュー（第３階層以下）を非表示にする事が"
 "出来ます。"
 
-#: inc/theme-options-edit.php:249 plugins/sns/sns.php:524
-#: plugins/sns/sns.php:526
+#: inc/theme-options-edit.php:249 plugins/sns/sns.php:562
+#: plugins/sns/sns.php:564
 msgid "Display"
 msgstr "表示する"
 
-#: inc/theme-options-edit.php:250
+#: inc/theme-options-edit.php:250 plugins/sns/sns.php:566
 msgid "Hide"
 msgstr "表示しない"
 
@@ -740,8 +604,9 @@ msgstr "Internet Explorer8への警告を表示する"
 #: inc/theme-options-edit.php:296 inc/theme-options-edit.php:303
 #: inc/theme-options-edit.php:310 inc/theme-options-edit.php:318
 #: inc/theme-options-edit.php:327 inc/theme-options-edit.php:337
-#: plugins/seo/seo.php:104 plugins/sns/sns.php:427 plugins/sns/sns.php:466
-#: plugins/sns/sns.php:486 plugins/sns/sns.php:505 plugins/sns/sns.php:522
+#: plugins/seo_and_ga/seo_and_ga_edit.php:63 plugins/sns/sns.php:461
+#: plugins/sns/sns.php:500 plugins/sns/sns.php:520 plugins/sns/sns.php:539
+#: plugins/sns/sns.php:560
 msgid "ex) "
 msgstr "【記入例】"
 
@@ -894,48 +759,48 @@ msgstr ""
 "ウィジェットが無い場合は、画面右上の「表示」タブより「アイキャッチ画像」の項"
 "目にチェックを入れて下さい。"
 
-#: inc/theme-options-edit.php:454 plugins/add_post_type/add_post_type.php:225
+#: inc/theme-options-edit.php:454 plugins/add_post_type/add_post_type.php:224
 msgid "Change the title"
 msgstr "表記の変更"
 
-#: inc/theme-options-edit.php:456 plugins/add_post_type/add_post_type.php:227
+#: inc/theme-options-edit.php:456 plugins/add_post_type/add_post_type.php:226
 #, php-format
 msgid "Display layout of &quot; %s &quot on the top page."
 msgstr "%s のトップページでの表示レイアウト"
 
 #: inc/theme-options-edit.php:461 inc/theme-options-edit.php:469
-#: plugins/add_post_type/add_post_type.php:232
-#: plugins/add_post_type/add_post_type.php:240
+#: plugins/add_post_type/add_post_type.php:231
+#: plugins/add_post_type/add_post_type.php:239
 msgid "Title only"
 msgstr "タイトルのみ"
 
 #: inc/theme-options-edit.php:462 inc/theme-options-edit.php:470
-#: plugins/add_post_type/add_post_type.php:233
-#: plugins/add_post_type/add_post_type.php:241
+#: plugins/add_post_type/add_post_type.php:232
+#: plugins/add_post_type/add_post_type.php:240
 msgid "With excerpt and thumbnail"
 msgstr "抜粋とサムネイル画像あり"
 
-#: inc/theme-options-edit.php:464 plugins/add_post_type/add_post_type.php:235
+#: inc/theme-options-edit.php:464 plugins/add_post_type/add_post_type.php:234
 #, php-format
 msgid "Display layout of &quot; %s &quot on the archive page."
 msgstr "%s のアーカイブページでの表示レイアウト"
 
-#: inc/theme-options-edit.php:475 plugins/add_post_type/add_post_type.php:245
+#: inc/theme-options-edit.php:475 plugins/add_post_type/add_post_type.php:244
 #, php-format
 msgid "Number of %s posts to be displayed on the home page."
 msgstr "%s のトップページでの表示件数"
 
-#: inc/theme-options-edit.php:476 plugins/add_post_type/add_post_type.php:246
+#: inc/theme-options-edit.php:476 plugins/add_post_type/add_post_type.php:245
 msgctxt "top page post count"
 msgid "posts"
 msgstr "件"
 
 #: inc/theme-options-edit.php:477 inc/theme-options-edit.php:507
-#: plugins/add_post_type/add_post_type.php:247
+#: plugins/add_post_type/add_post_type.php:246
 msgid "If you enter &quot0&quot, this section will disappear."
 msgstr "0 にするとタイトルごと表示されなくなります。"
 
-#: inc/theme-options-edit.php:481 plugins/add_post_type/add_post_type.php:251
+#: inc/theme-options-edit.php:481 plugins/add_post_type/add_post_type.php:250
 #, php-format
 msgid "Top URL for %1$s"
 msgstr "%1$sのトップのURL"
@@ -1170,7 +1035,7 @@ msgstr "リンク先URL"
 msgid "Image URL"
 msgstr "画像URL"
 
-#: inc/theme-options-edit.php:640 plugins/sns/sns.php:465
+#: inc/theme-options-edit.php:640 plugins/sns/sns.php:499
 msgid "Select an image"
 msgstr "画像を選択"
 
@@ -1220,7 +1085,7 @@ msgstr "設定を初期化"
 msgid "Page top"
 msgstr "このページの先頭へ戻る"
 
-#: inc/theme-options-init.php:89 plugins/widgets/widgets.php:445
+#: inc/theme-options-init.php:89 plugins/widgets/widgets.php:414
 msgid "Blog"
 msgstr "ブログ"
 
@@ -1288,60 +1153,129 @@ msgstr "スライドショー"
 msgid "Theme Options"
 msgstr "テーマオプション"
 
-#: inc/theme-options.php:197
+#: inc/theme-options.php:144 inc/theme-options.php:171 index.php:19
+#: module_panList.php:80 module_panList.php:252
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "年別アーカイブ: %s"
+
+#: inc/theme-options.php:146 inc/theme-options.php:169 index.php:21
+#: module_panList.php:82 module_panList.php:255
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "月別アーカイブ: %s"
+
+#: inc/theme-options.php:182 module_pageTit.php:50 module_panList.php:37
+#, php-format
+msgid "Search Results for : %s"
+msgstr "『%s』の検索結果"
+
+#: inc/theme-options.php:203
 msgid "Left sidebar"
 msgstr "左サイドバー"
 
-#: inc/theme-options.php:202
+#: inc/theme-options.php:208
 msgid "Right sidebar"
 msgstr "右サイドバー"
 
-#: inc/theme-options.php:277
+#: inc/theme-options.php:283
 msgid "Plain"
 msgstr "プレーン"
 
-#: inc/theme-options.php:362
+#: inc/theme-options.php:368
 msgid "[ Select ]"
 msgstr "[ 選択してください ]"
 
-#: inc/theme-options.php:574
-msgid "Free WordPress Theme BizVektor for business"
-msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
-
-#: inc/theme-options.php:575
-msgctxt "footer"
-msgid "Vektor,Inc."
-msgstr ""
-"株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"
-
-#: inc/theme-options.php:666
+#: inc/theme-options.php:644
 msgctxt "Font select"
 msgid "serif"
 msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
 
-#: inc/theme-options.php:668
+#: inc/theme-options.php:646
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
 
-#: inc/theme-options.php:749
+#: inc/theme-options.php:727
 msgid "bnr_contact.png"
 msgstr "bnr_contact_ja.png"
 
+#: inc/theme-options.php:727 module_mainfoot.php:15
+msgid "Contact us by e-mail"
+msgstr "メールでお問い合わせはこちら"
+
+#: index.php:25
+msgid "Tags : "
+msgstr "タグ : "
+
+#: index.php:101
+msgid "No posts."
+msgstr ""
+
+#: module_entry_meta.php:16
+msgid "Posted on"
+msgstr "投稿日"
+
+#: module_entry_meta.php:17
+msgid "Last updated"
+msgstr "最後の編集"
+
+#: module_entry_meta.php:18
+msgid "Author"
+msgstr "制作者"
+
+#: module_entry_meta.php:20 plugins/widgets/widgets.php:386
+#: plugins/widgets/widgets.php:387 sidebar-info.php:17 sidebar-post.php:10
+msgid "Category"
+msgstr "カテゴリー"
+
+#: module_mainfoot.php:15
+msgid "bt_contact.png"
+msgstr "bt_contact_ja.png"
+
+#: module_pageTit.php:52 module_panList.php:35
+msgid "Not found"
+msgstr "ページが見つかりません"
+
+#: module_panList.php:272
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "日付別アーカイブ: %s"
+
+#: module_panList.php:272
+msgctxt "daily archives date format"
+msgid "F jS, Y"
+msgstr "Y年n月j日"
+
+#: module_topPR.php:39
+#, php-format
+msgid "Image of %s"
+msgstr "%sのイメージ"
+
+#: module_topPR.php:63 page-parent.php:55
+msgctxt "Link to page"
+msgid "Read more"
+msgstr "詳しくはこちら"
+
+#: module_top_list_info.php:28 module_top_list_post.php:35
+#, php-format
+msgid "%s List page"
+msgstr "%s一覧"
+
+#: plugins/add_post_type/add_post_type.php:50
 #: plugins/add_post_type/add_post_type.php:51
-#: plugins/add_post_type/add_post_type.php:52
 msgctxt "admin menu"
 msgid "category"
 msgstr "カテゴリー"
 
-#: plugins/add_post_type/add_post_type.php:101
+#: plugins/add_post_type/add_post_type.php:100
 #, php-format
 msgid "Sidebar(%s content only)"
 msgstr "サイドバー（%sページ）"
 
-#: plugins/add_post_type/add_post_type.php:103
+#: plugins/add_post_type/add_post_type.php:102
 #, php-format
 msgid "This widget area appears only on the %s content pages."
 msgstr ""
@@ -1349,32 +1283,41 @@ msgstr ""
 "リーリストなどが自動的に表示されます。非表示にしたい場合は空のテキストウィ"
 "ジェットなどを設定してください。"
 
-#: plugins/add_post_type/add_post_type.php:120
+#: plugins/add_post_type/add_post_type.php:119
 #, php-format
 msgid "Category list of %s"
 msgstr "%s のカテゴリーリスト"
 
-#: plugins/add_post_type/add_post_type.php:122
-#: plugins/add_post_type/add_post_type.php:139
+#: plugins/add_post_type/add_post_type.php:121
+#: plugins/add_post_type/add_post_type.php:138
 #, php-format
 msgid "%s category"
 msgstr "%s カテゴリー"
 
-#: plugins/add_post_type/add_post_type.php:164 plugins/widgets/widgets.php:581
+#: plugins/add_post_type/add_post_type.php:163 plugins/widgets/widgets.php:567
 msgid "Title:"
 msgstr "タイトル:"
 
-#: plugins/add_post_type/add_post_type.php:179
+#: plugins/add_post_type/add_post_type.php:178
 #, php-format
 msgid "Yearly archives of %s"
 msgstr "%s の年別アーカイブ"
 
-#: plugins/add_post_type/add_post_type.php:181
+#: plugins/add_post_type/add_post_type.php:180
 #, php-format
 msgid "%s Yearly archives"
 msgstr "%s 年別アーカイブ"
 
-#: plugins/add_post_type/add_post_type.php:253
+#: plugins/add_post_type/add_post_type.php:189 sidebar-info.php:27
+msgid "Yearly archives"
+msgstr "年別アーカイブ"
+
+#: plugins/add_post_type/add_post_type.php:195 sidebar-info.php:33
+msgctxt "After year"
+msgid "&nbsp;"
+msgstr "年"
+
+#: plugins/add_post_type/add_post_type.php:252
 #, php-format
 msgid ""
 "By default <a href=\"%1$s\" target=\"_blank\">%1$s</a> is the top URL for "
@@ -1383,37 +1326,43 @@ msgstr ""
 "* 通常 <a href=\"%1$s\" target=\"_blank\">%1$s</a> が『%2$s』のトップになりま"
 "す。"
 
-#: plugins/add_post_type/add_post_type.php:275
+#: plugins/add_post_type/add_post_type.php:274
 msgid "Information"
 msgstr "お知らせ"
 
-#: plugins/add_post_type/add_post_type.php:292
+#: plugins/add_post_type/add_post_type.php:291
 #: plugins/extra_module/adminBarCustom.php:186
 #, php-format
 msgctxt "BizVektor admin header menu"
 msgid "Managing %s"
 msgstr "%s の管理"
 
-#: plugins/add_post_type/add_post_type.php:298
+#: plugins/add_post_type/add_post_type.php:297
 #: plugins/extra_module/adminBarCustom.php:192
 #, php-format
 msgctxt "BizVektor admin header menu"
 msgid "%s - List of entries"
 msgstr "%s 記事一覧"
 
-#: plugins/add_post_type/add_post_type.php:304
+#: plugins/add_post_type/add_post_type.php:303
 #: plugins/extra_module/adminBarCustom.php:198
 #, php-format
 msgctxt "BizVektor admin header menu"
 msgid "%s - Add new"
 msgstr "%s の新規投稿"
 
-#: plugins/add_post_type/add_post_type.php:311
+#: plugins/add_post_type/add_post_type.php:310
 #: plugins/extra_module/adminBarCustom.php:205
 #, php-format
 msgctxt "BizVektor admin header menu"
 msgid "%s - Categories"
 msgstr "%s のカテゴリー"
+
+#: plugins/add_post_type/add_post_type.php:319
+#: plugins/seo_and_ga/seo_and_ga.php:52 plugins/seo_and_ga/seo_and_ga.php:53
+#: plugins/seo_and_ga/seo_and_ga.php:54 plugins/seo_and_ga/seo_and_ga.php:61
+msgid "Meta Keywords"
+msgstr "メタキーワード"
 
 #: plugins/css_customize/css-customize-edit.php:2
 #: plugins/css_customize/css-customize.php:16
@@ -1584,24 +1533,51 @@ msgctxt "BizVektor admin header menu"
 msgid "Edit guide : OPEN"
 msgstr "編集ガイド : OPEN"
 
-#: plugins/seo/seo.php:62
+#: plugins/plugins.php:40
+msgid "Free WordPress Theme BizVektor for business"
+msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
+
+#: plugins/plugins.php:41
+msgctxt "footer"
+msgid "Vektor,Inc."
+msgstr ""
+"株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"
+
+#: plugins/seo_and_ga/seo_and_ga.php:62
+msgid ""
+"To distinguish between individual keywords, please enter a , delimiter "
+"(optional)."
+msgstr ""
+"このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
+
+#: plugins/seo_and_ga/seo_and_ga.php:63
+msgctxt "link to seo setting"
+msgid ""
+msgstr ""
+
+#: plugins/seo_and_ga/seo_and_ga.php:64
+#, php-format
+msgid "* keywords common to the entire site can be set from %s."
+msgstr "※サイト全体に共通して設定するキーワードは %s から設定出来ます。"
+
+#: plugins/seo_and_ga/seo_and_ga_edit.php:21
 msgid "SEO and Google Analytics Settings"
 msgstr "SEO と Google Analytics の設定"
 
-#: plugins/seo/seo.php:65
+#: plugins/seo_and_ga/seo_and_ga_edit.php:24
 msgid "&lt;title&gt; tag of homepage"
 msgstr "トップページの&lt;title&gt;タグ"
 
-#: plugins/seo/seo.php:69
+#: plugins/seo_and_ga/seo_and_ga_edit.php:28
 msgid "title of the site"
 msgstr "サイトタイトル"
 
-#: plugins/seo/seo.php:70
+#: plugins/seo_and_ga/seo_and_ga_edit.php:29
 #, php-format
 msgid "Normally, %1$s will include the %2$s in the title tag."
 msgstr "%1$s は通常 %2$s が全ページの&lt;title&gt;に入ります。"
 
-#: plugins/seo/seo.php:71
+#: plugins/seo_and_ga/seo_and_ga_edit.php:30
 msgid ""
 "For example, it appears in the form of <br />&lt;title&gt;page title | site "
 "title&lt;/title&gt;<br /> if using a static page."
@@ -1609,7 +1585,7 @@ msgstr ""
 "例えば固定ページであれば<br />&lt;title&gt;固定ページ名 | サイトタイトル&lt;/"
 "title&gt; <br />というような形式で出力されます。<br />"
 
-#: plugins/seo/seo.php:73
+#: plugins/seo_and_ga/seo_and_ga_edit.php:32
 #, php-format
 msgid ""
 "However, it might have negative impact on search engine rankings if the &lt;"
@@ -1621,7 +1597,7 @@ msgstr ""
 "くなるので、%s は<strong>一番検索されたいキーワードを盛り込みつつなるべく短く"
 "まとめる</strong>事が望ましいです。<br />"
 
-#: plugins/seo/seo.php:74
+#: plugins/seo_and_ga/seo_and_ga_edit.php:33
 msgid ""
 "However, in the home page, as described above, other title will not be "
 "added, it is possible to make the &lt;title&gt; little longer, which can be "
@@ -1631,15 +1607,15 @@ msgstr ""
 "少し長めの&lt;title&gt;をつける事が出来るために、ここで別途設定する事ができる"
 "ようになっています。"
 
-#: plugins/seo/seo.php:76
+#: plugins/seo_and_ga/seo_and_ga_edit.php:35
 msgid "Site title will be used if this field is blank."
 msgstr "未記入の場合はサイトのタイトルが反映されます。"
 
-#: plugins/seo/seo.php:80
+#: plugins/seo_and_ga/seo_and_ga_edit.php:39
 msgid "Common keywords"
 msgstr "共通キーワード"
 
-#: plugins/seo/seo.php:81
+#: plugins/seo_and_ga/seo_and_ga_edit.php:40
 msgid ""
 "For the keywords meta tag, please enter the keywords to be used throughout "
 "the site, comma separated."
@@ -1647,7 +1623,7 @@ msgstr ""
 "metaタグのキーワードで、サイト全体で共通して入れるキーワードを , 区切りで入力"
 "して下さい。"
 
-#: plugins/seo/seo.php:83
+#: plugins/seo_and_ga/seo_and_ga_edit.php:42
 msgid ""
 "* You do not have to take keywords very seriously, because it does not "
 "affect the search engine rankings anymore."
@@ -1655,7 +1631,7 @@ msgstr ""
 "* 現在は検索エンジンからの評価に影響しませんのであまり真剣に考えなくてもかま"
 "いません。"
 
-#: plugins/seo/seo.php:84
+#: plugins/seo_and_ga/seo_and_ga_edit.php:43
 msgid ""
 "* The keywords for each particular page are entered from that page's edit "
 "screen. About up to 10 keywords in conjunction with the number of common "
@@ -1664,20 +1640,20 @@ msgstr ""
 "* 各ページ個別のキーワードについては、それぞれの記事の編集画面より入力して下"
 "さい。共通キーワードと合わせて最大10個程度が望ましいです。"
 
-#: plugins/seo/seo.php:85
+#: plugins/seo_and_ga/seo_and_ga_edit.php:44
 msgid "* Not required , at the end of the last keyword."
 msgstr "* 最後のキーワード欄の末尾には , は必要ありません。"
 
-#: plugins/seo/seo.php:86
+#: plugins/seo_and_ga/seo_and_ga_edit.php:45
 msgid "ex) WordPress,Template,Theme,Free,GPL"
 msgstr "【記入例】 WordPress,テンプレート,テーマ,無料,GPL"
 
-#: plugins/seo/seo.php:90
+#: plugins/seo_and_ga/seo_and_ga_edit.php:49
 msgctxt "Description settings"
 msgid "Description"
 msgstr "ディスクリプション"
 
-#: plugins/seo/seo.php:92
+#: plugins/seo_and_ga/seo_and_ga_edit.php:51
 msgid ""
 "Content from the particular page's \"excerpt\" field will be reflected in "
 "the description meta tag."
@@ -1685,7 +1661,7 @@ msgstr ""
 "各ページの編集画面の「抜粋」欄に記入した内容がmetaタグのディスクリプションに"
 "反映されます。"
 
-#: plugins/seo/seo.php:93
+#: plugins/seo_and_ga/seo_and_ga_edit.php:52
 msgid ""
 "In the Google and other search engine results pages (SERPs), part of the "
 "meta tag description appears under the site title."
@@ -1693,7 +1669,7 @@ msgstr ""
 "metaタグのディスクリプションはGoogleなどの検索サイトの検索結果画面で、サイト"
 "タイトルの下などに表示されます。"
 
-#: plugins/seo/seo.php:94
+#: plugins/seo_and_ga/seo_and_ga_edit.php:53
 msgid ""
 "If the excerpt field is blank, the first 240 characters from the page's "
 "content are used."
@@ -1701,7 +1677,7 @@ msgstr ""
 "抜粋欄が未記入の場合は、本文文頭より240文字がディスクリプションとして適用され"
 "る仕様となっています。"
 
-#: plugins/seo/seo.php:95
+#: plugins/seo_and_ga/seo_and_ga_edit.php:54
 msgid ""
 "Description of the site will be applied to the meta description of the top "
 "page.However, the content will be reflected if the excerpt is fill in the "
@@ -1711,7 +1687,7 @@ msgstr ""
 "す。しかし、トップページに設定した固定ページに抜粋が記入されている場合はその"
 "内容が反映されます。"
 
-#: plugins/seo/seo.php:96
+#: plugins/seo_and_ga/seo_and_ga_edit.php:55
 msgid ""
 "* If the excerpt field is not visible, in the tab called \"View\" in the "
 "upper right corner of the edit page, please check the box to display the "
@@ -1721,17 +1697,17 @@ msgstr ""
 "すので、そこをクリックすると「抜粋」欄を表示するチェックボックスが出てきます"
 "ので、チェックして下さい。"
 
-#: plugins/seo/seo.php:101
+#: plugins/seo_and_ga/seo_and_ga_edit.php:60
 msgid "Google Analytics Settings"
 msgstr "Google Analytics設定"
 
-#: plugins/seo/seo.php:102
+#: plugins/seo_and_ga/seo_and_ga_edit.php:61
 msgid ""
 "Please fill in the Google Analytics ID from the Analytics embed code used in "
 "the site."
 msgstr "GoogleAnalyticsのタグを埋め込む場合はAnalyticsのIDを記入して下さい。"
 
-#: plugins/seo/seo.php:107
+#: plugins/seo_and_ga/seo_and_ga_edit.php:66
 msgid ""
 "Please select the type of Analytics code . (If you are unsure you can skip "
 "this.)"
@@ -1739,41 +1715,41 @@ msgstr ""
 "出力する解析タグの種類を選択して下さい。（よくわからない場合は飛ばしてかまい"
 "ません。）"
 
-#: plugins/seo/seo.php:112
+#: plugins/seo_and_ga/seo_and_ga_edit.php:71
 msgid "To output only normal code (default)"
 msgstr "通常の解析タグのみ出力する（デフォルト）"
 
-#: plugins/seo/seo.php:113
+#: plugins/seo_and_ga/seo_and_ga_edit.php:72
 msgid "To output the Universal Analytics code"
 msgstr "Universal Analyticsの解析タグのみ出力する"
 
-#: plugins/seo/seo.php:114
+#: plugins/seo_and_ga/seo_and_ga_edit.php:73
 msgid "To output both types"
 msgstr "両方の解析タグを出力する"
 
-#: plugins/sns/sns.php:281 plugins/sns/sns.php:316
-#: plugins/widgets/widgets.php:191
+#: plugins/sns/sns.php:309 plugins/sns/sns.php:344
+#: plugins/widgets/widgets.php:160
 msgid "*　It is necessary to set the Theme options page."
 msgstr "※「外観」→「テーマオプション」画面での設定が必要です。"
 
-#: plugins/sns/sns.php:283
+#: plugins/sns/sns.php:311
 msgid "facebook&twitter banner"
 msgstr "facebook&twitterバナー"
 
-#: plugins/sns/sns.php:405
+#: plugins/sns/sns.php:439
 msgctxt "BizVektor option tab label"
 msgid "SNS"
 msgstr "SNS連携"
 
-#: plugins/sns/sns.php:420
+#: plugins/sns/sns.php:454
 msgid "Social media"
 msgstr "SNS連携"
 
-#: plugins/sns/sns.php:421
+#: plugins/sns/sns.php:455
 msgid "If you are unsure, you can leave for later."
 msgstr "よくわからない場合は後で設定しても問題ありません。"
 
-#: plugins/sns/sns.php:425
+#: plugins/sns/sns.php:459
 msgid ""
 "If you wish to link to a personal account or a Facebook page  banner will be "
 "displayed if you enter<label> the URL."
@@ -1781,15 +1757,15 @@ msgstr ""
 "facebookページか個人アカウントにリンクする場合はリンク先アドレスを入力すると"
 "バナーが表示されます。"
 
-#: plugins/sns/sns.php:432
+#: plugins/sns/sns.php:466
 msgid "facebook application ID"
 msgstr "facebookアプリケーションID"
 
-#: plugins/sns/sns.php:434
+#: plugins/sns/sns.php:468
 msgid "I will check and get the application ID"
 msgstr "アプリケーションIDを確認・取得する"
 
-#: plugins/sns/sns.php:435
+#: plugins/sns/sns.php:469
 msgid ""
 "* If an application ID is not specified, neither a Like button nor the "
 "comment field displays and operates correctly."
@@ -1797,7 +1773,7 @@ msgstr ""
 "* アプリケーションIDを入力しないとボタンやコメント欄が表示・正しく動作しませ"
 "ん。"
 
-#: plugins/sns/sns.php:436
+#: plugins/sns/sns.php:470
 msgid ""
 "Please search for terms as [get Facebook application ID] If you do not know "
 "much about how to get application ID for Facebook."
@@ -1805,19 +1781,19 @@ msgstr ""
 "facebookのアプリケーションIDの取得方法についてよくわからない場合は「facebook "
 "アプリケーションID 取得」などで検索して下さい。"
 
-#: plugins/sns/sns.php:441
+#: plugins/sns/sns.php:475
 msgid "Facebook user ID (optional)"
 msgstr "facebookユーザーID （任意）"
 
-#: plugins/sns/sns.php:442
+#: plugins/sns/sns.php:476
 msgid "Please enter the Facebook user ID of the administrator."
 msgstr "管理者のfacebookユーザーIDを入力して下さい。"
 
-#: plugins/sns/sns.php:444
+#: plugins/sns/sns.php:478
 msgid "* It is not the application ID of the Facebook page."
 msgstr "* facebookページのアプリケーションIDではありません。"
 
-#: plugins/sns/sns.php:445
+#: plugins/sns/sns.php:479
 msgid ""
 "You can see the personal Facebook ID when you access the following url "
 "http://graph.facebook.com/(own url name(example: TheStig ))."
@@ -1825,29 +1801,29 @@ msgstr ""
 "facebookの個人IDは、http://graph.facebook.com/★自分のURL名（例：TheStig）★ に"
 "アクセスするとわかります。"
 
-#: plugins/sns/sns.php:446
+#: plugins/sns/sns.php:480
 msgid ""
 "Please search for terms as [find facebook user ID] if you are still not sure."
 msgstr ""
 "それでもよくわからない場合は「facebook ユーザーID 調べ方」などで検索して下さ"
 "い。"
 
-#: plugins/sns/sns.php:451
+#: plugins/sns/sns.php:485
 msgid "twitter account"
 msgstr "twitterアカウント"
 
-#: plugins/sns/sns.php:452
+#: plugins/sns/sns.php:486
 msgid ""
 "If you would like to link to a Twitter account, banner will be displayed if "
 "you enter the account name."
 msgstr ""
 "twitterにリンクする場合はアカウント名を入力するとバナーが表示されます。"
 
-#: plugins/sns/sns.php:454
+#: plugins/sns/sns.php:488
 msgid "widget"
 msgstr "ウィジェット"
 
-#: plugins/sns/sns.php:455
+#: plugins/sns/sns.php:489
 #, php-format
 msgid ""
 "* If you prefer to use Twitter widgets etc, this can be left blank, paste "
@@ -1856,11 +1832,11 @@ msgstr ""
 "* twitterのウィジェットなどを利用したい場合は、ここは空欄のままにして、%s よ"
 "り『テキスト』を利用してソースコードを貼り付けて下さい。"
 
-#: plugins/sns/sns.php:461
+#: plugins/sns/sns.php:495
 msgid "OGP default image"
 msgstr "デフォルトのOGPイメージ"
 
-#: plugins/sns/sns.php:462
+#: plugins/sns/sns.php:496
 msgid ""
 "If, for example someone pressed the Facebook [Like] button, this is the "
 "image that appears on the Facebook timeline."
@@ -1868,41 +1844,41 @@ msgstr ""
 "facebookの「いいね」ボタンを押された場合などに、facebookのタイムラインに表示"
 "される画像です。"
 
-#: plugins/sns/sns.php:463
+#: plugins/sns/sns.php:497
 msgid "If a featured image is specified for the page, it takes precedence."
 msgstr "ページにアイキャッチ画像が指定されてる場合はそちらが優先されます。"
 
-#: plugins/sns/sns.php:467
+#: plugins/sns/sns.php:501
 msgid ""
 "* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is "
 "recommended."
 msgstr "* 画像サイズは300×300ピクセル以上、画像比率16:9推奨。"
 
-#: plugins/sns/sns.php:472
+#: plugins/sns/sns.php:506
 msgid "Social buttons"
 msgstr "ソーシャルボタン"
 
-#: plugins/sns/sns.php:473
+#: plugins/sns/sns.php:507
 msgid "Please check the type of page that displays the social button."
 msgstr "ソーシャルボタンを表示するページの種類にチェックを入れて下さい。"
 
-#: plugins/sns/sns.php:476 plugins/sns/sns.php:495 plugins/sns/sns.php:515
+#: plugins/sns/sns.php:510 plugins/sns/sns.php:529 plugins/sns/sns.php:549
 msgctxt "sns display"
 msgid "Home page"
 msgstr "トップページ"
 
-#: plugins/sns/sns.php:478 plugins/sns/sns.php:497
+#: plugins/sns/sns.php:512 plugins/sns/sns.php:531 plugins/sns/sns.php:551
 msgctxt "sns display"
 msgid "Page"
 msgstr "固定ページ"
 
-#: plugins/sns/sns.php:480 plugins/sns/sns.php:482 plugins/sns/sns.php:499
-#: plugins/sns/sns.php:501
+#: plugins/sns/sns.php:514 plugins/sns/sns.php:516 plugins/sns/sns.php:533
+#: plugins/sns/sns.php:535 plugins/sns/sns.php:553 plugins/sns/sns.php:555
 msgctxt "sns display"
 msgid "Post"
 msgstr "投稿ページ"
 
-#: plugins/sns/sns.php:484
+#: plugins/sns/sns.php:518
 msgid ""
 "Within the type of page that is checked, if there is a particular "
 "pa<label>ge you do not wish to display, enter the Page ID. If multiple "
@@ -1911,15 +1887,15 @@ msgstr ""
 "チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切り"
 "で入力して下さい。"
 
-#: plugins/sns/sns.php:491
+#: plugins/sns/sns.php:525
 msgid "facebook comments box"
 msgstr "facebook コメント欄"
 
-#: plugins/sns/sns.php:492
+#: plugins/sns/sns.php:526
 msgid "Please check the type of the page to display Facebook comments."
 msgstr "facebookコメント欄を表示するページにはチェックを入れて下さい。"
 
-#: plugins/sns/sns.php:503
+#: plugins/sns/sns.php:537
 msgid ""
 "Within the type of page that is checked, if there is a particular page you "
 "do not wish to display, enter the Page ID. If multiple pages, please "
@@ -1928,68 +1904,67 @@ msgstr ""
 "チェックを入れたページの種類でも表示したくないページがある場合はIDを , 区切り"
 "で入力して下さい。"
 
-#: plugins/sns/sns.php:511
+#: plugins/sns/sns.php:545
 msgid "If you wish to use Facebook LikeBox, please check the location."
 msgstr "facebook LikeBox を設置する場合は設置個所にチェックを入れて下さい。"
 
-#: plugins/sns/sns.php:512
+#: plugins/sns/sns.php:546
 msgid "* Please be sure to set Facebook application ID."
 msgstr ""
 "* facebook ページのアプリケーションIDも必ず設定してください。余白が出来るなど"
 "正しく表示されません。"
 
-#: plugins/sns/sns.php:517
-msgctxt "sns display"
-msgid "Side bar"
-msgstr "サイドバー"
-
-#: plugins/sns/sns.php:520
+#: plugins/sns/sns.php:558
 msgid "URL of the Facebook page."
 msgstr "FacebookページのURL"
 
-#: plugins/sns/sns.php:523
+#: plugins/sns/sns.php:561
 msgid "Display stream"
 msgstr "ストリームの表示"
 
-#: plugins/sns/sns.php:525
+#: plugins/sns/sns.php:563
 msgid "Display faces"
 msgstr "顔の表示"
 
-#: plugins/sns/sns.php:527
+#: plugins/sns/sns.php:565
+msgid "Hide Cover Photo"
+msgstr ""
+
+#: plugins/sns/sns.php:567
 msgid "Height of LikeBox"
 msgstr "LikeBoxの高さ"
 
-#: plugins/sns/sns.php:535
+#: plugins/sns/sns.php:575
 msgid "Do not output the OGP"
 msgstr "OGPを出力しない"
 
-#: plugins/sns/sns.php:537
+#: plugins/sns/sns.php:577
 #, php-format
 msgid "If other plug-ins are used for the OGP, do not output the OGP using %s."
 msgstr ""
 "他のプラグインがOGPを出力している場合は %s のOGPを出力しないようにして下さ"
 "い。"
 
-#: plugins/sns/sns.php:538
+#: plugins/sns/sns.php:578
 #, php-format
 msgid "I want to output the OGP tags using %s"
 msgstr "%s のOGPタグを出力する"
 
-#: plugins/sns/sns.php:539
+#: plugins/sns/sns.php:579
 #, php-format
 msgid "Do not output OGP tags using %s"
 msgstr "%s のOGPタグを出力しない"
 
-#: plugins/sns/sns.php:544
+#: plugins/sns/sns.php:584
 #, php-format
 msgid "%1$s Settings"
 msgstr "%1$sの設定"
 
-#: plugins/sns/sns.php:544 plugins/sns/sns.php:547 plugins/sns/sns.php:548
+#: plugins/sns/sns.php:584 plugins/sns/sns.php:587 plugins/sns/sns.php:588
 msgid "Twitter Card"
 msgstr "Twitter Card"
 
-#: plugins/sns/sns.php:547
+#: plugins/sns/sns.php:587
 #, php-format
 msgid ""
 "%1$s related tags won't display if you don't fill a Twitter account above."
@@ -1997,7 +1972,7 @@ msgstr ""
 "%1$sのタグは、上記フォームでtwitterアカウントが入力されていないと表示されませ"
 "ん。"
 
-#: plugins/sns/sns.php:548
+#: plugins/sns/sns.php:588
 #, php-format
 msgid ""
 "Image used for %1$s is the Featured Image set for each post. In case there "
@@ -2006,135 +1981,185 @@ msgstr ""
 "%1$sの画像は各記事のアイキャッチ画像が適用されます。アイキャッチ画像が無い"
 "ページはデフォルトのOGP画像が適用されます。"
 
-#: plugins/sns/sns.php:566
+#: plugins/sns/sns.php:606
 msgctxt "BizVektor admin header menu"
 msgid "SNS settings"
 msgstr "SNS連携の設定"
 
-#: plugins/widgets/widgets.php:45
-msgid "Main content(Homepage)"
-msgstr "コンテンツエリア（トップページ）"
-
-#: plugins/widgets/widgets.php:47
-msgid "This widget area appears on the front page main content area only."
-msgstr "トップページのメインコンテンツエリア表示されるウィジェットです。"
-
-#: plugins/widgets/widgets.php:73
+#: plugins/widgets/widgets.php:42
 msgid "Displays list of child page for the current page."
 msgstr "表示している固定ページが属する階層のページリストを表示"
 
-#: plugins/widgets/widgets.php:75
+#: plugins/widgets/widgets.php:44
 msgid "child pages list"
 msgstr "固定ページ子ページリスト"
 
-#: plugins/widgets/widgets.php:100
+#: plugins/widgets/widgets.php:69
 msgid "Displays 3PR area on the top page (does not adapt well on the sidebar)."
 msgstr ""
 "トップページの３PRエリアウィジェットです。※サイドバーでは正しく表示されませ"
 "ん。"
 
-#: plugins/widgets/widgets.php:102
+#: plugins/widgets/widgets.php:71
 msgid "3PR for top"
 msgstr "トップ用_3PR"
 
-#: plugins/widgets/widgets.php:125
+#: plugins/widgets/widgets.php:94
 msgid "Displays the content of a chosen page."
 msgstr "固定ページの内容を出力します。"
 
-#: plugins/widgets/widgets.php:127
+#: plugins/widgets/widgets.php:96
 msgid "page content for top"
 msgstr "トップ用_固定ページ本文"
 
-#: plugins/widgets/widgets.php:145 plugins/widgets/widgets.php:430
+#: plugins/widgets/widgets.php:114 plugins/widgets/widgets.php:399
 msgid "Display page"
 msgstr "表示する分類"
 
-#: plugins/widgets/widgets.php:153
+#: plugins/widgets/widgets.php:122
 msgid "display title"
 msgstr "タイトルを表示させる"
 
-#: plugins/widgets/widgets.php:193
+#: plugins/widgets/widgets.php:162
 msgid "Contact button"
 msgstr "問い合わせボタン"
 
-#: plugins/widgets/widgets.php:220 plugins/widgets/widgets.php:246
+#: plugins/widgets/widgets.php:189 plugins/widgets/widgets.php:215
 #, php-format
 msgid "Displays recent %1$s posts."
 msgstr "%1$sの新着記事一覧を表示します。"
 
-#: plugins/widgets/widgets.php:222 plugins/widgets/widgets.php:248
+#: plugins/widgets/widgets.php:191 plugins/widgets/widgets.php:217
 #, php-format
 msgid "%1$s list for top"
 msgstr "トップ用_%1$s リスト"
 
-#: plugins/widgets/widgets.php:272
+#: plugins/widgets/widgets.php:241
 msgid ""
 "Displays a list of archives. You can choose the post type and also to "
 "display archives by month or by year."
 msgstr "投稿タイプを指定して年別か月別のアーカイブリストを表示します。"
 
-#: plugins/widgets/widgets.php:274
+#: plugins/widgets/widgets.php:243
 msgid "archive list"
 msgstr "アーカイブリスト"
 
-#: plugins/widgets/widgets.php:309 plugins/widgets/widgets.php:310
+#: plugins/widgets/widgets.php:278 plugins/widgets/widgets.php:279
 msgid "Monthly archives"
 msgstr "月別アーカイブ"
 
-#: plugins/widgets/widgets.php:323
+#: plugins/widgets/widgets.php:292
 msgid "Post type"
 msgstr "投稿タイプ"
 
-#: plugins/widgets/widgets.php:380
+#: plugins/widgets/widgets.php:349
 msgid "Displays a categories, tags or format list."
 msgstr "カテゴリーやカスタム分類のリストを表示します。"
 
-#: plugins/widgets/widgets.php:386
+#: plugins/widgets/widgets.php:355
 msgid "categories/tags list"
 msgstr "カテゴリー／カスタム分類リスト"
 
-#: plugins/widgets/widgets.php:426
+#: plugins/widgets/widgets.php:395
 msgid "Label to display"
 msgstr "表示ラベル"
 
-#: plugins/widgets/widgets.php:450
+#: plugins/widgets/widgets.php:419
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: plugins/widgets/widgets.php:476
+#: plugins/widgets/widgets.php:445
 msgid "Displays entries list from a RSS feed link."
 msgstr "RSSエントリーを設置します。"
 
-#: plugins/widgets/widgets.php:478
+#: plugins/widgets/widgets.php:447
 msgid "RSS entries for top"
 msgstr "トップ用_RSSエントリー"
 
-#: plugins/widgets/widgets.php:492
+#: plugins/widgets/widgets.php:461
 msgid "Blog entries"
 msgstr "ブログエントリー"
 
-#: plugins/widgets/widgets.php:497
+#: plugins/widgets/widgets.php:466
 msgid "Heading title"
 msgstr "見出しタイトル"
 
-#: plugins/widgets/widgets.php:521
+#: plugins/widgets/widgets.php:490
 msgid "Displays a list of your most recent posts"
 msgstr "最近の投稿一覧を表示します。"
 
-#: plugins/widgets/widgets.php:523 plugins/widgets/widgets.php:533
-#: plugins/widgets/widgets.php:572
+#: plugins/widgets/widgets.php:492 plugins/widgets/widgets.php:502
+#: plugins/widgets/widgets.php:558
 msgid "Recent Posts"
 msgstr "最近の投稿"
 
-#: plugins/widgets/widgets.php:586
+#: plugins/widgets/widgets.php:572
 msgid "Display count"
 msgstr "表示件数"
 
-#: plugins/widgets/widgets.php:591
+#: plugins/widgets/widgets.php:577
 msgid "Slug for the custom type you want to display"
 msgstr "表示する投稿タイプのスラッグ"
 
-#: plugins/widgets/widgets.php:595
+#: plugins/widgets/widgets.php:581
 #, php-format
 msgid "For %1$s use \"post\"<br />for %2$s use \"info\""
 msgstr "%1$s の場合は post、<br />%2$s の場合は info になります。"
+
+#: plugins/widgets/widgets.php:584
+msgid "taxonomy ID"
+msgstr "カテゴリー（タクソノミー）ID"
+
+#: plugins/widgets/widgets.php:586
+msgid "if you need filtering by term, add the term ID separate by \",\"."
+msgstr ""
+"特定のカテゴリーのみ表示したい場合はカンマ(,)区切りでカテゴリーIDを入力します"
+
+#: plugins/widgets/widgets.php:588
+msgid "if empty this area, I will do not filtering."
+msgstr "空欄の場合はフィルタリングは行いません"
+
+#: search.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+"ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
+"てみてください。"
+
+#: single.php:27
+#, php-format
+msgid "<dt>Tags</dt><dd>%1$s</dd>"
+msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
+
+# Theme presentation (no text domain)
+#~ msgid ""
+#~ "BizVektor theme will allow you to build a high-quality web site. It is "
+#~ "possible to change the color, to switch to a completely different design. "
+#~ "In addition, it is also possible to increase the number of designs by "
+#~ "plug-ins."
+#~ msgstr ""
+#~ "BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネス"
+#~ "サイトを構築する事が出来ます。また、テーマカスタマイザーで色を変更したり、"
+#~ "まったく別のデザインに切り替える事が出来ます。さらに、テーマ拡張プラグイン"
+#~ "によって新たに選択出来るデザインを増やす事も出来ます。"
+
+# Template name (no text domain)
+#~ msgid "Child index page"
+#~ msgstr "子ページインデックス"
+
+# Template name (no text domain)
+#~ msgid "No sidebar"
+#~ msgstr "サイドバーなし"
+
+# Template name (no text domain)
+#~ msgid "Sitemap（Slug:sitemap-page）"
+#~ msgstr "サイトマップ（スラッグ：sitemap-page）"
+
+# Template name (no text domain)
+#~ msgid "Don't show contact at the bottom of the page"
+#~ msgstr "ページ下部問い合わせなし"
+
+#~ msgctxt "sns display"
+#~ msgid "Side bar"
+#~ msgstr "サイドバー"
