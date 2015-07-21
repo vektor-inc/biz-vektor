@@ -152,7 +152,7 @@ p.form-submit input[type=submit] { padding:6px 15px; }
 form#searchform input#searchsubmit	{ padding:6px 10px; }
 
 .moreLink			{ margin-bottom:3px;height:auto; display:block; }
-.moreLink a			{ text-align:center; margin-top:15px; display:inline-block;overflow:hidden; font-size:11px; line-height:105%;text-decoration:none;background: url(images/arrow_bk_s.png) right bottom no-repeat #efefef; color: #333; border-left: 4px solid #5ead3c; padding: 5px 15px 5px 11px; box-shadow: 0px 1px 2px rgba(0,0,0,0.25); }
+.moreLink a			{ text-align:center; margin-top:15px; display:inline-block;overflow:hidden; font-size:11px; line-height:105%;text-decoration:none;background: url(images/arrow_bk_s.png) right bottom no-repeat #efefef; color: #333; border-left: 4px solid #5ead3c; padding: 5px 15px 5px 11px; box-shadow: 0px 1px 2px rgba(0,0,0,0.25);white-space: nowrap; }
 .moreLink a:hover { color:#fff; text-decoration:none !important; background: url(images/arrow_wh_s.png) right bottom no-repeat #666; }
 
 html,body,#wrap	{ height:100%;min-height:100%; }

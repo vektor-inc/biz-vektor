@@ -4,7 +4,7 @@
 /*-------------------------------------------*/
 /*	基本設定
 /*-------------------------------------------*/
-body  { background-color: #f9f9f9; }
+body  { background-color: #f9f9f9; -webkit-text-size-adjust: 100%; }
 
 /*-------------------------------------------*/
 /*	Btn
@@ -38,6 +38,7 @@ a.btn:hover,
 .linkBtn a:hover	{ color:fff; }
 
 .moreLink a	{
+white-space: nowrap;
 background:url(images/icon_try1_white.gif) 10px 50% no-repeat;color:#fff;
 border-radius:3px;
 -webkit-border-radius: 3px;
