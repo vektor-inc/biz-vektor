@@ -58,7 +58,7 @@ form#searchform {
 }
 
 .moreLink { display:block; overflow:hidden; position: relative;
-	a 		{ display:block; overflow:hidden;float:right;padding:2px 3px 1px 10px; text-align:left; font-size:11px; line-height: 140%;	background-color: #efefef;	}
+	a 		{ display:block; overflow:hidden;float:right;padding:2px 3px 1px 10px; text-align:left; font-size:11px; line-height: 140%;background-color: #efefef; white-space: nowrap; }
 	a:hover { color:#fff;  }
 	a:after { @include vektor_kado_icons;content:"\2b";padding:2px 2px 0 5px; position:relative;;right:2px; }
 }
