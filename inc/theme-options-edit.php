@@ -650,6 +650,18 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 	$i++;
 } ?>
 
+<?php
+	if( !isset( $options["slider_slidespeed"] ) || !$options["slider_slidespeed"] ) $options["slider_slidespeed"] = 5000; 
+	if( !isset( $options["slider_animation"] ) ) $options["slider_animation"] = false; 
+?>
+<tr>
+	<th>slider speed</th>
+	<td><input type="text" name="biz_vektor_theme_options[slider_slidespeed]" value="<?php echo esc_attr( $options['slider_slidespeed'] ); ?>" style="text-align:right" />ms</td>
+</tr>
+<tr>
+	<th>use slide Animation</th>
+	<td><input type="checkbox" name="biz_vektor_theme_options[slider_animation]" value="true" <?php echo ($options['slider_animation'])? 'checked':''; ?> /></td>
+</tr>
 </table>
 <p><?php _e('* The slideshow can be set to up to 5 images, but when accessing the site using a slow internet connection, because of the time it takes to display all images, the visitor might leave the page early onwhich might have a negative effect. Therefore using three or less images is recommended.', 'biz-vektor'); ?>
 	</p>
