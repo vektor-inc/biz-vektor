@@ -408,7 +408,7 @@ if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
-	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
+	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '1.8.1' );
 	biz_vektor_set_localize_script();
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
