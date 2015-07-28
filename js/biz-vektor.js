@@ -562,9 +562,7 @@
 
 })(jQuery);
 
-jQuery(window).load(function() {
-	jQuery('.flexslider').flexslider();
-});
+
 /*
 master.js 他複数のファイルをGruntなどのビルドツールでマージして biz-vektor.jsになるので、biz-vektor.jsは直接編集しない
 */
@@ -851,7 +849,11 @@ jQuery("#btn").on("click", function() {
 	jQuery(this).toggleClass("active");
 });
 
-jQuery('.flexslider').flexslider();
+jQuery(window).load(function() {
+  var defaultparams = {}
+  if(bv_sliderParams){defaultparams = jQuery.extend(defaultparams,bv_sliderParams)}
+  jQuery('.flexslider').flexslider(defaultparams);
+});
 var breakPoint1 = 950; // cssのブレイクポイントよりもスクロールバー分少なめ
 var breakPoint2 = 655;
 
