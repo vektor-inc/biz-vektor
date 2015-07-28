@@ -727,7 +727,7 @@ function biz_vektor_set_localize_script(){
 		$flexslider['slideshowSpeed'] = $biz_vektor_options['slider_slidespeed'];
 	}
 	if( isset($biz_vektor_options['slider_animation']) && $biz_vektor_options['slider_animation'] ){
-		$flexslider['animation'] = 'slide';
+		$flexslider['animation'] = $biz_vektor_options['slider_animation'];
 	}
 	$flexslider = apply_filters('biz_vektor_slider_options', $flexslider);
     wp_localize_script( 'biz-vektor-min-js', 'bv_sliderParams', $flexslider );

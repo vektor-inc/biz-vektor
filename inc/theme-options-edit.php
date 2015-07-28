@@ -652,15 +652,19 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 
 <?php
 	if( !isset( $options["slider_slidespeed"] ) || !$options["slider_slidespeed"] ) $options["slider_slidespeed"] = 5000; 
-	if( !isset( $options["slider_animation"] ) ) $options["slider_animation"] = false; 
+	if( !isset( $options["slider_animation"] ) ) $options["slider_animation"] = "fade"; 
 ?>
 <tr>
-	<th>slider speed</th>
-	<td><input type="text" name="biz_vektor_theme_options[slider_slidespeed]" value="<?php echo esc_attr( $options['slider_slidespeed'] ); ?>" style="text-align:right" />ms</td>
+	<th><label for="bv_sliderspeed"><?php _e("Slider speed", "biz-vektor"); ?></label></th>
+	<td><input type="text" id="bv_sliderspeed" name="biz_vektor_theme_options[slider_slidespeed]" value="<?php echo esc_attr( $options['slider_slidespeed'] ); ?>" style="text-align:right" />ms</td>
 </tr>
 <tr>
-	<th>use slide Animation</th>
-	<td><input type="checkbox" name="biz_vektor_theme_options[slider_animation]" value="true" <?php echo ($options['slider_animation'])? 'checked':''; ?> /></td>
+	<th><label for="bv_slideranimation"><?php _e("Slide Animation", 'biz-vektor'); ?></label></th>
+	<td>
+	<select id="bv_slideranimation" name="biz_vektor_theme_options[slider_animation]">
+		<option value="fade" <?php echo ($options['slider_animation'] != 'slide')? 'selected':''; ?> ><?php _e('fade in-out', 'biz-vektor'); ?></option>
+		<option value="slide" <?php echo ($options['slider_animation'] == 'slide')? 'selected':''; ?> ><?php _e('slide animation', 'biz-vektor'); ?></option>
+	</select>
 </tr>
 </table>
 <p><?php _e('* The slideshow can be set to up to 5 images, but when accessing the site using a slow internet connection, because of the time it takes to display all images, the visitor might leave the page early onwhich might have a negative effect. Therefore using three or less images is recommended.', 'biz-vektor'); ?>

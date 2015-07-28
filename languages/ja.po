@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2015-07-21 18:22+0900\n"
+"POT-Creation-Date: 2015-07-28 13:56+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -102,7 +102,7 @@ msgstr ""
 "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
 "ん。"
 
-#: front-page.php:54 functions.php:550 module_loop_post.php:18
+#: front-page.php:54 functions.php:551 module_loop_post.php:18
 #: module_loop_post2.php:20 module_topPR.php:82 page-no-mainfoot.php:19
 #: page-onecolumn.php:20 page-parent.php:24 page-parent.php:57 page.php:14
 #: plugins/widgets/widgets.php:145 single-info.php:11 single-info.php:19
@@ -209,23 +209,23 @@ msgstr "%s の記事。"
 msgid "Page of %s"
 msgstr "%sページ目"
 
-#: functions.php:530
+#: functions.php:531
 msgid "Your comment is awaiting approval."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:540
+#: functions.php:541
 msgid "Reply"
 msgstr "返信する"
 
-#: functions.php:564
+#: functions.php:565
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: functions.php:565
+#: functions.php:566
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
-#: functions.php:566
+#: functions.php:567
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
@@ -1052,7 +1052,23 @@ msgstr "非表示にする"
 msgid "Open in a blank window"
 msgstr "別ウィンドウで開く"
 
-#: inc/theme-options-edit.php:654
+#: inc/theme-options-edit.php:658
+msgid "Slider speed"
+msgstr "スライダーの切り替え速度<br/>（1秒は1000msです）"
+
+#: inc/theme-options-edit.php:662
+msgid "Slide Animation"
+msgstr "スライドアニメーション"
+
+#: inc/theme-options-edit.php:665
+msgid "fade in-out"
+msgstr "フェイドイン・アウト"
+
+#: inc/theme-options-edit.php:666
+msgid "slide animation"
+msgstr "スライドアニメーション"
+
+#: inc/theme-options-edit.php:670
 msgid ""
 "* The slideshow can be set to up to 5 images, but when accessing the site "
 "using a slow internet connection, because of the time it takes to display "
@@ -1063,7 +1079,7 @@ msgstr ""
 "合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる"
 "為、３枚以内推奨です。"
 
-#: inc/theme-options-edit.php:670
+#: inc/theme-options-edit.php:686
 msgid ""
 "Reset all settings options incluing design customization you've modified "
 "through the Theme Customizer. The theme is entirely reset. To reset the "
@@ -1073,15 +1089,15 @@ msgstr ""
 "ルトに戻ります。了承される場合は上の数字を入力し、チェックボックスをクリック"
 "して「設定を初期化」ボタンをクリックしてください。"
 
-#: inc/theme-options-edit.php:672
+#: inc/theme-options-edit.php:688
 msgid "I want to reset ALL theme settings"
 msgstr "私は設定を初期化します"
 
-#: inc/theme-options-edit.php:673
+#: inc/theme-options-edit.php:689
 msgid "Reset Settings"
 msgstr "設定を初期化"
 
-#: inc/theme-options-edit.php:677
+#: inc/theme-options-edit.php:693
 msgid "Page top"
 msgstr "このページの先頭へ戻る"
 
@@ -1186,23 +1202,23 @@ msgstr "プレーン"
 msgid "[ Select ]"
 msgstr "[ 選択してください ]"
 
-#: inc/theme-options.php:644
+#: inc/theme-options.php:647
 msgctxt "Font select"
 msgid "serif"
 msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
 
-#: inc/theme-options.php:646
+#: inc/theme-options.php:649
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
 
-#: inc/theme-options.php:727
+#: inc/theme-options.php:730
 msgid "bnr_contact.png"
 msgstr "bnr_contact_ja.png"
 
-#: inc/theme-options.php:727 module_mainfoot.php:15
+#: inc/theme-options.php:730 module_mainfoot.php:15
 msgid "Contact us by e-mail"
 msgstr "メールでお問い合わせはこちら"
 
@@ -2131,6 +2147,9 @@ msgstr ""
 #, php-format
 msgid "<dt>Tags</dt><dd>%1$s</dd>"
 msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
+
+#~ msgid "Enable slide Animation"
+#~ msgstr "スライドアニメーションを有効にする"
 
 # Theme presentation (no text domain)
 #~ msgid ""

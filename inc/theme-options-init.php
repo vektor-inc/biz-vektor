@@ -196,7 +196,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	}
 
 	$output['slider_slidespeed']       = preg_replace('/[^0-9]/','',esc_html( $input['slider_slidespeed'] ));
-	$output['slider_animation']        = (isset($input['slider_animation']) && $input['slider_animation'] == 'true')? true : false;
+	$output['slider_animation']        = (isset($input['slider_animation']) && $input['slider_animation'] == 'slide')? 'slide' : 'fade';
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 
