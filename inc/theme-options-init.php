@@ -106,7 +106,9 @@ function biz_vektor_generate_default_options(){
 		'pr3_image'            => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
 		'pr3_image_s'          => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
 		'version'              => BizVektor_Theme_Version,
-		'SNSuse'               => false
+		'SNSuse'               => false,
+		'slider_slidespeed'    => 5000,
+		'slider_animation'     => false
 	);
 
 	for ( $i = 1; $i <= 5 ;){
@@ -192,6 +194,9 @@ function biz_vektor_theme_options_validate( $input ) {
 		$output['slide'.$i.'blank']    = (isset($input['slide'.$i.'blank']) && $input['slide'.$i.'blank'])? "true" : '';
 	$i++;
 	}
+
+	$output['slider_slidespeed']       = preg_replace('/[^0-9]/','',esc_html( $input['slider_slidespeed'] ));
+	$output['slider_animation']        = (isset($input['slider_animation']) && $input['slider_animation'] == 'slide')? 'slide' : 'fade';
 
 	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
 

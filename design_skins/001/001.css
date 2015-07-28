@@ -96,7 +96,6 @@ background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e5e5e5), to(#fff));
 background: -moz-linear-gradient(#e5e5e5, #fff);
 -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#e5e5e5, EndColorStr=#ffffff)";
 }
-.single-post #content h2 { border:none;padding:0;box-shadow: none; font-size:171.4%;margin-top:10px; background: none; }
 
 #content table th	{ box-shadow:inset 1px 1px 0px #ffffff;}
 

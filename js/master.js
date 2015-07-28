@@ -284,4 +284,8 @@ jQuery("#btn").on("click", function() {
 	jQuery(this).toggleClass("active");
 });
 
-jQuery('.flexslider').flexslider();
+jQuery(window).load(function() {
+  var defaultparams = {}
+  if(bv_sliderParams){defaultparams = jQuery.extend(defaultparams,bv_sliderParams)}
+  jQuery('.flexslider').flexslider(defaultparams);
+});

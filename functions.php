@@ -408,7 +408,8 @@ if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
-	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140820' );
+	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '1.8.1' );
+	biz_vektor_set_localize_script();
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
 function add_defer_to_bizVektor_js( $url )
@@ -714,4 +715,20 @@ function biz_vektor_get_short_name(){
 	}
 
 	return $lab;
+}
+
+
+function biz_vektor_set_localize_script(){
+
+	$flexslider = array('slideshowSpeed'=>5000, 'animation'=>'fade');
+
+	global $biz_vektor_options;
+	if( isset($biz_vektor_options['slider_slidespeed']) && ctype_digit($biz_vektor_options['slider_slidespeed']) ){
+		$flexslider['slideshowSpeed'] = $biz_vektor_options['slider_slidespeed'];
+	}
+	if( isset($biz_vektor_options['slider_animation']) && $biz_vektor_options['slider_animation'] ){
+		$flexslider['animation'] = $biz_vektor_options['slider_animation'];
+	}
+	$flexslider = apply_filters('biz_vektor_slider_options', $flexslider);
+    wp_localize_script( 'biz-vektor-min-js', 'bv_sliderParams', $flexslider );
 }
