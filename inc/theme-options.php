@@ -597,6 +597,7 @@ function get_biz_vektor_slide_body(){
 	}
 	return $biz_vektor_slide_body;
 }
+
 function get_biz_vektor_header_image(){
 	$biz_vektor_slider_class = (biz_vektor_slideExist()) ? ' class="flexslider"':'';
 	$biz_vektor_header_image = '<div id="topMainBnr">'."\n";
@@ -613,6 +614,7 @@ function get_biz_vektor_header_image(){
 	$biz_vektor_header_image = apply_filters( 'biz_vektor_header_image', $biz_vektor_header_image );
 	return $biz_vektor_header_image;
 }
+
 function get_biz_vektor_header_image_home(){
 	if (is_front_page() && ( biz_vektor_slideExist() || get_header_image()) ) {
 		$biz_vektor_header_image_front = get_biz_vektor_header_image();
