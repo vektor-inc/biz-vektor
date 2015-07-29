@@ -29,6 +29,8 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
+/*	Chack use post top page
+/*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
 /*	wp_head add items
@@ -306,14 +308,38 @@ add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 add_editor_style('/css/editor-style.css');
 
 /*-------------------------------------------*/
+/*	Chack use post top page
+/*-------------------------------------------*/
+function biz_vektor_get_page_for_posts(){
+	// Get post top page by setting display page.
+	$page_for_posts['post_top_id'] = get_option('page_for_posts');
+
+	// Set use post top page flag.
+	$page_for_posts['post_top_use'] = ( isset($page_for_posts['post_top_id']) && $page_for_posts['post_top_id'] ) ? true : false ;
+
+	// When use post top page that get post top page name.
+	$page_for_posts['post_top_name'] = ( $page_for_posts['post_top_use'] ) ? get_the_title( $page_for_posts['post_top_id'] ) : '';
+
+	return $page_for_posts;
+}
+
+/*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
 function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	if (is_home() || is_front_page() ) {
+	if ( is_front_page() ) {
 		if ( isset($post->post_excerpt) && $post->post_excerpt ) {
-			$metadescription = get_the_excerpt();
+			$pageDescription = get_the_excerpt();
+		} else {
+			$pageDescription = get_bloginfo( 'description' );
+		}
+	} else if ( is_home() ) {
+		$page_for_posts = biz_vektor_get_page_for_posts();
+		if ( $page_for_posts['post_top_use'] ){
+			$page = get_post($page_for_posts['post_top_id']);
+			$metadescription = $page->post_excerpt;
 		} else {
 			$metadescription = get_bloginfo( 'description' );
 		}
@@ -690,6 +716,13 @@ function is_biz_vektor_extra_single(){
 }
 function biz_vektor_extra_single(){
 	do_action('biz_vektor_extra_single');
+}
+
+function biz_vektor_archive_loop_before(){
+	do_action('biz_vektor_archive_loop_before');
+}
+function biz_vektor_archive_loop_after(){
+	do_action('biz_vektor_archive_loop_after');
 }
 
 /*-------------------------------------------*/

@@ -42,6 +42,7 @@ if ( !$postType ) {
 		}
 	}
 	?>
+	<?php biz_vektor_archive_loop_before();?>
 	<?php
 /*-------------------------------------------*/
 /*	Archive post list
@@ -101,6 +102,7 @@ if ( !$postType ) {
 	<div class="sectionFrame"><p><?php _e('No posts.','biz-vektor');?></p></div>
 	<?php endif; // have_post() ?>
 	</div><!-- [ /.infoList ] -->
+	<?php biz_vektor_archive_loop_after();?>
 	</div>
 	<!-- [ /#content ] -->
 
