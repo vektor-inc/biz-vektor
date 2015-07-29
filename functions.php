@@ -692,6 +692,13 @@ function biz_vektor_extra_single(){
 	do_action('biz_vektor_extra_single');
 }
 
+function biz_vektor_archive_loop_before(){
+	do_action('biz_vektor_archive_loop_before');
+}
+function biz_vektor_archive_loop_after(){
+	do_action('biz_vektor_archive_loop_after');
+}
+
 /*-------------------------------------------*/
 /*	Aceept favicon upload
 /*-------------------------------------------*/
