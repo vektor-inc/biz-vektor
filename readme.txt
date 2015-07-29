@@ -31,4 +31,4 @@ http://bizvektor.com/contact/
 
 
 == Changelog ==
-v1.8.1
+v1.8.2
