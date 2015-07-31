@@ -587,7 +587,7 @@ box-shadow:0 2px 1px #efefef;
 .content #topBlog.infoList ul li .infoDate	{ display:block; float:left; }
 .content #topBlog.infoList ul li .infoTxt	{ clear:none; }
 
-.content .infoList .rssBtn	{ text-align:right; position:relative;margin-top:-34px; }
+.content .infoList .rssBtn	{ text-align:right; position:absolute;right:0px;top:12px; }
 .content .infoList .rssBtn a	{ background-color:#e5e5e5; color:#000; font-family:'Lato', sans-serif; line-height:24px; font-weight:bold; text-decoration:none; padding:0px 10px;position:relative;}
 
 #topContentsBottom	{ margin-bottom:20px; }
