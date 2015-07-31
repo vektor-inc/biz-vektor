@@ -21,6 +21,10 @@
 /*-------------------------------------------*/
 /*	WP_Widget_fbLikeBox Class
 /*-------------------------------------------*/
+/*	admin bar のメニューに追加
+/*-------------------------------------------*/
+/*	アプリケーションIDなど基本パラメーターの出力
+/*-------------------------------------------*/
 
 
 /*-------------------------------------------*/
@@ -343,14 +347,14 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 			'classname' => 'WP_Widget_fbLikeBox',
 			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
-		$widget_name = biz_vektor_get_short_name().'_facebook Like Box';
+		$widget_name = biz_vektor_get_short_name().'_facebook Page Plugin(Like Box)';
 		$this->WP_Widget('fbLikeBox', $widget_name, $widget_ops);
 	}
 
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
 		extract( $args );
-		if (function_exists('biz_vektor_fbLikeBoxSide')) biz_vektor_fbLikeBoxSide();
+		if (function_exists('biz_vektor_fbLikeBox')) biz_vektor_fbLikeBox();
 	}
 
 	/** @see WP_Widget::update */
@@ -595,6 +599,9 @@ px</dd>
 <?php
 }
 
+/*-------------------------------------------*/
+/*	admin bar のメニューに追加
+/*-------------------------------------------*/
 add_action('biz_vektor_admin_bar_init', 'biz_vektor_sns_admin_bar_init');
 function biz_vektor_sns_admin_bar_init(){
 	global $wp_admin_bar;
@@ -608,6 +615,9 @@ function biz_vektor_sns_admin_bar_init(){
 	));
 }
 
+/*-------------------------------------------*/
+/*	アプリケーションIDなど基本パラメーターの出力
+/*-------------------------------------------*/
 add_action('biz_vektor_sns_body', 'biz_vektor_sns_header_output');
 function biz_vektor_sns_header_output(){
 	global $biz_vektor_options;
