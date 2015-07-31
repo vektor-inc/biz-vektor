@@ -21,6 +21,10 @@
 /*-------------------------------------------*/
 /*	WP_Widget_fbLikeBox Class
 /*-------------------------------------------*/
+/*	admin bar のメニューに追加
+/*-------------------------------------------*/
+/*	アプリケーションIDなど基本パラメーターの出力
+/*-------------------------------------------*/
 
 
 /*-------------------------------------------*/
@@ -595,6 +599,9 @@ px</dd>
 <?php
 }
 
+/*-------------------------------------------*/
+/*	admin bar のメニューに追加
+/*-------------------------------------------*/
 add_action('biz_vektor_admin_bar_init', 'biz_vektor_sns_admin_bar_init');
 function biz_vektor_sns_admin_bar_init(){
 	global $wp_admin_bar;
@@ -608,6 +615,9 @@ function biz_vektor_sns_admin_bar_init(){
 	));
 }
 
+/*-------------------------------------------*/
+/*	アプリケーションIDなど基本パラメーターの出力
+/*-------------------------------------------*/
 add_action('biz_vektor_sns_body', 'biz_vektor_sns_header_output');
 function biz_vektor_sns_header_output(){
 	global $biz_vektor_options;
