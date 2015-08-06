@@ -331,9 +331,9 @@ function getHeadDescription() {
 	$post = $wp_query->get_queried_object();
 	if ( is_front_page() ) {
 		if ( isset($post->post_excerpt) && $post->post_excerpt ) {
-			$pageDescription = get_the_excerpt();
+			$metadescription = get_the_excerpt();
 		} else {
-			$pageDescription = get_bloginfo( 'description' );
+			$metadescription = get_bloginfo( 'description' );
 		}
 	} else if ( is_home() ) {
 		$page_for_posts = biz_vektor_get_page_for_posts();
