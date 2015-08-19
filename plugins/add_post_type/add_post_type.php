@@ -114,12 +114,13 @@ class WP_Widget_infoTerms extends WP_Widget {
 	/** constructor */
 	function WP_Widget_infoTerms() {
 		$biz_vektor_options = biz_bektor_option_validate();
-		$widget_ops = array(
-			'classname' => 'WP_Widget_infoTerms',
-			'description' => sprintf( __( 'Category list of %s', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] ),
+		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s category', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
+
+		parent::__construct(
+			'infoTerms',
+			$widget_name,
+			array( 'description' => sprintf( __( 'Category list of %s', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ),'hanshin tigers' )
 		);
-		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s category', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] );
-		$this->WP_Widget('infoTerms', $widget_name, $widget_ops);
 	}
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
@@ -171,14 +172,15 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 class WP_Widget_infoArchives extends WP_Widget {
 	/** constructor */
-	function WP_Widget_infoArchives() {
+	function __construct() {
 		global $biz_vektor_options;
-		$widget_ops = array(
-			'classname' => 'WP_Widget_infoArchives',
-			'description' => sprintf( __( 'Yearly archives of %s', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] ),
+		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s Yearly archives', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
+
+		parent::__construct(
+			'infoArchives',
+			$widget_name,
+			array( 'description' => sprintf( __( 'Yearly archives of %s', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ) )
 		);
-		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s Yearly archives', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] );
-		$this->WP_Widget('infoArchives', $widget_name, $widget_ops);
 	}
 	/** @see WP_Widget::widget */
 	function widget($args, $instance) {
