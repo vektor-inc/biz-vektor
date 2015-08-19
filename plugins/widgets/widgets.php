@@ -36,14 +36,17 @@
 /*	ChildPageList widget
 /*-------------------------------------------*/
 class WP_Widget_ChildPageList extends WP_Widget {
-	function WP_Widget_childPageList() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_childPageList',
-			'description' => __( 'Displays list of child page for the current page.', 'biz-vektor' ),
-		);
+
+	function __construct() {
 		$widget_name = biz_vektor_get_short_name() . '_' . __( 'child pages list', 'biz-vektor' );
-		$this->WP_Widget('childPageList', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'childPageList',
+			$widget_name,
+			array( 'description' => __( 'Displays list of child page for the current page.', 'biz-vektor' ) )
+		);
 	}
+
 	function widget($args, $instance) {
 		extract( $args );
 		if(biz_vektor_childPageList()){
@@ -52,10 +55,13 @@ class WP_Widget_ChildPageList extends WP_Widget {
 			echo $after_widget;
 		}
 	}
+
 	function form($instance){
 	}
+
 	function update($new_instance,$old_instance){
 	}
+
 } // class WP_Widget_childPageList
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
 
@@ -63,24 +69,29 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	Top PR widget
 /*-------------------------------------------*/
 class WP_Widget_topPR extends WP_Widget {
-	function WP_Widget_topPR() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_topPR',
-			'description' => __( 'Displays 3PR area on the top page (does not adapt well on the sidebar).', 'biz-vektor' ),
-		);
+
+	function __construct() {
 		$widget_name = biz_vektor_get_short_name() . '_' . __( '3PR for top', 'biz-vektor' );
-		$this->WP_Widget('topPR', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'topPR',
+			$widget_name,
+			array( 'description' => __( 'Displays 3PR area on the top page (does not adapt well on the sidebar).', 'biz-vektor' ) )
+		);
 	}
+
 	function widget($args, $instance) {
 	//	echo $before_widget;
 		get_template_part( 'module_topPR' );
 	//	echo $after_widget;
 	}
+
 	function form($instance){
 	}
+
 	function update($new_instance,$old_instance){
 	}
-	
+
 } // class WP_Widget_topPR
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
 
@@ -88,13 +99,16 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	page widget
 /*-------------------------------------------*/
 class wp_widget_page extends WP_Widget {
-	function wp_widget_page() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_page_post',
-			'description' => __( 'Displays the content of a chosen page.', 'biz-vektor' ),
-		);
+
+	function __construct() {
+
 		$widget_name = biz_vektor_get_short_name() . '_' . __( 'page content for top', 'biz-vektor' );
-		$this->WP_Widget('pudge', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'pudge',
+			$widget_name,
+			array( 'description' => __( 'Displays the content of a chosen page.', 'biz-vektor' ) )
+		);
 	}
 
 	function widget($args, $instance){
@@ -154,13 +168,15 @@ add_action('widgets_init', create_function('', 'return register_widget("wp_widge
 /*	Contact widget
 /*-------------------------------------------*/
 class WP_Widget_contact_link extends WP_Widget {
-	function WP_Widget_contact_link() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_contact_link',
-			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
-		);
+
+	function __construct() {
 		$widget_name = biz_vektor_get_short_name().'_'.__('Contact button', 'biz-vektor');
-		$this->WP_Widget('contact_link', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'contact_link',
+			$widget_name,
+			array( 'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ) )
+		);
 	}
 
 	function widget($args, $instance) {
@@ -181,23 +197,29 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	Top Post list widget
 /*-------------------------------------------*/
 class WP_Widget_top_list_post extends WP_Widget {
-	function WP_Widget_top_list_post() {
+
+	function __construct() {
 		global $biz_vektor_options;
 		$biz_vektor_options = biz_vektor_get_theme_options();
-		$widget_ops = array(
-			'classname' => 'WP_Widget_top_list_post',
-			'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['postLabelName'] ),
-		);
+
 		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['postLabelName'] );
-		$this->WP_Widget('top_list_post', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'top_list_post',
+			$widget_name,
+			array( 'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['postLabelName'] ) )
+		);
 	}
+
 	function widget($args, $instance) {
 		// echo $before_widget;
 		get_template_part( 'module_top_list_post' );
 		// echo $after_widget;
 	}
+
 	function form($instance){
 	}
+
 	function update($new_instance,$old_instance){
 	}
 } // class WP_Widget_top_list_post
@@ -207,23 +229,29 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	Top Info list widget
 /*-------------------------------------------*/
 class WP_Widget_top_list_info extends WP_Widget {
-	function WP_Widget_top_list_info() {
+
+	function __construct() {
 		global $biz_vektor_options;
 		$biz_vektor_options = biz_bektor_option_validate();
-		$widget_ops = array(
-			'classname' => 'WP_Widget_top_list_info',
-			'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ),
-		);
+
 		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
-		$this->WP_Widget('top_list_info', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'top_list_info',
+			$widget_name,
+			array( 'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ) )
+		);
 	}
+
 	function widget($args, $instance) {
 		// echo $before_widget;
 		get_template_part( 'module_top_list_info' );
 		// echo $after_widget;
 	}
+
 	function form($instance){
 	}
+
 	function update($new_instance,$old_instance){
 	}
 } // class WP_Widget_top_list_info
@@ -234,14 +262,16 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 class WP_Widget_archive_list extends WP_Widget {
     // ウィジェット定義
-	function WP_Widget_archive_list() {
+	function __construct() {
 		global $bizvektor_works_unit;
-		$widget_ops = array(
-			'classname' => 'WP_Widget_archive_list',
-			'description' => __( 'Displays a list of archives. You can choose the post type and also to display archives by month or by year.' , 'biz-vektor' ),
-		);
+
 		$widget_name = biz_vektor_get_short_name() . '_' . __( 'archive list', 'biz-vektor' );
-		$this->WP_Widget('WP_Widget_archive_list', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'WP_Widget_archive_list',
+			$widget_name,
+			array( 'description' => __( 'Displays a list of archives. You can choose the post type and also to display archives by month or by year.' , 'biz-vektor' ) )
+		);
 	}
 
 	function widget($args, $instance) {
@@ -342,18 +372,20 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*-------------------------------------------*/
 class WP_Widget_taxonomy_list extends WP_Widget {
     // ウィジェット定義
-	function WP_Widget_taxonomy_list() {
+	function __construct() {
 		global $bizvektor_works_unit;
-		$widget_ops = array(
-			'classname' => 'WP_Widget_taxonomy_list',
-			'description' => __( 'Displays a categories, tags or format list.', 'biz-vektor' ),
-		);
+
 		$lab = get_biz_vektor_name();
 		if($lab == 'BizVektor'){
 			$lab = 'BV';
 		}
 		$widget_name = $lab . '_' . __( 'categories/tags list', 'biz-vektor' );
-		$this->WP_Widget('WP_Widget_taxonomy_list', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'WP_Widget_taxonomy_list',
+			$widget_name,
+			array( 'description' => __( 'Displays a categories, tags or format list.', 'biz-vektor' ) )
+		);
 	}
 
 	function widget($args, $instance) {
@@ -439,14 +471,18 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	RSS widget
 /*-------------------------------------------*/
 class wp_widget_bizvektor_rss extends WP_Widget {
-	function wp_widget_bizvektor_rss() {
-		$widget_ops = array(
-			'classname' => 'wp_widget_bizvektor_rss',
-			'description' => __( 'Displays entries list from a RSS feed link.', 'biz-vektor' ),
-		);
+
+	function __construct() {
+
 		$widget_name = biz_vektor_get_short_name().'_' . __( 'RSS entries for top', 'biz-vektor' );
-		$this->WP_Widget('rsswidget', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'rsswidget',
+			$widget_name,
+			array( 'description' => __( 'Displays entries list from a RSS feed link.', 'biz-vektor' ) )
+		);
 	}
+
 	function widget($args, $instance){
 		$options = biz_vektor_get_theme_options();
 		if(preg_match('/^http.*$/',$instance['url'])){
@@ -455,6 +491,7 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 			echo '</div>';
 		}
 	}
+
 	function form($instance){
 		$defaults = array(
 			'url' => '',
@@ -470,6 +507,7 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
 		<?php
 	}
+
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['url'] = $new_instance['url'];
@@ -484,13 +522,14 @@ add_action('widgets_init', create_function('', 'return register_widget("wp_widge
 /*-------------------------------------------*/
 class WP_Widget_bizvektor_post_list extends WP_Widget {
 
-	function WP_Widget_bizvektor_post_list() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_bizvektor_post_list',
-			'description' => __( 'Displays a list of your most recent posts', 'biz-vektor' ),
-		);
+	function __construct() {
 		$widget_name = biz_vektor_get_short_name(). '_' . __( 'Recent Posts', 'biz-vektor' );
-		$this->WP_Widget('bizvektor_post_list', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'bizvektor_post_list',
+			$widget_name,
+			array( 'description' => __( 'Displays a list of your most recent posts', 'biz-vektor' ) )
+		);
 	}
 
 	function widget($args, $instance) {
@@ -604,4 +643,3 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_bizvektor_post_list");'));
-

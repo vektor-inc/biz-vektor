@@ -307,13 +307,13 @@ function biz_vektor_snsBnrs() {
 
 class WP_Widget_snsBnrs extends WP_Widget {
 	/** constructor */
-	function WP_Widget_snsBnrs() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_snsBnrs',
-			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
-		);
+	public function __construct() {
 		$widget_name = biz_vektor_get_short_name().'_'.__('facebook&twitter banner', 'biz-vektor');
-		$this->WP_Widget('snsBnrs', $widget_name, $widget_ops);
+		parent::__construct(
+			'snsBnrs',
+			$widget_name,
+			array( 'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ) )
+		);
 	}
 
 	/** @see WP_Widget::widget */
@@ -342,13 +342,14 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 
 class WP_Widget_fbLikeBox extends WP_Widget {
 	/** constructor */
-	function WP_Widget_fbLikeBox() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_fbLikeBox',
-			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
-		);
+	function __construct() {
 		$widget_name = biz_vektor_get_short_name().'_facebook Page Plugin(Like Box)';
-		$this->WP_Widget('fbLikeBox', $widget_name, $widget_ops);
+
+		parent::__construct(
+			'fbLikeBox',
+			$widget_name,
+			array( 'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ) )
+		);
 	}
 
 	/** @see WP_Widget::widget */
