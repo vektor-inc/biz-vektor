@@ -31,4 +31,5 @@ http://bizvektor.com/contact/
 
 
 == Changelog ==
-v1.8.5
+v1.8.6
+for WordPress 4.3
