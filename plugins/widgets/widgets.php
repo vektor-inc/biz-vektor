@@ -31,7 +31,6 @@
 
 
 
-
 /*-------------------------------------------*/
 /*	ChildPageList widget
 /*-------------------------------------------*/
@@ -60,6 +59,7 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	}
 
 	function update($new_instance,$old_instance){
+		return $new_instance;
 	}
 
 } // class WP_Widget_childPageList
@@ -90,6 +90,7 @@ class WP_Widget_topPR extends WP_Widget {
 	}
 
 	function update($new_instance,$old_instance){
+		return $new_instance;
 	}
 
 } // class WP_Widget_topPR
@@ -188,6 +189,7 @@ class WP_Widget_contact_link extends WP_Widget {
 	}
 
 	function form($instance) {
+		return $instance;
 	}
 
 }
@@ -221,6 +223,7 @@ class WP_Widget_top_list_post extends WP_Widget {
 	}
 
 	function update($new_instance,$old_instance){
+		return $new_instance;
 	}
 } // class WP_Widget_top_list_post
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_post");'));
@@ -253,6 +256,7 @@ class WP_Widget_top_list_info extends WP_Widget {
 	}
 
 	function update($new_instance,$old_instance){
+		return $new_instance;
 	}
 } // class WP_Widget_top_list_info
 add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
@@ -261,7 +265,7 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	Archive list widget
 /*-------------------------------------------*/
 class WP_Widget_archive_list extends WP_Widget {
-    // ウィジェット定義
+	// ウィジェット定義
 	function __construct() {
 		global $bizvektor_works_unit;
 
@@ -371,7 +375,7 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 /*	Taxonomy list widget
 /*-------------------------------------------*/
 class WP_Widget_taxonomy_list extends WP_Widget {
-    // ウィジェット定義
+	// ウィジェット定義
 	function __construct() {
 		global $bizvektor_works_unit;
 
@@ -409,7 +413,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		</ul>
 	</div>
 	</div>
-	<?php	
+	<?php
 	}
 
 	function form($instance){
@@ -427,7 +431,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
 		<input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
-		
+
 		<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
 		<select name="<?php echo $this->get_field_name('tax_name'); ?>" >
 		<?php foreach($taxs as $tax){ ?>
@@ -551,22 +555,22 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 			'posts_per_page' => $count,
 			'paged' => 1,
 		);
-		
+
 		if(isset($instance['terms']) && $instance['terms']){
 			$taxonomies = get_taxonomies(array());
 
-	        $args['tax_query'] = array(
-	        	'relation' => 'OR',
-	        );
+			$args['tax_query'] = array(
+				'relation' => 'OR',
+			);
 
 			foreach($taxonomies as $taxonomy){
-	        $args['tax_query'][] = array(
+			$args['tax_query'][] = array(
 					'taxonomy' => $taxonomy,
 					'field' => 'id',
 					'terms' => $instance['terms']
 				);
 			}
-	    }
+		}
 		$post_loop = new WP_Query( $args );
 
 		if ($post_loop->have_posts()):
@@ -591,7 +595,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	} // widget($args, $instance)
 
 	function form ($instance) {
-		
+
 		$defaults = array(
 			'count' 	=> 10,
 			'label' 	=> __('Recent Posts', 'biz-vektor' ),
@@ -600,7 +604,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		);
 
 		$instance = wp_parse_args((array) $instance, $defaults);
-		
+
 		?>
 		<?php //タイトル ?>
 		<label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
@@ -630,9 +634,9 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	}
 
 	function update ($new_instance, $old_instance) {
-		
+
 		$instance = $old_instance;
-		
+
 		$instance['count'] 		= $new_instance['count'];
 		$instance['label'] 		= $new_instance['label'];
 		$instance['post_type']	= !empty($new_instance['post_type']) ? strip_tags($new_instance['post_type']) : 'post';
