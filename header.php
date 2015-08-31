@@ -9,7 +9,7 @@ biz_vektor_get_theme_options(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title(); ?></title>
 <meta name="description" content="<?php getHeadDescription(); ?>" />
-<link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
+<link rel="start" href="<?php echo home_url(); ?>" title="HOME" />
 <!-- <?php echo get_biz_vektor_name();?> v<?php echo BizVektor_Theme_Version; ?> -->
 
 <?php
