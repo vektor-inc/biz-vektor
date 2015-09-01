@@ -39,7 +39,7 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Global navigation add cptions
 /*-------------------------------------------*/
-/*	Excerpt _ change ... 
+/*	Excerpt _ change ...
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
@@ -180,10 +180,10 @@ function biz_vektor_maincontent_widgetarea_init() {
 		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',
 		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
+		'before_widget' => '<div>',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="localHead">',
+		'after_title' => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'biz_vektor_maincontent_widgetarea_init' );
@@ -257,7 +257,7 @@ function biz_vektor_set_customheader(){
 /*-------------------------------------------*/
 /*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
-	require( get_template_directory() . '/inc/theme-ad-options.php' );	
+	require( get_template_directory() . '/inc/theme-ad-options.php' );
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
