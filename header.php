@@ -32,7 +32,10 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 
 <div id="wrap">
 
-<?php if($biz_vektor_options['enableie8Warning']): ?>
+<?php if(
+!isset($biz_vektor_options['enableie8Warning']) ||
+( isset($biz_vektor_options['enableie8Warning']) && $biz_vektor_options['enableie8Warning'] )
+): ?>
 <!--[if lte IE 8]>
 <div id="eradi_ie_box">
 <div class="alert_title">ご利用の Internet Exproler は古すぎます。</div>
