@@ -113,7 +113,10 @@ class wp_widget_page extends WP_Widget {
 	}
 
 	function widget($args, $instance){
+		global $is_pagewidget;
+		$is_pagewidget = true;
 		$this->display_page($instance['page_id'],$instance['set_title']);
+		$is_pagewidget = false;
 	}
 
 	function form($instance){
