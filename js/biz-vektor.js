@@ -863,7 +863,7 @@ jQuery(window).load(function() {
 (function($){
 var facebook = {
   init: function() {
-    var url = 'http://graph.facebook.com/?id=' + encodeURIComponent(location.href);
+    var url = '//graph.facebook.com/?id=' + encodeURIComponent(location.href);
     $.ajax({
       url: url,
       dataType: 'jsonp',
@@ -878,7 +878,8 @@ facebook.init();
 
 var hatena = {
   init: function() {
-    var url = 'http://api.b.st-hatena.com/entry.count?url=' + encodeURIComponent(location.href);
+    var url = (location.protocol === 'https:'?'https://b.hatena.ne.jp':'http://api.b.st-hatena.com')
+            + '/entry.count?url=' + encodeURIComponent(location.href);
     $.ajax({
       url: url,
       dataType: 'jsonp',
@@ -898,7 +899,7 @@ hatena.init();
 window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
 var twitter = {
   init: function() {
-    var url = 'http://urls.api.twitter.com/1/urls/count.json?url=' + encodeURIComponent(location.href);
+    var url = '//urls.api.twitter.com/1/urls/count.json?url=' + encodeURIComponent(location.href);
     $.ajax({
       url: url,
       dataType: 'jsonp',
@@ -911,6 +912,7 @@ var twitter = {
 }
 twitter.init();
 })(jQuery);
+
 var breakPoint1 = 950; // cssのブレイクポイントよりもスクロールバー分少なめ
 var breakPoint2 = 655;
 
