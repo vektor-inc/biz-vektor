@@ -13,6 +13,8 @@ master.js 他複数のファイルをGruntなどのビルドツールでマー�
 /*-------------------------------------------*/
 /*	ページ内するするスクロール
 /*-------------------------------------------*/
+/*	snsCount
+/*-------------------------------------------*/
 
 /*-------------------------------------------*/
 /*  編集ガイド
@@ -289,3 +291,58 @@ jQuery(window).load(function() {
   if(bv_sliderParams){defaultparams = jQuery.extend(defaultparams,bv_sliderParams)}
   jQuery('.flexslider').flexslider(defaultparams);
 });
+
+/*-------------------------------------------*/
+/*	snsCount
+/*-------------------------------------------*/
+(function($){
+var facebook = {
+  init: function() {
+    var url = 'http://graph.facebook.com/?id=' + encodeURIComponent(location.href);
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: function(json) {
+        var count = json.shares ? json.shares : 0;
+        $('.socialSet').find('.sb_facebook_count').html(count);
+      }
+    });
+  }
+}
+facebook.init();
+
+var hatena = {
+  init: function() {
+    var url = 'http://api.b.st-hatena.com/entry.count?url=' + encodeURIComponent(location.href);
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: function(json) {
+        var count = json ? json : 0;
+        $('.socialSet').find('.sb_hatena_count').html(count);
+
+        if(typeof(count) == 'undefined'){
+          count = 0;
+        }
+      }
+    });
+  }
+}
+hatena.init();
+
+window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+var twitter = {
+  init: function() {
+    var url = 'http://urls.api.twitter.com/1/urls/count.json?url=' + encodeURIComponent(location.href);
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: function(json) {
+        var count = json.count ? json.count : 0;
+        $('.socialSet').find('.sb_twitter_count').html(count);
+      }
+    });
+  }
+}
+twitter.init();
+})(jQuery);
