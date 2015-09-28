@@ -326,6 +326,12 @@ function biz_vektor_get_page_for_posts(){
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
+add_action( 'wp_head', 'biz_vektor_setHeadDescription' );
+function biz_vektor_setHeadDescription(){
+	echo '<meta name="description" content="' . getHeadDescription() . '" />';
+}
+
+
 function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
@@ -390,7 +396,8 @@ function getHeadDescription() {
 		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
 	}
 	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
-	echo $metadescription;
+
+	return $metadescription;
 }
 
 /*-------------------------------------------*/
