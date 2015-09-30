@@ -105,14 +105,17 @@ function biz_vektor_theme_setup() {
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
+
+	/*-------------------------------------------*/
+	/*	Set content width
+	/* 	(Auto set up to media max with.)
+	/*-------------------------------------------*/
+	global $content_width;
+
+	if ( ! isset( $content_width ) ) $content_width = 640;
+
 }
 
-/*-------------------------------------------*/
-/*	Set content width
-/* 	(Auto set up to media max with.)
-/*-------------------------------------------*/
-if ( ! isset( $content_width ) )
-	$content_width = 640;
 
 /*-------------------------------------------*/
 /*	WidgetArea initiate
