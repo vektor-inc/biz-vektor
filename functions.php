@@ -353,10 +353,10 @@ function getHeadDescription() {
 		if ( ! $post->description ) {
 			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
 		} else {
-			$metadescription = esc_html( $post->description );
+			$metadescription = $post->description;
 		}
 	} else if (is_tag()) {
-		$metadescription = strip_tags(tag_description());
+		$metadescription = tag_description();
 		$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
 		if ( ! $metadescription ) {
 			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title()).get_bloginfo('name').' '.get_bloginfo('description');
@@ -383,10 +383,9 @@ function getHeadDescription() {
 		$metaExcerpt = $post->post_excerpt;
 		if ($metaExcerpt) {
 			// $metadescription = strip_tags($post->post_excerpt);
-			$metadescription = strip_tags($post->post_excerpt);
+			$metadescription = $post->post_excerpt;
 		} else {
 			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
-			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // delete br
 		}
 	} else {
 		$metadescription = get_bloginfo('description');
@@ -395,7 +394,8 @@ function getHeadDescription() {
 	if ( $paged != '0'){
 		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
 	}
-	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
+	$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
+	$metadescription = apply_filters( 'metadescriptionCustom', strip_tags($metadescription) );
 
 	return $metadescription;
 }
