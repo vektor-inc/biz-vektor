@@ -351,7 +351,7 @@ function getHeadDescription() {
 		}
 	} else if (is_category() || is_tax()) {
 		if ( ! $post->description ) {
-			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title( '' , false )).get_bloginfo('name').' '.get_bloginfo('description');
 		} else {
 			$metadescription = $post->description;
 		}
@@ -359,7 +359,7 @@ function getHeadDescription() {
 		$metadescription = tag_description();
 		$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
 		if ( ! $metadescription ) {
-			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title()).get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title( '' , false )).get_bloginfo('name').' '.get_bloginfo('description');
 		}
 	} else if (is_archive()) {
 		if (is_year()){
