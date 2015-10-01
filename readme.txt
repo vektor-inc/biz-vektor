@@ -31,8 +31,4 @@ http://bizvektor.com/contact/
 
 
 == Changelog ==
-- v1.8.7
-fix <link rel="start"
-
-- v1.8.6
-for WordPress 4.3
+https://github.com/kurudrive/biz-vektor/commits/master
