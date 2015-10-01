@@ -105,14 +105,17 @@ function biz_vektor_theme_setup() {
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
 	load_theme_textdomain('biz-vektor', get_template_directory() . '/languages');
+
+	/*-------------------------------------------*/
+	/*	Set content width
+	/* 	(Auto set up to media max with.)
+	/*-------------------------------------------*/
+	global $content_width;
+
+	if ( ! isset( $content_width ) ) $content_width = 640;
+
 }
 
-/*-------------------------------------------*/
-/*	Set content width
-/* 	(Auto set up to media max with.)
-/*-------------------------------------------*/
-if ( ! isset( $content_width ) )
-	$content_width = 640;
 
 /*-------------------------------------------*/
 /*	WidgetArea initiate
@@ -326,6 +329,12 @@ function biz_vektor_get_page_for_posts(){
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
+add_action( 'wp_head', 'biz_vektor_setHeadDescription' );
+function biz_vektor_setHeadDescription(){
+	echo '<meta name="description" content="' . getHeadDescription() . '" />';
+}
+
+
 function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
@@ -345,15 +354,15 @@ function getHeadDescription() {
 		}
 	} else if (is_category() || is_tax()) {
 		if ( ! $post->description ) {
-			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title( '' , false )).get_bloginfo('name').' '.get_bloginfo('description');
 		} else {
-			$metadescription = esc_html( $post->description );
+			$metadescription = $post->description;
 		}
 	} else if (is_tag()) {
-		$metadescription = strip_tags(tag_description());
+		$metadescription = tag_description();
 		$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
 		if ( ! $metadescription ) {
-			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title()).get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title( '' , false )).get_bloginfo('name').' '.get_bloginfo('description');
 		}
 	} else if (is_archive()) {
 		if (is_year()){
@@ -377,10 +386,9 @@ function getHeadDescription() {
 		$metaExcerpt = $post->post_excerpt;
 		if ($metaExcerpt) {
 			// $metadescription = strip_tags($post->post_excerpt);
-			$metadescription = strip_tags($post->post_excerpt);
+			$metadescription = $post->post_excerpt;
 		} else {
 			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
-			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);  // delete br
 		}
 	} else {
 		$metadescription = get_bloginfo('description');
@@ -389,8 +397,10 @@ function getHeadDescription() {
 	if ( $paged != '0'){
 		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
 	}
-	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
-	echo $metadescription;
+	$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
+	$metadescription = apply_filters( 'metadescriptionCustom', strip_tags($metadescription) );
+
+	return $metadescription;
 }
 
 /*-------------------------------------------*/

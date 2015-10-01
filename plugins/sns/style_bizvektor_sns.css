@@ -18,6 +18,10 @@
 #content .socialSet ul li.sb_icon.sb_google .icon_sns	{ color:#dd4b39; }
 #content .socialSet ul li.sb_icon.sb_line .icon_sns	{ color:#6ebd30; }
 #content .socialSet ul li.sb_pocket		{ margin-left:5px;}
+#content .socialSet .sb_facebook_count, #content .socialSet .sb_hatena_count, #content .socialSet .sb_twitter_count { display:inline-block; margin-left:5px; padding:2px 5px; border-radius:5px; line-height:1; vertical-align:top; font-size:77%; color:#ffffff; }
+#content .socialSet .sb_facebook_count { background:#425dab; }
+#content .socialSet .sb_hatena_count { background:#2c6ebd; }
+#content .socialSet .sb_twitter_count { background:#00abec; }
 
 #fb-like-box{ text-align: center; background-color: #f9f9f9; margin:40px auto;border:4px solid #efefef; }
 

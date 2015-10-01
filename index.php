@@ -73,11 +73,11 @@ if ( !$postType ) {
 		<?php endif; //$options['listInfoArchive'] ?>
 	
 
-	<?php elseif (file_exists(get_stylesheet_directory( ).'/module_loop_'.$post_type.'.php')): ?>
+	<?php elseif (file_exists(get_stylesheet_directory( ).'/module_loop_'.$postType.'.php')): ?>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
 		
-			<?php get_template_part('module_loop_'.$post_type); ?>
+			<?php get_template_part('module_loop_'.$postType); ?>
 		
 		<?php endwhile; ?>
 
