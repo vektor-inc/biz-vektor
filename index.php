@@ -58,6 +58,14 @@ if ( !$postType ) {
 
 		<?php biz_vektor_archive_loop(); ?>
 
+	<?php elseif (file_exists(get_stylesheet_directory( ).'/module_loop_'.$postType.'.php') && $postType != 'post' ): ?>
+		
+		<?php while ( have_posts() ) : the_post(); ?>
+		
+			<?php get_template_part('module_loop_'.$postType); ?>
+		
+		<?php endwhile; ?>
+
 	<?php elseif ($postType == 'info') : ?>
 
 		<?php if ( $options['listInfoArchive'] == 'listType_set' ) : ?>
@@ -71,20 +79,10 @@ if ( !$postType ) {
 			<?php endwhile; ?>
 			</ul>
 		<?php endif; //$options['listInfoArchive'] ?>
-	
-
-	<?php elseif (file_exists(get_stylesheet_directory( ).'/module_loop_'.$postType.'.php')): ?>
-		
-		<?php while ( have_posts() ) : the_post(); ?>
-		
-			<?php get_template_part('module_loop_'.$postType); ?>
-		
-		<?php endwhile; ?>
 
 	<?php else : ?>
 
-		<?php $options = biz_vektor_get_theme_options();
-		if ( $options['listBlogArchive'] == 'listType_set' ) { ?>
+		<?php if ( $options['listBlogArchive'] == 'listType_set' ) { ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part('module_loop_post2'); ?>
 			<?php endwhile ?>
@@ -96,7 +94,7 @@ if ( !$postType ) {
 			</ul>
 		<?php } ?>
 
-	<?php endif; // $postType == 'info' ?>
+	<?php endif; ?>
 	<?php pagination(); ?>
 	<?php else: ?>
 	<div class="sectionFrame"><p><?php _e('No posts.','biz-vektor');?></p></div>
