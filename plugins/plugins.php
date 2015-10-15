@@ -15,6 +15,9 @@ get_template_part('plugins/css_customize/css-customize');
 
 get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
+get_template_part('plugins/meta_description');
+
+
 function biz_vektor_footerCopyRight() 		{
 	$options = biz_vektor_get_theme_options();
 	$subSiteName = ($options['sub_sitename']);
