@@ -223,6 +223,8 @@ function biz_vektor_fbLikeBox() {
 
 	// LikeBoxの要素指定
 	// php 初心者への可読性も踏まえてむやみに１行にしないよう注意
+	//
+	// それならちゃんと{}を使ったほうが・・・
 
 	if ( isset($biz_vektor_options['fbLikeBoxStream']) && $biz_vektor_options['fbLikeBoxStream'] ) :
 	  	$biz_vektor_options['fbLikeBoxStream'] = 'true' ;
