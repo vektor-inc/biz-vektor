@@ -112,7 +112,7 @@ add_action( 'widgets_init', 'biz_vektor_info_widgets_init' );
 /*-------------------------------------------*/
 class WP_Widget_infoTerms extends WP_Widget {
 	/** constructor */
-	function WP_Widget_infoTerms() {
+	function __construct() {
 		$biz_vektor_options = biz_bektor_option_validate();
 		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s category', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
 
