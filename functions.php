@@ -91,6 +91,8 @@ function biz_vektor_theme_setup() {
 		'default-color' => '#ffffff',
 	) );
 
+	add_theme_support( 'title-tag' );
+
 	/*-------------------------------------------*/
 	/*	Admin page _ Eye catch
 	/*-------------------------------------------*/

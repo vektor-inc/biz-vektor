@@ -7,7 +7,6 @@ biz_vektor_get_theme_options(); ?>
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php wp_title(); ?></title>
 <link rel="start" href="<?php echo home_url(); ?>" title="HOME" />
 <link rel="alternate" href="<?php echo home_url(); ?>" hreflang="<?php echo substr(get_bloginfo ( 'language' ), 0, 2);?>" />
 <!-- <?php echo get_biz_vektor_name();?> v<?php echo BizVektor_Theme_Version; ?> -->
