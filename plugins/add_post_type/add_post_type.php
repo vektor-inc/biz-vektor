@@ -87,6 +87,7 @@ function biz_vektor_info_get_archives_link($link_html) {
     global $my_archives_post_type;
     if ($my_archives_post_type != '') {
         $add_link = '?post_type=' . $my_archives_post_type;
+        if( preg_match( "/post_type=/", $link_html ) ) return $link_html;
         $link_html = preg_replace("/href=\'(.+)\'/", "href='$1" . $add_link. "'", $link_html);
     }
     return $link_html;
@@ -112,7 +113,7 @@ add_action( 'widgets_init', 'biz_vektor_info_widgets_init' );
 /*-------------------------------------------*/
 class WP_Widget_infoTerms extends WP_Widget {
 	/** constructor */
-	function WP_Widget_infoTerms() {
+	function __construct() {
 		$biz_vektor_options = biz_bektor_option_validate();
 		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s category', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
 
@@ -286,7 +287,7 @@ add_action( 'admin_bar_menu', 'biz_vektor_info_adminvar_custom_menu',30 );
 function biz_vektor_info_adminvar_custom_menu(){
 	global $wp_admin_bar;
 	global $user_level;
-	
+
 	// info
 	$wp_admin_bar->add_menu( array(
 		'id' => 'infoLabelName',
@@ -310,7 +311,7 @@ function biz_vektor_info_adminvar_custom_menu(){
 			'parent' => 'infoLabelName',
 			'id' => 'post_category',
 			'title' => sprintf( _x( '%s - Categories', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
-			'href' => get_admin_url().'edit-tags.php?taxonomy=info-cat',
+			'href' => get_admin_url().'edit-tags.php?taxonomy=info-cat&post_type=info',
 		));
 	}
 }
@@ -338,6 +339,6 @@ function biz_vektor_info_hack_index($flag){
 			<?php get_template_part('module_loop_post'); ?>
 		<?php endwhile; ?>
 		</ul>
-	<?php endif; //$options['listInfoArchive'] 
+	<?php endif; //$options['listInfoArchive']
 	return true;
 }

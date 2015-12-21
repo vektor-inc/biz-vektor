@@ -20,7 +20,6 @@ function is_rebuild(){
 		$options = biz_vektor_get_theme_options();
 		if ( $options['theme_style'] == 'rebuild' || $options['theme_style'] == '' ){
 			return true;
-			break;
 		} else {
 			/*
 			一度保存されているラベルのスキンプラグインが停止またはアンインストールされている事があるので、
