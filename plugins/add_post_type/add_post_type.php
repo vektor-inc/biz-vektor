@@ -191,6 +191,7 @@ class WP_Widget_infoArchives extends WP_Widget {
 	<h3 class="localHead"><?php _e('Yearly archives', 'biz-vektor'); ?></h3>
 	<ul class="localNavi">
 	<?php
+		remove_filter( 'get_archives_link', 'biz_vektor_info_get_archives_link' );
 	$args = array(
 		'type' => 'yearly',
 		'post_type' => 'info',
@@ -201,6 +202,7 @@ class WP_Widget_infoArchives extends WP_Widget {
 	</div>
 	</div>
 <?php
+		add_filter( 'get_archives_link', 'biz_vektor_info_get_archives_link' );
 	}
 	/** @see WP_Widget::update */
 	function update($new_instance, $old_instance) {
