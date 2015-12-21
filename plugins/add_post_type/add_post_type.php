@@ -87,6 +87,7 @@ function biz_vektor_info_get_archives_link($link_html) {
     global $my_archives_post_type;
     if ($my_archives_post_type != '') {
         $add_link = '?post_type=' . $my_archives_post_type;
+        if( preg_match( "/post_type=/", $link_html ) ) return $link_html;
         $link_html = preg_replace("/href=\'(.+)\'/", "href='$1" . $add_link. "'", $link_html);
     }
     return $link_html;
@@ -191,7 +192,6 @@ class WP_Widget_infoArchives extends WP_Widget {
 	<h3 class="localHead"><?php _e('Yearly archives', 'biz-vektor'); ?></h3>
 	<ul class="localNavi">
 	<?php
-		remove_filter( 'get_archives_link', 'biz_vektor_info_get_archives_link' );
 	$args = array(
 		'type' => 'yearly',
 		'post_type' => 'info',
@@ -202,7 +202,6 @@ class WP_Widget_infoArchives extends WP_Widget {
 	</div>
 	</div>
 <?php
-		add_filter( 'get_archives_link', 'biz_vektor_info_get_archives_link' );
 	}
 	/** @see WP_Widget::update */
 	function update($new_instance, $old_instance) {
