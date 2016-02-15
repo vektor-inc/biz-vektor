@@ -408,7 +408,7 @@ function biz_vektor_print_headLogo() {
 	if (isset($options['head_logo']) && $options['head_logo']){
 		print '<img src="'.$options['head_logo'].'" alt="'.get_bloginfo('name').'" />';
 	} else {
-		echo bloginfo('name');
+		bloginfo('name');
 	}
 }
 /*-------------------------------------------*/
