@@ -48,7 +48,7 @@ $tag_count = count($terms);
 if ($terms) {
 $posts_count = mb_convert_kana($biz_vektor_options['postRelatedCount'], "a", "UTF-8");
 // Set basic arrays
-$args = array( 'post-type' => 'post' ,'post__not_in' => array($post->ID), 'posts_per_page' => $posts_count );
+$args = array( 'post_type' => 'post' ,'post__not_in' => array($post->ID), 'posts_per_page' => $posts_count );
 // Set tag(term) arrays
 if ( $terms && $tag_count == 1 ) {
 	foreach ( $terms as $key => $value) {
