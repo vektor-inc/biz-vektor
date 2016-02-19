@@ -601,11 +601,12 @@ function get_biz_vektor_header_image(){
 	$biz_vektor_header_image = '<div id="topMainBnr">'."\n";
 	$biz_vektor_header_image .= '<div id="topMainBnrFrame"'.$biz_vektor_slider_class.'>'."\n";
 	if(biz_vektor_slideExist()) {
+		$biz_vektor_header_image .= '<img id="topMainBnrDummy" src="'.esc_url( get_header_image() ).'" />'."\n";
 		$biz_vektor_header_image .= '<ul class="slides">'."\n";
 		$biz_vektor_header_image .= get_biz_vektor_slide_body();
 		$biz_vektor_header_image .= '</ul>'."\n";
 	} else {
-		$biz_vektor_header_image .= '<div class="slideFrame"><img src="'.esc_url( get_header_image() ).'" alt="" /></div>'."\n";
+		$biz_vektor_header_image .= '<div class="slideFrame"><img src="'.esc_url( get_header_image() ).'" /></div>'."\n";
 	}
 	$biz_vektor_header_image .= '</div>'."\n";
 	$biz_vektor_header_image .= '</div>'."\n";
