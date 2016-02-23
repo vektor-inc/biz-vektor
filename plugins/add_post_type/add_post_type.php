@@ -136,7 +136,7 @@ class WP_Widget_infoTerms extends WP_Widget {
 		$catlist = wp_list_categories( $arg );
 		if ( !empty($catlist)) {
 			if ( !isset($instance['title']) || !$instance['title'] ) {
-				global $biz_vektor_options;
+				$biz_vektor_options = biz_vektor_get_theme_options();
 				$instance['title'] = sprintf( __( '%s category', 'biz-vektor' ),$biz_vektor_options['infoLabelName'] );
 			} ?>
 			<div class="localSection sideWidget">
@@ -174,7 +174,7 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_infoArchives extends WP_Widget {
 	/** constructor */
 	function __construct() {
-		global $biz_vektor_options;
+		$biz_vektor_options = biz_vektor_get_theme_options();
 		$widget_name = biz_vektor_get_short_name().'_'.sprintf( __( '%s Yearly archives', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
 
 		parent::__construct(

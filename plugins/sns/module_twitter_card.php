@@ -1,5 +1,5 @@
 <?php
-global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 // url
 $linkUrl = (is_front_page()) ? home_url():get_permalink();
 // image
@@ -9,7 +9,7 @@ if ( ( is_single() || is_page() ) && has_post_thumbnail() ) {
 	$card_image_url = $image_url[0];
 } else {
 	$card_image_url = (isset($biz_vektor_options['ogpImage'])) ? $biz_vektor_options['ogpImage'] : '';
-} 
+}
 // domain
 preg_match( '/https?:\/\/(.+?)\//i', admin_url(), $match );
 // image size

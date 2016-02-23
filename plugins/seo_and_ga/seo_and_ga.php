@@ -1,4 +1,4 @@
-<?php
+/<?php
 /*-------------------------------------------*/
 /*	GoogleAnalytics
 /*-------------------------------------------*/
@@ -110,7 +110,7 @@ function biz_vektor_seo_set_HeadKeywords(){
 /*-------------------------------------------*/
 add_action('wp_head', 'biz_vektor_googleAnalytics', 10000 );
 function biz_vektor_googleAnalytics(){
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	$gaType = (isset($biz_vektor_options['gaType'])) ? $biz_vektor_options['gaType'] : '';
 	if (isset($biz_vektor_options['gaID']) && $biz_vektor_options['gaID']) {
 		if ((!$gaType) || ($gaType == 'gaType_normal') || ($gaType == 'gaType_both')){ ?>

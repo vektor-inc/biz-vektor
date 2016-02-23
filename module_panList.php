@@ -9,7 +9,7 @@ $panListHtml = '<!-- [ #panList ] -->
 ';
 
 global $wp_query;
-global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 
 // カスタム投稿タイプの種類を取得
 $postType = get_post_type();

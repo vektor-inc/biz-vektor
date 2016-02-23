@@ -2,8 +2,6 @@
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <![endif]-->
-<?php global $biz_vektor_options;
-biz_vektor_get_theme_options(); ?>
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />

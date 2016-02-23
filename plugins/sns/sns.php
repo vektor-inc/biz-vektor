@@ -39,8 +39,7 @@ function biz_vektor_sns_beacon($flag){
 
 add_action('wp_head', 'biz_vektor_ogp' );
 function biz_vektor_ogp() {
-	global $biz_vektor_options;
-	$options = $biz_vektor_options;
+	$options = biz_vektor_get_theme_options();
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_front_page()) {
@@ -127,7 +126,7 @@ function biz_vektor_twitter_card() {
 /*-------------------------------------------*/
 add_action('biz_vektor_fbComments', 'biz_vektor_fbComments');
 function twitterID() {
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	return $biz_vektor_options['twitter'];
 }
 
@@ -136,7 +135,7 @@ function twitterID() {
 /*-------------------------------------------*/
 add_action('biz_vektor_snsBtns', 'biz_vektor_snsBtns');
 function biz_vektor_snsBtns() {
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	$options = $biz_vektor_options;
 	$snsBtnsFront = ( isset($options['snsBtnsFront']) ) ? $options['snsBtnsFront'] : '';
 	$snsBtnsPage = ( isset($options['snsBtnsPage']) ) ? $options['snsBtnsPage'] : '';
@@ -171,8 +170,7 @@ function biz_vektor_snsBtns() {
 /*-------------------------------------------*/
 add_action('biz_vektor_fbComments', 'biz_vektor_fbComments');
 function biz_vektor_fbComments() {
-	global $biz_vektor_options;
-	$options = $biz_vektor_options;
+	$options = biz_vektor_get_theme_options();
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	$fbCommentHiddenFlag = false ;
@@ -193,7 +191,7 @@ function biz_vektor_fbComments() {
 			( is_page() && isset($options['fbCommentsPage']) && $options['fbCommentsPage'] && !is_front_page() ) || 
 			( get_post_type() == 'info' && isset($options['fbCommentsInfo']) && $options['fbCommentsInfo']) || 
 			( get_post_type() == 'post' && isset($options['fbCommentsPost']) && $options['fbCommentsPost'])
-			) 
+			)
 		{
 			?>
 			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-num-posts="2" data-width="640"></div>
@@ -218,7 +216,7 @@ add_action('biz_vektor_fbLikeBoxDisplay', 'biz_vektor_fbLikeBox');
 add_action('biz_vektor_fbLikeBox', 'biz_vektor_fbLikeBox');
 function biz_vektor_fbLikeBox() {
 	// 変数を取得
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	$postType = get_post_type();
 
 	// LikeBoxの要素指定
@@ -275,7 +273,7 @@ function biz_vektor_fbLikeBox() {
 /*-------------------------------------------*/
 add_action('biz_vektor_fbAppId', 'biz_vektor_fbAppId');
 function biz_vektor_fbAppId () {
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	$options = $biz_vektor_options;
 	$fbAppId = $options['fbAppId'];
 	echo $fbAppId;
@@ -286,8 +284,8 @@ function biz_vektor_fbAppId () {
 /*-------------------------------------------*/
 add_action('biz_vektor_snsBnrs', 'biz_vektor_snsBnrs');
 function biz_vektor_snsBnrs() {
-	global $biz_vektor_options;
-	$options = $biz_vektor_options;
+	$options = biz_vektor_get_theme_options();
+
 	if (isset($options['facebook'])) : $facebook = $options['facebook'] ; else : $facebook = ''; endif ;
 	if (isset($options['twitter'])) : $twitter = $options['twitter'] ; else : $twitter = ''; endif ;
 	if ($facebook || $twitter) {
@@ -448,7 +446,6 @@ function biz_vektor_sns_options_nav(){?>
 
 add_action('biz_vektor_extra_module_config', 'biz_vektor_sns_config');
 function biz_vektor_sns_config(){
-global $biz_vektor_options;
 $options = biz_bektor_option_validate();
 $biz_vektor_name = get_biz_vektor_name();
 
@@ -623,7 +620,7 @@ function biz_vektor_sns_admin_bar_init(){
 /*-------------------------------------------*/
 add_action('biz_vektor_sns_body', 'biz_vektor_sns_header_output');
 function biz_vektor_sns_header_output(){
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 ?>
 <div id="fb-root"></div>
 <?php
