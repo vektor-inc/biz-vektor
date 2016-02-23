@@ -10,7 +10,6 @@ biz_vektor_get_theme_options(); ?>
 <title><?php wp_title(); ?></title>
 <link rel="start" href="<?php echo home_url(); ?>" title="HOME" />
 <link rel="alternate" href="<?php echo home_url(); ?>" hreflang="<?php echo substr(get_bloginfo ( 'language' ), 0, 2);?>" />
-<!-- <?php echo get_biz_vektor_name();?> v<?php echo BizVektor_Theme_Version; ?> -->
 
 <?php
 /* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
