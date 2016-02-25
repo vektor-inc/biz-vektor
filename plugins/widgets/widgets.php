@@ -204,7 +204,6 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_top_list_post extends WP_Widget {
 
 	function __construct() {
-		global $biz_vektor_options;
 		$biz_vektor_options = biz_vektor_get_theme_options();
 
 		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['postLabelName'] );
@@ -237,8 +236,7 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_top_list_info extends WP_Widget {
 
 	function __construct() {
-		global $biz_vektor_options;
-		$biz_vektor_options = biz_bektor_option_validate();
+		$biz_vektor_options = biz_vektor_get_theme_options();
 
 		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
 
@@ -270,8 +268,6 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_archive_list extends WP_Widget {
 	// ウィジェット定義
 	function __construct() {
-		global $bizvektor_works_unit;
-
 		$widget_name = biz_vektor_get_short_name() . '_' . __( 'archive list', 'biz-vektor' );
 
 		parent::__construct(
@@ -380,8 +376,6 @@ add_action('widgets_init', create_function('', 'return register_widget("WP_Widge
 class WP_Widget_taxonomy_list extends WP_Widget {
 	// ウィジェット定義
 	function __construct() {
-		global $bizvektor_works_unit;
-
 		$lab = get_biz_vektor_name();
 		if($lab == 'BizVektor'){
 			$lab = 'BV';
@@ -623,7 +617,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Slug for the custom type you want to display', 'biz-vektor') ?>:</label><br />
 		<input type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" value="<?php echo esc_attr($instance['post_type']) ?>" /><br />
 		<?php
-		global $biz_vektor_options;
+		$biz_vektor_options = biz_vektor_get_theme_options();
 		printf(  __('For %1$s use "post"<br />for %2$s use "info"', 'biz-vektor' ), esc_html( $biz_vektor_options['postLabelName']), esc_html( $biz_vektor_options['infoLabelName']) ); ?>
 		<br/><br/>
 		<?php // Terms ?>

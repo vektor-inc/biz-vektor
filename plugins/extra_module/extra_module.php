@@ -132,7 +132,7 @@ function biz_vektor_ad_contet_more($post_content) {
 /*-------------------------------------------*/
 
 function displays_global_css() {
-	Global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	$font = $biz_vektor_options['global_font'];
 	
 	?>

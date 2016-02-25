@@ -1,5 +1,5 @@
 <?php 
-global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 
 /*------------------------
 --SITEMAP ADVANCED OPTIONS

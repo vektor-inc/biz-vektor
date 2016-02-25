@@ -558,7 +558,7 @@ function biz_vektor_print_footContact() {
 /*	slide show
 /*-------------------------------------------*/
 function biz_vektor_slideExist () {
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	if (
 		($biz_vektor_options['slide1image'] && (!$biz_vektor_options['slide1display'])) ||
 		($biz_vektor_options['slide2image'] && (!$biz_vektor_options['slide2display'])) ||
@@ -571,7 +571,7 @@ function biz_vektor_slideExist () {
 }
 
 function get_biz_vektor_slide_body(){
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	$biz_vektor_slide_body = '';
 	for ( $i = 1; $i <= 5 ; $i++){
 		if ( $biz_vektor_options['slide'.$i.'image'] && !$biz_vektor_options['slide'.$i.'display']) {
@@ -721,7 +721,7 @@ function suffix2console() {
 /*	Contact Btn
 /*-------------------------------------------*/
 function get_biz_vektor_contactBtn(){
-	global $biz_vektor_options;
+	$biz_vektor_options = biz_vektor_get_theme_options();
 	if ($biz_vektor_options['contact_link']) :
 	$contactBtn = '<ul>';
 	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$biz_vektor_options['contact_link'].'">'."\n";
