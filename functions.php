@@ -65,6 +65,7 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 
 
 get_template_part('plugins/plugins');
+include_once( get_template_directory(). '/deprecations.php' );
 
 
 function biz_vektor_is_plugin_enable($plugin_name){
