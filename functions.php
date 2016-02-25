@@ -346,7 +346,7 @@ function bizVektorAddWebFonts(){
 // Add BizVektor option css
 add_action('wp_enqueue_scripts', 'bizVektorSetCommonStyle');
 function bizVektorSetCommonStyle(){
-	wp_enqueue_style('Biz_Vektor_common_style', get_template_directory_uri().'/css/bizvektor_common_min.css', array(), '20141106', 'all');
+	wp_enqueue_style('Biz_Vektor_common_style', get_template_directory_uri().'/css/bizvektor_common_min.css', array(), BizVektor_Theme_Version, 'all');
 }
 
 // add pingback
@@ -368,7 +368,7 @@ if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
-	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '1.8.1' );
+	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), BizVektor_Theme_Version );
 	biz_vektor_set_localize_script();
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }

@@ -59,8 +59,7 @@ function biz_vektor_theme_options_render_page() {
 		</div>
 		<?php } ?>
 
-<?php 
-global $biz_vektor_options;
+<?php
 $biz_vektor_options = biz_vektor_get_theme_options();
 ?>
 		<div id="main-content">

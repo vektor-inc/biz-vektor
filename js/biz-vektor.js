@@ -854,6 +854,7 @@ jQuery("#btn").on("click", function() {
 jQuery(window).load(function() {
   var defaultparams = {}
   if(bv_sliderParams){defaultparams = jQuery.extend(defaultparams,bv_sliderParams)}
+  jQuery('#topMainBnrDummy').css('display','none');
   jQuery('.flexslider').flexslider(defaultparams);
 });
 

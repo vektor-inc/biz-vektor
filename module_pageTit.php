@@ -19,7 +19,7 @@ $pageTitHtml_after .= '</div><!-- [ /#pageTitBnr ] -->'."\n";
 /*-------------------------------------------*/
 /*	title
 /*-------------------------------------------*/
-global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 $pageTitle = '';
 
 if (is_page() || is_attachment()){

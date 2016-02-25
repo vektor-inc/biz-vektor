@@ -1,5 +1,5 @@
 <?php
-global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 // 3PRが「表示しない」にチェックされていない場合
 if ( !isset($biz_vektor_options['top3PrDisplay']) || !$biz_vektor_options['top3PrDisplay'] ) { ?>
 

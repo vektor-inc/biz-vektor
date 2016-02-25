@@ -2,7 +2,7 @@
 /*-------------------------------------------*/
 /*	Post
 /*-------------------------------------------*/
-global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 $postTopCount = $biz_vektor_options['postTopCount'];
 if ($postTopCount != '0' ) :
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
