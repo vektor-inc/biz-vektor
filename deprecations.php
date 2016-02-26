@@ -6,3 +6,8 @@ if( !function_exists('biz_vektor_getHeadKeywords') ){
         return '';
     }
 }
+if( !function_exists('biz_vektor_fbLikeBoxFront') ){
+    function biz_vektor_fbLikeBoxFront(){
+        
+    }
+}
