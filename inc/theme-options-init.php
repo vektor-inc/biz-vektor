@@ -25,7 +25,7 @@ function biz_vektor_theme_options_init() {
 	}
 
 	global $biz_vektor_options;
-	$biz_vektor_options = biz_vektor_get_theme_options();
+	$biz_vektor_options = get_option('biz_vektor_theme_options' );
 }
 add_action( 'after_setup_theme', 'biz_vektor_theme_options_init' );
 
@@ -168,7 +168,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['pr3_link']               = esc_url( $input['pr3_link'] );
 	$output['pr3_image']              = esc_url( $input['pr3_image'] );
 	$output['pr3_image_s']            = esc_url( $input['pr3_image_s'] );
-	// Infomation & Blog	
+	// Infomation & Blog
 	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
 	// $output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
 	// $output['listInfoTop']            = $input['listInfoTop'];
@@ -229,8 +229,6 @@ function biz_vektor_them_edit_function($post){
 /*	テーマオプション取得
 /*-------------------------------------------*/
 function biz_vektor_get_theme_options() {
-	return biz_bektor_option_validate();
-
 	global $biz_vektor_options;
 	$biz_vektor_options = get_option('biz_vektor_theme_options', biz_vektor_generate_default_options());
 	return $biz_vektor_options;
@@ -238,6 +236,7 @@ function biz_vektor_get_theme_options() {
 
 /*-------------------------------------------*/
 /*	Print option
+/*	global $biz_vektor_options に順次移行
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_bektor_option_validate();
@@ -253,13 +252,11 @@ function bizVektorOptions($optionLabel) {
 }
 
 /*-------------------------------------------*/
-/*
+/*	
 /*	@return array(options)
 /*-------------------------------------------*/
 function biz_bektor_option_validate(){
-	return biz_bektor_option_parser();
 
-	/// 使用停止
 	$options = get_option('biz_vektor_theme_options');
 	$default = biz_vektor_generate_default_options();
 
@@ -276,17 +273,3 @@ function biz_bektor_option_validate(){
 	}
 	return $options;
 }
-
-
-function biz_bektor_option_parser(){
-
-	$options = get_option('biz_vektor_theme_options');
-	$default = biz_vektor_generate_default_options();
-
-	$parsed_options = wp_parse_args( $options, $default );
-	if( $parsed_options['version'] != $options['version'] ) $parsed_options['version'] = $options['version'];
-
-	return $parsed_options;
-}
-
-

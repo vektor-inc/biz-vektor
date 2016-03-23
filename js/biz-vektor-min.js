@@ -63,7 +63,7 @@ document.body.appendChild(e);var defHeight=e.offsetHeight;function checkBoxSize(
 setInterval(checkBoxSize,1000)}
 function addEvent(elm,listener,fn){try{elm.addEventListener(listener,fn,false);}catch(e){elm.attachEvent("on"+listener,fn);}}
 addEvent(window,"load",footerFixed);addEvent(window,"load",function(){checkFontSize(footerFixed);});addEvent(window,"resize",footerFixed);}
-jQuery("#btn").on("click",function(){jQuery(this).next().next().slideToggle();jQuery(this).toggleClass("active");});jQuery(window).load(function(){var defaultparams={}
+jQuery("#btn").on("click",function(){jQuery(this).next().next().slideToggle();jQuery(this).toggleClass("active");});window.addEventListener('load',function(){var defaultparams={}
 if(bv_sliderParams){defaultparams=jQuery.extend(defaultparams,bv_sliderParams)}
 jQuery('#topMainBnrDummy').css('display','none');jQuery('.flexslider').flexslider(defaultparams);});var breakPoint1=950;var breakPoint2=655;jQuery(function(){resVektorRun();});jQuery(document).ready(function(){resVektorRun();});jQuery(window).resize(function(){resVektorRun();});var mode;function resVektorRun(){resThumbTxtFix();var bodyWidth=jQuery(window).width();if(bodyWidth<=breakPoint2){if(mode!="mode_mobile"){showHide_mode_mobile();changeImageFile_mode_mobile();resImgTxtChange_mode_mobile();dropNavReset();dropNavFunctions();dropNavSubControlLinkDelete();mode="mode_mobile";}}
 if((breakPoint2<bodyWidth)&&(bodyWidth<breakPoint1)){if(mode!="mode_tab"){showHide_mode_tab();changeImageFile_mode_tab();resImgTxtChange_mode_tab();dropNavReset();dropNavFunctions();dropNavSubControlLinkDelete();mode="mode_tab";}}
