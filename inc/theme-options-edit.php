@@ -49,10 +49,10 @@ function biz_vektor_theme_options_render_page() {
 		<?php if ( function_exists( 'biz_vektor_activation_information' ) ) {
 		biz_vektor_activation_information();
 		} else { 
-			$iframeUrl = 'http://bizvektor.com/info-admin/';
+			$iframeUrl = '//bizvektor.com/info-admin/';
 			//global edition
 			if ( 'ja' != get_locale() ) {
-				$iframeUrl = 'http://bizvektor.com/en/info-admin/';
+				$iframeUrl = '//bizvektor.com/en/info-admin/';
 			} ?>
 		<div id="sub-content">
 			<iframe frameborder="0" height="200" marginheight="0" marginwidth="0" scrolling="auto" src="<?php echo $iframeUrl; ?>"></iframe>
