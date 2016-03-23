@@ -286,7 +286,7 @@ jQuery("#btn").on("click", function() {
 	jQuery(this).toggleClass("active");
 });
 
-jQuery(window).load(function() {
+window.addEventListener('load',function() {
   var defaultparams = {}
   if(bv_sliderParams){defaultparams = jQuery.extend(defaultparams,bv_sliderParams)}
   jQuery('#topMainBnrDummy').css('display','none');
