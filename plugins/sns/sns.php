@@ -515,9 +515,9 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPage]" id="snsBtnsPage" value="false" <?php if ($options['snsBtnsPage']) {?> checked<?php } ?>> 
 	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsPost]" id="snsBtnsPost" value="false" <?php if ($options['snsBtnsPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html($biz_vektor_options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[snsBtnsInfo]" id="snsBtnsInfo" value="false" <?php if ($options['snsBtnsInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 </ul>
 <p><?php _e('Within the type of page that is checked, if there is a particular pa<label>ge you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[snsBtnsHidden]" value="<?php echo esc_attr( $options['snsBtnsHidden'] ); ?>" /><br />
@@ -534,9 +534,9 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPage]" id="fbCommentsPage" value="false" <?php if ($options['fbCommentsPage']) {?> checked<?php } ?>> 
 	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsPost]" id="fbCommentsPost" value="false" <?php if ($options['fbCommentsPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html($biz_vektor_options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbCommentsInfo]" id="fbCommentsInfo" value="false" <?php if ($options['fbCommentsInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 </ul>
 <p><?php _e('Within the type of page that is checked, if there is a particular page you do not wish to display, enter the Page ID. If multiple pages, please separate by commas.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[fbCommentsHidden]" value="<?php echo esc_attr( $options['fbCommentsHidden'] ); ?>" /><br />
@@ -554,9 +554,9 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxPage]" id="fbLikeBoxPage" value="false" <?php if ($options['fbLikeBoxPage']) {?> checked<?php } ?>> 
 	<?php _ex('Page', 'sns display', 'biz-vektor'); ?></label></li>
 <li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxPost]" id="fbLikeBoxPost" value="false" <?php if ($options['fbLikeBoxPost']) {?> checked<?php } ?>> 
-	<?php echo esc_html($biz_vektor_options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
-<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxInfo]" id="fbLikeBoxInfo" value="false" <?php if ($options['fbLikeBoxInfo']) {?> checked<?php } ?>> 
-	<?php echo esc_html($biz_vektor_options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+	<?php echo esc_html($options['postLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
+<li><label><input type="checkbox" name="biz_vektor_theme_options[fbLikeBoxInfo]" id="fbLikeBoxInfo" value="false" <?php if ($options['fbLikeBoxInfo']) {?> checked<?php } ?>>
+	<?php echo esc_html($options['infoLabelName']); ?> <?php _ex('Post', 'sns display', 'biz-vektor'); ?></label></li>
 </ul>
 <dl>
 <dt><?php _e('URL of the Facebook page.', 'biz-vektor'); ?></dt>
