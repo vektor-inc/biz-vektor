@@ -160,7 +160,7 @@ class wp_widget_page extends WP_Widget {
 			if (10 <= $user_level) {
 				?>
 				<div class="adminEdit">
-				<a href="<?php echo site_url(); ?>/wp-admin/post.php?post=<?php echo $pageid ;?>&action=edit" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
+				<?php edit_post_link( '['.__('Edit', 'biz-vektor').']', '<span class="btn btnS btnAdmin">', '</span>', $pageid); ?>
 				</div>
 			<?php } }
 		echo '</div>';

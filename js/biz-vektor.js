@@ -610,71 +610,83 @@ jQuery('#wp-admin-bar-editGuide .ab-item').click(function(){
 /*-------------------------------------------*/
 /*	YOUTUBEのレスポンシブ対応
 /*-------------------------------------------*/
-jQuery('iframe').each(function(i){
-	var iframeUrl = jQuery(this).attr("src");
-	if(!iframeUrl){return;}
-	// iframeのURLの中に youtube が存在する位置を検索する
-	idx = iframeUrl.indexOf("youtube");
-	// 見つからなかった場合には -1 が返される
-	if(idx != -1) {
-	    // youtube が含まれていたらそのクラスを返す
-	    jQuery(this).addClass('iframeYoutube').css({"max-width":"100%"});
-	    var iframeWidth = jQuery(this).attr("width");
-	    var iframeHeight = jQuery(this).attr("height");
-	    var iframeRate = iframeHeight / iframeWidth;
-	    var nowIframeWidth = jQuery(this).width();
-	    var newIframeHeight = nowIframeWidth * iframeRate;
-	    jQuery(this).css({"max-width":"100%","height":newIframeHeight});
-	}
-});
+document.addEventListener("DOMContentLoaded",function(eve){
+    jQuery('iframe').each(function(i){
+        var iframeUrl = jQuery(this).attr("src");
+        if(!iframeUrl){return;}
+        // iframeのURLの中に youtube が存在する位置を検索する
+        idx = iframeUrl.indexOf("youtube");
+        // 見つからなかった場合には -1 が返される
+        if(idx != -1) {
+            // youtube が含まれていたらそのクラスを返す
+            jQuery(this).addClass('iframeYoutube').css({"max-width":"100%"});
+            var iframeWidth = jQuery(this).attr("width");
+            var iframeHeight = jQuery(this).attr("height");
+            var iframeRate = iframeHeight / iframeWidth;
+            var nowIframeWidth = jQuery(this).width();
+            var newIframeHeight = nowIframeWidth * iframeRate;
+            jQuery(this).css({"max-width":"100%","height":newIframeHeight});
+        }
+    });
+},false);
 
 /*-------------------------------------------*/
 /*	SNSアイテム関連
 /*-------------------------------------------*/
-likeBoxReSize();
-jQuery(window).resize(function(){
-	likeBoxReSize();
-});
-// When load page / window resize
-function likeBoxReSize(){
+;(function($){
+	// When load page / window resize
+	function likeBoxReSize(){
+		// var i = number;
+		// $('.fb-like-box').each(function(i){
+		$('.fb-like-box').each(function(){
+			var element = $(this).parent().width();
+			if ( 501 > element || element < 280 ) {
+				$(this).attr('data-width',element);
+				$(this).children('span:first').css({"width":element});
+				$(this).children('span iframe.fb_ltr').css({"width":element});
+			}
+		});
+	}
+
+	// When load page / window resize
+	function fbCommentReSize(){
 	// var i = number;
-	// jQuery('.fb-like-box').each(function(i){
-	jQuery('.fb-like-box').each(function(){
-		var element = jQuery(this).parent().width();
-		if ( 501 > element || element < 280 ) {
-			jQuery(this).attr('data-width',element);
-			jQuery(this).children('span:first').css({"width":element});
-			jQuery(this).children('span iframe.fb_ltr').css({"width":element});	
+	// $('.fb-comments').each(function(i){
+		$('.fb-comments').each(function(){
+			var element = $(this).parent().width();
+			$(this).attr('data-width',element);
+			$(this).children('span:first').css({"width":element});
+			$(this).children('span iframe.fb_ltr').css({"width":element});
+		});
+	}
+
+	var setfunction = function(){
+		fbCommentReSize();
+		likeBoxReSize();
+	}
+
+
+	document.addEventListener("DOMContentLoaded", setfunction);
+
+	var timer = false;
+	$(window).resize(function() {
+		if (timer !== false) {
+			clearTimeout(timer);
 		}
+		timer = setTimeout(setfunction, 200);
 	});
-}
-fbCommentReSize();
-jQuery(window).resize(function(){
-	fbCommentReSize();
-});
-// When load page / window resize
-function fbCommentReSize(){
-	// var i = number;
-	// jQuery('.fb-comments').each(function(i){
-	jQuery('.fb-comments').each(function(){
-		var element = jQuery(this).parent().width();
-		jQuery(this).attr('data-width',element);
-		jQuery(this).children('span:first').css({"width":element});
-		jQuery(this).children('span iframe.fb_ltr').css({"width":element});
-	});
-}
+})(jQuery);
 
 /*-------------------------------------------*/
 /*	rollover.js
 /*-------------------------------------------*/
-var initRollovers = window.onload;
-window.onload = function(){
+document.addEventListener("DOMContentLoaded",function(eve){
 	if (!document.getElementById) return
 
-	var aPreLoad = new Array();
-	var sTempSrc;
+		var aPreLoad = new Array();
+		var sTempSrc;
 
-	var setup = function(aImages) {
+		var setup = function(aImages) {
 		for (var i = 0; i < aImages.length; i++) {
 			if (aImages[i].className.match(/(^| )imgover( |$)/i)) {
 				var src = aImages[i].getAttribute('src');
@@ -703,16 +715,12 @@ window.onload = function(){
 	setup(aImages);
 	var aInputs = document.getElementsByTagName('input');
 	setup(aInputs);
-
-	if(initRollovers) {
-		initRollovers();
-	}
-}
+},false);
 
 /*-------------------------------------------*/
 /*	ページ内するするスクロール
 /*-------------------------------------------*/
-jQuery(document).ready(function(){
+document.addEventListener("DOMContentLoaded",function(){
 	//
 	// <a href="#***">の場合、スクロール処理を追加
 	//
@@ -728,8 +736,7 @@ jQuery(document).ready(function(){
 			}
 		}
 	});
-
-});
+},false);
 
 // Easingの追加
 jQuery.easing.quart = function (x, t, b, c, d) {
@@ -771,15 +778,15 @@ OTHER DEALINGS IN THE SOFTWARE.
 /*
 ======================================================================
 *  footerFixed.js
- *  
- *  MIT-style license. 
- *  
+ *
+ *  MIT-style license.
+ *
  *  2007 Kazuma Nishihata [to-R]
  *  http://blog.webcreativepark.net
 ======================================================================
 */
 new function(){
-	
+
 	var footerId = "footerSection";
 	//メイン
 	function footerFixed(){
@@ -801,11 +808,11 @@ new function(){
 			document.getElementById(footerId).style.top = (wh-fh-ft-1)+"px";
 		}
 	}
-	
+
 	//文字サイズ
 	function checkFontSize(func){
-	
-		//判定要素の追加	
+
+		//判定要素の追加
 		var e = document.createElement("div");
 		var s = document.createTextNode("S");
 		e.appendChild(s);
@@ -814,7 +821,7 @@ new function(){
 		e.style.top="0"
 		document.body.appendChild(e);
 		var defHeight = e.offsetHeight;
-		
+
 		//判定関数
 		function checkBoxSize(){
 			if(defHeight != e.offsetHeight){
@@ -824,7 +831,7 @@ new function(){
 		}
 		setInterval(checkBoxSize,1000)
 	}
-	
+
 	//イベントリスナー
 	function addEvent(elm,listener,fn){
 		try{
@@ -839,7 +846,6 @@ new function(){
 		checkFontSize(footerFixed);
 	});
 	addEvent(window,"resize",footerFixed);
-	
 }
 
 /*-------------------------------------------*/
@@ -856,7 +862,7 @@ window.addEventListener('load',function() {
   if(bv_sliderParams){defaultparams = jQuery.extend(defaultparams,bv_sliderParams)}
   jQuery('#topMainBnrDummy').css('display','none');
   jQuery('.flexslider').flexslider(defaultparams);
-});
+},false);
 
 var breakPoint1 = 950; // cssのブレイクポイントよりもスクロールバー分少なめ
 var breakPoint2 = 655;
