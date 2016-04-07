@@ -17,9 +17,9 @@ jQuery(function(){
 /* メディアアップローダー
 /*-------------------------------------------*/
 jQuery(document).ready(function($){
-	var custom_uploader;
 
 	jQuery('.media_btn').click(function(e) {
+		var custom_uploader;
 		var media_target = jQuery(this).attr('id').replace(/media_/g,'#');
 		e.preventDefault();
 		if (custom_uploader) {
@@ -28,7 +28,6 @@ jQuery(document).ready(function($){
 		}
 		custom_uploader = wp.media({
 			title: 'Choose Image',
-			// 以下のコメントアウトを解除すると画像のみに限定される。 → されないみたい
 			library: {
 				type: 'image'
 			},
@@ -40,7 +39,6 @@ jQuery(document).ready(function($){
 		custom_uploader.on('select', function() {
 			var images = custom_uploader.state().get('selection');
 			images.each(function(file){
-				//$('#head_logo').append('<img src="'+file.toJSON().url+'" />');
 				jQuery(media_target).attr('value', file.toJSON().url.replace(/^https?:/, "") );
 			});
 		});
