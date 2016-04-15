@@ -155,9 +155,8 @@ class wp_widget_page extends WP_Widget {
 		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
 		if ( is_user_logged_in() == TRUE ) {
-			global $user_level;
-			get_currentuserinfo();
-			if (10 <= $user_level) {
+
+			if ( current_user_can('activate_plugins') ) {
 				?>
 				<div class="adminEdit">
 				<?php edit_post_link( '['.__('Edit', 'biz-vektor').']', '<span class="btn btnS btnAdmin">', '</span>', $pageid); ?>

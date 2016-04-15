@@ -17,9 +17,8 @@ else :
 
 	// Widget guide message
 	if ( is_user_logged_in() == TRUE && biz_vektor_is_plugin_enable('widgets')) {
-	global $user_level;
-	get_currentuserinfo();
-		if (10 <= $user_level) { ?>
+
+		if ( current_user_can('activate_plugins') ) { ?>
 			<div class="adminEdit sectionFrame">
 			<p>トップページに表示する項目は<a href="<?php echo admin_url().'customize.php';?>">テーマカスタマイザー画面</a>あるいは<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。<br />
 			『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。</p>
@@ -41,28 +40,27 @@ else :
 	<?php endif; // get_post_type() === 'page' ?>
 
 	<?php if ( is_user_logged_in() == TRUE ) {
-	global $user_level;
-	get_currentuserinfo(); ?>
+?>
 		<div class="adminEdit">
-			<?php if (10 <= $user_level) { ?>
+			<?php if ( current_user_can('activate_plugins') ) : ?>
 			<p class="caption">
 			<?php esc_html_e( '* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'biz-vektor' ); ?><br />
 			<?php esc_html_e( '* If empty, the body of a page that you set as the front page does not display anything.', 'biz-vektor' ); ?><br />
 			<?php // esc_html_e( '* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'biz-vektor' ); ?>
 			</p>
-			<?php } ?>
+			<?php endif; ?>
 			<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __( 'Edit', 'biz-vektor' ) ); ?></span>
-			<?php if ( 10 <= $user_level ) { ?>
+			<?php if ( current_user_can('activate_plugins') ) : ?>
 			<span style="float:left;margin-right:10px;"><a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">
 				<?php esc_html_e('Title display settings', 'biz-vektor'); ?>
 			</a></span>
 			<span><a href="<?php echo site_url(); ?>/wp-admin/options-reading.php" class="btn btnS btnAdmin">
 				<?php esc_html_e('Change the page to be displayed', 'biz-vektor'); ?>
 			</a></span>
-			<?php } ?>
+			<?php endif; ?>
 		</div>
 	<?php } // login ?>
-	
+
 	<?php endif; // have_posts() ?>
 
 	<?php get_template_part('module_topPR'); ?>
