@@ -724,7 +724,7 @@ document.addEventListener("DOMContentLoaded",function(){
 	//
 	// <a href="#***">の場合、スクロール処理を追加
 	//
-	jQuery('a[href*=#]').click(function() {
+	jQuery('a[href*=\\#]').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var $target = jQuery(this.hash);
 			if(!this.hash.slice(1)){return;}

@@ -19,14 +19,11 @@ jQuery(function(){
 jQuery(document).ready(function($){
 
 	jQuery('.media_btn').click(function(e) {
-		var custom_uploader;
+		var wpmedia;
 		var media_target = jQuery(this).attr('id').replace(/media_/g,'#');
 		e.preventDefault();
-		if (custom_uploader) {
-			custom_uploader.open();
-			return;
-		}
-		custom_uploader = wp.media({
+
+		wpmedia = wp.media({
 			title: 'Choose Image',
 			library: {
 				type: 'image'
@@ -36,13 +33,13 @@ jQuery(document).ready(function($){
 			},
 			multiple: false, // falseにすると画像を1つしか選択できなくなる
 		});
-		custom_uploader.on('select', function() {
-			var images = custom_uploader.state().get('selection');
+		wpmedia.on('select', function() {
+			var images = wpmedia.state().get('selection');
 			images.each(function(file){
 				jQuery(media_target).attr('value', file.toJSON().url.replace(/^https?:/, "") );
 			});
 		});
-		custom_uploader.open();
+		wpmedia.open();
 	});
 });
 

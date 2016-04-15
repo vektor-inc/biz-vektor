@@ -97,6 +97,20 @@ function bizvektor_default_design_customize_register($wp_customize) {
 	}
 }
 
+
+/*-------------------------------------------*/
+/*  keycolor filter
+/*-------------------------------------------*/
+add_filter( 'biz_vektor_keycolors', 'biz_vektor_calmly_default_keycolor' );
+function biz_vektor_calmly_default_keycolor($colors){
+	if(is_bizvektor_default_design()){
+		$options = biz_vektor_get_theme_options_calmly();
+		$colors['keyColor'] = (isset($options['theme_plusKeyColor']) and $options['theme_plusKeyColor'])? $options['theme_plusKeyColor'] : '#c30000';
+	}
+	return $colors;
+}
+
+
 /*-------------------------------------------*/
 /*	Admin page _ Add link bottom of pulldown
 /*-------------------------------------------*/

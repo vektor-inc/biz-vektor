@@ -97,6 +97,20 @@ function biz_vektor_get_theme_options_rebuild() {
 	return get_option( 'biz_vektor_theme_options_rebuild' );
 }
 
+
+/*-------------------------------------------*/
+/*  keycolor filter
+/*-------------------------------------------*/
+add_filter( 'biz_vektor_keycolors', 'biz_vektor_rebuild_set_keycolor' );
+function biz_vektor_rebuild_set_keycolor($colors){
+	if(is_rebuild()){
+		$options = biz_vektor_get_theme_options_rebuild();
+		$colors['keyColor'] = (isset($options['theme_plusKeyColor']) and $options['theme_plusKeyColor'])? $options['theme_plusKeyColor'] : '#e90000';
+	}
+	return $colors;
+}
+
+
 /*-------------------------------------------*/
 /*	Print head
 /*-------------------------------------------*/

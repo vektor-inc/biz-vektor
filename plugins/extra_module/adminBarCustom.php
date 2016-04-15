@@ -21,8 +21,7 @@ function bizVektor_adminbar_remove( $wp_admin_bar ) {
 add_action( 'admin_bar_menu', 'bizVektor_adminbar_remove', 1000 );
 
 function bizvektor_adminbar_custom_menu() {
-	global $user_level;
-	get_currentuserinfo();
+
 	global $wp_admin_bar;
 	$wp_admin_bar->add_menu( array(
 		'id' => 'admin_top',
@@ -35,7 +34,7 @@ function bizvektor_adminbar_custom_menu() {
 			'title' => _x( 'Visit site', 'BizVektor admin header menu', 'biz-vektor' ),
 			'href' => home_url( '/' )
 		));
-		if (10 <= $user_level) {
+		if ( current_user_can('activate_plugins') ) {
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'admin_top',
 				'id' => 'general_setting_page',
@@ -61,7 +60,7 @@ function bizvektor_adminbar_custom_menu() {
 				'title' => _x( 'Customizer', 'BizVektor admin header menu', 'biz-vektor' ),
 				'href' => get_admin_url().'customize.php',
 			));
-			if (10 <= $user_level) {
+			if ( current_user_can('activate_plugins') ) {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'bizvektor_theme_setting',
 					'id' => 'Site title & description',
@@ -160,7 +159,7 @@ function bizvektor_adminbar_custom_menu() {
 	} // lebel 10
 
 	// page
-	if (7 <= $user_level) {
+	if ( current_user_can('edit_pages') ) {
 	$wp_admin_bar->add_menu( array(
 		'id' => 'page_adminMenu',
 		'title' => _x( 'Managing pages', 'BizVektor admin header menu', 'biz-vektor' ),
@@ -198,7 +197,7 @@ function bizvektor_adminbar_custom_menu() {
 			'title' => sprintf( _x( '%s - Add new', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('postLabelName') ),
 			'href' => get_admin_url().'post-new.php',
 		));
-		if (7 <= $user_level) {
+		if ( current_user_can('edit_pages') ) {
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'postLabelName',
 				'id' => 'postAdminMenu_category',
@@ -211,10 +210,8 @@ function bizvektor_adminbar_custom_menu() {
 add_action( 'admin_bar_menu', 'bizvektor_adminbar_custom_menu',20 );
 
 function bizvektor_adminbar_custom_edit_guide(){
-	global $user_level;
-	get_currentuserinfo();
 	global $wp_admin_bar;
-	if (7 <= $user_level && !is_admin()) {
+	if ( current_user_can('edit_pages') && !is_admin() ) {
 	$wp_admin_bar->add_menu( array(
 		'id' => 'editGuide',
 		'title' => _x( 'Edit guide : OPEN', 'BizVektor admin header menu', 'biz-vektor' ),

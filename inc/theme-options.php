@@ -707,6 +707,27 @@ function biz_vektor_sideChildDisplay(){
 }
 
 
+add_action( 'wp_head', 'biz_vektor_output_keycolorcss', 5);
+function biz_vektor_output_keycolorcss(){
+	echo '<style type="text/css">';
+	$corlors_default = array(
+		'keyColor'       => '#e90000',
+		// 'keyColorLight'  => '#ff0000',
+		// 'keyColorSlight' => '#fff5f5'
+	);
+	$types = array('BG'=>'background-color','Cl'=>'color','Bd'=>'border-color');
+	$corlors = apply_filters('biz_vektor_keycolors', $corlors_default);
+	reset($corlors);
+	while(list($k,$v) = each($corlors)){
+		reset($types);
+		while(list($kk,$vv) = each($types)){
+			echo ".{$k}{$kk},.{$k}{$kk}h:hover{{$vv}: {$v};}";
+		}
+	}
+	echo "</style>\n";
+}
+
+
 /*	admin_head JavaScript debug console hook_suffix
 /*-------------------------------------------*/
 /*
