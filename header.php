@@ -28,16 +28,13 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 
 <div id="wrap">
 
-<?php if(
-!isset($biz_vektor_options['enableie8Warning']) ||
-( isset($biz_vektor_options['enableie8Warning']) && $biz_vektor_options['enableie8Warning'] )
-): ?>
+<?php if( bizVektorOptions('enableie8Warning') ): ?>
 <!--[if lte IE 8]>
 <div id="eradi_ie_box">
-<div class="alert_title">ご利用の Internet Exproler は古すぎます。</div>
-<p>このウェブサイトはあなたがご利用の Internet Explorer をサポートしていないため、正しく表示・動作しません。<br />
-古い Internet Exproler はセキュリティーの問題があるため、新しいブラウザに移行する事が強く推奨されています。<br />
-最新の Internet Exproler を利用するか、<a href="https://www.google.co.jp/chrome/browser/index.html" target="_blank">Chrome</a> や <a href="https://www.mozilla.org/ja/firefox/new/" target="_blank">Firefox</a> など、より早くて快適なブラウザをご利用ください。</p>
+<div class="alert_title">ご利用の <span style="font-weight: bold;">Internet Exproler</span> は古すぎます。</div>
+<p>あなたがご利用の Internet Explorer はすでにサポートが終了しているため、正しい表示・動作を保証しておりません。<br />
+古い Internet Exproler はセキュリティーの観点からも、<a href="https://www.microsoft.com/ja-jp/windows/lifecycle/iesupport/" target="_blank" >新しいブラウザに移行する事が強く推奨されています。</a><br />
+<a href="http://windows.microsoft.com/ja-jp/internet-explorer/" target="_blank" >最新のInternet Exproler</a> や <a href="https://www.microsoft.com/ja-jp/windows/microsoft-edge" target="_blank" >Edge</a> を利用するか、<a href="https://www.google.co.jp/chrome/browser/index.html" target="_blank">Chrome</a> や <a href="https://www.mozilla.org/ja/firefox/new/" target="_blank">Firefox</a> など、より早くて快適なブラウザをご利用ください。</p>
 </div>
 <![endif]-->
 <?php endif; ?>

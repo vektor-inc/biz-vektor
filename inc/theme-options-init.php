@@ -240,12 +240,12 @@ function biz_vektor_get_theme_options() {
 /*-------------------------------------------*/
 function bizVektorOptions($optionLabel) {
 	$options = biz_bektor_option_validate();
-	if ( isset($options[$optionLabel]) && $options[$optionLabel] ) {
+	if ( isset($options[$optionLabel]) ) {
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_generate_default_options();
 		if (isset($options_default[$optionLabel]))
-		return $options_default[$optionLabel];
+			return $options_default[$optionLabel];
 
 		return false;
 	}
