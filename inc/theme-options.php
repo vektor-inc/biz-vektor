@@ -318,8 +318,9 @@ function biz_vektor_theme_style() {
 
 	$themePath = $biz_vektor_theme_styles[$theme_style]['cssPath'];
 	$system_name = get_biz_vektor_name();
+	$version = ( isset($biz_vektor_theme_styles[$theme_style]['ver']) )? $biz_vektor_theme_styles[$theme_style]['ver']: BizVektor_Theme_Version;
 
-	wp_enqueue_style('Biz_Vektor_Design_style', $themePath, array('Biz_Vektor_common_style'), BizVektor_Theme_Version, 'all');
+	wp_enqueue_style('Biz_Vektor_Design_style', $themePath, array('Biz_Vektor_common_style'), $version, 'all');
 
 }
 
