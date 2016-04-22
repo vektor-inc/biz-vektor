@@ -87,6 +87,8 @@ function biz_vektor_exmodule_anti_ie8(){
 	$options     = biz_vektor_get_theme_options();
 	$theme_style = $options['theme_style'];
 
+	if( empty( $biz_vektor_theme_styles[$theme_style] ) ) return;
+
 	$themePathOldIe = $biz_vektor_theme_styles[$theme_style]['cssPathOldIe'];
 
 	if ($themePathOldIe){
