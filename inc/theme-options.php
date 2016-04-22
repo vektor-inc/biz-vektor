@@ -713,16 +713,17 @@ function biz_vektor_output_keycolorcss(){
 	echo '<style type="text/css">';
 	$corlors_default = array(
 		'keyColor'       => '#e90000',
-		// 'keyColorLight'  => '#ff0000',
-		// 'keyColorSlight' => '#fff5f5'
 	);
-	$types = array('BG'=>'background-color','Cl'=>'color','Bd'=>'border-color');
+	$types = array('_bg'=>'background-color','_txt'=>'color','_border'=>'border-color');
 	$corlors = apply_filters('biz_vektor_keycolors', $corlors_default);
+	$corlors['color_key'] = $corlors['keyColor'];
+	// unset($corlors['keyColor']);
+
 	reset($corlors);
 	while(list($k,$v) = each($corlors)){
 		reset($types);
 		while(list($kk,$vv) = each($types)){
-			echo ".{$k}{$kk},.{$k}{$kk}h:hover{{$vv}: {$v};}";
+			echo ".{$k}{$kk},.{$k}{$kk}_hover:hover{{$vv}: {$v};}";
 		}
 	}
 	echo "</style>\n";
