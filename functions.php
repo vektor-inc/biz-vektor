@@ -363,7 +363,9 @@ add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
 
 if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
 	function biz_vektor_load_scripts_html5shiv() {
-		wp_enqueue_script( 'html5shiv', '//html5shiv.googlecode.com/svn/trunk/html5.js', array(), null );
+?>
+<!--[if lt IE 9]><script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script><![endif]-->
+<?php
 	}
 }
 
