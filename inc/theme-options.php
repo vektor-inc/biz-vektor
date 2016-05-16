@@ -715,6 +715,7 @@ function biz_vektor_output_keycolorcss(){
 		'keyColor'       => '#e90000',
 	);
 	$types = array('_bg'=>'background-color','_txt'=>'color','_border'=>'border-color');
+	$types_o = array('_bg'=>'BG','_txt'=>'Cl','_border'=>'Bd');
 	$corlors = apply_filters('biz_vektor_keycolors', $corlors_default);
 	$corlors['color_key'] = $corlors['keyColor'];
 	// unset($corlors['keyColor']);
@@ -723,6 +724,7 @@ function biz_vektor_output_keycolorcss(){
 	while(list($k,$v) = each($corlors)){
 		reset($types);
 		while(list($kk,$vv) = each($types)){
+			echo ".{$k}{$types_o[$kk]},.{$k}{$types_o[$kk]}h:hover,";
 			echo ".{$k}{$kk},.{$k}{$kk}_hover:hover{{$vv}: {$v};}";
 		}
 	}
