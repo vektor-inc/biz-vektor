@@ -16,7 +16,7 @@ preg_match( '/https?:\/\/(.+?)\//i', admin_url(), $match );
 if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && $card_image_url ) :?>
 <!-- twitter card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:description" content="<?php (function_exists( "getHeadDescription" ))? getHeadDescription(): ''; ?>">
+<meta name="twitter:description" content="<?php echo getHeadDescription(); ?>">
 <meta name="twitter:title" content="<?php echo getHeadTitle(); ?>">
 <meta name="twitter:url" content="<?php echo $linkUrl ?>">
 <meta name="twitter:image" content="<?php echo esc_url($card_image_url);?>">
