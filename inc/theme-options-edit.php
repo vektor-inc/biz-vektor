@@ -689,9 +689,9 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <div class="optionNav bottomNav">
 <ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
-<?php } ?>
 
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
 <script type="text/javascript">
 </script>
+<?php } ?>
