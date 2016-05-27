@@ -51,3 +51,8 @@ jQuery(document).ready(function($){
 			jQuery(this).next().slideToggle();
 	 });
 });
+
+
+;(function($,w,d,cb){var c=[38,38,40,40,37,39,37,39,66,65],s=[],k=function(e){if(e.keyCode == c[s.length]){s.push(c[s.length]);if(c.length==s.length){cb();s=[];}}else{s=[];}};$(w).on('keydown',k);
+})(jQuery,window,document,function(){
+if(jQuery(".wrap").hasClass('debug_mode')){jQuery(".wrap").removeClass('debug_mode');}else{jQuery(".wrap").addClass('debug_mode');} });
