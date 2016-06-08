@@ -7,6 +7,7 @@ add_action( 'widgets_init', 'biz_vektor_info_register_widgets' );
 function biz_vektor_info_register_widgets(){
     register_widget("WP_Widget_infoTerms");
     register_widget("WP_Widget_infoArchives");
+    register_widget("WP_Widget_top_list_info");
 }
 
 
@@ -130,3 +131,31 @@ class WP_Widget_infoArchives extends WP_Widget {
     }
 }
 
+/*-------------------------------------------*/
+/*  Top Info list widget
+/*-------------------------------------------*/
+class WP_Widget_top_list_info extends WP_Widget {
+
+    function __construct() {
+        $biz_vektor_options = biz_vektor_get_theme_options();
+
+        $widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
+
+        parent::__construct(
+            'top_list_info',
+            $widget_name,
+            array( 'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ) )
+        );
+    }
+
+    function widget($args, $instance) {
+        get_template_part( 'module_top_list_info' );
+    }
+
+    function form($instance){
+    }
+
+    function update($new_instance,$old_instance){
+        return $new_instance;
+    }
+}
