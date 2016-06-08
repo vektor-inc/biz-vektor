@@ -17,8 +17,6 @@
 /*-------------------------------------------*/
 /*	Top Post list widget
 /*-------------------------------------------*/
-/*	Top Info list widget
-/*-------------------------------------------*/
 /*	Archive list widget
 /*-------------------------------------------*/
 /*	Taxonomy list widget
@@ -29,6 +27,20 @@
 /*-------------------------------------------*/
 
 
+add_action( 'widgets_init', 'biz_vektor_register_widgets' );
+
+
+function biz_vektor_register_widgets(){
+    register_widget("WP_Widget_ChildPageList");
+    register_widget("WP_Widget_topPR");
+    register_widget("wp_widget_page");
+    register_widget("WP_Widget_contact_link");
+    register_widget("WP_Widget_top_list_post");
+    register_widget("WP_Widget_archive_list");
+    // register_widget("WP_Widget_taxonomy_list");
+    // register_widget("wp_widget_bizvektor_rss");
+    // register_widget("WP_Widget_bizvektor_post_list");
+}
 
 
 /*-------------------------------------------*/
@@ -47,23 +59,26 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	}
 
 	function widget($args, $instance) {
-		extract( $args );
-		if(biz_vektor_childPageList()){
-			echo $before_widget;
-			biz_vektor_childPageList();
-			echo $after_widget;
-		}
+		if( ! is_page() || empty(get_ancestors(get_the_id(),'page')) ) return;
+		echo $args['before_widget'];
+		biz_vektor_childPageList();
+		echo $args['after_widget'];
 	}
 
 	function form($instance){
+?>
+<p>固定ページの子ページリストです。</p>
+<p>固定ページの詳細ページが表示されている場合に現在のページの階層一覧が表示されます。</p>
+<p>※ 固定ページの詳細ページ以外や、階層構造が存在しない場合は何も表示されません。<br/>
+※ サイドバー(固定ページ)への設置推奨</p>
+<?php
 	}
 
 	function update($new_instance,$old_instance){
 		return $new_instance;
 	}
 
-} // class WP_Widget_childPageList
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
+}
 
 /*-------------------------------------------*/
 /*	Top PR widget
@@ -81,20 +96,24 @@ class WP_Widget_topPR extends WP_Widget {
 	}
 
 	function widget($args, $instance) {
-	//	echo $before_widget;
 		get_template_part( 'module_topPR' );
-	//	echo $after_widget;
 	}
 
 	function form($instance){
+?>
+<p>3PRを表示します。</p>
+<p><a href="<?php echo admin_url(); ?>/themes.php?page=theme_options#prBox" target="_blank" >テーマオプション</a>
+で設定した内容を表示します。</p>
+<p>※ テーマオプションの「3PRエリアの表示設定は反映されません。<br/>
+※ コンテンツエリア（トップページ）への設置推奨</p>
+<?php
 	}
 
 	function update($new_instance,$old_instance){
 		return $new_instance;
 	}
 
-} // class WP_Widget_topPR
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_topPR");'));
+}
 
 /*-------------------------------------------*/
 /*	page widget
@@ -104,9 +123,7 @@ class wp_widget_page extends WP_Widget {
 	function __construct() {
 
 		$widget_name = biz_vektor_get_short_name() . '_' . __( 'page content for top', 'biz-vektor' );
-
-		parent::__construct(
-			'pudge',
+ parent::__construct('pudge',
 			$widget_name,
 			array( 'description' => __( 'Displays the content of a chosen page.', 'biz-vektor' ) )
 		);
@@ -129,16 +146,19 @@ class wp_widget_page extends WP_Widget {
 		?>
 		<p>
 		<?php 	$pages = get_pages();	?>
-		<label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
-		<select name="<?php echo $this->get_field_name('page_id'); ?>" >
+<label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Display page', 'biz-vektor') ?> :</label>
+<select name="<?php echo $this->get_field_name('page_id'); ?>" >
 		<?php foreach($pages as $page){ ?>
-		<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
+<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
 		<?php } ?>
-		</select>
-		<br/>
-		<input type="checkbox" name="<?php echo $this->get_field_name('set_title'); ?>" value="true" <?php echo ($instance['set_title'])? 'checked': '' ; ?> >
-		<label for="<?php echo $this->get_field_id('set_title'); ?>"> <?php _e( 'display title', 'biz-vektor' ); ?></label>
-		</p>
+</select>
+</p><p>
+<input type="checkbox" name="<?php echo $this->get_field_name('set_title'); ?>" value="true" <?php echo ($instance['set_title'])? 'checked': '' ; ?> id="<?php echo $this->get_field_id('set_title'); ?>" />
+<label for="<?php echo $this->get_field_id('set_title'); ?>"> <?php _e( 'display title', 'biz-vektor' ); ?></label>
+</p>
+<hr/>
+<p>固定ページの本文を表示します。</p>
+<p>※ コンテンツエリア（トップページ）への設置推奨</p>
 		<?php
 	}
 
@@ -165,7 +185,6 @@ class wp_widget_page extends WP_Widget {
 		echo '</div>';
 	}
 }
-add_action('widgets_init', create_function('', 'return register_widget("wp_widget_page");'));
 
 /*-------------------------------------------*/
 /*	Contact widget
@@ -191,11 +210,16 @@ class WP_Widget_contact_link extends WP_Widget {
 	}
 
 	function form($instance) {
+?>
+<p>「お問い合わせはこちら」のボタンを表示します。</p>
+<p>※ <a href="<?php echo admin_url(); ?>/themes.php?page=theme_options#contactInfo" target="_blank" >テーマオプション</a>
+の「問い合わせページのURL」の入力がない場合は表示されません。<br/>
+※ サイドバーへの設置を推奨</p>
+<?php
 		return $instance;
 	}
 
 }
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_contact_link");'));
 
 /*-------------------------------------------*/
 /*	Top Post list widget
@@ -221,45 +245,19 @@ class WP_Widget_top_list_post extends WP_Widget {
 	}
 
 	function form($instance){
+?>
+<p>投稿リストを表示します。</p>
+<p>※ 表示レイアウトは<a href="<?php echo admin_url(); ?>/themes.php?page=theme_options#postSetting" target="_blank" >テーマオプション</a>
+の「ブログ のトップページでの表示レイアウト」に準じます。<br/>
+※ コンテンツエリア（トップページ）への設置推奨</p>
+<?php
 	}
 
 	function update($new_instance,$old_instance){
 		return $new_instance;
 	}
 } // class WP_Widget_top_list_post
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_post");'));
 
-/*-------------------------------------------*/
-/*	Top Info list widget
-/*-------------------------------------------*/
-class WP_Widget_top_list_info extends WP_Widget {
-
-	function __construct() {
-		$biz_vektor_options = biz_vektor_get_theme_options();
-
-		$widget_name = biz_vektor_get_short_name() . '_' . sprintf( __( '%1$s list for top', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] );
-
-		parent::__construct(
-			'top_list_info',
-			$widget_name,
-			array( 'description' => sprintf( __( 'Displays recent %1$s posts.', 'biz-vektor' ), $biz_vektor_options['infoLabelName'] ) )
-		);
-	}
-
-	function widget($args, $instance) {
-		// echo $before_widget;
-		get_template_part( 'module_top_list_info' );
-		// echo $after_widget;
-	}
-
-	function form($instance){
-	}
-
-	function update($new_instance,$old_instance){
-		return $new_instance;
-	}
-} // class WP_Widget_top_list_info
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_top_list_info");'));
 
 /*-------------------------------------------*/
 /*	Archive list widget
@@ -367,7 +365,6 @@ class WP_Widget_archive_list extends WP_Widget {
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_archive_list");'));
 
 /*-------------------------------------------*/
 /*	Taxonomy list widget
@@ -465,7 +462,6 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_taxonomy_list");'));
 
 /*-------------------------------------------*/
 /*	RSS widget
@@ -515,7 +511,6 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		return $instance;
 	}
 }
-add_action('widgets_init', create_function('', 'return register_widget("wp_widget_bizvektor_rss");'));
 
 /*-------------------------------------------*/
 /*	Side Post list widget
@@ -642,4 +637,3 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	}
 
 } // class WP_Widget_top_list_post
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_bizvektor_post_list");'));
