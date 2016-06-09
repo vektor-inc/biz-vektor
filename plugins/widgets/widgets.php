@@ -37,9 +37,10 @@ function biz_vektor_register_widgets(){
     register_widget("WP_Widget_contact_link");
     register_widget("WP_Widget_top_list_post");
     register_widget("WP_Widget_archive_list");
-    // register_widget("WP_Widget_taxonomy_list");
-    // register_widget("wp_widget_bizvektor_rss");
-    // register_widget("WP_Widget_bizvektor_post_list");
+    register_widget("WP_Widget_taxonomy_list");
+    register_widget("WP_Widget_bizvektor_post_list");
+    if( function_exists( 'wp_safe_remote_get' ) )
+	    register_widget("wp_widget_bizvektor_rss");
 }
 
 
@@ -313,44 +314,24 @@ class WP_Widget_archive_list extends WP_Widget {
 		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');
 		$pages[] = 'post';
 		?>
-		<p>
+<p>
+<label for="<?php echo $this->get_field_id('label'); ?>-title"><?php _e('Title','biz-vektor');?> : </label>
+<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
-		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e('Title','biz-vektor');?>:</label>
-		<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
-		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
-
-		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e( 'Post type', 'biz-vektor' ) ?>:</label>
-		<select name="<?php echo $this->get_field_name('post_type'); ?>" >
-		<?php foreach($pages as $page){ ?>
-		<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
-		<?php } ?>
-		</select>
-		<br/>
-		<label for="<?php echo $this->get_field_id('display_type'); ?>">表示タイプ</label>
-		<select name="<?php echo $this->get_field_name('display_type'); ?>" >
-			<option value="m" <?php if($instance['display_type'] != "y") echo 'selected="selected"'; ?> >月別</option>
-			<option value="y" <?php if($instance['display_type'] == "y") echo 'selected="selected"'; ?> >年別</option>
-		</select>
-		</p>
-		<script type="text/javascript">
-		jQuery(document).ready(function($){
-			var post_labels = new Array();
-			<?php
-				foreach($pages as $page){
-					$page_labl = get_post_type_object($page);
-					if(isset($page_labl->labels->name)){
-						echo 'post_labels["'.$page.'"] = "'.$page_labl->labels->name.'";';
-					}
-				}
-				echo 'post_labels["blog"] = "ブログ";'."\n";
-			?>
-			var posttype = jQuery("[name=\"<?php echo $this->get_field_name('post_type'); ?>\"]");
-			var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
-			posttype.change(function(){
-				lablfeld.val(post_labels[posttype.val()]+'アーカイブ');
-			});
-		});
-		</script>
+<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e( 'Post type', 'biz-vektor' ) ?> : </label>
+<select name="<?php echo $this->get_field_name('post_type'); ?>" id="<?php echo $this->get_field_id('post_type'); ?>" >
+<?php foreach($pages as $page){ ?>
+<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
+<?php } ?>
+</select>
+<br/>
+<label for="<?php echo $this->get_field_id('display_type'); ?>"><?php _e('Display Type', 'biz-vektor'); ?> : </label>
+<select name="<?php echo $this->get_field_name('display_type'); ?>" id="<?php echo $this->get_field_id('display_type'); ?>">
+	<option value="m" <?php if($instance['display_type'] != "y") echo 'selected="selected"'; ?> >月別</option>
+	<option value="y" <?php if($instance['display_type'] == "y") echo 'selected="selected"'; ?> >年別</option>
+</select>
+</p>
 		<?php
 	}
 
@@ -364,7 +345,9 @@ class WP_Widget_archive_list extends WP_Widget {
 		$instance['label'] = $new_instance['label'];
 		return $instance;
 	}
-} // class WP_Widget_top_list_info
+}
+
+
 
 /*-------------------------------------------*/
 /*	Taxonomy list widget
@@ -414,11 +397,11 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 			'tax_name'     => 'category',
 			'label'        => __( 'Category', 'biz-vektor' ),
 			'hide'         => __( 'Category', 'biz-vektor' ),
-			'title'		=> 'test',
-			'_builtin'		=> false,
+			'title'		   => 'test',
+			'_builtin'	=> false,
 		);
 		$instance = wp_parse_args((array) $instance, $defaults);
-		$taxs = get_taxonomies( array('public'=> true),'objects'); 
+		$taxs = get_taxonomies( array('public'=> true,'show_ui' => true),'objects');
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
@@ -562,22 +545,23 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 				);
 			}
 		}
-		$post_loop = new WP_Query( $args );
-
-		if ($post_loop->have_posts()):
-			while ( $post_loop->have_posts() ) : $post_loop->the_post(); ?>
-				<div class="ttBox" id="post-<?php the_ID(); ?>">
-				<?php if ( has_post_thumbnail()) : ?>
-					<div class="ttBoxTxt ttBoxRight"><a href="<?php the_permalink();?>"><?php the_title();?></a></div>
-					<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a></div>
+		$posts = get_posts( $args );
+		if( ! empty( $posts ) ):
+		foreach( $posts as $post ): ?>
+				<div class="ttBox" id="post-<?php the_ID($post->ID); ?>">
+				<?php if ( has_post_thumbnail($post->ID)) : ?>
+					<div class="ttBoxTxt ttBoxRight"><a href="<?php the_permalink($post->ID);?>"><?php echo strip_tags( get_the_title($post->ID) ); ?></a></div>
+					<div class="ttBoxThumb ttBoxLeft"><a href="<?php the_permalink($post->ID); ?>"><?php echo get_the_post_thumbnail($post->ID); ?></a></div>
 				<?php else : ?>
 					<div>
-						<a href="<?php the_permalink();?>"><?php the_title();?></a>
+						<a href="<?php the_permalink($post->ID);?>"><?php echo strip_tags( get_the_title($post->ID) ); ?></a>
 					</div>
 				<?php endif; ?>
 				</div>
-			<?php endwhile;
+			<?php
+		endforeach;
 		endif;
+
 		echo '</div>';
 		echo '</div>';
 		wp_reset_postdata();
@@ -596,6 +580,14 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 		$instance = wp_parse_args((array) $instance, $defaults);
 
+		$post_types = get_post_types( array(
+			'public' => true,
+			'show_ui' => true,
+			'_builtin' => false
+		));
+		$post_types[] = 'post';
+
+
 		?>
 		<?php //タイトル ?>
 		<label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
@@ -608,18 +600,20 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		<br /><br/>
 
 		<?php //投稿タイプ ?>
-		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('Slug for the custom type you want to display', 'biz-vektor') ?>:</label><br />
-		<input type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" value="<?php echo esc_attr($instance['post_type']) ?>" /><br />
-		<?php
-		$biz_vektor_options = biz_vektor_get_theme_options();
-		printf(  __('For %1$s use "post"<br />for %2$s use "info"', 'biz-vektor' ), esc_html( $biz_vektor_options['postLabelName']), esc_html( $biz_vektor_options['infoLabelName']) ); ?>
+		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('post type', 'biz-vektor') ?>:</label><br />
+		<select type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>"  >
+		<?php foreach($post_types as $posttype): ?>
+			<option value="<?php echo $posttype; ?>" <?php if($instance['post_type'] == $posttype) echo "selected"; ?> ><?php echo $posttype; ?></option>
+		<?php endforeach; ?>
+		</select>
+		</Label>
 		<br/><br/>
 		<?php // Terms ?>
 		<label for="<?php echo $this->get_field_id('terms'); ?>"><?php _e('taxonomy ID', 'biz-vektor') ?>:</label><br />
 		<input type="text" id="<?php echo $this->get_field_id('terms'); ?>" name="<?php echo $this->get_field_name('terms'); ?>" value="<?php echo esc_attr($instance['terms']) ?>" /><br />
-		<?php _e('if you need filtering by term, add the term ID separate by ",".', 'biz-vektor'); 
+		<?php _e('if you need filtering by term, add the term ID separate by ",".', 'biz-vektor');
 		echo "<br/>";
-		_e('if empty this area, I will do not filtering.', 'biz-vektor'); 
+		_e('if empty this area, I will do not filtering.', 'biz-vektor');
 		echo "<br/><br/>";
 
 	}
