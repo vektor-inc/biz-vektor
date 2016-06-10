@@ -130,20 +130,38 @@ class wp_widget_page extends WP_Widget {
 		);
 	}
 
+	function standardization( $instance=array() ) {
+		$defaults = array(
+			'page_id' => null,
+			'set_title' => true
+		);
+
+		$instance = wp_parse_args((array)$instance, $defaults);
+
+		if( empty($instance['page_id'] ) ){
+			$_p = $this->get_pages();
+			if( $_p ) $instance['page_id'] = $_p[0]->ID;
+		}
+		return $instance;
+	}
+
+	function get_pages( $args=array() ) {
+		$defaults = array(
+		);
+		return get_posts( wp_parse_args( (array)$args, $defaults) );
+	}
+
 	function widget($args, $instance){
 		global $is_pagewidget;
 		$is_pagewidget = true;
-		$this->display_page($instance['page_id'],$instance['set_title']);
+		$instance = $this->standardization( $instance );
+		if( !empty($instance['page_id'] ) ) $this->display_page($instance['page_id'], $instance['set_title']);
 		$is_pagewidget = false;
 	}
 
 	function form($instance){
-		$defaults = array(
-			'page_id' => 2,
-			'set_title' => true
-		);
+		$instance = $this->standardization( $instance );
 
-		$instance = wp_parse_args((array) $instance, $defaults);
 		?>
 		<p>
 		<?php 	$pages = get_pages();	?>
@@ -275,7 +293,20 @@ class WP_Widget_archive_list extends WP_Widget {
 		);
 	}
 
+	function standardization( $instance=array() ) {
+		$defaults = array(
+			'post_type' => 'post',
+			'display_type' => 'm',
+			'label' => __( 'archives', 'biz-vektor' ),
+			'hide' => __( 'archives', 'biz-vektor' ),
+		);
+
+		return wp_parse_args((array)$instance, $defaults);
+	}
+
 	function widget($args, $instance) {
+		$instance = $this->standardization($instance);
+
 		$arg = array(
 			'echo' => 1,
 			);
@@ -303,14 +334,8 @@ class WP_Widget_archive_list extends WP_Widget {
 	}
 
 	function form($instance){
-		$defaults = array(
-			'post_type' => 'post',
-			'display_type' => 'm',
-			'label' => __( 'Monthly archives', 'biz-vektor' ),
-			'hide' => __( 'Monthly archives', 'biz-vektor' ),
-		);
+		$instance = $this->standardization($instance);
 
-		$instance = wp_parse_args((array) $instance, $defaults);
 		$pages = get_post_types( array('public'=> true, '_builtin' => false),'names');
 		$pages[] = 'post';
 		?>
@@ -368,7 +393,20 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		);
 	}
 
+	function standardization( $instance=array() ) {
+		$defaults = array(
+			'tax_name'     => 'category',
+			'label'        => __( 'Category', 'biz-vektor' ),
+			'hide'         => __( 'Category', 'biz-vektor' ),
+			'title'		   => 'test',
+			'_builtin'	=> false,
+		);
+		return wp_parse_args((array)$instance, $defaults);
+	}
+
 	function widget($args, $instance) {
+		$instance = $this->standardization($instance);
+
 		$arg = array(
 			'echo'               => 1,
 			'style'              => 'list',
@@ -393,14 +431,8 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 	}
 
 	function form($instance){
-		$defaults = array(
-			'tax_name'     => 'category',
-			'label'        => __( 'Category', 'biz-vektor' ),
-			'hide'         => __( 'Category', 'biz-vektor' ),
-			'title'		   => 'test',
-			'_builtin'	=> false,
-		);
-		$instance = wp_parse_args((array) $instance, $defaults);
+		$instance = $this->standardization($instance);
+
 		$taxs = get_taxonomies( array('public'=> true,'show_ui' => true),'objects');
 		?>
 <p>
@@ -408,7 +440,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 <input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
 <input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
-<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display Taxonomy', 'biz-vektor') ?></label>
 <select name="<?php echo $this->get_field_name('tax_name'); ?>" >
 <?php foreach($taxs as $tax){ ?>
 	<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
@@ -462,7 +494,16 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		);
 	}
 
+	function standardization( $instance=array() ) {
+		$defaults = array(
+			'url'       => 'https://bizvektor.com/feed/?post_type=info',
+			'label'     => 'BizVektorからのお知らせ',
+		);
+		return wp_parse_args((array)$instance, $defaults);
+	}
+
 	function widget($args, $instance){
+		$instance = $this->standardization( $instance );
 		$options = biz_vektor_get_theme_options();
 		if(preg_match('/^http.*$/',$instance['url'])){
 			echo '<div id="rss_widget">';
@@ -471,12 +512,8 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		}
 	}
 
-	function form($instance){
-		$defaults = array(
-			'url' => '',
-			'label' => __( 'Blog entries', 'biz-vektor' ),
-		);
-		$instance = wp_parse_args((array) $instance, $defaults);
+	function form( $instance ){
+		$instance = $this->standardization( $instance );
 
 		?>
 <Label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Heading title', 'biz-vektor' ) ?></label><br/>
