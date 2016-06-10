@@ -73,7 +73,7 @@ class WP_Widget_fbLikeBox extends WP_Widget {
     function form($instance) {
 ?>
 <p>FacebookのLikeBoxを表示します。</p>
-<p><a href="<?php echo admin_url(); ?>/themes.php?page=theme_options#prBox" target="_blank" >テーマオプション</a>
+<p><a href="<?php echo admin_url(); ?>/themes.php?page=theme_options#snsSetting" target="_blank" >テーマオプション</a>
 の「facebook LikeBox」で設定した内容を表示します。</p>
 <p>
 ※ テーマオプションの表示箇所の設定によって表示非表示が影響します。<br/>
