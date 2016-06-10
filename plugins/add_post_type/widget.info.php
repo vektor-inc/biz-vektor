@@ -81,7 +81,7 @@ class WP_Widget_infoTerms extends WP_Widget {
         $instance = wp_parse_args((array) $instance, $defaults);
         $title = esc_attr($instance['title']);
         ?>
-            <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
         <?php
     }
 }
@@ -128,6 +128,9 @@ class WP_Widget_infoArchives extends WP_Widget {
     }
     /** @see WP_Widget::form */
     function form($instance) {
+?>
+<p>お知らせの年別アーカイブを表示します。</p>
+<?php
     }
 }
 
@@ -153,6 +156,12 @@ class WP_Widget_top_list_info extends WP_Widget {
     }
 
     function form($instance){
+?>
+<p>お知らせリストを表示します。</p>
+<p>※ 表示レイアウトは<a href="<?php echo admin_url(); ?>/themes.php?page=theme_options#postSetting" target="_blank" >テーマオプション</a>
+の「お知らせ のトップページでの表示レイアウト」に準じます。<br/>
+※ コンテンツエリア（トップページ）への設置推奨</p>
+<?php
     }
 
     function update($new_instance,$old_instance){
