@@ -87,7 +87,7 @@ function biz_vektor_generate_default_options(){
 		'favicon'              => '',
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => __('Blog', 'biz-vektor'),
-		// 'infoLabelName'        => __('Information', 'biz-vektor'),
+		'infoLabelName'        => __('Information', 'biz-vektor'),
 		'theme_style'          => 'rebuild',
 		'enable_google_font'   => 'true',
 		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
@@ -252,7 +252,7 @@ function bizVektorOptions($optionLabel) {
 }
 
 /*-------------------------------------------*/
-/*	
+/*
 /*	@return array(options)
 /*-------------------------------------------*/
 function biz_bektor_option_validate(){
