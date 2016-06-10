@@ -403,20 +403,20 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		$instance = wp_parse_args((array) $instance, $defaults);
 		$taxs = get_taxonomies( array('public'=> true,'show_ui' => true),'objects');
 		?>
-		<p>
-		<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
-		<input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
-		<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
+<p>
+<label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
+<input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+<input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
-		<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
-		<select name="<?php echo $this->get_field_name('tax_name'); ?>" >
-		<?php foreach($taxs as $tax){ ?>
-			<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
-		<?php } ?>
-		</select>		</p>
-		<script type="text/javascript">
-		jQuery(document).ready(function($){
-			var post_labels = new Array();
+<label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display page', 'biz-vektor') ?></label>
+<select name="<?php echo $this->get_field_name('tax_name'); ?>" >
+<?php foreach($taxs as $tax){ ?>
+	<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
+<?php } ?>
+</select></p>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	var post_labels = new Array();
 			<?php
 				foreach($taxs as $tax){
 					if(isset($tax->labels->name)){
@@ -425,13 +425,13 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 				}
 				echo 'post_labels["blog"] = "'. __( 'Blog', 'biz-vektor' ) . '";'."\n";
 			?>
-			var posttype = jQuery("[name=\"<?php echo $this->get_field_name('tax_name'); ?>\"]");
-			var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
-			posttype.change(function(){
-				lablfeld.val(post_labels[posttype.val()]+" <?php _e( 'Archives', 'biz-vektor' ) ?>");
-			});
-		});
-		</script>
+	var posttype = jQuery("[name=\"<?php echo $this->get_field_name('tax_name'); ?>\"]");
+	var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
+	posttype.change(function(){
+		lablfeld.val(post_labels[posttype.val()]+" <?php _e( 'Archives', 'biz-vektor' ) ?>");
+	});
+});
+</script>
 		<?php
 	}
 
@@ -479,11 +479,16 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		$instance = wp_parse_args((array) $instance, $defaults);
 
 		?>
-		<Label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Heading title', 'biz-vektor' ) ?></label><br/>
-		<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
-		<br/>
-		<Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
-		<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
+<Label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Heading title', 'biz-vektor' ) ?></label><br/>
+<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+<br/>
+<Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
+<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
+<p></p>
+<p>外部ブログなどにRSS機能がある場合、RSSのURLを入力することにより一覧を表示することができます。</p>
+<p>URLの先がRSSでなかったりと正しくない場合は何も表示されません。<br/>
+RSSページの接続が遅い場合はウィジェットの表示速度もそのまま遅くなるのでURLの設定には注意を払う必要があります。</p>
+<p>※ コンテンツエリア（トップページ）への設置推奨</p>
 		<?php
 	}
 
@@ -494,6 +499,8 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 		return $instance;
 	}
 }
+
+
 
 /*-------------------------------------------*/
 /*	Side Post list widget
@@ -511,6 +518,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 	}
 
 	function widget($args, $instance) {
+
 		echo '<div class="sideWidget">';
 		echo '<h3 class="localHead">';
 		if ( isset($instance['label']) && $instance['label'] ) {
@@ -567,7 +575,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		wp_reset_postdata();
 		wp_reset_query();
 
-	} // widget($args, $instance)
+	}
 
 	function form ($instance) {
 
@@ -577,8 +585,8 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 			'post_type' => 'post',
 			'terms'     => ''
 		);
-
 		$instance = wp_parse_args((array) $instance, $defaults);
+
 
 		$post_types = get_post_types( array(
 			'public' => true,
@@ -586,31 +594,27 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 			'_builtin' => false
 		));
 		$post_types[] = 'post';
-
-
+		if( !in_array( $instance['post_type'], $post_types ) ) $post_types[] = $instance['post_type'];
 		?>
-		<?php //タイトル ?>
-		<label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
-		<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
-		<br/><br/>
+<label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
+<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+<br/><br/>
 
-		<?php //表示件数 ?>
-		<label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?>:</label><br/>
-		<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo $instance['count']; ?>" />
-		<br /><br/>
+<label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?>:</label><br/>
+<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo $instance['count']; ?>" />
+<br /><br/>
 
-		<?php //投稿タイプ ?>
-		<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('post type', 'biz-vektor') ?>:</label><br />
-		<select type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>"  >
-		<?php foreach($post_types as $posttype): ?>
-			<option value="<?php echo $posttype; ?>" <?php if($instance['post_type'] == $posttype) echo "selected"; ?> ><?php echo $posttype; ?></option>
-		<?php endforeach; ?>
-		</select>
-		</Label>
-		<br/><br/>
-		<?php // Terms ?>
-		<label for="<?php echo $this->get_field_id('terms'); ?>"><?php _e('taxonomy ID', 'biz-vektor') ?>:</label><br />
-		<input type="text" id="<?php echo $this->get_field_id('terms'); ?>" name="<?php echo $this->get_field_name('terms'); ?>" value="<?php echo esc_attr($instance['terms']) ?>" /><br />
+<label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('post type', 'biz-vektor') ?>:</label><br />
+<select type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>"  >
+<?php foreach($post_types as $posttype): ?>
+	<option value="<?php echo $posttype; ?>" <?php if($instance['post_type'] == $posttype) echo "selected"; ?> ><?php echo $posttype; ?></option>
+<?php endforeach; ?>
+</select>
+</Label>
+<br/><br/>
+
+<label for="<?php echo $this->get_field_id('terms'); ?>"><?php _e('taxonomy ID', 'biz-vektor') ?>:</label><br />
+<input type="text" id="<?php echo $this->get_field_id('terms'); ?>" name="<?php echo $this->get_field_name('terms'); ?>" value="<?php echo esc_attr($instance['terms']) ?>" /><br />
 		<?php _e('if you need filtering by term, add the term ID separate by ",".', 'biz-vektor');
 		echo "<br/>";
 		_e('if empty this area, I will do not filtering.', 'biz-vektor');
@@ -618,10 +622,9 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	}
 
+
 	function update ($new_instance, $old_instance) {
-
 		$instance = $old_instance;
-
 		$instance['count'] 		= $new_instance['count'];
 		$instance['label'] 		= $new_instance['label'];
 		$instance['post_type']	= !empty($new_instance['post_type']) ? strip_tags($new_instance['post_type']) : 'post';
