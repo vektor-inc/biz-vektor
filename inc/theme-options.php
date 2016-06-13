@@ -600,7 +600,7 @@ function get_biz_vektor_slide_body( $dummy=false ){
 }
 
 function get_biz_vektor_header_image(){
-	$biz_vektor_slider_class = (biz_vektor_slideExist()) ? ' class="flexslider"':'';
+	$biz_vektor_slider_class = (biz_vektor_slideExist()) ? ' class="flexslider '. bizVektorOptions('slider_animation') . '"':'';
 	$biz_vektor_header_image = '<div id="topMainBnr">'."\n";
 	$biz_vektor_header_image .= '<div id="topMainBnrFrame"'.$biz_vektor_slider_class.'>'."\n";
 	if(biz_vektor_slideExist()) {
