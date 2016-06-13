@@ -77,7 +77,6 @@ class WP_Widget_fbLikeBox extends WP_Widget {
 の「facebook LikeBox」で設定した内容を表示します。</p>
 <p>
 ※ テーマオプションの表示箇所の設定によって表示非表示が影響します。<br/>
-※ テーマオプションの「3PRエリアの表示設定は反映されません。<br/>
 ※ コンテンツエリア（トップページ）への設置推奨</p>
 <?php
     }
