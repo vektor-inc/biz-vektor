@@ -13,19 +13,16 @@
 /*-------------------------------------------*/
 /*	facebookLikeBox
 /*-------------------------------------------*/
-/*	Print facebook Application ID 
+/*	Print facebook Application ID
 /*-------------------------------------------*/
 /*	facebook twitter banner
-/*-------------------------------------------*/
-/*	WP_Widget_snsBnrs Class
-/*-------------------------------------------*/
-/*	WP_Widget_fbLikeBox Class
 /*-------------------------------------------*/
 /*	admin bar のメニューに追加
 /*-------------------------------------------*/
 /*	アプリケーションIDなど基本パラメーターの出力
 /*-------------------------------------------*/
 
+require_once( get_template_directory() . '/plugins/sns/widget.sns.php' );
 
 /*-------------------------------------------*/
 /*	Add OGP
@@ -301,75 +298,6 @@ function biz_vektor_snsBnrs() {
 	}
 }
 
-/*-------------------------------------------*/
-/*	WP_Widget_snsBnrs Class
-/*-------------------------------------------*/
-
-class WP_Widget_snsBnrs extends WP_Widget {
-	/** constructor */
-	public function __construct() {
-		$widget_name = biz_vektor_get_short_name().'_'.__('facebook&twitter banner', 'biz-vektor');
-		parent::__construct(
-			'snsBnrs',
-			$widget_name,
-			array( 'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ) )
-		);
-	}
-
-	/** @see WP_Widget::widget */
-	function widget($args, $instance) {
-		extract( $args );
-		if (function_exists('biz_vektor_snsBnrs')) biz_vektor_snsBnrs();
-	}
-
-	/** @see WP_Widget::update */
-	function update($new_instance, $old_instance) {
-		return $new_instance;
-	}
-
-	/** @see WP_Widget::form */
-	function form($instance) {
-	}
-
-} // class WP_Widget_snsBnrs
-
-// register WP_Widget_snsBnrs widget
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_snsBnrs");'));
-
-/*-------------------------------------------*/
-/*	WP_Widget_fbLikeBox Class
-/*-------------------------------------------*/
-
-class WP_Widget_fbLikeBox extends WP_Widget {
-	/** constructor */
-	function __construct() {
-		$widget_name = biz_vektor_get_short_name().'_facebook Page Plugin(Like Box)';
-
-		parent::__construct(
-			'fbLikeBox',
-			$widget_name,
-			array( 'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ) )
-		);
-	}
-
-	/** @see WP_Widget::widget */
-	function widget($args, $instance) {
-		extract( $args );
-		if (function_exists('biz_vektor_fbLikeBox')) biz_vektor_fbLikeBox();
-	}
-
-	/** @see WP_Widget::update */
-	function update($new_instance, $old_instance) {
-		return $new_instance;
-	}
-
-	/** @see WP_Widget::form */
-	function form($instance) {	}
-
-} // class WP_Widget_fbLikeBox
-
-// register WP_Widget_fbLikeBox widget
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_fbLikeBox");'));
 
 add_filter('biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 19, 3);
 function biz_vektor_sns_validate($output, $input, $defaults){

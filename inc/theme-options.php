@@ -448,6 +448,8 @@ function biz_vektor_print_headContact() {
 /*	Home page _ blogList（RSS）
 /*-------------------------------------------*/
 function biz_vektor_blogList($option = array('url'=>null,'label'=>null))	{
+	if( ! function_exists( 'wp_safe_remote_get' ) ) return;
+
 	if ($option['url']){ $blogRss = $option['url']; }
 	else{
 		$options = biz_vektor_get_theme_options();
@@ -457,12 +459,17 @@ function biz_vektor_blogList($option = array('url'=>null,'label'=>null))	{
 		$titlelabel = 'ブログエントリー';
 		if($option['label']){ $titlelabel = $option['label']; }
 		elseif($blogRss['rssLabelName']){ $titlelabel = esc_html($option['rssLabelName']); }
+
+		$content = wp_safe_remote_get( $blogRss );
+		if( $content['response']['code'] != 200 ) return;
+
+		$xml = @simplexml_load_string( $content['body'] );
+		if( empty( $xml ) ) return;
 ?>
 	<div id="topBlog" class="infoList">
 	<h2><?php echo $titlelabel; ?></h2>
 	<div class="rssBtn"><a href="<?php echo $blogRss ?>" id="blogRss" target="_blank">RSS</a></div>
 		<?php
-		$xml = simplexml_load_file($blogRss);
 		$count = 0;
 		echo '<ul class="entryList">';
 		if ($xml->channel->item){
