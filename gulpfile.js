@@ -29,7 +29,7 @@ gulp.task('jsmin', function () {
 });
 
 gulp.task('css_concat_min', function() {
-  return gulp.src(['css/bizvektor_common.css','js/res-vektor/res-vektor.css','js/flexslider/flexslider.css'])
+  return gulp.src(['css/bizvektor_common.css','js/res-vektor/res-vektor.css','js/FlexSlider/flexslider.css'])
     .pipe(concat('bizvektor_common.css'))
     .pipe(cssmin())
     .pipe(rename({suffix: '_min'}))
@@ -43,4 +43,4 @@ gulp.task('watch', function() {
     gulp.watch('js/biz-vektor.js', ['jsmin']);
 });
 
-gulp.task('default', ['scripts', 'jsmin', 'watch']);
+gulp.task('default', ['scripts', 'jsmin', 'watch', 'css_concat_min']);
