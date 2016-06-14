@@ -60,10 +60,11 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	}
 
 	function widget($args, $instance) {
-		if( ! is_page() || empty(get_ancestors(get_the_id(),'page')) ) return;
-		echo $args['before_widget'];
-		biz_vektor_childPageList();
-		echo $args['after_widget'];
+		if( biz_vektor_childPageList() ){
+			echo $args['before_widget'];
+			biz_vektor_childPageList();
+			echo $args['after_widget'];
+		}
 	}
 
 	function form($instance){
