@@ -67,10 +67,12 @@ function getHeadDescription() {
     } else {
         $metadescription = get_bloginfo('description');
     }
+
     global $paged;
     if ( $paged != '0'){
         $metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
     }
+    if( empty( $metadescription ) ) $metadescription = get_bloginfo('description');
     $metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
     $metadescription = apply_filters( 'metadescriptionCustom', strip_tags($metadescription) );
 

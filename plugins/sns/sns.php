@@ -87,6 +87,7 @@ function biz_vektor_ogp() {
 			$metadescription = mb_substr( strip_tags($post->post_content), 0, 240 ); // kill tags and trim 240 chara
 			$metadescription = str_replace(array("\r\n","\r","\n"), ' ', $metadescription);
 		}
+		if( empty($metadescription) ) $metadescription = getHeadDescription();
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_the_title().' | '.get_bloginfo('name').'" />'."\n";
 		$bizVektorOGP .= '<meta property="og:description" content="'.esc_html($metadescription).'" />'."\n";
 	} else {
@@ -533,7 +534,7 @@ px</dd>
 add_action('biz_vektor_admin_bar_init', 'biz_vektor_sns_admin_bar_init');
 function biz_vektor_sns_admin_bar_init(){
 	global $wp_admin_bar;
-	
+
 	$wp_admin_bar->add_menu( array(
 		// 'parent' => 'Theme options',
 		'parent' => 'bizvektor_theme_setting',
