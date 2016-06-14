@@ -10,17 +10,15 @@ if ( ( is_single() || is_page() ) && has_post_thumbnail() ) {
 } else {
 	$card_image_url = (isset($biz_vektor_options['ogpImage'])) ? $biz_vektor_options['ogpImage'] : '';
 }
-// domain
-preg_match( '/https?:\/\/(.+?)\//i', admin_url(), $match );
 // image size
-if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && $card_image_url ) :?>
-<!-- twitter card -->
+if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && $card_image_url ):
+?>
+<!-- bizvektor twitter card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:description" content="<?php (function_exists( "getHeadDescription" ))? getHeadDescription(): ''; ?>">
+<meta name="twitter:description" content="<?php echo getHeadDescription(); ?>">
 <meta name="twitter:title" content="<?php echo getHeadTitle(); ?>">
 <meta name="twitter:url" content="<?php echo $linkUrl ?>">
 <meta name="twitter:image" content="<?php echo esc_url($card_image_url);?>">
-<meta name="twitter:domain" content="<?php echo $match[1] ?>">
 <meta name="twitter:site" content="@<?php echo $biz_vektor_options['twitter'];?>">
 <!-- /twitter card -->
 <?php endif; ?>

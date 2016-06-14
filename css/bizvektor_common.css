@@ -12,6 +12,10 @@
 /*-------------------------------------------*/
 /*	.subPostListSection
 /*-------------------------------------------*/
+.flexslider.slide .flex-direction-nav li .next { right: 0; }
+
+.flexslider.slide .flex-direction-nav li .prev { left: 0; }
+
 /*-------------------------------------------*/
 /*	#eradi_ie_box
 /*-------------------------------------------*/

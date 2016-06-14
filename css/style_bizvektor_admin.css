@@ -136,3 +136,6 @@ body.rtl .image-radio-option label { float: right; margin: 0 2px 20px 30px; }
 .width-600 { width:600px; }
 .width-500 { width:500px; }
 .width-800 { width:800px; }
+
+.option.Advanced { display: none }
+.wrap.debug_mode .option.Advanced { display: block; }

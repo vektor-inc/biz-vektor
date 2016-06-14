@@ -40,7 +40,7 @@
 /*	Related posts
 /*-------------------------------------------*/
 if ( get_post_type() == 'post' ) :
-Global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 // Get now post's tag(terms)
 if (isset($biz_vektor_options['postRelatedCount']) && $biz_vektor_options['postRelatedCount'] ) {
 $terms = get_the_terms($post->ID,'post_tag');
@@ -87,7 +87,7 @@ wp_reset_postdata();
 /*	ad_related_after
 /*-------------------------------------------*/
 if ( get_post_type() == 'post' ) :
-Global $biz_vektor_options;
+$biz_vektor_options = biz_vektor_get_theme_options();
 if (isset($biz_vektor_options['ad_related_after']) && $biz_vektor_options['ad_related_after']) {
 	echo '<div class="sectionBox">'.apply_filters('widget_text',$biz_vektor_options['ad_related_after']).'</div>';
 }

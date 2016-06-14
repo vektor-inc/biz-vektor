@@ -24,8 +24,7 @@
 /*-------------------------------------------*/
 function biz_vektor_theme_options_render_page() {
 	if(isset($_POST['bizvektor_action_mode'])){ biz_vektor_them_edit_function($_POST); }
-	global $options_bizvektor;
-	$options_bizvektor = $options = biz_vektor_get_theme_options();
+	$options = biz_vektor_get_theme_options();
 	$biz_vektor_name = get_biz_vektor_name();
  ?>
 	<div class="wrap biz_vektor_options">
@@ -45,10 +44,10 @@ function biz_vektor_theme_options_render_page() {
 		</h2>
 		<div class="bv_version">Version <?php echo BizVektor_Theme_Version; ?></div>
 		<?php settings_errors(); ?>
-		
+
 		<?php if ( function_exists( 'biz_vektor_activation_information' ) ) {
 		biz_vektor_activation_information();
-		} else { 
+		} else {
 			$iframeUrl = '//bizvektor.com/info-admin/';
 			//global edition
 			if ( 'ja' != get_locale() ) {
@@ -65,7 +64,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 		<div id="main-content">
 		<div class="message_intro">
 	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
-	<?php printf(__('Thank you for using %s.', 'biz-vektor'),$biz_vektor_name);?> 
+	<?php printf(__('Thank you for using %s.', 'biz-vektor'),$biz_vektor_name);?>
 	<?php printf(__('You can change basic design settings from %s', 'biz-vektor'),$customizer_link); ?> <br />
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
 		</div>
@@ -148,7 +147,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<!-- Head logo -->
 	<tr>
 	<th scope="row"><?php _ex('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
-	<td><input type="text" name="biz_vektor_theme_options[head_logo]" id="head_logo" value="<?php echo esc_attr( $options['head_logo'] ); ?>" style="width:60%;" /> 
+	<td><input type="text" name="biz_vektor_theme_options[head_logo]" id="head_logo" value="<?php echo esc_attr( $options['head_logo'] ); ?>" style="width:60%;" />
 	<button id="media_head_logo" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button><br />
 	<?php _e('Recommended : less than 60px height', 'biz-vektor') ;?><br />
 	</td>
@@ -156,7 +155,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<!-- Footer logo -->
 	<tr>
 	<th scope="row"><?php _ex('Footer logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
-	<td><input type="text" name="biz_vektor_theme_options[foot_logo]" id="foot_logo" value="<?php echo esc_attr( $options['foot_logo'] ); ?>" style="width:60%;" /> 
+	<td><input type="text" name="biz_vektor_theme_options[foot_logo]" id="foot_logo" value="<?php echo esc_attr( $options['foot_logo'] ); ?>" style="width:60%;" />
 	<button id="media_foot_logo" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button><br />
 	<?php _e('Recommended : 180-250px width', 'biz-vektor') ;?><br />
 	</td>
@@ -213,7 +212,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="sanserif" <?php echo ($options['font_menu'] == 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
 	<td>
 	</tr>
-	<?php 
+	<?php
 	if ( 'ja' != get_locale() ) { ?>
 		<!-- Fonts -->
 		<tr>
@@ -222,12 +221,12 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 			</th>
 			<td>
 				<select name="biz_vektor_theme_options[global_font]">
-					<?php 
+					<?php
 					//getting $fonts
 					require get_template_directory() . '/inc/fonts-list.php';
 					$selected_font = $options['global_font'];
 
-					foreach ( $fonts as $value => $label ) { 
+					foreach ( $fonts as $value => $label ) {
 						$selected = ( $selected_font == $value ) ? ' selected' : ''; ?>
 						<option value="<?php echo $value; ?>"<?php echo $selected; ?>><?php echo $label; ?></option><?php
 					}
@@ -242,7 +241,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<th><?php _e('Deployment of the sidebar menu', 'biz-vektor') ;?></th>
 	<td>
 		<p><?php _e('If the site hierarchy is deep, you can choose to hide this menu hierarchy other than the Page you are currently viewing.', 'biz-vektor');?></p>
-	<?php 
+	<?php
 		if(!isset($options['side_child_display'])){ $options['side_child_display'] = 'side_child_display'; }
 	?>
 	<label><input type="radio" name="biz_vektor_theme_options[side_child_display]" value="side_child_display" <?php echo ($options['side_child_display'] != 'side_child_hidden')? 'checked' : ''; ?> > <?php _e('Display', 'biz-vektor'); ?></label>
@@ -256,7 +255,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<tr>
 	<th><?php _e('Favicon Setting', 'biz-vektor'); ?></th>
 	<?php if( !isset( $options['favicon'] ) ){ $options['favicon'] = ''; } ?>
-	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
+	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" />
 	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
 	<p><?php _e('Please upload a .ico file.', 'biz-vektor') ; ?></p>
 	</td>
@@ -265,7 +264,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<!-- Ie8Warning -->
 	<tr>
 	<th><?php _e('IE8 Warning message', 'biz-vektor'); ?></th>
-	<td><label><input type="checkbox" name="biz_vektor_theme_options[enableie8Warning]" id="ie8warning" value="true" <?php echo (isset($options['enableie8Warning']) && $options['enableie8Warning'])? 'checked': ''; ?> /> 
+	<td><label><input type="checkbox" name="biz_vektor_theme_options[enableie8Warning]" id="ie8warning" value="true" <?php echo (isset($options['enableie8Warning']) && $options['enableie8Warning'])? 'checked': ''; ?> />
 	<span><?php _e('Display a warning message about Internet Explorer 8', 'biz-vektor'); ?></span></label>
 	</td>
 	</tr>
@@ -381,13 +380,13 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 <dt><?php _e('Image (Desktop version)', 'biz-vektor') ;?></dt>
 <dd>
 <span class="mediaSet">
-<input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image]" class="media_text" id="pr<?php echo $i; ?>_image" value="<?php echo esc_attr( $options['pr'.$i.'_image'] ); ?>" /> 
+<input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image]" class="media_text" id="pr<?php echo $i; ?>_image" value="<?php echo esc_attr( $options['pr'.$i.'_image'] ); ?>" />
 <button id="media_pr<?php echo $i; ?>_image" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button></span>
 <?php _e('310px width is recommended.', 'biz-vektor') ;?></dd>
 <dt><?php _e('Image (Smartphone version)', 'biz-vektor') ;?></dt>
 <dd>
 <span class="mediaSet">
-<input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image_s]" class="media_text" id="pr<?php echo $i; ?>_image_s" value="<?php echo esc_attr( $options['pr'.$i.'_image_s'] ); ?>" /> 
+<input type="text" name="biz_vektor_theme_options[pr<?php echo $i; ?>_image_s]" class="media_text" id="pr<?php echo $i; ?>_image_s" value="<?php echo esc_attr( $options['pr'.$i.'_image_s'] ); ?>" />
 <button id="media_pr<?php echo $i; ?>_image_s" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button></span>
 <?php _e('120px by 120px is recommended.', 'biz-vektor') ;?></dd>
 </dl>
@@ -411,18 +410,18 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php if ( isset( $options_bizvektor['infoLabelName'] ) && ! empty( $options_bizvektor['infoLabelName'] ) 
-    		&& isset( $options_bizvektor['postLabelName'] ) && ! empty( $options_bizvektor['postLabelName'] ) ) {
+<h3><?php if ( isset( $options['infoLabelName'] ) && ! empty( $options['infoLabelName'] )
+    		&& isset( $options['postLabelName'] ) && ! empty( $options['postLabelName'] ) ) {
 
-			echo esc_html( $options_bizvektor['infoLabelName'] ) . ' & ' . esc_html( $options_bizvektor['postLabelName'] );
-    	} elseif ( isset( $options_bizvektor['infoLabelName'] ) && ! empty( $options_bizvektor['infoLabelName'] ) ) {
+			echo esc_html( $options['infoLabelName'] ) . ' & ' . esc_html( $options['postLabelName'] );
+    	} elseif ( isset( $options['infoLabelName'] ) && ! empty( $options['infoLabelName'] ) ) {
 
     		echo esc_html( bizVektorOptions('infoLabelName') ) . ' & ' . _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' );
-    	} elseif ( isset( $options_bizvektor['postLabelName'] ) && ! empty( $options_bizvektor['postLabelName'] ) ) {
+    	} elseif ( isset( $options['postLabelName'] ) && ! empty( $options['postLabelName'] ) ) {
 
-    		echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' ) . ' & ' . esc_html( $options_bizvektor['postLabelName'] );
+    		echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' ) . ' & ' . esc_html( $options['postLabelName'] );
     	} else {
-			echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' ); 
+			echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' );
     	} ?></h3>
 
 <?php
@@ -436,7 +435,7 @@ $postLabelName = esc_html( bizVektorOptions('postLabelName'));
 	$plugin_link = '<a href="'.get_admin_url().'plugins.php" target="_blank">'._x('Plugins page','no link', 'biz-vektor').'</a>';
 	?>
   <?php _e('The full text will be displayed if the plug-in [WP Multibyte Patch] is not activated (Japanese version).', 'biz-vektor'); ?>
-	
+
 	<?php printf(__('Please enable [WP Multibyte Patch] from the %s.', 'biz-vektor'), $plugin_link ); ?><br />
 * <?php _e('<span class="alert">Featured image of the article</span> is displayed.', 'biz-vektor') ;?><br />
 	<?php _e('You can set the &quot;featured image&quot;, from the bottom right widget area of particular article edit screen.', 'biz-vektor') ;?><br />
@@ -650,8 +649,8 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 } ?>
 
 <?php
-	if( !isset( $options["slider_slidespeed"] ) || !$options["slider_slidespeed"] ) $options["slider_slidespeed"] = 5000; 
-	if( !isset( $options["slider_animation"] ) ) $options["slider_animation"] = "fade"; 
+	if( !isset( $options["slider_slidespeed"] ) || !$options["slider_slidespeed"] ) $options["slider_slidespeed"] = 5000;
+	if( !isset( $options["slider_animation"] ) ) $options["slider_animation"] = "fade";
 ?>
 <tr>
 	<th><label for="bv_sliderspeed"><?php _e("Slider speed", "biz-vektor"); ?></label></th>
@@ -675,9 +674,8 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 
 </form>
 
-<?php if(false){ ?>
 <?php $resetkey = rand(1000,9999); ?>
-<div class="option Advanced"><form action="" method="post">
+<div class="option Advanced" ><form action="" method="post">
 <?php settings_fields( 'biz_vektor_options' ); ?>
 <input type="hidden" name="bizvektor_action_mode" value="reset" />
 <input type="hidden" name="bizvektor_reset_key"  value="<?php echo $resetkey; ?>" />
@@ -691,9 +689,9 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 <div class="optionNav bottomNav">
 <ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
 </div>
-<?php } ?>
 
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
-<?php
-}
+<script type="text/javascript">
+</script>
+<?php } ?>
