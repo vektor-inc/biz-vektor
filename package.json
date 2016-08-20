@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "BizVektor\r ==========\r Free WordPress Theme for business\r * * *\r ## Theme URI\r http://bizvektor.com\r ## Description\r BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイトを構築する事が出来ます。また、テーマ拡張プラグインによって新たに選択出来るデザインを増やす事が出来ます。\r ## Author\r Vektor,Inc.\r ## Author URI\r http://www.vektor-inc.co.jp/\r ## Version\r 0.11.3.0\r ## License\r GNU General Public License",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kurudrive/biz-vektor.git"
@@ -17,19 +14,12 @@
   },
   "homepage": "https://github.com/kurudrive/biz-vektor",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.4.0",
-    "grunt-contrib-cssmin": "^0.9.0",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-uglify": "^0.4.0",
-    "grunt-contrib-watch": "^0.6.1"
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2"
   },
-  "dependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.4.0",
-    "grunt-contrib-cssmin": "^0.9.0",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-uglify": "^0.4.1",
-    "grunt-contrib-watch": "^0.6.1"
-  }
+  "dependencies": {}
 }

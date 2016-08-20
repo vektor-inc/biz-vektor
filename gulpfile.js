@@ -9,9 +9,7 @@ var concat = require('gulp-concat');
 var jsmin = require('gulp-jsmin');
 // エラーでも監視を続行させる
 var plumber = require('gulp-plumber');
-// sudo npm install gulp.spritesmith --save-dev
-var spritesmith = require('gulp.spritesmith');
-// http://blog.e-riverstyle.com/2014/02/gulpspritesmithcss-spritegulp.html
+
 
 // ファイル結合
 gulp.task('scripts', function() {
