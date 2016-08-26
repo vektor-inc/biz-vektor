@@ -44,6 +44,10 @@
 /*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
+.content .infoList { position: relative; margin-bottom: 30px; }
+
+.content .infoList h2, .content .infoList h2:first-child { margin-bottom: 0px; }
+
 .content .infoList .infoListBox { clear: both; }
 
 .entry-meta .entry-meta-items:before { content: " | "; }
