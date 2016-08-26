@@ -186,7 +186,7 @@ function biz_vektor_maincontent_widgetarea_init() {
 		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
 		'before_widget' => '<div>',
 		'after_widget' => '</div>',
-		'before_title' => '<h2 class="localHead">',
+		'before_title' => '<h2>',
 		'after_title' => '</h2>',
 	) );
 }

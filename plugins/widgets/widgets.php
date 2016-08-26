@@ -557,20 +557,10 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	function widget($args, $instance) {
 
-		echo '<div class="sideWidget">';
-		echo '<h3 class="localHead">';
-		if ( isset($instance['label']) && $instance['label'] ) {
-			echo $instance['label'];
-		} else {
-			_e('Recent Posts', 'biz-vektor' );
-		}
-		echo '</h3>';
-		echo '<div class="ttBoxSection">';
-
 		$count 		= ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
 		$post_type 	= ( isset($instance['post_type']) && $instance['post_type'] ) ? $instance['post_type'] : 'post';
 
-		$args = array(
+		$query_args = array(
 			'post_type' => $post_type,
 			'posts_per_page' => $count,
 			'paged' => 1,
@@ -579,20 +569,55 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		if(isset($instance['terms']) && $instance['terms']){
 			$taxonomies = get_taxonomies(array());
 
-			$args['tax_query'] = array(
+			$query_args['tax_query'] = array(
 				'relation' => 'OR',
 			);
 
 			foreach($taxonomies as $taxonomy){
-			$args['tax_query'][] = array(
+			$query_args['tax_query'][] = array(
 					'taxonomy' => $taxonomy,
 					'field' => 'id',
 					'terms' => $instance['terms']
 				);
 			}
 		}
-		$posts = get_posts( $args );
+		$posts = get_posts( $query_args );
+
+		echo $args['before_widget'];
+
+		$title_html = '';
+		if ( isset( $instance['label'] ) && $instance['label'] ) {
+			$title_html .= $args['before_title'];
+			$title_html .= $instance['label'];
+			$title_html .= $args['after_title'];
+		}
+
 		if( ! empty( $posts ) ):
+			if ( !isset( $instance['format'] ) || !$instance['format'] ){
+				echo $title_html;
+				$this->display_pattern_0($posts);
+			} elseif ( $instance['format'] == '1' ) {
+				echo '<div class="infoList">';
+				echo $title_html;
+				$this->display_pattern_1($posts);
+				echo '</div>';
+			} elseif ( $instance['format'] == '2' ) {
+				echo '<div class="infoList">';
+				echo $title_html;
+				$this->display_pattern_2($posts);
+				echo '</div>';
+			}
+		endif;
+
+		echo $args['after_widget'];
+
+		wp_reset_postdata();
+		wp_reset_query();
+
+	}
+
+	function display_pattern_0($posts){
+		echo '<div class="ttBoxSection">';
 		foreach( $posts as $post ): ?>
 				<div class="ttBox" id="post-<?php the_ID($post->ID); ?>">
 				<?php if ( has_post_thumbnail($post->ID)) : ?>
@@ -606,13 +631,25 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 				</div>
 			<?php
 		endforeach;
-		endif;
-
 		echo '</div>';
-		echo '</div>';
-		wp_reset_postdata();
-		wp_reset_query();
+	}
 
+	function display_pattern_1($posts){
+		global $post;
+		echo '<ul class="entryList">';
+		foreach( $posts as $post ):
+			setup_postdata( $post );
+			get_template_part('module_loop_post');
+		endforeach;
+		echo '</ul>';
+	}
+
+	function display_pattern_2($posts){
+		global $post;
+		foreach( $posts as $post ):
+			setup_postdata( $post );
+			get_template_part('module_loop_post2');
+		endforeach;
 	}
 
 	function form ($instance) {
@@ -651,6 +688,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 </Label>
 <br/><br/>
 
+
 <label for="<?php echo $this->get_field_id('terms'); ?>"><?php _e('taxonomy ID', 'biz-vektor') ?>:</label><br />
 <input type="text" id="<?php echo $this->get_field_id('terms'); ?>" name="<?php echo $this->get_field_name('terms'); ?>" value="<?php echo esc_attr($instance['terms']) ?>" /><br />
 		<?php _e('if you need filtering by term, add the term ID separate by ",".', 'biz-vektor');
@@ -658,13 +696,28 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		_e('if empty this area, I will do not filtering.', 'biz-vektor');
 		echo "<br/><br/>";
 
-	}
+		echo _e( 'Display Format', 'biz-vektor' ); ?>:<br/>
+		<ul>
+		<?php $format = ( !isset( $instance['format'] ) || !$instance['format'] ) ? 0 : $instance['format']; ?>
+		<li><label><input type="radio" name="<?php echo $this->get_field_name( 'format' );  ?>" value="0" <?php if ( $format == 0 ) { echo 'checked'; } ?>/>
+			<?php echo __( 'Thumbnail / Title <br>( Sidebar )', 'biz-vektor' ) ; ?></label>
+		</li>
+		<li><label><input type="radio" name="<?php echo $this->get_field_name( 'format' );  ?>" value="1" <?php if ( $format == 1 ) { echo 'checked'; } ?>/>
+			<?php echo __( 'Date / Category / Title <br>( Main contents area )', 'biz-vektor' ) ; ?></label>
+		</li>
+		<li><label><input type="radio" name="<?php echo $this->get_field_name( 'format' );  ?>" value="2" <?php if ( $format == 2 ) { echo 'checked'; } ?>/>
+			<?php echo __( 'Date / Category / Title / Excerpt / Thumbnail <br>( Main contents area )', 'biz-vektor' ) ; ?></label>
+		</li>
+		</ul>
+<?php
 
+	}
 
 	function update ($new_instance, $old_instance) {
 		$instance = $old_instance;
 		$instance['count'] 		= $new_instance['count'];
 		$instance['label'] 		= $new_instance['label'];
+		$instance['format'] 	= $new_instance['format'];
 		$instance['post_type']	= !empty($new_instance['post_type']) ? strip_tags($new_instance['post_type']) : 'post';
 		$instance['terms'] 		= preg_replace('/([^0-9,]+)/', '', $new_instance['terms']);
 

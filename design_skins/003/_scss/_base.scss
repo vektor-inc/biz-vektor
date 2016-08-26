@@ -611,19 +611,12 @@ border:1px solid $color_key;padding:5px 15px 5px;}
 	}
 }
 
-.content .infoList { position:relative; }
-.content #topInfo h2,
-.content #topBlog h2	{ margin-bottom:0px; }
-.content #topInfo,
-.content #topBlog	{ margin-bottom:30px; }
-.content #topBlog.infoList ul li .infoDate	{ display:block; float:left; }
-.content #topBlog.infoList ul li .infoTxt	{ clear:none; }
-
 .content .infoList .rssBtn	{ text-align:right; position:relative;margin-top:-34px;margin-bottom:15px; }
 .content .infoList .rssBtn a	{ background-color:#000; color:#fff; font-family:'Lato', sans-serif; line-height:24px; font-weight:bold; text-decoration:none; padding:0px 10px; position:relative;}
+.content .infoList ul li .infoDate	{ display:block; float:left; }
+.content .infoList ul li .infoTxt	{ clear:none; }
 
 #topContentsBottom	{ margin-bottom:20px; }
-
 
 /*-------------------------------------------*/
 /*	post
