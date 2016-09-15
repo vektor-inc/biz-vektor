@@ -18,8 +18,8 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 			register_post_type( 'post_type_manage', // カスタム投稿タイプのスラッグ
 				array(
 					'labels' => array(
-						'name' => __( 'Custom Post Types Setting', $vk_post_type_manager_textdomain ),
-						'singular_name' => __( 'Custom Post Setting', $vk_post_type_manager_textdomain ),
+						'name' => __( 'Custom Post Type Setting', $vk_post_type_manager_textdomain ),
+						'singular_name' => __( 'Custom Post Type Setting', $vk_post_type_manager_textdomain ),
 					),
 					'public' => false,
 			        'show_ui' => true,
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
         // add meta_box
         function add_meta_box() {
         	global $vk_post_type_manager_textdomain;
-            add_meta_box( 'meta_box_post_type_manage', __('Post Type Setting',$vk_post_type_manager_textdomain), array( $this, 'add_meta_box_action' ), 'post_type_manage','normal','high' );
+            add_meta_box( 'meta_box_post_type_manage', __('Custom Post Type Setting',$vk_post_type_manager_textdomain), array( $this, 'add_meta_box_action' ), 'post_type_manage','normal','high' );
         }
         function add_meta_box_action(){
         	global $vk_post_type_manager_textdomain;
@@ -71,8 +71,8 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 		    wp_nonce_field( wp_create_nonce(__FILE__), 'noncename__post_type_manager' ); 
 
 		    // Post Type ID
-            echo '<h4>'.__('Post Type ID(Required)').'</h4>';
-            echo '<p>'.__( '20 characters or less in alphanumeric',$vk_post_type_manager_textdomain ).'</p>';
+            echo '<h4>'.__('Post Type ID(Required)', $vk_post_type_manager_textdomain).'</h4>';
+            echo '<p>'.__( '20 characters or less in alphanumeric',$vk_post_type_manager_textdomain).'</p>';
             echo '<input class="form-control" type="text" id="veu_post_type_id" name="veu_post_type_id" value="'.esc_attr($post->veu_post_type_id).'" size="30">';
             echo '<hr>';
 
@@ -99,13 +99,14 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 		    echo '<hr>';
 
 		    // Menu position
-		   	echo '<h4>'.__('Menu position(optional)').'</h4>';
+		   	echo '<h4>'.__('Menu position(optional)', $vk_post_type_manager_textdomain ).'</h4>';
+		   	echo '<p>'.__('Please enter a number.', $vk_post_type_manager_textdomain ).'</p>';
             echo '<input class="form-control" type="text" id="veu_menu_position" name="veu_menu_position" value="'.esc_attr($post->veu_menu_position).'" size="30">';
 
             echo '<hr>';
 
 			// Custom taxonomies
-			echo '<h4>'.__('Custom taxonomies(optional)').'</h4>';
+			echo '<h4>'.__('Custom taxonomies(optional)', $vk_post_type_manager_textdomain).'</h4>';
 			$taxonomies = array( 'taxonomy_id', 'taxonomy_lavel');
 			echo '<table>';
 			echo '<tr>';

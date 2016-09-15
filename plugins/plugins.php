@@ -16,7 +16,7 @@ get_template_part('plugins/dashboard_info_widget/dashboard-info-widget');
 
 get_template_part('plugins/meta_description');
 
-get_template_part('plugins/post-type-manager-config');
+// get_template_part('plugins/post-type-manager-config');
 
 function biz_vektor_footerCopyRight() 		{
 	$options = biz_vektor_get_theme_options();
