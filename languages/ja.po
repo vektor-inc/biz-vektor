@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
-"POT-Creation-Date: 2016-08-27 00:22+0900\n"
+"POT-Creation-Date: 2016-09-15 10:33+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -36,8 +36,8 @@ msgstr "&laquo; 古いコメント"
 msgid "Newer Comments &raquo;"
 msgstr "新しいコメント &raquo;"
 
-#: ../front-page.php:52 ../functions.php:514 ../module_loop_post.php:18
-#: ../module_loop_post2.php:20 ../module_topPR.php:82
+#: ../front-page.php:52 ../functions.php:548 ../module_loop_post.php:18
+#: ../module_loop_post2.php:20 ../module_topPR.php:82 ../page-lp.php:31
 #: ../page-no-mainfoot.php:19 ../page-onecolumn.php:20 ../page-parent.php:24
 #: ../page-parent.php:57 ../page.php:14 ../single-info.php:11
 #: ../single-info.php:19 ../single.php:15 ../single.php:34
@@ -56,69 +56,61 @@ msgstr ""
 "必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
 "ジェットを使用して、ソースコードを張り付けられます。"
 
-#: ../functions.php:135
-msgid "Sidebar(Post content only)"
-msgstr "サイドバー（投稿ページ）"
+#: ../functions.php:149
+#, php-format
+msgid "Sidebar(%s)"
+msgstr "サイドバー（%s）"
 
-#: ../functions.php:137
-msgid "This widget area appears only on the post content pages."
-msgstr ""
-"投稿コンテンツのページにのみ表示されるウィジェットです。設定がない場合はカテ"
-"ゴリーリストや問い合わせバナーなどが表示されます。非表示にしたい場合は空のテ"
-"キストウィジェットなどを設定してください。"
+#: ../functions.php:151
+#, php-format
+msgid "This widget area appears only on the %s content pages."
+msgstr "%sコンテンツのページにのみ表示されるウィジェットです。"
 
-#: ../functions.php:144
-msgid "Sidebar(Page content only)"
-msgstr "サイドバー（固定ページ）"
-
-#: ../functions.php:146
-msgid "This widget area appears only on the page content pages."
-msgstr ""
-"固定ページコンテンツのページにのみ表示されるウィジェットです。設定がない場合"
-"は子ページのリストや問い合わせバナーなどが自動的に表示されます。非表示にした"
-"い場合は空のテキストウィジェットなどを設定してください。"
-
-#: ../functions.php:153
+#: ../functions.php:162
 msgid "Sidebar(Common top)"
 msgstr "サイドバー（共通・上）"
 
-#: ../functions.php:155
+#: ../functions.php:164
 msgid "This widget area appears at top of sidebar."
 msgstr "サイドバー上部に表示されるウィジェットです。"
 
-#: ../functions.php:162
+#: ../functions.php:171
 msgid "Sidebar(Common bottom)"
 msgstr "サイドバー（共通・下）"
 
-#: ../functions.php:164
+#: ../functions.php:173
 msgid "This widget area appears at bottom of sidebar."
 msgstr "サイドバー下部に表示されるウィジェットです。"
 
-#: ../functions.php:184
+#: ../functions.php:194
 msgid "Main content(Homepage)"
 msgstr "コンテンツエリア（トップページ）"
 
-#: ../functions.php:186
+#: ../functions.php:196
 msgid "This widget area appears on the front page main content area only."
 msgstr "トップページのメインコンテンツエリア表示されるウィジェットです。"
 
-#: ../functions.php:494
+#: ../functions.php:216
+msgid "LP widget \""
+msgstr "LP ウィジェット \""
+
+#: ../functions.php:528
 msgid "Your comment is awaiting approval."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: ../functions.php:504
+#: ../functions.php:538
 msgid "Reply"
 msgstr "返信する"
 
-#: ../functions.php:528
+#: ../functions.php:562
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: ../functions.php:529
+#: ../functions.php:563
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
-#: ../functions.php:530
+#: ../functions.php:564
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
@@ -228,11 +220,11 @@ msgstr ""
 "ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
 "てみてください。"
 
-#: ../sidebar-info.php:27 ../plugins/add_post_type/widget.info.php:111
+#: ../sidebar-info.php:27 ../plugins/add_post_type/widget.info.php:92
 msgid "Yearly archives"
 msgstr "年別アーカイブ"
 
-#: ../sidebar-info.php:33 ../plugins/add_post_type/widget.info.php:117
+#: ../sidebar-info.php:33 ../plugins/add_post_type/widget.info.php:98
 msgctxt "After year"
 msgid "&nbsp;"
 msgstr "年"
@@ -1350,52 +1342,39 @@ msgstr "%s のカテゴリー"
 msgid "Meta Keywords"
 msgstr "メタキーワード"
 
-#: ../plugins/add_post_type/widget.info.php:20
-#, php-format
-msgid "Sidebar(%s content only)"
-msgstr "サイドバー（%sページ）"
-
-#: ../plugins/add_post_type/widget.info.php:22
-#, php-format
-msgid "This widget area appears only on the %s content pages."
-msgstr ""
-"%sコンテンツのページにのみ表示されるウィジェットです。設定がない場合はカテゴ"
-"リーリストなどが自動的に表示されます。非表示にしたい場合は空のテキストウィ"
-"ジェットなどを設定してください。"
-
-#: ../plugins/add_post_type/widget.info.php:37
-#: ../plugins/add_post_type/widget.info.php:59
+#: ../plugins/add_post_type/widget.info.php:18
+#: ../plugins/add_post_type/widget.info.php:40
 #, php-format
 msgid "%s category"
 msgstr "%s カテゴリー"
 
-#: ../plugins/add_post_type/widget.info.php:42
+#: ../plugins/add_post_type/widget.info.php:23
 #, php-format
 msgid "Category list of %s"
 msgstr "%s のカテゴリーリスト"
 
-#: ../plugins/add_post_type/widget.info.php:84
+#: ../plugins/add_post_type/widget.info.php:65
 #: ../plugins/widgets/widgets.php:674
 msgid "Title:"
 msgstr "タイトル:"
 
-#: ../plugins/add_post_type/widget.info.php:97
+#: ../plugins/add_post_type/widget.info.php:78
 #, php-format
 msgid "%s Yearly archives"
 msgstr "%s 年別アーカイブ"
 
-#: ../plugins/add_post_type/widget.info.php:102
+#: ../plugins/add_post_type/widget.info.php:83
 #, php-format
 msgid "Yearly archives of %s"
 msgstr "%s の年別アーカイブ"
 
-#: ../plugins/add_post_type/widget.info.php:145
+#: ../plugins/add_post_type/widget.info.php:126
 #: ../plugins/widgets/widgets.php:252
 #, php-format
 msgid "%1$s list for top"
 msgstr "トップ用_%1$s リスト"
 
-#: ../plugins/add_post_type/widget.info.php:150
+#: ../plugins/add_post_type/widget.info.php:131
 #: ../plugins/widgets/widgets.php:257
 #, php-format
 msgid "Displays recent %1$s posts."
@@ -1569,6 +1548,80 @@ msgstr "固定ページの新規追加"
 msgctxt "BizVektor admin header menu"
 msgid "Edit guide : OPEN"
 msgstr "編集ガイド : OPEN"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:21
+#: ../plugins/post-type-manager/class.post-type-manager.php:22
+#: ../plugins/post-type-manager/class.post-type-manager.php:64
+msgid "Custom Post Type Setting"
+msgstr "カスタム投稿タイプ設定"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:74
+msgid "Post Type ID(Required)"
+msgstr "カスタム投稿タイプID（必須）"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:75
+msgid "20 characters or less in alphanumeric"
+msgstr "20文字以内の半角英数字で記入してください。"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:80
+msgid "title"
+msgstr "タイトル"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:81
+msgid "editor"
+msgstr "本文"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:82
+msgid "author"
+msgstr "投稿者"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:83
+msgid "thumbnail"
+msgstr "アイキャッチ画像"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:84
+msgid "excerpt"
+msgstr "抜粋"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:85
+msgid "comments"
+msgstr "コメント"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:86
+msgid "revisions"
+msgstr "リビジョン"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:90
+msgid "Supports(Required)"
+msgstr "使用する要素（必須）"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:102
+msgid "Menu position(optional)"
+msgstr "メニューの位置（任意）"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:103
+msgid "Please enter a number."
+msgstr "数字を入力してください。数が小さい方が上に表示されます。"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:109
+msgid "Custom taxonomies(optional)"
+msgstr "カスタム分類（任意）"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:114
+msgid "Custon taxonomy name(slug)"
+msgstr "カスタム分類名（スラッグ）"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:115
+msgid "Custon taxonomy label"
+msgstr "カスタム分類名"
+
+#: ../plugins/post-type-manager/class.post-type-manager.php:185
+#, php-format
+msgid ""
+"Please save a <a href=\"%s\">permanent link configuration</a> After updating "
+"the setting."
+msgstr ""
+"設定を変更したら <a href=\"%s\">パーマリンクの設定</a> を保存してください。"
 
 #: ../plugins/seo_and_ga/seo_and_ga.php:62
 msgid ""
@@ -2149,6 +2202,31 @@ msgstr "日付/カテゴリー/タイトル<br>（コンテンツエリア）"
 msgid ""
 "Date / Category / Title / Excerpt / Thumbnail <br>( Main contents area )"
 msgstr "日付/カテゴリー/タイトル/抜粋/画像<br>（コンテンツエリア）"
+
+#, fuzzy
+#~ msgid "Custom Post Setting"
+#~ msgstr "投稿の設定"
+
+#~ msgid "Post Type Setting"
+#~ msgstr "投稿タイプ設定"
+
+#~ msgid "Sidebar(Post content only)"
+#~ msgstr "サイドバー（投稿ページ）"
+
+#~ msgid "This widget area appears only on the post content pages."
+#~ msgstr ""
+#~ "投稿コンテンツのページにのみ表示されるウィジェットです。設定がない場合はカ"
+#~ "テゴリーリストや問い合わせバナーなどが表示されます。非表示にしたい場合は空"
+#~ "のテキストウィジェットなどを設定してください。"
+
+#~ msgid "Sidebar(Page content only)"
+#~ msgstr "サイドバー（固定ページ）"
+
+#~ msgid "This widget area appears only on the page content pages."
+#~ msgstr ""
+#~ "固定ページコンテンツのページにのみ表示されるウィジェットです。設定がない場"
+#~ "合は子ページのリストや問い合わせバナーなどが自動的に表示されます。非表示に"
+#~ "したい場合は空のテキストウィジェットなどを設定してください。"
 
 #~ msgid "Header logo image"
 #~ msgstr "ヘッダーロゴ画像"

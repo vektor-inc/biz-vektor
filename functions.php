@@ -131,24 +131,33 @@ function biz_vektor_widgets_init() {
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
-		'id' => 'post-widget-area',
-		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
-		'id' => 'page-widget-area',
-		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
-		'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="localHead">',
-		'after_title' => '</h3>',
-	) );
+
+	$postTypes = get_post_types(Array('public' => true));
+	unset($postTypes['attachment']);
+
+	foreach ($postTypes as $postType) {
+
+		// Get post type name
+		/*-------------------------------------------*/
+		$post_type_object = get_post_type_object($postType);
+		if($post_type_object){
+			// Set post type name
+			$postType_name = esc_html($post_type_object->labels->name);
+
+			// Set post type widget area
+			register_sidebar( array(
+				'name' => sprintf( __( 'Sidebar(%s)', 'biz-vektor' ), $postType_name ),
+				'id' => $postType.'-widget-area',
+				'description' => sprintf( __( 'This widget area appears only on the %s content pages.', 'biz-vektor' ), $postType_name ),
+					'before_widget' => '<div class="sideWidget widget %2$s" id="%1$s">',
+					'after_widget' => '</div>',
+					'before_title' => '<h3 class="localHead">',
+					'after_title' => '</h3>',
+			) );
+		} // if($post_type_object){
+
+	} // foreach ($postTypes as $postType) {
+
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
 		'id' => 'common-side-top-widget-area',
@@ -167,6 +176,7 @@ function biz_vektor_widgets_init() {
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
+
 }
 add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
@@ -184,11 +194,35 @@ function biz_vektor_maincontent_widgetarea_init() {
 		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',
 		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
-		'before_widget' => '<div>',
+		'before_widget' => '<div id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h2>',
 		'after_title' => '</h2>',
 	) );
+
+	// LP widget area
+
+	$args = Array(
+				'post_type' => 'page',
+				'posts_per_page' => -1,
+				'meta_key' => '_wp_page_template',
+				'meta_value' => 'page-lp.php'
+	        );
+	$posts = get_posts($args);
+
+	if ( $posts ){
+		foreach ($posts as $key => $post) {
+			register_sidebar( array(
+				'name' => __( 'LP widget "', 'biz-vektor' ).esc_html($post->post_title).'"',
+				'id' => 'lp-widget-'.$post->ID,
+				'before_widget' => '<div id="%1$s">',
+				'after_widget' => '</div>',
+				'before_title' => '<h2>',
+				'after_title' => '</h2>',
+			) );
+		}	
+	}
+	wp_reset_postdata();
 }
 add_action( 'widgets_init', 'biz_vektor_maincontent_widgetarea_init' );
 

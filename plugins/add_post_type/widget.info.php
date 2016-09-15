@@ -1,6 +1,5 @@
 <?php
 
-add_action( 'widgets_init', 'biz_vektor_info_widgets_init' );
 add_action( 'widgets_init', 'biz_vektor_info_register_widgets' );
 
 
@@ -9,24 +8,6 @@ function biz_vektor_info_register_widgets(){
     register_widget("WP_Widget_infoArchives");
     register_widget("WP_Widget_top_list_info");
 }
-
-
-/*-------------------------------------------*/
-/*  widget Area init
-/*-------------------------------------------*/
-function biz_vektor_info_widgets_init() {
-    register_sidebar( array(
-        // 'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
-        'name' => sprintf( __( 'Sidebar(%s content only)', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
-        'id' => 'info-widget-area',
-        'description' => sprintf( __( 'This widget area appears only on the %s content pages.', 'biz-vektor' ), bizVektorOptions('infoLabelName') ),
-        'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="localHead">',
-        'after_title' => '</h3>',
-    ) );
-}
-
 
 /*-------------------------------------------*/
 /*  WP_Widget_infoTerms Class

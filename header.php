@@ -99,7 +99,7 @@ echo $gMenuHtml;
 
 <?php echo get_biz_vektor_header_image_home();?>
 
-<?php if (!is_front_page()) { ?>
+<?php if ( !is_front_page() && !is_page_template( 'page-lp.php' ) ) { ?>
 <?php get_template_part('module_pageTit'); ?>
 <?php get_template_part('module_panList'); ?>
 <?php } ?>
