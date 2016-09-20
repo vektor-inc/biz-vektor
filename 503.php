@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta charset="<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
 <title><?php bloginfo('name'); ?></title>
 <meta name="description" content="<?php bloginfo('desctiption'); ?>" />

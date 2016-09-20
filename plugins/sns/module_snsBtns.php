@@ -1,14 +1,14 @@
 <!-- [ .socialSet ] -->
 <?php if (is_home() || is_front_page()) {
-	$linkUrl = home_url();
-	$twitterUrl = home_url();
-} else if ( is_single() || is_archive() || ( is_page() && !is_front_page() ) ) {
-	// $twitterUrl = home_url().'/?p='.get_the_ID();
-	// URL is shortened it's id, but perm link because it does not count URL becomes separately
-	$twitterUrl = get_permalink();
-	$linkUrl = get_permalink();
+    $linkUrl = home_url();
+    $twitterUrl = home_url();
+} elseif (is_single() || is_archive() || (is_page() && !is_front_page())) {
+    // $twitterUrl = home_url().'/?p='.get_the_ID();
+    // URL is shortened it's id, but perm link because it does not count URL becomes separately
+    $twitterUrl = get_permalink();
+    $linkUrl = get_permalink();
 } else {
-	$linkUrl = get_permalink();
+    $linkUrl = get_permalink();
 }
 ?>
 
@@ -35,7 +35,7 @@
 <a href="https://plus.google.com/share?url=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="vk_icon_w_r_sns_google icon_sns"></span><span class="sns_txt">Google+</span></a>
 </li>
 
-<?php if ( wp_is_mobile() ) : ?>
+<?php if (wp_is_mobile()) : ?>
 <li class="sb_line sb_icon">
 <a href="line://msg/text/<?php echo getHeadTitle().' '.$linkUrl; ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
 </li>

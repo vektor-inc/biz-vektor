@@ -22,10 +22,10 @@
 
 	<div id="footMenu">
 	<div id="footMenuInner" class="innerBox">
-	<?php wp_nav_menu( array(
-		'theme_location' => 'FooterNavi',
-		'fallback_cb' => ''
-	) ); ?>
+	<?php wp_nav_menu(array(
+        'theme_location' => 'FooterNavi',
+        'fallback_cb' => '',
+    )); ?>
 	</div>
 	</div>
 
@@ -40,19 +40,19 @@
 		</dd>
 		</dl>
 		<?php
-		$footerSiteMap = '<!-- [ #footerSiteMap ] -->
+        $footerSiteMap = '<!-- [ #footerSiteMap ] -->
 		<div id="footerSiteMap">'."\n";
-		$footerSiteMap .= wp_nav_menu(
-		array(
-			'theme_location' => 'FooterSiteMap',
-			'fallback_cb' => '',
-			'echo' => false,
-		) );
-		$footerSiteMap .= '</div>
+        $footerSiteMap .= wp_nav_menu(
+        array(
+            'theme_location' => 'FooterSiteMap',
+            'fallback_cb' => '',
+            'echo' => false,
+        ));
+        $footerSiteMap .= '</div>
 		<!-- [ /#footerSiteMap ] -->'."\n";
-		$footerSiteMap = apply_filters( 'bizvektor_footerSiteMap', $footerSiteMap );
-		echo $footerSiteMap;
-		?>
+        $footerSiteMap = apply_filters('bizvektor_footerSiteMap', $footerSiteMap);
+        echo $footerSiteMap;
+        ?>
 	</div>
 	<!-- [ /#footerInner ] -->
 	</div>
@@ -69,6 +69,6 @@
 <!-- [ /#footerSection ] -->
 </div>
 <!-- [ /#wrap ] -->
-<?php wp_footer();?>
+<?php wp_footer(); ?>
 </body>
 </html>

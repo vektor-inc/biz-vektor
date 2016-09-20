@@ -14,7 +14,7 @@
 		document.getElementById('s') && document.getElementById('s').focus();
 	</script>
 
-<?php get_template_part("module_sitemap"); ?>
+<?php get_template_part('module_sitemap'); ?>
 
 </div>
 <!-- [ /#content ] -->
