@@ -25,5 +25,5 @@ before_script:
   - npm install -g
 
 script:
-  - gulp
+  - node_modules/gulp/bin/gulp.js
 
