@@ -7,12 +7,12 @@
 <!--
 	<div class="message_intro">
 		<p>
-			<?php _e('Here you can edit the advanced options.');?>
+			<?php _e('Here you can edit the advanced options.'); ?>
 		</p>
 	</div>
 -->
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
-		<?php wp_nonce_field( 'submit-sitemap', 'nonce-sitemap' ); ?>
+		<?php wp_nonce_field('submit-sitemap', 'nonce-sitemap'); ?>
 
 		<!-- [SITEMAP] -->
 		<div class="sectionBox" id="post-type">
@@ -30,7 +30,7 @@
 						<td>
 							<p>
 								<input type="text" id="types" name="types" placeholder="service,product" value="<?php echo $data['types'] ?>" />
-								&nbsp;<?php _e( '*In case you have created custom post types you can add them here, comma separated if you have several.', 'biz-vektor' ); ?>
+								&nbsp;<?php _e('*In case you have created custom post types you can add them here, comma separated if you have several.', 'biz-vektor'); ?>
 							</p>
 						</td>
 					</tr>
@@ -41,7 +41,7 @@
 						<td>
 							<p>
 								<input type="text" id="pages" name="pages" placeholder="35,1654" value="<?php echo $data['pages'] ?>" />
-								&nbsp;<?php _e( 'Enter the IDs of the pages you want to hide from the sitemap. Comma separated.', 'biz-vektor' );?>
+								&nbsp;<?php _e('Enter the IDs of the pages you want to hide from the sitemap. Comma separated.', 'biz-vektor'); ?>
 							</p>
 						</td>
 					</tr>
