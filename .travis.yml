@@ -22,8 +22,8 @@ node_js:
   - '0.10'
 
 before_script:
-  - npm install -g
+  - npm install -g gulp gulp-concat gulp-cssmin gulp-jsmin gulp-plumber gulp-rename
 
 script:
-  - node_modules/gulp/bin/gulp.js
+  - gulp
 
