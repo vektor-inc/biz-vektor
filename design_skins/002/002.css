@@ -77,13 +77,11 @@ sup,
 sub { height: 0; line-height: 1; position: relative; vertical-align: baseline; }
 sup { bottom: 1ex; }
 sub { top: .5ex; }
+input[type="date"],
+select,
 input[type="text"],
 input[type="email"],
-textarea { background: #f9f9f9; border: 1px solid #ccc; padding: 2px; font-size:12px;
-	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
- }
+textarea { background: #f9f9f9; border: 1px solid #ccc; padding: 2px; }
 a         { overflow: hidden; color:#5ead3c; }
 a:hover,
 a:active  { color:#5ead3c; text-decoration:none; }
@@ -93,15 +91,6 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
 -khtml-opacity: .60; /* Safari 1.x */
 -moz-opacity: .60; /* FF lt 1.5, Netscape */
 }
-
-/*			form
-/*-------------------------------------------*/
-form table	{ margin-top:25px; }
-form input[type=text],
-form input[type=email],
-form textarea{ position:relative; overflow:hidden; padding:5px 10px; margin:5px 5px 5px 0;}
-form input[type=radio] { width:auto; }
-form input[type=checkbox] { width:auto; }
 
 
 .adminEdit	{ clear:both; float:none; display:block; overflow:hidden;padding:0px 0px 20px; }
@@ -120,7 +109,7 @@ form input[type=checkbox] { width:auto; }
 p.form-submit input[type=submit],
 form#searchform input#searchsubmit,
 .content form input.wpcf7-submit,
-#confirm-button input { font-size:12px;line-height:110%;text-align:center;position:relative;width:auto; border: 1px solid #5ead3c; display:inline-block; overflow:hidden;position:relative;white-space:nowrap;padding:8px 20px 6px;text-decoration:none;}
+#confirm-button input { border: 1px solid #5ead3c; border-radius: 0; }
 
 a.btn,
 .linkBtn a,
@@ -521,9 +510,8 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 .sideTower .ttBoxSection .ttBox .ttBoxThumb { width: 64px; }
 .sideTower .ttBoxSection .ttBox .ttBoxThumb img { border: 1px solid #eee; }
 
-form#searchform { padding:5px 0px 5px 7px; background-color:#f3f3f3; display:block; overflow:hidden; position:relative;}
-form#searchform input#s	{ margin:0px 0px 0px 5px; padding:5px; width:70%; float:left; }
-form#searchform input#searchsubmit	{ border: 1px solid #5ead3c; background-image: none; margin:0px 10px 0px 0px; float:right; background-color:#5ead3c; width:15%; color:#fff; }
+form#searchform { background-color:#f3f3f3; }
+form#searchform input#searchsubmit	{ border: 1px solid #5ead3c; background-image: none; background-color:#5ead3c; width:auto; color:#fff; }
 
 /*-------------------------------------------*/
 /*	#pagetop
@@ -690,7 +678,7 @@ background: linear-gradient(#fcfcfc, #d5e9cc);
 #sitemapOuter	{ border:4px solid #e5e5e5; padding:20px; display:block; overflow:hidden;margin:0px auto; }
 
 .content form#searchform label { display: none; }
-.content form#searchform input#s	{ width:70%; }
+.content form#searchform input#s { width:70%; }
 
 #likeBox	{ border:1px solid #00ff00; width:100% !important; }
 .fbConnectWidgetTopmost { border:1px solid #00ff00; width:100% !important; }
@@ -745,7 +733,6 @@ background: linear-gradient(#fcfcfc, #d5e9cc);
 
 .content .child_page_block	{ width:48%; padding:0 1px; }
 .content .child_page_block.layout_odd	{ float:left; clear:both; }
-
 }
 
 /*-------------------------------------------*/
@@ -839,15 +826,15 @@ background:url(images/bg_gr_up.png) left bottom repeat-x #fff; }
 #main #container #sideTower	{ float:right; width:220px;clear:none; }
 
 body.left-sidebar #main #container .content	{ float:right; }
-body.left-sidebar #main #container #sideTower	{ float:left; }
-body.home.one-column #main #container .content		{ float:none;width:100%; }
-body.home.one-column #main #container #sideTower	{ float:none; display:none; }
+body.left-sidebar #main #container #sideTower { float:left; }
+body.home.one-column #main #container .content { float:none;width:100%; }
+body.home.one-column #main #container #sideTower { float:none; display:none; }
 
 #main #container .content.wide,
-body.left-sidebar #main #container .content.wide	{ float:none; }
+body.left-sidebar #main #container .content.wide { float:none; }
 
-form#searchform input#s	{width:110px; }
-form#searchform input#searchsubmit	{ width:30%; }
+form#searchform input#s	{width:120px; }
+form#searchform input#searchsubmit	{ width:25%; }
 .content form#searchform input#searchsubmit	{ width:25%; }
 
 #topMainBnr			{ width:100%; }

@@ -172,17 +172,8 @@ a:hover, a:active { color: #c00; }
 .assistive-text { display: none; }
 
 /*-------------------------------------------*/
-/*	form
-/*-------------------------------------------*/
-input[type="text"], input[type="email"], input[type="password"], select, textarea { background: #f9f9f9; border: 1px solid #e5e5e5; padding: 4px; box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1); -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1); }
-
-input[type="radio"], input[type="checkbox"] { margin-right: 0.5em; margin-left: 0.5em; }
-
-/*-------------------------------------------*/
 /*	Btn
 /*-------------------------------------------*/
-#searchform input[type=submit], p.form-submit input[type=submit], form#searchform input#searchsubmit, .content form input.wpcf7-submit, #confirm-button input { line-height: 110%; text-align: center; position: relative; width: auto; border: none; display: inline-block; overflow: hidden; position: relative; white-space: nowrap; padding: 8px 20px 6px; text-decoration: none; }
-
 a.btn, .linkBtn a, input[type=button], input[type=submit] { display: inline-block; overflow: hidden; margin-top: 15px; position: relative; padding: 8px 20px 6px; text-decoration: none; cursor: pointer; border: none; }
 
 a.btn.btnS, .linkBtn.linkBtnS a { padding: 5px 10px; font-size: 85.7%; }
@@ -510,16 +501,6 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 
 .content .infoList .infoListBox div.thumbImage div.thumbImageInner img { width: 98px; height: auto; border: 1px solid #e5e5e5; }
 
-/*			form
-/*-------------------------------------------*/
-.content form table { margin-top: 25px; }
-
-.content form input[type=text], .content form textarea { position: relative; overflow: hidden; padding: 5px 10px; margin: 5px 5px 5px 0px; }
-
-.content form input[type=radio] { width: auto; }
-
-.content form input[type=checkbox] { width: auto; }
-
 /*-------------------------------------------*/
 /*	#sideTower
 /*-------------------------------------------*/
@@ -549,11 +530,11 @@ html, body, #wrap { height: 100%; min-height: 100%; }
 .sideTower li.sideBnr#sideContact { margin-bottom: 10px; }
 .sideTower li.sideBnr#sideContact a { display: block; overflow: hidden; width: auto; background-color: #999; width: 220px; margin: 0px auto; text-align: center; }
 
-form#searchform { padding: 5px 0px 5px 7px; background-color: #e5e5e5; display: block; overflow: hidden; position: relative; }
+form#searchform { background-color: #e5e5e5; }
 
 form#searchform input#s { margin: 0; padding: 5px; width: 60%; float: left; }
 
-form#searchform input#searchsubmit { margin: 0px 10px 0px 0px; float: right; background-color: #ccc; width: 15%; }
+form#searchform input#searchsubmit { background-color: #ccc; width: 15%; border-radius: 0; }
 
 /*-------------------------------------------*/
 /*	#pagetop
