@@ -41,4 +41,5 @@ gulp.task('watch', function() {
     gulp.watch('js/biz-vektor.js', ['jsmin']);
 });
 
-gulp.task('default', ['scripts', 'jsmin', 'watch', 'css_concat_min']);
+gulp.task('default', ['scripts', 'jsmin', 'css_concat_min']);
+gulp.task('watch', ['scripts', 'jsmin', 'watch', 'css_concat_min']);
