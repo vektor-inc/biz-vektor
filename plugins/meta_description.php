@@ -51,6 +51,8 @@ function getHeadDescription() {
             $userObj = get_queried_object();
             $metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),esc_html($userObj->display_name) );
             $metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
+        } else if (is_search()) {
+            $metadescription = get_bloginfo('name').' '.get_bloginfo('description');
         } else {
             $postType = get_post_type();
             $metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),esc_html(get_post_type_object($postType)->labels->name) );
