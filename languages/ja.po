@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BizVektor\n"
-"POT-Creation-Date: 2016-09-15 10:33+0900\n"
+"POT-Creation-Date: 2016-09-30 09:17+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: npluras=2l plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -36,14 +36,81 @@ msgstr "&laquo; 古いコメント"
 msgid "Newer Comments &raquo;"
 msgstr "新しいコメント &raquo;"
 
-#: ../front-page.php:52 ../functions.php:548 ../module_loop_post.php:18
+#: ../design_skins/001/001_custom.php:75
+msgctxt "Default color settings"
+msgid "Default color settings"
+msgstr "Default カラー設定"
+
+#: ../design_skins/001/001_custom.php:83 ../design_skins/003/003_custom.php:76
+msgid "Keycolor"
+msgstr "キーカラー"
+
+#: ../design_skins/001/001_custom.php:88 ../design_skins/003/003_custom.php:81
+msgid "Keycolor(Light)"
+msgstr "キーカラー（明）"
+
+#: ../design_skins/001/001_custom.php:93
+msgid "Keycolor(Dark)"
+msgstr "キーカラー（暗）"
+
+#: ../design_skins/001/001_custom.php:121
+#: ../design_skins/002/002_custom.php:100 ../design_skins/003/003_custom.php:51
+msgid "Set the color from theme customizer"
+msgstr "カスタマイザーで色を設定する"
+
+#: ../design_skins/002/002_custom.php:79
+msgid "Calmly Setting"
+msgstr "Calmlyの設定"
+
+#: ../design_skins/002/002_custom.php:86
+msgctxt "Calmly color settings"
+msgid "Keycolor"
+msgstr "キーカラー"
+
+#: ../design_skins/003/003_custom.php:64
+msgid "Rebuild color setting"
+msgstr "Rebuild カラー設定"
+
+#: ../design_skins/003/003_custom.php:86
+msgid "Keycolor(VeryLight)"
+msgstr "キーカラー（薄）"
+
+#: ../design_skins/003/functions_003.php:37 ../header.php:87
+msgid "Skip menu"
+msgstr "メニューを飛ばす"
+
+#: ../front-page.php:47
+msgid ""
+"* In admin [Settings] &raquo; [Display Settings], if the front page is not "
+"set to a [page], nothing is displayed in this area."
+msgstr ""
+"※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外"
+"の場合は何も表示されません。"
+
+#: ../front-page.php:48
+msgid ""
+"* If empty, the body of a page that you set as the front page does not "
+"display anything."
+msgstr ""
+"※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
+"ん。"
+
+#: ../front-page.php:52 ../functions.php:547 ../module_loop_post.php:18
 #: ../module_loop_post2.php:20 ../module_topPR.php:82 ../page-lp.php:31
 #: ../page-no-mainfoot.php:19 ../page-onecolumn.php:20 ../page-parent.php:24
-#: ../page-parent.php:57 ../page.php:14 ../single-info.php:11
-#: ../single-info.php:19 ../single.php:15 ../single.php:34
-#: ../plugins/widgets/widgets.php:202
+#: ../page-parent.php:57 ../page.php:14 ../plugins/widgets/widgets.php:202
+#: ../single-info.php:11 ../single-info.php:19 ../single.php:15
+#: ../single.php:34
 msgid "Edit"
 msgstr "編集"
+
+#: ../front-page.php:55
+msgid "Title display settings"
+msgstr "↑ タイトルの表示設定"
+
+#: ../front-page.php:58
+msgid "Change the page to be displayed"
+msgstr "↑ 表示するページを変更する"
 
 #: ../functions.php:126
 msgid "Sidebar(Front page only)"
@@ -94,185 +161,25 @@ msgstr "トップページのメインコンテンツエリア表示されるウ
 msgid "LP widget \""
 msgstr "LP ウィジェット \""
 
-#: ../functions.php:528
+#: ../functions.php:527
 msgid "Your comment is awaiting approval."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: ../functions.php:538
+#: ../functions.php:537
 msgid "Reply"
 msgstr "返信する"
 
-#: ../functions.php:562
+#: ../functions.php:561
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: ../functions.php:563
+#: ../functions.php:562
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
-#: ../functions.php:564
+#: ../functions.php:563
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
-
-#: ../header.php:87 ../design_skins/003/functions_003.php:37
-msgid "Skip menu"
-msgstr "メニューを飛ばす"
-
-#: ../index.php:19 ../module_panList.php:80 ../module_panList.php:252
-#: ../inc/theme-options.php:142 ../inc/theme-options.php:169
-#, php-format
-msgid "Yearly Archives: %s"
-msgstr "年別アーカイブ: %s"
-
-#: ../index.php:19 ../module_panList.php:80 ../module_panList.php:252
-#: ../inc/theme-options.php:142 ../inc/theme-options.php:169
-#: ../plugins/meta_description.php:43
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr "Y年"
-
-#: ../index.php:21 ../module_panList.php:82 ../module_panList.php:255
-#: ../inc/theme-options.php:144 ../inc/theme-options.php:167
-#, php-format
-msgid "Monthly Archives: %s"
-msgstr "月別アーカイブ: %s"
-
-#: ../index.php:21 ../module_panList.php:82 ../module_panList.php:255
-#: ../inc/theme-options.php:144 ../inc/theme-options.php:167
-#: ../plugins/meta_description.php:47
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr "Y年n月"
-
-#: ../index.php:25
-msgid "Tags : "
-msgstr "タグ : "
-
-#: ../index.php:100
-msgid "No posts."
-msgstr "投稿はありません。"
-
-#: ../module_entry_meta.php:16
-msgid "Posted on"
-msgstr "投稿日"
-
-#: ../module_entry_meta.php:17
-msgid "Last updated"
-msgstr "最後の編集"
-
-#: ../module_entry_meta.php:18
-msgid "Author"
-msgstr "制作者"
-
-#: ../module_entry_meta.php:20 ../sidebar-info.php:17 ../sidebar-post.php:10
-#: ../plugins/widgets/widgets.php:400 ../plugins/widgets/widgets.php:401
-msgid "Category"
-msgstr "カテゴリー"
-
-#: ../module_mainfoot.php:15
-msgid "bt_contact.png"
-msgstr "bt_contact_ja.png"
-
-#: ../module_mainfoot.php:15 ../inc/theme-options.php:763
-msgid "Contact us by e-mail"
-msgstr "メールでお問い合わせはこちら"
-
-#: ../module_pageTit.php:50 ../module_panList.php:37
-#: ../inc/theme-options.php:180
-#, php-format
-msgid "Search Results for : %s"
-msgstr "『%s』の検索結果"
-
-#: ../module_pageTit.php:52 ../module_panList.php:35
-msgid "Not found"
-msgstr "ページが見つかりません"
-
-#: ../module_panList.php:272
-#, php-format
-msgid "Daily Archives: %s"
-msgstr "日付別アーカイブ: %s"
-
-#: ../module_panList.php:272
-msgctxt "daily archives date format"
-msgid "F jS, Y"
-msgstr "Y年n月j日"
-
-#: ../module_top_list_info.php:28 ../module_top_list_post.php:35
-#, php-format
-msgid "%s List page"
-msgstr "%s一覧"
-
-#: ../module_topPR.php:39
-#, php-format
-msgid "Image of %s"
-msgstr "%sのイメージ"
-
-#: ../module_topPR.php:63 ../page-parent.php:55
-msgctxt "Link to page"
-msgid "Read more"
-msgstr "詳しくはこちら"
-
-#: ../search.php:22
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with "
-"different keywords."
-msgstr ""
-"ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
-"てみてください。"
-
-#: ../sidebar-info.php:27 ../plugins/add_post_type/widget.info.php:92
-msgid "Yearly archives"
-msgstr "年別アーカイブ"
-
-#: ../sidebar-info.php:33 ../plugins/add_post_type/widget.info.php:98
-msgctxt "After year"
-msgid "&nbsp;"
-msgstr "年"
-
-#: ../single.php:27
-#, php-format
-msgid "<dt>Tags</dt><dd>%1$s</dd>"
-msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
-
-#: ../design_skins/001/001_custom.php:75
-msgctxt "Default color settings"
-msgid "Default color settings"
-msgstr "Default カラー設定"
-
-#: ../design_skins/001/001_custom.php:83 ../design_skins/003/003_custom.php:76
-msgid "Keycolor"
-msgstr "キーカラー"
-
-#: ../design_skins/001/001_custom.php:88 ../design_skins/003/003_custom.php:81
-msgid "Keycolor(Light)"
-msgstr "キーカラー（明）"
-
-#: ../design_skins/001/001_custom.php:93
-msgid "Keycolor(Dark)"
-msgstr "キーカラー（暗）"
-
-#: ../design_skins/001/001_custom.php:121
-#: ../design_skins/002/002_custom.php:100
-#: ../design_skins/003/003_custom.php:51
-msgid "Set the color from theme customizer"
-msgstr "カスタマイザーで色を設定する"
-
-#: ../design_skins/002/002_custom.php:79
-msgid "Calmly Setting"
-msgstr "Calmlyの設定"
-
-#: ../design_skins/002/002_custom.php:86
-msgctxt "Calmly color settings"
-msgid "Keycolor"
-msgstr "キーカラー"
-
-#: ../design_skins/003/003_custom.php:64
-msgid "Rebuild color setting"
-msgstr "Rebuild カラー設定"
-
-#: ../design_skins/003/003_custom.php:86
-msgid "Keycolor(VeryLight)"
-msgstr "キーカラー（薄）"
 
 #: ../inc/fonts-list.php:10
 msgid "Open Sans"
@@ -354,8 +261,7 @@ msgstr ""
 msgid "Settings were saved."
 msgstr "設定が保存されました。"
 
-#: ../inc/theme-ad-options.php:69
-#: ../plugins/css_customize/css-customize.php:79
+#: ../inc/theme-ad-options.php:69 ../plugins/css_customize/css-customize.php:79
 msgid "Error occured. Please try again."
 msgstr "エラーが発生しました。"
 
@@ -1226,7 +1132,39 @@ msgstr "スライドショー"
 msgid "Theme Options"
 msgstr "テーマオプション"
 
-#: ../inc/theme-options.php:187 ../plugins/meta_description.php:73
+#: ../inc/theme-options.php:142 ../inc/theme-options.php:169 ../index.php:19
+#: ../module_panList.php:80 ../module_panList.php:252
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "年別アーカイブ: %s"
+
+#: ../inc/theme-options.php:142 ../inc/theme-options.php:169 ../index.php:19
+#: ../module_panList.php:80 ../module_panList.php:252
+#: ../plugins/meta_description.php:43
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y年"
+
+#: ../inc/theme-options.php:144 ../inc/theme-options.php:167 ../index.php:21
+#: ../module_panList.php:82 ../module_panList.php:255
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "月別アーカイブ: %s"
+
+#: ../inc/theme-options.php:144 ../inc/theme-options.php:167 ../index.php:21
+#: ../module_panList.php:82 ../module_panList.php:255
+#: ../plugins/meta_description.php:47
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "Y年n月"
+
+#: ../inc/theme-options.php:180 ../module_pageTit.php:50
+#: ../module_panList.php:37
+#, php-format
+msgid "Search Results for : %s"
+msgstr "『%s』の検索結果"
+
+#: ../inc/theme-options.php:187 ../plugins/meta_description.php:75
 #, php-format
 msgid "Page of %s"
 msgstr "%sページ目"
@@ -1263,33 +1201,68 @@ msgstr ""
 msgid "bnr_contact.png"
 msgstr "bnr_contact_ja.png"
 
-#: ../plugins/meta_description.php:31 ../plugins/meta_description.php:39
+#: ../inc/theme-options.php:763 ../module_mainfoot.php:15
+msgid "Contact us by e-mail"
+msgstr "メールでお問い合わせはこちら"
+
+#: ../index.php:25
+msgid "Tags : "
+msgstr "タグ : "
+
+#: ../index.php:100
+msgid "No posts."
+msgstr "投稿はありません。"
+
+#: ../module_entry_meta.php:16
+msgid "Posted on"
+msgstr "投稿日"
+
+#: ../module_entry_meta.php:17
+msgid "Last updated"
+msgstr "最後の編集"
+
+#: ../module_entry_meta.php:18
+msgid "Author"
+msgstr "制作者"
+
+#: ../module_entry_meta.php:20 ../plugins/widgets/widgets.php:400
+#: ../plugins/widgets/widgets.php:401 ../sidebar-info.php:17
+#: ../sidebar-post.php:10
+msgid "Category"
+msgstr "カテゴリー"
+
+#: ../module_mainfoot.php:15
+msgid "bt_contact.png"
+msgstr "bt_contact_ja.png"
+
+#: ../module_pageTit.php:52 ../module_panList.php:35
+msgid "Not found"
+msgstr "ページが見つかりません"
+
+#: ../module_panList.php:272
 #, php-format
-msgid "About %s"
-msgstr "%s について。"
+msgid "Daily Archives: %s"
+msgstr "日付別アーカイブ: %s"
 
-#: ../plugins/meta_description.php:44
+#: ../module_panList.php:272
+msgctxt "daily archives date format"
+msgid "F jS, Y"
+msgstr "Y年n月j日"
+
+#: ../module_topPR.php:39
 #, php-format
-msgctxt "Yearly archive description"
-msgid "Article of %s."
-msgstr "%s 年の記事。"
+msgid "Image of %s"
+msgstr "%sのイメージ"
 
-#: ../plugins/meta_description.php:48 ../plugins/meta_description.php:52
-#: ../plugins/meta_description.php:56
+#: ../module_topPR.php:63 ../page-parent.php:55
+msgctxt "Link to page"
+msgid "Read more"
+msgstr "詳しくはこちら"
+
+#: ../module_top_list_info.php:28 ../module_top_list_post.php:35
 #, php-format
-msgctxt "Archive description"
-msgid "Article of %s."
-msgstr "%s の記事。"
-
-#: ../plugins/plugins.php:43
-msgid "Free WordPress Theme BizVektor for business"
-msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
-
-#: ../plugins/plugins.php:44
-msgctxt "footer"
-msgid "Vektor,Inc."
-msgstr ""
-"株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"
+msgid "%s List page"
+msgstr "%s一覧"
 
 #: ../plugins/add_post_type/add_post_type.php:51
 #: ../plugins/add_post_type/add_post_type.php:52
@@ -1367,6 +1340,15 @@ msgstr "%s 年別アーカイブ"
 #, php-format
 msgid "Yearly archives of %s"
 msgstr "%s の年別アーカイブ"
+
+#: ../plugins/add_post_type/widget.info.php:92 ../sidebar-info.php:27
+msgid "Yearly archives"
+msgstr "年別アーカイブ"
+
+#: ../plugins/add_post_type/widget.info.php:98 ../sidebar-info.php:33
+msgctxt "After year"
+msgid "&nbsp;"
+msgstr "年"
 
 #: ../plugins/add_post_type/widget.info.php:126
 #: ../plugins/widgets/widgets.php:252
@@ -1549,6 +1531,34 @@ msgctxt "BizVektor admin header menu"
 msgid "Edit guide : OPEN"
 msgstr "編集ガイド : OPEN"
 
+#: ../plugins/meta_description.php:31 ../plugins/meta_description.php:39
+#, php-format
+msgid "About %s"
+msgstr "%s について。"
+
+#: ../plugins/meta_description.php:44
+#, php-format
+msgctxt "Yearly archive description"
+msgid "Article of %s."
+msgstr "%s 年の記事。"
+
+#: ../plugins/meta_description.php:48 ../plugins/meta_description.php:52
+#: ../plugins/meta_description.php:58
+#, php-format
+msgctxt "Archive description"
+msgid "Article of %s."
+msgstr "%s の記事。"
+
+#: ../plugins/plugins.php:43
+msgid "Free WordPress Theme BizVektor for business"
+msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
+
+#: ../plugins/plugins.php:44
+msgctxt "footer"
+msgid "Vektor,Inc."
+msgstr ""
+"株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"
+
 #: ../plugins/post-type-manager/class.post-type-manager.php:21
 #: ../plugins/post-type-manager/class.post-type-manager.php:22
 #: ../plugins/post-type-manager/class.post-type-manager.php:64
@@ -1629,6 +1639,11 @@ msgid ""
 "(optional)."
 msgstr ""
 "このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
+
+#: ../plugins/seo_and_ga/seo_and_ga.php:63
+msgctxt "link to seo setting"
+msgid ""
+msgstr ""
 
 #: ../plugins/seo_and_ga/seo_and_ga.php:64
 #, php-format
@@ -2203,6 +2218,19 @@ msgid ""
 "Date / Category / Title / Excerpt / Thumbnail <br>( Main contents area )"
 msgstr "日付/カテゴリー/タイトル/抜粋/画像<br>（コンテンツエリア）"
 
+#: ../search.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+"ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
+"てみてください。"
+
+#: ../single.php:27
+#, php-format
+msgid "<dt>Tags</dt><dd>%1$s</dd>"
+msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
+
 #, fuzzy
 #~ msgid "Custom Post Setting"
 #~ msgstr "投稿の設定"
@@ -2273,26 +2301,6 @@ msgstr "日付/カテゴリー/タイトル/抜粋/画像<br>（コンテンツ�
 
 #~ msgid "The contact page URL"
 #~ msgstr "問い合わせページのURL"
-
-#~ msgid ""
-#~ "* In admin [Settings] &raquo; [Display Settings], if the front page is "
-#~ "not set to a [page], nothing is displayed in this area."
-#~ msgstr ""
-#~ "※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以"
-#~ "外の場合は何も表示されません。"
-
-#~ msgid ""
-#~ "* If empty, the body of a page that you set as the front page does not "
-#~ "display anything."
-#~ msgstr ""
-#~ "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されま"
-#~ "せん。"
-
-#~ msgid "Title display settings"
-#~ msgstr "↑ タイトルの表示設定"
-
-#~ msgid "Change the page to be displayed"
-#~ msgstr "↑ 表示するページを変更する"
 
 #~ msgid "Monthly archives"
 #~ msgstr "月別アーカイブ"

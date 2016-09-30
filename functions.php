@@ -309,7 +309,6 @@ function biz_vektor_set_customheader(){
 /*-------------------------------------------*/
 	require( get_template_directory() . '/inc/theme-customizer.php' );
 
-
 /*-------------------------------------------*/
 /*	Admin page _ Add style
 /*-------------------------------------------*/

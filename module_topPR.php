@@ -60,7 +60,7 @@ for ( $i = 1; $i <= 3 ;)
 			<?php if ( isset( $biz_vektor_options['pr'.$i.'_link'] ) && ! empty( $biz_vektor_options['pr'.$i.'_link'] ) ) { ?>
 				<div class="moreLink">
 					<a href="<?php echo esc_url($biz_vektor_options['pr'.$i.'_link']) ?>">
-						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+						<?php echo esc_html( apply_filters( 'read_more_txt_top_pr', _x( 'Read more', 'Link to page', 'biz-vektor' ) ) ); ?>
 					</a>
 				</div>
 			<?php } ?>
