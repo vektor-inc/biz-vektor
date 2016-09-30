@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-09-15 10:38+0900\n"
+"POT-Creation-Date: 2016-09-30 09:17+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -9,9 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: npluras=2l plural=n != 1;\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_ex;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-KeywordsList: __;_e;_ex;_x:1,2c;_ex:1,2c;esc_html_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -35,13 +36,76 @@ msgstr ""
 msgid "Newer Comments &raquo;"
 msgstr ""
 
-#: ../front-page.php:52 ../functions.php:548 ../module_loop_post.php:18
+#: ../design_skins/001/001_custom.php:75
+msgctxt "Default color settings"
+msgid "Default color settings"
+msgstr ""
+
+#: ../design_skins/001/001_custom.php:83 ../design_skins/003/003_custom.php:76
+msgid "Keycolor"
+msgstr ""
+
+#: ../design_skins/001/001_custom.php:88 ../design_skins/003/003_custom.php:81
+msgid "Keycolor(Light)"
+msgstr ""
+
+#: ../design_skins/001/001_custom.php:93
+msgid "Keycolor(Dark)"
+msgstr ""
+
+#: ../design_skins/001/001_custom.php:121
+#: ../design_skins/002/002_custom.php:100 ../design_skins/003/003_custom.php:51
+msgid "Set the color from theme customizer"
+msgstr ""
+
+#: ../design_skins/002/002_custom.php:79
+msgid "Calmly Setting"
+msgstr ""
+
+#: ../design_skins/002/002_custom.php:86
+msgctxt "Calmly color settings"
+msgid "Keycolor"
+msgstr ""
+
+#: ../design_skins/003/003_custom.php:64
+msgid "Rebuild color setting"
+msgstr ""
+
+#: ../design_skins/003/003_custom.php:86
+msgid "Keycolor(VeryLight)"
+msgstr ""
+
+#: ../design_skins/003/functions_003.php:37 ../header.php:87
+msgid "Skip menu"
+msgstr ""
+
+#: ../front-page.php:47
+msgid ""
+"* In admin [Settings] &raquo; [Display Settings], if the front page is not "
+"set to a [page], nothing is displayed in this area."
+msgstr ""
+
+#: ../front-page.php:48
+msgid ""
+"* If empty, the body of a page that you set as the front page does not "
+"display anything."
+msgstr ""
+
+#: ../front-page.php:52 ../functions.php:547 ../module_loop_post.php:18
 #: ../module_loop_post2.php:20 ../module_topPR.php:82 ../page-lp.php:31
 #: ../page-no-mainfoot.php:19 ../page-onecolumn.php:20 ../page-parent.php:24
-#: ../page-parent.php:57 ../page.php:14 ../single-info.php:11
-#: ../single-info.php:19 ../single.php:15 ../single.php:34
-#: ../plugins/widgets/widgets.php:202
+#: ../page-parent.php:57 ../page.php:14 ../plugins/widgets/widgets.php:202
+#: ../single-info.php:11 ../single-info.php:19 ../single.php:15
+#: ../single.php:34
 msgid "Edit"
+msgstr ""
+
+#: ../front-page.php:55
+msgid "Title display settings"
+msgstr ""
+
+#: ../front-page.php:58
+msgid "Change the page to be displayed"
 msgstr ""
 
 #: ../functions.php:126
@@ -90,182 +154,24 @@ msgstr ""
 msgid "LP widget \""
 msgstr ""
 
-#: ../functions.php:528
+#: ../functions.php:527
 msgid "Your comment is awaiting approval."
 msgstr ""
 
-#: ../functions.php:538
+#: ../functions.php:537
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:562
+#: ../functions.php:561
 msgid "Navigation"
 msgstr ""
 
-#: ../functions.php:563
+#: ../functions.php:562
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr ""
 
-#: ../functions.php:564
+#: ../functions.php:563
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../header.php:87 ../design_skins/003/functions_003.php:37
-msgid "Skip menu"
-msgstr ""
-
-#: ../index.php:19 ../module_panList.php:80 ../module_panList.php:252
-#: ../inc/theme-options.php:142 ../inc/theme-options.php:169
-#, php-format
-msgid "Yearly Archives: %s"
-msgstr ""
-
-#: ../index.php:19 ../module_panList.php:80 ../module_panList.php:252
-#: ../inc/theme-options.php:142 ../inc/theme-options.php:169
-#: ../plugins/meta_description.php:43
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: ../index.php:21 ../module_panList.php:82 ../module_panList.php:255
-#: ../inc/theme-options.php:144 ../inc/theme-options.php:167
-#, php-format
-msgid "Monthly Archives: %s"
-msgstr ""
-
-#: ../index.php:21 ../module_panList.php:82 ../module_panList.php:255
-#: ../inc/theme-options.php:144 ../inc/theme-options.php:167
-#: ../plugins/meta_description.php:47
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: ../index.php:25
-msgid "Tags : "
-msgstr ""
-
-#: ../index.php:100
-msgid "No posts."
-msgstr ""
-
-#: ../module_entry_meta.php:16
-msgid "Posted on"
-msgstr ""
-
-#: ../module_entry_meta.php:17
-msgid "Last updated"
-msgstr ""
-
-#: ../module_entry_meta.php:18
-msgid "Author"
-msgstr ""
-
-#: ../module_entry_meta.php:20 ../sidebar-info.php:17 ../sidebar-post.php:10
-#: ../plugins/widgets/widgets.php:400 ../plugins/widgets/widgets.php:401
-msgid "Category"
-msgstr ""
-
-#: ../module_mainfoot.php:15
-msgid "bt_contact.png"
-msgstr ""
-
-#: ../module_mainfoot.php:15 ../inc/theme-options.php:763
-msgid "Contact us by e-mail"
-msgstr ""
-
-#: ../module_pageTit.php:50 ../module_panList.php:37
-#: ../inc/theme-options.php:180
-#, php-format
-msgid "Search Results for : %s"
-msgstr ""
-
-#: ../module_pageTit.php:52 ../module_panList.php:35
-msgid "Not found"
-msgstr ""
-
-#: ../module_panList.php:272
-#, php-format
-msgid "Daily Archives: %s"
-msgstr ""
-
-#: ../module_panList.php:272
-msgctxt "daily archives date format"
-msgid "F jS, Y"
-msgstr ""
-
-#: ../module_top_list_info.php:28 ../module_top_list_post.php:35
-#, php-format
-msgid "%s List page"
-msgstr ""
-
-#: ../module_topPR.php:39
-#, php-format
-msgid "Image of %s"
-msgstr ""
-
-#: ../module_topPR.php:63 ../page-parent.php:55
-msgctxt "Link to page"
-msgid "Read more"
-msgstr ""
-
-#: ../search.php:22
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with "
-"different keywords."
-msgstr ""
-
-#: ../sidebar-info.php:27 ../plugins/add_post_type/widget.info.php:92
-msgid "Yearly archives"
-msgstr ""
-
-#: ../sidebar-info.php:33 ../plugins/add_post_type/widget.info.php:98
-msgctxt "After year"
-msgid "&nbsp;"
-msgstr ""
-
-#: ../single.php:27
-#, php-format
-msgid "<dt>Tags</dt><dd>%1$s</dd>"
-msgstr ""
-
-#: ../design_skins/001/001_custom.php:75
-msgctxt "Default color settings"
-msgid "Default color settings"
-msgstr ""
-
-#: ../design_skins/001/001_custom.php:83 ../design_skins/003/003_custom.php:76
-msgid "Keycolor"
-msgstr ""
-
-#: ../design_skins/001/001_custom.php:88 ../design_skins/003/003_custom.php:81
-msgid "Keycolor(Light)"
-msgstr ""
-
-#: ../design_skins/001/001_custom.php:93
-msgid "Keycolor(Dark)"
-msgstr ""
-
-#: ../design_skins/001/001_custom.php:121
-#: ../design_skins/002/002_custom.php:100
-#: ../design_skins/003/003_custom.php:51
-msgid "Set the color from theme customizer"
-msgstr ""
-
-#: ../design_skins/002/002_custom.php:79
-msgid "Calmly Setting"
-msgstr ""
-
-#: ../design_skins/002/002_custom.php:86
-msgctxt "Calmly color settings"
-msgid "Keycolor"
-msgstr ""
-
-#: ../design_skins/003/003_custom.php:64
-msgid "Rebuild color setting"
-msgstr ""
-
-#: ../design_skins/003/003_custom.php:86
-msgid "Keycolor(VeryLight)"
 msgstr ""
 
 #: ../inc/fonts-list.php:10
@@ -345,8 +251,7 @@ msgstr ""
 msgid "Settings were saved."
 msgstr ""
 
-#: ../inc/theme-ad-options.php:69
-#: ../plugins/css_customize/css-customize.php:79
+#: ../inc/theme-ad-options.php:69 ../plugins/css_customize/css-customize.php:79
 msgid "Error occured. Please try again."
 msgstr ""
 
@@ -1162,7 +1067,39 @@ msgstr ""
 msgid "Theme Options"
 msgstr ""
 
-#: ../inc/theme-options.php:187 ../plugins/meta_description.php:73
+#: ../inc/theme-options.php:142 ../inc/theme-options.php:169 ../index.php:19
+#: ../module_panList.php:80 ../module_panList.php:252
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../inc/theme-options.php:142 ../inc/theme-options.php:169 ../index.php:19
+#: ../module_panList.php:80 ../module_panList.php:252
+#: ../plugins/meta_description.php:43
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: ../inc/theme-options.php:144 ../inc/theme-options.php:167 ../index.php:21
+#: ../module_panList.php:82 ../module_panList.php:255
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../inc/theme-options.php:144 ../inc/theme-options.php:167 ../index.php:21
+#: ../module_panList.php:82 ../module_panList.php:255
+#: ../plugins/meta_description.php:47
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: ../inc/theme-options.php:180 ../module_pageTit.php:50
+#: ../module_panList.php:37
+#, php-format
+msgid "Search Results for : %s"
+msgstr ""
+
+#: ../inc/theme-options.php:187 ../plugins/meta_description.php:75
 #, php-format
 msgid "Page of %s"
 msgstr ""
@@ -1197,31 +1134,67 @@ msgstr ""
 msgid "bnr_contact.png"
 msgstr ""
 
-#: ../plugins/meta_description.php:31 ../plugins/meta_description.php:39
+#: ../inc/theme-options.php:763 ../module_mainfoot.php:15
+msgid "Contact us by e-mail"
+msgstr ""
+
+#: ../index.php:25
+msgid "Tags : "
+msgstr ""
+
+#: ../index.php:100
+msgid "No posts."
+msgstr ""
+
+#: ../module_entry_meta.php:16
+msgid "Posted on"
+msgstr ""
+
+#: ../module_entry_meta.php:17
+msgid "Last updated"
+msgstr ""
+
+#: ../module_entry_meta.php:18
+msgid "Author"
+msgstr ""
+
+#: ../module_entry_meta.php:20 ../plugins/widgets/widgets.php:400
+#: ../plugins/widgets/widgets.php:401 ../sidebar-info.php:17
+#: ../sidebar-post.php:10
+msgid "Category"
+msgstr ""
+
+#: ../module_mainfoot.php:15
+msgid "bt_contact.png"
+msgstr ""
+
+#: ../module_pageTit.php:52 ../module_panList.php:35
+msgid "Not found"
+msgstr ""
+
+#: ../module_panList.php:272
 #, php-format
-msgid "About %s"
+msgid "Daily Archives: %s"
 msgstr ""
 
-#: ../plugins/meta_description.php:44
+#: ../module_panList.php:272
+msgctxt "daily archives date format"
+msgid "F jS, Y"
+msgstr ""
+
+#: ../module_topPR.php:39
 #, php-format
-msgctxt "Yearly archive description"
-msgid "Article of %s."
+msgid "Image of %s"
 msgstr ""
 
-#: ../plugins/meta_description.php:48 ../plugins/meta_description.php:52
-#: ../plugins/meta_description.php:56
+#: ../module_topPR.php:63 ../page-parent.php:55
+msgctxt "Link to page"
+msgid "Read more"
+msgstr ""
+
+#: ../module_top_list_info.php:28 ../module_top_list_post.php:35
 #, php-format
-msgctxt "Archive description"
-msgid "Article of %s."
-msgstr ""
-
-#: ../plugins/plugins.php:43
-msgid "Free WordPress Theme BizVektor for business"
-msgstr ""
-
-#: ../plugins/plugins.php:44
-msgctxt "footer"
-msgid "Vektor,Inc."
+msgid "%s List page"
 msgstr ""
 
 #: ../plugins/add_post_type/add_post_type.php:51
@@ -1297,6 +1270,15 @@ msgstr ""
 #: ../plugins/add_post_type/widget.info.php:83
 #, php-format
 msgid "Yearly archives of %s"
+msgstr ""
+
+#: ../plugins/add_post_type/widget.info.php:92 ../sidebar-info.php:27
+msgid "Yearly archives"
+msgstr ""
+
+#: ../plugins/add_post_type/widget.info.php:98 ../sidebar-info.php:33
+msgctxt "After year"
+msgid "&nbsp;"
 msgstr ""
 
 #: ../plugins/add_post_type/widget.info.php:126
@@ -1478,6 +1460,33 @@ msgctxt "BizVektor admin header menu"
 msgid "Edit guide : OPEN"
 msgstr ""
 
+#: ../plugins/meta_description.php:31 ../plugins/meta_description.php:39
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../plugins/meta_description.php:44
+#, php-format
+msgctxt "Yearly archive description"
+msgid "Article of %s."
+msgstr ""
+
+#: ../plugins/meta_description.php:48 ../plugins/meta_description.php:52
+#: ../plugins/meta_description.php:58
+#, php-format
+msgctxt "Archive description"
+msgid "Article of %s."
+msgstr ""
+
+#: ../plugins/plugins.php:43
+msgid "Free WordPress Theme BizVektor for business"
+msgstr ""
+
+#: ../plugins/plugins.php:44
+msgctxt "footer"
+msgid "Vektor,Inc."
+msgstr ""
+
 #: ../plugins/post-type-manager/class.post-type-manager.php:21
 #: ../plugins/post-type-manager/class.post-type-manager.php:22
 #: ../plugins/post-type-manager/class.post-type-manager.php:64
@@ -1555,6 +1564,11 @@ msgstr ""
 msgid ""
 "To distinguish between individual keywords, please enter a , delimiter "
 "(optional)."
+msgstr ""
+
+#: ../plugins/seo_and_ga/seo_and_ga.php:63
+msgctxt "link to seo setting"
+msgid ""
 msgstr ""
 
 #: ../plugins/seo_and_ga/seo_and_ga.php:64
@@ -2070,4 +2084,15 @@ msgstr ""
 #: ../plugins/widgets/widgets.php:709
 msgid ""
 "Date / Category / Title / Excerpt / Thumbnail <br>( Main contents area )"
+msgstr ""
+
+#: ../search.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: ../single.php:27
+#, php-format
+msgid "<dt>Tags</dt><dd>%1$s</dd>"
 msgstr ""
