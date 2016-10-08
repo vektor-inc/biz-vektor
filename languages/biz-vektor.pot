@@ -256,132 +256,132 @@ msgid "Error occured. Please try again."
 msgstr ""
 
 #: ../inc/theme-customizer.php:24
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Design settings"
 msgstr ""
 
 #: ../inc/theme-customizer.php:64 ../inc/theme-options-edit.php:149
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Header logo image"
 msgstr ""
 
 #: ../inc/theme-customizer.php:72
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Header logo image URL"
 msgstr ""
 
 #: ../inc/theme-customizer.php:84 ../inc/theme-options-edit.php:157
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Footer logo image"
 msgstr ""
 
 #: ../inc/theme-customizer.php:92
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Footer logo image URL"
 msgstr ""
 
 #: ../inc/theme-customizer.php:100 ../inc/theme-options-edit.php:124
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Not specified (left-justified)"
 msgstr ""
 
 #: ../inc/theme-customizer.php:101 ../inc/theme-options-edit.php:125
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "4"
 msgstr ""
 
 #: ../inc/theme-customizer.php:102 ../inc/theme-options-edit.php:126
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "5"
 msgstr ""
 
 #: ../inc/theme-customizer.php:103 ../inc/theme-options-edit.php:127
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "6"
 msgstr ""
 
 #: ../inc/theme-customizer.php:104 ../inc/theme-options-edit.php:128
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "7"
 msgstr ""
 
 #: ../inc/theme-customizer.php:106 ../inc/theme-options-edit.php:118
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Number of header menus"
 msgstr ""
 
 #: ../inc/theme-customizer.php:118 ../inc/theme-options-edit.php:165
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Layout"
 msgstr ""
 
 #: ../inc/theme-customizer.php:126 ../inc/theme-options-edit.php:195
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Heading font"
 msgstr ""
 
 #: ../inc/theme-customizer.php:131 ../inc/theme-customizer.php:143
 #: ../inc/theme-options-edit.php:200 ../inc/theme-options-edit.php:211
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Serif"
 msgstr ""
 
 #: ../inc/theme-customizer.php:132 ../inc/theme-customizer.php:144
 #: ../inc/theme-options-edit.php:201 ../inc/theme-options-edit.php:212
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Sanserif"
 msgstr ""
 
 #: ../inc/theme-customizer.php:138 ../inc/theme-options-edit.php:206
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Global Menu font"
 msgstr ""
 
 #: ../inc/theme-customizer.php:159 ../inc/theme-options-edit.php:220
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Google Web Fonts"
 msgstr ""
 
 #: ../inc/theme-customizer.php:171
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Don't show on top page"
 msgstr ""
 
 #: ../inc/theme-customizer.php:182 ../inc/theme-options-edit.php:284
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Contact settings"
 msgstr ""
 
 #: ../inc/theme-customizer.php:200 ../inc/theme-options-edit.php:291
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Message"
 msgstr ""
 
 #: ../inc/theme-customizer.php:208 ../inc/theme-options-edit.php:298
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Phone number"
 msgstr ""
 
 #: ../inc/theme-customizer.php:216 ../inc/theme-options-edit.php:305
 #: ../inc/theme-options-edit.php:308
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Office hours"
 msgstr ""
 
 #: ../inc/theme-customizer.php:224 ../inc/theme-options-edit.php:312
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid ""
 "Site / Company / Store / Service name. This is displayed in the left part of "
 "the footer bottom and footer copyright section."
 msgstr ""
 
 #: ../inc/theme-customizer.php:232 ../inc/theme-options-edit.php:322
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Company address"
 msgstr ""
 
 #: ../inc/theme-customizer.php:240 ../inc/theme-options-edit.php:332
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "The contact page URL"
 msgstr ""
 
@@ -403,12 +403,12 @@ msgid "URL"
 msgstr ""
 
 #: ../inc/theme-customizer.php:289
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Image (Desktop version) : 310px width is recommended."
 msgstr ""
 
 #: ../inc/theme-customizer.php:297
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Image (Smartphone version) : 120px by 120px is recommended."
 msgstr ""
 
@@ -436,7 +436,7 @@ msgid "Here you can change social media settings."
 msgstr ""
 
 #: ../inc/theme-options-edit.php:83
-msgctxt "biz-vektor theme-options-edit"
+msgctxt "biz-vektor-theme-options-edit"
 msgid "Design settings"
 msgstr ""
 

@@ -72,7 +72,7 @@ function bizvektor_default_design_customize_register($wp_customize) {
 	if (is_bizvektor_default_design()){
     // Add section
     $wp_customize->add_section( 'biz_vektor_default_design', array(
-        'title'          => _x('Default color settings','Default color settings', 'biz-vektor'),
+        'title'          => __( 'Default color settings', 'biz-vektor' ),
         'priority'       => 110,
     ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );

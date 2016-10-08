@@ -466,67 +466,67 @@ msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Design settings"
 msgstr "デザイン設定"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Design"
 msgstr "デザイン"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Header logo image"
 msgstr "ヘッダーロゴ画像"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Header logo image URL"
 msgstr "ヘッダーロゴ画像URL"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Footer logo image"
 msgstr "フッターロゴ画像"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Footer logo image URL"
 msgstr "フッターロゴ画像URL"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Layout"
 msgstr "レイアウト"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Heading font"
 msgstr "見出しの書体"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Global Menu font"
 msgstr "グローバルメニューの書体"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Serif"
 msgstr "明朝"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Sanserif"
 msgstr "ゴシック"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Contact settings"
 msgstr "連絡先の設定"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Message"
 msgstr "お問い合わせメッセージ"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Phone number"
 msgstr "電話番号"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Office hours"
 msgstr "受付時間"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid ""
 "Site / Company / Store / Service name. This is displayed in the left part of "
 "the footer bottom and footer copyright section."
@@ -534,11 +534,11 @@ msgstr ""
 "フッター左下とフッターコピーライトに表示させるサイト名（あるいは企業名・店舗"
 "名・サービス名）"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Company address"
 msgstr "住所"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "The contact page URL"
 msgstr "問い合わせページのURL"
 
@@ -566,11 +566,11 @@ msgstr "スマホ用画像URL"
 msgid "120px by 120px is recommended."
 msgstr "120×120px 程度推奨"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Image (Desktop version) : 310px width is recommended."
 msgstr "画像（横 310px 程度長方形推奨）"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Image (Smartphone version) : 120px by 120px is recommended."
 msgstr "スマホ用画像（120×120px 程度推奨）"
 
@@ -654,7 +654,7 @@ msgstr "SNS連携"
 # ######################################
 # Design Setting
 # ######################################
-msgctxt "biz-vektor theme-options-edit"
+msgctxt "biz-vektor-theme-options-edit"
 msgid "Design settings"
 msgstr "デザインの設定"
 
@@ -674,27 +674,27 @@ msgstr ""
 # ---------------
 # menu divide
 # ---------------
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Number of header menus"
 msgstr "ヘッダーメニューの数"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "Not specified (left-justified)"
 msgstr "指定なし（左詰め）"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "4"
 msgstr "4分割"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "5"
 msgstr "5分割"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "6"
 msgstr "6分割"
 
-msgctxt "biz-vektor theme-customizer"
+msgctxt "biz-vektor-theme-customizer"
 msgid "7"
 msgstr "7分割"
 

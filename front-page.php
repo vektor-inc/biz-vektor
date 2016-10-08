@@ -18,13 +18,17 @@ else :
 	// Widget guide message
 	if ( is_user_logged_in() == TRUE && biz_vektor_is_plugin_enable('widgets')) {
 
-		if ( current_user_can('activate_plugins') ) { ?>
+		if ( current_user_can('edit_theme_options') ) { ?>
 			<div class="adminEdit sectionFrame">
-			<p>トップページに表示する項目は<a href="<?php echo admin_url().'customize.php';?>">テーマカスタマイザー画面</a>あるいは<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。<br />
-			『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。</p>
+			<?php
+			$customizer_link = '<a href="'.admin_url().'customize.php'.'">'.__( 'Customizer' , 'biz-vektor' ).'</a>';
+			$widget_link =  '<a href="'.admin_url().'customize.php'.'">'.__( 'Widdget Setting Page' , 'biz-vektor' ).'</a>';
+			echo '<p>'.sprintf(__( 'Items and the order that displayed on the home page, you can set freely from %s or %s.', 'biz-vektor' ), $customizer_link, $widget_link ).'<br />';
+			echo __('Set on widget item to the  "Main content(Homepage)" widget area.', 'biz-vektor' ).'</p>';
+			?>
 			</div>
-		<?php }
-	}
+		<?php } // if ( current_user_can('edit_theme_options') ) { 	?>
+	<?php }
 
 	// page content
 	if ( have_posts()) : the_post();
@@ -39,8 +43,7 @@ else :
 	<?php endif; // $topFreeContent ?>
 	<?php endif; // get_post_type() === 'page' ?>
 
-	<?php if ( is_user_logged_in() == TRUE ) {
-?>
+	<?php if ( is_user_logged_in() == TRUE ) { ?>
 		<div class="adminEdit">
 			<?php if ( current_user_can('activate_plugins') ) : ?>
 			<p class="caption">
