@@ -80,7 +80,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 ?>
 <div id="design" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3><?php _ex('Design settings', 'biz-vektor theme-options-edit', 'biz-vektor'); ?>
+<h3><?php _e('Design settings', 'biz-vektor' ); ?>
 	<span class="message_box">
 		<?php printf(__('You can change settings for this section also from %s', 'biz-vektor'), $customizer_link ); ?>
 	</span>
@@ -115,17 +115,17 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- Menu divide -->
 	<tr>
-	<th><?php _ex('Number of header menus', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th><?php _e('Number of header menus', 'biz-vektor') ;?></th>
 	<td>
 	<select name="biz_vektor_theme_options[gMenuDivide]" id="<?php echo esc_attr( $options['gMenuDivide'] ); ?>">
 	<option value="">[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
 	$biz_vektor_gMenuDivides = array(
-		'divide_natural' => _x('Not specified (left-justified)','biz-vektor theme-customizer', 'biz-vektor'),
-		'divide_4' => _x('4', 'biz-vektor theme-customizer', 'biz-vektor'),
-		'divide_5' => _x('5', 'biz-vektor theme-customizer', 'biz-vektor'),
-		'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),
-		'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor')
+		'divide_natural' => __('Not specified (left-justified)', 'biz-vektor'),
+		'divide_4' => _x('4', 'biz-vektor-theme-customizer', 'biz-vektor'),
+		'divide_5' => _x('5', 'biz-vektor-theme-customizer', 'biz-vektor'),
+		'divide_6' => _x('6', 'biz-vektor-theme-customizer', 'biz-vektor'),
+		'divide_7' => _x('7', 'biz-vektor-theme-customizer', 'biz-vektor')
 	);
 	if( $options['gMenuDivide'] == ''){
 		$options['gMenuDivide'] = 'divide_natural';
@@ -146,7 +146,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- Head logo -->
 	<tr>
-	<th scope="row"><?php _ex('Header logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e('Header logo image', 'biz-vektor') ;?></th>
 	<td><input type="text" name="biz_vektor_theme_options[head_logo]" id="head_logo" value="<?php echo esc_attr( $options['head_logo'] ); ?>" style="width:60%;" />
 	<button id="media_head_logo" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button><br />
 	<?php _e('Recommended : less than 60px height', 'biz-vektor') ;?><br />
@@ -154,7 +154,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- Footer logo -->
 	<tr>
-	<th scope="row"><?php _ex('Footer logo image', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e('Footer logo image', 'biz-vektor') ;?></th>
 	<td><input type="text" name="biz_vektor_theme_options[foot_logo]" id="foot_logo" value="<?php echo esc_attr( $options['foot_logo'] ); ?>" style="width:60%;" />
 	<button id="media_foot_logo" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button><br />
 	<?php _e('Recommended : 180-250px width', 'biz-vektor') ;?><br />
@@ -162,7 +162,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- theme-layout -->
 	<tr class="image-radio-option theme-layout">
-	<th scope="row"><?php _ex('Layout', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e('Layout', 'biz-vektor' ) ;?></th>
 	<td>
 	<?php
 		foreach ( biz_vektor_layouts() as $layout ) { ?>
@@ -192,24 +192,24 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- Heading font -->
 	<tr>
-	<th><?php _ex('Heading font', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th><?php _e('Heading font', 'biz-vektor') ;?></th>
 	<td>
 	<?php
 		if(!isset($options['font_title'])){ $options['font_title'] = 'sanserif'; }
 	?>
-	<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="serif" <?php echo ($options['font_title'] != 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
-	<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="sanserif" <?php echo ($options['font_title'] == 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="serif" <?php echo ($options['font_title'] != 'sanserif')? 'checked' : ''; ?> > <?php echo __('Serif', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[font_title]" value="sanserif" <?php echo ($options['font_title'] == 'sanserif')? 'checked' : ''; ?> > <?php echo __('Sanserif', 'biz-vektor'); ?></label>
 	<td>
 	</tr>
 	<!-- Global Menu font -->
 	<tr>
-	<th><?php _ex('Global Menu font', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th><?php _e( 'Global Menu font', 'biz-vektor' ) ;?></th>
 	<td>
 	<?php
 		if(!isset($options['font_menu'])){ $options['font_menu'] = 'sanserif'; }
 	?>
-	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="serif" <?php echo ($options['font_menu'] != 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
-	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="sanserif" <?php echo ($options['font_menu'] == 'sanserif')? 'checked' : ''; ?> > <?php echo _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="serif" <?php echo ($options['font_menu'] != 'sanserif')? 'checked' : ''; ?> > <?php echo __('Serif', 'biz-vektor'); ?></label>
+	<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="sanserif" <?php echo ($options['font_menu'] == 'sanserif')? 'checked' : ''; ?> > <?php echo __('Sanserif', 'biz-vektor'); ?></label>
 	<td>
 	</tr>
 	<?php
@@ -217,7 +217,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 		<!-- Fonts -->
 		<tr>
 			<th>
-				<?php _ex( 'Google Web Fonts', 'biz-vektor theme-customizer', 'biz-vektor' ); ?>
+				<?php _e( 'Google Web Fonts', 'biz-vektor' ); ?>
 			</th>
 			<td>
 				<select name="biz_vektor_theme_options[global_font]">
@@ -281,35 +281,35 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 ?>
 <div id="contactInfo" class="sectionBox">
 	<?php get_template_part('inc/theme-options-nav'); ?>
-	<h3><?php _ex('Contact settings', 'biz-vektor theme-customizer', 'biz-vektor') ;?>
+	<h3><?php _e( 'Contact settings', 'biz-vektor' ) ;?>
 		<span class="message_box">
 			<?php printf(__('You can change settings for this section also from %s', 'biz-vektor'), $customizer_link ); ?>
 		</span>
 	</h3>
 	<table class="form-table">
 	<tr>
-	<th scope="row"><?php _ex('Message', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e( 'Message', 'biz-vektor' ) ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[contact_txt]" id="contact_txt" value="<?php echo esc_attr( $options['contact_txt'] ); ?>" style="width:50%;" /><br />
 	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _e('Please feel free to inquire.', 'biz-vektor') ;?></span>
 	</td>
 	</tr>
 	<tr>
-	<th scope="row"><?php _ex('Phone number', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e( 'Phone number', 'biz-vektor' ) ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[tel_number]" id="tel_number" value="<?php echo esc_attr( $options['tel_number'] ); ?>" style="width:50%;" /><br />
 	<span><?php _e('ex) ', 'biz-vektor') ;?>000-000-0000</span>
 	</td>
 	</tr>
 	<tr>
-	<th scope="row"><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e( 'Office hours', 'biz-vektor' ) ;?></th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[contact_time]" id="contact_time" value="" style="width:50%;" /><?php echo esc_attr( $options['contact_time'] ); ?></textarea><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor theme-customizer', 'biz-vektor') ;?> 9:00 - 18:00 [ <?php _e('Weekdays except holidays', 'biz-vektor') ;?> ]</span>
+	<span><?php _e('ex) ', 'biz-vektor') ;?><?php _ex('Office hours', 'biz-vektor-theme-customizer', 'biz-vektor') ;?> 9:00 - 18:00 [ <?php _e('Weekdays except holidays', 'biz-vektor') ;?> ]</span>
 	</td>
 	</tr>
 	<tr>
-	<th scope="row"><?php _ex('Site / Company / Store / Service name. This is displayed in the left part of the footer bottom and footer copyright section.', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br />
+	<th scope="row"><?php _e('Site / Company / Store / Service name. This is displayed in the left part of the footer bottom and footer copyright section.', 'biz-vektor') ;?><br />
 	</th>
 	<td>
 	<textarea cols="20" rows="2" name="biz_vektor_theme_options[sub_sitename]" id="sub_sitename" value="" style="width:50%;" /><?php echo esc_attr( $options['sub_sitename'] ); ?></textarea><br />
@@ -319,7 +319,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- Company address -->
 	<tr>
-	<th scope="row"><?php _ex('Company address', 'biz-vektor theme-customizer', 'biz-vektor') ;?><br /><?php _e('This is displayed in the left bottom part of the footer.', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e('Company address', 'biz-vektor') ;?><br /><?php _e('This is displayed in the left bottom part of the footer.', 'biz-vektor') ;?></th>
 	<td>
 	<textarea cols="20" rows="5" name="biz_vektor_theme_options[contact_address]" id="contact_address" value="" style="width:50%;" /><?php echo $options['contact_address'] ?></textarea><br />
 		<span><?php _e('ex) ', 'biz-vektor') ;?>
@@ -329,7 +329,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	</tr>
 	<!-- he URL of contact page -->
 	<tr>
-	<th scope="row"><?php _ex('The contact page URL', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<th scope="row"><?php _e( 'The contact page URL', 'biz-vektor' ) ;?></th>
 	<td>
 	<input type="text" name="biz_vektor_theme_options[contact_link]" id="contact_link" value="<?php echo esc_attr( $options['contact_link'] ); ?>" class="width-500" /><br />
 	<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.********.co.jp/contact/ <?php _e('or', 'biz-vektor') ;?> /******/</span><br />
@@ -416,12 +416,12 @@ $i++;
 			echo esc_html( $options['infoLabelName'] ) . ' & ' . esc_html( $options['postLabelName'] );
     	} elseif ( isset( $options['infoLabelName'] ) && ! empty( $options['infoLabelName'] ) ) {
 
-    		echo esc_html( bizVektorOptions('infoLabelName') ) . ' & ' . _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' );
+    		echo esc_html( bizVektorOptions('infoLabelName') ) . ' & ' . __( 'Posts', 'biz-vektor' );
     	} elseif ( isset( $options['postLabelName'] ) && ! empty( $options['postLabelName'] ) ) {
 
-    		echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' ) . ' & ' . esc_html( $options['postLabelName'] );
+    		echo __( 'Posts', 'biz-vektor' ) . ' & ' . esc_html( $options['postLabelName'] );
     	} else {
-			echo _x( 'Posts', 'BizVektor option tab label', 'biz-vektor' );
+			echo __( 'Posts', 'biz-vektor' );
     	} ?></h3>
 
 <?php
@@ -432,7 +432,7 @@ $postLabelName = esc_html( bizVektorOptions('postLabelName'));
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
 <?php _e('* If the excerpt field is not empty, the content will appear in the &quot;excerpt&quot;. Otherwise, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
 <?php
-	$plugin_link = '<a href="'.get_admin_url().'plugins.php" target="_blank">'._x('Plugins page','no link', 'biz-vektor').'</a>';
+	$plugin_link = '<a href="'.get_admin_url().'plugins.php" target="_blank">'.__( 'Plugins page', 'biz-vektor' ).'</a>';
 	?>
   <?php _e('The full text will be displayed if the plug-in [WP Multibyte Patch] is not activated (Japanese version).', 'biz-vektor'); ?>
 
