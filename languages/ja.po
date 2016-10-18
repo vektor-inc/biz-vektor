@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biz-vektor\n"
-"POT-Creation-Date: 2016-10-09 06:00+0900\n"
+"POT-Creation-Date: 2016-10-18 15:10+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"

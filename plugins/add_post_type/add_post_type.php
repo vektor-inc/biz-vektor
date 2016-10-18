@@ -48,8 +48,8 @@ function biz_vektor_info_create_post_type() {
 		array(
 			'hierarchical' => true,
 			'update_count_callback' => '_update_post_term_count',
-			'label' => $infoLabelName._x('category','admin menu', 'biz-vektor'),
-			'singular_label' => $infoLabelName._x('category','admin menu', 'biz-vektor'),
+			'label' => $infoLabelName.__( 'category', 'biz-vektor' ),
+			'singular_label' => $infoLabelName.__( 'category', 'biz-vektor' ),
 			'public' => true,
 			'show_ui' => true,
 		)
@@ -175,26 +175,26 @@ function biz_vektor_info_adminvar_custom_menu(){
 	// info
 	$wp_admin_bar->add_menu( array(
 		'id' => 'infoLabelName',
-		'title' => sprintf( _x( 'Managing %s', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
+		'title' => sprintf( __( 'Managing %s', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
 		'href' => get_admin_url().'edit.php?post_type=info',
 	));
 	$wp_admin_bar->add_menu( array(
 		'parent' => 'infoLabelName',
 		'id' => 'post_list',
-		'title' => sprintf( _x( '%s - List of entries', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
+		'title' => sprintf( __( '%s - List of entries', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
 		'href' => get_admin_url().'edit.php?post_type=info',
 	));
 	$wp_admin_bar->add_menu( array(
 		'parent' => 'infoLabelName',
 		'id' => 'post_new',
-		'title' => sprintf( _x( '%s - Add new', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
+		'title' => sprintf( __( '%s - Add new', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
 		'href' => get_admin_url().'post-new.php?post_type=info',
 	));
 	if (7 <= $user_level) {
 		$wp_admin_bar->add_menu( array(
 			'parent' => 'infoLabelName',
 			'id' => 'post_category',
-			'title' => sprintf( _x( '%s - Categories', 'BizVektor admin header menu', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
+			'title' => sprintf( __( '%s - Categories', 'biz-vektor' ),bizVektorOptions('infoLabelName') ),
 			'href' => get_admin_url().'edit-tags.php?taxonomy=info-cat&post_type=info',
 		));
 	}
