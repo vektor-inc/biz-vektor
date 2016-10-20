@@ -55,7 +55,7 @@ function add_custom_field_metaKeyword(){
   }
 }
 
-function insert_custom_field_metawKeyword(){
+function insert_custom_field_metaKeyword(){
   global $post;
   echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
   echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
