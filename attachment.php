@@ -46,7 +46,7 @@
 						</div><!-- .entry-attachment -->
 						<div class="entry-caption"><?php if ( !empty( $post->post_excerpt ) ) the_excerpt(); ?></div>
 
-<?php the_content( __('Read more', 'biz-vektor').'<span class="meta-nav">&rarr;</span>' ); ?>
+<?php the_content(); ?>
 <?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 
 					</div><!-- .entry-content -->
