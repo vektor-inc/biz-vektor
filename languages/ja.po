@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biz-vektor\n"
-"POT-Creation-Date: 2016-10-18 15:10+0900\n"
+"POT-Creation-Date: 2016-11-14 12:41+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: esc_html_e;_ex;_x;_e;__\n"
+"X-Poedit-KeywordsList: esc_html_e;_ex:1,2c;_x:1,2c;_e;__\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
@@ -19,11 +19,6 @@ msgstr ""
 #: 503.php:19
 msgid "Maintenance in progress."
 msgstr "只今メンテナンス作業中です。"
-
-#: attachment.php:49 module_loop_post2.php:26 module_topPR.php:63
-#: page-parent.php:55
-msgid "Read more"
-msgstr "この記事を読む"
 
 #: comments.php:19
 msgid "Comment"
@@ -309,22 +304,27 @@ msgid "Not specified (left-justified)"
 msgstr "指定なし（左詰め）"
 
 #: inc/theme-customizer.php:101 inc/theme-options-edit.php:125
+msgctxt "biz-vektor-theme-customizer"
 msgid "4"
 msgstr "4分割"
 
 #: inc/theme-customizer.php:102 inc/theme-options-edit.php:126
+msgctxt "biz-vektor-theme-customizer"
 msgid "5"
 msgstr "5分割"
 
 #: inc/theme-customizer.php:103 inc/theme-options-edit.php:127
+msgctxt "biz-vektor-theme-customizer"
 msgid "6"
 msgstr "6分割"
 
 #: inc/theme-customizer.php:104 inc/theme-options-edit.php:128
+msgctxt "biz-vektor-theme-customizer"
 msgid "7"
 msgstr "7分割"
 
-#: inc/theme-customizer.php:106 inc/theme-options-edit.php:118
+#: inc/theme-customizer.php:106
+msgctxt "biz-vektor-theme-customizer"
 msgid "Number of header menus"
 msgstr "ヘッダーメニューの数"
 
@@ -371,7 +371,6 @@ msgid "Phone number"
 msgstr "電話番号"
 
 #: inc/theme-customizer.php:216 inc/theme-options-edit.php:305
-#: inc/theme-options-edit.php:308
 msgid "Office hours"
 msgstr "受付時間"
 
@@ -401,7 +400,6 @@ msgid "Title"
 msgstr "タイトル"
 
 #: inc/theme-customizer.php:273 inc/theme-options-edit.php:376
-#: plugins/seo_and_ga/seo_and_ga_edit.php:49
 msgid "Description"
 msgstr "概要"
 
@@ -461,6 +459,10 @@ msgid ""
 msgstr ""
 "各デザインスキン固有のセッティング項目がある場合は、変更を保存した後で、カス"
 "タマイザーより設定出来ます。"
+
+#: inc/theme-options-edit.php:118
+msgid "Number of header menus"
+msgstr "ヘッダーメニューの数"
 
 #: inc/theme-options-edit.php:143
 msgid "How to set up Menus"
@@ -553,6 +555,11 @@ msgstr "【記入例】"
 #: inc/theme-options-edit.php:294
 msgid "Please feel free to inquire."
 msgstr "お気軽にお問い合わせください"
+
+#: inc/theme-options-edit.php:308
+msgctxt "biz-vektor-theme-customizer"
+msgid "Office hours"
+msgstr "受付時間"
 
 #: inc/theme-options-edit.php:308
 msgid "Weekdays except holidays"
@@ -728,8 +735,8 @@ msgstr "%s のアーカイブページでの表示レイアウト"
 msgid "Number of %s posts to be displayed on the home page."
 msgstr "%s のトップページでの表示件数"
 
-#: inc/theme-options-edit.php:474 inc/theme-options-edit.php:504
-#: plugins/add_post_type/add_post_type.php:132
+#: inc/theme-options-edit.php:474 plugins/add_post_type/add_post_type.php:132
+msgctxt "top page post count"
 msgid "posts"
 msgstr "件"
 
@@ -788,6 +795,11 @@ msgstr "同じタグの記事が本文の下に関連記事として表示され
 #: inc/theme-options-edit.php:503
 msgid "Nothing is displayed when there is no article of the same tag."
 msgstr "同じタグの記事が無い場合は何も表示されません。"
+
+#: inc/theme-options-edit.php:504
+msgctxt "post count"
+msgid "posts"
+msgstr "件"
 
 #: inc/theme-options-edit.php:510 inc/theme-options-edit.php:515
 #: inc/theme-options-edit.php:520
@@ -1108,6 +1120,7 @@ msgstr "年別アーカイブ: %s"
 
 #: inc/theme-options.php:142 inc/theme-options.php:169 index.php:19
 #: module_panList.php:80 module_panList.php:252 plugins/meta_description.php:43
+msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y年"
 
@@ -1119,8 +1132,9 @@ msgstr "月別アーカイブ: %s"
 
 #: inc/theme-options.php:144 inc/theme-options.php:167 index.php:21
 #: module_panList.php:82 module_panList.php:255 plugins/meta_description.php:47
+msgctxt "monthly archives date format"
 msgid "F Y"
-msgstr "Y年n月"
+msgstr "Y年F"
 
 #: inc/theme-options.php:180 module_pageTit.php:50 module_panList.php:37
 #, php-format
@@ -1149,10 +1163,12 @@ msgid "[ Select ]"
 msgstr "[ 選択してください ]"
 
 #: inc/theme-options.php:656
+msgctxt "Font select"
 msgid "serif"
 msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
 
 #: inc/theme-options.php:658
+msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
@@ -1191,6 +1207,11 @@ msgstr "制作者"
 msgid "Category"
 msgstr "カテゴリー"
 
+#: module_loop_post2.php:26
+msgctxt "Link to post"
+msgid "Read more"
+msgstr "この記事を読む"
+
 #: module_mainfoot.php:15
 msgid "bt_contact.png"
 msgstr "bt_contact_ja.png"
@@ -1205,6 +1226,7 @@ msgid "Daily Archives: %s"
 msgstr "日付別アーカイブ: %s"
 
 #: module_panList.php:272
+msgctxt "daily archives date format"
 msgid "F jS, Y"
 msgstr "Y年n月j日"
 
@@ -1212,6 +1234,11 @@ msgstr "Y年n月j日"
 #, php-format
 msgid "Image of %s"
 msgstr "%sのイメージ"
+
+#: module_topPR.php:63 page-parent.php:55
+msgctxt "Link to page"
+msgid "Read more"
+msgstr "詳しくはこちら"
 
 #: module_top_list_info.php:28 module_top_list_post.php:35
 #, php-format
@@ -1292,6 +1319,7 @@ msgid "Yearly archives"
 msgstr "年別アーカイブ"
 
 #: plugins/add_post_type/widget.info.php:98 sidebar-info.php:33
+msgctxt "After year"
 msgid "&nbsp;"
 msgstr "年"
 
@@ -1442,17 +1470,25 @@ msgstr "編集ガイド : OPEN"
 msgid "About %s"
 msgstr "%s について。"
 
-#: plugins/meta_description.php:44 plugins/meta_description.php:48
-#: plugins/meta_description.php:52 plugins/meta_description.php:58
+#: plugins/meta_description.php:44
 #, php-format
+msgctxt "Yearly archive description"
 msgid "Article of %s."
 msgstr "%s 年の記事。"
+
+#: plugins/meta_description.php:48 plugins/meta_description.php:52
+#: plugins/meta_description.php:58
+#, php-format
+msgctxt "Archive description"
+msgid "Article of %s."
+msgstr "%s の記事。"
 
 #: plugins/plugins.php:43
 msgid "Free WordPress Theme BizVektor for business"
 msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
 
 #: plugins/plugins.php:44
+msgctxt "footer"
 msgid "Vektor,Inc."
 msgstr ""
 "株式会社ベクトル -ウェブサイト制作・WordPressカスタマイズ- [ 愛知県名古屋市 ]"
@@ -1539,6 +1575,7 @@ msgstr ""
 "このページで個別に設定するキーワードを , 区切りで入力して下さい（任意）"
 
 #: plugins/seo_and_ga/seo_and_ga.php:63
+msgctxt "link to seo setting"
 msgid "SEO Setting"
 msgstr "SEO設定"
 
@@ -1635,6 +1672,11 @@ msgstr "* 最後のキーワード欄の末尾には , は必要ありません�
 msgid "ex) WordPress,Template,Theme,Free,GPL"
 msgstr "【記入例】 WordPress,テンプレート,テーマ,無料,GPL"
 
+#: plugins/seo_and_ga/seo_and_ga_edit.php:49
+msgctxt "Description settings"
+msgid "Description"
+msgstr "ディスクリプション"
+
 #: plugins/seo_and_ga/seo_and_ga_edit.php:51
 msgid ""
 "Content from the particular page's \"excerpt\" field will be reflected in "
@@ -1710,6 +1752,7 @@ msgid "To output both types"
 msgstr "両方の解析タグを出力する"
 
 #: plugins/sns/sns.php:373
+msgctxt "BizVektor option tab label"
 msgid "SNS"
 msgstr "SNS連携"
 
@@ -1835,15 +1878,18 @@ msgid "Please check the type of page that displays the social button."
 msgstr "ソーシャルボタンを表示するページの種類にチェックを入れて下さい。"
 
 #: plugins/sns/sns.php:443 plugins/sns/sns.php:462 plugins/sns/sns.php:482
+msgctxt "sns display"
 msgid "Home page"
 msgstr "トップページ"
 
 #: plugins/sns/sns.php:445 plugins/sns/sns.php:464 plugins/sns/sns.php:484
+msgctxt "sns display"
 msgid "Page"
 msgstr "固定ページ"
 
 #: plugins/sns/sns.php:447 plugins/sns/sns.php:449 plugins/sns/sns.php:466
 #: plugins/sns/sns.php:468 plugins/sns/sns.php:486 plugins/sns/sns.php:488
+msgctxt "sns display"
 msgid "Post"
 msgstr "投稿ページ"
 
@@ -1951,6 +1997,7 @@ msgstr ""
 "ページはデフォルトのOGP画像が適用されます。"
 
 #: plugins/sns/sns.php:542
+msgctxt "BizVektor admin header menu"
 msgid "SNS settings"
 msgstr "SNS連携の設定"
 
@@ -2182,14 +2229,6 @@ msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 #~ msgid "Design settings"
 #~ msgstr "デザインの設定"
 
-#~ msgctxt "post count"
-#~ msgid "posts"
-#~ msgstr "件"
-
-#~ msgctxt "Link to page"
-#~ msgid "Read more"
-#~ msgstr "詳しくはこちら"
-
 #~ msgctxt "BizVektor admin header menu"
 #~ msgid "Plugins page"
 #~ msgstr "プラグインの管理"
@@ -2201,14 +2240,6 @@ msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 #~ msgctxt "BizVektor admin header menu"
 #~ msgid "Home 3PR area"
 #~ msgstr "トップページ3PRエリア"
-
-#~ msgctxt "Archive description"
-#~ msgid "Article of %s."
-#~ msgstr "%s の記事。"
-
-#~ msgctxt "Description settings"
-#~ msgid "Description"
-#~ msgstr "ディスクリプション"
 
 #, fuzzy
 #~ msgid "Custom Post Setting"
