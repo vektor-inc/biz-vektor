@@ -1,6 +1,11 @@
 <?php get_header(); ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
+
+<?php if (is_active_sidebar('top-after-image-widget-area')): ?>
+<div class="content wide top_after_image_widget_area"><?php dynamic_sidebar('top-after-image-widget-area'); ?></div>
+<?php endif; ?>
+
 	<!-- [ #content ] -->
 	<div id="content" class="content">
 	<?php biz_vektor_contentMain_before();?>

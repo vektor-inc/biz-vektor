@@ -92,6 +92,8 @@ function biz_vektor_theme_setup() {
 		'default-color' => '#ffffff',
 	) );
 
+	add_theme_support( 'title-tag' );
+
 	/*-------------------------------------------*/
 	/*	Admin page _ Eye catch
 	/*-------------------------------------------*/
@@ -190,6 +192,16 @@ function biz_vektor_widget_beacon($flag){
 }
 
 function biz_vektor_maincontent_widgetarea_init() {
+	register_sidebar( array(
+		'name' => __( 'After main image(Homepage)', 'biz-vektor' ),
+		'id' => 'top-after-image-widget-area',
+		'description' => __( 'This widget area appears at after main image on homepage.', 'biz-vektor' ),
+		'before_widget' => '<div id="%1$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	) );
+
 	register_sidebar( array(
 		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',

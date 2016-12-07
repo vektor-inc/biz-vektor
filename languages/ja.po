@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biz-vektor\n"
-"POT-Creation-Date: 2016-11-14 12:41+0900\n"
+"POT-Creation-Date: 2016-12-07 17:53+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -66,19 +66,19 @@ msgstr "Rebuild カラー設定"
 msgid "Keycolor(VeryLight)"
 msgstr "キーカラー（薄）"
 
-#: design_skins/003/functions_003.php:37 header.php:87
+#: design_skins/003/functions_003.php:37 header.php:86
 msgid "Skip menu"
 msgstr "メニューを飛ばす"
 
-#: front-page.php:24 plugins/extra_module/adminBarCustom.php:60
+#: front-page.php:29 plugins/extra_module/adminBarCustom.php:60
 msgid "Customizer"
 msgstr "カスタマイザー"
 
-#: front-page.php:25
+#: front-page.php:30
 msgid "Widdget Setting Page"
 msgstr "ウィジェット編集画面"
 
-#: front-page.php:26
+#: front-page.php:31
 #, php-format
 msgid ""
 "Items and the order that displayed on the home page, you can set freely from "
@@ -87,13 +87,13 @@ msgstr ""
 "このエリアに表示されるウィジェットアイテムや表示順は%sまたは%sから設定する事"
 "ができます。"
 
-#: front-page.php:27
+#: front-page.php:32
 msgid "Set on widget item to the  \"Main content(Homepage)\" widget area."
 msgstr ""
 "ウィジェットエリア「メインコンテンツエリア（トップページ）」に任意のウィ"
 "ジェットアイテムをセットしてください。"
 
-#: front-page.php:50
+#: front-page.php:55
 msgid ""
 "* In admin [Settings] &raquo; [Display Settings], if the front page is not "
 "set to a [page], nothing is displayed in this area."
@@ -101,7 +101,7 @@ msgstr ""
 "※このエリアは「設定」→「表示設定」でフロントページの設定が「固定ページ」以外"
 "の場合は何も表示されません。"
 
-#: front-page.php:51
+#: front-page.php:56
 msgid ""
 "* If empty, the body of a page that you set as the front page does not "
 "display anything."
@@ -109,88 +109,96 @@ msgstr ""
 "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
 "ん。"
 
-#: front-page.php:55 functions.php:547 module_loop_post.php:18
+#: front-page.php:60 functions.php:559 module_loop_post.php:18
 #: module_loop_post2.php:20 module_topPR.php:82 page-lp.php:31
 #: page-no-mainfoot.php:19 page-onecolumn.php:20 page-parent.php:24
-#: page-parent.php:57 page.php:14 plugins/widgets/widgets.php:202
+#: page-parent.php:57 page.php:14 plugins/widgets/widgets.php:206
 #: single-info.php:11 single-info.php:19 single.php:15 single.php:34
 msgid "Edit"
 msgstr "編集"
 
-#: front-page.php:58
+#: front-page.php:63
 msgid "Title display settings"
 msgstr "↑ タイトルの表示設定"
 
-#: front-page.php:61
+#: front-page.php:66
 msgid "Change the page to be displayed"
 msgstr "↑ 表示するページを変更する"
 
-#: functions.php:126
+#: functions.php:128
 msgid "Sidebar(Front page only)"
 msgstr "サイドバー（トップページ）"
 
-#: functions.php:128
+#: functions.php:130
 msgid "This widget area appears on the front page only."
 msgstr ""
 "トップページにのみ表示されるサイドバーウィジェットです。ドラッグ＆ドロップで"
 "必要なものだけ入れてください。バナーやブログパーツなどは、『テキスト』ウィ"
 "ジェットを使用して、ソースコードを張り付けられます。"
 
-#: functions.php:149
+#: functions.php:151
 #, php-format
 msgid "Sidebar(%s)"
 msgstr "サイドバー（%s）"
 
-#: functions.php:151
+#: functions.php:153
 #, php-format
 msgid "This widget area appears only on the %s content pages."
 msgstr "%sコンテンツのページにのみ表示されるウィジェットです。"
 
-#: functions.php:162
+#: functions.php:164
 msgid "Sidebar(Common top)"
 msgstr "サイドバー（共通・上）"
 
-#: functions.php:164
+#: functions.php:166
 msgid "This widget area appears at top of sidebar."
 msgstr "サイドバー上部に表示されるウィジェットです。"
 
-#: functions.php:171
+#: functions.php:173
 msgid "Sidebar(Common bottom)"
 msgstr "サイドバー（共通・下）"
 
-#: functions.php:173
+#: functions.php:175
 msgid "This widget area appears at bottom of sidebar."
 msgstr "サイドバー下部に表示されるウィジェットです。"
 
-#: functions.php:194
+#: functions.php:196
+msgid "After main image(Homepage)"
+msgstr "メイン画像直下（トップページ）"
+
+#: functions.php:198
+msgid "This widget area appears at after main image on homepage."
+msgstr "トップページのメイン画像直下にのみ表示されるウィジェットです。"
+
+#: functions.php:206
 msgid "Main content(Homepage)"
 msgstr "コンテンツエリア（トップページ）"
 
-#: functions.php:196
+#: functions.php:208
 msgid "This widget area appears on the front page main content area only."
 msgstr "トップページのメインコンテンツエリア表示されるウィジェットです。"
 
-#: functions.php:216
+#: functions.php:228
 msgid "LP widget \""
 msgstr "LP ウィジェット \""
 
-#: functions.php:527
+#: functions.php:539
 msgid "Your comment is awaiting approval."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:537
+#: functions.php:549
 msgid "Reply"
 msgstr "返信する"
 
-#: functions.php:561
+#: functions.php:573
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: functions.php:562
+#: functions.php:574
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
-#: functions.php:563
+#: functions.php:575
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
@@ -395,7 +403,7 @@ msgid "3PR area settings"
 msgstr "トップページ3PRエリアの設定"
 
 #: inc/theme-customizer.php:264 inc/theme-options-edit.php:374
-#: plugins/widgets/widgets.php:344
+#: plugins/widgets/widgets.php:348
 msgid "Title"
 msgstr "タイトル"
 
@@ -1045,7 +1053,7 @@ msgstr "設定を初期化"
 msgid "Page top"
 msgstr "このページの先頭へ戻る"
 
-#: inc/theme-options-init.php:89 plugins/widgets/widgets.php:459
+#: inc/theme-options-init.php:89 plugins/widgets/widgets.php:463
 msgid "Blog"
 msgstr "ブログ"
 
@@ -1202,8 +1210,8 @@ msgstr "最後の編集"
 msgid "Author"
 msgstr "制作者"
 
-#: module_entry_meta.php:20 plugins/widgets/widgets.php:400
-#: plugins/widgets/widgets.php:401 sidebar-info.php:17 sidebar-post.php:10
+#: module_entry_meta.php:20 plugins/widgets/widgets.php:404
+#: plugins/widgets/widgets.php:405 sidebar-info.php:17 sidebar-post.php:10
 msgid "Category"
 msgstr "カテゴリー"
 
@@ -1300,7 +1308,7 @@ msgstr "%s カテゴリー"
 msgid "Category list of %s"
 msgstr "%s のカテゴリーリスト"
 
-#: plugins/add_post_type/widget.info.php:65 plugins/widgets/widgets.php:674
+#: plugins/add_post_type/widget.info.php:65 plugins/widgets/widgets.php:678
 msgid "Title:"
 msgstr "タイトル:"
 
@@ -1323,12 +1331,12 @@ msgctxt "After year"
 msgid "&nbsp;"
 msgstr "年"
 
-#: plugins/add_post_type/widget.info.php:126 plugins/widgets/widgets.php:252
+#: plugins/add_post_type/widget.info.php:126 plugins/widgets/widgets.php:256
 #, php-format
 msgid "%1$s list for top"
 msgstr "トップ用_%1$s リスト"
 
-#: plugins/add_post_type/widget.info.php:131 plugins/widgets/widgets.php:257
+#: plugins/add_post_type/widget.info.php:131 plugins/widgets/widgets.php:261
 #, php-format
 msgid "Displays recent %1$s posts."
 msgstr "%1$sの新着記事一覧を表示します。"
@@ -2006,7 +2014,7 @@ msgid "facebook&twitter banner"
 msgstr "facebook&twitterバナー"
 
 #: plugins/sns/widget.sns.php:24 plugins/sns/widget.sns.php:60
-#: plugins/widgets/widgets.php:220
+#: plugins/widgets/widgets.php:224
 msgid "*　It is necessary to set the Theme options page."
 msgstr "※「外観」→「テーマオプション」画面での設定が必要です。"
 
@@ -2036,114 +2044,114 @@ msgstr "トップ用_固定ページ本文"
 msgid "Displays the content of a chosen page."
 msgstr "固定ページの内容を出力します。"
 
-#: plugins/widgets/widgets.php:169
+#: plugins/widgets/widgets.php:173
 msgid "Display page"
 msgstr "表示させる固定ページ"
 
-#: plugins/widgets/widgets.php:177
+#: plugins/widgets/widgets.php:181
 msgid "display title"
 msgstr "タイトルを表示させる"
 
-#: plugins/widgets/widgets.php:215
+#: plugins/widgets/widgets.php:219
 msgid "Contact button"
 msgstr "問い合わせボタン"
 
-#: plugins/widgets/widgets.php:288
+#: plugins/widgets/widgets.php:292
 msgid "archive list"
 msgstr "アーカイブリスト"
 
-#: plugins/widgets/widgets.php:293
+#: plugins/widgets/widgets.php:297
 msgid ""
 "Displays a list of archives. You can choose the post type and also to "
 "display archives by month or by year."
 msgstr "投稿タイプを指定して年別か月別のアーカイブリストを表示します。"
 
-#: plugins/widgets/widgets.php:301 plugins/widgets/widgets.php:302
+#: plugins/widgets/widgets.php:305 plugins/widgets/widgets.php:306
 msgid "archives"
 msgstr "アーカイブ"
 
-#: plugins/widgets/widgets.php:348
+#: plugins/widgets/widgets.php:352
 msgid "Post type"
 msgstr "投稿タイプ"
 
-#: plugins/widgets/widgets.php:355
+#: plugins/widgets/widgets.php:359
 msgid "Display Type"
 msgstr "表示タイプ"
 
-#: plugins/widgets/widgets.php:388
+#: plugins/widgets/widgets.php:392
 msgid "categories/tags list"
 msgstr "カテゴリー／カスタム分類リスト"
 
-#: plugins/widgets/widgets.php:393
+#: plugins/widgets/widgets.php:397
 msgid "Displays a categories, tags or format list."
 msgstr "カテゴリーやカスタム分類のリストを表示します。"
 
-#: plugins/widgets/widgets.php:440
+#: plugins/widgets/widgets.php:444
 msgid "Label to display"
 msgstr "表示ラベル"
 
-#: plugins/widgets/widgets.php:444
+#: plugins/widgets/widgets.php:448
 msgid "Display Taxonomy"
 msgstr "表示する分類"
 
-#: plugins/widgets/widgets.php:464
+#: plugins/widgets/widgets.php:468
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: plugins/widgets/widgets.php:489
+#: plugins/widgets/widgets.php:493
 msgid "RSS entries for top"
 msgstr "トップ用_RSSエントリー"
 
-#: plugins/widgets/widgets.php:494
+#: plugins/widgets/widgets.php:498
 msgid "Displays entries list from a RSS feed link."
 msgstr "RSSエントリーを設置します。"
 
-#: plugins/widgets/widgets.php:520
+#: plugins/widgets/widgets.php:524
 msgid "Heading title"
 msgstr "見出しタイトル"
 
-#: plugins/widgets/widgets.php:549 plugins/widgets/widgets.php:659
+#: plugins/widgets/widgets.php:553 plugins/widgets/widgets.php:663
 msgid "Recent Posts"
 msgstr "最近の投稿"
 
-#: plugins/widgets/widgets.php:554
+#: plugins/widgets/widgets.php:558
 msgid "Displays a list of your most recent posts"
 msgstr "最近の投稿一覧を表示します。"
 
-#: plugins/widgets/widgets.php:678
+#: plugins/widgets/widgets.php:682
 msgid "Display count"
 msgstr "表示件数"
 
-#: plugins/widgets/widgets.php:682
+#: plugins/widgets/widgets.php:686
 msgid "post type"
 msgstr "ポストタイプ"
 
-#: plugins/widgets/widgets.php:692
+#: plugins/widgets/widgets.php:696
 msgid "taxonomy ID"
 msgstr "カテゴリー（タクソノミー）ID"
 
-#: plugins/widgets/widgets.php:694
+#: plugins/widgets/widgets.php:698
 msgid "if you need filtering by term, add the term ID separate by \",\"."
 msgstr ""
 "特定のカテゴリーのみ表示したい場合はカンマ(,)区切りでカテゴリーIDを入力します"
 
-#: plugins/widgets/widgets.php:696
+#: plugins/widgets/widgets.php:700
 msgid "if empty this area, I will do not filtering."
 msgstr "空欄の場合はフィルタリングは行いません"
 
-#: plugins/widgets/widgets.php:699
+#: plugins/widgets/widgets.php:703
 msgid "Display Format"
 msgstr "表示件数"
 
-#: plugins/widgets/widgets.php:703
+#: plugins/widgets/widgets.php:707
 msgid "Thumbnail / Title <br>( Sidebar )"
 msgstr "画像/タイトル（サイドバー）"
 
-#: plugins/widgets/widgets.php:706
+#: plugins/widgets/widgets.php:710
 msgid "Date / Category / Title <br>( Main contents area )"
 msgstr "日付/カテゴリー/タイトル<br>（コンテンツエリア）"
 
-#: plugins/widgets/widgets.php:709
+#: plugins/widgets/widgets.php:713
 msgid ""
 "Date / Category / Title / Excerpt / Thumbnail <br>( Main contents area )"
 msgstr "日付/カテゴリー/タイトル/抜粋/画像<br>（コンテンツエリア）"
@@ -2259,12 +2267,6 @@ msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 
 #~ msgid "Sidebar(Page content only)"
 #~ msgstr "サイドバー（固定ページ）"
-
-#~ msgid "This widget area appears only on the page content pages."
-#~ msgstr ""
-#~ "固定ページコンテンツのページにのみ表示されるウィジェットです。設定がない場"
-#~ "合は子ページのリストや問い合わせバナーなどが自動的に表示されます。非表示に"
-#~ "したい場合は空のテキストウィジェットなどを設定してください。"
 
 #~ msgid "Monthly archives"
 #~ msgstr "月別アーカイブ"

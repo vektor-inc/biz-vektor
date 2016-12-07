@@ -118,7 +118,7 @@ class WP_Widget_topPR extends WP_Widget {
 }
 
 /*-------------------------------------------*/
-/*	page widget
+/*	Page widget
 /*-------------------------------------------*/
 class wp_widget_page extends WP_Widget {
 
@@ -165,7 +165,11 @@ class wp_widget_page extends WP_Widget {
 
 		?>
 		<p>
-		<?php 	$pages = get_pages();	?>
+		<?php
+		$args = array(
+			'post_status' => 'publish,private',
+		); 
+		$pages = get_pages($args);	?>
 <label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Display page', 'biz-vektor') ?> :</label>
 <select name="<?php echo $this->get_field_name('page_id'); ?>" >
 		<?php foreach($pages as $page){ ?>
