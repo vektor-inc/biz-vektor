@@ -193,9 +193,9 @@ function biz_vektor_widget_beacon($flag){
 
 function biz_vektor_maincontent_widgetarea_init() {
 	register_sidebar( array(
-		'name' => __( 'after main image(Homepage)', 'biz-vektor' ),
+		'name' => __( 'After main image(Homepage)', 'biz-vektor' ),
 		'id' => 'top-after-image-widget-area',
-		'description' => __( 'This widget area appears at after main image on main page.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears at after main image on homepage.', 'biz-vektor' ),
 		'before_widget' => '<div id="%1$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h2>',
