@@ -193,6 +193,16 @@ function biz_vektor_widget_beacon($flag){
 
 function biz_vektor_maincontent_widgetarea_init() {
 	register_sidebar( array(
+		'name' => __( 'after main image(Homepage)', 'biz-vektor' ),
+		'id' => 'top-after-image-widget-area',
+		'description' => __( 'This widget area appears at after main image on main page.', 'biz-vektor' ),
+		'before_widget' => '<div id="%1$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	) );
+
+	register_sidebar( array(
 		'name' => __( 'Main content(Homepage)', 'biz-vektor' ),
 		'id' => 'top-main-widget-area',
 		'description' => __( 'This widget area appears on the front page main content area only.', 'biz-vektor' ),
