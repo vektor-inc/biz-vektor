@@ -205,6 +205,11 @@ span.wpcf7-not-valid-tip::after, div.wpcf7-validation-errors::after { content: "
 .flex-control-nav li a.active { background-position: 0 -27px; cursor: default; }
 
 @media (max-width: 970px) { .flex-control-nav, .flex-direction-nav li .next, .flex-direction-nav li .prev { display: none; } }
+/*-------------------------------------------*/
+/*			front-page
+/*-------------------------------------------*/
+#main #container .content.wide.top_after_image_widget_area { padding-bottom: 0; }
+
 /* BizVektorOptions 0.1.1.1
 /*-------------------------------------------*/
 .leadTxt, #content p.leadTxt { font-size: 2em; line-height: 150%; padding: 0; }

@@ -126,6 +126,7 @@ form#searchform input#s { padding:6px 5px;}
 	}
 	.sideWidget .tagcloud { margin-top:10px; }
 }
+
 /*-------------------------------------------*/
 /*	.subPostListSection
 /*-------------------------------------------*/
@@ -263,3 +264,9 @@ html[xmlns] .slides{ display:block }
 	.flex-direction-nav li .next,
 	.flex-direction-nav li .prev { display:none; }
 }
+
+/*-------------------------------------------*/
+/*			front-page
+/*-------------------------------------------*/
+#main #container .content.wide.top_after_image_widget_area { padding-bottom:0; }
+
