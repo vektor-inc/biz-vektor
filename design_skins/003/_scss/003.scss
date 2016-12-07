@@ -21,7 +21,7 @@ $sidePadding : 25px;
 
 @mixin linebox { border:1px solid #ccc;box-shadow:inset 0px 0px 0px 1px rgba(255,255,255,0.9);color:#fff; }
 @mixin wakubox { box-shadow:inset 0px 0px 0px 4px rgba(0,0,0,0.05); border:1px solid #ccc;margin-bottom:20px; }
-@mixin h2	{ border-top:2px solid #666;border-bottom:1px solid #efefef; background-color: #f9f9f9;padding:12px 12px 9px; font-weight: lighter; }
+@mixin h2	{ border-top:2px solid #666;border-bottom:1px solid #e5e5e5; background-color: #f9f9f9;padding:12px 12px 9px; font-weight: lighter; }
 @mixin h3_after	{ content:".";line-height:0;width:30%;display:block; overflow:hidden;border-bottom:1px solid $color_key; position: absolute;bottom:-1px; }
 @mixin vektor_kado_icons {
 	font-family: 'vektor_kado_icons';

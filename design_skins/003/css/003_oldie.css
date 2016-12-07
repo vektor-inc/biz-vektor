@@ -43,8 +43,6 @@
 
 .content .child_page_block.layout_odd { float: left; clear: both; }
 
-body { line-height: 150%; }
-
 #headerTop { display: block; }
 
 #headerTop #site-description { line-height: 150%; font-size: 12px; display: block; }
@@ -69,8 +67,6 @@ body { line-height: 150%; }
 .content #sitemapPostList { float: right; width: 49%; margin-top: 0px; }
 
 .content ul.linkList li a { padding: 3px 15px; }
-
-body { line-height: 150%; }
 
 #headerTop { display: block; }
 
