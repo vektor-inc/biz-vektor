@@ -5,7 +5,6 @@
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php wp_title(); ?></title>
 <link rel="start" href="<?php echo home_url(); ?>" title="HOME" />
 
 <?php
