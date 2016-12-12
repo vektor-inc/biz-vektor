@@ -189,7 +189,7 @@ function getHeadTitle() {
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
 	return strip_tags($headTitle);
 }
-add_filter( 'wp_title', 'getHeadTitle', 10, 2 );
+add_filter( 'pre_get_document_title', 'getHeadTitle', 10, 2 );
 
 /*-------------------------------------------*/
 /*	layout
