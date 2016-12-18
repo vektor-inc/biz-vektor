@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biz-vektor\n"
-"POT-Creation-Date: 2016-12-07 17:53+0900\n"
+"POT-Creation-Date: 2016-12-18 10:27+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -307,7 +307,7 @@ msgstr "フッターロゴ画像"
 msgid "Footer logo image URL"
 msgstr "フッターロゴ画像URL"
 
-#: inc/theme-customizer.php:100 inc/theme-options-edit.php:124
+#: inc/theme-customizer.php:100
 msgid "Not specified (left-justified)"
 msgstr "指定なし（左詰め）"
 
@@ -471,6 +471,10 @@ msgstr ""
 #: inc/theme-options-edit.php:118
 msgid "Number of header menus"
 msgstr "ヘッダーメニューの数"
+
+#: inc/theme-options-edit.php:124
+msgid "Split automatically"
+msgstr "自動分割"
 
 #: inc/theme-options-edit.php:143
 msgid "How to set up Menus"
@@ -1170,23 +1174,23 @@ msgstr "プレーン"
 msgid "[ Select ]"
 msgstr "[ 選択してください ]"
 
-#: inc/theme-options.php:656
+#: inc/theme-options.php:666
 msgctxt "Font select"
 msgid "serif"
 msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
 
-#: inc/theme-options.php:658
+#: inc/theme-options.php:668
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
 
-#: inc/theme-options.php:763
+#: inc/theme-options.php:773
 msgid "bnr_contact.png"
 msgstr "bnr_contact_ja.png"
 
-#: inc/theme-options.php:763 module_mainfoot.php:15
+#: inc/theme-options.php:773 module_mainfoot.php:15
 msgid "Contact us by e-mail"
 msgstr "メールでお問い合わせはこちら"
 

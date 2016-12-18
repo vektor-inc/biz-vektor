@@ -121,7 +121,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<option value="">[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
 	$biz_vektor_gMenuDivides = array(
-		'divide_natural' => __('Not specified (left-justified)', 'biz-vektor'),
+		'divide_natural' => __('Split automatically', 'biz-vektor'),
 		'divide_4' => _x('4', 'biz-vektor-theme-customizer', 'biz-vektor'),
 		'divide_5' => _x('5', 'biz-vektor-theme-customizer', 'biz-vektor'),
 		'divide_6' => _x('6', 'biz-vektor-theme-customizer', 'biz-vektor'),

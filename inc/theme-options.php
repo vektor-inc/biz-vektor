@@ -363,31 +363,32 @@ add_action('wp_head','biz_vektor_gMenuDivide',170 );
 function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
 	// No select
-	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
-	//　other
-	} else {
-		$menuWidth = array(
-			'divide_4' => array(238,237),
-			'divide_5' => array(193,189),
-			'divide_6' => array(159,158),
-			'divide_7' => array(139,135),
-			);
-		$menuWidthActive = $menuWidth[$options['gMenuDivide']][0];
-		$menuWidthNonActive = $menuWidth[$options['gMenuDivide']][1];
-?>
+	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) { ?>
 <style type="text/css">
 /*-------------------------------------------*/
 /*	menu divide
 /*-------------------------------------------*/
 @media (min-width: 970px) {
-#gMenu .menu > li { width:<?php echo $menuWidthNonActive ?>px; text-align:center; }
-#gMenu .menu > li.current_menu_item,
-#gMenu .menu > li.current-menu-item,
-#gMenu .menu > li.current-menu-ancestor,
-#gMenu .menu > li.current_page_item,
-#gMenu .menu > li.current_page_ancestor,
-#gMenu .menu > li.current-page-ancestor { width:<?php echo $menuWidthActive ?>px; }
+#gMenu.itemClose .menu, #gMenu.itemOpen .menu { display: -webkit-flex; display: flex; }
+#gMenu .menu > li { width:100%; }
 }
+</style>
+<?php
+	//　other
+	} else {
+		$menuWidth_array = array(
+			'divide_4' => '25',
+			'divide_5' => '20',
+			'divide_6' => '16.65',
+			'divide_7' => '14.28',
+			);
+		$menuWidth = $menuWidth_array[$options['gMenuDivide']];
+?>
+<style type="text/css">
+/*-------------------------------------------*/
+/*	menu divide
+/*-------------------------------------------*/
+@media (min-width: 970px) { #gMenu .menu > li { width:<?php echo $menuWidth;?>%; text-align:center; } }
 </style>
 <!--[if lte IE 8]>
 <style type="text/css">
