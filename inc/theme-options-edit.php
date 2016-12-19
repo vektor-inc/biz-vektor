@@ -121,7 +121,7 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	<option value="">[ <?php _e('Select', 'biz-vektor') ?> ]</option>
 	<?php
 	$biz_vektor_gMenuDivides = array(
-		'divide_natural' => __('Not specified (left-justified)', 'biz-vektor'),
+		'divide_natural' => __('Split automatically', 'biz-vektor'),
 		'divide_4' => _x('4', 'biz-vektor-theme-customizer', 'biz-vektor'),
 		'divide_5' => _x('5', 'biz-vektor-theme-customizer', 'biz-vektor'),
 		'divide_6' => _x('6', 'biz-vektor-theme-customizer', 'biz-vektor'),
@@ -140,8 +140,10 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	?>
 	</select>
 	<?php if ( !function_exists( 'biz_vektor_activation' ) ) :?>
-	[ <a href="http://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
+	[ <a href="https://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
 	<?php endif;?>
+	<br>
+	<?php _e('Please specify an arbitrary number of divisions if you want to make the menu more than one line or correspond to IE 10.','biz-vektor');?>
 	</td>
 	</tr>
 	<!-- Head logo -->

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-14 12:47+0900\n"
+"POT-Creation-Date: 2016-12-18 10:37+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -67,120 +67,128 @@ msgstr ""
 msgid "Keycolor(VeryLight)"
 msgstr ""
 
-#: design_skins/003/functions_003.php:37 header.php:87
+#: design_skins/003/functions_003.php:37 header.php:86
 msgid "Skip menu"
 msgstr ""
 
-#: front-page.php:24 plugins/extra_module/adminBarCustom.php:60
+#: front-page.php:29 plugins/extra_module/adminBarCustom.php:60
 msgid "Customizer"
 msgstr ""
 
-#: front-page.php:25
+#: front-page.php:30
 msgid "Widdget Setting Page"
 msgstr ""
 
-#: front-page.php:26
+#: front-page.php:31
 #, php-format
 msgid ""
 "Items and the order that displayed on the home page, you can set freely from "
 "%s or %s."
 msgstr ""
 
-#: front-page.php:27
+#: front-page.php:32
 msgid "Set on widget item to the  \"Main content(Homepage)\" widget area."
 msgstr ""
 
-#: front-page.php:50
+#: front-page.php:55
 msgid ""
 "* In admin [Settings] &raquo; [Display Settings], if the front page is not "
 "set to a [page], nothing is displayed in this area."
 msgstr ""
 
-#: front-page.php:51
+#: front-page.php:56
 msgid ""
 "* If empty, the body of a page that you set as the front page does not "
 "display anything."
 msgstr ""
 
-#: front-page.php:55 functions.php:547 module_loop_post.php:18
+#: front-page.php:60 functions.php:559 module_loop_post.php:18
 #: module_loop_post2.php:20 module_topPR.php:82 page-lp.php:31
 #: page-no-mainfoot.php:19 page-onecolumn.php:20 page-parent.php:24
-#: page-parent.php:57 page.php:14 plugins/widgets/widgets.php:202
+#: page-parent.php:57 page.php:14 plugins/widgets/widgets.php:206
 #: single-info.php:11 single-info.php:19 single.php:15 single.php:34
 msgid "Edit"
 msgstr ""
 
-#: front-page.php:58
+#: front-page.php:63
 msgid "Title display settings"
 msgstr ""
 
-#: front-page.php:61
+#: front-page.php:66
 msgid "Change the page to be displayed"
 msgstr ""
 
-#: functions.php:126
+#: functions.php:128
 msgid "Sidebar(Front page only)"
 msgstr ""
 
-#: functions.php:128
+#: functions.php:130
 msgid "This widget area appears on the front page only."
-msgstr ""
-
-#: functions.php:149
-#, php-format
-msgid "Sidebar(%s)"
 msgstr ""
 
 #: functions.php:151
 #, php-format
+msgid "Sidebar(%s)"
+msgstr ""
+
+#: functions.php:153
+#, php-format
 msgid "This widget area appears only on the %s content pages."
 msgstr ""
 
-#: functions.php:162
+#: functions.php:164
 msgid "Sidebar(Common top)"
 msgstr ""
 
-#: functions.php:164
+#: functions.php:166
 msgid "This widget area appears at top of sidebar."
 msgstr ""
 
-#: functions.php:171
+#: functions.php:173
 msgid "Sidebar(Common bottom)"
 msgstr ""
 
-#: functions.php:173
+#: functions.php:175
 msgid "This widget area appears at bottom of sidebar."
 msgstr ""
 
-#: functions.php:194
+#: functions.php:196
+msgid "After main image(Homepage)"
+msgstr ""
+
+#: functions.php:198
+msgid "This widget area appears at after main image on homepage."
+msgstr ""
+
+#: functions.php:206
 msgid "Main content(Homepage)"
 msgstr ""
 
-#: functions.php:196
+#: functions.php:208
 msgid "This widget area appears on the front page main content area only."
 msgstr ""
 
-#: functions.php:216
+#: functions.php:228
 msgid "LP widget \""
 msgstr ""
 
-#: functions.php:527
+#: functions.php:539
 msgid "Your comment is awaiting approval."
 msgstr ""
 
-#: functions.php:537
+#: functions.php:549
 msgid "Reply"
 msgstr ""
 
-#: functions.php:561
+#: functions.php:573
 msgid "Navigation"
 msgstr ""
 
-#: functions.php:562
+#: functions.php:574
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr ""
 
-#: functions.php:563
+#: functions.php:575
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
@@ -286,7 +294,7 @@ msgstr ""
 msgid "Footer logo image URL"
 msgstr ""
 
-#: inc/theme-customizer.php:100 inc/theme-options-edit.php:124
+#: inc/theme-customizer.php:100
 msgid "Not specified (left-justified)"
 msgstr ""
 
@@ -380,7 +388,7 @@ msgid "3PR area settings"
 msgstr ""
 
 #: inc/theme-customizer.php:264 inc/theme-options-edit.php:374
-#: plugins/widgets/widgets.php:344
+#: plugins/widgets/widgets.php:348
 msgid "Title"
 msgstr ""
 
@@ -445,6 +453,10 @@ msgstr ""
 
 #: inc/theme-options-edit.php:118
 msgid "Number of header menus"
+msgstr ""
+
+#: inc/theme-options-edit.php:124
+msgid "Split automatically"
 msgstr ""
 
 #: inc/theme-options-edit.php:143
@@ -982,7 +994,7 @@ msgstr ""
 msgid "Page top"
 msgstr ""
 
-#: inc/theme-options-init.php:89 plugins/widgets/widgets.php:459
+#: inc/theme-options-init.php:89 plugins/widgets/widgets.php:463
 msgid "Blog"
 msgstr ""
 
@@ -1094,21 +1106,21 @@ msgstr ""
 msgid "[ Select ]"
 msgstr ""
 
-#: inc/theme-options.php:656
+#: inc/theme-options.php:657
 msgctxt "Font select"
 msgid "serif"
 msgstr ""
 
-#: inc/theme-options.php:658
+#: inc/theme-options.php:659
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 
-#: inc/theme-options.php:763
+#: inc/theme-options.php:764
 msgid "bnr_contact.png"
 msgstr ""
 
-#: inc/theme-options.php:763 module_mainfoot.php:15
+#: inc/theme-options.php:764 module_mainfoot.php:15
 msgid "Contact us by e-mail"
 msgstr ""
 
@@ -1132,8 +1144,8 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: module_entry_meta.php:20 plugins/widgets/widgets.php:400
-#: plugins/widgets/widgets.php:401 sidebar-info.php:17 sidebar-post.php:10
+#: module_entry_meta.php:20 plugins/widgets/widgets.php:404
+#: plugins/widgets/widgets.php:405 sidebar-info.php:17 sidebar-post.php:10
 msgid "Category"
 msgstr ""
 
@@ -1228,7 +1240,7 @@ msgstr ""
 msgid "Category list of %s"
 msgstr ""
 
-#: plugins/add_post_type/widget.info.php:65 plugins/widgets/widgets.php:674
+#: plugins/add_post_type/widget.info.php:65 plugins/widgets/widgets.php:678
 msgid "Title:"
 msgstr ""
 
@@ -1251,12 +1263,12 @@ msgctxt "After year"
 msgid "&nbsp;"
 msgstr ""
 
-#: plugins/add_post_type/widget.info.php:126 plugins/widgets/widgets.php:252
+#: plugins/add_post_type/widget.info.php:126 plugins/widgets/widgets.php:256
 #, php-format
 msgid "%1$s list for top"
 msgstr ""
 
-#: plugins/add_post_type/widget.info.php:131 plugins/widgets/widgets.php:257
+#: plugins/add_post_type/widget.info.php:131 plugins/widgets/widgets.php:261
 #, php-format
 msgid "Displays recent %1$s posts."
 msgstr ""
@@ -1874,7 +1886,7 @@ msgid "facebook&twitter banner"
 msgstr ""
 
 #: plugins/sns/widget.sns.php:24 plugins/sns/widget.sns.php:60
-#: plugins/widgets/widgets.php:220
+#: plugins/widgets/widgets.php:224
 msgid "*　It is necessary to set the Theme options page."
 msgstr ""
 
@@ -1902,113 +1914,113 @@ msgstr ""
 msgid "Displays the content of a chosen page."
 msgstr ""
 
-#: plugins/widgets/widgets.php:169
+#: plugins/widgets/widgets.php:173
 msgid "Display page"
 msgstr ""
 
-#: plugins/widgets/widgets.php:177
+#: plugins/widgets/widgets.php:181
 msgid "display title"
 msgstr ""
 
-#: plugins/widgets/widgets.php:215
+#: plugins/widgets/widgets.php:219
 msgid "Contact button"
 msgstr ""
 
-#: plugins/widgets/widgets.php:288
+#: plugins/widgets/widgets.php:292
 msgid "archive list"
 msgstr ""
 
-#: plugins/widgets/widgets.php:293
+#: plugins/widgets/widgets.php:297
 msgid ""
 "Displays a list of archives. You can choose the post type and also to "
 "display archives by month or by year."
 msgstr ""
 
-#: plugins/widgets/widgets.php:301 plugins/widgets/widgets.php:302
+#: plugins/widgets/widgets.php:305 plugins/widgets/widgets.php:306
 msgid "archives"
 msgstr ""
 
-#: plugins/widgets/widgets.php:348
+#: plugins/widgets/widgets.php:352
 msgid "Post type"
 msgstr ""
 
-#: plugins/widgets/widgets.php:355
+#: plugins/widgets/widgets.php:359
 msgid "Display Type"
 msgstr ""
 
-#: plugins/widgets/widgets.php:388
+#: plugins/widgets/widgets.php:392
 msgid "categories/tags list"
 msgstr ""
 
-#: plugins/widgets/widgets.php:393
+#: plugins/widgets/widgets.php:397
 msgid "Displays a categories, tags or format list."
 msgstr ""
 
-#: plugins/widgets/widgets.php:440
+#: plugins/widgets/widgets.php:444
 msgid "Label to display"
 msgstr ""
 
-#: plugins/widgets/widgets.php:444
+#: plugins/widgets/widgets.php:448
 msgid "Display Taxonomy"
 msgstr ""
 
-#: plugins/widgets/widgets.php:464
+#: plugins/widgets/widgets.php:468
 msgid "Archives"
 msgstr ""
 
-#: plugins/widgets/widgets.php:489
+#: plugins/widgets/widgets.php:493
 msgid "RSS entries for top"
 msgstr ""
 
-#: plugins/widgets/widgets.php:494
+#: plugins/widgets/widgets.php:498
 msgid "Displays entries list from a RSS feed link."
 msgstr ""
 
-#: plugins/widgets/widgets.php:520
+#: plugins/widgets/widgets.php:524
 msgid "Heading title"
 msgstr ""
 
-#: plugins/widgets/widgets.php:549 plugins/widgets/widgets.php:659
+#: plugins/widgets/widgets.php:553 plugins/widgets/widgets.php:663
 msgid "Recent Posts"
 msgstr ""
 
-#: plugins/widgets/widgets.php:554
+#: plugins/widgets/widgets.php:558
 msgid "Displays a list of your most recent posts"
 msgstr ""
 
-#: plugins/widgets/widgets.php:678
+#: plugins/widgets/widgets.php:682
 msgid "Display count"
 msgstr ""
 
-#: plugins/widgets/widgets.php:682
+#: plugins/widgets/widgets.php:686
 msgid "post type"
 msgstr ""
 
-#: plugins/widgets/widgets.php:692
+#: plugins/widgets/widgets.php:696
 msgid "taxonomy ID"
 msgstr ""
 
-#: plugins/widgets/widgets.php:694
+#: plugins/widgets/widgets.php:698
 msgid "if you need filtering by term, add the term ID separate by \",\"."
 msgstr ""
 
-#: plugins/widgets/widgets.php:696
+#: plugins/widgets/widgets.php:700
 msgid "if empty this area, I will do not filtering."
 msgstr ""
 
-#: plugins/widgets/widgets.php:699
+#: plugins/widgets/widgets.php:703
 msgid "Display Format"
 msgstr ""
 
-#: plugins/widgets/widgets.php:703
+#: plugins/widgets/widgets.php:707
 msgid "Thumbnail / Title <br>( Sidebar )"
 msgstr ""
 
-#: plugins/widgets/widgets.php:706
+#: plugins/widgets/widgets.php:710
 msgid "Date / Category / Title <br>( Main contents area )"
 msgstr ""
 
-#: plugins/widgets/widgets.php:709
+#: plugins/widgets/widgets.php:713
 msgid ""
 "Date / Category / Title / Excerpt / Thumbnail <br>( Main contents area )"
 msgstr ""
