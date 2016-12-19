@@ -21,6 +21,7 @@ jQuery(document).ready(function($){
 	jQuery('.media_btn').click(function(e) {
 		var wpmedia;
 		var media_target = jQuery(this).attr('id').replace(/media_/g,'#');
+		var f = $(this).hasClass('full-address');
 		e.preventDefault();
 
 		wpmedia = wp.media({
@@ -36,7 +37,7 @@ jQuery(document).ready(function($){
 		wpmedia.on('select', function() {
 			var images = wpmedia.state().get('selection');
 			images.each(function(file){
-				jQuery(media_target).attr('value', file.toJSON().url.replace(/^https?:/, "") );
+				jQuery(media_target).attr('value', f?file.toJSON().url:file.toJSON().url.replace(/^https?:/, "") );
 			});
 		});
 		wpmedia.open();
