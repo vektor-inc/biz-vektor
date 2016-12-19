@@ -429,7 +429,7 @@ printf(__('* If you prefer to use Twitter widgets etc, this can be left blank, p
 <td><?php _e('If, for example someone pressed the Facebook [Like] button, this is the image that appears on the Facebook timeline.', 'biz-vektor'); ?><br />
 <?php _e('If a featured image is specified for the page, it takes precedence.', 'biz-vektor'); ?><br />
 <input type="text" name="biz_vektor_theme_options[ogpImage]" id="ogpImage" value="<?php echo esc_attr( $options['ogpImage'] ); ?>" class="width-300" /> 
-<button id="media_ogpImage" class="media_btn"><?php _e('Select an image', 'biz-vektor'); ?></button><br />
+<button id="media_ogpImage" class="media_btn full-address"><?php _e('Select an image', 'biz-vektor'); ?></button><br />
 <span><?php _e('ex) ', 'biz-vektor') ;?>http://www.vektor-inc.co.jp/images/ogpImage.png</span><br />
 <?php _e('* Picture sizes are 300x300 pixels or more and picture ratio 16:9 is recommended.', 'biz-vektor'); ?>
 </td>
