@@ -49,8 +49,12 @@ function biz_vektor_ogp() {
 	} else if (is_tax()) {
 		$linkUrl = get_term_link($wp_query->query_vars['term'],$wp_query->query_vars['taxonomy']);
 	} else {
-		$linkUrl = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+		$linkUrl = (is_ssl()? "https://" : "http://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 	}
+	$ogpimage = $options['ogpImage'];
+	if($ogpimage && preg_match('/^\/\//', $ogpimage) )
+		$ogpimage = (is_ssl()? 'https:':'http:').$ogpimage;
+
 	$bizVektorOGP = '<!-- [ '.get_biz_vektor_name().' OGP ] -->'."\n";
 	$bizVektorOGP .= '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
 	$bizVektorOGP .= '<meta property="og:url" content="'.esc_url($linkUrl).'" />'."\n";
@@ -59,15 +63,15 @@ function biz_vektor_ogp() {
 	}
 	if (is_front_page() || is_home()) {
 		$bizVektorOGP .= '<meta property="og:type" content="website" />'."\n";
-		if (isset($options['ogpImage'])){
-			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		if ($ogpimage){
+			$bizVektorOGP .= '<meta property="og:image" content="'.$ogpimage.'" />'."\n";
 		}
 		$bizVektorOGP .= '<meta property="og:title" content="'.get_bloginfo('name').'" />'."\n";
 		$bizVektorOGP .= '<meta property="og:description" content="'.get_bloginfo('description').'" />'."\n";
 	} else if (is_category() || is_archive()) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
-		if ($options['ogpImage']){
-			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		if ($ogpimage){
+			$bizVektorOGP .= '<meta property="og:image" content="'.$ogpimage.'" />'."\n";
 		}
 	} else if (is_page() || is_single()) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />'."\n";
@@ -76,8 +80,8 @@ function biz_vektor_ogp() {
 			$image_id = get_post_thumbnail_id();
 			$image_url = wp_get_attachment_image_src($image_id,'large', true);
 			$bizVektorOGP .= '<meta property="og:image" content="'.$image_url[0].'" />'."\n";
-		} else if ( isset($options['ogpImage']) && $options['ogpImage'] ) {
-			$bizVektorOGP .= '<meta property="og:image" content="'.$options['ogpImage'].'" />'."\n";
+		} else if ( $ogpimage ) {
+			$bizVektorOGP .= '<meta property="og:image" content="'.$ogpimage.'" />'."\n";
 		}
 		// description
 		$metaExcerpt = $post->post_excerpt;

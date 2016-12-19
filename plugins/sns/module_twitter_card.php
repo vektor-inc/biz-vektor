@@ -9,6 +9,8 @@ if ( ( is_single() || is_page() ) && has_post_thumbnail() ) {
 	$card_image_url = $image_url[0];
 } else {
 	$card_image_url = (isset($biz_vektor_options['ogpImage'])) ? $biz_vektor_options['ogpImage'] : '';
+    if($card_image_url && preg_match('/^\/\//', $card_image_url) )
+        $card_image_url = (is_ssl()? 'https:':'http:').$card_image_url;
 }
 // image size
 if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && $card_image_url ):
