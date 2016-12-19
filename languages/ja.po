@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biz-vektor\n"
-"POT-Creation-Date: 2016-12-18 10:27+0900\n"
+"POT-Creation-Date: 2016-12-19 11:57+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -291,7 +291,7 @@ msgstr "エラーが発生しました。"
 msgid "Design settings"
 msgstr "デザイン設定"
 
-#: inc/theme-customizer.php:64 inc/theme-options-edit.php:149
+#: inc/theme-customizer.php:64 inc/theme-options-edit.php:151
 msgid "Header logo image"
 msgstr "ヘッダーロゴ画像"
 
@@ -299,7 +299,7 @@ msgstr "ヘッダーロゴ画像"
 msgid "Header logo image URL"
 msgstr "ヘッダーロゴ画像URL"
 
-#: inc/theme-customizer.php:84 inc/theme-options-edit.php:157
+#: inc/theme-customizer.php:84 inc/theme-options-edit.php:159
 msgid "Footer logo image"
 msgstr "フッターロゴ画像"
 
@@ -336,29 +336,29 @@ msgctxt "biz-vektor-theme-customizer"
 msgid "Number of header menus"
 msgstr "ヘッダーメニューの数"
 
-#: inc/theme-customizer.php:118 inc/theme-options-edit.php:165
+#: inc/theme-customizer.php:118 inc/theme-options-edit.php:167
 msgid "Layout"
 msgstr "レイアウト"
 
-#: inc/theme-customizer.php:126 inc/theme-options-edit.php:195
+#: inc/theme-customizer.php:126 inc/theme-options-edit.php:197
 msgid "Heading font"
 msgstr "見出しの書体"
 
 #: inc/theme-customizer.php:131 inc/theme-customizer.php:143
-#: inc/theme-options-edit.php:200 inc/theme-options-edit.php:211
+#: inc/theme-options-edit.php:202 inc/theme-options-edit.php:213
 msgid "Serif"
 msgstr "明朝"
 
 #: inc/theme-customizer.php:132 inc/theme-customizer.php:144
-#: inc/theme-options-edit.php:201 inc/theme-options-edit.php:212
+#: inc/theme-options-edit.php:203 inc/theme-options-edit.php:214
 msgid "Sanserif"
 msgstr "ゴシック"
 
-#: inc/theme-customizer.php:138 inc/theme-options-edit.php:206
+#: inc/theme-customizer.php:138 inc/theme-options-edit.php:208
 msgid "Global Menu font"
 msgstr "グローバルメニューの書体"
 
-#: inc/theme-customizer.php:159 inc/theme-options-edit.php:220
+#: inc/theme-customizer.php:159 inc/theme-options-edit.php:222
 msgid "Google Web Fonts"
 msgstr "Google Web Fonts"
 
@@ -366,23 +366,23 @@ msgstr "Google Web Fonts"
 msgid "Don't show on top page"
 msgstr "トップページのサイドバーを表示しない"
 
-#: inc/theme-customizer.php:182 inc/theme-options-edit.php:284
+#: inc/theme-customizer.php:182 inc/theme-options-edit.php:286
 msgid "Contact settings"
 msgstr "連絡先の設定"
 
-#: inc/theme-customizer.php:200 inc/theme-options-edit.php:291
+#: inc/theme-customizer.php:200 inc/theme-options-edit.php:293
 msgid "Message"
 msgstr "お問い合わせメッセージ"
 
-#: inc/theme-customizer.php:208 inc/theme-options-edit.php:298
+#: inc/theme-customizer.php:208 inc/theme-options-edit.php:300
 msgid "Phone number"
 msgstr "電話番号"
 
-#: inc/theme-customizer.php:216 inc/theme-options-edit.php:305
+#: inc/theme-customizer.php:216 inc/theme-options-edit.php:307
 msgid "Office hours"
 msgstr "受付時間"
 
-#: inc/theme-customizer.php:224 inc/theme-options-edit.php:312
+#: inc/theme-customizer.php:224 inc/theme-options-edit.php:314
 msgid ""
 "Site / Company / Store / Service name. This is displayed in the left part of "
 "the footer bottom and footer copyright section."
@@ -390,28 +390,28 @@ msgstr ""
 "フッター左下とフッターコピーライトに表示させるサイト名（あるいは企業名・店舗"
 "名・サービス名）"
 
-#: inc/theme-customizer.php:232 inc/theme-options-edit.php:322
+#: inc/theme-customizer.php:232 inc/theme-options-edit.php:324
 msgid "Company address"
 msgstr "住所"
 
-#: inc/theme-customizer.php:240 inc/theme-options-edit.php:332
+#: inc/theme-customizer.php:240 inc/theme-options-edit.php:334
 msgid "The contact page URL"
 msgstr "問い合わせページのURL"
 
-#: inc/theme-customizer.php:251 inc/theme-options-edit.php:352
+#: inc/theme-customizer.php:251 inc/theme-options-edit.php:354
 msgid "3PR area settings"
 msgstr "トップページ3PRエリアの設定"
 
-#: inc/theme-customizer.php:264 inc/theme-options-edit.php:374
+#: inc/theme-customizer.php:264 inc/theme-options-edit.php:376
 #: plugins/widgets/widgets.php:348
 msgid "Title"
 msgstr "タイトル"
 
-#: inc/theme-customizer.php:273 inc/theme-options-edit.php:376
+#: inc/theme-customizer.php:273 inc/theme-options-edit.php:378
 msgid "Description"
 msgstr "概要"
 
-#: inc/theme-customizer.php:280 inc/theme-options-edit.php:378
+#: inc/theme-customizer.php:280 inc/theme-options-edit.php:380
 msgid "URL"
 msgstr "リンク先ページのURL"
 
@@ -446,8 +446,8 @@ msgstr "デザインなど基本的な設定は %s から行う事が出来ま�
 msgid "Here you can change social media settings."
 msgstr "この画面では更に細かい項目やSNS連携などを設定します。"
 
-#: inc/theme-options-edit.php:85 inc/theme-options-edit.php:286
-#: inc/theme-options-edit.php:354
+#: inc/theme-options-edit.php:85 inc/theme-options-edit.php:288
+#: inc/theme-options-edit.php:356
 #, php-format
 msgid "You can change settings for this section also from %s"
 msgstr "この項目は %s からも設定が可能です"
@@ -480,44 +480,52 @@ msgstr "自動分割"
 msgid "How to set up Menus"
 msgstr "メニューの設定方法"
 
-#: inc/theme-options-edit.php:151 inc/theme-options-edit.php:159
-#: inc/theme-options-edit.php:259 inc/theme-options-edit.php:384
-#: inc/theme-options-edit.php:390
+#: inc/theme-options-edit.php:146
+msgid ""
+"Please specify an arbitrary number of divisions if you want to make the menu "
+"more than one line or correspond to IE 10."
+msgstr ""
+"メニューを複数の行にしたい場合やIE10に対応したい場合は、任意の分割数を指定し"
+"てください。"
+
+#: inc/theme-options-edit.php:153 inc/theme-options-edit.php:161
+#: inc/theme-options-edit.php:261 inc/theme-options-edit.php:386
+#: inc/theme-options-edit.php:392
 msgid "Select image"
 msgstr "画像を選択"
 
-#: inc/theme-options-edit.php:152
+#: inc/theme-options-edit.php:154
 msgid "Recommended : less than 60px height"
 msgstr ""
 "【 推奨サイズ　：　高さ60px以下 】　* 60pxより大きい場合は自動的に60pxに縮小"
 "します。"
 
-#: inc/theme-options-edit.php:160
+#: inc/theme-options-edit.php:162
 msgid "Recommended : 180-250px width"
 msgstr "【 推奨サイズ　：　180-250px 】 * 大きい場合は自動的に縮小します。"
 
-#: inc/theme-options-edit.php:182
+#: inc/theme-options-edit.php:184
 msgid "You can select 1-column from below: "
 msgstr "* １カラムについては、以下２つの方法で設定できます。"
 
-#: inc/theme-options-edit.php:186 inc/theme-options-edit.php:541
+#: inc/theme-options-edit.php:188 inc/theme-options-edit.php:543
 msgid "Home page settings"
 msgstr "トップページの設定"
 
-#: inc/theme-options-edit.php:187
+#: inc/theme-options-edit.php:189
 #, php-format
 msgid "[Top page] %s"
 msgstr "【トップページ】 このページの「%s」"
 
-#: inc/theme-options-edit.php:189
+#: inc/theme-options-edit.php:191
 msgid "[page] Edit Page > Page Attributes > Template"
 msgstr "【固定ページ】 各ページ編集画面のテンプレート選択ドロップダウン"
 
-#: inc/theme-options-edit.php:241
+#: inc/theme-options-edit.php:243
 msgid "Deployment of the sidebar menu"
 msgstr "サイドバーのメニューの展開"
 
-#: inc/theme-options-edit.php:243
+#: inc/theme-options-edit.php:245
 msgid ""
 "If the site hierarchy is deep, you can choose to hide this menu hierarchy "
 "other than the Page you are currently viewing."
@@ -526,62 +534,62 @@ msgstr ""
 "示している固定ページの子階層以外のメニュー（第３階層以下）を非表示にする事が"
 "出来ます。"
 
-#: inc/theme-options-edit.php:247 plugins/sns/sns.php:495
+#: inc/theme-options-edit.php:249 plugins/sns/sns.php:495
 #: plugins/sns/sns.php:497
 msgid "Display"
 msgstr "表示する"
 
-#: inc/theme-options-edit.php:248 plugins/sns/sns.php:499
+#: inc/theme-options-edit.php:250 plugins/sns/sns.php:499
 msgid "Hide"
 msgstr "表示しない"
 
-#: inc/theme-options-edit.php:251
+#: inc/theme-options-edit.php:253
 msgid "This setting can not be changed from the theme customizer."
 msgstr "この項目はカスタマイザーからは設定出来ません。"
 
-#: inc/theme-options-edit.php:256
+#: inc/theme-options-edit.php:258
 msgid "Favicon Setting"
 msgstr "Favicon設定"
 
-#: inc/theme-options-edit.php:260
+#: inc/theme-options-edit.php:262
 msgid "Please upload a .ico file."
 msgstr "作成したicoファイルをアップロードしてください。"
 
-#: inc/theme-options-edit.php:266
+#: inc/theme-options-edit.php:268
 msgid "IE8 Warning message"
 msgstr "IE8警告表示"
 
-#: inc/theme-options-edit.php:268
+#: inc/theme-options-edit.php:270
 msgid "Display a warning message about Internet Explorer 8"
 msgstr "Internet Explorer8への警告を表示する"
 
-#: inc/theme-options-edit.php:294 inc/theme-options-edit.php:301
-#: inc/theme-options-edit.php:308 inc/theme-options-edit.php:316
-#: inc/theme-options-edit.php:325 inc/theme-options-edit.php:335
+#: inc/theme-options-edit.php:296 inc/theme-options-edit.php:303
+#: inc/theme-options-edit.php:310 inc/theme-options-edit.php:318
+#: inc/theme-options-edit.php:327 inc/theme-options-edit.php:337
 #: plugins/seo_and_ga/seo_and_ga_edit.php:63 plugins/sns/sns.php:394
 #: plugins/sns/sns.php:433 plugins/sns/sns.php:453 plugins/sns/sns.php:472
 #: plugins/sns/sns.php:493
 msgid "ex) "
 msgstr "【記入例】"
 
-#: inc/theme-options-edit.php:294
+#: inc/theme-options-edit.php:296
 msgid "Please feel free to inquire."
 msgstr "お気軽にお問い合わせください"
 
-#: inc/theme-options-edit.php:308
+#: inc/theme-options-edit.php:310
 msgctxt "biz-vektor-theme-customizer"
 msgid "Office hours"
 msgstr "受付時間"
 
-#: inc/theme-options-edit.php:308
+#: inc/theme-options-edit.php:310
 msgid "Weekdays except holidays"
 msgstr "土・日・祝日除く"
 
-#: inc/theme-options-edit.php:316
+#: inc/theme-options-edit.php:318
 msgid "Sample,Inc."
 msgstr "株式会社サンプル"
 
-#: inc/theme-options-edit.php:317
+#: inc/theme-options-edit.php:319
 msgid ""
 "* Use this feature when the site name has become too long for SEO purposes."
 msgstr ""
@@ -591,11 +599,11 @@ msgstr ""
 "代替テキストとして反映されます。<br />* フッターのロゴ画像はデザインの設定よ"
 "り登録出来ます。"
 
-#: inc/theme-options-edit.php:322
+#: inc/theme-options-edit.php:324
 msgid "This is displayed in the left bottom part of the footer."
 msgstr "* フッター左下に表示されます"
 
-#: inc/theme-options-edit.php:326
+#: inc/theme-options-edit.php:328
 msgid ""
 "316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br /"
 ">Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176"
@@ -603,56 +611,56 @@ msgstr ""
 "〒000-000<br />愛知県あま市○○○丁目○○番地<br />TEL : 000-000-0000 / FAX : "
 "000-000-0000"
 
-#: inc/theme-options-edit.php:335
+#: inc/theme-options-edit.php:337
 msgid "or"
 msgstr "あるいは"
 
-#: inc/theme-options-edit.php:336
+#: inc/theme-options-edit.php:338
 msgid ""
 "* If you fill in the blank, contact banner will be displayed in the sidebar."
 msgstr "* 入力すると自動的にお問い合わせバナーが表示されます。"
 
-#: inc/theme-options-edit.php:337
+#: inc/theme-options-edit.php:339
 msgid "If not, it does not appear."
 msgstr "空欄の場合はお問い合わせバナーは表示されません。"
 
-#: inc/theme-options-edit.php:361
+#: inc/theme-options-edit.php:363
 msgid "The display of the home page 3PR area."
 msgstr "3PRエリアの表示設定"
 
-#: inc/theme-options-edit.php:363
+#: inc/theme-options-edit.php:365
 msgid "Check this box if you do not want to see the 3PR area on the home page."
 msgstr "チェックを入れると3PRエリアが表示されなくなります。"
 
-#: inc/theme-options-edit.php:364
+#: inc/theme-options-edit.php:366
 msgid "Do not show the top 3PR area"
 msgstr "3PRエリアを表示しない"
 
-#: inc/theme-options-edit.php:372
+#: inc/theme-options-edit.php:374
 msgid "PR area"
 msgstr "PRエリア"
 
-#: inc/theme-options-edit.php:380
+#: inc/theme-options-edit.php:382
 msgid "Image (Desktop version)"
 msgstr "画像URL"
 
-#: inc/theme-options-edit.php:385
+#: inc/theme-options-edit.php:387
 msgid "310px width is recommended."
 msgstr "横 310px 程度推奨"
 
-#: inc/theme-options-edit.php:386
+#: inc/theme-options-edit.php:388
 msgid "Image (Smartphone version)"
 msgstr "スマホ用画像URL"
 
-#: inc/theme-options-edit.php:391
+#: inc/theme-options-edit.php:393
 msgid "120px by 120px is recommended."
 msgstr "120×120px 程度推奨"
 
-#: inc/theme-options-edit.php:399
+#: inc/theme-options-edit.php:401
 msgid "* If you are unsure about the image, you can leave this field blank."
 msgstr "* 画像はよくわからなければ空欄でも問題ありません。"
 
-#: inc/theme-options-edit.php:401
+#: inc/theme-options-edit.php:403
 msgid ""
 "* You can set different image for desktop and smartphone versions of the "
 "site."
@@ -660,17 +668,17 @@ msgstr ""
 "* 画像を設定する場合はPC用（横幅310px程度高さ自由）とスマホ用（120px程度正方"
 "形）の２種類を登録して下さい。"
 
-#: inc/theme-options-edit.php:419 inc/theme-options-edit.php:422
-#: inc/theme-options-edit.php:424 inc/theme-options-nav.php:14
+#: inc/theme-options-edit.php:421 inc/theme-options-edit.php:424
+#: inc/theme-options-edit.php:426 inc/theme-options-nav.php:14
 #: inc/theme-options-nav.php:17 inc/theme-options-nav.php:19
 msgid "Posts"
 msgstr "投稿"
 
-#: inc/theme-options-edit.php:432
+#: inc/theme-options-edit.php:434
 msgid "* Does not appear if there are no posts."
 msgstr "* 記事が１件もない場合は表示されません。"
 
-#: inc/theme-options-edit.php:433
+#: inc/theme-options-edit.php:435
 msgid ""
 "* If the excerpt field is not empty, the content will appear in the &quot;"
 "excerpt&quot;. Otherwise, the text will be displayed in a certain number of"
@@ -678,11 +686,11 @@ msgstr ""
 "* 『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数"
 "を表示します。"
 
-#: inc/theme-options-edit.php:435 plugins/extra_module/adminBarCustom.php:47
+#: inc/theme-options-edit.php:437 plugins/extra_module/adminBarCustom.php:47
 msgid "Plugins page"
 msgstr "プラグイン管理ページ"
 
-#: inc/theme-options-edit.php:437
+#: inc/theme-options-edit.php:439
 msgid ""
 "The full text will be displayed if the plug-in [WP Multibyte Patch] is not "
 "activated (Japanese version)."
@@ -690,25 +698,25 @@ msgstr ""
 "<span class=\"alert\">但し、プラグイン『WP Multibyte Patch』が有効化されてい"
 "ないと全文が表示されます。</span>"
 
-#: inc/theme-options-edit.php:439
+#: inc/theme-options-edit.php:441
 #, php-format
 msgid "Please enable [WP Multibyte Patch] from the %s."
 msgstr "%s から『WP Multibyte Patch』を有効化して下さい。"
 
-#: inc/theme-options-edit.php:440
+#: inc/theme-options-edit.php:442
 msgid ""
 "<span class=\"alert\">Featured image of the article</span> is displayed."
 msgstr ""
 "<span class=\"alert\">画像は該当する各記事のアイキャッチ画像</span>が表示され"
 "ます。"
 
-#: inc/theme-options-edit.php:441
+#: inc/theme-options-edit.php:443
 msgid ""
 "You can set the &quot;featured image&quot;, from the bottom right widget "
 "area of particular article edit screen."
 msgstr "アイキャッチ画像は各記事編集画面の右下のウィジェットから登録します。"
 
-#: inc/theme-options-edit.php:442
+#: inc/theme-options-edit.php:444
 msgid ""
 "If there is no widget, please check &quot;Featured image&quot; at the top "
 "right of the screen from the &quot;Screen options&quot; tab."
@@ -716,73 +724,73 @@ msgstr ""
 "ウィジェットが無い場合は、画面右上の「表示」タブより「アイキャッチ画像」の項"
 "目にチェックを入れて下さい。"
 
-#: inc/theme-options-edit.php:452 plugins/add_post_type/add_post_type.php:111
+#: inc/theme-options-edit.php:454 plugins/add_post_type/add_post_type.php:111
 msgid "Change the title"
 msgstr "表記の変更"
 
-#: inc/theme-options-edit.php:454 plugins/add_post_type/add_post_type.php:113
+#: inc/theme-options-edit.php:456 plugins/add_post_type/add_post_type.php:113
 #, php-format
 msgid "Display layout of &quot; %s &quot on the top page."
 msgstr "%s のトップページでの表示レイアウト"
 
-#: inc/theme-options-edit.php:459 inc/theme-options-edit.php:467
+#: inc/theme-options-edit.php:461 inc/theme-options-edit.php:469
 #: plugins/add_post_type/add_post_type.php:118
 #: plugins/add_post_type/add_post_type.php:126
 msgid "Title only"
 msgstr "タイトルのみ"
 
-#: inc/theme-options-edit.php:460 inc/theme-options-edit.php:468
+#: inc/theme-options-edit.php:462 inc/theme-options-edit.php:470
 #: plugins/add_post_type/add_post_type.php:119
 #: plugins/add_post_type/add_post_type.php:127
 msgid "With excerpt and thumbnail"
 msgstr "抜粋とサムネイル画像あり"
 
-#: inc/theme-options-edit.php:462 plugins/add_post_type/add_post_type.php:121
+#: inc/theme-options-edit.php:464 plugins/add_post_type/add_post_type.php:121
 #, php-format
 msgid "Display layout of &quot; %s &quot on the archive page."
 msgstr "%s のアーカイブページでの表示レイアウト"
 
-#: inc/theme-options-edit.php:473 plugins/add_post_type/add_post_type.php:131
+#: inc/theme-options-edit.php:475 plugins/add_post_type/add_post_type.php:131
 #, php-format
 msgid "Number of %s posts to be displayed on the home page."
 msgstr "%s のトップページでの表示件数"
 
-#: inc/theme-options-edit.php:474 plugins/add_post_type/add_post_type.php:132
+#: inc/theme-options-edit.php:476 plugins/add_post_type/add_post_type.php:132
 msgctxt "top page post count"
 msgid "posts"
 msgstr "件"
 
-#: inc/theme-options-edit.php:475 inc/theme-options-edit.php:505
+#: inc/theme-options-edit.php:477 inc/theme-options-edit.php:507
 #: plugins/add_post_type/add_post_type.php:133
 msgid "If you enter &quot0&quot, this section will disappear."
 msgstr "0 にするとタイトルごと表示されなくなります。"
 
-#: inc/theme-options-edit.php:479 plugins/add_post_type/add_post_type.php:137
+#: inc/theme-options-edit.php:481 plugins/add_post_type/add_post_type.php:137
 #, php-format
 msgid "Top URL for %1$s"
 msgstr "%1$sのトップのURL"
 
-#: inc/theme-options-edit.php:481
+#: inc/theme-options-edit.php:483
 #, php-format
 msgid ""
 "* If you don't want to set a top page for %1$s just leave this field blank."
 msgstr "※%1$s用のトップページを設定していない場合は空欄のままで構いません。"
 
-#: inc/theme-options-edit.php:484
+#: inc/theme-options-edit.php:486
 #, php-format
 msgid "How to set a top page for %1$s"
 msgstr "%1$sのトップページの設定方法"
 
-#: inc/theme-options-edit.php:488 inc/theme-options-edit.php:559
+#: inc/theme-options-edit.php:490 inc/theme-options-edit.php:561
 #, php-format
 msgid "First you need to create a page to use as a top page for %1$s"
 msgstr "まずは%1$sのトップページとして使う固定ページを作成してください。"
 
-#: inc/theme-options-edit.php:489
+#: inc/theme-options-edit.php:491
 msgid "Make new page"
 msgstr "固定ページ新規作成"
 
-#: inc/theme-options-edit.php:492
+#: inc/theme-options-edit.php:494
 #, php-format
 msgid ""
 "Next select the page you want to use as %1$s top page in the Posts page "
@@ -792,72 +800,72 @@ msgstr ""
 "次に『<a href=\"%2$s\" target=\"_blank\">%3$s</a>』画面の『投稿ページ』のプル"
 "ダウンで、%1$sのトップページ用に作成した固定ページを選択してください。"
 
-#: inc/theme-options-edit.php:492
+#: inc/theme-options-edit.php:494
 msgid "Reading"
 msgstr "表示設定"
 
-#: inc/theme-options-edit.php:501
+#: inc/theme-options-edit.php:503
 msgid "Number of related posts"
 msgstr "関連記事の表示件数"
 
-#: inc/theme-options-edit.php:502
+#: inc/theme-options-edit.php:504
 msgid "Post of the same tag appears as a related posts under the content."
 msgstr "同じタグの記事が本文の下に関連記事として表示されます。"
 
-#: inc/theme-options-edit.php:503
+#: inc/theme-options-edit.php:505
 msgid "Nothing is displayed when there is no article of the same tag."
 msgstr "同じタグの記事が無い場合は何も表示されません。"
 
-#: inc/theme-options-edit.php:504
+#: inc/theme-options-edit.php:506
 msgctxt "post count"
 msgid "posts"
 msgstr "件"
 
-#: inc/theme-options-edit.php:510 inc/theme-options-edit.php:515
-#: inc/theme-options-edit.php:520
+#: inc/theme-options-edit.php:512 inc/theme-options-edit.php:517
+#: inc/theme-options-edit.php:522
 #, php-format
 msgid "Insert ad after %1$s"
 msgstr "広告の挿入 %1$s"
 
-#: inc/theme-options-edit.php:510
+#: inc/theme-options-edit.php:512
 msgid "more tag"
 msgstr "[ moreタグ ]"
 
-#: inc/theme-options-edit.php:515
+#: inc/theme-options-edit.php:517
 msgid "main content"
 msgstr "[ 本文下 ]"
 
-#: inc/theme-options-edit.php:520
+#: inc/theme-options-edit.php:522
 msgid "related articles"
 msgstr "[ 関連記事下 ]"
 
-#: inc/theme-options-edit.php:544
+#: inc/theme-options-edit.php:546
 msgid "Main visual"
 msgstr "メインビジュアル"
 
-#: inc/theme-options-edit.php:545
+#: inc/theme-options-edit.php:547
 msgid "You can use a slide show or a still image."
 msgstr ""
 "トップページのメインビジュアルについて、静止画またはスライドショーを設定出来"
 "ます。"
 
-#: inc/theme-options-edit.php:548
+#: inc/theme-options-edit.php:550
 msgid "Still image settings"
 msgstr "トップページ メインビジュアルの設定はこちら"
 
-#: inc/theme-options-edit.php:550
+#: inc/theme-options-edit.php:552
 msgid "Slide show settings"
 msgstr "トップページ スライドショーの設定はこちら"
 
-#: inc/theme-options-edit.php:555
+#: inc/theme-options-edit.php:557
 msgid "Page to be displayed below the main visual"
 msgstr "トップページのメインビジュアルの下に表示するページ"
 
-#: inc/theme-options-edit.php:560
+#: inc/theme-options-edit.php:562
 msgid "Pages"
 msgstr "固定ページ"
 
-#: inc/theme-options-edit.php:561
+#: inc/theme-options-edit.php:563
 msgid ""
 "If the main page content of the set page is blank, the 3PR area will be "
 "displayed just below the main visual. Therefore, if you don't have any "
@@ -866,7 +874,7 @@ msgstr ""
 "設定したページの本文が未記入の場合、メインビジュアルのすぐ下には3PRエリアが表"
 "示されますので、特に記入する事がなければ本文欄は未記入でも構いません。"
 
-#: inc/theme-options-edit.php:563
+#: inc/theme-options-edit.php:565
 msgid ""
 "Then you can choose the page to use under the Settings > Reading Settings "
 "page"
@@ -874,11 +882,11 @@ msgstr ""
 "次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定"
 "します。"
 
-#: inc/theme-options-edit.php:564
+#: inc/theme-options-edit.php:566
 msgid "Reading Settings"
 msgstr "表示設定"
 
-#: inc/theme-options-edit.php:565
+#: inc/theme-options-edit.php:567
 msgid ""
 "In the pull-down of the &quot;front page&quot;, please select the page that "
 "you created for the homepage."
@@ -886,7 +894,7 @@ msgstr ""
 "『フロントページ』のプルダウンで、トップページ用に作成した固定ページを選択し"
 "てください。"
 
-#: inc/theme-options-edit.php:567
+#: inc/theme-options-edit.php:569
 #, php-format
 msgid ""
 "Items to be displayed in the top page and their display order can be "
@@ -895,11 +903,11 @@ msgstr ""
 "トップページに表示する項目は<a href=\"%1$s\" target=\"_blank\">%2$s</a>より、"
 "表示する項目や順番を自由に変更出来ます。"
 
-#: inc/theme-options-edit.php:567 inc/theme-options-edit.php:568
+#: inc/theme-options-edit.php:569 inc/theme-options-edit.php:570
 msgid "Widgets edition page"
 msgstr "ウィジェット編集画面"
 
-#: inc/theme-options-edit.php:568
+#: inc/theme-options-edit.php:570
 #, php-format
 msgid ""
 "Please set the widget called Main content(Homepage) under the <a href=\"%1$s"
@@ -908,59 +916,59 @@ msgstr ""
 "<a href=\"%1$s\" target=\"_blank\">%2$s</a>の『メインコンテンツエリア（トップ"
 "ページ）』ウィジェットにウィジェットアイテムをセットしてください。"
 
-#: inc/theme-options-edit.php:576 plugins/extra_module/adminBarCustom.php:119
+#: inc/theme-options-edit.php:578 plugins/extra_module/adminBarCustom.php:119
 msgid "Home 3PR area"
 msgstr "トップページ3PRエリア"
 
-#: inc/theme-options-edit.php:579
+#: inc/theme-options-edit.php:581
 msgid "Settings for the Home page 3PR area are here"
 msgstr "トップページ3PRエリアの設定はこちら"
 
-#: inc/theme-options-edit.php:584
+#: inc/theme-options-edit.php:586
 msgid "The display of the home page side bar."
 msgstr "トップページのサイドバーの表示"
 
-#: inc/theme-options-edit.php:586
+#: inc/theme-options-edit.php:588
 msgid ""
 "Check this box if you do not want to display the side bar on the home page."
 msgstr "トップページのサイドバーを表示しない場合はチェックを入れて下さい。"
 
-#: inc/theme-options-edit.php:587
+#: inc/theme-options-edit.php:589
 msgid "I want to hide the sidebar"
 msgstr "サイドバーを非表示にする"
 
-#: inc/theme-options-edit.php:593
+#: inc/theme-options-edit.php:595
 #, php-format
 msgid "Display a number of %s posts"
 msgstr "%s の表示件数"
 
-#: inc/theme-options-edit.php:598
+#: inc/theme-options-edit.php:600
 #, php-format
 msgid "Please set from the [ Setting the %s and %s ] section."
 msgstr "「%s と %s の設定」</a>から設定ください。"
 
-#: inc/theme-options-edit.php:615
+#: inc/theme-options-edit.php:617
 msgid "Slideshow Settings"
 msgstr "スライドショーの設定"
 
-#: inc/theme-options-edit.php:616
+#: inc/theme-options-edit.php:618
 msgid "Please enter the URL of the image to be used in the slideshow."
 msgstr "スライドショーを設定する場合は表示する画像のURLなどを入力下さい。"
 
-#: inc/theme-options-edit.php:617
+#: inc/theme-options-edit.php:619
 msgid "The recommended size of the image is 950 × 250px."
 msgstr "画像の推奨サイズは950×250pxです。"
 
-#: inc/theme-options-edit.php:619
+#: inc/theme-options-edit.php:621
 msgid "Home page Main visual"
 msgstr "トップページのメインビジュアル"
 
-#: inc/theme-options-edit.php:620
+#: inc/theme-options-edit.php:622
 #, php-format
 msgid "%s will be displayed if the slideshow is not set."
 msgstr "スライドショーが設定されていない場合は %s が表示されます。"
 
-#: inc/theme-options-edit.php:621
+#: inc/theme-options-edit.php:623
 msgid ""
 "It can be only the URL of an image. However, the link is set for the image "
 "if you enter a link URL."
@@ -968,15 +976,15 @@ msgstr ""
 "画像のURLだけでも構いませんがリンク先を入力すると画像クリックでリンクするよう"
 "になります。"
 
-#: inc/theme-options-edit.php:622
+#: inc/theme-options-edit.php:624
 msgid "Please type in the alternate text for the image."
 msgstr "代替テキストはその画像の内容を文字で入力して下さい。"
 
-#: inc/theme-options-edit.php:623
+#: inc/theme-options-edit.php:625
 msgid "When filled in, will be more likely to match the search."
 msgstr "記入した方がその内容で検索にヒットしやすくなります。"
 
-#: inc/theme-options-edit.php:624
+#: inc/theme-options-edit.php:626
 msgid ""
 "Moreover, for visually impaired visitors using a text-to-speech device, it "
 "reads out the text."
@@ -984,47 +992,47 @@ msgstr ""
 "また、目の不自由な人が閲覧した際には音声読み上げブラウザがその文字を読み上げ"
 "ます。"
 
-#: inc/theme-options-edit.php:635
+#: inc/theme-options-edit.php:637
 msgid "Link URL"
 msgstr "リンク先URL"
 
-#: inc/theme-options-edit.php:637
+#: inc/theme-options-edit.php:639
 msgid "Image URL"
 msgstr "画像URL"
 
-#: inc/theme-options-edit.php:638 plugins/sns/sns.php:432
+#: inc/theme-options-edit.php:640 plugins/sns/sns.php:432
 msgid "Select an image"
 msgstr "画像を選択"
 
-#: inc/theme-options-edit.php:640
+#: inc/theme-options-edit.php:642
 msgid "Alternate text"
 msgstr "代替テキスト"
 
-#: inc/theme-options-edit.php:643
+#: inc/theme-options-edit.php:645
 msgid "Do not display"
 msgstr "非表示にする"
 
-#: inc/theme-options-edit.php:644
+#: inc/theme-options-edit.php:646
 msgid "Open in a blank window"
 msgstr "別ウィンドウで開く"
 
-#: inc/theme-options-edit.php:656
+#: inc/theme-options-edit.php:658
 msgid "Slider speed"
 msgstr "スライダーの切り替え速度<br/>（1秒は1000msです）"
 
-#: inc/theme-options-edit.php:660
+#: inc/theme-options-edit.php:662
 msgid "Slide Animation"
 msgstr "スライドアニメーション"
 
-#: inc/theme-options-edit.php:663
+#: inc/theme-options-edit.php:665
 msgid "fade in-out"
 msgstr "フェイドイン・アウト"
 
-#: inc/theme-options-edit.php:664
+#: inc/theme-options-edit.php:666
 msgid "slide animation"
 msgstr "スライドアニメーション"
 
-#: inc/theme-options-edit.php:668
+#: inc/theme-options-edit.php:670
 msgid ""
 "* The slideshow can be set to up to 5 images, but when accessing the site "
 "using a slow internet connection, because of the time it takes to display "
@@ -1035,7 +1043,7 @@ msgstr ""
 "合、表示に時間がかったり、ユーザーの離脱や検索エンジンからの減点対象となる"
 "為、３枚以内推奨です。"
 
-#: inc/theme-options-edit.php:683
+#: inc/theme-options-edit.php:685
 msgid ""
 "Reset all settings options incluing design customization you've modified "
 "through the Theme Customizer. The theme is entirely reset. To reset the "
@@ -1045,15 +1053,15 @@ msgstr ""
 "ルトに戻ります。了承される場合は上の数字を入力し、チェックボックスをクリック"
 "して「設定を初期化」ボタンをクリックしてください。"
 
-#: inc/theme-options-edit.php:685
+#: inc/theme-options-edit.php:687
 msgid "I want to reset ALL theme settings"
 msgstr "私は設定を初期化します"
 
-#: inc/theme-options-edit.php:686
+#: inc/theme-options-edit.php:688
 msgid "Reset Settings"
 msgstr "設定を初期化"
 
-#: inc/theme-options-edit.php:690
+#: inc/theme-options-edit.php:692
 msgid "Page top"
 msgstr "このページの先頭へ戻る"
 
@@ -1174,23 +1182,23 @@ msgstr "プレーン"
 msgid "[ Select ]"
 msgstr "[ 選択してください ]"
 
-#: inc/theme-options.php:666
+#: inc/theme-options.php:657
 msgctxt "Font select"
 msgid "serif"
 msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
 
-#: inc/theme-options.php:668
+#: inc/theme-options.php:659
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
 
-#: inc/theme-options.php:773
+#: inc/theme-options.php:764
 msgid "bnr_contact.png"
 msgstr "bnr_contact_ja.png"
 
-#: inc/theme-options.php:773 module_mainfoot.php:15
+#: inc/theme-options.php:764 module_mainfoot.php:15
 msgid "Contact us by e-mail"
 msgstr "メールでお問い合わせはこちら"
 

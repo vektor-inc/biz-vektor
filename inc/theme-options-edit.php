@@ -140,8 +140,10 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 	?>
 	</select>
 	<?php if ( !function_exists( 'biz_vektor_activation' ) ) :?>
-	[ <a href="http://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
+	[ <a href="https://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
 	<?php endif;?>
+	<br>
+	<?php _e('Please specify an arbitrary number of divisions if you want to make the menu more than one line or correspond to IE 10.','biz-vektor');?>
 	</td>
 	</tr>
 	<!-- Head logo -->
