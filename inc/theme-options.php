@@ -362,8 +362,14 @@ add_action('admin_head', 'biz_vektor_favicon');
 add_action('wp_head','biz_vektor_gMenuDivide',170 );
 function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
-	// No select
-	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_evenly') ) { ?>
+
+	if ( $options['gMenuDivide'] == 'divide_natural' ) {
+		// No print menu css
+	} else if ( 
+		// No select or evenly
+		$options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || 
+		! $options['gMenuDivide'] || 
+		( $options['gMenuDivide'] == 'divide_evenly' ) ) { ?>
 <style type="text/css">
 /*-------------------------------------------*/
 /*	menu divide
@@ -374,8 +380,8 @@ function biz_vektor_gMenuDivide() {
 }
 </style>
 <?php
-	//　other
 	} else {
+		//　other
 		$menuWidth_array = array(
 			'divide_4' => '25',
 			'divide_5' => '20',
