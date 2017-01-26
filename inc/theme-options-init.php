@@ -231,7 +231,7 @@ function biz_vektor_them_edit_function($post){
 function biz_vektor_get_theme_options() {
 	global $biz_vektor_options;
 	$biz_vektor_options = get_option('biz_vektor_theme_options', biz_vektor_generate_default_options());
-	return $biz_vektor_options;
+	return apply_filters( 'biz_vektor_theme_options_custom', $biz_vektor_options );
 }
 
 /*-------------------------------------------*/
