@@ -136,7 +136,9 @@ function biz_vektor_info_config(){
 	<dl>
 		<dt><?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $infoLabelName ); ?></dt>
 		<dd><?php $infoTopUrl = home_url() . '/info/'; ?>
-			<?php printf( __( 'By default <a href="%1$s" target="_blank">%1$s</a> is the top URL for %2$s', 'biz-vektor' ), esc_url( $infoTopUrl ), $infoLabelName ); ?>
+			<?php printf( __( 'By default <a href="%1$s" target="_blank">%1$s</a> is the top URL for %2$s', 'biz-vektor' ), esc_url( $infoTopUrl ), $infoLabelName ); ?><br>
+			<?php $infoTopUrl_default = home_url('/') .'?post_type=info'; ?>
+			* パーマリンク設定が基本の場合は <a href="<?php echo $infoTopUrl_default; ?>" target="_blank"><?php echo $infoTopUrl_default;?></a>になります。<br>
 			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />
 		</dd>
 	</dl>

@@ -2,7 +2,7 @@
 /*-------------------------------------------*/
 /*	info
 /*-------------------------------------------*/
-$biz_vektor_options = biz_bektor_option_validate();
+$biz_vektor_options = biz_vektor_get_theme_options();
 
 if(isset($biz_vektor_options['infoTopCount']) && $biz_vektor_options['infoTopCount'] != 0):
 $infoTopCount = $biz_vektor_options['infoTopCount'];
