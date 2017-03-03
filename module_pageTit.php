@@ -22,14 +22,14 @@ $pageTitHtml_after .= '</div><!-- [ /#pageTitBnr ] -->'."\n";
 $biz_vektor_options = biz_vektor_get_theme_options();
 $pageTitle = '';
 
-if (is_page() || is_attachment()){
+if ( is_page() || is_attachment() ){
     $pageTitle = get_the_title();
 } else if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_archive() || is_single() ) {
 	// get post type
 	$postType = get_post_type();
 	// 標準の投稿タイプ(post)の場合は、管理画面で設定した名前を取得
 	// 投稿が0件の場合はget_post_typeが効かないので is_category()とis_tag()も追加
-	if ( $postType == 'post' || is_category() || is_tag() ) {
+	if ( $postType == 'post' || is_category() || is_tag() || is_home() ) {
 		$pageTitle = esc_html($biz_vektor_options['postLabelName']);
 	// 標準の投稿タイプでない場合は、カスタム投稿タイプ名を取得
 	} else {
@@ -37,11 +37,11 @@ if (is_page() || is_attachment()){
 		if ($postType) {
 			$pageTitle = get_post_type_object($postType)->labels->name;
 		// 該当記事が0件の場合に投稿タイプ名が取得出来ないので$wp_query経由で取得する
-		} elseif (is_category() || is_tag()){
+		} elseif ( is_category() || is_tag()){
 			global $wp_query;
 			$pageTitle = $wp_query->queried_object->name;
 		}
-		elseif(is_archive()) {
+		elseif( is_archive( )) {
 			global $wp_query;
 			$pageTitle = $wp_query->queried_object->label;
 		}
