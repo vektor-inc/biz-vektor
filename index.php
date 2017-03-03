@@ -99,7 +99,11 @@ if ( !$postType ) {
 	<?php else: ?>
 	<div class="sectionFrame">
 	<?php 
+	// 記事が0件の時のメッセージ
+	$message = __('No posts.','biz-vektor');
+	// 外部から書き換えられるようにフックを設定
 	$message = apply_filters('biz_vektor_no_posts_message', __('No posts.','biz-vektor') );
+	// the_content でエスケープして出力
 	echo apply_filters('the_content', $message);
 	?>
 	</div>
