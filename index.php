@@ -97,7 +97,12 @@ if ( !$postType ) {
 	<?php endif; ?>
 	<?php pagination(); ?>
 	<?php else: ?>
-	<div class="sectionFrame"><p><?php _e('No posts.','biz-vektor');?></p></div>
+	<div class="sectionFrame">
+	<?php 
+	$message = apply_filters('biz_vektor_no_posts_message', __('No posts.','biz-vektor') );
+	echo apply_filters('the_content', $message);
+	?>
+	</div>
 	<?php endif; // have_post() ?>
 	</div><!-- [ /.infoList ] -->
 	<?php biz_vektor_archive_loop_after();?>
