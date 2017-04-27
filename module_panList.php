@@ -7,7 +7,6 @@ $panListHtml = '<!-- [ #panList ] -->
 <div id="panList">
 <div id="panListInner" class="innerBox">
 ';
-
 global $wp_query;
 $biz_vektor_options = biz_vektor_get_theme_options();
 
@@ -247,13 +246,9 @@ if ( is_404() ){
 			$current_post_type = get_post_type_object( $post_type );
 			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
-		$details = $wp_query->query_vars;
-		if (is_year()){
-			$panListHtml .= '<li><span>' . sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ), strtotime( $details['year'] .'-01-01' ) ) ) . '</span></li>';
-		} else if (is_month()){ 
-			$month = ( $details['monthnum'] < 10 ) ? '0' . $details['monthnum'] : $details['monthnum'];
-			$panListHtml .= '<li><span>' . sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ), strtotime( $details['year'] . '-' . $month . '-01' ) ) ) . '</span></li>';
-		}
+
+		$panListHtml .= '<li><span>' . esc_html( get_the_archive_title() ) . '</span></li>';
+
 	} elseif(is_day()) {
 		//is_dayの場合
 		$query = $wp_query->query_vars;
