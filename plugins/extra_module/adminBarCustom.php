@@ -1,25 +1,4 @@
 <?php
-function bizVektor_adminbar_remove( $wp_admin_bar ) {
-	// $wp_admin_bar->remove_node('wp-logo');
-	$wp_admin_bar->remove_node('site-name');
-	// $wp_admin_bar->remove_node('updates');
-	// $wp_admin_bar->remove_node('comments');
-	// $wp_admin_bar->remove_node('new-content');
-
-	// $wp_admin_bar->remove_node('new-media');
-	// $wp_admin_bar->remove_node('new-link');
-	// $wp_admin_bar->remove_node('new-page');
-	// $wp_admin_bar->remove_node('new-user');
-	// $wp_admin_bar->remove_node('view');
-
-	// $wp_admin_bar->remove_node('my-account');
-
-	// $wp_admin_bar->remove_node('edit-profile');
-	// $wp_admin_bar->remove_node('user-info');
-	// $wp_admin_bar->remove_node('logout');
-}
-add_action( 'admin_bar_menu', 'bizVektor_adminbar_remove', 1000 );
-
 function bizvektor_adminbar_custom_menu() {
 
 	global $wp_admin_bar;
