@@ -30,7 +30,7 @@ function biz_vektor_footerCopyRight() 		{
 	print '</a> All Rights Reserved.</div>';
 
 	$wordpressUrl = 'https://ja.wordpress.org/';
-	$bizvektorUrl = 'http://bizvektor.com';
+	$bizvektorUrl = 'https://bizvektor.com';
 
 	//links for Global version
 	if ( 'ja' != get_locale() ) {
@@ -41,7 +41,7 @@ function biz_vektor_footerCopyRight() 		{
 	// **** Don't change id name!
 	$footerPowerd = '<div id="powerd">Powered by <a href="' . $wordpressUrl .'">WordPress</a> &amp; ';
 	$footerPowerd .= '<a href="' . $bizvektorUrl . '" target="_blank" title="' . __( 'Free WordPress Theme BizVektor for business', 'biz-vektor' ) . '">';
-	$footerPowerd .= ' BizVektor Theme</a> by <a href="http://www.vektor-inc.co.jp" target="_blank" title="' . _x( 'Vektor,Inc.', 'footer', 'biz-vektor' ) . '">Vektor,Inc.</a> technology.</div>';
+	$footerPowerd .= ' BizVektor Theme</a> by <a href="https://www.vektor-inc.co.jp" target="_blank" title="' . _x( 'Vektor,Inc.', 'footer', 'biz-vektor' ) . '">Vektor,Inc.</a> technology.</div>';
 	// **** Dont change filter name! Oh I already know 'Powerd' id miss spell !!!!!
 	$footerPowerd = apply_filters( 'footerPowerdCustom', $footerPowerd );
 	echo $footerPowerd;
