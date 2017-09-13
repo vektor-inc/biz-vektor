@@ -128,11 +128,21 @@ function themePlusSettingNavi_default_design(){
 /*-------------------------------------------*/
 add_action( 'wp_head','biz_vektor_default_design_WpHead', 150);
 function biz_vektor_default_design_WpHead(){
-	if (is_bizvektor_default_design()){
+	if ( is_bizvektor_default_design() ){
 		$default_design_options = biz_vektor_get_theme_options_default_design();
-		if( !isset($default_design_options['theme_plusKeyColor']) || $default_design_options['theme_plusKeyColor'] == '' ) $default_design_options['theme_plusKeyColor'] = '#c30000';
-		if( !isset($default_design_options['theme_plusKeyColorLight']) || $default_design_options['theme_plusKeyColorLight'] == '' ) $default_design_options['theme_plusKeyColorLight'] = '#ff0000';
-		if( !isset($default_design_options['theme_plusKeyColorDark']) || $default_design_options['theme_plusKeyColorDark'] == '' ) $default_design_options['theme_plusKeyColorDark'] = '#990000';
+		if ( empty( $default_design_options ) ){
+			// nullでないと php7.1でエラーくらう
+			$default_design_options = null;
+		}
+		if( empty( $default_design_options['theme_plusKeyColor'] ) ) {
+			$default_design_options['theme_plusKeyColor'] = '#c30000';
+		}
+		if( empty( $default_design_options['theme_plusKeyColorLight'] ) ) {
+			$default_design_options['theme_plusKeyColorLight'] = '#ff0000';
+		}
+		if( empty( $default_design_options['theme_plusKeyColorDark'] ) ) {
+			$default_design_options['theme_plusKeyColorDark'] = '#990000';
+		}
 ?>
 		<style type="text/css">
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
