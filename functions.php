@@ -397,17 +397,6 @@ function bizVektorAddPingback(){
 	echo $pingback;
 }
 
-//html5 shiv
-add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
-
-if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
-	function biz_vektor_load_scripts_html5shiv() {
-?>
-<!--[if lt IE 9]><script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script><![endif]-->
-<?php
-	}
-}
-
 add_action('wp_head','bizVektorAddJsScripts');
 function bizVektorAddJsScripts(){
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), BizVektor_Theme_Version );
