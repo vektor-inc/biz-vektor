@@ -377,12 +377,6 @@ function biz_vektor_get_page_for_posts(){
 /*	wp_head add items
 /*-------------------------------------------*/
 
-// Add Font Awesome
-// add_action('wp_enqueue_scripts','bizVektorAddFontAwesome');
-// function bizVektorAddFontAwesome(){
-// 	wp_enqueue_style('Biz_Vektor_add_font_awesome', "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", array(), false, 'all');
-// }
-
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
