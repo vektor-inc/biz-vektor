@@ -1445,6 +1445,8 @@
 /*-------------------------------------------*/
 /*	.subPostListSection
 /*-------------------------------------------*/
+/*	full_wide_title
+/*-------------------------------------------*/
 /*-------------------------------------------*/
 /*	Btn
 /*-------------------------------------------*/
@@ -1638,6 +1640,21 @@ span.wpcf7-not-valid-tip::after, div.wpcf7-validation-errors::after { content: "
 /*			front-page
 /*-------------------------------------------*/
 #main #container .content.wide.top_after_image_widget_area { padding-bottom: 0; }
+
+/*-------------------------------------------*/
+/*	full_wide_title
+/*-------------------------------------------*/
+.widget_bv_full_wide_title_outer { text-align: center; background-size: cover; background-position: center center; }
+
+.widget_bv_full_wide_title_outer { margin: 0 calc(50% - 50vw) 3em; padding: 3em calc(50vw - 50%); }
+
+.widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 2.4rem; padding: 0; margin-bottom: 0.3em; line-height: 1.4em; background: none; border: none; box-shadow: none; }
+@media (min-width: 768px) { .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 2.8rem; } }
+@media (min-width: 1200px) { .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 3.2rem; } }
+
+.widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title:last-child { margin-bottom: 0; }
+
+.widget_bv_full_wide_title_outer .widget_bv_full_wide_title_caption { margin-bottom: 0; line-height: 1.4em; }
 
 /* BizVektorOptions 0.1.1.1
 /*-------------------------------------------*/

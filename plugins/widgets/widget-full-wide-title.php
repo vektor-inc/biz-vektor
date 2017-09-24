@@ -189,7 +189,7 @@ var vk_title_bg_image_delete = function(e){
 
 
 	 public static function widget_outer_style( $instance ){
-		 $widget_outer_style = 'border:1px solid #f00;';
+		 $widget_outer_style = '';
 
 		 // 画像IDから画像のURLを取得
 		 if ( ! empty( $instance['media_image_id'] ) ) {
@@ -216,7 +216,7 @@ var vk_title_bg_image_delete = function(e){
 	 }
 
 	 public static function widget_font_style( $instance ){
-		 $widget_font_style = 'border:1px solid #f00;';
+		 $widget_font_style = '';
 		 // 色が登録されている場合
 		 if ( ! empty( $instance[ 'title_font_color' ] ) ) {
 			 $widget_font_style = 'color:' .$instance[ 'title_font_color' ].';';
