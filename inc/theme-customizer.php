@@ -97,6 +97,7 @@ function bizvektor_customize_register($wp_customize) {
 			));
 
 		$biz_vektor_gMenuDivides = array(
+			'divide_evenly' => __('Split automatically', 'biz-vektor'),
 			'divide_natural' => __('Not specified (left-justified)', 'biz-vektor'),
 			'divide_4' => _x('4', 'biz-vektor-theme-customizer', 'biz-vektor'),
 			'divide_5' => _x('5', 'biz-vektor-theme-customizer', 'biz-vektor'),
