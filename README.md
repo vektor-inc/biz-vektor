@@ -1,5 +1,6 @@
 ﻿BizVektor
 ==========
+[![Build Status](https://api.travis-ci.org/nc30/biz-vektor.svg)](https://travis-ci.org/nc30/biz-vektor)
 Free WordPress Theme for business
 * * *
 ## Theme URI
