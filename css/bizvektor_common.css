@@ -1644,17 +1644,16 @@ span.wpcf7-not-valid-tip::after, div.wpcf7-validation-errors::after { content: "
 /*-------------------------------------------*/
 /*	full_wide_title
 /*-------------------------------------------*/
-.widget_bv_full_wide_title_outer { text-align: center; background-size: cover; background-position: center center; }
+.content .widget_bv_full_wide_title_outer { text-align: center; background-size: cover; background-position: center center; }
 
-.widget_bv_full_wide_title_outer { margin: 0 calc(50% - 50vw) 3em; padding: 3em calc(50vw - 50%); }
+.content .widget_bv_full_wide_title_outer { margin: 0 calc(50% - 50vw) 3em; padding: 3em calc(50vw - 50%); }
 
-.widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 2.4rem; padding: 0; margin-bottom: 0.3em; line-height: 1.4em; background: none; border: none; box-shadow: none; }
-@media (min-width: 768px) { .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 2.8rem; } }
-@media (min-width: 1200px) { .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 3.2rem; } }
+.content .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 1.6rem; padding: 0; margin-bottom: 0.3em; line-height: 1.4em; background: none; border: none; box-shadow: none; }
+@media (min-width: 768px) { .content .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title { font-size: 2.0rem; } }
 
-.widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title:last-child { margin-bottom: 0; }
+.content .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_title:last-child { margin-bottom: 0; }
 
-.widget_bv_full_wide_title_outer .widget_bv_full_wide_title_caption { margin-bottom: 0; line-height: 1.4em; }
+.content .widget_bv_full_wide_title_outer .widget_bv_full_wide_title_caption { margin-bottom: 0; line-height: 1.4em; }
 
 /* BizVektorOptions 0.1.1.1
 /*-------------------------------------------*/
