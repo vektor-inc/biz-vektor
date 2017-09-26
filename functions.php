@@ -67,6 +67,8 @@ define('BizVektor_Theme_Version', $theme_opt->Version);
 get_template_part('plugins/plugins');
 include_once( get_template_directory(). '/deprecations.php' );
 
+// カスタム投稿タイプマネージャー
+get_template_part('plugins/post-type-manager-config');
 
 function biz_vektor_is_plugin_enable($plugin_name){
 	return apply_filters( 'biz_vektor_is_plugin_'. $plugin_name, false );
