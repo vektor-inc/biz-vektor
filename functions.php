@@ -103,6 +103,11 @@ function biz_vektor_theme_setup() {
 	set_post_thumbnail_size( 200, 200, true );
 
 	/*-------------------------------------------*/
+	/*	Add theme support for selective refresh for widgets.
+	/*-------------------------------------------*/
+	add_theme_support( 'customize-selective-refresh-widgets' );
+	
+	/*-------------------------------------------*/
 	/*	Custom menu
 	/*-------------------------------------------*/
 	register_nav_menus( array( 'Header' => 'Header Navigation', ) );
