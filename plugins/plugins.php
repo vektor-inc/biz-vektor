@@ -6,6 +6,8 @@ get_template_part('plugins/sns/sns');
 
 get_template_part('plugins/widgets/widgets');
 
+get_template_part('plugins/widgets/widget-full-wide-title');
+
 get_template_part('plugins/extra_module/extra_module');
 
 get_template_part('plugins/add_post_type/add_post_type');

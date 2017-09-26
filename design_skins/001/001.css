@@ -20,14 +20,14 @@ color: #fff;
 
 .linkBtn.linkBtnS a,
 .linkBtn.linkBtnM a,
-#content p.linkBtn.linkBtnL a,
-#content p.linkBtn.linkBtnL input,
+.content p.linkBtn.linkBtnL a,
+.content p.linkBtn.linkBtnL input,
 #searchform input[type=submit],
 input[type=button],
 input[type=submit],
 p.form-submit input[type=submit],
 form#searchform input#searchsubmit,
-#content form input.wpcf7-submit,
+.content form input.wpcf7-submit,
 #confirm-button input {
 border-radius:5px;
 -webkit-border-radius: 5px;
@@ -84,11 +84,11 @@ box-shadow:inset 1px 1px 3px rgba(0,0,0,0.3);
 /*	#main
 /*-------------------------------------------*/
 
-/*		#content
+/*		.content
 /*-------------------------------------------*/
-#content h2,
-#content h1.contentTitle,
-#content h1.entryPostTitle	{ border:1px solid #ccc;border-top:2px solid #c00;padding-left:15px;padding-right:15px;
+.content h2,
+.content h1.contentTitle,
+.content h1.entryPostTitle	{ border:1px solid #ccc;border-top:2px solid #c00;padding-left:15px;padding-right:15px;
 -moz-box-shadow:inset 0 1px 0 #fff;
 -webkit-box-shadow:inset 0 1px 0 #fff;
 box-shadow:inset 0 1px 0 #fff;
@@ -97,15 +97,15 @@ background: -moz-linear-gradient(#e5e5e5, #fff);
 -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#e5e5e5, EndColorStr=#ffffff)";
 }
 
-#content table th	{ box-shadow:inset 1px 1px 0px #ffffff;}
+.content table th	{ box-shadow:inset 1px 1px 0px #ffffff;}
 
-#content blockquote,
-#content .sectionFrame { border-radius:5px; box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0);margin-bottom:20px; }
+.content blockquote,
+.content .sectionFrame { border-radius:5px; box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0);margin-bottom:20px; }
 
 
 /*		.infoList
 -------------------------------------------------------------- */
-#content .infoList .infoCate a	{ box-shadow:inset 1px 1px 0px rgba(0,0,0,0.1);
+.content .infoList .infoCate a	{ box-shadow:inset 1px 1px 0px rgba(0,0,0,0.1);
 border-radius:3px;
 -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
@@ -113,14 +113,14 @@ border-radius:3px;
 
 /*		.child_page_block
 /*-------------------------------------------*/
-#content .child_page_block	{ border:1px solid #ccc; border-radius:3px;box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0); }
-#content .child_page_block .child_page_blockInner	{ padding:15px 20px; }
-#content .child_page_block h4 a	{ padding-left:8px; display:block; overflow:hidden; line-height:125%; }
-#content .child_page_block h4 a	{ border-left:4px solid #666; }
+.content .child_page_block	{ border:1px solid #ccc; border-radius:3px;box-shadow:inset 1px 1px 0px rgba(255,255,255,1.0); }
+.content .child_page_block .child_page_blockInner	{ padding:15px 20px; }
+.content .child_page_block h4 a	{ padding-left:8px; display:block; overflow:hidden; line-height:125%; }
+.content .child_page_block h4 a	{ border-left:4px solid #666; }
 
 /*		.childPageBox
 /*-------------------------------------------*/
-#content .childPageBox{
+.content .childPageBox{
 -moz-box-shadow:inset 0 1px 0 #fff;
 -webkit-box-shadow:inset 0 1px 0 #fff;
 box-shadow:inset 0 1px 0 #fff;
@@ -130,9 +130,9 @@ background: -moz-linear-gradient(#f5f5f5, #fff);
 }
 /*			.mainFoot
 /*-------------------------------------------*/
-#content .mainFoot	{ background:url(images/bg_slash.gif) left top repeat;border:1px solid #ccc;padding:5px; margin-top:0px; width:98%;}
-#content .mainFoot .mainFootInner	{ padding:15px;border:1px solid #e5e5e5;background-color:#f5f5f5;  }
-#content .mainFootContact	{ width:auto; }
+.content .mainFoot	{ background:url(images/bg_slash.gif) left top repeat;border:1px solid #ccc;padding:5px; margin-top:0px; width:98%;}
+.content .mainFoot .mainFootInner	{ padding:15px;border:1px solid #e5e5e5;background-color:#f5f5f5;  }
+.content .mainFootContact	{ width:auto; }
 
 /*-------------------------------------------*/
 /*	#sideTower
@@ -207,7 +207,7 @@ transition: border 0.3s ease-in;
 #topPr .prImage a	{ border:1px solid #fff; display:block; }
 #topPr .prImage a img	{ display:block; }
 
-#content .infoList .rssBtn a	{border:1px solid #ccc;margin-right:15px;
+.content .infoList .rssBtn a	{border:1px solid #ccc;margin-right:15px;
 -moz-box-shadow:inset 0 1px 0 #fff;
 -webkit-box-shadow:inset 0 1px 0 #fff;
 box-shadow:inset 0 1px 0 #fff;
@@ -223,8 +223,8 @@ border-radius:1px;
 #comments li.comment .commentBox	{ box-shadow:1px 1px 3px #e5e5e5; }
 
 @media (min-width: 660px) {
-#content .mainFootContact	{ width:600px; }
-#content .mainFoot	{width:628px;}
+.content .mainFootContact	{ width:600px; }
+.content .mainFoot	{width:628px;}
 
 #topPr	{ border-left:1px solid #ccc;margin-bottom:35px; }
 #topPr .topPrOuter	{ border-right:1px solid #ccc;margin-bottom:0px; }
