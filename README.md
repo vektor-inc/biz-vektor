@@ -1,10 +1,10 @@
 ﻿BizVektor
 ==========
-[![Build Status](https://api.travis-ci.org/nc30/biz-vektor.svg)](https://travis-ci.org/nc30/biz-vektor)
+[![Build Status](https://api.travis-ci.org/vektor-inc/biz-vektor.svg)](https://travis-ci.org/vektor-inc/biz-vektor)
 Free WordPress Theme for business
 * * *
 ## Theme URI
-http://bizvektor.com
+https://bizvektor.com
 ## Description
 BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイトを構築する事が出来ます。また、テーマ拡張プラグインによって新たに選択出来るデザインを増やす事が出来ます。
 ## Author
