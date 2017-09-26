@@ -46,7 +46,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 </div><!-- [ /#headerTop ] -->
 
 <!-- [ #header ] -->
-<div id="header">
+<header id="header" class="header">
 <div id="headerInner" class="innerBox">
 <!-- [ #headLogo ] -->
 <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
@@ -63,7 +63,7 @@ if (get_template_directory_uri() != get_stylesheet_directory_uri()){
 
 </div>
 <!-- #headerInner -->
-</div>
+</header>
 <!-- [ /#header ] -->
 
 <?php
@@ -103,4 +103,4 @@ echo $gMenuHtml;
 <?php get_template_part('module_panList'); ?>
 <?php } ?>
 
-<div id="main">
+<div id="main" class="main">
