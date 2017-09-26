@@ -67,6 +67,8 @@ define('BizVektor_Theme_Version', $theme_opt->Version);
 get_template_part('plugins/plugins');
 include_once( get_template_directory(). '/deprecations.php' );
 
+// カスタム投稿タイプマネージャー
+get_template_part('plugins/post-type-manager-config');
 
 function biz_vektor_is_plugin_enable($plugin_name){
 	return apply_filters( 'biz_vektor_is_plugin_'. $plugin_name, false );
@@ -100,6 +102,11 @@ function biz_vektor_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 200, 200, true );
 
+	/*-------------------------------------------*/
+	/*	Add theme support for selective refresh for widgets.
+	/*-------------------------------------------*/
+	add_theme_support( 'customize-selective-refresh-widgets' );
+	
 	/*-------------------------------------------*/
 	/*	Custom menu
 	/*-------------------------------------------*/
@@ -377,12 +384,6 @@ function biz_vektor_get_page_for_posts(){
 /*	wp_head add items
 /*-------------------------------------------*/
 
-// Add Font Awesome
-add_action('wp_enqueue_scripts','bizVektorAddFontAwesome');
-function bizVektorAddFontAwesome(){
-	wp_enqueue_style('Biz_Vektor_add_font_awesome', "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", array(), false, 'all');
-}
-
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
@@ -401,17 +402,6 @@ function bizVektorAddPingback(){
 	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
 	$pingback = apply_filters('pingbackCustom', $pingback );
 	echo $pingback;
-}
-
-//html5 shiv
-add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
-
-if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
-	function biz_vektor_load_scripts_html5shiv() {
-?>
-<!--[if lt IE 9]><script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script><![endif]-->
-<?php
-	}
 }
 
 add_action('wp_head','bizVektorAddJsScripts');

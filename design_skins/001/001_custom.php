@@ -128,11 +128,21 @@ function themePlusSettingNavi_default_design(){
 /*-------------------------------------------*/
 add_action( 'wp_head','biz_vektor_default_design_WpHead', 150);
 function biz_vektor_default_design_WpHead(){
-	if (is_bizvektor_default_design()){
+	if ( is_bizvektor_default_design() ){
 		$default_design_options = biz_vektor_get_theme_options_default_design();
-		if( !isset($default_design_options['theme_plusKeyColor']) || $default_design_options['theme_plusKeyColor'] == '' ) $default_design_options['theme_plusKeyColor'] = '#c30000';
-		if( !isset($default_design_options['theme_plusKeyColorLight']) || $default_design_options['theme_plusKeyColorLight'] == '' ) $default_design_options['theme_plusKeyColorLight'] = '#ff0000';
-		if( !isset($default_design_options['theme_plusKeyColorDark']) || $default_design_options['theme_plusKeyColorDark'] == '' ) $default_design_options['theme_plusKeyColorDark'] = '#990000';
+		if ( empty( $default_design_options ) ){
+			// nullでないと php7.1でエラーくらう
+			$default_design_options = null;
+		}
+		if( empty( $default_design_options['theme_plusKeyColor'] ) ) {
+			$default_design_options['theme_plusKeyColor'] = '#c30000';
+		}
+		if( empty( $default_design_options['theme_plusKeyColorLight'] ) ) {
+			$default_design_options['theme_plusKeyColorLight'] = '#ff0000';
+		}
+		if( empty( $default_design_options['theme_plusKeyColorDark'] ) ) {
+			$default_design_options['theme_plusKeyColorDark'] = '#990000';
+		}
 ?>
 		<style type="text/css">
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
@@ -145,13 +155,13 @@ a.btn,
 .btn.btnS a,
 .btn.btnM a,
 .btn.btnL a,
-#content p.btn.btnL input,
+.content p.btn.btnL input,
 input[type=button],
 input[type=submit],
 #searchform input[type=submit],
 p.form-submit input[type=submit],
 form#searchform input#searchsubmit,
-#content form input.wpcf7-submit,
+.content form input.wpcf7-submit,
 #confirm-button input	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;color:#f5f5f5; }
 
 .moreLink a:hover,
@@ -180,24 +190,24 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 #panList a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 #panList a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
 
-#content h2,
-#content h1.contentTitle,
-#content h1.entryPostTitle { border-top:2px solid <?php echo $default_design_options['theme_plusKeyColor'] ?>;}
-#content h3	{ border-left-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;}
-#content h4,
-#content dt	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content h2,
+.content h1.contentTitle,
+.content h1.entryPostTitle { border-top:2px solid <?php echo $default_design_options['theme_plusKeyColor'] ?>;}
+.content h3	{ border-left-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;}
+.content h4,
+.content dt	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
-#content .infoList .infoCate a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content .infoList .infoCate a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
-#content .child_page_block h4 a	{ border-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#content .child_page_block h4 a:hover,
-#content .child_page_block p a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content .child_page_block h4 a	{ border-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content .child_page_block h4 a:hover,
+.content .child_page_block p a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
-#content .childPageBox ul li.current_page_item li a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content .childPageBox ul li.current_page_item li a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
-#content .mainFootContact p.mainFootTxt span.mainFootTel	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#content .mainFootContact .mainFootBt a			{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#content .mainFootContact .mainFootBt a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
+.content .mainFootContact p.mainFootTxt span.mainFootTel	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content .mainFootContact .mainFootBt a			{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.content .mainFootContact .mainFootBt a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
 
 .sideTower .localHead	{ border-top-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 .sideTower li.sideBnr#sideContact a		{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }

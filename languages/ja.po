@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biz-vektor\n"
-"POT-Creation-Date: 2016-12-20 01:30+0900\n"
+"POT-Creation-Date: 2017-09-20 17:00+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Vektor,Inc. <info@vektor-inc.co.jp>\n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: esc_html_e;_ex:1,2c;_x:1,2c;_e;__\n"
 "X-Poedit-Basepath: ..\n"
@@ -70,7 +70,7 @@ msgstr "キーカラー（薄）"
 msgid "Skip menu"
 msgstr "メニューを飛ばす"
 
-#: front-page.php:29 plugins/extra_module/adminBarCustom.php:60
+#: front-page.php:29 plugins/extra_module/adminBarCustom.php:39
 msgid "Customizer"
 msgstr "カスタマイザー"
 
@@ -109,7 +109,7 @@ msgstr ""
 "※フロントページに設定した固定ページの本文欄が未入力の場合も何も表示されませ"
 "ん。"
 
-#: front-page.php:60 functions.php:559 module_loop_post.php:18
+#: front-page.php:60 functions.php:542 module_loop_post.php:18
 #: module_loop_post2.php:20 module_topPR.php:82 page-lp.php:31
 #: page-no-mainfoot.php:19 page-onecolumn.php:20 page-parent.php:24
 #: page-parent.php:57 page.php:14 plugins/widgets/widgets.php:206
@@ -182,23 +182,23 @@ msgstr "トップページのメインコンテンツエリア表示されるウ
 msgid "LP widget \""
 msgstr "LP ウィジェット \""
 
-#: functions.php:539
+#: functions.php:522
 msgid "Your comment is awaiting approval."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:549
+#: functions.php:532
 msgid "Reply"
 msgstr "返信する"
 
-#: functions.php:573
+#: functions.php:556
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: functions.php:574
+#: functions.php:557
 msgid "<span class=\"meta-nav\">&larr;</span> Older post"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古い投稿"
 
-#: functions.php:575
+#: functions.php:558
 msgid "New post <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
@@ -287,7 +287,7 @@ msgid "Error occured. Please try again."
 msgstr "エラーが発生しました。"
 
 #: inc/theme-customizer.php:24 inc/theme-options-edit.php:83
-#: plugins/extra_module/adminBarCustom.php:105
+#: plugins/extra_module/adminBarCustom.php:84
 msgid "Design settings"
 msgstr "デザイン設定"
 
@@ -686,7 +686,7 @@ msgstr ""
 "* 『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数"
 "を表示します。"
 
-#: inc/theme-options-edit.php:438 plugins/extra_module/adminBarCustom.php:47
+#: inc/theme-options-edit.php:438 plugins/extra_module/adminBarCustom.php:26
 msgid "Plugins page"
 msgstr "プラグイン管理ページ"
 
@@ -916,7 +916,7 @@ msgstr ""
 "<a href=\"%1$s\" target=\"_blank\">%2$s</a>の『メインコンテンツエリア（トップ"
 "ページ）』ウィジェットにウィジェットアイテムをセットしてください。"
 
-#: inc/theme-options-edit.php:579 plugins/extra_module/adminBarCustom.php:119
+#: inc/theme-options-edit.php:579 plugins/extra_module/adminBarCustom.php:98
 msgid "Home 3PR area"
 msgstr "トップページ3PRエリア"
 
@@ -1069,7 +1069,7 @@ msgstr "このページの先頭へ戻る"
 msgid "Blog"
 msgstr "ブログ"
 
-#: inc/theme-options-init.php:90 plugins/add_post_type/add_post_type.php:161
+#: inc/theme-options-init.php:90 plugins/add_post_type/add_post_type.php:163
 msgid "Information"
 msgstr "お知らせ"
 
@@ -1133,30 +1133,30 @@ msgid "Theme Options"
 msgstr "テーマオプション"
 
 #: inc/theme-options.php:142 inc/theme-options.php:169 index.php:19
-#: module_panList.php:80 module_panList.php:252
+#: module_panList.php:79
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr "年別アーカイブ: %s"
 
 #: inc/theme-options.php:142 inc/theme-options.php:169 index.php:19
-#: module_panList.php:80 module_panList.php:252 plugins/meta_description.php:43
+#: module_panList.php:79 plugins/meta_description.php:43
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y年"
 
 #: inc/theme-options.php:144 inc/theme-options.php:167 index.php:21
-#: module_panList.php:82 module_panList.php:255
+#: module_panList.php:81
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr "月別アーカイブ: %s"
 
 #: inc/theme-options.php:144 inc/theme-options.php:167 index.php:21
-#: module_panList.php:82 module_panList.php:255 plugins/meta_description.php:47
+#: module_panList.php:81 plugins/meta_description.php:47
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "Y年F"
 
-#: inc/theme-options.php:180 module_pageTit.php:50 module_panList.php:37
+#: inc/theme-options.php:180 module_pageTit.php:50 module_panList.php:36
 #, php-format
 msgid "Search Results for : %s"
 msgstr "『%s』の検索結果"
@@ -1178,27 +1178,27 @@ msgstr "右サイドバー"
 msgid "Plain"
 msgstr "プレーン"
 
-#: inc/theme-options.php:366
+#: inc/theme-options.php:370
 msgid "[ Select ]"
 msgstr "[ 選択してください ]"
 
-#: inc/theme-options.php:657
+#: inc/theme-options.php:656
 msgctxt "Font select"
 msgid "serif"
 msgstr "\"ＭＳ Ｐ明朝\",\"Hiragino Mincho Pro W6\",serif"
 
-#: inc/theme-options.php:659
+#: inc/theme-options.php:658
 msgctxt "Font select"
 msgid "Meiryo,Osaka,sans-serif"
 msgstr ""
 "\"ヒラギノ角ゴ Pro W3\",\"Hiragino Kaku Gothic Pro\",\"メイリオ\",Meiryo,"
 "Osaka,\"ＭＳ Ｐゴシック\",\"MS PGothic\",sans-serif"
 
-#: inc/theme-options.php:764
+#: inc/theme-options.php:763
 msgid "bnr_contact.png"
 msgstr "bnr_contact_ja.png"
 
-#: inc/theme-options.php:764 module_mainfoot.php:15
+#: inc/theme-options.php:763 module_mainfoot.php:15
 msgid "Contact us by e-mail"
 msgstr "メールでお問い合わせはこちら"
 
@@ -1206,7 +1206,7 @@ msgstr "メールでお問い合わせはこちら"
 msgid "Tags : "
 msgstr "タグ : "
 
-#: index.php:100
+#: index.php:103
 msgid "No posts."
 msgstr "投稿はありません。"
 
@@ -1236,16 +1236,16 @@ msgstr "この記事を読む"
 msgid "bt_contact.png"
 msgstr "bt_contact_ja.png"
 
-#: module_pageTit.php:52 module_panList.php:35
+#: module_pageTit.php:52 module_panList.php:34
 msgid "Not found"
 msgstr "ページが見つかりません"
 
-#: module_panList.php:272
+#: module_panList.php:267
 #, php-format
 msgid "Daily Archives: %s"
 msgstr "日付別アーカイブ: %s"
 
-#: module_panList.php:272
+#: module_panList.php:267
 msgctxt "daily archives date format"
 msgid "F jS, Y"
 msgstr "Y年n月j日"
@@ -1279,31 +1279,31 @@ msgstr ""
 "* 通常 <a href=\"%1$s\" target=\"_blank\">%1$s</a> が『%2$s』のトップになりま"
 "す。"
 
-#: plugins/add_post_type/add_post_type.php:178
-#: plugins/extra_module/adminBarCustom.php:185
+#: plugins/add_post_type/add_post_type.php:180
+#: plugins/extra_module/adminBarCustom.php:164
 #, php-format
 msgid "Managing %s"
 msgstr "%s の管理"
 
-#: plugins/add_post_type/add_post_type.php:184
-#: plugins/extra_module/adminBarCustom.php:191
+#: plugins/add_post_type/add_post_type.php:186
+#: plugins/extra_module/adminBarCustom.php:170
 #, php-format
 msgid "%s - List of entries"
 msgstr "%s 記事一覧"
 
-#: plugins/add_post_type/add_post_type.php:190
-#: plugins/extra_module/adminBarCustom.php:197
+#: plugins/add_post_type/add_post_type.php:192
+#: plugins/extra_module/adminBarCustom.php:176
 #, php-format
 msgid "%s - Add new"
 msgstr "%s の新規投稿"
 
-#: plugins/add_post_type/add_post_type.php:197
-#: plugins/extra_module/adminBarCustom.php:204
+#: plugins/add_post_type/add_post_type.php:199
+#: plugins/extra_module/adminBarCustom.php:183
 #, php-format
 msgid "%s - Categories"
 msgstr "%s のカテゴリー"
 
-#: plugins/add_post_type/add_post_type.php:206
+#: plugins/add_post_type/add_post_type.php:208
 #: plugins/seo_and_ga/seo_and_ga.php:52 plugins/seo_and_ga/seo_and_ga.php:53
 #: plugins/seo_and_ga/seo_and_ga.php:54 plugins/seo_and_ga/seo_and_ga.php:61
 msgid "Meta Keywords"
@@ -1320,7 +1320,9 @@ msgstr "%s カテゴリー"
 msgid "Category list of %s"
 msgstr "%s のカテゴリーリスト"
 
-#: plugins/add_post_type/widget.info.php:65 plugins/widgets/widgets.php:678
+#: plugins/add_post_type/widget.info.php:65
+#: plugins/widgets/widget-full-wide-title.php:86
+#: plugins/widgets/widgets.php:678
 msgid "Title:"
 msgstr "タイトル:"
 
@@ -1417,71 +1419,71 @@ msgstr "BizVektor Developers Blog"
 msgid "There is no news to display"
 msgstr "表示できるニュースがありません。"
 
-#: plugins/extra_module/adminBarCustom.php:28
+#: plugins/extra_module/adminBarCustom.php:7
 msgid "Admin pages"
 msgstr "管理画面"
 
-#: plugins/extra_module/adminBarCustom.php:34
+#: plugins/extra_module/adminBarCustom.php:13
 msgid "Visit site"
 msgstr "公開ページを見る"
 
-#: plugins/extra_module/adminBarCustom.php:41
+#: plugins/extra_module/adminBarCustom.php:20
 msgid "General settings"
 msgstr "一般設定"
 
-#: plugins/extra_module/adminBarCustom.php:54
+#: plugins/extra_module/adminBarCustom.php:33
 msgid "Theme options"
 msgstr "テーマの管理"
 
-#: plugins/extra_module/adminBarCustom.php:67
+#: plugins/extra_module/adminBarCustom.php:46
 msgid "Site title & description"
 msgstr "タイトル・キャッチコピー（説明）"
 
-#: plugins/extra_module/adminBarCustom.php:74
+#: plugins/extra_module/adminBarCustom.php:53
 msgid "Widget settings"
 msgstr "ウィジェットの設定"
 
-#: plugins/extra_module/adminBarCustom.php:80
+#: plugins/extra_module/adminBarCustom.php:59
 msgid "Menu settings"
 msgstr "メニューの設定"
 
-#: plugins/extra_module/adminBarCustom.php:112
+#: plugins/extra_module/adminBarCustom.php:91
 msgid "Contact details"
 msgstr "連絡先の設定"
 
-#: plugins/extra_module/adminBarCustom.php:126
+#: plugins/extra_module/adminBarCustom.php:105
 msgid "Posts setting"
 msgstr "投稿の設定"
 
-#: plugins/extra_module/adminBarCustom.php:133
+#: plugins/extra_module/adminBarCustom.php:112
 msgid "SEO & GA"
 msgstr "SEOとアクセス解析の設定"
 
-#: plugins/extra_module/adminBarCustom.php:140
+#: plugins/extra_module/adminBarCustom.php:119
 msgid "Homepage settings"
 msgstr "トップページの設定"
 
-#: plugins/extra_module/adminBarCustom.php:147
+#: plugins/extra_module/adminBarCustom.php:126
 msgid "Slideshow settings"
 msgstr "スライドショーの設定"
 
-#: plugins/extra_module/adminBarCustom.php:156
+#: plugins/extra_module/adminBarCustom.php:135
 msgid "Background settings"
 msgstr "背景の設定"
 
-#: plugins/extra_module/adminBarCustom.php:165
+#: plugins/extra_module/adminBarCustom.php:144
 msgid "Managing pages"
 msgstr "ページの管理"
 
-#: plugins/extra_module/adminBarCustom.php:171
+#: plugins/extra_module/adminBarCustom.php:150
 msgid "Pages - List of entries"
 msgstr "固定ページのリスト"
 
-#: plugins/extra_module/adminBarCustom.php:177
+#: plugins/extra_module/adminBarCustom.php:156
 msgid "Pages - Add new"
 msgstr "固定ページの新規追加"
 
-#: plugins/extra_module/adminBarCustom.php:217
+#: plugins/extra_module/adminBarCustom.php:196
 msgid "Edit guide : OPEN"
 msgstr "編集ガイド : OPEN"
 
@@ -1503,11 +1505,11 @@ msgctxt "Archive description"
 msgid "Article of %s."
 msgstr "%s の記事。"
 
-#: plugins/plugins.php:43
+#: plugins/plugins.php:45
 msgid "Free WordPress Theme BizVektor for business"
 msgstr "無料WordPressテーマ BizVektor(ビズベクトル)"
 
-#: plugins/plugins.php:44
+#: plugins/plugins.php:46
 msgctxt "footer"
 msgid "Vektor,Inc."
 msgstr ""
@@ -2029,6 +2031,34 @@ msgstr "facebook&twitterバナー"
 #: plugins/widgets/widgets.php:224
 msgid "*　It is necessary to set the Theme options page."
 msgstr "※「外観」→「テーマオプション」画面での設定が必要です。"
+
+#: plugins/widgets/widget-full-wide-title.php:48
+msgid "Full Wide Title"
+msgstr "全幅見出し"
+
+#: plugins/widgets/widget-full-wide-title.php:49
+msgid "This widget is used for single column only."
+msgstr "このウィジェットは１カラム表示選択時に利用できます。"
+
+#: plugins/widgets/widget-full-wide-title.php:109
+msgid "Set image"
+msgstr "画像を選択"
+
+#: plugins/widgets/widget-full-wide-title.php:110
+msgid "Delete image"
+msgstr "画像を削除"
+
+#: plugins/widgets/widget-full-wide-title.php:151
+msgid "Title background color:"
+msgstr "背景色："
+
+#: plugins/widgets/widget-full-wide-title.php:156
+msgid "Text color of the title:"
+msgstr "タイトルの文字色："
+
+#: plugins/widgets/widget-full-wide-title.php:171
+msgid "Sub title:"
+msgstr "サブタイトル :"
 
 #: plugins/widgets/widgets.php:53
 msgid "child pages list"
