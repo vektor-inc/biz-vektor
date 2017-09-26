@@ -29,5 +29,5 @@ script:
   - compass compile
   - cd design_skins/003 && compass compile
   - cd ../../
-  - gulp
+  - gulp compile
 

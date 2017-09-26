@@ -42,3 +42,4 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['scripts', 'jsmin', 'watch', 'css_concat_min']);
+gulp.task('compile', ['scripts', 'jsmin', 'css_concat_min']);
