@@ -129,34 +129,43 @@ if ( is_404() ) {
 		} else {
 			$panListHtml .= '<li' . $microdata_li . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span> &raquo; </li>';
 		}
+
 		$category = get_the_category();
-		// 今のカテゴリーの親のカテゴリー情報を取得
-		$parents_str = get_category_parents( $category[0]->term_id, false, ',' );
-		// 親カテゴリーをループしやすいように配列に格納
-		$parents_name = explode( ',', $parents_str );
-		foreach ( $parents_name as $parent_name ) {
-			if ( ! empty( $parent_name ) ) {
-				$parent_obj   = get_term_by( 'name', $parent_name, $category[0]->taxonomy );
-				$term_url     = get_term_link( $parent_obj->term_id, $parent_obj->taxonomy );
-				$panListHtml .= '<li' . $microdata_li . '><a href="' . $term_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $parent_obj->name . '</span></a> &raquo; </li>';
-			}
+		// get parent category info
+		$parents = array_reverse( get_ancestors( $category[0]->term_id, 'category', 'taxonomy' ) );
+		array_push( $parents, $category[0]->term_id );
+		foreach ( $parents as $parent_term_id ) {
+			$parent_obj   = get_term( $parent_term_id, 'category' );
+			$term_url     = get_term_link( $parent_obj->term_id, $parent_obj->taxonomy );
+			$panListHtml .= '<li' . $microdata_li . '><a' . $microdata_li_a . ' href="' . $term_url . '"><span' . $microdata_li_a_span . '>' . esc_html( $parent_obj->name ) . '</span></a> &raquo; </li>';
 		}
+
 		// カスタム投稿タイプのsingleページの場合
 	} else {
 		$panListHtml .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $postType . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postTypeName . '</span></a> &raquo; </li>';
-		$taxonomies   = get_the_taxonomies();
+
+		$taxonomies = get_the_taxonomies();
+		$taxonomy   = key( $taxonomies );
+
 		if ( $taxonomies ) :
-			$taxo_catelist = get_the_terms( get_the_ID(), key( $taxonomies ) );
+			$terms = get_the_terms( get_the_ID(), $taxonomy );
+
 			//keeps only the first term (categ)
-			$taxo_categ = reset( $taxo_catelist );
-			if ( 0 != $taxo_categ->parent ) {
-				$taxo_parent  = get_term( $taxo_categ->parent, $taxo_categ->taxonomy );
-				$term_url     = get_term_link( $taxo_parent->term_id, $taxo_parent->taxonomy );
-				$panListHtml .= '<li' . $microdata_li . '><a href="' . $term_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $taxo_parent->name . '</span></a> &raquo; </li>';
+			$term = reset( $terms );
+			if ( 0 != $term->parent ) {
+
+				// Get term ancestors info
+				$ancestors = array_reverse( get_ancestors( $term->term_id, $taxonomy ) );
+				// Print loop term ancestors
+				foreach ( $ancestors as $ancestor ) :
+					$pan_term     = get_term( $ancestor, $taxonomy );
+					$panListHtml .= '<li' . $microdata_li . '><a' . $microdata_li_a . ' href="' . get_term_link( $ancestor, $taxonomy ) . '"><span' . $microdata_li_a_span . '>' . esc_html( $pan_term->name ) . '</span></a> &raquo; </li>';
+				endforeach;
 			}
-			$categ_url    = home_url() . '/' . $taxo_categ->taxonomy . '/' . $taxo_categ->slug . '/';
-			$panListHtml .= '<li' . $microdata_li . '><a href="' . $categ_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $taxo_categ->name . '</span></a> &raquo; </li>';
-		endif;
+			$term_url     = get_term_link( $term->term_id, $taxonomy );
+			$panListHtml .= '<li' . $microdata_li . '><a' . $microdata_li_a . ' href="' . $term_url . '"><span' . $microdata_li_a_span . '>' . esc_html( $term->name ) . '</span></a> &raquo; </li>';
+			endif;
+
 	}
 	$panListHtml .= '<li><span>' . get_the_title() . '</span></li>';
 
