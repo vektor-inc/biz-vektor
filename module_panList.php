@@ -3,6 +3,13 @@
 /*	パンくずリスト
 /*-------------------------------------------*/
 
+// Microdata
+// http://schema.org/BreadcrumbList
+/*-------------------------------------------*/
+$microdata_li        = ' itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"';
+$microdata_li_a      = ' itemprop="item"';
+$microdata_li_a_span = ' itemprop="name"';
+
 $panListHtml = '<!-- [ #panList ] -->
 <div id="panList">
 <div id="panListInner" class="innerBox">
@@ -36,7 +43,7 @@ if ( is_404() ) {
 	$panListHtml .= '<li><span>' . sprintf( __( 'Search Results for : %s', 'biz-vektor' ), get_search_query() ) . '</span></li>';
 	// ▼▼ 投稿ページをブログに指定された場合
 } elseif ( is_home() ) {
-	$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $postLabelName . '</span></li>';
+	$panListHtml .= '<li' . $microdata_li . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></li>';
 	// ▼▼ 固定ページ
 } elseif ( is_page() ) {
 	$post = $wp_query->get_queried_object();
@@ -47,7 +54,7 @@ if ( is_404() ) {
 		array_push( $ancestors, $post->ID );
 		foreach ( $ancestors as $ancestor ) {
 			if ( $ancestor != end( $ancestors ) ) {
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . get_permalink( $ancestor ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></a> &raquo; </li>';
 			} else {
 				$panListHtml .= '<li><span>' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></li>';
 			}
@@ -56,7 +63,7 @@ if ( is_404() ) {
 } elseif ( $postType == 'info' ) {
 	// マルチサイトや、infoのトップを固定ページで作った場合にURLが変動するため
 	if ( is_tax() || is_tag() || is_year() || is_month() || is_single() ) {
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $infoTopUrl ) . '" itemprop="url"><span itemprop="title">' . $infoLabelName . '</span></a> &raquo; </li>';
+		$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $infoTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $infoLabelName . '</span></a> &raquo; </li>';
 	}
 	if ( is_tax() ) {
 		$taxonomy   = $wp_query->query_vars['taxonomy'];
@@ -68,7 +75,7 @@ if ( is_404() ) {
 			if ( 0 != $term->parent ) {
 				$parent_term  = get_term_by( 'id', $term->parent, $taxonomy );
 				$parent_url   = home_url() . '/' . $parent_term->taxonomy . '/' . $parent_term->slug . '/';
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $parent_term->name . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . $parent_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $parent_term->name . '</span></a> &raquo; </li>';
 			}
 		endif;
 		$panListHtml .= '<li><span>' . single_cat_title( '', false ) . '</span></li>';
@@ -87,10 +94,10 @@ if ( is_404() ) {
 			if ( 0 != $taxo_categ->parent ) {
 				$taxo_parent  = get_term( $taxo_categ->parent, $taxo_categ->taxonomy );
 				$parent_url   = home_url() . '/' . $taxo_parent->taxonomy . '/' . $taxo_parent->slug . '/';
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $parent_url . '" itemprop="url"><span itemprop="title">' . $taxo_parent->name . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . $parent_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $taxo_parent->name . '</span></a> &raquo; </li>';
 			}
 			$categ_url    = home_url() . '/' . $taxo_categ->taxonomy . '/' . $taxo_categ->slug . '/';
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $categ_url . '" itemprop="url"><span itemprop="title">' . $taxo_categ->name . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . $categ_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $taxo_categ->name . '</span></a> &raquo; </li>';
 		endif;
 		$panListHtml .= '<li><span>' . get_the_title() . '</span></li>';
 	} else {
@@ -103,9 +110,9 @@ if ( is_404() ) {
 	// 投稿の場合
 	if ( $postType == 'post' ) {
 		if ( $postTopUrl ) {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $postTopUrl ) . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $postTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 		} else {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $postLabelName . '</span> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span> &raquo; </li>';
 		}
 	}
 	$panListHtml .= '<li><span>' . esc_html( $userObj->display_name ) . '</span></li>';
@@ -118,9 +125,9 @@ if ( is_404() ) {
 	// 投稿の場合
 	if ( $postType == 'post' ) {
 		if ( $postTopUrl ) {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $postTopUrl ) . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $postTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 		} else {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $postLabelName . '</span> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span> &raquo; </li>';
 		}
 		$category = get_the_category();
 		// 今のカテゴリーの親のカテゴリー情報を取得
@@ -131,12 +138,12 @@ if ( is_404() ) {
 			if ( ! empty( $parent_name ) ) {
 				$parent_obj   = get_term_by( 'name', $parent_name, $category[0]->taxonomy );
 				$term_url     = get_term_link( $parent_obj->term_id, $parent_obj->taxonomy );
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $term_url . '" itemprop="url"><span itemprop="title">' . $parent_obj->name . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . $term_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $parent_obj->name . '</span></a> &raquo; </li>';
 			}
 		}
 		// カスタム投稿タイプのsingleページの場合
 	} else {
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $postType . '/" itemprop="url"><span itemprop="title">' . $postTypeName . '</span></a> &raquo; </li>';
+		$panListHtml .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $postType . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postTypeName . '</span></a> &raquo; </li>';
 		$taxonomies   = get_the_taxonomies();
 		if ( $taxonomies ) :
 			$taxo_catelist = get_the_terms( get_the_ID(), key( $taxonomies ) );
@@ -145,10 +152,10 @@ if ( is_404() ) {
 			if ( 0 != $taxo_categ->parent ) {
 				$taxo_parent  = get_term( $taxo_categ->parent, $taxo_categ->taxonomy );
 				$term_url     = get_term_link( $taxo_parent->term_id, $taxo_parent->taxonomy );
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $term_url . '" itemprop="url"><span itemprop="title">' . $taxo_parent->name . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . $term_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $taxo_parent->name . '</span></a> &raquo; </li>';
 			}
 			$categ_url    = home_url() . '/' . $taxo_categ->taxonomy . '/' . $taxo_categ->slug . '/';
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $categ_url . '" itemprop="url"><span itemprop="title">' . $taxo_categ->name . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . $categ_url . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $taxo_categ->name . '</span></a> &raquo; </li>';
 		endif;
 	}
 	$panListHtml .= '<li><span>' . get_the_title() . '</span></li>';
@@ -159,9 +166,9 @@ if ( is_404() ) {
 	if ( $postType == 'post' ) {
 		$postTopUrl = ( isset( $biz_vektor_options['postTopUrl'] ) ) ? esc_html( $biz_vektor_options['postTopUrl'] ) : '';
 		if ( $postTopUrl ) {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $postTopUrl . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . $postTopUrl . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 		} else {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $postLabelName . '</span> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span> &raquo; </li>';
 		}
 		// 標準の投稿タイプでない場合は、カスタム投稿タイプ名を取得
 	} else {
@@ -173,7 +180,7 @@ if ( is_404() ) {
 			$postTypeSlug = get_taxonomy( $taxonomy )->object_type[0];
 		}
 		$postTypeName = get_post_type_object( $postTypeSlug )->labels->name;
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $postType . '" itemprop="url"><span itemprop="title">' . $postTypeName . '</span></a> &raquo; </li>';
+		$panListHtml .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $postType . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postTypeName . '</span></a> &raquo; </li>';
 
 		$now_term        = $wp_query->queried_object->term_id;
 		$now_term_parent = $wp_query->queried_object->parent;
@@ -186,17 +193,17 @@ if ( is_404() ) {
 			// 祖先階層の配列回数分ループ
 			foreach ( $ancestors as $ancestor ) :
 				$pan_term     = get_term( $ancestor, $now_taxonomy );
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_term_link( $ancestor, $now_taxonomy ) . '">' . $pan_term->name . '</a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . get_term_link( $ancestor, $now_taxonomy ) . '">' . $pan_term->name . '</a> &raquo; </li>';
 			endforeach;
 		endif;
 
 	}
-	$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', '', false ) . '</span></li>';
+	$panListHtml .= '<li' . $microdata_li . '><span' . $microdata_li_a_span . '>' . single_cat_title( '', '', false ) . '</span></li>';
 	// ▼▼ カテゴリー
 } elseif ( is_category() ) {
 	$postTopUrl = ( isset( $biz_vektor_options['postTopUrl'] ) ) ? esc_html( $biz_vektor_options['postTopUrl'] ) : '';
 	if ( $postTopUrl ) {
-		$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $postTopUrl . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+		$panListHtml .= '<li' . $microdata_li . '><a href="' . $postTopUrl . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 	} else {
 		$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
 	}
@@ -208,7 +215,7 @@ if ( is_404() ) {
 		$ancestors = array_reverse( get_ancestors( $cat->cat_ID, 'category' ) );
 		// 祖先階層の配列回数分ループ
 		foreach ( $ancestors as $ancestor ) :
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $ancestor ) . '" itemprop="url"><span itemprop="title">' . get_cat_name( $ancestor ) . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . get_category_link( $ancestor ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . get_cat_name( $ancestor ) . '</span></a> &raquo; </li>';
 		endforeach;
 	endif;
 	$panListHtml .= '<li><span>' . $cat->cat_name . '</span></li>';
@@ -217,14 +224,14 @@ if ( is_404() ) {
 	// 投稿の場合
 	if ( $postType == 'post' ) {
 		if ( $postTopUrl ) {
-			$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $postTopUrl ) . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+			$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $postTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 		} else {
 			$panListHtml .= '<li><span>' . $postLabelName . '</span></a> &raquo; </li>';
 		}
 		// カスタム投稿タイプの場合
 	} else {
 		$current_post_type = get_post_type_object( $postType );
-		$panListHtml      .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $current_post_type->name . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
+		$panListHtml      .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $current_post_type->name . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $current_post_type->label . '</span></a> &raquo; </li>';
 	}
 	$tagTitle     = single_tag_title( '', false );
 	$panListHtml .= '<li><span>' . $tagTitle . '</span></li>';
@@ -235,7 +242,7 @@ if ( is_404() ) {
 		// 投稿の場合
 		if ( $postType == 'post' ) {
 			if ( $postTopUrl ) {
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $postTopUrl ) . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $postTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 			} else {
 				$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
 			}
@@ -243,7 +250,7 @@ if ( is_404() ) {
 		} else {
 			$post_type         = $wp_query->query_vars['post_type'];
 			$current_post_type = get_post_type_object( $post_type );
-			$panListHtml      .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
+			$panListHtml      .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $post_type . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
 
 		$panListHtml .= '<li><span>' . esc_html( get_the_archive_title() ) . '</span></li>';
@@ -254,14 +261,14 @@ if ( is_404() ) {
 		if ( empty( $query['post_type'] ) ) {
 			//普通の投稿
 			if ( $postTopUrl ) {
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $postTopUrl ) . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $postTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 			} else {
 				$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
 			}
 		} else {
 			//カスタム投稿タイプ
 			$current_post_type = get_post_type_object( $query['post_type'] );
-			$panListHtml      .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a> &raquo; </li>';
+			$panListHtml      .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $post_type . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
 		$panListHtml .= '<li><span>' . sprintf( __( 'Daily Archives: %s', 'biz-vektor' ), date( _x( 'F jS, Y', 'daily archives date format', 'biz-vektor' ), strtotime( $query['year'] . '-' . $query['monthnum'] . '-' . $query['day'] ) ) ) . '</span></li>';
 	} else {
@@ -270,14 +277,14 @@ if ( is_404() ) {
 		if ( empty( $query['post_type'] ) ) {
 			//普通の投稿
 			if ( $postTopUrl ) {
-				$panListHtml .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $postTopUrl ) . '" itemprop="url"><span itemprop="title">' . $postLabelName . '</span></a> &raquo; </li>';
+				$panListHtml .= '<li' . $microdata_li . '><a href="' . esc_url( $postTopUrl ) . '"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $postLabelName . '</span></a> &raquo; </li>';
 			} else {
 				$panListHtml .= '<li><span>' . $postLabelName . '</span> &raquo; </li>';
 			}
 		} else {
 			//カスタム投稿タイプ
 			$current_post_type = get_post_type_object( $query['post_type'] );
-			$panListHtml      .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/' . $post_type . '/" itemprop="url"><span itemprop="title">' . $current_post_type->label . '</span></a></li>';
+			$panListHtml      .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $post_type . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $current_post_type->label . '</span></a></li>';
 		}
 	}
 }
