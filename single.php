@@ -44,8 +44,8 @@ $biz_vektor_options = biz_vektor_get_theme_options();
 // Get now post's tag(terms)
 if (isset($biz_vektor_options['postRelatedCount']) && $biz_vektor_options['postRelatedCount'] ) {
 $terms = get_the_terms($post->ID,'post_tag');
-$tag_count = count($terms);
 if ($terms) {
+$tag_count = count($terms);
 $posts_count = mb_convert_kana($biz_vektor_options['postRelatedCount'], "a", "UTF-8");
 // Set basic arrays
 $args = array( 'post_type' => 'post' ,'post__not_in' => array($post->ID), 'posts_per_page' => $posts_count );
