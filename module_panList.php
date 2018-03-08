@@ -2,70 +2,6 @@
 /*-------------------------------------------*/
 /*	パンくずリスト
 /*-------------------------------------------*/
-/*-------------------------------------------*/
-/*	Chack use post top page
-/*-------------------------------------------*/
-function bizvektor_get_page_for_posts() {
-	// Get post top page by setting display page.
-	$page_for_posts['post_top_id'] = get_option( 'page_for_posts' );
-
-	// Set use post top page flag.
-	$page_for_posts['post_top_use'] = ( isset( $page_for_posts['post_top_id'] ) && $page_for_posts['post_top_id'] ) ? true : false;
-
-	// When use post top page that get post top page name.
-	$page_for_posts['post_top_name'] = ( $page_for_posts['post_top_use'] ) ? get_the_title( $page_for_posts['post_top_id'] ) : '';
-
-	return $page_for_posts;
-}
-
-
-/*-------------------------------------------*/
-/*	Chack post type info
-/*-------------------------------------------*/
-function bizvektor_get_post_type() {
-	// Check use post top page
-	$page_for_posts = bizvektor_get_page_for_posts();
-
-	// Get post type slug
-	/*-------------------------------------------*/
-	$post_type['slug'] = get_post_type();
-	if ( ! $post_type['slug'] ) {
-		global $wp_query;
-		if ( isset( $wp_query->query_vars['post_type'] ) && $wp_query->query_vars['post_type'] ) {
-			$post_type['slug'] = $wp_query->query_vars['post_type'];
-		} elseif ( is_tax() ) {
-			// Case of tax archive and no posts
-			$taxonomy          = get_queried_object()->taxonomy;
-			$post_type['slug'] = get_taxonomy( $taxonomy )->object_type[0];
-		} else {
-			// This is necessary that when no posts.
-			$post_type['slug'] = 'post';
-		}
-	}
-
-	// Get custom post type name
-	/*-------------------------------------------*/
-	$post_type_object = get_post_type_object( $post_type['slug'] );
-	if ( $post_type_object ) {
-		if ( $page_for_posts['post_top_use'] && $post_type['slug'] == 'post' ) {
-			$post_type['name'] = esc_html( get_the_title( $page_for_posts['post_top_id'] ) );
-		} else {
-			$post_type['name'] = esc_html( $post_type_object->labels->name );
-		}
-	}
-
-	// Get custom post type archive url
-	/*-------------------------------------------*/
-	if ( $page_for_posts['post_top_use'] && $post_type['slug'] == 'post' ) {
-		$post_type['url'] = get_the_permalink( $page_for_posts['post_top_id'] );
-	} else {
-		$post_type['url'] = get_post_type_archive_link( $post_type['slug'] );
-	}
-
-	$post_type = apply_filters( 'post_type_info_custom', $post_type );
-	return $post_type;
-}
-
 
 // Microdata
 // http://schema.org/BreadcrumbList
@@ -82,7 +18,7 @@ $post_type = get_post_type();
 // カスタム投稿タイプ名を取得
 $post_type_object = get_post_type_object( $post_type );
 if ( $post_type_object ) {
-	$post_typeName = esc_html( $post_type_object->labels->name );
+	$post_type_name = esc_html( $post_type_object->labels->name );
 }
 
 // post のラベル名
@@ -90,7 +26,7 @@ $postLabelName = $biz_vektor_options['postLabelName'];
 // info のラベル名
 $infoLabelName = ( isset( $biz_vektor_options['infoLabelName'] ) ) ? $biz_vektor_options['infoLabelName'] : 'info';
 
-$post_type = bizvektor_get_post_type();
+$post_type = biz_vektor_get_post_type();
 
 $breadcrumb_array = array(
 	array(
@@ -103,8 +39,9 @@ $breadcrumb_array = array(
 
 // ▼▼ 投稿ページをブログに指定された場合
 if ( is_home() ) {
+	$page_for_posts     = biz_vektor_get_page_for_posts();
 	$breadcrumb_array[] = array(
-		'name'             => $postLabelName,
+		'name'             => esc_html( $page_for_posts['post_top_name'] ),
 		'id'               => '',
 		'url'              => '',
 		'class_additional' => '',

@@ -70,7 +70,6 @@ function biz_vektor_generate_default_options() {
 			'topSideBarDisplay'    => false,
 			'top3PrDisplay'        => '',
 			// 'infoTopCount'         => '5',
-			// 'infoTopUrl'           => home_url().'/info/',
 			// 'listInfoTop'          => 'listType_set',
 			// 'listInfoArchive'      => 'listType_set',
 			'postTopCount'         => '5',
@@ -176,7 +175,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	// $output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']     = $input['listBlogTop'];
 	$output['listBlogArchive'] = $input['listBlogArchive'];
-	// $output['infoTopUrl']             = $input['infoTopUrl'];
 	// $output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
 	$output['postTopUrl']         = $input['postTopUrl'];
 	$output['postTopCount']       = ( preg_match( '/^(\s|[ 　]*)$/', $input['postTopCount'] ) ) ? 5 : $input['postTopCount'];

@@ -381,7 +381,7 @@ $biz_vektor_options        = biz_vektor_get_theme_options();
 <th><?php _e( 'The display of the home page 3PR area.', 'biz-vektor' ); ?></th>
 <td><p>
 	<?php _e( 'Check this box if you do not want to see the 3PR area on the home page.', 'biz-vektor' ); ?></p>
-<p><input type="checkbox" name="biz_vektor_theme_options[top3PrDisplay]" id="top3PrDisplay" value="true" 
+<p><input type="checkbox" name="biz_vektor_theme_options[top3PrDisplay]" id="top3PrDisplay" value="true"
 <?php
 if ( $options['top3PrDisplay'] ) {
 	?>
@@ -507,26 +507,20 @@ $postLabelName = esc_html( bizVektorOptions( 'postLabelName' ) );
 	</dl>
 	<!-- /Post display count -->
 	<dl>
-		<dt><?php printf( __( 'Top URL for %1$s', 'biz-vektor' ), $postLabelName ); ?></dt>
-		<dd><?php $postTopUrl = esc_html( home_url() . '/post/' ); ?>
-			<?php printf( __( '* If you don\'t want to set a top page for %1$s just leave this field blank.', 'biz-vektor' ), $postLabelName ); ?><br />
-			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" />
-			<dl class="showHideSection">
-				<dt class="showHideBtn">[ <a><?php printf( __( 'How to set a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?></a> ]</dt>
-				<dd class="showHideBody">
-					<ol>
-					<li>
-					<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?>
-					[ <a href="<?php echo admin_url() . 'post-new.php?post_type=page'; ?>" target="_blank">&raquo; <?php _e( 'Make new page', 'biz-vektor' ); ?></a> ]
-					</li>
-					<li>
-						<?php printf( __( 'Next select the page you want to use as %1$s top page in the Posts page dropdown menu of the <a href="%2$s" target="_blank">%3$s</a> page (Front page displays section)', 'biz-vektor' ), $postLabelName, admin_url() . 'options-reading.php', __( 'Reading', 'biz-vektor' ) ); ?>
-					</li>
-					</ol>
-				</dd>
-			</dl>
+		<dt><?php printf( __( 'Top setting for %1$s', 'biz-vektor' ), $postLabelName ); ?></dt>
+		<dd>
+			<ol>
+			<li>
+			<?php printf( __( 'First you need to create a page to use as a top page for %1$s', 'biz-vektor' ), $postLabelName ); ?>
+			[ <a href="<?php echo admin_url() . 'post-new.php?post_type=page'; ?>" target="_blank">&raquo; <?php _e( 'Make new page', 'biz-vektor' ); ?></a> ]
+			</li>
+			<li>
+				<?php printf( __( 'Next select the page you want to use as %1$s top page in the Posts page dropdown menu of the <a href="%2$s" target="_blank">%3$s</a> page (Front page displays section)', 'biz-vektor' ), $postLabelName, admin_url() . 'options-reading.php', __( 'Reading', 'biz-vektor' ) ); ?>
+			</li>
+			</ol>
 		</dd>
 	</dl>
+
 	<dl>
 		<?php
 		if ( ! isset( $options['postRelatedCount'] ) ) {
@@ -618,7 +612,7 @@ $postLabelName = esc_html( bizVektorOptions( 'postLabelName' ) );
 <th><?php _e( 'The display of the home page side bar.', 'biz-vektor' ); ?></th>
 <td><p>
 	<?php _e( 'Check this box if you do not want to display the side bar on the home page.', 'biz-vektor' ); ?></p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topSideBarDisplay]" id="topSideBarDisplay" value="true" 
+<p><input type="checkbox" name="biz_vektor_theme_options[topSideBarDisplay]" id="topSideBarDisplay" value="true"
 <?php
 if ( $options['topSideBarDisplay'] ) {
 	?>
@@ -684,14 +678,14 @@ for ( $i = 1; $i <= 5; ) {
 <td><?php _e( 'Alternate text', 'biz-vektor' ); ?> (alt) [<?php echo $i; ?>]<br />
 	<input type="text" name="biz_vektor_theme_options[<?php echo $slideAlt; ?>]" id="<?php echo $slideAlt; ?>" value="<?php echo esc_attr( $options[ $slideAlt ] ); ?>" /></td>
 <td>
-<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideDisplay; ?>]" id="<?php echo $slideDisplay; ?>" value="true" 
+<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideDisplay; ?>]" id="<?php echo $slideDisplay; ?>" value="true"
 																		<?php
 																		if ( $options[ $slideDisplay ] ) :
 																			echo ' checked';
 endif;
 ?>
 > <?php _e( 'Do not display', 'biz-vektor' ); ?></label><br />
-<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideBlank; ?>]" id="<?php echo $slideBlank; ?>" value="true" 
+<label><input type="checkbox" name="biz_vektor_theme_options[<?php echo $slideBlank; ?>]" id="<?php echo $slideBlank; ?>" value="true"
 																		<?php
 																		if ( $options[ $slideBlank ] ) :
 																			echo ' checked';

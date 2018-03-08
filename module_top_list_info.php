@@ -36,8 +36,8 @@ if ( isset( $biz_vektor_options['listInfoTop'] ) && $biz_vektor_options['listInf
 	</ul>
 <?php
 }
-$infoTopUrl = ( isset( $biz_vektor_options['infoTopUrl'] ) && $biz_vektor_options['infoTopUrl'] ) ? $biz_vektor_options['infoTopUrl'] : home_url() . '/info/';
-echo '<div class="moreLink right"><a href="' . esc_url( $infoTopUrl ) . '">';
+$info_top_url = get_post_type_archive_link( 'info' );
+echo '<div class="moreLink right"><a href="' . esc_url( $info_top_url ) . '">';
 printf( __( '%s List page', 'biz-vektor' ), esc_html( $biz_vektor_options['infoLabelName'] ) );
 echo '</a></div>';
 ?>

@@ -39,10 +39,10 @@ if ( $postTopCount != '0' ) :
 		</ul>
 	<?php } ?>
 	<?php
-	// pagination($post_loop->max_num_pages);
-	$postTopUrl = ( isset( $biz_vektor_options['postTopUrl'] ) ) ? $biz_vektor_options['postTopUrl'] : '';
-	if ( $postTopUrl ) {
-		echo '<div class="moreLink right"><a href="' . esc_url( $postTopUrl ) . '">';
+	$page_for_posts = get_option( 'page_for_posts' );
+	if ( $page_for_posts ) {
+		$post_top_url = get_the_permalink( $page_for_posts );
+		echo '<div class="moreLink right"><a href="' . esc_url( $post_top_url ) . '">';
 		printf( __( '%s List page', 'biz-vektor' ), esc_html( $biz_vektor_options['postLabelName'] ) );
 		echo '</a></div>';
 	}
