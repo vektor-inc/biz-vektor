@@ -1,5 +1,7 @@
 <?php
 /*-------------------------------------------*/
+/*	投稿のラベル名を指定したものに書き換え
+/*-------------------------------------------*/
 /*	テーマオプションのメニューとページを設定
 /*-------------------------------------------*/
 /*	テーマオプションの編集権限設定
@@ -47,6 +49,23 @@
 /* CSS and Google Web Fonts for Global Version
 /*-------------------------------------------*/
 
+/*-------------------------------------------*/
+/*	投稿のラベル名を指定したものに書き換え
+/*-------------------------------------------*/
+$biz_vektor_options = get_option( 'biz_vektor_theme_options' );
+if ( ! empty( $biz_vektor_options['postLabelName'] ) ) {
+	function biz_vektor_change_post_type_args_post( $args ) {
+		$biz_vektor_options = get_option( 'biz_vektor_theme_options' );
+		if ( isset( $args['rest_base'] ) && $args['rest_base'] == 'posts' ) {
+			$args['labels']['name_admin_bar'] = $biz_vektor_options['postLabelName'];
+			$args['labels']['name']           = $biz_vektor_options['postLabelName'];
+			// $args['labels']['edit_item']      = '';
+			// $args['labels']['add_new_item']   = '';
+		}
+		return $args;
+	}
+	add_filter( 'register_post_type_args', 'biz_vektor_change_post_type_args_post' );
+}
 
 /*-------------------------------------------*/
 /*	テーマオプションのメニューとページを設定
