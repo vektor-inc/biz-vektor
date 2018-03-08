@@ -23,8 +23,6 @@ if ( $post_type_object ) {
 
 // post のラベル名
 $postLabelName = $biz_vektor_options['postLabelName'];
-// info のラベル名
-$infoLabelName = ( isset( $biz_vektor_options['infoLabelName'] ) ) ? $biz_vektor_options['infoLabelName'] : 'info';
 
 $post_type = biz_vektor_get_post_type();
 
@@ -267,6 +265,9 @@ if ( is_date() ) {
 		'class_additional' => '',
 	);
 }
+
+$breadcrumb_array = apply_filters( 'bizvektor_panList_array', $breadcrumb_array );
+
 $breadcrumb_html = '<!-- [ #panList ] -->
 <div id="panList">
 <div id="panListInner" class="innerBox"><ul>';
@@ -296,5 +297,5 @@ $breadcrumb_html .= '</div>
 </div>
 <!-- [ /#panList ] -->
 ';
-$panListHtml      = apply_filters( 'bizvektor_panListHtml', $breadcrumb_html );
+$breadcrumb_html  = apply_filters( 'bizvektor_panListHtml', $breadcrumb_html );
 echo $breadcrumb_html;
