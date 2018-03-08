@@ -61,7 +61,16 @@ define( 'BizVektor_Theme_Version', $theme_opt->Version );
 /*-------------------------------------------*/
 /*	Aceept favicon upload
 /*-------------------------------------------*/
-
+/*	Chack use post top page
+/*	biz_vektor_get_page_for_posts()
+/*-------------------------------------------*/
+/*	Chack post type info
+/*	biz_vektor_get_post_type()
+/*-------------------------------------------*/
+/*	get_biz_vektor_name()
+/*-------------------------------------------*/
+/*	biz_vektor_get_short_name()
+/*-------------------------------------------*/
 
 
 get_template_part( 'plugins/plugins' );
@@ -328,7 +337,6 @@ function biz_vektor_set_customheader() {
 	require( get_template_directory() . '/inc/theme-options.php' );
 	require( get_template_directory() . '/inc/theme-options-init.php' );
 
-
 /*-------------------------------------------*/
 /*	Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
@@ -380,23 +388,6 @@ add_action( 'admin_head-post-new.php', 'bizVektor_postStatus', 12 );
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
 add_editor_style( '/css/editor-style.css' );
-
-/*-------------------------------------------*/
-/*	Chack use post top page
-/*-------------------------------------------*/
-function biz_vektor_get_page_for_posts() {
-	// Get post top page by setting display page.
-	$page_for_posts['post_top_id'] = get_option( 'page_for_posts' );
-
-	// Set use post top page flag.
-	$page_for_posts['post_top_use'] = ( isset( $page_for_posts['post_top_id'] ) && $page_for_posts['post_top_id'] ) ? true : false;
-
-	// When use post top page that get post top page name.
-	$page_for_posts['post_top_name'] = ( $page_for_posts['post_top_use'] ) ? get_the_title( $page_for_posts['post_top_id'] ) : '';
-
-	return $page_for_posts;
-}
-
 
 /*-------------------------------------------*/
 /*	wp_head add items
@@ -759,17 +750,6 @@ function biz_vektor_comment_reply() {
 	}
 }
 
-
-function biz_vektor_get_short_name() {
-	$lab = get_biz_vektor_name();
-	if ( $lab == 'BizVektor' ) {
-		$lab = 'BV';
-	}
-
-	return $lab;
-}
-
-
 function biz_vektor_set_localize_script() {
 
 	$flexslider = array(
@@ -786,4 +766,88 @@ function biz_vektor_set_localize_script() {
 	}
 	$flexslider = apply_filters( 'biz_vektor_slider_options', $flexslider );
 	wp_localize_script( 'biz-vektor-min-js', 'bv_sliderParams', $flexslider );
+}
+
+/*-------------------------------------------*/
+/*	get_biz_vektor_name()
+/*-------------------------------------------*/
+function get_biz_vektor_name() {
+	$name = 'BizVektor';
+	$name = apply_filters( 'biz_vektor_name', $name );
+	return $name;
+}
+
+/*-------------------------------------------*/
+/*	biz_vektor_get_short_name()
+/*-------------------------------------------*/
+function biz_vektor_get_short_name() {
+	$lab = get_biz_vektor_name();
+	if ( $lab == 'BizVektor' ) {
+		$lab = 'BV';
+	}
+
+	return $lab;
+}
+
+/*-------------------------------------------*/
+/*	Chack use post top page
+/*-------------------------------------------*/
+function biz_vektor_get_page_for_posts() {
+	// Get post top page by setting display page.
+	$page_for_posts['post_top_id'] = get_option( 'page_for_posts' );
+
+	// Set use post top page flag.
+	$page_for_posts['post_top_use'] = ( isset( $page_for_posts['post_top_id'] ) && $page_for_posts['post_top_id'] ) ? true : false;
+
+	// When use post top page that get post top page name.
+	$page_for_posts['post_top_name'] = ( $page_for_posts['post_top_use'] ) ? get_the_title( $page_for_posts['post_top_id'] ) : '';
+
+	return $page_for_posts;
+}
+/*-------------------------------------------*/
+/*	Chack post type info
+/*-------------------------------------------*/
+
+function biz_vektor_get_post_type() {
+	// Check use post top page
+	$page_for_posts = biz_vektor_get_page_for_posts();
+
+	// Get post type slug
+	/*-------------------------------------------*/
+	$post_type['slug'] = get_post_type();
+	if ( ! $post_type['slug'] ) {
+		global $wp_query;
+		if ( isset( $wp_query->query_vars['post_type'] ) && $wp_query->query_vars['post_type'] ) {
+			$post_type['slug'] = $wp_query->query_vars['post_type'];
+		} elseif ( is_tax() ) {
+			// Case of tax archive and no posts
+			$taxonomy          = get_queried_object()->taxonomy;
+			$post_type['slug'] = get_taxonomy( $taxonomy )->object_type[0];
+		} else {
+			// This is necessary that when no posts.
+			$post_type['slug'] = 'post';
+		}
+	}
+
+	// Get custom post type name
+	/*-------------------------------------------*/
+	$post_type_object = get_post_type_object( $post_type['slug'] );
+	if ( $post_type_object ) {
+		if ( $page_for_posts['post_top_use'] && $post_type['slug'] == 'post' ) {
+			$post_type['name'] = esc_html( get_the_title( $page_for_posts['post_top_id'] ) );
+		} else {
+			$post_type['name'] = esc_html( $post_type_object->labels->name );
+		}
+	}
+
+	// Get custom post type archive url
+	/*-------------------------------------------*/
+	if ( $page_for_posts['post_top_use'] && $post_type['slug'] == 'post' ) {
+		$post_type['url'] = get_the_permalink( $page_for_posts['post_top_id'] );
+	} else {
+		$post_type['url'] = get_post_type_archive_link( $post_type['slug'] );
+	}
+
+	$post_type = apply_filters( 'post_type_info_custom', $post_type );
+	return $post_type;
 }

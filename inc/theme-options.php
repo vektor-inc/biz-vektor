@@ -821,9 +821,3 @@ function get_biz_vektor_contactBtn() {
 function biz_vektor_contactBtn() {
 	echo get_biz_vektor_contactBtn();
 }
-
-function get_biz_vektor_name() {
-	$name = 'BizVektor';
-	$name = apply_filters( 'biz_vektor_name', $name );
-	return $name;
-}
