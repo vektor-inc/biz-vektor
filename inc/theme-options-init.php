@@ -176,7 +176,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['listBlogTop']     = $input['listBlogTop'];
 	$output['listBlogArchive'] = $input['listBlogArchive'];
 	// $output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 5 : $input['infoTopCount'];
-	$output['postTopUrl']         = $input['postTopUrl'];
+	// $output['postTopUrl']         = $input['postTopUrl'];
 	$output['postTopCount']       = ( preg_match( '/^(\s|[ 　]*)$/', $input['postTopCount'] ) ) ? 5 : $input['postTopCount'];
 	$output['postRelatedCount']   = ( preg_match( '/^(\s|[ 　]*)$/', $input['postRelatedCount'] ) ) ? 6 : $input['postRelatedCount'];
 	$output['ad_content_moretag'] = $input['ad_content_moretag'];

@@ -148,7 +148,6 @@ function biz_vektor_info_validate( $output, $input ) {
 	$output['infoLabelName']   = ( preg_match( '/^(\s|[ 　]*)$/', $input['infoLabelName'] ) ) ? $defaults['infoLabelName'] : $input['infoLabelName'];
 	$output['listInfoTop']     = $input['listInfoTop'];
 	$output['listInfoArchive'] = $input['listInfoArchive'];
-	$output['infoTopUrl']      = $input['infoTopUrl'];
 	$output['infoTopCount']    = ( preg_match( '/^(\s|[ 　]*)$/', $input['infoTopCount'] ) ) ? 5 : $input['infoTopCount'];
 	return $output;
 }
@@ -158,7 +157,6 @@ function biz_vektor_info_default_option( $original_options ) {
 	$options = array(
 		'infoLabelName'   => __( 'Information', 'biz-vektor' ),
 		'infoTopCount'    => '5',
-		'infoTopUrl'      => home_url() . '/info/',
 		'listInfoTop'     => 'listType_set',
 		'listInfoArchive' => 'listType_set',
 	);
