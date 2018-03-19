@@ -43,3 +43,34 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['scripts', 'jsmin', 'watch', 'css_concat_min']);
 gulp.task('compile', ['scripts', 'jsmin', 'css_concat_min']);
+
+// copy dist ////////////////////////////////////////////////
+
+gulp.task('dist', function() {
+	return gulp.src(
+			[
+				'./**/*.jpeg',
+				'./**/*.jpg',
+				'./**/*.png',
+				'./**/*.gif',
+				'./**/*.php',
+				'./**/*.txt',
+				'./**/*.css',
+				'./**/*.scss',
+				'./**/*.bat',
+				'./**/*.rb',
+				'./**/*.eot',
+				'./**/*.svg',
+				'./**/*.ttf',
+				'./**/*.woff',
+				'./languages/**',
+				'./library/**',
+				"!./tests/**",
+				"!./dist/**",
+				"!./node_modules/**/*.*"
+			], {
+				base: './'
+			}
+		)
+		.pipe(gulp.dest('dist/biz-vektor')); // distディレクトリに出力
+});
