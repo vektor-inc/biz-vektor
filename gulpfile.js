@@ -49,6 +49,7 @@ gulp.task('compile', ['scripts', 'jsmin', 'css_concat_min']);
 gulp.task('dist', function() {
 	return gulp.src(
 			[
+				'./**/*.js',
 				'./**/*.jpeg',
 				'./**/*.jpg',
 				'./**/*.png',
