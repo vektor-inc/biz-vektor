@@ -29,7 +29,6 @@ function biz_vektor_theme_options_render_page() {
 	$biz_vektor_name = get_biz_vektor_name();
 	?>
 	<div class="wrap biz_vektor_options">
-		<?php screen_icon(); ?>
 		<h2>
 			<?php
 			if ( function_exists( 'biz_vektor_obu_get_options' ) ) {
