@@ -78,7 +78,7 @@ if ( is_home() ) {
 	// 第一階層
 	if ( $post->post_parent == 0 ) {
 		$breadcrumb_array[] = array(
-			'name'             => strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ),
+			'name'             => strip_tags( apply_filters( 'single_post_title', get_the_title() ) ),
 			'id'               => '',
 			'url'              => '',
 			'class_additional' => '',
