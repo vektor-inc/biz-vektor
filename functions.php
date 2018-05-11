@@ -105,8 +105,6 @@ function biz_vektor_theme_setup() {
 		)
 	);
 
-	add_theme_support( 'title-tag' );
-
 	/*-------------------------------------------*/
 	/*	Admin page _ Eye catch
 	/*-------------------------------------------*/
