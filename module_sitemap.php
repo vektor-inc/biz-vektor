@@ -16,7 +16,7 @@ $types = array(
 			),
 		),
 		'label'     => $biz_vektor_options['infoLabelName'],
-		'link'      => home_url( '/info/' ),
+		'link'      => get_post_type_archive_link( 'info' ),
 	),
 	array(
 		'post-type' => 'post',
@@ -27,7 +27,7 @@ $types = array(
 			),
 		),
 		'label'     => $biz_vektor_options['postLabelName'],
-		'link'      => $biz_vektor_options['postTopUrl'],
+		'link'      => get_post_type_archive_link( 'post' ),
 	),
 );
 
