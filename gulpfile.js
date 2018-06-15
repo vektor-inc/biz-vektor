@@ -64,6 +64,7 @@ gulp.task('dist', function() {
 				'./**/*.svg',
 				'./**/*.ttf',
 				'./**/*.woff',
+				'./**/*.md',
 				'./languages/**',
 				'./library/**',
 				"!./tests/**",
