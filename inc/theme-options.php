@@ -107,6 +107,15 @@ get_template_part( 'inc/theme-options-edit' );
 /*-------------------------------------------*/
 /*	Create title
 /*-------------------------------------------*/
+/*
+単独で外せるように個別指定してある
+after_setup_theme でフックするとremove_actionで外しにくいので init 指定
+*/
+add_action( 'init', 'biz_vektor_print_title' );
+function biz_vektor_print_title() {
+	add_theme_support( 'title-tag' );
+}
+
 function getHeadTitle() {
 	$options = biz_vektor_get_theme_options();
 	global $wp_query;
