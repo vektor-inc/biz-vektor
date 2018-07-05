@@ -5,7 +5,7 @@
 /*-------------------------------------------*/
 add_action( 'wp_head', 'biz_vektor_setHeadDescription', 5 );
 function biz_vektor_setHeadDescription() {
-	echo '<meta name="description" content="' . getHeadDescription() . '" />' . "\n";
+	echo '<meta name="description" content="' . esc_attr( getHeadDescription() ) . '" />' . "\n";
 }
 
 
