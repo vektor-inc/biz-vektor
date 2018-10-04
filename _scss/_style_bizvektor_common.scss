@@ -102,11 +102,25 @@ form#searchform input#s { padding:6px 5px;}
 .three_column #main #container #thirdTower { float:right; position: relative; width: 220px;}
 .three_column .content {
 	.childPageBox,
-	.content .mainFoot{ width:470px }
-	.content .mainFoot { box-sizing: border-box; }
+	.mainFoot{ width:470px;box-sizing: border-box;}
+	.mainFoot { box-sizing: border-box; }
 }
 
+
 }// .three_column #main #container
+@media (min-width: 660px){
+	.three_column .content .mainFootContact {
+		width:auto;
+		p.mainFootTxt {
+			float:none;
+			text-align: center;
+		}
+		 .mainFootBt {
+			 margin-top:1em;
+			 float:none;
+		 }
+	}
+}
 
 /*-------------------------------------------*/
 /*	#content

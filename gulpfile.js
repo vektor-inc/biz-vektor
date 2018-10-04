@@ -10,6 +10,37 @@ var jsmin = require('gulp-jsmin');
 // エラーでも監視を続行させる
 var plumber = require('gulp-plumber');
 
+var sass = require('gulp-sass');
+var cmq = require('gulp-merge-media-queries');
+// add vender prifix
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCss = require('gulp-clean-css');
+
+gulp.task('sass', function() {
+	gulp.src(['./_scss/**.scss'])
+    .pipe(plumber({
+      handleError: function(err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(cmq({
+      log: true
+    }))
+    .pipe(autoprefixer())
+    // .pipe(cleanCss())
+		// .pipe(rename({suffix: '_min'}))
+    .pipe(gulp.dest('./css'))
+});
+gulp.task('css_concat_min', function() {
+  return gulp.src(['css/bizvektor_common.css','js/res-vektor/res-vektor.css','js/FlexSlider/flexslider.css'])
+    .pipe(concat('bizvektor_common.css'))
+    .pipe(cssmin())
+    .pipe(rename({suffix: '_min'}))
+    .pipe(gulp.dest('./css/'));
+});
 
 // ファイル結合
 gulp.task('scripts', function() {
@@ -26,16 +57,11 @@ gulp.task('jsmin', function () {
   .pipe(gulp.dest('./js'));
 });
 
-gulp.task('css_concat_min', function() {
-  return gulp.src(['css/bizvektor_common.css','js/res-vektor/res-vektor.css','js/FlexSlider/flexslider.css'])
-    .pipe(concat('bizvektor_common.css'))
-    .pipe(cssmin())
-    .pipe(rename({suffix: '_min'}))
-    .pipe(gulp.dest('./css/'));
-});
+
 
 // Watch
 gulp.task('watch', function() {
+		gulp.watch('_scss/*.scss', ['sass']);
     gulp.watch('css/*.css', ['css_concat_min']);
     gulp.watch('js/master.js', ['scripts']);
     gulp.watch('js/biz-vektor.js', ['jsmin']);
