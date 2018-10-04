@@ -1503,7 +1503,9 @@ div.wpcf7 img.ajax-loader { margin: 8px auto !important; display: block; }
   .three_column #main #container { position: relative; }
   .three_column #main #container #content { float: left; position: relative; left: 240px; width: 470px; }
   .three_column #main #container #sideTower { float: left; position: relative; left: -470px; }
-  .three_column #main #container #thirdTower { float: right; position: relative; width: 220px; } }
+  .three_column #main #container #thirdTower { float: right; position: relative; width: 220px; }
+  .three_column .content .childPageBox, .three_column .content .content .mainFoot { width: 470px; }
+  .three_column .content .content .mainFoot { box-sizing: border-box; } }
 /*-------------------------------------------*/
 /*	#content
 /*-------------------------------------------*/
