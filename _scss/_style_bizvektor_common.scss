@@ -55,7 +55,7 @@ form{
 }//form
 
 div.wpcf7 img.ajax-loader { margin: 8px auto !important; display: block; }
-.content form table	{ margin-top:25px; 
+.content form table	{ margin-top:25px;
 	th { vertical-align: middle; }
 	th,td{ padding: 10px; }
 }
@@ -63,9 +63,9 @@ div.wpcf7 img.ajax-loader { margin: 8px auto !important; display: block; }
 .flexslider.slide .flex-direction-nav li .prev { left: 0; }
 
 @media (min-width: 770px) {
-form#searchform input#s { padding:6px 5px;}	
-.content form table	{ 
-	th,td{ padding: 10px 15px; }	
+form#searchform input#s { padding:6px 5px;}
+.content form table	{
+	th,td{ padding: 10px 15px; }
 	}//.content form table
 }
 
@@ -100,6 +100,12 @@ form#searchform input#s { padding:6px 5px;}
 .three_column #main #container #content { float:left; position: relative;left:240px; width: 470px; }
 .three_column #main #container #sideTower { float:left; position: relative;left:-470px; }
 .three_column #main #container #thirdTower { float:right; position: relative; width: 220px;}
+.three_column .content {
+	.childPageBox,
+	.content .mainFoot{ width:470px }
+	.content .mainFoot { box-sizing: border-box; }
+}
+
 }// .three_column #main #container
 
 /*-------------------------------------------*/
@@ -254,7 +260,7 @@ html[xmlns] .slides{ display:block }
 	}
  }
 .flex-control-nav { width:100%;position:absolute;bottom:0;text-align:center;
-	li { margin:0 0 0 5px; display:inline-block; zoom:1; 
+	li { margin:0 0 0 5px; display:inline-block; zoom:1;
 		&:first-child { margin:0; }
 		a { width:13px; height:13px; display:block; background:url(../images/flexslider/bg_control_nav.png) no-repeat; cursor:pointer; text-indent:-999em; }
 		a:hover { background-position:0 -13px; }
@@ -301,4 +307,3 @@ html[xmlns] .slides{ display:block }
   margin-bottom: 0;
   line-height: 1.4em;
 }
-
