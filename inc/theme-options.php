@@ -434,14 +434,17 @@ function biz_vektor_gMenuDivide() {
 /*-------------------------------------------*/
 /*	Header logo
 /*-------------------------------------------*/
-function biz_vektor_print_headLogo() {
-	$options = biz_vektor_get_theme_options();
-	if ( isset( $options['head_logo'] ) && $options['head_logo'] ) {
-		print '<img src="' . $options['head_logo'] . '" alt="' . get_bloginfo( 'name' ) . '" />';
-	} else {
-		bloginfo( 'name' );
+if ( ! function_exists( 'biz_vektor_print_headLogo' ) ) {
+	function biz_vektor_print_headLogo() {
+		$options = biz_vektor_get_theme_options();
+		if ( isset( $options['head_logo'] ) && $options['head_logo'] ) {
+			print '<img src="' . $options['head_logo'] . '" alt="' . get_bloginfo( 'name' ) . '" />';
+		} else {
+			bloginfo( 'name' );
+		}
 	}
 }
+
 /*-------------------------------------------*/
 /*	Header contact info (TEL & Time)
 /*-------------------------------------------*/
