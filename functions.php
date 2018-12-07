@@ -72,6 +72,14 @@ define( 'BizVektor_Theme_Version', $theme_opt->Version );
 /*	biz_vektor_get_short_name()
 /*-------------------------------------------*/
 
+require 'inc/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/vektor-inc/biz-vektor/',
+	__FILE__, // Full path to the main plugin file or functions.php.
+	'biz-vektor'
+);
+
+$myUpdateChecker->setBranch( 'master' );
 
 get_template_part( 'plugins/plugins' );
 include_once( get_template_directory() . '/deprecations.php' );
