@@ -40,6 +40,7 @@ function biz_vektor_info_create_post_type() {
 			'menu_position' => 5,
 			'has_archive'   => true,
 			'show_in_rest'  => true,
+			'rest_base'     => 'info',
 			'supports'      => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
 		)
 	);
@@ -54,6 +55,7 @@ function biz_vektor_info_create_post_type() {
 			'singular_label'        => $infoLabelName . __( 'category', 'biz-vektor' ),
 			'public'                => true,
 			'show_ui'               => true,
+			'show_in_rest'          => true,
 		)
 	);
 }
