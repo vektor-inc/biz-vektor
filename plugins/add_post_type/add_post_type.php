@@ -39,6 +39,7 @@ function biz_vektor_info_create_post_type() {
 			'public'        => true,
 			'menu_position' => 5,
 			'has_archive'   => true,
+			'show_in_rest'  => true,
 			'supports'      => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
 		)
 	);
