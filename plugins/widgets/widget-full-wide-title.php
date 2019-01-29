@@ -6,7 +6,9 @@
 
 add_action(
 	'widgets_init',
-	create_function( '', 'return register_widget( "BV_Full_Wide_Title" );' )
+	function() {
+		register_widget( 'BV_Full_Wide_Title' );
+	}
 );
 // color picker js
 add_action( 'admin_enqueue_scripts', 'bv_full_wide_title_color_picker' );
