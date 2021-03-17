@@ -400,10 +400,11 @@ add_editor_style( '/css/editor-style.css' );
 /*-------------------------------------------*/
 
 // Add Google Web Fonts
-add_action( 'wp_enqueue_scripts', 'bizVektorAddWebFonts' );
-function bizVektorAddWebFonts() {
-	wp_enqueue_style( 'Biz_Vektor_add_web_fonts', '//fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton', array(), false, 'all' );
+function bizVektorAddWebFonts(){
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@900&display=swap" rel="stylesheet">';
 }
+add_action( 'wp_head', 'bizVektorAddWebFonts' );
 
 // Add BizVektor option css
 add_action( 'wp_enqueue_scripts', 'bizVektorSetCommonStyle' );

@@ -16,5 +16,4 @@ $fonts = array(
 	'Ubuntu' 		  => __( 'Ubuntu', 'biz-vektor' ),
 	'PT+Sans' 		  => __( 'PT Sans', 'biz-vektor' ),
 	'Old+Standard+TT' => __( 'Old Standard TT', 'biz-vektor' ),
-	'Droid+Sans' 	  => __( 'Droid Sans', 'biz-vektor' ),
 );
