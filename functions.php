@@ -3,73 +3,76 @@
 $theme_opt = wp_get_theme( 'biz-vektor' );
 define( 'BizVektor_Theme_Version', $theme_opt->Version );
 
-/*-------------------------------------------*/
-/*	Theme setup
-/*-------------------------------------------*/
-/*	Set content width
-/* 	(Auto set up to media max with.)
-/*-------------------------------------------*/
-/*	WidgetArea initiate
-/*-------------------------------------------*/
-/*	WidgetArea maincontent setting
-/*-------------------------------------------*/
-/*	Custom header
-/*-------------------------------------------*/
-/*	Load theme options
-/*-------------------------------------------*/
-/*	Load Advanced Settings (advanced theme options)
-/*-------------------------------------------*/
-/*	Load Setting of Default / Calmly
-/*-------------------------------------------*/
-/*	Load Theme customizer
-/*-------------------------------------------*/
-/*	Admin page _ Add style
-/*-------------------------------------------*/
-/*	Admin page _ Add post status to body class
-/*-------------------------------------------*/
-/*	Admin page _ Add editor css
-/*-------------------------------------------*/
-/*	Chack use post top page
-/*-------------------------------------------*/
-/*	head_description
-/*-------------------------------------------*/
-/*	wp_head add items
-/*-------------------------------------------*/
-/*	Term list no link
-/*-------------------------------------------*/
-/*	Global navigation add cptions
-/*-------------------------------------------*/
-/*	Excerpt _ change ...
-/*-------------------------------------------*/
-/*	Year Artchive list 'year' insert to inner </a>
-/*-------------------------------------------*/
-/*	Category list 'count insert to inner </a>
-/*-------------------------------------------*/
-/*	Block to delete iframe tag from TinyMCE
-/*-------------------------------------------*/
-/*	Comment
-/*-------------------------------------------*/
-/*	Archive page link ( don't erase )
-/*-------------------------------------------*/
-/*	Paging
-/*-------------------------------------------*/
-/*	Page _ Child page lists
-/*-------------------------------------------*/
-/*	HomePage _ add action filters
-/*-------------------------------------------*/
-/*	Archive _ loop custom filters
-/*-------------------------------------------*/
-/*	Aceept favicon upload
-/*-------------------------------------------*/
-/*	Chack use post top page
-/*	biz_vektor_get_page_for_posts()
-/*-------------------------------------------*/
-/*	Chack post type info
-/*	biz_vektor_get_post_type()
-/*-------------------------------------------*/
-/*	get_biz_vektor_name()
-/*-------------------------------------------*/
-/*	biz_vektor_get_short_name()
+/*
+  Theme setup
+/*
+  Set content width
+/*
+  (Auto set up to media max with.)
+/*
+  WidgetArea initiate
+/*
+  WidgetArea maincontent setting
+/*
+  Custom header
+/*
+  Load theme options
+/*
+  Load Advanced Settings (advanced theme options)
+/*
+  Load Setting of Default / Calmly
+/*
+  Load Theme customizer
+/*
+  Admin page _ Add style
+/*
+  Admin page _ Add post status to body class
+/*
+  Admin page _ Add editor css
+/*
+  Chack use post top page
+/*
+  head_description
+/*
+  wp_head add items
+/*
+  Term list no link
+/*
+  Global navigation add cptions
+/*
+  Excerpt _ change ...
+/*
+  Year Artchive list 'year' insert to inner </a>
+/*
+  Category list 'count insert to inner </a>
+/*
+  Block to delete iframe tag from TinyMCE
+/*
+  Comment
+/*
+  Archive page link ( don't erase )
+/*
+  Paging
+/*
+  Page _ Child page lists
+/*
+  HomePage _ add action filters
+/*
+  Archive _ loop custom filters
+/*
+  Aceept favicon upload
+/*
+  Chack use post top page
+/*
+  biz_vektor_get_page_for_posts()
+/*
+  Chack post type info
+/*
+  biz_vektor_get_post_type()
+/*
+  get_biz_vektor_name()
+/*
+  biz_vektor_get_short_name()
 /*-------------------------------------------*/
 
 require 'inc/plugin-update-checker/plugin-update-checker.php';
@@ -82,7 +85,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 $myUpdateChecker->setBranch( 'master' );
 
 get_template_part( 'plugins/plugins' );
-include_once( get_template_directory() . '/deprecations.php' );
+require_once get_template_directory() . '/deprecations.php';
 
 // カスタム投稿タイプマネージャー
 get_template_part( 'plugins/post-type-manager-config' );
@@ -93,12 +96,12 @@ function biz_vektor_is_plugin_enable( $plugin_name ) {
 
 function biz_vektor_wp_css() {
 	echo '<link rel="stylesheet" href="' . get_stylesheet_uri() . '" type="text/css" media="all" />' . "\n";
-	//  wp_enqueue_style('Biz_Vektor_style', get_stylesheet_uri(), array(), false);
+	// wp_enqueue_style('Biz_Vektor_style', get_stylesheet_uri(), array(), false);
 }
 add_action( 'wp_head', 'biz_vektor_wp_css', 190 );
 
-/*-------------------------------------------*/
-/*	Theme setup
+/*
+  Theme setup
 /*-------------------------------------------*/
 add_action( 'after_setup_theme', 'biz_vektor_theme_setup' );
 
@@ -108,24 +111,25 @@ function biz_vektor_theme_setup() {
 	add_theme_support( 'custom-header' );
 
 	add_theme_support(
-		'custom-background', array(
+		'custom-background',
+		array(
 			'default-color' => '#ffffff',
 		)
 	);
 
-	/*-------------------------------------------*/
-	/*	Admin page _ Eye catch
+	/*
+	  Admin page _ Eye catch
 	/*-------------------------------------------*/
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 200, 200, true );
 
-	/*-------------------------------------------*/
-	/*	Add theme support for selective refresh for widgets.
+	/*
+	  Add theme support for selective refresh for widgets.
 	/*-------------------------------------------*/
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
-	/*-------------------------------------------*/
-	/*	Custom menu
+	/*
+	  Custom menu
 	/*-------------------------------------------*/
 	register_nav_menus( array( 'Header' => 'Header Navigation' ) );
 	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation' ) );
@@ -133,8 +137,8 @@ function biz_vektor_theme_setup() {
 
 	load_theme_textdomain( 'biz-vektor', get_template_directory() . '/languages' );
 
-	/*-------------------------------------------*/
-	/*	Set content width
+	/*
+	  Set content width
 	/* 	(Auto set up to media max with.)
 	/*-------------------------------------------*/
 	global $content_width;
@@ -146,8 +150,8 @@ function biz_vektor_theme_setup() {
 }
 
 
-/*-------------------------------------------*/
-/*	WidgetArea initiate
+/*
+  WidgetArea initiate
 /*-------------------------------------------*/
 function biz_vektor_widgets_init() {
 	register_sidebar(
@@ -216,8 +220,8 @@ function biz_vektor_widgets_init() {
 }
 add_action( 'widgets_init', 'biz_vektor_widgets_init' );
 
-/*-------------------------------------------*/
-/*	WidgetArea maincontent setting
+/*
+  WidgetArea maincontent setting
 /*-------------------------------------------*/
 add_filter( 'biz_vektor_is_plugin_widgets', 'biz_vektor_widget_beacon', 10, 1 );
 function biz_vektor_widget_beacon( $flag ) {
@@ -287,8 +291,8 @@ function biz_vektor_widget_extra_content( $flag ) {
 	return $flag;
 }
 
-/*-------------------------------------------*/
-/*	Custom header
+/*
+  Custom header
 /*-------------------------------------------*/
 add_action( 'after_setup_theme', 'biz_vektor_set_customheader' );
 function biz_vektor_set_customheader() {
@@ -337,31 +341,31 @@ function biz_vektor_set_customheader() {
 	register_default_headers( $custom_headers );
 }
 
+/*
+  Load theme options
 /*-------------------------------------------*/
-/*	Load theme options
-/*-------------------------------------------*/
-	require( get_template_directory() . '/inc/theme-options.php' );
-	require( get_template_directory() . '/inc/theme-options-init.php' );
+	require get_template_directory() . '/inc/theme-options.php';
+	require get_template_directory() . '/inc/theme-options-init.php';
 
+/*
+  Load Advanced Settings (advanced theme options)
 /*-------------------------------------------*/
-/*	Load Advanced Settings (advanced theme options)
-/*-------------------------------------------*/
-	require( get_template_directory() . '/inc/theme-ad-options.php' );
+	require get_template_directory() . '/inc/theme-ad-options.php';
 
+/*
+  Load Setting of Default / Calmly
 /*-------------------------------------------*/
-/*	Load Setting of Default / Calmly
-/*-------------------------------------------*/
-	require( get_template_directory() . '/design_skins/001/001_custom.php' );
-	require( get_template_directory() . '/design_skins/002/002_custom.php' );
-	require( get_template_directory() . '/design_skins/003/003_custom.php' );
+	require get_template_directory() . '/design_skins/001/001_custom.php';
+	require get_template_directory() . '/design_skins/002/002_custom.php';
+	require get_template_directory() . '/design_skins/003/003_custom.php';
 
+/*
+  Load Theme customizer
 /*-------------------------------------------*/
-/*	Load Theme customizer
-/*-------------------------------------------*/
-	require( get_template_directory() . '/inc/theme-customizer.php' );
+	require get_template_directory() . '/inc/theme-customizer.php';
 
-/*-------------------------------------------*/
-/*	Admin page _ Add style
+/*
+  Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css() {
 	// enqueue の場合あとで読み込まれてしまうため
@@ -371,8 +375,8 @@ function bizVektor_admin_css() {
 }
 add_action( 'admin_head', 'bizVektor_admin_css', 11 );
 
-/*-------------------------------------------*/
-/*	Admin page _ Add post status to body class
+/*
+  Admin page _ Add post status to body class
 /*-------------------------------------------*/
 function bizVektor_postStatus() {
 		$classes = get_post_status(); ?>
@@ -385,22 +389,22 @@ function bizVektor_postStatus() {
 		}
 		window.onload = postStatusColor;
 		</script>
-<?php
+	<?php
 }
 add_action( 'admin_head-post.php', 'bizVektor_postStatus', 12 );
 add_action( 'admin_head-post-new.php', 'bizVektor_postStatus', 12 );
 
-/*-------------------------------------------*/
-/*	Admin page _ Add editor css
+/*
+  Admin page _ Add editor css
 /*-------------------------------------------*/
 add_editor_style( '/css/editor-style.css' );
 
-/*-------------------------------------------*/
-/*	wp_head add items
+/*
+  wp_head add items
 /*-------------------------------------------*/
 
 // Add Google Web Fonts
-function bizVektorAddWebFonts(){
+function bizVektorAddWebFonts() {
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@900&display=swap" rel="stylesheet">';
 }
@@ -435,8 +439,8 @@ function add_defer_to_bizVektor_js( $url ) {
 }
 add_filter( 'clean_url', 'add_defer_to_bizVektor_js', 11, 1 );
 
-/*-------------------------------------------*/
-/*	Term list no link
+/*
+  Term list no link
 /*-------------------------------------------*/
 function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', $after = '' ) {
 	$terms = get_the_terms( $id, $taxonomy );
@@ -452,8 +456,8 @@ function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', 
 	return $before . join( $sep, $term_names ) . $after;
 }
 
-/*-------------------------------------------*/
-/*	Global navigation add cptions
+/*
+  Global navigation add cptions
 /*-------------------------------------------*/
 class description_walker extends Walker_Nav_Menu {
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -491,24 +495,24 @@ class description_walker extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 }
-/*-------------------------------------------*/
-/*	Excerpt _ change ...
+/*
+  Excerpt _ change ...
 /*-------------------------------------------*/
 function change_excerpt_more( $post ) {
 	return ' ...';
 }
 add_filter( 'excerpt_more', 'change_excerpt_more' );
 
-/*-------------------------------------------*/
-/*	Year Artchive list 'year' insert to inner </a>
+/*
+  Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
 function my_archives_link( $html ) {
 	return preg_replace( '@</a>(.+?)</li>@', '\1</a></li>', $html );
 }
 add_filter( 'get_archives_link', 'my_archives_link' );
 
-/*-------------------------------------------*/
-/*	Category list 'count insert to inner </a>
+/*
+  Category list 'count insert to inner </a>
 /*-------------------------------------------*/
 function my_list_categories( $output, $args ) {
 	$output = preg_replace( '/<\/a>\s*\((\d+)\)/', ' ($1)</a>', $output );
@@ -517,8 +521,8 @@ function my_list_categories( $output, $args ) {
 add_filter( 'wp_list_categories', 'my_list_categories', 10, 2 );
 
 
-/*-------------------------------------------*/
-/*	Block to delete iframe tag from TinyMCE
+/*
+  Block to delete iframe tag from TinyMCE
 /*-------------------------------------------*/
 function add_iframe( $initArray ) {
 	$initArray['extended_valid_elements'] = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
@@ -526,78 +530,79 @@ function add_iframe( $initArray ) {
 }
 add_filter( 'tiny_mce_before_init', 'add_iframe' );
 
-/*-------------------------------------------*/
-/*	Comment
+/*
+  Comment
 /*-------------------------------------------*/
 if ( ! function_exists( 'biz_vektor_comment' ) ) :
 	function biz_vektor_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case '':
-		?>
+				?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>" class="commentBox">
 		<div class="comment-author vcard">
-			<?php echo get_avatar( $comment, 40 ); ?>
-			<?php printf( sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+				<?php echo get_avatar( $comment, 40 ); ?>
+				<?php printf( sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 		</div><!-- .comment-author .vcard -->
-		<?php if ( $comment->comment_approved == '0' ) : ?>
+				<?php if ( $comment->comment_approved == '0' ) : ?>
 			<em><?php _e( 'Your comment is awaiting approval.', 'biz-vektor' ); ?></em>
 			<br />
 		<?php endif; ?>
 
 		<div class="comment-meta commentmetadata">
-		<?php printf( '%1$s at %2$s', get_comment_date(), get_comment_time() ); ?> <?php edit_comment_link( 'Edit', '<span class="edit-link">(', ')</span>' ); ?>
+				<?php printf( '%1$s at %2$s', get_comment_date(), get_comment_time() ); ?> <?php edit_comment_link( 'Edit', '<span class="edit-link">(', ')</span>' ); ?>
 		</div><!-- .comment-meta .commentmetadata -->
 
 		<div class="comment-body"><?php comment_text(); ?></div>
 		<div class="linkBtn linkBtnS">
-		<?php
-		comment_reply_link(
-			array_merge(
-				$args, array(
-					'reply_text' => __( 'Reply', 'biz-vektor' ),
-					'depth'      => $depth,
-					'max_depth'  => $args['max_depth'],
-				)
-			)
-		);
-?>
+				<?php
+				comment_reply_link(
+					array_merge(
+						$args,
+						array(
+							'reply_text' => __( 'Reply', 'biz-vektor' ),
+							'depth'      => $depth,
+							'max_depth'  => $args['max_depth'],
+						)
+					)
+				);
+				?>
 		</div><!-- .reply -->
 	</div><!-- #comment-##  -->
 
-	<?php
+				<?php
 				break;
 			case 'pingback':
 			case 'trackback':
-		?>
+				?>
 		<li class="post pingback">
 		<p>Pingback: <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'biz-vektor' ), '<span class="edit-link">(', ')</span>' ); ?>
-	<?php
+				<?php
 				break;
 		endswitch;
 	}
 endif;
 
-/*-------------------------------------------*/
-/*	Archive page link ( don't erase )
+/*
+  Archive page link ( don't erase )
 /*-------------------------------------------*/
 function biz_vektor_content_nav( $nav_id ) {
 	global $wp_query;
 	if ( $wp_query->max_num_pages > 1 ) :
-	?>
+		?>
 		<div id="<?php echo $nav_id; ?>">
 			<h4 class="assistive-text"><?php _e( 'Navigation', 'biz-vektor' ); ?></h4>
 			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older post', 'biz-vektor' ) ); ?></div>
 			<div class="nav-next"><?php previous_posts_link( __( 'New post <span class="meta-nav">&rarr;</span>', 'biz-vektor' ) ); ?></div>
 		</div><!-- #nav -->
-	<?php
+		<?php
 	endif;
 	wp_reset_query();
 }
 
-/*-------------------------------------------*/
-/*	Paging
+/*
+  Paging
 /*-------------------------------------------*/
 function pagination( $max_num_pages = '', $range = 1 ) {
 	$showitems = ( $range * 2 ) + 1;
@@ -676,8 +681,8 @@ function pagination( $max_num_pages = '', $range = 1 ) {
 	}
 }
 
-/*-------------------------------------------*/
-/*	Page _ Child page lists
+/*
+  Page _ Child page lists
 /*-------------------------------------------*/
 function biz_vektor_childPageList() {
 	global $post;
@@ -700,14 +705,14 @@ function biz_vektor_childPageList() {
 				</ul>
 				</div>
 
-		<?php
+				<?php
 			}
 		}
 	} // is_page
 }
 
-/*-------------------------------------------*/
-/*	HomePage _ add action filters
+/*
+  HomePage _ add action filters
 /*-------------------------------------------*/
 function biz_vektor_contentMain_before() {
 	do_action( 'biz_vektor_contentMain_before' );
@@ -718,8 +723,8 @@ function biz_vektor_contentMain_after() {
 function biz_vektor_sideTower_after() {
 	do_action( 'biz_vektor_sideTower_after' );
 }
-/*-------------------------------------------*/
-/*	Archive _ loop custom filters
+/*
+  Archive _ loop custom filters
 /*-------------------------------------------*/
 function biz_vektor_archive_loop() {
 	do_action( 'biz_vektor_archive_loop' );
@@ -741,8 +746,8 @@ function biz_vektor_archive_loop_after() {
 	do_action( 'biz_vektor_archive_loop_after' );
 }
 
-/*-------------------------------------------*/
-/*	Aceept favicon upload
+/*
+  Aceept favicon upload
 /*-------------------------------------------*/
 function my_mime_type( $a ) {
 	$a['ico'] = 'image/x-icon';
@@ -775,8 +780,8 @@ function biz_vektor_set_localize_script() {
 	wp_localize_script( 'biz-vektor-min-js', 'bv_sliderParams', $flexslider );
 }
 
-/*-------------------------------------------*/
-/*	get_biz_vektor_name()
+/*
+  get_biz_vektor_name()
 /*-------------------------------------------*/
 function get_biz_vektor_name() {
 	$name = 'BizVektor';
@@ -784,8 +789,8 @@ function get_biz_vektor_name() {
 	return $name;
 }
 
-/*-------------------------------------------*/
-/*	biz_vektor_get_short_name()
+/*
+  biz_vektor_get_short_name()
 /*-------------------------------------------*/
 function biz_vektor_get_short_name() {
 	$lab = get_biz_vektor_name();
@@ -796,8 +801,8 @@ function biz_vektor_get_short_name() {
 	return $lab;
 }
 
-/*-------------------------------------------*/
-/*	Chack use post top page
+/*
+  Chack use post top page
 /*-------------------------------------------*/
 function biz_vektor_get_page_for_posts() {
 	// Get post top page by setting display page.
@@ -811,8 +816,8 @@ function biz_vektor_get_page_for_posts() {
 
 	return $page_for_posts;
 }
-/*-------------------------------------------*/
-/*	Chack post type info
+/*
+  Chack post type info
 /*-------------------------------------------*/
 
 function biz_vektor_get_post_type() {
