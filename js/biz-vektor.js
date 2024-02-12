@@ -582,32 +582,6 @@ master.js 他複数のファイルをGruntなどのビルドツールでマー�
 /*-------------------------------------------*/
 
 /*-------------------------------------------*/
-/*  編集ガイド
-/*-------------------------------------------*/
-
-jQuery('#wp-admin-bar-editGuide .ab-item').click(function(){
-	if (!jQuery(this).hasClass('close')){
-		var txt = jQuery(this).html();
-		jQuery(this).html(txt.replace(/OPEN/,'CLOSE')).addClass('close');
-		jQuery('.adminEdit').each(function(i){
-			jQuery(this).hide();
-		});
-		jQuery('.edit-link').each(function(i){
-			jQuery(this).hide();
-		});
-	} else {
-		var txt2 = jQuery(this).html();
-		jQuery(this).html(txt2.replace(/CLOSE/,'OPEN')).removeClass('close');
-		jQuery('.adminEdit').each(function(i){
-			jQuery(this).show();
-		});
-		jQuery('.edit-link').each(function(i){
-			jQuery(this).show();
-		});
-	}
-});
-
-/*-------------------------------------------*/
 /*	YOUTUBEのレスポンシブ対応
 /*-------------------------------------------*/
 document.addEventListener("DOMContentLoaded",function(eve){

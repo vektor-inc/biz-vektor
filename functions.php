@@ -90,6 +90,7 @@ require_once get_template_directory() . '/deprecations.php';
 
 // カスタム投稿タイプマネージャー
 get_template_part( 'plugins/post-type-manager-config' );
+get_template_part( 'plugins/disable-guide' );
 
 function biz_vektor_is_plugin_enable( $plugin_name ) {
 	return apply_filters( 'biz_vektor_is_plugin_' . $plugin_name, false );
