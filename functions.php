@@ -441,7 +441,7 @@ add_filter( 'clean_url', 'add_defer_to_bizVektor_js', 11, 1 );
 /*
 	Term list no link
 /*-------------------------------------------*/
-function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', $after = '' ) {
+function get_the_term_list_nolink( $id = 0, $taxonomy = 'info-cat', $before = '', $sep = '', $after = '' ) {
 	$terms = get_the_terms( $id, $taxonomy );
 	if ( is_wp_error( $terms ) ) {
 		return $terms;
