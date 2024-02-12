@@ -187,15 +187,3 @@ function bizvektor_adminbar_custom_menu() {
 
 }
 add_action( 'admin_bar_menu', 'bizvektor_adminbar_custom_menu',20 );
-
-function bizvektor_adminbar_custom_edit_guide(){
-	global $wp_admin_bar;
-	if ( current_user_can('edit_pages') && !is_admin() ) {
-	$wp_admin_bar->add_menu( array(
-		'id' => 'editGuide',
-		'title' => __( 'Edit guide : OPEN', 'biz-vektor' ),
-		'href' => '',
-	));
-	}
-}
-add_action( 'admin_bar_menu', 'bizvektor_adminbar_custom_edit_guide',1000 );
