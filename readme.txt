@@ -1,8 +1,7 @@
 
 == Description ==
 BizVektor theme will allow you to build a high-quality business web site.It is possible to change the color in the Theme Customizer, to switch to a completely different design.In addition, it is possible to increase the design by the plug-in.
-Official site : http://sample.bizvektor.com ( Sorry, english version is under construction. )
-Sample site : http://sample.bizvektor.com
+Official site : https://github.com/vektor-inc
 
 === Tags ===
 white, red, blue, black, green, orange, purple, two-columns, right-sidebar, left-sidebar, one-columns, responsive, custom-background, custom-colors, custom-header, custom-menu, editor-style,theme-options
@@ -32,3 +31,7 @@ http://bizvektor.com/contact/
 
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
+
+== 1.12.5 ==
+* Support for PHP8 or highter
+* Support for WordPress 6.4
