@@ -59,8 +59,8 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <tr>
 <th><?php _e('Google Analytics Settings', 'biz-vektor'); ?></th>
 <td><?php _e('Please fill in the Google Analytics ID from the Analytics embed code used in the site.', 'biz-vektor'); ?><br />
-<p>UA-<input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
-<?php _e('ex) ', 'biz-vektor') ;?>XXXXXXXX-X</p>
+<p><input type="text" name="biz_vektor_theme_options[gaID]" id="gaID" value="<?php echo esc_attr( $options['gaID'] ); ?>" style="width:90%;" /><br />
+<?php _e('ex) ', 'biz-vektor') ;?>G-XXXXXXXX / UA-XXXXXXXX-X</p>
 
 	<dl>
 	<dt><?php _e('Please select the type of Analytics code . (If you are unsure you can skip this.)', 'biz-vektor'); ?></dt>
@@ -68,7 +68,9 @@ printf( __('However, it might have negative impact on search engine rankings if 
 	<?php
 		if(!isset($options['gaType'])){ $options['gaType'] = 'gaType_normal'; }
 	?>
-	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_normal" <?php echo ($options['gaType'] != 'gaType_universal' && $options['gaType'] != 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output only normal code (default)', 'biz-vektor'); ?></label><br />
+
+	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_gtag" <?php echo ($options['gaType'] == 'gaType_gtag')? 'checked' : ''; ?> > <?php _e('Gtag', 'biz-vektor'); ?></label><br />
+	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_normal" <?php echo ($options['gaType'] == 'gaType_normal')? 'checked' : ''; ?> > <?php _e('To output only normal code (default)', 'biz-vektor'); ?></label><br />
 	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_universal" <?php echo ($options['gaType'] == 'gaType_universal')? 'checked' : ''; ?> > <?php _e('To output the Universal Analytics code', 'biz-vektor'); ?></label><br />
 	<label><input type="radio" name="biz_vektor_theme_options[gaType]" value="gaType_both" <?php echo ($options['gaType'] == 'gaType_both')? 'checked' : ''; ?> > <?php _e('To output both types', 'biz-vektor'); ?></label>
 	</dd>
