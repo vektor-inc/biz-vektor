@@ -431,15 +431,15 @@ function bizVektorAddJsScripts() {
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
 
-function bizVektor_add_defer_attribute($tag, $handle) {
+function bizVektor_add_defer_attribute( $tag, $handle ) {
     // 'my-custom-script'ハンドルのスクリプトにのみdefer属性を追加
-    if ('biz-vektor-min-js' === $handle) {
-        return str_replace(' src', ' defer="defer" src', $tag);
+    if ( 'biz-vektor-min-js' === $handle ) {
+        return str_replace( ' src', ' defer="defer" src', $tag );
     }
     return $tag;
 }
 
-add_filter('script_loader_tag', 'bizVektor_add_defer_attribute', 10, 2);
+add_filter( 'script_loader_tag', 'bizVektor_add_defer_attribute', 10, 2 );
 
 /*
 	Term list no link
