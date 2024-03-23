@@ -432,7 +432,6 @@ function bizVektorAddJsScripts() {
 }
 
 function bizVektor_add_defer_attribute( $tag, $handle ) {
-    // 'my-custom-script'ハンドルのスクリプトにのみdefer属性を追加
     if ( 'biz-vektor-min-js' === $handle ) {
         return str_replace( ' src', ' defer="defer" src', $tag );
     }
