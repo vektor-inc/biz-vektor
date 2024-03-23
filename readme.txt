@@ -32,6 +32,8 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ Bug Fix ] Fixed issue with the process of adding the defer attribute
+
 == 1.12.5 ==
-* Support for PHP8 or highter
-* Support for WordPress 6.4
+* [ Specification Change ] Support for PHP8 or highter
+* [ Specification Change ] Support for WordPress 6.4
