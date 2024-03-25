@@ -127,7 +127,7 @@ function biz_vektor_googleAnalytics() {
 		if ( ( ! $gaType ) || ( $gaType == 'gaType_normal' ) || ( $gaType == 'gaType_both' ) ) { ?>
 			<script type="text/javascript">
 			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', '<?php echo $gtag_id; ?>']);
+			_gaq.push(['_setAccount', '<?php echo esc_html( $gtag_id ); ?>']);
 			_gaq.push(['_trackPageview']);
 				<?php do_action( 'biz_vektor_seo_extend_ga_norm' ); ?>
 			(function() {
