@@ -445,7 +445,7 @@ add_filter( 'script_loader_tag', 'bizVektor_add_defer_attribute', 10, 2 );
 /*-------------------------------------------*/
 function get_the_term_list_nolink( $id = 0, $taxonomy = 'info-cat', $before = '', $sep = '', $after = '' ) {
 	$terms = get_the_terms( $id, $taxonomy );
-	if ( is_wp_error( $terms ) ) {
+	if ( is_fwp_error( $terms ) ) {
 		return $terms;
 	}
 	if ( empty( $terms ) ) {
@@ -539,6 +539,7 @@ if ( ! function_exists( 'biz_vektor_comment' ) ) :
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case '':
+			case 'comment':
 				?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>" class="commentBox">
