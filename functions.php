@@ -76,6 +76,8 @@ define( 'BizVektor_Theme_Version', $theme_opt->Version );
 	biz_vektor_get_short_name()
 /*-------------------------------------------*/
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 require 'inc/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/vektor-inc/biz-vektor/',
@@ -432,10 +434,10 @@ function bizVektorAddJsScripts() {
 }
 
 function bizVektor_add_defer_attribute( $tag, $handle ) {
-    if ( 'biz-vektor-min-js' === $handle ) {
-        return str_replace( ' src', ' defer="defer" src', $tag );
-    }
-    return $tag;
+	if ( 'biz-vektor-min-js' === $handle ) {
+		return str_replace( ' src', ' defer="defer" src', $tag );
+	}
+	return $tag;
 }
 
 add_filter( 'script_loader_tag', 'bizVektor_add_defer_attribute', 10, 2 );

@@ -1,0 +1,139 @@
+/*-------------------------------------------*/
+/* カスタマイズパネル & Widget css
+/*-------------------------------------------*/
+
+ .wp-block-legacy-widget__edit-form-title {
+	padding:15px;
+	border:none;
+	background-color: #e5e5e5;
+	&::after {
+		border:none;
+	}
+}
+ :is( .widget-content, .widget-inside ){
+	h3,h4,h5,h6 {
+		margin-top:1rem;
+	}
+	p {
+		font-size:14px;
+	}
+	ul,
+	ul.no-style {
+		padding-left:0;
+		margin-left: 0;
+		ul {
+			margin-left: 1.5em;
+		}
+		li {
+			margin-top:0;
+			margin-bottom:5px;
+			list-style: none;
+		}
+	}
+	input[type="text"],
+	input[type="tel"],
+	input[type="url"] {
+		margin-bottom:5px;
+	}
+ }
+ .admin-custom-section {
+	 display: block;
+	 overflow: hidden;
+	 margin: 1.5em 0;
+ 
+	 p {
+		 margin-top: 0.5em;
+	 }
+ }
+ .admin-custom-h2 {
+	 box-sizing: border-box;
+	 margin: 1em 0 1em;
+	 padding: 0.8em 1em;
+	 width: 100%;
+	 border: solid 1px #ddd;
+	 border-radius: 5px;
+	 background: #555;
+	 color: #fff;
+	 font-size: 1.1em;
+ }
+ .admin-custom-h3 {
+	&,
+	& label {
+		box-sizing: border-box;
+		padding: 0.4em 0;
+		margin-top:20px;
+		margin-bottom: 10px;
+		width: 100%;
+		border-bottom: solid 1px #ddd;
+		font-weight:normal;
+		font-size: 14px;
+	}
+	label {
+		border:none;
+		padding: 0;
+	}
+	 &::after {
+		border:none;
+	 }
+ }
+ 
+ .admin-custom-discription {
+	 margin-top: 0.5em;
+ }
+ 
+ input[type="text"],
+ input[type="search"],
+ input[type="radio"],
+ input[type="tel"],
+ input[type="time"],
+ input[type="url"],
+ input[type="week"],
+ input[type="password"],
+ input[type="checkbox"],
+ input[type="color"],
+ input[type="date"],
+ input[type="datetime"],
+ input[type="datetime-local"],
+ input[type="email"],
+ input[type="month"],
+ input[type="number"],
+ select,
+ textarea {
+	 &.admin_widget_input,
+	 &.admin-custom-input {
+		 width: 100%;
+		 margin: 0.3em 0;
+	 }
+ }
+ 
+ .admin_widget_thumb_outer,
+ .admin-custom-thumb-outer {
+	 position: relative;
+	 overflow: hidden;
+	 z-index: 2;
+	 margin: 3px 0;
+	 min-height: 70px;
+	 border: 1px solid #e5e5e5;
+	 background-color: #f5f5f5;
+	 width: 100%;
+ }
+ 
+ .admin_widget_thumb_outer:before,
+ .admin-custom-thumb-outer:before {
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 z-index: 1;
+	 margin: -8px 0 0 -30px;
+	 color: #999;
+	 content: "No Image";
+ }
+ 
+ .admin_widget_thumb,
+ .admin-custom-thumb {
+	 position: relative;
+	 z-index: 3;
+	 display: block;
+	 width: 100%;
+	 height: auto;
+ }
