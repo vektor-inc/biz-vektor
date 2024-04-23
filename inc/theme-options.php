@@ -790,6 +790,8 @@ function biz_vektor_output_keycolorcss() {
 	reset( $colors );
 	foreach ($colors as $k => $v) {
 		foreach ($types as $kk => $vv) {
+			// .keyColorBG,.keyColorBGh:hover,
+			// .keyColor_bg,.keyColor_bg_hover:hover
 			echo ".{$k}{$types_o[$kk]},.{$k}{$types_o[$kk]}h:hover,";
 			echo ".{$k}{$kk},.{$k}{$kk}_hover:hover{{$vv}: {$v};}";
 		}
