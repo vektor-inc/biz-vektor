@@ -1,0 +1,33 @@
+{
+	"name": "vk-admin",
+	"version": "1.0.0",
+	"description": "Vektor Admin Component",
+	"main": "gulpfile.js",
+	"scripts": {
+		"build": "gulp sass",
+		"update": "ncu -u && rm -rf node_moduke packagi-lock.json && npm install"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://kurudrive@github.com/vektor-inc/vektor-wp-libraries.git"
+	},
+	"author": "",
+	"license": "GPL-2.0",
+	"bugs": {
+		"url": "https://github.com/vektor-inc/vektor-wp-libraries/issues"
+	},
+	"homepage": "https://github.com/vektor-inc/vektor-wp-libraries#readme",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-merge-media-queries": "^0.2.1",
+		"gulp-plumber": "^1.2.1",
+		"gulp-sass": "^5.1.0",
+		"npm-check-updates": "^16.10.8",
+		"sass": "^1.62.0"
+	},
+	"volta": {
+		"node": "18.13.0"
+	}
+}
