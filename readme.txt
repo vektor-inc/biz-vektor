@@ -32,6 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ Big fix ] Fixed an issue where comments were not displaying after updating to WordPress 5.5.
 * [ Bug Fix ] Fixed issue with the process of adding the defer attribute
 
 == 1.12.5 ==
