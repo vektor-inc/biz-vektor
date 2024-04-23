@@ -32,8 +32,9 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ 仕様変更 ] ダッシュボードの表示を BizVektor の情報から VWS 共通のものに変更
 * [ Big fix ] Fixed an issue where comments were not displaying after updating to WordPress 5.5.
-* [ Bug Fix ] Fixed issue with the process of adding the defer attribute
+* [ Bug fix ] Fixed issue with the process of adding the defer attribute
 
 == 1.12.5 ==
 * [ Specification Change ] Support for PHP8 or highter
