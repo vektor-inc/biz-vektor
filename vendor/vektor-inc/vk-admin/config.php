@@ -1,9 +1,8 @@
 <?php
 /**
- * VK Swiper Config
+ * VK Admin
  *
- * @package Lightning G3
+ * @package vektor-inc/vk-admin
  */
-use VektorInc\VK_Swiper\VkSwiper;
-new VkSwiper();
-VkSwiper::enqueue_swiper();
+use VektorInc\VK_Admin\VkAdmin;
+VkAdmin::init();
