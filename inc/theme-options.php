@@ -770,7 +770,7 @@ function biz_vektor_sideChildDisplay() {
 add_action( 'wp_head', 'biz_vektor_output_keycolorcss', 5 );
 function biz_vektor_output_keycolorcss() {
 	echo '<style type="text/css">';
-	$corlors_default      = array(
+	$colors_default      = array(
 		'keyColor' => '#e90000',
 	);
 	$types                = array(
@@ -783,13 +783,15 @@ function biz_vektor_output_keycolorcss() {
 		'_txt'    => 'Cl',
 		'_border' => 'Bd',
 	);
-	$corlors              = apply_filters( 'biz_vektor_keycolors', $corlors_default );
-	$corlors['color_key'] = $corlors['keyColor'];
-	// unset($corlors['keyColor']);
+	$colors              = apply_filters( 'biz_vektor_keycolors', $colors_default );
+	$colors['color_key'] = $colors['keyColor'];
+	// unset($colors['keyColor']);
 
-	reset( $corlors );
+	reset( $colors );
 	foreach ($colors as $k => $v) {
 		foreach ($types as $kk => $vv) {
+			// .keyColorBG,.keyColorBGh:hover,
+			// .keyColor_bg,.keyColor_bg_hover:hover
 			echo ".{$k}{$types_o[$kk]},.{$k}{$types_o[$kk]}h:hover,";
 			echo ".{$k}{$kk},.{$k}{$kk}_hover:hover{{$vv}: {$v};}";
 		}
