@@ -774,7 +774,7 @@ function biz_vektor_set_localize_script() {
 	);
 
 	global $biz_vektor_options;
-	if ( isset( $biz_vektor_options['slider_slidespeed'] ) && ctype_digit( $biz_vektor_options['slider_slidespeed'] ) ) {
+	if ( isset( $biz_vektor_options['slider_slidespeed'] ) && ctype_digit( (string) $biz_vektor_options['slider_slidespeed'] ) ) {
 		$flexslider['slideshowSpeed'] = $biz_vektor_options['slider_slidespeed'];
 	}
 	if ( isset( $biz_vektor_options['slider_animation'] ) && $biz_vektor_options['slider_animation'] ) {
