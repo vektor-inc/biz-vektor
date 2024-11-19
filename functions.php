@@ -139,7 +139,7 @@ function biz_vektor_theme_setup() {
 	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation' ) );
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap' ) );
 
-	load_theme_textdomain( 'biz-vektor', get_template_directory() . '/languages' );
+	load_textdomain( 'biz-vektor', get_template_directory() . '/languages/ja.mo' );
 
 	/*
 		Set content width
