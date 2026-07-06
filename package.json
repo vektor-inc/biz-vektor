@@ -4,6 +4,11 @@
   "description": "BizVektor\r ==========\r Free WordPress Theme for business\r * * *\r ## Theme URI\r http://bizvektor.com\r ## Description\r BizVektor（ビズベクトル）テーマは管理画面からの設定のみで高品質なビジネスサイトを構築する事が出来ます。また、テーマ拡張プラグインによって新たに選択出来るデザインを増やす事が出来ます。\r ## Author\r Vektor,Inc.\r ## Author URI\r http://www.vektor-inc.co.jp/\r ## Version\r 1.9.13\r ## License\r GNU General Public License",
   "main": "gulpfile.js",
   "scripts": {
+    "build": "gulp compile",
+    "dist": "composer install --no-dev && gulp dist && composer install",
+    "zip": "npm run dist && cd dist && zip -r biz-vektor.zip biz-vektor && cd ../",
+    "phpunit": "composer install && wp-env run tests-cli --env-cwd='wp-content/themes/biz-vektor' vendor/bin/phpunit -c .phpunit.xml",
+    "wp-env": "wp-env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -24,6 +29,7 @@
     "gulp-sass": "^5.1.0"
   },
   "dependencies": {
+    "@wordpress/env": "^11.3.0",
     "sass": "^1.70.0"
   }
 }
