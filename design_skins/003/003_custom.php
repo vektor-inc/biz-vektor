@@ -37,9 +37,23 @@ function is_rebuild(){
 	}
 }
 
-if (is_rebuild()){
-	require( dirname( __FILE__ ) . '/functions_003.php' );
+/**
+ * rebuild スキン用の関数ファイルを読み込む。
+ *
+ * is_rebuild() はテーマオプションを参照し、内部で __() による翻訳を行うため、
+ * ファイル読み込み時（after_setup_theme より前）に実行すると biz-vektor ドメインの
+ * 翻訳が init より前に呼び出され、_load_textdomain_just_in_time の doing_it_wrong 通知が
+ * 発生する。これを避けるため、翻訳読み込み（load_theme_textdomain）が完了した
+ * after_setup_theme のタイミングまで遅延させる。
+ *
+ * @return void
+ */
+function biz_vektor_rebuild_load_functions() {
+	if ( is_rebuild() ) {
+		require_once dirname( __FILE__ ) . '/functions_003.php';
+	}
 }
+add_action( 'after_setup_theme', 'biz_vektor_rebuild_load_functions' );
 
 /*-------------------------------------------*/
 /*	Admin page _ Add link bottom of pulldown

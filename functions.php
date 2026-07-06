@@ -139,7 +139,12 @@ function biz_vektor_theme_setup() {
 	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation' ) );
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap' ) );
 
-	load_textdomain( 'biz-vektor', get_template_directory() . '/languages/ja.mo' );
+	// テーマの翻訳を読み込む。
+	// ロケールに応じて languages/{locale}.mo（ja.mo / zh_CN.mo 等）を読み込むため、
+	// ja.mo をハードコードせず load_theme_textdomain を使用する。
+	// after_setup_theme で読み込むことで、init 前に biz-vektor ドメインの翻訳へ
+	// アクセスされても just-in-time 読み込み（doing_it_wrong 通知）が発生しないようにする。
+	load_theme_textdomain( 'biz-vektor', get_template_directory() . '/languages' );
 
 	/*
 		Set content width
