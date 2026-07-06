@@ -6,8 +6,9 @@ const jsmin = require('gulp-jsmin');
 const plumber = require('gulp-plumber');
 const sass = require('gulp-sass')(require('sass'));
 const cmq = require('gulp-merge-media-queries');
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('autoprefixer');
 const cleanCss = require('gulp-clean-css');
+const postcss = require('gulp-postcss');
 
 const sassTask = () => {
 	return gulp.src('./_scss/**/*.scss')

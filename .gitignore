@@ -1,8 +1,12 @@
 *sftp-config.json
 node_modules/
 dist/
+vendor/
 .sass-cache/
 .DS_Store
 Thumbs.db
 _notes/
 *~
+*.zip
+*.override.json
+.phpunit.result.cache

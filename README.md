@@ -34,6 +34,11 @@ GNU General Public License
 [+] 機能追加・仕様変更を含むバージョンアップ
 [-] 不具合修正のみ
 
+## 開発・配布について
+
+- 開発時はリポジトリを clone 後に `composer install`（Composer 依存の取得）と `npm install` が必要です。`vendor/` はリポジトリに含めていません。
+- 配布にはビルド済みの release asset（`dist/biz-vektor.zip`）を使用してください。GitHub 自動生成のソース zip には `vendor/` が含まれないため、そのままでは動作しません。
+
 ## コーディングガイド
 
 利用者・開発者が増えてきたので、より読み易い構成になるように以下のルールになるように調整していくものとします。

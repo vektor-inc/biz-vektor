@@ -76,7 +76,11 @@ define( 'BizVektor_Theme_Version', $theme_opt->Version );
 	biz_vektor_get_short_name()
 /*-------------------------------------------*/
 
-require_once __DIR__ . '/vendor/autoload.php';
+$autoload_path = __DIR__ . '/vendor/autoload.php';
+// vendor ディレクトリがない状態で誤配信された場合に Fatal Error にならないようにファイルの存在確認.
+if ( file_exists( $autoload_path ) ) {
+	require_once $autoload_path;
+}
 
 require 'inc/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
