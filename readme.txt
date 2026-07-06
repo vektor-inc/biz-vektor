@@ -32,6 +32,8 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ 不具合修正 ] WordPress 6.7 以降で init より前に翻訳が読み込まれ _load_textdomain_just_in_time の PHP 通知が表示される不具合を修正
+
 == 1.13.1 ==
 * [ 不具合修正 ] WordPress 6.7 での翻訳不具合修正
 
