@@ -45,7 +45,10 @@ define( 'GUTENBERG_LOAD_VENDOR_SCRIPTS', false );
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	register_theme_directory( dirname( __FILE__ ) . '/../../' ); switch_theme('biz-vektor'); search_theme_directories();
+	// テーマのディレクトリ名を実際のフォルダ名から取得する.
+	// worktree 上ではフォルダ名が biz-vektor 以外になるため、固定値ではなく実フォルダ名でテーマを有効化する.
+	$theme_slug = basename( dirname( dirname( __FILE__ ) ) );
+	register_theme_directory( dirname( __FILE__ ) . '/../../' ); switch_theme( $theme_slug ); search_theme_directories();
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 

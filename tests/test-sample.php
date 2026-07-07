@@ -18,9 +18,12 @@ class Sample_Test extends WP_UnitTestCase {
 	}
 
 	/**
-	 * テスト環境で有効なテーマが biz-vektor であることを確認する。
+	 * テスト環境で BizVektor テーマが有効になっていることを確認する。
+	 *
+	 * テーマのフォルダ名は worktree 上では biz-vektor 以外になるため、
+	 * フォルダ名（stylesheet）ではなくテーマ名で判定する。
 	 */
 	public function test_active_theme() {
-		$this->assertEquals( 'biz-vektor', get_option( 'stylesheet' ), '有効なテーマが biz-vektor であること' );
+		$this->assertEquals( 'BizVektor', wp_get_theme()->get( 'Name' ), '有効なテーマが BizVektor であること' );
 	}
 }
