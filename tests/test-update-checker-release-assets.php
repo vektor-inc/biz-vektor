@@ -63,9 +63,9 @@ class Update_Checker_Release_Assets_Test extends WP_UnitTestCase {
 				'expected'            => true,
 			),
 			array(
-				'test_condition_name' => '末尾が biz-vektor.zip のアセット名 => マッチ',
+				'test_condition_name' => '先頭アンカーにより末尾一致の任意名アセット（theme-biz-vektor.zip）=> マッチしない',
 				'asset_name'          => 'theme-biz-vektor.zip',
-				'expected'            => true,
+				'expected'            => false,
 			),
 			array(
 				'test_condition_name' => 'GitHub 自動生成のソース zip 名（biz-vektor-1.13.2.zip）=> マッチしない（vendor 無し zip を除外）',
