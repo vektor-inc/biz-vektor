@@ -90,6 +90,8 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 );
 
 $myUpdateChecker->setBranch( 'master' );
+// GitHub 自動生成のソース zip（vendor 未同梱）ではなく、release.yml が添付する vendor 同梱の biz-vektor.zip を更新に使う.
+$myUpdateChecker->getVcsApi()->enableReleaseAssets( '/biz-vektor\.zip$/' );
 
 get_template_part( 'plugins/plugins' );
 require_once get_template_directory() . '/deprecations.php';
