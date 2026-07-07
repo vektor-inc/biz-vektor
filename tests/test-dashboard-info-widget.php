@@ -27,6 +27,12 @@ class Dashboard_Info_Widget_Test extends WP_UnitTestCase {
 	 */
 	public function test_dashboard_info_widget() {
 
+		// 本テストはサブプロセス実行（exec）に依存するため、exec が
+		// disable_functions で無効化された環境ではスキップする.
+		if ( ! function_exists( 'exec' ) ) {
+			$this->markTestSkipped( 'exec が無効なため本テストをスキップします' );
+		}
+
 		// テスト対象ファイル（tests ディレクトリの1つ上がテーマルート）.
 		$target = dirname( __DIR__ ) . '/plugins/dashboard_info_widget/dashboard-info-widget.php';
 		$this->assertFileExists( $target, 'テスト対象の dashboard-info-widget.php が存在すること' );
