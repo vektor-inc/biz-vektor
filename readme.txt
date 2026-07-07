@@ -32,6 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+== 1.13.3 ==
 * [ 不具合修正 ] vendor ディレクトリが無い状態で誤配信された際に VkAdmin クラス未定義で Fatal Error になる不具合を修正
 * [ 不具合修正 ] 自動更新で vendor ディレクトリを含まないソース zip が配信され VkAdmin が動作しなくなる不具合を修正
 
