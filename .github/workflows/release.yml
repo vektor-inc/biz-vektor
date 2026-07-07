@@ -7,7 +7,11 @@ on:
 env:
     theme_name: biz-vektor
 
+permissions:
+    contents: read
+
 jobs:
+    # 1. ソースツリーに対する PHP/WP フルマトリクスのユニットテスト（従来どおり）
     php_unit:
         runs-on: ubuntu-latest
         permissions:
@@ -56,39 +60,145 @@ jobs:
               run: npx wp-env start && sudo chmod -R 777 ~/wp-env
             - name: Run PHP Unit Test
               run: npm run phpunit
-    release:
-        name: GitHub Release
+
+    # 2. 配布 zip をビルドし、展開済み dist をテーマとしてマウントしてスモークテスト
+    dist_smoke_test:
+        name: Dist Smoke Test
         runs-on: ubuntu-latest
-        needs: [php_unit]
-        permissions:
-            contents: write
         steps:
             - uses: actions/checkout@v4
               with:
                   persist-credentials: false
-            - name: Read .node-version
-              run: echo "{NODEVERSION}={$(cat .node-version)}" >> $GITHUB_OUTPUT
-              id: nodenv
             - name: Setup Node.js (.node-version)
               uses: actions/setup-node@v4
               with:
-                  node-version: '${{ steps.nodenv.outputs.NODEVERSION }}'
+                  node-version-file: '.node-version'
+                  cache: npm
             - name: Setup PHP 7.4
               uses: shivammathur/setup-php@v2
               with:
                   php-version: 7.4
+            - name: Get Composer cache directory
+              id: composer-cache
+              run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+            - name: Cache Composer dependencies
+              uses: actions/cache@v4
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: ${{ runner.os }}-composer-
             - name: Install NPM Scripts
               run: npm install
-            - name: Install Composer Packages
-              run: composer install
-            - name: Build
-              run: npm run build
-            - name: Make Distribution
-              # npm run zip は最後に composer install(dev) を再実行するため、CI では --no-dev を確実にするため直書きにしている
+            - name: Install WP-CLI
               run: |
-                  composer install --no-dev
-                  npx gulp dist
-                  cd dist/ && zip -r ${{ env.theme_name }}.zip ${{ env.theme_name }}/
+                  curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+                  chmod +x wp-cli.phar
+                  mv wp-cli.phar /usr/local/bin/wp
+            - name: Create dist
+              # npm run dist = composer install --no-dev && gulp dist && composer install
+              # dist/biz-vektor には --no-dev の vendor（実配布物と同一）が入る
+              run: npm run dist
+            - name: Create zip
+              run: cd dist && zip -r ${{ env.theme_name }}.zip ${{ env.theme_name }}/
+            - name: Upload dist artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+            - name: Setup wp-env for dist
+              run: |
+                  echo '{"core":null,"themes":["./dist/${{ env.theme_name }}"],"config":{"WP_DEBUG":true,"SCRIPT_DEBUG":true,"FS_METHOD":"direct"}}' > .wp-env.json
+            - name: Start wp-env
+              run: |
+                  for n in 1 2 3; do npx wp-env start --update && break || [ "$n" -lt 3 ] || exit 1; done
+                  sudo chmod -R 777 ~/wp-env
+            - name: Activate theme
+              run: npx wp-env run cli wp theme activate ${{ env.theme_name }}
+            - name: Smoke test
+              # vektor-inc/wp-actions main as of 2026-03-18
+              uses: vektor-inc/wp-actions/smoke-test@90f5a231bc956543bf235f36be4928d57af2edab
+            - name: Assert VkAdmin class is available in dist (positive assertion)
+              # 実 dist（--no-dev vendor）に対してクラス存在を陽性アサーション。
+              # dist_phpunit は vendor を dev で上書きするため #346 の vendor 欠落を検知できない。
+              # よってこの検知は vendor を上書きしない本ジョブ側で行う。
+              run: |
+                  npx wp-env run cli wp eval 'exit( class_exists("VektorInc\\VK_Admin\\VkAdmin") ? 0 : 1 );'
+
+    # 3. dist パッケージに対する PHPUnit（同梱 PHP ファイル群が実際に動くかの確認）
+    dist_phpunit:
+        name: Dist PHP Unit Test
+        runs-on: ubuntu-latest
+        needs: [dist_smoke_test]
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
+            - name: Setup Node.js (.node-version)
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: '.node-version'
+                  cache: npm
+            - name: Setup PHP 7.4
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.4
+            - name: Get Composer cache directory
+              id: composer-cache
+              run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+            - name: Cache Composer dependencies
+              uses: actions/cache@v4
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: ${{ runner.os }}-composer-
+            - name: Install NPM Scripts
+              run: npm install
+            - name: Install Composer Packages (dev)
+              run: composer install
+            - name: Download dist artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+            - name: Copy test dependencies into dist for phpunit
+              # dist の vendor（--no-dev）を dev vendor で上書きし、.phpunit.xml と tests を同梱する。
+              # ※ vendor を上書きするため vk-admin は常に存在してしまう → 配布物の vendor 欠落検知は
+              #   dist_smoke_test 側で担保している。
+              run: |
+                  rm -rf dist/${{ env.theme_name }}/vendor
+                  cp -rL vendor dist/${{ env.theme_name }}/vendor
+                  for f in .phpunit.xml phpunit.xml phpunit.xml.dist; do
+                    [ -f "$f" ] && cp "$f" "dist/${{ env.theme_name }}/$f" || true
+                  done
+                  [ -d tests ] && cp -r tests "dist/${{ env.theme_name }}/tests" || true
+                  ls dist/${{ env.theme_name }}/vendor/bin/phpunit && echo "phpunit OK" || echo "phpunit NOT FOUND"
+            - name: Setup wp-env for dist
+              # npm run phpunit は tests-cli を --env-cwd='wp-content/themes/biz-vektor' で実行するため、
+              # dist をデフォルトの .wp-env.json でその位置（basename=biz-vektor）にマウントして起動を揃える。
+              run: |
+                  echo '{"core":null,"themes":["./dist/${{ env.theme_name }}"],"config":{"WP_DEBUG":true,"SCRIPT_DEBUG":true,"FS_METHOD":"direct"}}' > .wp-env.json
+            - name: Start wp-env
+              run: |
+                  for n in 1 2 3; do npx wp-env start --update && break || [ "$n" -lt 3 ] || exit 1; done
+                  sudo chmod -R 777 ~/wp-env
+            - name: Run PHP Unit Test on dist
+              run: npm run phpunit
+
+    # 4. GitHub Release（再ビルドせず、2 が作った zip をそのまま添付）
+    release:
+        name: GitHub Release
+        runs-on: ubuntu-latest
+        needs: [php_unit, dist_smoke_test, dist_phpunit]
+        permissions:
+            contents: write
+        steps:
+            - name: Download dist artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+            - name: Show checksum (audit)
+              run: sha256sum dist/${{ env.theme_name }}.zip
             - name: Create Release
               # softprops/action-gh-release v2.6.1 / v2
               uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe
