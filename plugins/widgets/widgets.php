@@ -189,7 +189,7 @@ class wp_widget_page extends WP_Widget {
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['page_id'] = $new_instance['page_id'];
-		$instance['set_title'] = ($new_instance['set_title'] == 'true')? true : false;
+		$instance['set_title'] = ( isset( $new_instance['set_title'] ) && $new_instance['set_title'] == 'true' )? true : false;
 		return $instance;
 	}
 
