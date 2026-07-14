@@ -32,7 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
-* [ 不具合修正 ] ブロック版ウィジェット編集画面で全幅見出しウィジェットの画像設定ボタンが機能しない問題を修正
+* [ 不具合修正 ] 固定ページ本文ウィジェットで「タイトルを表示させる」のチェックを外して保存するとPHP 8以降で未定義キー警告が記録される不具合を修正
 
 == 1.13.3 ==
 * [ 不具合修正 ] vendor ディレクトリが無い状態で誤配信された際に VkAdmin クラス未定義で Fatal Error になる不具合を修正
