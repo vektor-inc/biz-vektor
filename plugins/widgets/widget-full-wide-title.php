@@ -12,9 +12,25 @@ add_action(
 );
 // color picker js
 add_action( 'admin_enqueue_scripts', 'bv_full_wide_title_color_picker' );
-function bv_full_wide_title_color_picker() {
+/**
+ * ウィジェット管理画面でカラーピッカーとメディアライブラリ用スクリプトを読み込む
+ *
+ * @param string $hook 現在の管理画面のフック名。
+ */
+function bv_full_wide_title_color_picker( $hook ) {
+	if ( ! in_array( $hook, array( 'widgets.php', 'customize.php' ), true ) ) {
+		return;
+	}
 	wp_enqueue_style( 'wp-color-picker' );
 	wp_enqueue_script( 'wp-color-picker' );
+	wp_enqueue_media();
+	wp_enqueue_script(
+		'bv-widget-image-admin',
+		get_template_directory_uri() . '/plugins/widgets/js/admin-widget.js',
+		array( 'jquery' ),
+		'1.0.0',
+		true
+	);
 }
 add_action( 'admin_footer-widgets.php', 'bv_print_scripts_pr_color' );
 function bv_print_scripts_pr_color() {
@@ -112,39 +128,6 @@ class BV_Full_Wide_Title extends WP_Widget {
 	<input type="hidden" class="__id" name="<?php echo $this->get_field_name( 'media_image_id' ); ?>" value="<?php echo esc_attr( $instance['media_image_id'] ); ?>" />
 </div>
 </div>
-<script type="text/javascript">
-// 背景画像登録処理
-if ( vk_title_bg_image_addiditional == undefined ){
-var vk_title_bg_image_addiditional = function(e){
-		// プレビュー画像を表示するdiv
-	var d=jQuery(e).parent().children("._display");
-		// 画像IDを保存するinputタグ
-	var w=jQuery(e).parent().children("._form").children('.__id')[0];
-	var u=wp.media({library:{type:'image'},multiple:false}).on('select', function(e){
-		u.state().get('selection').each(function(f){
-					d.children().remove();
-					d.append(jQuery('<img style="width:100%;mheight:auto">').attr('src',f.toJSON().url));
-					jQuery(w).val(f.toJSON().id).change();
-				});
-	});
-	u.open();
-};
-}
-// 背景画像削除処理
-if ( vk_title_bg_image_delete == undefined ){
-var vk_title_bg_image_delete = function(e){
-		// プレビュー画像を表示するdiv
-		var d=jQuery(e).parent().children("._display");
-		// 画像IDを保存するinputタグ
-		var w=jQuery(e).parent().children("._form").children('.__id')[0];
-
-		// プレビュー画像のimgタグを削除
-		d.children().remove();
-		// w.attr("value","");
-		jQuery(e).parent().children("._form").children('.__id').attr("value","").change();
-};
-}
-</script>
 <?php
 		// title bg color
 		echo '<p class="color_picker_wrap">' .
