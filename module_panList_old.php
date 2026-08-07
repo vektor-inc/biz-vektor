@@ -262,7 +262,10 @@ if ( is_404() ) {
 			$panListHtml      .= '<li' . $microdata_li . '><a href="' . home_url() . '/' . $post_type . '/"' . $microdata_li_a . '><span' . $microdata_li_a_span . '>' . $current_post_type->label . '</span></a> &raquo; </li>';
 		}
 
-		$panListHtml .= '<li><span>' . esc_html( get_the_archive_title() ) . '</span></li>';
+		// get_the_archive_title() は WordPress 5.5 以降、日付部分を <span> で囲んだ
+		// HTML を返すため、esc_html() でそのまま出すとタグが文字列表示されてしまう。
+		// wp_strip_all_tags() でタグを除去してから esc_html() する（順序が逆だと意味が無い）。
+		$panListHtml .= '<li><span>' . esc_html( wp_strip_all_tags( get_the_archive_title() ) ) . '</span></li>';
 
 	} elseif ( is_day() ) {
 		//is_dayの場合
