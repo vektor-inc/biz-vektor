@@ -33,6 +33,8 @@ class Module_PanList_Test extends WP_UnitTestCase {
 		// 期待値をリテラルの英語文言で持たせるため、テスト中のロケールを
 		// en_US に固定する（wp-env のテスト環境は既定で en_US だが、
 		// 環境差で落ちないよう明示的に固定する）.
+		// なお switch_to_locale() は現在のロケールが既に指定先と同じ場合は
+		// 切り替え不要のため false を返す no-op になる（本環境では通常この経路）。
 		// アサーション失敗時も含め、必ず元のロケールへ戻すため try/finally で囲む.
 		switch_to_locale( 'en_US' );
 
