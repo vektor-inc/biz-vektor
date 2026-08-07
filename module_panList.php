@@ -127,7 +127,10 @@ if ( ( is_single() || is_archive() ) && ! is_post_type_archive() ) {
 
 if ( is_date() ) {
 	$breadcrumb_array[] = array(
-		'name'             => get_the_archive_title(),
+		// get_the_archive_title() は WordPress 5.5 以降、日付部分を <span> で囲んだ
+		// HTML を返すため、esc_html() でそのまま出すとタグが文字列表示されてしまう。
+		// wp_strip_all_tags() でタグを除去してからプレーンテキストとして格納する.
+		'name'             => wp_strip_all_tags( get_the_archive_title() ),
 		'id'               => '',
 		'url'              => '',
 		'class_additional' => '',
