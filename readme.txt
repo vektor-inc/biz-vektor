@@ -32,6 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+== 1.13.4 ==
 * [ 不具合修正 ] 固定ページ本文ウィジェットで「タイトルを表示させる」のチェックを外して保存するとPHP 8以降で未定義キー警告が記録される不具合を修正
 * [ 不具合修正 ] 日付アーカイブのパンくずリストで日付部分が `<span>` タグごと文字列として表示される不具合を修正
 
