@@ -199,13 +199,19 @@ new function(){
 	var footerId = "footerSection";
 	//メイン
 	function footerFixed(){
+		//フッター要素
+		var footerElm = document.getElementById(footerId);
+		//フッター要素が存在しない場合は何もしない
+		if(!footerElm){
+			return;
+		}
 		//ドキュメントの高さ
 		var dh = document.getElementsByTagName("body")[0].clientHeight;
 		//フッターのtopからの位置
-		document.getElementById(footerId).style.top = "0px";
-		var ft = document.getElementById(footerId).offsetTop;
+		footerElm.style.top = "0px";
+		var ft = footerElm.offsetTop;
 		//フッターの高さ
-		var fh = document.getElementById(footerId).offsetHeight;
+		var fh = footerElm.offsetHeight;
 		//ウィンドウの高さ
 		if (window.innerHeight){
 			var wh = window.innerHeight;
@@ -213,8 +219,8 @@ new function(){
 			var wh = document.documentElement.clientHeight;
 		}
 		if(ft+fh<wh){
-			document.getElementById(footerId).style.position = "relative";
-			document.getElementById(footerId).style.top = (wh-fh-ft-1)+"px";
+			footerElm.style.position = "relative";
+			footerElm.style.top = (wh-fh-ft-1)+"px";
 		}
 	}
 
