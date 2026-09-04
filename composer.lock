@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e48af56a8fc8f3f412e2d78cfe04f728",
+    "content-hash": "f3d65a90e09ecbdbdc6b31bcfc5fb09a",
     "packages": [
         {
             "name": "vektor-inc/vk-admin",
@@ -2008,5 +2008,8 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
+    "platform-overrides": {
+        "php": "7.4"
+    },
     "plugin-api-version": "2.6.0"
 }
