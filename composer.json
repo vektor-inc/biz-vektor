@@ -8,5 +8,10 @@
         "yoast/phpunit-polyfills": "^1.1.0",
         "vektor-inc/vk-wp-unit-test-tools": "^0.10.0",
         "doctrine/instantiator": "^1.5.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
     }
 }
