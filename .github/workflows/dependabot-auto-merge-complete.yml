@@ -7,7 +7,7 @@ name: Dependabot auto-merge complete
 on:
   workflow_run:
     workflows:
-      - "PHP Unit Test"
+      - "Dependabot CI"
     types:
       - completed
 
