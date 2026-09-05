@@ -1,0 +1,44 @@
+# Dependabot の PR に対して、依存関係のインストールとビルドが通るかを確認する軽量な CI。
+# dependabot-auto-merge-complete.yml がこのワークフローの成功を見てマージする。
+#
+# PHP Unit Test（wp-env で WordPress を起動する）は全 PR で動くが、wp-env の Docker イメージの
+# ビルド失敗など環境要因で落ちることがあるため、マージの条件にはせずこちらを見る。
+# 人が作った PR ではこのワークフローは動かない。
+name: Dependabot CI
+
+on:
+  pull_request:
+    branches:
+      - master
+    # labeled を含めない。Dependabot は PR 作成直後に dependencies などのラベルを
+    # 次々に付けるため、含めるとそのたびに起動して同じ内容を何度もビルドする。
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+
+      - name: Setup PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Install npm packages
+        run: npm install
+
+      - name: Install Composer packages
+        run: composer install --no-interaction --prefer-dist
+
+      # npm run build は gulp compile（SCSS のコンパイル）だけで、WP-CLI や wp-env は使わない
+      - name: Build
+        run: npm run build
