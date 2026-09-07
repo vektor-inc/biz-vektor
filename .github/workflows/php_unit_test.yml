@@ -17,8 +17,14 @@ jobs:
     php_unit:
         runs-on: ubuntu-latest
         strategy:
+            # 1 つの組み合わせが失敗しても残りを最後まで回し、どの環境で失敗したかを見えるようにする
+            fail-fast: false
             matrix:
-                php-versions: ['7.4', '8.0', '8.2']
+                # PHP 7.4 / 8.0 の WordPress 公式イメージは Debian 11（bullseye）製で、
+                # bullseye の LTS 終了（2026-08-31）後にセキュリティリポジトリから
+                # パッケージが消え、wp-env の Docker ビルド（sudo のインストール）が失敗する。
+                # 保守されているイメージ（Debian 13 製）がある 8.1 以上でテストする。
+                php-versions: ['8.1', '8.2', '8.3']
                 wp-versions: ['6.7', '6.8']
         name: PHP Unit Test on PHP ${{ matrix.php-versions }} / WP ${{ matrix.wp-versions }}
         steps:
@@ -26,7 +32,7 @@ jobs:
               with:
                   persist-credentials: false
             - name: Read .node-version
-              run: echo "{NODEVERSION}={$(cat .node-version)}" >> $GITHUB_OUTPUT
+              run: echo "NODEVERSION=$(cat .node-version)" >> $GITHUB_OUTPUT
               id: nodenv
             - name: Setup Node.js (.node-version)
               uses: actions/setup-node@v4
