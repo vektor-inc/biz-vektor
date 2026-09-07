@@ -28,7 +28,7 @@ jobs:
                 wp-versions: ['6.7', '6.8']
         name: PHP Unit Test on PHP ${{ matrix.php-versions }} / WP ${{ matrix.wp-versions }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
               with:
                   persist-credentials: false
             - name: Read .node-version
