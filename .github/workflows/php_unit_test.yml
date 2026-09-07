@@ -17,6 +17,8 @@ jobs:
     php_unit:
         runs-on: ubuntu-latest
         strategy:
+            # 1 つの組み合わせが失敗しても残りを最後まで回し、どの環境で失敗したかを見えるようにする
+            fail-fast: false
             matrix:
                 php-versions: ['7.4', '8.0', '8.2']
                 wp-versions: ['6.7', '6.8']
@@ -26,7 +28,7 @@ jobs:
               with:
                   persist-credentials: false
             - name: Read .node-version
-              run: echo "{NODEVERSION}={$(cat .node-version)}" >> $GITHUB_OUTPUT
+              run: echo "NODEVERSION=$(cat .node-version)" >> $GITHUB_OUTPUT
               id: nodenv
             - name: Setup Node.js (.node-version)
               uses: actions/setup-node@v4
@@ -50,6 +52,12 @@ jobs:
                   curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
                   chmod +x wp-cli.phar
                   mv wp-cli.phar /usr/local/bin/wp
+            - name: '[debug] WordPress イメージ上で apt が動くか確認'
+              run: |
+                  docker run --rm wordpress:php${{ matrix.php-versions }} sh -c '
+                    cat /etc/os-release | grep -E "^(PRETTY_NAME|VERSION_CODENAME)";
+                    apt-get clean; apt-get -qy update; echo "update exit=$?";
+                    apt-get -qy install sudo; echo "sudo exit=$?"' || true
             - name: Install several WordPress version by wp-env.override.json
               run: WP_ENV_PHP_VERSION=${{ matrix.php-versions }} WP_ENV_CORE=WordPress/WordPress#${{ matrix.wp-versions }} npm run wp-env start --update
             - name: Check WordPress Version
