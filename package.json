@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.5.4",
+    "autoprefixer": "^10.5.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^10.0.0",
     "gulp-clean-css": "^4.3.0",
