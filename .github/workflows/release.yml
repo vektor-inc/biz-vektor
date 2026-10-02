@@ -200,7 +200,7 @@ jobs:
             - name: Show checksum (audit)
               run: sha256sum dist/${{ env.theme_name }}.zip
             - name: Create Release
-              # softprops/action-gh-release v2.6.1 / v2
+              # softprops/action-gh-release v3.0.3 / v3
               uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64
               with:
                   generate_release_notes: true
