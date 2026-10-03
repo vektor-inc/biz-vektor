@@ -47,10 +47,10 @@ class Full_Wide_Title_Widget_Test extends WP_UnitTestCase {
 
 		$test_cases = array(
 			array(
-				'test_condition_name' => '色に属性を閉じる文字列 => 空になる',
+				'test_condition_name' => '#rrggbb / #rgb 形式でない値 => 空になる',
 				'new_instance'        => array(
-					'title_bg_color'   => 'red" onmouseover="x',
-					'title_font_color' => 'red" onmouseover="x',
+					'title_bg_color'   => '#12345g',
+					'title_font_color' => '12345',
 				),
 				'expected'            => array(
 					'title_bg_color'   => '',
@@ -111,8 +111,8 @@ class Full_Wide_Title_Widget_Test extends WP_UnitTestCase {
 				'expected'            => 'color:#123456;',
 			),
 			array(
-				'test_condition_name' => '不正な値 => style が出ない',
-				'color'               => 'red" onmouseover="x',
+				'test_condition_name' => '#rrggbb / #rgb 形式でない値 => style が出ない',
+				'color'               => '#12345g',
 				'expected'            => '',
 			),
 			array(
@@ -131,5 +131,44 @@ class Full_Wide_Title_Widget_Test extends WP_UnitTestCase {
 			$actual = BV_Full_Wide_Title::widget_font_style( array( 'title_font_color' => $test_case['color'] ) );
 			$this->assertSame( $test_case['expected'], $actual, $test_case['test_condition_name'] );
 		}
+	}
+
+	/**
+	 * widget() の出力で、装飾タグが残り、不正な文字色では style が出ないこと。
+	 */
+	public function test_widget_output() {
+		$widget = new BV_Full_Wide_Title();
+		$args   = array(
+			'before_widget' => '',
+			'after_widget'  => '',
+		);
+
+		// 装飾タグ入りのタイトル・サブタイトルと正しい文字色で出力
+		ob_start();
+		$widget->widget(
+			$args,
+			array(
+				'title'            => 'Title<br><span class="x">Em</span>',
+				'text'             => 'Sub<br><span class="x">Text</span>',
+				'title_font_color' => '#123456',
+			)
+		);
+		$output = ob_get_clean();
+		$this->assertStringContainsString( 'Title<br><span class="x">Em</span>', $output );
+		$this->assertStringContainsString( 'Sub<br><span class="x">Text</span>', $output );
+		$this->assertStringContainsString( 'style="color:#123456;"', $output );
+
+		// 形式に合わない文字色が保存済みの場合は style を出さない
+		ob_start();
+		$widget->widget(
+			$args,
+			array(
+				'title'            => 'Title',
+				'text'             => 'Sub',
+				'title_font_color' => '12345',
+			)
+		);
+		$output = ob_get_clean();
+		$this->assertStringNotContainsString( 'style="color:', $output );
 	}
 }
