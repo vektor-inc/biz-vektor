@@ -3,7 +3,7 @@
 	<div class="fileedit-sub"></div>
 	<?php echo $data['mess']; ?>
 	<p><?php _e( 'You can add custom CSS here.', 'biz-vektor' );?></p>
-	<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" id="template">
+	<form action="<?php echo esc_url( admin_url( 'themes.php?page=theme-css-customize' ) ); ?>" method="post" id="template">
 		<textarea name="bv-css-css" cols="70" rows="10" id="newcontent"><?php echo esc_attr($data['customCss']); ?></textarea>
 		<?php wp_nonce_field( 'biz-vektor-css-submit', 'biz-vektor-css-nonce'); ?>
 		<p class="submit">

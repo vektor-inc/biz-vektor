@@ -11,7 +11,7 @@
 		</p>
 	</div>
 -->
-	<form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
+	<form method="post" action="<?php echo esc_url( admin_url( 'themes.php?page=theme_advanced_options' ) ); ?>">
 		<?php wp_nonce_field( 'submit-sitemap', 'nonce-sitemap' ); ?>
 
 		<!-- [SITEMAP] -->
