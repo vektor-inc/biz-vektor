@@ -10,7 +10,8 @@
 } else {
 	$linkUrl = get_permalink();
 }
-$shareTitle = rawurlencode( wp_strip_all_tags( getHeadTitle() ) );
+$shareTitleRaw = html_entity_decode( wp_strip_all_tags( getHeadTitle() ), ENT_QUOTES, get_bloginfo( 'charset' ) );
+$shareTitle    = rawurlencode( $shareTitleRaw );
 $shareUrl   = rawurlencode( $linkUrl );
 ?>
 
@@ -39,7 +40,7 @@ $shareUrl   = rawurlencode( $linkUrl );
 
 <?php if ( wp_is_mobile() ) : ?>
 <li class="sb_line sb_icon">
-<a href="<?php echo esc_url( 'line://msg/text/' . rawurlencode( wp_strip_all_tags( getHeadTitle() ) . ' ' . $linkUrl ), array( 'line' ) ); ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
+<a href="<?php echo esc_url( 'line://msg/text/' . rawurlencode( $shareTitleRaw . ' ' . $linkUrl ), array( 'line' ) ); ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
 </li>
 <?php endif; ?>
 

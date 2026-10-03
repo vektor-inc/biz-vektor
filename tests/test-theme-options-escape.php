@@ -1005,6 +1005,12 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 				'not_contains'        => array( '%3Cspan', '%3Cbr', '<span class="x">', '&lt;span' ),
 			),
 			array(
+				'test_condition_name' => 'アポストロフィ入りのタイトル => 文字参照が二重エンコードされない',
+				'label'               => "It's",
+				'expected_contains'   => array( 'text=It%27s' ),
+				'not_contains'        => array( '%26%23', '%26amp' ),
+			),
+			array(
 				'test_condition_name' => '通常のタイトル => そのままエンコードされる',
 				'label'               => 'Plain Title',
 				'expected_contains'   => array( 'text=Plain%20Title', 'line://msg/text/Plain%20Title' ),
@@ -1041,6 +1047,8 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 			delete_option( 'page_for_posts' );
 			delete_option( 'page_on_front' );
 
+			$this->assertStringContainsString( 'u=' . rawurlencode( home_url() ), $actual, $case['test_condition_name'] );
+			$this->assertStringContainsString( 'url=' . rawurlencode( home_url() ), $actual, $case['test_condition_name'] );
 			foreach ( $case['expected_contains'] as $needle ) {
 				$this->assertStringContainsString( $needle, $actual, $case['test_condition_name'] );
 			}
