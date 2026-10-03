@@ -2329,3 +2329,19 @@ msgstr "<dt>投稿タグ</dt><dd>%1$s</dd>"
 
 #~ msgid "Enable slide Animation"
 #~ msgstr "スライドアニメーションを有効にする"
+
+#: inc/theme-options-init.php
+msgid "The security check failed. Settings were not reset. Please reload the page and try again."
+msgstr "セキュリティチェックに失敗したため、設定は初期化されませんでした。ページを再読み込みして、もう一度お試しください。"
+
+#: inc/theme-options-init.php
+msgid "You do not have permission to reset the settings."
+msgstr "設定を初期化する権限がありません。"
+
+#: inc/theme-options-init.php
+msgid "The number you entered does not match. Settings were not reset."
+msgstr "入力された数字が一致しないため、設定は初期化されませんでした。"
+
+#: inc/theme-options-init.php
+msgid "Please check the box to confirm. Settings were not reset."
+msgstr "確認のチェックボックスにチェックを入れてください。設定は初期化されませんでした。"
