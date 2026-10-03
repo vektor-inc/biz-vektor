@@ -99,6 +99,13 @@ class Biz_Vektor_Advanced_Options {
 
 					if( $key == 'pages' && !empty($val) ) 
 						$cleanValue = strip_tags(trim(intval($val)));	
+					elseif ( $key == 'types' ) {
+						$cleanValue = sanitize_key( trim( $val ) );
+
+						// 整形の結果が空になった要素は保存しない
+						if ( $cleanValue === '' )
+							continue;
+					}
 					else
 						$cleanValue = strip_tags(trim($val));
 
