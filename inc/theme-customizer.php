@@ -15,6 +15,26 @@ if(class_exists('WP_Customize_Control')):
 	}
 endif;
 
+/**
+ * カスタマイザの URL 項目の保存前処理。
+ *
+ * @param string $value 入力値.
+ * @return string URL として整えた値.
+ */
+function biz_vektor_sanitize_customizer_url( $value ) {
+	return esc_url_raw( (string) $value );
+}
+
+/**
+ * カスタマイザの文字項目の保存前処理。投稿本文で許可されるタグ（装飾用の br・span など）は残す。
+ *
+ * @param string $value 入力値.
+ * @return string 許可されたタグだけを残した値.
+ */
+function biz_vektor_sanitize_customizer_html( $value ) {
+	return wp_kses_post( (string) $value );
+}
+
 add_action( 'customize_register', 'bizvektor_customize_register' );
 function bizvektor_customize_register($wp_customize) {
 	
@@ -31,8 +51,8 @@ function bizvektor_customize_register($wp_customize) {
         'capability'     => 'edit_theme_options',
     );
     $wp_customize->add_setting( 'biz_vektor_theme_options[theme_style]',  $add_setting_array );
-    $wp_customize->add_setting( 'biz_vektor_theme_options[head_logo]',  $add_setting_array );
-    $wp_customize->add_setting( 'biz_vektor_theme_options[foot_logo]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[head_logo]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_url' ) ) );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[foot_logo]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_url' ) ) );
     $wp_customize->add_setting( 'biz_vektor_theme_options[gMenuDivide]',  $add_setting_array );
     $wp_customize->add_setting( 'biz_vektor_theme_options[theme_layout]',  $add_setting_array );
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_title]',  $add_setting_array );
@@ -189,12 +209,12 @@ function bizvektor_customize_register($wp_customize) {
 		    'type'           => 'option',
 		    'capability'     => 'edit_theme_options',
 		);
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_txt]',  $add_setting_array );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[tel_number]',  $add_setting_array );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_time]',  $add_setting_array );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[sub_sitename]',  $add_setting_array );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_address]',  $add_setting_array );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_link]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_txt]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_html' ) ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[tel_number]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_html' ) ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_time]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_html' ) ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[sub_sitename]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_html' ) ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_address]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_html' ) ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_link]', array_merge( $add_setting_array, array( 'sanitize_callback' => 'biz_vektor_sanitize_customizer_url' ) ) );
 
 		$wp_customize->add_control( 'contact_txt',
 			array(
@@ -254,11 +274,11 @@ function bizvektor_customize_register($wp_customize) {
     ) );
     
 	for ( $i = 1; $i <= 3 ;){
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_title]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_title]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'biz_vektor_sanitize_customizer_html' ) );
 		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_description]', 	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_link]', 			array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image_s]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_link]', 			array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'biz_vektor_sanitize_customizer_url' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'biz_vektor_sanitize_customizer_url' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image_s]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'biz_vektor_sanitize_customizer_url' ) );
 		// Create section UI
 		$wp_customize->add_control( 'pr'.$i.'_title',
 			array(
