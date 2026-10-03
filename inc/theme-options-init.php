@@ -125,16 +125,18 @@ function biz_vektor_generate_default_options() {
 /**
  * 広告タグ欄の保存値を整える
  *
- * unfiltered_html 権限があるユーザーは値をそのまま返し、無いユーザーは wp_kses_post() を通した値を返す。
+ * unfiltered_html 権限があるユーザーは値をそのまま返す。
+ * 無いユーザーは script・style タグを中身ごと除去してから wp_kses_post() を通した値を返す。
  *
  * @param mixed $value 入力された広告タグ。
  * @return string 保存する広告タグ。
  */
 function biz_vektor_sanitize_ad_tag( $value ) {
 	$value = is_string( $value ) ? $value : '';
-	// 権限が無いユーザーの場合だけ許可タグ以外を除去
+	// 権限が無いユーザーの場合だけ、script・style を中身ごと除去し、許可タグ以外も除去
 	if ( ! current_user_can( 'unfiltered_html' ) ) {
-		$value = wp_kses_post( $value );
+		$value = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $value );
+		$value = wp_kses_post( (string) $value );
 	}
 	return $value;
 }

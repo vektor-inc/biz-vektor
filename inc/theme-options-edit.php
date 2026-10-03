@@ -533,6 +533,9 @@ $postLabelName = esc_html( bizVektorOptions( 'postLabelName' ) );
 		</dd>
 	</dl>
 
+	<?php if ( ! current_user_can( 'unfiltered_html' ) ) : ?>
+	<p><?php esc_html_e( 'With your user permissions, some HTML tags such as script tags will be removed when saved.', 'biz-vektor' ); ?></p>
+	<?php endif; ?>
 	<dl>
 		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'more tag', 'biz-vektor' ) ); ?></dt>
 		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_moretag]" id="ad_content_moretag" value="" style="width:90%;" /><?php echo isset( $options['ad_content_moretag'] ) ? esc_textarea( $options['ad_content_moretag'] ) : ''; ?></textarea>
