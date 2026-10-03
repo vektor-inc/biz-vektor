@@ -774,10 +774,10 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 				'expected'            => $ad_tag,
 			),
 			array(
-				'test_condition_name' => 'unfiltered_html 権限が無い場合 => script が除かれ装飾は残る',
+				'test_condition_name' => 'unfiltered_html 権限が無い場合 => script が中身ごと除かれ装飾は残る',
 				'unfiltered_html'     => false,
 				'value'               => '<div class="ad">A<script>alert(1)</script></div>',
-				'expected'            => '<div class="ad">Aalert(1)</div>',
+				'expected'            => '<div class="ad">A</div>',
 			),
 			array(
 				'test_condition_name' => 'unfiltered_html 権限が無く空の場合 => 空のまま',

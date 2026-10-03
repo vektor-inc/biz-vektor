@@ -122,6 +122,25 @@ function biz_vektor_generate_default_options() {
 }
 
 
+/**
+ * 広告タグ欄の保存値を整える
+ *
+ * unfiltered_html 権限があるユーザーは値をそのまま返す。
+ * 無いユーザーは script・style タグを中身ごと除去してから wp_kses_post() を通した値を返す。
+ *
+ * @param mixed $value 入力された広告タグ。
+ * @return string 保存する広告タグ。
+ */
+function biz_vektor_sanitize_ad_tag( $value ) {
+	$value = is_string( $value ) ? $value : '';
+	// 権限が無いユーザーの場合だけ、script・style を中身ごと除去し、許可タグ以外も除去
+	if ( ! current_user_can( 'unfiltered_html' ) ) {
+		$value = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $value );
+		$value = wp_kses_post( (string) $value );
+	}
+	return $value;
+}
+
 /*-------------------------------------------*/
 /*	入力された値の処理
 /*-------------------------------------------*/
@@ -184,11 +203,9 @@ function biz_vektor_theme_options_validate( $input ) {
 	// $output['postTopUrl']         = $input['postTopUrl'];
 	$output['postTopCount']       = ( preg_match( '/^(\s|[ 　]*)$/', $input['postTopCount'] ) ) ? 5 : $input['postTopCount'];
 	$output['postRelatedCount']   = ( preg_match( '/^(\s|[ 　]*)$/', $input['postRelatedCount'] ) ) ? 6 : $input['postRelatedCount'];
-	// 広告欄は広告タグを使うため、unfiltered_html 権限が無いユーザーの場合だけ許可タグ以外を除く.
-	$can_unfiltered_html          = current_user_can( 'unfiltered_html' );
-	$output['ad_content_moretag'] = $can_unfiltered_html ? $input['ad_content_moretag'] : wp_kses_post( $input['ad_content_moretag'] );
-	$output['ad_content_after']   = $can_unfiltered_html ? $input['ad_content_after'] : wp_kses_post( $input['ad_content_after'] );
-	$output['ad_related_after']   = $can_unfiltered_html ? $input['ad_related_after'] : wp_kses_post( $input['ad_related_after'] );
+	$output['ad_content_moretag'] = biz_vektor_sanitize_ad_tag( $input['ad_content_moretag'] );
+	$output['ad_content_after']   = biz_vektor_sanitize_ad_tag( $input['ad_content_after'] );
+	$output['ad_related_after']   = biz_vektor_sanitize_ad_tag( $input['ad_related_after'] );
 	// TopPage
 	$output['topSideBarDisplay'] = ( isset( $input['topSideBarDisplay'] ) && $input['topSideBarDisplay'] == 'true' ) ? true : false;
 	// SlideShow

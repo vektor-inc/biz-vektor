@@ -2345,3 +2345,7 @@ msgstr "入力された数字が表示されている数字と一致しないた
 #: inc/theme-options-init.php
 msgid "Please check the box to confirm. Settings were not reset."
 msgstr "確認のチェックボックスにチェックを入れてください。設定は初期化されませんでした。"
+
+#: inc/theme-options-edit.php
+msgid "With your user permissions, some HTML tags such as script tags will be removed when saved."
+msgstr "お使いの権限では、script タグなど一部の HTML タグは保存時に削除されます。"
