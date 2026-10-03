@@ -989,8 +989,73 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 		delete_option( 'page_on_front' );
 
 		$this->assertMatchesRegularExpression( '/<a href="line:\/\/msg\/text\/[^"]*"><span/', $actual );
-		$this->assertStringContainsString( 'ab&quot;cd onx=1', $actual );
+		$this->assertStringContainsString( 'ab%22cd%20onx%3D1', $actual );
 		$this->assertStringNotContainsString( 'ab"cd', $actual );
+	}
+
+	/**
+	 * SNS ボタンの共有リンクで、タイトルのタグが取り除かれ URL エンコードされること。
+	 */
+	public function test_module_snsBtns_title() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => '装飾タグ入りのタイトル => タグが含まれず本文が残る',
+				'label'               => 'お知らせ<br><span class="x">です</span>',
+				'expected_contains'   => array( 'text=' . rawurlencode( 'お知らせです' ), 'line://msg/text/' . rawurlencode( 'お知らせです' ) ),
+				'not_contains'        => array( '%3Cspan', '%3Cbr', '<span class="x">', '&lt;span' ),
+			),
+			array(
+				'test_condition_name' => 'アポストロフィ入りのタイトル => 文字参照が二重エンコードされない',
+				'label'               => "It's",
+				'expected_contains'   => array( 'text=It%27s' ),
+				'not_contains'        => array( '%26%23', '%26amp' ),
+			),
+			array(
+				'test_condition_name' => '通常のタイトル => そのままエンコードされる',
+				'label'               => 'Plain Title',
+				'expected_contains'   => array( 'text=Plain%20Title', 'line://msg/text/Plain%20Title' ),
+				'not_contains'        => array( '%3C' ),
+			),
+			array(
+				'test_condition_name' => '引用符を含むタイトル => 属性を抜け出さない',
+				'label'               => 'a"b onx=1',
+				'expected_contains'   => array( 'text=a%22b%20onx%3D1' ),
+				'not_contains'        => array( 'a"b' ),
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			$page_id = self::factory()->post->create(
+				array(
+					'post_type'   => 'page',
+					'post_status' => 'publish',
+				)
+			);
+			update_option( 'show_on_front', 'page' );
+			update_option( 'page_for_posts', $page_id );
+			update_option( 'page_on_front', 0 );
+			$this->set_options( array( 'postLabelName' => $case['label'] ) );
+			$this->set_mobile( true );
+			$this->go_to( get_permalink( $page_id ) );
+
+			$actual = $this->capture(
+				function () {
+					include get_template_directory() . '/plugins/sns/module_snsBtns.php';
+				}
+			);
+			delete_option( 'show_on_front' );
+			delete_option( 'page_for_posts' );
+			delete_option( 'page_on_front' );
+
+			$this->assertStringContainsString( 'u=' . rawurlencode( home_url() ), $actual, $case['test_condition_name'] );
+			$this->assertStringContainsString( 'url=' . rawurlencode( home_url() ), $actual, $case['test_condition_name'] );
+			foreach ( $case['expected_contains'] as $needle ) {
+				$this->assertStringContainsString( $needle, $actual, $case['test_condition_name'] );
+			}
+			foreach ( $case['not_contains'] as $needle ) {
+				$this->assertStringNotContainsString( $needle, $actual, $case['test_condition_name'] );
+			}
+		}
 	}
 
 	/**

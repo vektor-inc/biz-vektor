@@ -410,4 +410,172 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 
 		unregister_taxonomy( 'wtest_tax' );
 	}
+
+	/**
+	 * 固定ページ表示ウィジェットの見出しで、タイトルの装飾が残ること。
+	 */
+	public function test_display_page() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'span を含むタイトル => 装飾が残る',
+				'title'               => '<span class="x">テスト</span>',
+				'expected_contains'   => '<h2><span class="x">テスト</span></h2>',
+				'not_contains'        => '&lt;span',
+			),
+			array(
+				'test_condition_name' => 'br を含むタイトル => 改行タグが残る',
+				'title'               => 'A<br>B',
+				'expected_contains'   => '<h2>A<br>B</h2>',
+				'not_contains'        => '&lt;br',
+			),
+			array(
+				'test_condition_name' => '装飾なしのタイトル => そのまま見出しになる',
+				'title'               => 'Plain',
+				'expected_contains'   => '<h2>Plain</h2>',
+				'not_contains'        => '&lt;',
+			),
+		);
+
+		// 管理者は unfiltered_html を持つため、タイトルの HTML がそのまま保存される。
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$widget = new wp_widget_page();
+		foreach ( $test_cases as $case ) {
+			$page_id = self::factory()->post->create(
+				array(
+					'post_type'    => 'page',
+					'post_status'  => 'publish',
+					'post_title'   => $case['title'],
+					'post_content' => 'Body',
+				)
+			);
+			$html    = $this->capture(
+				function () use ( $widget, $page_id ) {
+					$widget->display_page( $page_id, true );
+				}
+			);
+			$this->assertStringContainsString( $case['expected_contains'], $html, $case['test_condition_name'] );
+			$this->assertStringNotContainsString( $case['not_contains'], $html, $case['test_condition_name'] );
+		}
+	}
+
+	/**
+	 * 固定ページ表示ウィジェットの form() で、選択肢のタイトルからタグが取り除かれること。
+	 */
+	public function test_form_page() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'br で区切ったタイトル => 語がくっつかず空白になる',
+				'title'               => 'A<br>B',
+				'expected_contains'   => '>A B</option>',
+				'not_contains'        => '<br',
+			),
+			array(
+				'test_condition_name' => 'span を含むタイトル => option 内にタグが出ない',
+				'title'               => '<span class="x">テスト</span>',
+				'expected_contains'   => '>テスト</option>',
+				'not_contains'        => '<span class="x">',
+			),
+			array(
+				'test_condition_name' => '通常のタイトル => そのまま表示',
+				'title'               => 'Plain',
+				'expected_contains'   => '>Plain</option>',
+				'not_contains'        => '<span',
+			),
+			array(
+				'test_condition_name' => 'option を閉じる文字列を含むタイトル => 抜け出さない',
+				'title'               => 'D</option><img src=x onerror=1>',
+				'expected_contains'   => '>D</option>',
+				'not_contains'        => '<img src=x',
+			),
+		);
+
+		// 管理者は unfiltered_html を持つため、タイトルの HTML がそのまま保存される。
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$widget = new wp_widget_page();
+		foreach ( $test_cases as $case ) {
+			$page_id = self::factory()->post->create(
+				array(
+					'post_type'   => 'page',
+					'post_status' => 'publish',
+					'post_title'  => $case['title'],
+				)
+			);
+			$html    = $this->capture(
+				function () use ( $widget, $page_id ) {
+					$widget->form( array( 'page_id' => $page_id ) );
+				}
+			);
+			$this->assertStringContainsString( $case['expected_contains'], $html, $case['test_condition_name'] );
+			$this->assertStringNotContainsString( $case['not_contains'], $html, $case['test_condition_name'] );
+			wp_delete_post( $page_id, true );
+		}
+	}
+
+	/**
+	 * 固定ページ表示ウィジェットの見出しに「非公開: 」が付かず、存在しない ID では何も出ないこと。
+	 */
+	public function test_display_page_private_and_missing() {
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$widget     = new wp_widget_page();
+		$private    = self::factory()->post->create(
+			array(
+				'post_type'   => 'page',
+				'post_status' => 'private',
+				'post_title'  => 'Secret',
+			)
+		);
+		$test_cases = array(
+			array(
+				'test_condition_name' => '非公開ページ => 見出しに接頭辞が付かない',
+				'page_id'             => $private,
+				'expected_contains'   => '<h2>Secret</h2>',
+			),
+			array(
+				'test_condition_name' => '存在しない ID => 何も出力されない',
+				'page_id'             => 999999,
+				'expected_contains'   => '',
+			),
+		);
+		foreach ( $test_cases as $case ) {
+			$html = $this->capture(
+				function () use ( $widget, $case ) {
+					$widget->display_page( $case['page_id'], true );
+				}
+			);
+			if ( '' === $case['expected_contains'] ) {
+				$this->assertSame( '', $html, $case['test_condition_name'] );
+			} else {
+				$this->assertStringContainsString( $case['expected_contains'], $html, $case['test_condition_name'] );
+				$this->assertStringNotContainsString( 'Private', $html, $case['test_condition_name'] );
+			}
+		}
+	}
+
+	/**
+	 * 固定ページ表示ウィジェットの update() で page_id が整数化されること。
+	 */
+	public function test_update_page() {
+		$widget     = new wp_widget_page();
+		$test_cases = array(
+			array(
+				'test_condition_name' => '数値文字列 => 整数',
+				'page_id'             => '12',
+				'expected'            => 12,
+			),
+			array(
+				'test_condition_name' => '属性を抜ける文字列 => 数値部分のみ',
+				'page_id'             => '5"><script>',
+				'expected'            => 5,
+			),
+			array(
+				'test_condition_name' => '数値でない文字列 => 0',
+				'page_id'             => 'abc',
+				'expected'            => 0,
+			),
+		);
+		foreach ( $test_cases as $case ) {
+			$actual = $widget->update( array( 'page_id' => $case['page_id'] ), array() );
+			$this->assertSame( $case['expected'], $actual['page_id'], $case['test_condition_name'] );
+		}
+	}
 }
