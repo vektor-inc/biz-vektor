@@ -149,18 +149,28 @@ class Theme_Options_Reset_Test extends WP_UnitTestCase {
 			array(
 				'test_condition_name' => '初期化の確認がすべて正しい場合 => 初期値が返る',
 				'with_nonce'          => true,
+				'reset_key_port'      => '1234',
 				'reset_check'         => 'True',
 				'expected'            => true,
 			),
 			array(
 				'test_condition_name' => 'チェックボックスにチェックがない場合 => 初期値は返らない',
 				'with_nonce'          => true,
+				'reset_key_port'      => '1234',
 				'reset_check'         => '',
 				'expected'            => false,
 			),
 			array(
 				'test_condition_name' => 'nonce がない場合 => 初期値は返らない',
 				'with_nonce'          => false,
+				'reset_key_port'      => '1234',
+				'reset_check'         => 'True',
+				'expected'            => false,
+			),
+			array(
+				'test_condition_name' => '確認番号が一致しない場合 => 初期値は返らない',
+				'with_nonce'          => true,
+				'reset_key_port'      => '9999',
 				'reset_check'         => 'True',
 				'expected'            => false,
 			),
@@ -178,7 +188,7 @@ class Theme_Options_Reset_Test extends WP_UnitTestCase {
 			$post = array(
 				'bizvektor_action_mode'    => 'reset',
 				'bizvektor_reset_key'      => '1234',
-				'bizvektor_reset_key_port' => '1234',
+				'bizvektor_reset_key_port' => $case['reset_key_port'],
 			);
 			if ( '' !== $case['reset_check'] ) {
 				$post['bizvektor_reset_check'] = $case['reset_check'];

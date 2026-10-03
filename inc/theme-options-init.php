@@ -273,7 +273,7 @@ function biz_vektor_them_edit_function( $post ) {
 				$messages = array(
 					'nonce'      => __( 'The security check failed. Settings were not reset. Please reload the page and try again.', 'biz-vektor' ),
 					'capability' => __( 'You do not have permission to reset the settings.', 'biz-vektor' ),
-					'key'        => __( 'The number you entered does not match. Settings were not reset.', 'biz-vektor' ),
+					'key'        => __( 'The number you entered does not match. Settings were not reset. Please enter the number shown above.', 'biz-vektor' ),
 					'check'      => __( 'Please check the box to confirm. Settings were not reset.', 'biz-vektor' ),
 				);
 				add_settings_error( 'biz_vektor_options', 'biz_vektor_reset_error', $messages[ $error_code ], 'error' );

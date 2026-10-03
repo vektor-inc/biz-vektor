@@ -2339,8 +2339,8 @@ msgid "You do not have permission to reset the settings."
 msgstr "設定を初期化する権限がありません。"
 
 #: inc/theme-options-init.php
-msgid "The number you entered does not match. Settings were not reset."
-msgstr "入力された数字が一致しないため、設定は初期化されませんでした。"
+msgid "The number you entered does not match. Settings were not reset. Please enter the number shown above."
+msgstr "入力された数字が表示されている数字と一致しないため、設定は初期化されませんでした。画面に表示されている数字を入力してください。"
 
 #: inc/theme-options-init.php
 msgid "Please check the box to confirm. Settings were not reset."
