@@ -56,11 +56,12 @@ function biz_vektor_get_theme_options_default_design() {
 /*	Variable settings
 /*-------------------------------------------*/
 function biz_vektor_theme_options_default_design_validate( $input ) {
-	$output = $defaults;
-	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
-	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
-	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
-	$output['theme_plusKeyColorDark'] = $input['theme_plusKeyColorDark'];
+	$defaults = array();
+	$output   = $defaults;
+	$output['theme_plusKeyColor'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColor'] ) ? $input['theme_plusKeyColor'] : '' );
+	$output['theme_plusKeyColorLight'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColorLight'] ) ? $input['theme_plusKeyColorLight'] : '' );
+	$output['theme_plusKeyColorVeryLight'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColorVeryLight'] ) ? $input['theme_plusKeyColorVeryLight'] : '' );
+	$output['theme_plusKeyColorDark'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColorDark'] ) ? $input['theme_plusKeyColorDark'] : '' );
 	return apply_filters( 'biz_vektor_theme_options_default_design_validate', $output, $input, $defaults );
 }
 
@@ -75,9 +76,9 @@ function bizvektor_default_design_customize_register($wp_customize) {
         'title'          => __( 'Default color settings', 'biz-vektor' ),
         'priority'       => 110,
     ) );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'sanitize_hex_color') );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'sanitize_hex_color') );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'sanitize_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),
@@ -105,7 +106,7 @@ add_filter( 'biz_vektor_keycolors', 'biz_vektor_calmly_default_keycolor' );
 function biz_vektor_calmly_default_keycolor($colors){
 	if(is_bizvektor_default_design()){
 		$options = biz_vektor_get_theme_options_calmly();
-		$colors['keyColor'] = (isset($options['theme_plusKeyColor']) and $options['theme_plusKeyColor'])? $options['theme_plusKeyColor'] : '#c30000';
+		$colors['keyColor'] = biz_vektor_sanitize_keycolor( isset( $options['theme_plusKeyColor'] ) ? $options['theme_plusKeyColor'] : '', '#c30000' );
 	}
 	return $colors;
 }
@@ -134,15 +135,9 @@ function biz_vektor_default_design_WpHead(){
 			// nullでないと php7.1でエラーくらう
 			$default_design_options = null;
 		}
-		if( empty( $default_design_options['theme_plusKeyColor'] ) ) {
-			$default_design_options['theme_plusKeyColor'] = '#c30000';
-		}
-		if( empty( $default_design_options['theme_plusKeyColorLight'] ) ) {
-			$default_design_options['theme_plusKeyColorLight'] = '#ff0000';
-		}
-		if( empty( $default_design_options['theme_plusKeyColorDark'] ) ) {
-			$default_design_options['theme_plusKeyColorDark'] = '#990000';
-		}
+		$default_design_options['theme_plusKeyColor'] = biz_vektor_sanitize_keycolor( isset( $default_design_options['theme_plusKeyColor'] ) ? $default_design_options['theme_plusKeyColor'] : '', '#c30000' );
+		$default_design_options['theme_plusKeyColorLight'] = biz_vektor_sanitize_keycolor( isset( $default_design_options['theme_plusKeyColorLight'] ) ? $default_design_options['theme_plusKeyColorLight'] : '', '#ff0000' );
+		$default_design_options['theme_plusKeyColorDark'] = biz_vektor_sanitize_keycolor( isset( $default_design_options['theme_plusKeyColorDark'] ) ? $default_design_options['theme_plusKeyColorDark'] : '', '#990000' );
 ?>
 		<style type="text/css">
 a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }

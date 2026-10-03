@@ -60,11 +60,12 @@ function biz_vektor_get_theme_options_calmly() {
 /*	Variable settings
 /*-------------------------------------------*/
 function biz_vektor_theme_options_calmly_validate( $input ) {
-	$output = $defaults;
-	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
-	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
-	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
-	$output['theme_plusKeyColorDark'] = $input['theme_plusKeyColorDark'];
+	$defaults = array();
+	$output   = $defaults;
+	$output['theme_plusKeyColor'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColor'] ) ? $input['theme_plusKeyColor'] : '' );
+	$output['theme_plusKeyColorLight'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColorLight'] ) ? $input['theme_plusKeyColorLight'] : '' );
+	$output['theme_plusKeyColorVeryLight'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColorVeryLight'] ) ? $input['theme_plusKeyColorVeryLight'] : '' );
+	$output['theme_plusKeyColorDark'] = biz_vektor_sanitize_keycolor( isset( $input['theme_plusKeyColorDark'] ) ? $input['theme_plusKeyColorDark'] : '' );
 	return apply_filters( 'biz_vektor_theme_options_calmly_validate', $output, $input, $defaults );
 }
 
@@ -80,7 +81,7 @@ function biz_vektor_calmly_customize_register($wp_customize) {
         'priority'       => 110,
     ) );
 
-	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'sanitize_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),
@@ -110,7 +111,7 @@ add_filter( 'biz_vektor_keycolors', 'biz_vektor_calmly_set_keycolor' );
 function biz_vektor_calmly_set_keycolor($colors){
 	if(is_calmly()){
 		$options = biz_vektor_get_theme_options_calmly();
-		$colors['keyColor'] = (isset($options['theme_plusKeyColor']) and $options['theme_plusKeyColor'])? $options['theme_plusKeyColor'] : '#5ead3c';
+		$colors['keyColor'] = biz_vektor_sanitize_keycolor( isset( $options['theme_plusKeyColor'] ) ? $options['theme_plusKeyColor'] : '', '#5ead3c' );
 	}
 	return $colors;
 }
@@ -147,11 +148,11 @@ a:active,
 #content .childPageBox ul li.current_page_item a,
 #content .childPageBox ul li.current_page_item ul li a:hover,
 #content .childPageBox ul li a:hover,
-#content .childPageBox ul li.current_page_item a	{ color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>;}
+#content .childPageBox ul li.current_page_item a	{ color:<?php echo $calmlyKeyColor ?>;}
 
 /* bg */
-::selection			{ background-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>;}
-::-moz-selection	{ background-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>;}
+::selection			{ background-color:<?php echo $calmlyKeyColor ?>;}
+::-moz-selection	{ background-color:<?php echo $calmlyKeyColor ?>;}
 /* bg */
 #gMenu .assistive-text,
 #content .mainFootContact .mainFootBt a,
@@ -164,7 +165,7 @@ form#searchform input#searchsubmit,
 a.btn,
 .linkBtn a,
 input[type=button],
-input[type=submit]	{ background-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>;}
+input[type=submit]	{ background-color:<?php echo $calmlyKeyColor ?>;}
 
 /* border */
 #searchform input[type=submit],
@@ -182,25 +183,25 @@ input[type=submit],
 #content .child_page_block h4 a,
 .paging span,
 .paging a,
-form#searchform input#searchsubmit	{ border-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>;}
+form#searchform input#searchsubmit	{ border-color:<?php echo $calmlyKeyColor ?>;}
 
-#gMenu	{ border-top-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>;}
+#gMenu	{ border-top-color:<?php echo $calmlyKeyColor ?>;}
 #content h2,
 #content h1.contentTitle,
 #content h1.entryPostTitle,
 .sideTower .localHead,
-#topPr h3 a	{ border-bottom-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
+#topPr h3 a	{ border-bottom-color:<?php echo $calmlyKeyColor ?>; }
 
 @media (min-width: 770px) {
 #gMenu { border-top-color:#eeeeee;}
-#gMenu	{ border-bottom-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
-#footMenu .menu li a:hover	{ color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
+#gMenu	{ border-bottom-color:<?php echo $calmlyKeyColor ?>; }
+#footMenu .menu li a:hover	{ color:<?php echo $calmlyKeyColor ?>; }
 }
 		</style>
 <!--[if lte IE 8]>
 <style type="text/css">
-#gMenu	{ border-bottom-color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
-#footMenu .menu li a:hover	{ color:<?php echo $calmlyOptions['theme_plusKeyColor'] ?>; }
+#gMenu	{ border-bottom-color:<?php echo $calmlyKeyColor ?>; }
+#footMenu .menu li a:hover	{ color:<?php echo $calmlyKeyColor ?>; }
 </style>
 <![endif]-->
 <?php endif; // if ( $calmlyOptions )
