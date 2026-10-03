@@ -128,8 +128,13 @@ function biz_vektor_generate_default_options() {
 function biz_vektor_theme_options_validate( $input ) {
 	$output   = biz_bektor_option_validate();
 	$defaults = biz_vektor_generate_default_options();
-	if ( isset( $_POST['bizvektor_action_mode'] ) && $_POST['bizvektor_action_mode'] == 'reset' ) {
-		return $defaults; }
+	if ( isset( $_POST['bizvektor_action_mode'] ) && 'reset' === $_POST['bizvektor_action_mode'] ) {
+		// 設定の初期化は、確認がすべて通った場合だけ行う.
+		if ( '' === biz_vektor_get_reset_error_code( $_POST ) ) {
+			return $defaults;
+		}
+		return $output;
+	}
 
 	// Design
 	$output['gMenuDivide'] = $input['gMenuDivide'];
@@ -214,9 +219,66 @@ function biz_vektor_theme_options_validate( $input ) {
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
 
+/**
+ * 設定の初期化リクエストを検証し、初期化できない理由を返す.
+ *
+ * nonce・権限・確認番号・チェックボックスをすべて確認する.
+ *
+ * @param array $post $_POST 相当の配列（スラッシュ付きのまま渡す）.
+ * @return string 初期化してよい場合は空文字。それ以外は 'nonce' / 'capability' / 'key' / 'check'.
+ */
+function biz_vektor_get_reset_error_code( $post ) {
+	// nonce の確認.
+	$nonce = isset( $post['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $post['_wpnonce'] ) ) : '';
+	if ( ! wp_verify_nonce( $nonce, 'biz_vektor_options-options' ) ) {
+		return 'nonce';
+	}
+
+	// 権限の確認.
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return 'capability';
+	}
+
+	// 確認番号の一致を確認（空は不一致）.
+	$reset_key      = isset( $post['bizvektor_reset_key'] ) ? sanitize_text_field( wp_unslash( $post['bizvektor_reset_key'] ) ) : '';
+	$reset_key_port = isset( $post['bizvektor_reset_key_port'] ) ? sanitize_text_field( wp_unslash( $post['bizvektor_reset_key_port'] ) ) : '';
+	if ( '' === $reset_key || '' === $reset_key_port || $reset_key !== $reset_key_port ) {
+		return 'key';
+	}
+
+	// チェックボックスの確認.
+	$reset_check = isset( $post['bizvektor_reset_check'] ) ? sanitize_text_field( wp_unslash( $post['bizvektor_reset_check'] ) ) : '';
+	if ( 'True' !== $reset_check ) {
+		return 'check';
+	}
+
+	return '';
+}
+
+/**
+ * テーマオプション画面から送信された操作を処理する.
+ *
+ * 設定の初期化は検証をすべて通った場合だけ行い、通らなければ画面にエラーを出す.
+ *
+ * @param array $post $_POST 相当の配列（スラッシュ付きのまま渡す）.
+ * @return void
+ */
 function biz_vektor_them_edit_function( $post ) {
-	switch ( $post['bizvektor_action_mode'] ) {
+	$action_mode = isset( $post['bizvektor_action_mode'] ) ? sanitize_text_field( wp_unslash( $post['bizvektor_action_mode'] ) ) : '';
+	switch ( $action_mode ) {
 		case 'reset':
+			// 検証に通らなければ初期化せず、理由を画面に出す.
+			$error_code = biz_vektor_get_reset_error_code( $post );
+			if ( '' !== $error_code ) {
+				$messages = array(
+					'nonce'      => __( 'The security check failed. Settings were not reset. Please reload the page and try again.', 'biz-vektor' ),
+					'capability' => __( 'You do not have permission to reset the settings.', 'biz-vektor' ),
+					'key'        => __( 'The number you entered does not match. Settings were not reset. Please enter the number shown above.', 'biz-vektor' ),
+					'check'      => __( 'Please check the box to confirm. Settings were not reset.', 'biz-vektor' ),
+				);
+				add_settings_error( 'biz_vektor_options', 'biz_vektor_reset_error', $messages[ $error_code ], 'error' );
+				return;
+			}
 			$default_theme_options = biz_vektor_generate_default_options();
 			delete_option( 'biz_vektor_theme_options' );
 			add_option( 'biz_vektor_theme_options', $default_theme_options );

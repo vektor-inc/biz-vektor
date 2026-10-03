@@ -33,6 +33,7 @@ http://bizvektor.com/contact/
 https://github.com/kurudrive/biz-vektor/commits/master
 
 * [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.5.0 から 0.8.1 にアップデート
+* [ 不具合修正 ] テーマオプションの設定初期化処理に nonce と権限の確認を追加
 * [ 不具合修正 ] ブロック版ウィジェット編集画面でブラウザコンソールに JavaScript エラーが繰り返し表示される不具合を修正
 
 == 1.13.4 ==
