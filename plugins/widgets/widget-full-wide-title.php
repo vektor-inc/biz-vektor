@@ -159,13 +159,40 @@ if ( isset( $instance['text'] ) && $instance['text'] ) {
 		/*  update
 		/*-------------------------------------------*/
 
+	/**
+	 * ウィジェットの設定値を検証して返す
+	 *
+	 * @param array $new_instance 送信された設定値。
+	 * @param array $old_instance 保存済みの設定値。
+	 * @return array 検証済みの設定値。
+	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance['media_image_id']   = $new_instance['media_image_id'];
-		$instance['title_bg_color']   = sanitize_hex_color( $new_instance['title_bg_color'] );
-		$instance['title_font_color'] = sanitize_hex_color( $new_instance['title_font_color'] );
-		$instance['title']            = wp_kses_post( $new_instance['title'] );
-		$instance['text']             = wp_kses_post( $new_instance['text'] );
-		return $new_instance;
+		$instance = array();
+
+		// 送信されていない項目は空として扱う
+		$new_instance = wp_parse_args(
+			(array) $new_instance,
+			array(
+				'media_image_id'   => '',
+				'title_bg_color'   => '',
+				'title_font_color' => '',
+				'title'            => '',
+				'text'             => '',
+			)
+		);
+
+		// 画像IDは数値として扱える値だけ残す（画像削除で空になる場合は空のまま）
+		$instance['media_image_id'] = is_numeric( $new_instance['media_image_id'] ) ? absint( $new_instance['media_image_id'] ) : '';
+
+		// 色は #rrggbb / #rgb 形式だけ残す
+		$instance['title_bg_color']   = (string) sanitize_hex_color( $new_instance['title_bg_color'] );
+		$instance['title_font_color'] = (string) sanitize_hex_color( $new_instance['title_font_color'] );
+
+		// タイトル・サブタイトルは装飾用のタグを残して検証する
+		$instance['title'] = wp_kses_post( $new_instance['title'] );
+		$instance['text']  = wp_kses_post( $new_instance['text'] );
+
+		return $instance;
 	}
 
 
@@ -199,10 +226,11 @@ if ( isset( $instance['text'] ) && $instance['text'] ) {
 	public static function widget_font_style( $instance ) {
 		$widget_font_style = '';
 		// 色が登録されている場合
-		if ( ! empty( $instance['title_font_color'] ) ) {
-			$widget_font_style = 'color:' . $instance['title_font_color'] . ';';
+		$font_color = ! empty( $instance['title_font_color'] ) ? sanitize_hex_color( $instance['title_font_color'] ) : '';
+		if ( $font_color ) {
+			$widget_font_style = 'color:' . $font_color . ';';
 		} else {
-			// その他（色が登録されていない）
+			// その他（色が登録されていない、または形式が正しくない）
 			$widget_font_style = '';
 		}
 		return $widget_font_style;
