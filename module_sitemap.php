@@ -132,7 +132,7 @@ if ( isset( $advancedOptions ) ) {
 					<?php
 					if ( isset( $type['link'] ) && ! empty( $type['link'] ) ) {
 					?>
-							<a href="<?php echo $type['link']; ?>">
+							<a href="<?php echo esc_url( $type['link'] ); ?>">
 								<?php echo isset( $type['label'] ) ? esc_html( $type['label'] ) : ''; ?>
 							</a>
 							<?php

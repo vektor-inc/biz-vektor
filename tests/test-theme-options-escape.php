@@ -405,6 +405,37 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 	}
 
 	/**
+	 * フッターのコピーライトで、サブサイト名の装飾 HTML が残り、script とイベント属性が出ないこと。
+	 */
+	public function test_biz_vektor_footerCopyRight() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => '装飾 HTML の場合 => <br> と <span class> が残る',
+				'sub_sitename'        => 'Sub<br><span class="x">Name</span>',
+				'contains'            => array( 'Sub<br><span class="x">Name</span>' ),
+				'not_contains'        => array( '&lt;br' ),
+			),
+			array(
+				'test_condition_name' => 'script とイベント属性の場合 => 取り除かれる',
+				'sub_sitename'        => 'S<script>alert(1)</script><b onclick="x()">B</b>',
+				'contains'            => array( '<b>B</b>' ),
+				'not_contains'        => array( '<script', 'onclick' ),
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			$this->set_options( array( 'sub_sitename' => $case['sub_sitename'] ) );
+			$actual = $this->capture( 'biz_vektor_footerCopyRight' );
+			foreach ( $case['contains'] as $needle ) {
+				$this->assertStringContainsString( $needle, $actual, $case['test_condition_name'] );
+			}
+			foreach ( $case['not_contains'] as $needle ) {
+				$this->assertStringNotContainsString( $needle, $actual, $case['test_condition_name'] );
+			}
+		}
+	}
+
+	/**
 	 * フッターのサイト名・ロゴで、装飾 HTML が残り、属性値とURLがエスケープされること。
 	 */
 	public function test_biz_vektor_footerSiteName() {
@@ -896,5 +927,38 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 			$this->assertStringContainsString( $case['contains'], $actual, $case['test_condition_name'] );
 			$this->assertStringNotContainsString( $case['not_contains'], $actual, $case['test_condition_name'] );
 		}
+	}
+
+	/**
+	 * サイトマップで投稿タイプのリンクがエスケープされること。
+	 */
+	public function test_module_sitemap_link() {
+		$type = 'test_sitemap_type';
+		register_post_type( $type, array( 'public' => true ) );
+		register_taxonomy( 'test_sitemap_tax', $type, array( 'hierarchical' => true ) );
+		self::factory()->post->create(
+			array(
+				'post_status' => 'publish',
+				'post_type'   => $type,
+			)
+		);
+		update_option( 'biz_vektor_ad_options', array( 'types' => array( $type ) ) );
+		$filter = function () {
+			return 'https://example.com/ev"onx=1';
+		};
+		add_filter( 'home_url', $filter );
+
+		$actual = $this->capture(
+			function () {
+				include get_template_directory() . '/module_sitemap.php';
+			}
+		);
+		remove_filter( 'home_url', $filter );
+		unregister_taxonomy( 'test_sitemap_tax' );
+		unregister_post_type( $type );
+		delete_option( 'biz_vektor_ad_options' );
+
+		$this->assertStringContainsString( 'sectionBox', $actual );
+		$this->assertStringNotContainsString( 'ev"onx', $actual );
 	}
 }
