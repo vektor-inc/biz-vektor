@@ -10,6 +10,8 @@
 } else {
 	$linkUrl = get_permalink();
 }
+$shareTitle = rawurlencode( wp_strip_all_tags( getHeadTitle() ) );
+$shareUrl   = rawurlencode( $linkUrl );
 ?>
 
 <div class="socialSet">
@@ -19,30 +21,30 @@
 <ul style="margin-left:0px;">
 
 <li class="sb_facebook sb_icon">
-<a href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><span class="vk_icon_w_r_sns_fb icon_sns"></span><span class="sns_txt">Facebook</span>
+<a href="<?php echo esc_url( 'http://www.facebook.com/sharer.php?src=bm&u=' . $shareUrl . '&t=' . $shareTitle ); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><span class="vk_icon_w_r_sns_fb icon_sns"></span><span class="sns_txt">Facebook</span>
 </a>
 </li>
 
 <li class="sb_hatena sb_icon">
-<a href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $linkUrl; ?>&amp;title=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=520');return false;"><span class="vk_icon_w_r_sns_hatena icon_sns"></span><span class="sns_txt">Hatena</span></a>
+<a href="<?php echo esc_url( 'http://b.hatena.ne.jp/add?mode=confirm&url=' . $shareUrl . '&title=' . $shareTitle ); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=520');return false;"><span class="vk_icon_w_r_sns_hatena icon_sns"></span><span class="sns_txt">Hatena</span></a>
 </li>
 
 <li class="sb_twitter sb_icon">
-<a href="http://twitter.com/intent/tweet?url=<?php echo $linkUrl; ?>&amp;text=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" ><span class="vk_icon_w_r_sns_twitter icon_sns"></span><span class="sns_txt">twitter</span></a>
+<a href="<?php echo esc_url( 'http://twitter.com/intent/tweet?url=' . $shareUrl . '&text=' . $shareTitle ); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" ><span class="vk_icon_w_r_sns_twitter icon_sns"></span><span class="sns_txt">twitter</span></a>
 </li>
 
 <li class="sb_google sb_icon">
-<a href="https://plus.google.com/share?url=<?php echo $linkUrl; ?>&amp;t=<?php echo urlencode(getHeadTitle()); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="vk_icon_w_r_sns_google icon_sns"></span><span class="sns_txt">Google+</span></a>
+<a href="<?php echo esc_url( 'https://plus.google.com/share?url=' . $shareUrl . '&t=' . $shareTitle ); ?>" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="vk_icon_w_r_sns_google icon_sns"></span><span class="sns_txt">Google+</span></a>
 </li>
 
 <?php if ( wp_is_mobile() ) : ?>
 <li class="sb_line sb_icon">
-<a href="line://msg/text/<?php echo esc_attr( getHeadTitle() . ' ' . $linkUrl ); ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
+<a href="<?php echo esc_url( 'line://msg/text/' . rawurlencode( wp_strip_all_tags( getHeadTitle() ) . ' ' . $linkUrl ), array( 'line' ) ); ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
 </li>
 <?php endif; ?>
 
 <li class="sb_pocket"><?php /* do not delete span */?><span></span>
-<a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-save-url="<?php echo $linkUrl; ?>" data-lang="en"></a>
+<a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-save-url="<?php echo esc_url( $linkUrl ); ?>" data-lang="en"></a>
 <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
 </li>
 

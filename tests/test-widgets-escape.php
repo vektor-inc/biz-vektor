@@ -410,4 +410,98 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 
 		unregister_taxonomy( 'wtest_tax' );
 	}
+
+	/**
+	 * 固定ページ表示ウィジェットの見出しで、タイトルの装飾が残ること。
+	 */
+	public function test_display_page() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'span を含むタイトル => 装飾が残る',
+				'title'               => '<span class="x">テスト</span>',
+				'expected_contains'   => '<h2><span class="x">テスト</span></h2>',
+				'not_contains'        => '&lt;span',
+			),
+			array(
+				'test_condition_name' => 'br を含むタイトル => 改行タグが残る',
+				'title'               => 'A<br>B',
+				'expected_contains'   => '<h2>A<br>B</h2>',
+				'not_contains'        => '&lt;br',
+			),
+			array(
+				'test_condition_name' => '装飾なしのタイトル => そのまま見出しになる',
+				'title'               => 'Plain',
+				'expected_contains'   => '<h2>Plain</h2>',
+				'not_contains'        => '&lt;',
+			),
+		);
+
+		// 管理者は unfiltered_html を持つため、タイトルの HTML がそのまま保存される。
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$widget = new wp_widget_page();
+		foreach ( $test_cases as $case ) {
+			$page_id = self::factory()->post->create(
+				array(
+					'post_type'    => 'page',
+					'post_status'  => 'publish',
+					'post_title'   => $case['title'],
+					'post_content' => 'Body',
+				)
+			);
+			$html    = $this->capture(
+				function () use ( $widget, $page_id ) {
+					$widget->display_page( $page_id, true );
+				}
+			);
+			$this->assertStringContainsString( $case['expected_contains'], $html, $case['test_condition_name'] );
+			$this->assertStringNotContainsString( $case['not_contains'], $html, $case['test_condition_name'] );
+		}
+	}
+
+	/**
+	 * 固定ページ表示ウィジェットの form() で、選択肢のタイトルからタグが取り除かれること。
+	 */
+	public function test_form_page() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'span を含むタイトル => option 内にタグが出ない',
+				'title'               => '<span class="x">テスト</span>',
+				'expected_contains'   => '>テスト</option>',
+				'not_contains'        => '<span class="x">',
+			),
+			array(
+				'test_condition_name' => '通常のタイトル => そのまま表示',
+				'title'               => 'Plain',
+				'expected_contains'   => '>Plain</option>',
+				'not_contains'        => '<span',
+			),
+			array(
+				'test_condition_name' => 'option を閉じる文字列を含むタイトル => 抜け出さない',
+				'title'               => 'D</option><img src=x onerror=1>',
+				'expected_contains'   => '</option>',
+				'not_contains'        => '<img src=x',
+			),
+		);
+
+		// 管理者は unfiltered_html を持つため、タイトルの HTML がそのまま保存される。
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$widget = new wp_widget_page();
+		foreach ( $test_cases as $case ) {
+			$page_id = self::factory()->post->create(
+				array(
+					'post_type'   => 'page',
+					'post_status' => 'publish',
+					'post_title'  => $case['title'],
+				)
+			);
+			$html    = $this->capture(
+				function () use ( $widget, $page_id ) {
+					$widget->form( array( 'page_id' => $page_id ) );
+				}
+			);
+			$this->assertStringContainsString( $case['expected_contains'], $html, $case['test_condition_name'] );
+			$this->assertStringNotContainsString( $case['not_contains'], $html, $case['test_condition_name'] );
+			wp_delete_post( $page_id, true );
+		}
+	}
 }

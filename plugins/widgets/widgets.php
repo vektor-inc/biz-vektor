@@ -173,7 +173,7 @@ class wp_widget_page extends WP_Widget {
 <label for="<?php echo $this->get_field_id('page_id'); ?>"><?php _e('Display page', 'biz-vektor') ?> :</label>
 <select name="<?php echo $this->get_field_name('page_id'); ?>" >
 		<?php foreach($pages as $page){ ?>
-<option value="<?php echo $page->ID; ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo $page->post_title; ?></option>
+<option value="<?php echo esc_attr( $page->ID ); ?>" <?php if($instance['page_id'] == $page->ID) echo 'selected="selected"'; ?> ><?php echo esc_html( wp_strip_all_tags( $page->post_title ) ); ?></option>
 		<?php } ?>
 </select>
 </p><p>
@@ -196,7 +196,7 @@ class wp_widget_page extends WP_Widget {
 	function display_page($pageid,$titleflag=false) {
 		$page = get_page($pageid);
 		echo '<div id="widget-page-'.$pageid.'" class="sectionBox">';
-		if($titleflag){ echo "<h2>".$page->post_title."</h2>"; }
+		if($titleflag){ echo "<h2>" . get_the_title( $page ) . "</h2>"; }
 		echo apply_filters('the_content', $page->post_content );
 		if ( is_user_logged_in() == TRUE ) {
 
