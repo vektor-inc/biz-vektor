@@ -209,8 +209,107 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 		/*  入力された値の保存
 		/*-------------------------------------------*/
 
+		/**
+		 * 投稿タイプのスラッグを整える。
+		 * 登録時（add_post_type）と同じ変換（小文字化・全角英数字の半角化・20文字切り詰め）を先にかけてから sanitize_key する。
+		 *
+		 * @param string $value 入力値.
+		 * @return string 整形後のスラッグ.
+		 */
+		public static function sanitize_post_type_id( $value ) {
+			if ( ! is_scalar( $value ) ) {
+				return '';
+			}
+			$value = mb_strimwidth( mb_convert_kana( mb_strtolower( (string) $value ), 'a' ), 0, 20, '', 'UTF-8' );
+			return sanitize_key( $value );
+		}
+
+		/**
+		 * カスタム分類のスラッグを整える。
+		 * 登録時に大文字のまま使われているため、大文字は残して英数字・ハイフン・アンダースコア以外だけを取り除く。
+		 *
+		 * @param string $value 入力値.
+		 * @return string 整形後のスラッグ.
+		 */
+		public static function sanitize_taxonomy_slug( $value ) {
+			if ( ! is_scalar( $value ) ) {
+				return '';
+			}
+			return (string) preg_replace( '/[^A-Za-z0-9_\-]/', '', (string) $value );
+		}
+
+		/**
+		 * 保存対象の入力値を、フィールドごとに整える。
+		 *
+		 * @param string $field     カスタムフィールド名.
+		 * @param mixed  $raw_value wp_unslash 済みの入力値.
+		 * @return mixed 整形後の値（空の場合は空文字）.
+		 */
+		public static function sanitize_field_value( $field, $raw_value ) {
+
+			switch ( $field ) {
+
+				case 'veu_post_type_id':
+					return self::sanitize_post_type_id( $raw_value );
+
+				case 'veu_post_type_items':
+					// 許可する項目だけ残す
+					$allowed = array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' );
+					$items   = array();
+					if ( is_array( $raw_value ) ) {
+						foreach ( $allowed as $item ) {
+							if ( ! empty( $raw_value[ $item ] ) ) {
+								$items[ $item ] = 'true';
+							}
+						}
+					}
+					return $items ? $items : '';
+
+				case 'veu_menu_position':
+					// 出力側と同じく全角数字を半角にして整数化する
+					if ( ! is_scalar( $raw_value ) ) {
+						return '';
+					}
+					$position = intval( mb_convert_kana( (string) $raw_value, 'n' ) );
+					return $position ? (string) $position : '';
+
+				case 'veu_post_type_export_to_api':
+					return ! empty( $raw_value ) ? 'true' : '';
+
+				case 'veu_taxonomy':
+					$taxonomies = array();
+					if ( ! is_array( $raw_value ) ) {
+						return '';
+					}
+					for ( $i = 1; $i <= 3; $i++ ) {
+						if ( ! isset( $raw_value[ $i ] ) || ! is_array( $raw_value[ $i ] ) ) {
+							continue;
+						}
+						$row                = $raw_value[ $i ];
+						$taxonomies[ $i ] = array(
+							'slug'  => self::sanitize_taxonomy_slug( isset( $row['slug'] ) ? $row['slug'] : '' ),
+							'label' => ( isset( $row['label'] ) && is_scalar( $row['label'] ) ) ? sanitize_text_field( (string) $row['label'] ) : '',
+						);
+						if ( ! empty( $row['tag'] ) ) {
+							$taxonomies[ $i ]['tag'] = 'true';
+						}
+						if ( ! empty( $row['rest_api'] ) ) {
+							$taxonomies[ $i ]['rest_api'] = 'true';
+						}
+					}
+					return $taxonomies ? $taxonomies : '';
+			}
+
+			return '';
+		}
+
 		function save_cf_value( $post_id ) {
 			global $post;
+
+			// 投稿タイプ設定以外、または編集権限が無い場合は何もしない
+			if ( 'post_type_manage' !== get_post_type( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
+				return $post_id;
+			}
 
 			//設定したnonce を取得（CSRF対策）
 			$noncename__post_type_manager = isset( $_POST['noncename__post_type_manager'] ) ? $_POST['noncename__post_type_manager'] : null;
@@ -234,7 +333,7 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 			);
 
 			foreach ( $fields as $key => $field ) {
-					$field_value = ( isset( $_POST[ $field ] ) ) ? $_POST[ $field ] : '';
+					$field_value = ( isset( $_POST[ $field ] ) ) ? self::sanitize_field_value( $field, wp_unslash( $_POST[ $field ] ) ) : '';
 
 					// データが空だったら入れる
 				if ( get_post_meta( $post_id, $field ) == '' ) {
