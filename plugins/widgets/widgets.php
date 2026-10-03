@@ -329,7 +329,7 @@ class WP_Widget_archive_list extends WP_Widget {
 	?>
 	<div class="localSection sideWidget">
 	<div class="sectionBox">
-		<h3 class="localHead"><?php echo $instance['label']; ?></h3>
+		<h3 class="localHead"><?php echo wp_kses_post( $instance['label'] ); ?></h3>
 		<ul class="localNavi">
 			<?php wp_get_archives($arg); ?>
 		</ul>
@@ -346,13 +346,13 @@ class WP_Widget_archive_list extends WP_Widget {
 		?>
 <p>
 <label for="<?php echo $this->get_field_id('label'); ?>-title"><?php _e('Title','biz-vektor');?> : </label>
-<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo esc_attr( $instance['label'] ); ?>" ><br/>
 <input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
 <label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e( 'Post type', 'biz-vektor' ) ?> : </label>
 <select name="<?php echo $this->get_field_name('post_type'); ?>" id="<?php echo $this->get_field_id('post_type'); ?>" >
 <?php foreach($pages as $page){ ?>
-<option value="<?php echo $page; ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo $page; ?></option>
+<option value="<?php echo esc_attr( $page ); ?>" <?php if($instance['post_type'] == $page) echo 'selected="selected"'; ?> ><?php echo esc_html( $page ); ?></option>
 <?php } ?>
 </select>
 <br/>
@@ -372,7 +372,7 @@ class WP_Widget_archive_list extends WP_Widget {
 		if(!$new_instance['label']){
 			$new_instance['label'] = $new_instance['hide'];
 		}
-		$instance['label'] = $new_instance['label'];
+		$instance['label'] = wp_kses_post( $new_instance['label'] );
 		return $instance;
 	}
 }
@@ -426,7 +426,7 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 	?>
 	<div class="localSection sideWidget">
 	<div class="sectionBox">
-		<h3 class="localHead"><?php echo $instance['label']; ?></h3>
+		<h3 class="localHead"><?php echo wp_kses_post( $instance['label'] ); ?></h3>
 		<ul class="localNavi">
 			<?php wp_list_categories($arg); ?>
 		</ul>
@@ -442,13 +442,13 @@ class WP_Widget_taxonomy_list extends WP_Widget {
 		?>
 <p>
 <label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Label to display', 'biz-vektor' ); ?></label>
-<input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" ><br/>
+<input type="text"  id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo esc_attr( $instance['label'] ); ?>" ><br/>
 <input type="hidden" name="<?php echo $this->get_field_name('hide'); ?>" ><br/>
 
 <label for="<?php echo $this->get_field_id('tax_name'); ?>"><?php _e('Display Taxonomy', 'biz-vektor') ?></label>
 <select name="<?php echo $this->get_field_name('tax_name'); ?>" >
 <?php foreach($taxs as $tax){ ?>
-	<option value="<?php echo $tax->name; ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo $tax->labels->name; ?></option>
+	<option value="<?php echo esc_attr( $tax->name ); ?>" <?php if($instance['tax_name'] == $tax->name) echo 'selected="selected"'; ?> ><?php echo esc_html( $tax->labels->name ); ?></option>
 <?php } ?>
 </select></p>
 <script type="text/javascript">
@@ -478,7 +478,7 @@ jQuery(document).ready(function($){
 		if(!$new_instance['label']){
 			$new_instance['label'] = $new_instance['hide'];
 		}
-		$instance['label'] = esc_html($new_instance['label']);
+		$instance['label'] = wp_kses_post( $new_instance['label'] );
 		return $instance;
 	}
 } // class WP_Widget_top_list_info
@@ -522,10 +522,10 @@ class wp_widget_bizvektor_rss extends WP_Widget {
 
 		?>
 <Label for="<?php echo $this->get_field_id('label'); ?>"><?php _e( 'Heading title', 'biz-vektor' ) ?></label><br/>
-<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo esc_attr( $instance['label'] ); ?>" />
 <br/>
 <Label for="<?php echo $this->get_field_id('url'); ?>">URL</label><br/>
-<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo $instance['url']; ?>" />
+<input type="text" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" value="<?php echo esc_url( $instance['url'] ); ?>" />
 <p></p>
 <p>外部ブログなどにRSS機能がある場合、RSSのURLを入力することにより一覧を表示することができます。</p>
 <p>URLの先がRSSでなかったりと正しくない場合は何も表示されません。<br/>
@@ -536,8 +536,8 @@ RSSページの接続が遅い場合はウィジェットの表示速度もそ�
 
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
-		$instance['url'] = $new_instance['url'];
-		$instance['label'] = $new_instance['label'];
+		$instance['url'] = esc_url_raw( $new_instance['url'] );
+		$instance['label'] = wp_kses_post( $new_instance['label'] );
 		return $instance;
 	}
 }
@@ -561,7 +561,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	function widget($args, $instance) {
 
-		$count 		= ( isset($instance['count']) && $instance['count'] ) ? $instance['count'] : 10;
+		$count 		= ( isset($instance['count']) && absint( $instance['count'] ) ) ? absint( $instance['count'] ) : 10;
 		$post_type 	= ( isset($instance['post_type']) && $instance['post_type'] ) ? $instance['post_type'] : 'post';
 
 		$query_args = array(
@@ -592,7 +592,7 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		$title_html = '';
 		if ( isset( $instance['label'] ) && $instance['label'] ) {
 			$title_html .= $args['before_title'];
-			$title_html .= $instance['label'];
+			$title_html .= wp_kses_post( $instance['label'] );
 			$title_html .= $args['after_title'];
 		}
 
@@ -676,17 +676,17 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 		if( !in_array( $instance['post_type'], $post_types ) ) $post_types[] = $instance['post_type'];
 		?>
 <label for="<?php echo $this->get_field_id('label');  ?>"><?php _e('Title:'); ?></label><br/>
-<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo $instance['label']; ?>" />
+<input type="text" id="<?php echo $this->get_field_id('label'); ?>-title" name="<?php echo $this->get_field_name('label'); ?>" value="<?php echo esc_attr( $instance['label'] ); ?>" />
 <br/><br/>
 
 <label for="<?php echo $this->get_field_id('count');  ?>"><?php _e('Display count','biz-vektor'); ?>:</label><br/>
-<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo $instance['count']; ?>" />
+<input type="text" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" value="<?php echo esc_attr( $instance['count'] ); ?>" />
 <br /><br/>
 
 <label for="<?php echo $this->get_field_id('post_type'); ?>"><?php _e('post type', 'biz-vektor') ?>:</label><br />
 <select type="text" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>"  >
 <?php foreach($post_types as $posttype): ?>
-	<option value="<?php echo $posttype; ?>" <?php if($instance['post_type'] == $posttype) echo "selected"; ?> ><?php echo $posttype; ?></option>
+	<option value="<?php echo esc_attr( $posttype ); ?>" <?php if($instance['post_type'] == $posttype) echo "selected"; ?> ><?php echo esc_html( $posttype ); ?></option>
 <?php endforeach; ?>
 </select>
 </Label>
@@ -719,8 +719,8 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	function update ($new_instance, $old_instance) {
 		$instance = $old_instance;
-		$instance['count'] 		= $new_instance['count'];
-		$instance['label'] 		= $new_instance['label'];
+		$instance['count'] 		= absint( $new_instance['count'] );
+		$instance['label'] 		= wp_kses_post( $new_instance['label'] );
 		$instance['format'] 	= $new_instance['format'];
 		$instance['post_type']	= !empty($new_instance['post_type']) ? strip_tags($new_instance['post_type']) : 'post';
 		$instance['terms'] 		= preg_replace('/([^0-9,]+)/', '', $new_instance['terms']);
