@@ -136,6 +136,20 @@ class Post_Type_Manager_Test extends WP_UnitTestCase {
 				'expected_taxonomy'   => 'genre-2',
 			),
 			array(
+				'test_condition_name' => '日本語の分類スラッグ => 再保存前後で同じ分類名が登録される',
+				'legacy_post_type_id' => 'jptax',
+				'legacy_taxonomy'     => 'ジャンル',
+				'expected_post_type'  => 'jptax',
+				'expected_taxonomy'   => 'ジャンル',
+			),
+			array(
+				'test_condition_name' => '全角英数字の分類スラッグ => 再保存前後で同じ分類名が登録される',
+				'legacy_post_type_id' => 'fwtax',
+				'legacy_taxonomy'     => 'Ｇｅｎｒｅ１',
+				'expected_post_type'  => 'fwtax',
+				'expected_taxonomy'   => 'Ｇｅｎｒｅ１',
+			),
+			array(
 				'test_condition_name' => '20文字を超える投稿タイプのスラッグ => 再保存前後で同じスラッグが登録される',
 				'legacy_post_type_id' => 'abcdefghijklmnopqrstuvwxyz',
 				'legacy_taxonomy'     => 'genre3',
@@ -296,6 +310,22 @@ class Post_Type_Manager_Test extends WP_UnitTestCase {
 						'slug'  => 'Genrescript',
 						'label' => '施工種別',
 						'tag'   => 'true',
+					),
+				),
+			),
+			array(
+				'test_condition_name' => 'カスタム分類のスラッグに日本語・空白・記号 => 文字と数字だけ残る',
+				'field'               => 'veu_taxonomy',
+				'value'               => array(
+					1 => array(
+						'slug'  => 'ジャンル 1_a-b<>"',
+						'label' => 'a',
+					),
+				),
+				'expected'            => array(
+					1 => array(
+						'slug'  => 'ジャンル1_a-b',
+						'label' => 'a',
 					),
 				),
 			),

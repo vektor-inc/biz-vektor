@@ -226,7 +226,7 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 
 		/**
 		 * カスタム分類のスラッグを整える。
-		 * 登録時に大文字のまま使われているため、大文字は残して英数字・ハイフン・アンダースコア以外だけを取り除く。
+		 * 登録時に分類名がそのまま使われるため、日本語・全角・大文字を含む文字と数字は残し、記号・空白・制御文字だけを取り除く。
 		 *
 		 * @param string $value 入力値.
 		 * @return string 整形後のスラッグ.
@@ -235,7 +235,7 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 			if ( ! is_scalar( $value ) ) {
 				return '';
 			}
-			return (string) preg_replace( '/[^A-Za-z0-9_\-]/', '', (string) $value );
+			return (string) preg_replace( '/[^\p{L}\p{N}_\-]/u', '', (string) $value );
 		}
 
 		/**
@@ -285,7 +285,7 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 						if ( ! isset( $raw_value[ $i ] ) || ! is_array( $raw_value[ $i ] ) ) {
 							continue;
 						}
-						$row                = $raw_value[ $i ];
+						$row              = $raw_value[ $i ];
 						$taxonomies[ $i ] = array(
 							'slug'  => self::sanitize_taxonomy_slug( isset( $row['slug'] ) ? $row['slug'] : '' ),
 							'label' => ( isset( $row['label'] ) && is_scalar( $row['label'] ) ) ? sanitize_text_field( (string) $row['label'] ) : '',
@@ -337,11 +337,11 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 
 					// データが空だったら入れる
 				if ( get_post_meta( $post_id, $field ) == '' ) {
-					add_post_meta( $post_id, $field, $field_value, true );
+					add_post_meta( $post_id, $field, wp_slash( $field_value ), true );
 
 					// 今入ってる値と違ってたらアップデートする
 				} elseif ( $field_value != get_post_meta( $post_id, $field, true ) ) {
-					update_post_meta( $post_id, $field, $field_value );
+					update_post_meta( $post_id, $field, wp_slash( $field_value ) );
 
 					// 入力がなかったら消す
 				} elseif ( $field_value == '' ) {
@@ -451,8 +451,8 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 								$args = array(
 									'hierarchical'   => $hierarchical_true,
 									'update_count_callback' => '_update_post_term_count',
-									'label'          => $taxonomy['label'],
-									'singular_label' => $taxonomy['label'],
+									'label'          => esc_html( $taxonomy['label'] ),
+									'singular_label' => esc_html( $taxonomy['label'] ),
 									'public'         => true,
 									'show_ui'        => true,
 									'show_in_rest'   => $rest_api_true,
