@@ -148,7 +148,7 @@ if ( isset( $advancedOptions ) ) {
 						if ( count( $type['taxonomy'] ) > 1 ) {
 						?>
 
-							<h6><?php echo $taxonomy['taxoLabel']; ?></h6>
+							<h6><?php echo esc_html( $taxonomy['taxoLabel'] ); ?></h6>
 											<?php
 
 						}
