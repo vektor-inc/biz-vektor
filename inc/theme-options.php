@@ -501,18 +501,18 @@ function biz_vektor_blogList( $option = array(
 				$titlelabel = esc_html( $option['rssLabelName'] ); }
 
 				$content = wp_safe_remote_get( $blogRss );
-				if ( $content['response']['code'] != 200 ) {
+				if ( is_wp_error( $content ) || 200 !== (int) wp_remote_retrieve_response_code( $content ) ) {
 					return;
 				}
 
-				$xml = @simplexml_load_string( $content['body'] );
+				$xml = @simplexml_load_string( wp_remote_retrieve_body( $content ) );
 				if ( empty( $xml ) ) {
 					return;
 				}
 	?>
 	<div id="topBlog" class="infoList">
-	<h2><?php echo $titlelabel; ?></h2>
-	<div class="rssBtn"><a href="<?php echo $blogRss; ?>" id="blogRss" target="_blank">RSS</a></div>
+	<h2><?php echo wp_kses_post( $titlelabel ); ?></h2>
+	<div class="rssBtn"><a href="<?php echo esc_url( $blogRss ); ?>" id="blogRss" target="_blank">RSS</a></div>
 		<?php
 		$count = 0;
 		echo '<ul class="entryList">';
@@ -523,8 +523,8 @@ function biz_vektor_blogList( $option = array(
 				$entryTitJudge = mb_substr( $entry->title, 0, 3 );  // trim 3 charactors
 				if ( ! ( $entryTitJudge == 'PR:' ) ) {                   // Display to only not 'PR:
 					 $entrydate = date( 'Y.m.d', strtotime( $entry->pubDate ) );
-					 echo '<li><span class="infoDate">' . $entrydate . '</span>';
-					 echo '<span class="infoTxt"><a href="' . $entry->link . '" target="_blank">' . $entry->title . '</a></span></li>';
+					 echo '<li><span class="infoDate">' . esc_html( $entrydate ) . '</span>';
+					 echo '<span class="infoTxt"><a href="' . esc_url( (string) $entry->link ) . '" target="_blank">' . esc_html( wp_strip_all_tags( (string) $entry->title ) ) . '</a></span></li>';
 					 $count++;
 				}
 				if ( $count > 4 ) {
@@ -535,8 +535,8 @@ function biz_vektor_blogList( $option = array(
 			foreach ( $xml->item as $entry ) {
 				$dc        = $entry->children( 'http://purl.org/dc/elements/1.1/' );
 				$entrydate = date( 'Y.m.d', strtotime( $dc->date ) );
-				 echo '<li><span class="infoDate">' . $entrydate . '</span>';
-				 echo '<span class="infoTxt"><a href="' . $entry->link . '" target="_blank">' . $entry->title . '</a></span></li>';
+				 echo '<li><span class="infoDate">' . esc_html( $entrydate ) . '</span>';
+				 echo '<span class="infoTxt"><a href="' . esc_url( (string) $entry->link ) . '" target="_blank">' . esc_html( wp_strip_all_tags( (string) $entry->title ) ) . '</a></span></li>';
 				 $count++;
 				if ( $count > 4 ) {
 					break;}
@@ -546,8 +546,8 @@ function biz_vektor_blogList( $option = array(
 			foreach ( $xml->entry as $entry ) {
 				 $entrydate = substr( ( $entry->modified ), 0, 10 );
 				 $entrydate = str_replace( '-', '.', $entrydate );
-				 echo '<li><span class="infoDate">' . $entrydate . '</span>';
-				 echo '<span class="infoTxt"><a href="' . $entry->link->attributes()->href . '" target="_blank">' . $entry->title . '</a></span></li>';
+				 echo '<li><span class="infoDate">' . esc_html( $entrydate ) . '</span>';
+				 echo '<span class="infoTxt"><a href="' . esc_url( (string) $entry->link->attributes()->href ) . '" target="_blank">' . esc_html( wp_strip_all_tags( (string) $entry->title ) ) . '</a></span></li>';
 				 $count++;
 				if ( $count > 4 ) {
 					break;}
