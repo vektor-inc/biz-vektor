@@ -1085,4 +1085,69 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 		$this->assertStringNotContainsString( '<i>', $out );
 		$this->assertCount( 4, array_filter( explode( 'ab&lt;i&gt;cd', $out ) ) ? array_fill( 0, 4, 1 ) : array(), 'dummy' );
 	}
+
+	/**
+	 * 高度な設定の保存を、private メソッド経由で実行する。
+	 *
+	 * @param string $types サイトマップに追加する投稿タイプ.
+	 * @param string $pages 隠すページ ID.
+	 * @return bool 保存結果.
+	 */
+	private function save_advanced_options( $types, $pages ) {
+		$method = new ReflectionMethod( 'Biz_Vektor_Advanced_Options', 'updateAdvancedOptions' );
+		$method->setAccessible( true );
+		return $method->invoke( null, $types, $pages );
+	}
+
+	/**
+	 * 高度な設定で、カンマ区切りの投稿タイプとページ ID がそのまま保存されること。
+	 */
+	public function test_advanced_options_save_normal_values() {
+		delete_option( 'biz_vektor_ad_options' );
+		$this->save_advanced_options( 'service,product', '35,1654' );
+		$saved = get_option( 'biz_vektor_ad_options' );
+		delete_option( 'biz_vektor_ad_options' );
+
+		$this->assertSame( array( 'service', 'product' ), $saved['types'] );
+		$this->assertEquals( array( 35, 1654 ), $saved['pages'] );
+	}
+
+	/**
+	 * 高度な設定で、引用符を含む値や整形後に空になる要素が保存されないこと。
+	 */
+	public function test_advanced_options_save_sanitizes_types() {
+		delete_option( 'biz_vektor_ad_options' );
+		$this->save_advanced_options( 'service,,"x" onfocus=,!!!', '' );
+		$saved = get_option( 'biz_vektor_ad_options' );
+		delete_option( 'biz_vektor_ad_options' );
+
+		$this->assertSame( array( 'service', 'xonfocus' ), $saved['types'] );
+		foreach ( $saved['types'] as $type ) {
+			$this->assertNotSame( '', $type );
+			$this->assertStringNotContainsString( '"', $type );
+		}
+	}
+
+	/**
+	 * 整形前の値が保存されていても、高度な設定画面の入力欄で属性が増えないこと。
+	 */
+	public function test_advanced_options_edit_escapes_value() {
+		update_option(
+			'biz_vektor_ad_options',
+			array(
+				'types' => array( 'a" onfocus="alert(1)" x="' ),
+				'pages' => array( '1" onfocus="alert(2)' ),
+			)
+		);
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$_POST = array();
+
+		$actual = $this->capture( array( 'Biz_Vektor_Advanced_Options', 'displayView' ) );
+		delete_option( 'biz_vektor_ad_options' );
+
+		$this->assertStringContainsString( 'id="types"', $actual );
+		$this->assertStringNotContainsString( 'a" onfocus=', $actual );
+		$this->assertStringNotContainsString( '1" onfocus=', $actual );
+		$this->assertStringContainsString( '&quot; onfocus=', $actual );
+	}
 }
