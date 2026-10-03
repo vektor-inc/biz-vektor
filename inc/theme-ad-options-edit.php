@@ -29,7 +29,7 @@
 						</th>
 						<td>
 							<p>
-								<input type="text" id="types" name="types" placeholder="service,product" value="<?php echo $data['types'] ?>" />
+								<input type="text" id="types" name="types" placeholder="service,product" value="<?php echo esc_attr( $data['types'] ); ?>" />
 								&nbsp;<?php _e( '*In case you have created custom post types you can add them here, comma separated if you have several.', 'biz-vektor' ); ?>
 							</p>
 						</td>
@@ -40,7 +40,7 @@
 						</th>
 						<td>
 							<p>
-								<input type="text" id="pages" name="pages" placeholder="35,1654" value="<?php echo $data['pages'] ?>" />
+								<input type="text" id="pages" name="pages" placeholder="35,1654" value="<?php echo esc_attr( $data['pages'] ); ?>" />
 								&nbsp;<?php _e( 'Enter the IDs of the pages you want to hide from the sitemap. Comma separated.', 'biz-vektor' );?>
 							</p>
 						</td>
