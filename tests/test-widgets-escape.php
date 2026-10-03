@@ -46,22 +46,40 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 				'expected_count'      => 5,
 			),
 			array(
-				'test_condition_name' => '数字以外を含む件数 => 絶対値の整数になる',
-				'count'               => '-3abc',
+				'test_condition_name' => '-1（全件表示） => -1 のまま',
+				'count'               => '-1',
 				'label'               => 'Plain',
-				'expected_count'      => 3,
+				'expected_count'      => -1,
 			),
 			array(
-				'test_condition_name' => 'タグを含む件数 => 0 になる',
+				'test_condition_name' => '-1 以外の負数 => 空になる',
+				'count'               => '-3',
+				'label'               => 'Plain',
+				'expected_count'      => '',
+			),
+			array(
+				'test_condition_name' => '0 => 空になる',
+				'count'               => '0',
+				'label'               => 'Plain',
+				'expected_count'      => '',
+			),
+			array(
+				'test_condition_name' => '数字以外 => 空になる',
+				'count'               => 'abc',
+				'label'               => 'Plain',
+				'expected_count'      => '',
+			),
+			array(
+				'test_condition_name' => 'タグを含む件数 => 空になる',
 				'count'               => '<script>alert(1)</script>',
 				'label'               => 'Plain',
-				'expected_count'      => 0,
+				'expected_count'      => '',
 			),
 			array(
-				'test_condition_name' => '空の件数 => 0 になる',
+				'test_condition_name' => '空の件数 => 空になる',
 				'count'               => '',
 				'label'               => 'Plain',
-				'expected_count'      => 0,
+				'expected_count'      => '',
 			),
 		);
 
@@ -196,6 +214,11 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 
 		$test_cases = array(
 			array(
+				'test_condition_name' => 'アーカイブ一覧（イベント属性・javascript リンクが除去される）',
+				'widget'              => new WP_Widget_archive_list(),
+				'instance'            => array( 'label' => '<span class="x">A</span><br><span class="x" onclick="alert(1)">B</span><a href="javascript:alert(1)">C</a>' ),
+			),
+			array(
 				'test_condition_name' => 'アーカイブ一覧',
 				'widget'              => new WP_Widget_archive_list(),
 				'instance'            => array( 'label' => $malicious ),
@@ -230,6 +253,8 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 			);
 			$this->assertStringContainsString( '<span class="x">A</span><br>', $html, $case['test_condition_name'] . '（装飾が残る）' );
 			$this->assertStringNotContainsString( '<script>alert(1)</script>', $html, $case['test_condition_name'] . '（script が出力されない）' );
+			$this->assertStringNotContainsString( 'onclick', $html, $case['test_condition_name'] . '（イベント属性が出力されない）' );
+			$this->assertStringNotContainsString( 'javascript:', $html, $case['test_condition_name'] . '（javascript: が出力されない）' );
 		}
 
 		wp_delete_post( $post_id, true );
@@ -260,9 +285,29 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 				'expected'            => 10,
 			),
 			array(
+				'test_condition_name' => 'count が空 => 10 件',
+				'count'               => '',
+				'expected'            => 10,
+			),
+			array(
+				'test_condition_name' => 'count が -3 => 10 件',
+				'count'               => '-3',
+				'expected'            => 10,
+			),
+			array(
 				'test_condition_name' => 'count が 3 => 3 件',
 				'count'               => '3',
 				'expected'            => 3,
+			),
+			array(
+				'test_condition_name' => 'count が -1 => 全件（12 件）',
+				'count'               => '-1',
+				'expected'            => 12,
+			),
+			array(
+				'test_condition_name' => 'count が 5 => 5 件',
+				'count'               => '5',
+				'expected'            => 5,
 			),
 		);
 
@@ -343,5 +388,26 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 				$this->assertStringContainsString( $needle, $html, $case['test_condition_name'] );
 			}
 		}
+	}
+
+	/**
+	 * タクソノミー一覧ウィジェットの form() 内 JavaScript で、ラベルが JSON 形式で書き出されること。
+	 */
+	public function test_form_taxonomy_script() {
+		register_taxonomy( 'wtest_tax', 'post', array( 'label' => 'A"B</script>', 'show_ui' => true, 'public' => true ) );
+
+		$widget = new WP_Widget_taxonomy_list();
+		$html   = $this->capture(
+			function () use ( $widget ) {
+				$widget->form( array() );
+			}
+		);
+
+		$this->assertStringContainsString( 'post_labels["wtest_tax"] = ' . wp_json_encode( 'A"B</script>' ) . ';', $html );
+		$this->assertStringContainsString( 'post_labels["category"] = ', $html );
+		$this->assertStringContainsString( 'post_labels["blog"] = ' . wp_json_encode( __( 'Blog', 'biz-vektor' ) ) . ';', $html );
+		$this->assertStringNotContainsString( 'A"B</script>', $html );
+
+		unregister_taxonomy( 'wtest_tax' );
 	}
 }

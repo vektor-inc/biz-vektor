@@ -457,10 +457,10 @@ jQuery(document).ready(function($){
 			<?php
 				foreach($taxs as $tax){
 					if(isset($tax->labels->name)){
-						echo 'post_labels["'.$tax->name.'"] = "'.$tax->labels->name.'";';
+						echo 'post_labels[' . wp_json_encode( $tax->name ) . '] = ' . wp_json_encode( $tax->labels->name ) . ";\n";
 					}
 				}
-				echo 'post_labels["blog"] = "'. __( 'Blog', 'biz-vektor' ) . '";'."\n";
+				echo 'post_labels["blog"] = ' . wp_json_encode( __( 'Blog', 'biz-vektor' ) ) . ";\n";
 			?>
 	var posttype = jQuery("[name=\"<?php echo $this->get_field_name('tax_name'); ?>\"]");
 	var lablfeld = jQuery("[name=\"<?php echo $this->get_field_name('label'); ?>\"]");
@@ -561,7 +561,11 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	function widget($args, $instance) {
 
-		$count 		= ( isset($instance['count']) && absint( $instance['count'] ) ) ? absint( $instance['count'] ) : 10;
+		$count 		= ( isset( $instance['count'] ) ) ? intval( $instance['count'] ) : 0;
+		// -1 は全件表示。それ以外で 1 未満（空・0 を含む）は既定の 10 件
+		if ( -1 !== $count && $count < 1 ) {
+			$count = 10;
+		}
 		$post_type 	= ( isset($instance['post_type']) && $instance['post_type'] ) ? $instance['post_type'] : 'post';
 
 		$query_args = array(
@@ -719,7 +723,9 @@ class WP_Widget_bizvektor_post_list extends WP_Widget {
 
 	function update ($new_instance, $old_instance) {
 		$instance = $old_instance;
-		$instance['count'] 		= absint( $new_instance['count'] );
+		$count = intval( $new_instance['count'] );
+		// -1（全件表示）または正の整数のみ保存し、それ以外は空で保存する
+		$instance['count'] 		= ( -1 === $count || $count > 0 ) ? $count : '';
 		$instance['label'] 		= wp_kses_post( $new_instance['label'] );
 		$instance['format'] 	= $new_instance['format'];
 		$instance['post_type']	= !empty($new_instance['post_type']) ? strip_tags($new_instance['post_type']) : 'post';
