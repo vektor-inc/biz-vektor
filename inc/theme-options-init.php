@@ -157,43 +157,43 @@ function biz_vektor_theme_options_validate( $input ) {
 
 	// Design
 	$output['gMenuDivide'] = $input['gMenuDivide'];
-	$output['head_logo']   = $input['head_logo'];
-	$output['foot_logo']   = $input['foot_logo'];
+	$output['head_logo']   = esc_url_raw( $input['head_logo'] );
+	$output['foot_logo']   = esc_url_raw( $input['foot_logo'] );
 	$output['font_title']  = $input['font_title'];
 	$output['font_menu']   = $input['font_menu'];
 	if ( 'ja' != get_locale() ) {
 		$output['global_font'] = $input['global_font'];
 	}
 	$output['side_child_display'] = $input['side_child_display'];
-	$output['favicon']            = ( preg_match( '/.+\.ico$/i', $input['favicon'] ) ) ? $input['favicon'] : '';
+	$output['favicon']            = ( preg_match( '/.+\.ico$/i', $input['favicon'] ) ) ? esc_url_raw( $input['favicon'] ) : '';
 	$output['enableie8Warning']   = ( isset( $input['enableie8Warning'] ) && $input['enableie8Warning'] == 'true' ) ? true : false;
 
 	// Contact info
-	$output['contact_txt']     = $input['contact_txt'];
-	$output['tel_number']      = $input['tel_number'];
-	$output['contact_time']    = $input['contact_time'];
-	$output['sub_sitename']    = $input['sub_sitename'];
-	$output['contact_address'] = $input['contact_address'];
-	$output['contact_link']    = $input['contact_link'];
+	$output['contact_txt']     = wp_kses_post( $input['contact_txt'] );
+	$output['tel_number']      = wp_kses_post( $input['tel_number'] );
+	$output['contact_time']    = wp_kses_post( $input['contact_time'] );
+	$output['sub_sitename']    = wp_kses_post( $input['sub_sitename'] );
+	$output['contact_address'] = wp_kses_post( $input['contact_address'] );
+	$output['contact_link']    = esc_url_raw( $input['contact_link'] );
 	// 3PR
 	$output['top3PrDisplay']   = ( isset( $input['top3PrDisplay'] ) && $input['top3PrDisplay'] == 'true' ) ? true : false;
 	$output['pr1_title']       = sanitize_text_field( $input['pr1_title'] );
 	$output['pr1_description'] = esc_html( $input['pr1_description'] );
 	$output['pr1_link']        = esc_url( $input['pr1_link'] );
-	$output['pr1_image']       = esc_url( $input['pr1_image'] );
-	$output['pr1_image_s']     = esc_url( $input['pr1_image_s'] );
+	$output['pr1_image']       = esc_url_raw( $input['pr1_image'] );
+	$output['pr1_image_s']     = esc_url_raw( $input['pr1_image_s'] );
 	$output['pr2_title']       = sanitize_text_field( $input['pr2_title'] );
 	$output['pr2_description'] = esc_html( $input['pr2_description'] );
 	$output['pr2_link']        = esc_url( $input['pr2_link'] );
-	$output['pr2_image']       = esc_url( $input['pr2_image'] );
-	$output['pr2_image_s']     = esc_url( $input['pr2_image_s'] );
+	$output['pr2_image']       = esc_url_raw( $input['pr2_image'] );
+	$output['pr2_image_s']     = esc_url_raw( $input['pr2_image_s'] );
 	$output['pr3_title']       = sanitize_text_field( $input['pr3_title'] );
 	$output['pr3_description'] = esc_html( $input['pr3_description'] );
 	$output['pr3_link']        = esc_url( $input['pr3_link'] );
-	$output['pr3_image']       = esc_url( $input['pr3_image'] );
-	$output['pr3_image_s']     = esc_url( $input['pr3_image_s'] );
+	$output['pr3_image']       = esc_url_raw( $input['pr3_image'] );
+	$output['pr3_image_s']     = esc_url_raw( $input['pr3_image_s'] );
 	// Infomation & Blog
-	$output['postLabelName'] = ( preg_match( '/^(\s|[ 　]*)$/', $input['postLabelName'] ) ) ? $defaults['postLabelName'] : $input['postLabelName'];
+	$output['postLabelName'] = ( preg_match( '/^(\s|[ 　]*)$/', $input['postLabelName'] ) ) ? $defaults['postLabelName'] : sanitize_text_field( $input['postLabelName'] );
 	// $output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
 	// $output['listInfoTop']            = $input['listInfoTop'];
 	// $output['listInfoArchive']        = $input['listInfoArchive'];
@@ -210,8 +210,8 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['topSideBarDisplay'] = ( isset( $input['topSideBarDisplay'] ) && $input['topSideBarDisplay'] == 'true' ) ? true : false;
 	// SlideShow
 	for ( $i = 1; $i <= 5; ) {
-		$output[ 'slide' . $i . 'link' ]    = $input[ 'slide' . $i . 'link' ];
-		$output[ 'slide' . $i . 'image' ]   = $input[ 'slide' . $i . 'image' ];
+		$output[ 'slide' . $i . 'link' ]    = esc_url_raw( $input[ 'slide' . $i . 'link' ] );
+		$output[ 'slide' . $i . 'image' ]   = esc_url_raw( $input[ 'slide' . $i . 'image' ] );
 		$output[ 'slide' . $i . 'alt' ]     = $input[ 'slide' . $i . 'alt' ];
 		$output[ 'slide' . $i . 'display' ] = ( isset( $input[ 'slide' . $i . 'display' ] ) && $input[ 'slide' . $i . 'display' ] ) ? 'true' : '';
 		$output[ 'slide' . $i . 'blank' ]   = ( isset( $input[ 'slide' . $i . 'blank' ] ) && $input[ 'slide' . $i . 'blank' ] ) ? 'true' : '';
