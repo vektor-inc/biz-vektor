@@ -342,4 +342,84 @@ class Post_Type_Manager_Test extends WP_UnitTestCase {
 			$this->assertSame( $test_case['expected'], $actual, $test_case['test_condition_name'] );
 		}
 	}
+
+	/**
+	 * 分類ラベルが、保存後も文字のまま残り、登録時にはタグだけが取り除かれること。
+	 */
+	public function test_taxonomy_label_registered() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => '& を含むラベルを保存 => 実体参照にならず Q&A のまま登録される',
+				'saved_by_form'       => true,
+				'label'               => 'Q&A',
+				'expected_meta'       => 'Q&A',
+				'expected_label'      => 'Q&A',
+			),
+			array(
+				'test_condition_name' => "' を含むラベルを保存 => 実体参照にならず Men's のまま登録される",
+				'saved_by_form'       => true,
+				'label'               => "Men's",
+				'expected_meta'       => "Men's",
+				'expected_label'      => "Men's",
+			),
+			array(
+				'test_condition_name' => 'バックスラッシュを含むラベルを保存 => 保存後も残る',
+				'saved_by_form'       => true,
+				'label'               => 'A\\B',
+				'expected_meta'       => 'A\\B',
+				'expected_label'      => 'A\\B',
+			),
+			array(
+				'test_condition_name' => 'タグ入りの既存ラベル（整形を通さず保存済み） => 登録時にタグが取り除かれる',
+				'saved_by_form'       => false,
+				'label'               => 'Genre<script>alert(1)</script><b>X</b>',
+				'expected_meta'       => 'Genre<script>alert(1)</script><b>X</b>',
+				'expected_label'      => 'GenreX',
+			),
+		);
+
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+
+		foreach ( $test_cases as $test_case ) {
+			$_POST   = array();
+			$post_id = self::factory()->post->create(
+				array(
+					'post_type'   => 'post_type_manage',
+					'post_status' => 'publish',
+				)
+			);
+
+			$taxonomy = array(
+				1 => array(
+					'slug'  => 'label_cat',
+					'label' => $test_case['label'],
+				),
+			);
+
+			if ( $test_case['saved_by_form'] ) {
+				$_POST                     = $this->get_post_data();
+				$_POST['veu_post_type_id'] = 'labeltype';
+				$_POST['veu_taxonomy']     = $taxonomy;
+				$_POST                     = wp_slash( $_POST );
+				$this->manager->save_cf_value( $post_id );
+			} else {
+				update_post_meta( $post_id, 'veu_post_type_id', 'labeltype' );
+				update_post_meta( $post_id, 'veu_post_type_items', array( 'title' => 'true' ) );
+				update_post_meta( $post_id, 'veu_taxonomy', wp_slash( $taxonomy ) );
+			}
+
+			$saved = get_post_meta( $post_id, 'veu_taxonomy', true );
+			$this->assertSame( $test_case['expected_meta'], $saved[1]['label'], $test_case['test_condition_name'] . '（保存値）' );
+
+			$this->manager->add_post_type();
+			$registered = get_taxonomy( 'label_cat' );
+			$this->assertNotFalse( $registered, $test_case['test_condition_name'] . '（登録）' );
+			$this->assertSame( $test_case['expected_label'], $registered->labels->name, $test_case['test_condition_name'] . '（登録後のラベル）' );
+			$this->assertSame( $test_case['expected_label'], $registered->label, $test_case['test_condition_name'] . '（登録後の label）' );
+
+			unregister_taxonomy( 'label_cat' );
+			unregister_post_type( 'labeltype' );
+			wp_delete_post( $post_id, true );
+		}
+	}
 }

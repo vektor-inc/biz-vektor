@@ -451,8 +451,8 @@ if ( ! class_exists( 'Vk_post_type_manager' ) ) {
 								$args = array(
 									'hierarchical'   => $hierarchical_true,
 									'update_count_callback' => '_update_post_term_count',
-									'label'          => esc_html( $taxonomy['label'] ),
-									'singular_label' => esc_html( $taxonomy['label'] ),
+									'label'          => wp_strip_all_tags( $taxonomy['label'] ),
+									'singular_label' => wp_strip_all_tags( $taxonomy['label'] ),
 									'public'         => true,
 									'show_ui'        => true,
 									'show_in_rest'   => $rest_api_true,
