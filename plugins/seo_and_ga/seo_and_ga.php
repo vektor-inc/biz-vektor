@@ -35,7 +35,7 @@ add_filter( 'biz_vektor_theme_options_validate', 'biz_vektor_seo_validate', 10, 
 function biz_vektor_seo_validate( $output, $input ) {
 	// SEO
 	$output['topTitle']       = $input['topTitle'];
-	$output['commonKeyWords'] = $input['commonKeyWords'];
+	$output['commonKeyWords'] = sanitize_text_field( $input['commonKeyWords'] );
 	$output['gaID']           = preg_replace( '/^[ 　]*(.*)$/', '$1', $input['gaID'] );
 	$output['gaType']         = $input['gaType'];
 	return $output;

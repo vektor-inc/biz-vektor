@@ -162,7 +162,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['font_title']  = $input['font_title'];
 	$output['font_menu']   = $input['font_menu'];
 	if ( 'ja' != get_locale() ) {
-		$output['global_font'] = $input['global_font'];
+		$output['global_font'] = biz_vektor_sanitize_global_font( $input['global_font'] );
 	}
 	$output['side_child_display'] = $input['side_child_display'];
 	$output['favicon']            = ( preg_match( '/.+\.ico$/i', $input['favicon'] ) ) ? esc_url_raw( $input['favicon'] ) : '';

@@ -135,17 +135,17 @@ function biz_vektor_ad_contet_more($post_content) {
 
 function displays_global_css() {
 	$biz_vektor_options = biz_vektor_get_theme_options();
-	$font = $biz_vektor_options['global_font'];
+	$font = biz_vektor_sanitize_global_font( $biz_vektor_options['global_font'] );
 	
 	?>
 		<style type="text/css">
 	<?php
 
 	//Google Web Fonts import 
-	if ( isset( $font ) ) { ?>
-		@import url(http://fonts.googleapis.com/css?family=<?php echo $font; ?>:400,700,700italic,300,300italic,400italic);
+	if ( '' !== $font ) { ?>
+		@import url(http://fonts.googleapis.com/css?family=<?php echo esc_attr( $font ); ?>:400,700,700italic,300,300italic,400italic);
 
-		body {font-family: '<?php echo str_replace( "+", " ", $font ); ?>', sans-serif;}
+		body {font-family: '<?php echo esc_attr( str_replace( "+", " ", $font ) ); ?>', sans-serif;}
 	<?php } ?>
 
 		/*-------------------------------------------*/
