@@ -174,7 +174,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['pr3_image']       = esc_url_raw( $input['pr3_image'] );
 	$output['pr3_image_s']     = esc_url_raw( $input['pr3_image_s'] );
 	// Infomation & Blog
-	$output['postLabelName'] = ( preg_match( '/^(\s|[ 　]*)$/', $input['postLabelName'] ) ) ? $defaults['postLabelName'] : $input['postLabelName'];
+	$output['postLabelName'] = ( preg_match( '/^(\s|[ 　]*)$/', $input['postLabelName'] ) ) ? $defaults['postLabelName'] : sanitize_text_field( $input['postLabelName'] );
 	// $output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
 	// $output['listInfoTop']            = $input['listInfoTop'];
 	// $output['listInfoArchive']        = $input['listInfoArchive'];
@@ -184,9 +184,11 @@ function biz_vektor_theme_options_validate( $input ) {
 	// $output['postTopUrl']         = $input['postTopUrl'];
 	$output['postTopCount']       = ( preg_match( '/^(\s|[ 　]*)$/', $input['postTopCount'] ) ) ? 5 : $input['postTopCount'];
 	$output['postRelatedCount']   = ( preg_match( '/^(\s|[ 　]*)$/', $input['postRelatedCount'] ) ) ? 6 : $input['postRelatedCount'];
-	$output['ad_content_moretag'] = $input['ad_content_moretag'];
-	$output['ad_content_after']   = $input['ad_content_after'];
-	$output['ad_related_after']   = $input['ad_related_after'];
+	// 広告欄は広告タグを使うため、unfiltered_html 権限が無いユーザーの場合だけ許可タグ以外を除く.
+	$can_unfiltered_html          = current_user_can( 'unfiltered_html' );
+	$output['ad_content_moretag'] = $can_unfiltered_html ? $input['ad_content_moretag'] : wp_kses_post( $input['ad_content_moretag'] );
+	$output['ad_content_after']   = $can_unfiltered_html ? $input['ad_content_after'] : wp_kses_post( $input['ad_content_after'] );
+	$output['ad_related_after']   = $can_unfiltered_html ? $input['ad_related_after'] : wp_kses_post( $input['ad_related_after'] );
 	// TopPage
 	$output['topSideBarDisplay'] = ( isset( $input['topSideBarDisplay'] ) && $input['topSideBarDisplay'] == 'true' ) ? true : false;
 	// SlideShow

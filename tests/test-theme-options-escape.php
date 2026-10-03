@@ -617,7 +617,7 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 					'pr1_image'   => 'https://example.com/pr.jpg',
 					'pr1_image_s' => 'https://example.com/pr_s.jpg',
 				),
-				'contains'            => array( 'A<br><span class="x">B</span>', 'alt="Image of AB"' ),
+				'contains'            => array( 'A<br><span class="x">B</span>', 'alt="Image of A B"' ),
 				'not_contains'        => array(),
 			),
 			array(
@@ -665,6 +665,236 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 			foreach ( $case['not_contains'] as $needle ) {
 				$this->assertStringNotContainsString( $needle, $actual, $case['test_condition_name'] );
 			}
+		}
+	}
+
+	/**
+	 * alt 用の文字列で、改行タグが半角スペースになりタグが取り除かれること。
+	 */
+	public function test_biz_vektor_get_alt_text() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'br を含む場合 => 半角スペースになる',
+				'text'                => 'A<br>B',
+				'expected'            => 'A B',
+			),
+			array(
+				'test_condition_name' => '大文字・自己終了形の br を含む場合 => 半角スペースになる',
+				'text'                => 'A<BR/>B<br />C',
+				'expected'            => 'A B C',
+			),
+			array(
+				'test_condition_name' => 'プレーンテキストの場合 => そのまま',
+				'text'                => 'Alt text',
+				'expected'            => 'Alt text',
+			),
+			array(
+				'test_condition_name' => 'script を含む場合 => タグごと取り除かれる',
+				'text'                => 'A<script>alert(1)</script><b>B</b>',
+				'expected'            => 'AB',
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			$this->assertSame( $case['expected'], biz_vektor_get_alt_text( $case['text'] ), $case['test_condition_name'] );
+		}
+	}
+
+	/**
+	 * 投稿タイプの表示名の保存時にタグが除かれ、空の場合は既定値になること。
+	 */
+	public function test_biz_vektor_theme_options_validate_post_label_name() {
+		$defaults   = biz_vektor_generate_default_options();
+		$test_cases = array(
+			array(
+				'test_condition_name' => '通常の文字の場合 => そのまま',
+				'value'               => 'ニュース',
+				'expected'            => 'ニュース',
+			),
+			array(
+				'test_condition_name' => 'タグを含む場合 => タグが除かれる',
+				'value'               => 'News<script>alert(1)</script>',
+				'expected'            => 'News',
+			),
+			array(
+				'test_condition_name' => '空白だけの場合 => 既定値になる',
+				'value'               => '  ',
+				'expected'            => $defaults['postLabelName'],
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			$input  = array_merge( $defaults, array( 'postLabelName' => $case['value'] ) );
+			$output = biz_vektor_theme_options_validate( $input );
+			$this->assertSame( $case['expected'], $output['postLabelName'], $case['test_condition_name'] );
+		}
+	}
+
+	/**
+	 * 広告欄は unfiltered_html 権限がある場合はそのまま、無い場合は許可タグ以外が除かれること。
+	 */
+	public function test_biz_vektor_theme_options_validate_ad_fields() {
+		$ad_tag     = '<div class="ad"><script async src="https://example.com/ad.js"></script></div>';
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'unfiltered_html 権限がある場合 => 広告タグがそのまま保存される',
+				'unfiltered_html'     => true,
+				'value'               => $ad_tag,
+				'expected'            => $ad_tag,
+			),
+			array(
+				'test_condition_name' => 'unfiltered_html 権限が無い場合 => script が除かれ装飾は残る',
+				'unfiltered_html'     => false,
+				'value'               => '<div class="ad">A<script>alert(1)</script></div>',
+				'expected'            => '<div class="ad">Aalert(1)</div>',
+			),
+			array(
+				'test_condition_name' => 'unfiltered_html 権限が無く空の場合 => 空のまま',
+				'unfiltered_html'     => false,
+				'value'               => '',
+				'expected'            => '',
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			$user_id = self::factory()->user->create( array( 'role' => 'administrator' ) );
+			$user    = new WP_User( $user_id );
+			$user->add_cap( 'unfiltered_html', $case['unfiltered_html'] );
+			wp_set_current_user( $user_id );
+
+			$input  = array_merge(
+				biz_vektor_generate_default_options(),
+				array(
+					'ad_content_moretag' => $case['value'],
+					'ad_content_after'   => $case['value'],
+					'ad_related_after'   => $case['value'],
+				)
+			);
+			$output = biz_vektor_theme_options_validate( $input );
+			foreach ( array( 'ad_content_moretag', 'ad_content_after', 'ad_related_after' ) as $key ) {
+				$this->assertSame( $case['expected'], $output[ $key ], $case['test_condition_name'] . ' [' . $key . ']' );
+			}
+		}
+		wp_set_current_user( 0 );
+	}
+
+	/**
+	 * ヘッダーロゴの alt でサイト名がエスケープされること。
+	 */
+	public function test_biz_vektor_print_headLogo_alt() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => '通常のサイト名の場合 => そのまま',
+				'blogname'            => 'My Site',
+				'contains'            => 'alt="My Site"',
+				'not_contains'        => 'onerror',
+			),
+			array(
+				'test_condition_name' => '属性を閉じる文字を含む場合 => alt の外に出ない',
+				'blogname'            => 'A" onerror="alert(1)',
+				'contains'            => 'alt="A&quot; onerror=&quot;alert(1)"',
+				'not_contains'        => '" onerror="',
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			update_option( 'blogname', $case['blogname'] );
+			$this->set_options( array( 'head_logo' => 'https://example.com/logo.png' ) );
+			$actual = $this->capture( 'biz_vektor_print_headLogo' );
+			$this->assertStringContainsString( $case['contains'], $actual, $case['test_condition_name'] );
+			$this->assertStringNotContainsString( $case['not_contains'], $actual, $case['test_condition_name'] );
+		}
+	}
+
+	/**
+	 * 画像の alt で改行タグが半角スペースになること（スライド・フッターロゴ・3PR）。
+	 */
+	public function test_alt_text_with_line_break() {
+		// スライド
+		$this->set_options(
+			array(
+				'slide1image' => 'https://example.com/a.jpg',
+				'slide1alt'   => 'A<br>B<BR/>C',
+			)
+		);
+		$this->assertStringContainsString( 'alt="A B C"', get_biz_vektor_slide_body() );
+
+		// フッターロゴ
+		$this->set_options(
+			array(
+				'foot_logo'    => 'https://example.com/f.png',
+				'sub_sitename' => 'A<br>B',
+			)
+		);
+		$this->assertStringContainsString( 'alt="A B"', $this->capture( 'biz_vektor_footerSiteName' ) );
+
+		// 3PR
+		$this->set_options(
+			array(
+				'pr1_title'   => 'A<br />B',
+				'pr1_image'   => 'https://example.com/pr.jpg',
+				'pr1_image_s' => 'https://example.com/pr_s.jpg',
+			)
+		);
+		$actual = $this->capture(
+			function () {
+				include get_template_directory() . '/module_topPR.php';
+			}
+		);
+		$this->assertStringContainsString( 'alt="Image of A B"', $actual );
+	}
+
+	/**
+	 * 3PR のタイトルに script を入れても見出しに出力されないこと。
+	 */
+	public function test_module_topPR_title() {
+		$this->set_options(
+			array(
+				'pr1_title'   => 'A<script>alert(1)</script><b onclick="x()">B</b>',
+				'pr1_image'   => 'https://example.com/pr.jpg',
+				'pr1_image_s' => 'https://example.com/pr_s.jpg',
+			)
+		);
+		$actual = $this->capture(
+			function () {
+				include get_template_directory() . '/module_topPR.php';
+			}
+		);
+		$this->assertStringContainsString( '<b>B</b>', $actual );
+		$this->assertStringNotContainsString( '<script', $actual );
+		$this->assertStringNotContainsString( 'onclick="x()"', $actual );
+	}
+
+	/**
+	 * サイトマップで投稿タイプの表示名がエスケープされること。
+	 */
+	public function test_module_sitemap() {
+		self::factory()->post->create( array( 'post_status' => 'publish' ) );
+
+		$test_cases = array(
+			array(
+				'test_condition_name' => '通常の表示名の場合 => そのまま出力',
+				'label'               => 'ニュース',
+				'contains'            => 'ニュース',
+				'not_contains'        => '<script',
+			),
+			array(
+				'test_condition_name' => 'タグを含む場合 => タグが文字として出力される',
+				'label'               => 'N<script>alert(1)</script>',
+				'contains'            => 'N&lt;script&gt;alert(1)&lt;/script&gt;',
+				'not_contains'        => '<script>alert(1)',
+			),
+		);
+
+		foreach ( $test_cases as $case ) {
+			$this->set_options( array( 'postLabelName' => $case['label'] ) );
+			$actual = $this->capture(
+				function () {
+					include get_template_directory() . '/module_sitemap.php';
+				}
+			);
+			$this->assertStringContainsString( $case['contains'], $actual, $case['test_condition_name'] );
+			$this->assertStringNotContainsString( $case['not_contains'], $actual, $case['test_condition_name'] );
 		}
 	}
 }

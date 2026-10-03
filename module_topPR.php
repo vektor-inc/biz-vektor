@@ -36,7 +36,7 @@ for ( $i = 1; $i <= 3 ;)
 			<?php if ( isset( $biz_vektor_options['pr'.$i.'_link'] ) && ! empty( $biz_vektor_options['pr'.$i.'_link'] ) ) { ?>
 			<a href="<?php echo esc_url($biz_vektor_options['pr'.$i.'_link']) ?>">
 			<?php } ?>
-				<img src="<?php echo esc_url( $biz_vektor_options['pr'.$i.'_image'] ); ?>" alt="<?php echo esc_attr( wp_strip_all_tags( sprintf( __( 'Image of %s', 'biz-vektor' ), $biz_vektor_options['pr'.$i.'_title'] ) ) ); ?>" class="imageWide" />
+				<img src="<?php echo esc_url( $biz_vektor_options['pr'.$i.'_image'] ); ?>" alt="<?php echo esc_attr( biz_vektor_get_alt_text( sprintf( __( 'Image of %s', 'biz-vektor' ), $biz_vektor_options['pr'.$i.'_title'] ) ) ); ?>" class="imageWide" />
 				<img src="<?php echo esc_url( $biz_vektor_options['pr'.$i.'_image_s'] ); ?>" alt="" class="imageSmall" />
 			<?php if ( isset( $biz_vektor_options['pr'.$i.'_link'] ) && ! empty( $biz_vektor_options['pr'.$i.'_link'] ) ) { ?>
 			</a>

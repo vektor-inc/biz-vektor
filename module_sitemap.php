@@ -133,11 +133,11 @@ if ( isset( $advancedOptions ) ) {
 					if ( isset( $type['link'] ) && ! empty( $type['link'] ) ) {
 					?>
 							<a href="<?php echo $type['link']; ?>">
-								<?php echo isset( $type['label'] ) ? $type['label'] : ''; ?>
+								<?php echo isset( $type['label'] ) ? esc_html( $type['label'] ) : ''; ?>
 							</a>
 							<?php
 					} else {
-						echo isset( $type['label'] ) ? $type['label'] : '';
+						echo isset( $type['label'] ) ? esc_html( $type['label'] ) : '';
 					}
 					?>
 					</h5>

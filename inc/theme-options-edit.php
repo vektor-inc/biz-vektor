@@ -340,7 +340,7 @@ $biz_vektor_options        = biz_vektor_get_theme_options();
 	<tr>
 	<th scope="row"><?php _e( 'Company address', 'biz-vektor' ); ?><br /><?php _e( 'This is displayed in the left bottom part of the footer.', 'biz-vektor' ); ?></th>
 	<td>
-	<textarea cols="20" rows="5" name="biz_vektor_theme_options[contact_address]" id="contact_address" value="" style="width:50%;" /><?php echo $options['contact_address']; ?></textarea><br />
+	<textarea cols="20" rows="5" name="biz_vektor_theme_options[contact_address]" id="contact_address" value="" style="width:50%;" /><?php echo esc_textarea( $options['contact_address'] ); ?></textarea><br />
 		<span><?php _e( 'ex) ', 'biz-vektor' ); ?>
 		<?php _e( '316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br />Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176', 'biz-vektor' ); ?>
 		</span>
@@ -535,17 +535,17 @@ $postLabelName = esc_html( bizVektorOptions( 'postLabelName' ) );
 
 	<dl>
 		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'more tag', 'biz-vektor' ) ); ?></dt>
-		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_moretag]" id="ad_content_moretag" value="" style="width:90%;" /><?php echo isset( $options['ad_content_moretag'] ) ? $options['ad_content_moretag'] : ''; ?></textarea>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_moretag]" id="ad_content_moretag" value="" style="width:90%;" /><?php echo isset( $options['ad_content_moretag'] ) ? esc_textarea( $options['ad_content_moretag'] ) : ''; ?></textarea>
 		</dd>
 	</dl>
 	<dl>
 		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'main content', 'biz-vektor' ) ); ?></dt>
-		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_after]" id="ad_content_after" value="" style="width:90%;" /><?php echo isset( $options['ad_content_after'] ) ? $options['ad_content_after'] : ''; ?></textarea>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_content_after]" id="ad_content_after" value="" style="width:90%;" /><?php echo isset( $options['ad_content_after'] ) ? esc_textarea( $options['ad_content_after'] ) : ''; ?></textarea>
 		</dd>
 	</dl>
 	<dl>
 		<dt><?php printf( __( 'Insert ad after %1$s', 'biz-vektor' ), __( 'related articles', 'biz-vektor' ) ); ?></dt>
-		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_related_after]" id="ad_related_after" value="" style="width:90%;" /><?php echo isset( $options['ad_related_after'] ) ? $options['ad_related_after'] : ''; ?></textarea>
+		<dd><textarea cols="20" rows="5" name="biz_vektor_theme_options[ad_related_after]" id="ad_related_after" value="" style="width:90%;" /><?php echo isset( $options['ad_related_after'] ) ? esc_textarea( $options['ad_related_after'] ) : ''; ?></textarea>
 		</dd>
 	</dl>
 

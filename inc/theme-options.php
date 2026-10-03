@@ -57,8 +57,8 @@ if ( ! empty( $biz_vektor_options['postLabelName'] ) ) {
 	function biz_vektor_change_post_type_args_post( $args ) {
 		$biz_vektor_options = get_option( 'biz_vektor_theme_options' );
 		if ( isset( $args['rest_base'] ) && $args['rest_base'] == 'posts' ) {
-			$args['labels']['name_admin_bar'] = $biz_vektor_options['postLabelName'];
-			$args['labels']['name']           = $biz_vektor_options['postLabelName'];
+			$args['labels']['name_admin_bar'] = wp_strip_all_tags( $biz_vektor_options['postLabelName'] );
+			$args['labels']['name']           = wp_strip_all_tags( $biz_vektor_options['postLabelName'] );
 			// $args['labels']['edit_item']      = '';
 			// $args['labels']['add_new_item']   = '';
 		}
@@ -376,6 +376,20 @@ function biz_vektor_theme_style_oldie() {
 }
 
 /*-------------------------------------------*/
+/*	画像の alt 用テキスト
+/*-------------------------------------------*/
+/**
+ * alt 属性に入れる文字列を作る。改行タグは半角スペースにしてからタグを取り除く。
+ *
+ * @param string $text 元の文字列.
+ * @return string タグを取り除いた文字列（属性値用のエスケープは呼び出し側で行う）.
+ */
+function biz_vektor_get_alt_text( $text ) {
+	$text = preg_replace( '/<br\s*\/?>/i', ' ', (string) $text );
+	return wp_strip_all_tags( $text );
+}
+
+/*-------------------------------------------*/
 /*	Favicon
 /*-------------------------------------------*/
 function biz_vektor_favicon() {
@@ -438,7 +452,7 @@ if ( ! function_exists( 'biz_vektor_print_headLogo' ) ) {
 	function biz_vektor_print_headLogo() {
 		$options = biz_vektor_get_theme_options();
 		if ( isset( $options['head_logo'] ) && $options['head_logo'] ) {
-			print '<img src="' . esc_url( $options['head_logo'] ) . '" alt="' . get_bloginfo( 'name' ) . '" />';
+			print '<img src="' . esc_url( $options['head_logo'] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />';
 		} else {
 			bloginfo( 'name' );
 		}
@@ -596,7 +610,7 @@ function biz_vektor_footerSiteName() {
 		$footSiteName = get_bloginfo( 'name' );
 	}
 	if ( $options['foot_logo'] ) {
-		print '<img src="' . esc_url( $options['foot_logo'] ) . '" alt="' . esc_attr( wp_strip_all_tags( $footSiteName ) ) . '" />';
+		print '<img src="' . esc_url( $options['foot_logo'] ) . '" alt="' . esc_attr( biz_vektor_get_alt_text( $footSiteName ) ) . '" />';
 	} else {
 		echo wp_kses_post( $footSiteName );
 	}
@@ -643,7 +657,7 @@ endif;
 			} else {
 				$biz_vektor_slide_body .= '<span class="slideFrame">';
 			}
-			$biz_vektor_slide_body .= '<img src="' . esc_url( $biz_vektor_options[ 'slide' . $i . 'image' ] ) . '" alt="' . esc_attr( wp_strip_all_tags( $biz_vektor_options[ 'slide' . $i . 'alt' ] ) ) . '" />';
+			$biz_vektor_slide_body .= '<img src="' . esc_url( $biz_vektor_options[ 'slide' . $i . 'image' ] ) . '" alt="' . esc_attr( biz_vektor_get_alt_text( $biz_vektor_options[ 'slide' . $i . 'alt' ] ) ) . '" />';
 			if ( $biz_vektor_options[ 'slide' . $i . 'link' ] ) {
 				$biz_vektor_slide_body .= '</a>';
 			} else {
