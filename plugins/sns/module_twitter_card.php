@@ -17,10 +17,10 @@ if ( isset($biz_vektor_options['twitter']) && $biz_vektor_options['twitter'] && 
 ?>
 <!-- bizvektor twitter card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:description" content="<?php echo getHeadDescription(); ?>">
-<meta name="twitter:title" content="<?php echo getHeadTitle(); ?>">
-<meta name="twitter:url" content="<?php echo $linkUrl ?>">
+<meta name="twitter:description" content="<?php echo esc_attr( wp_strip_all_tags( getHeadDescription() ) ); ?>">
+<meta name="twitter:title" content="<?php echo esc_attr( wp_strip_all_tags( getHeadTitle() ) ); ?>">
+<meta name="twitter:url" content="<?php echo esc_url( $linkUrl ); ?>">
 <meta name="twitter:image" content="<?php echo esc_url($card_image_url);?>">
-<meta name="twitter:site" content="@<?php echo $biz_vektor_options['twitter'];?>">
+<meta name="twitter:site" content="@<?php echo esc_attr( $biz_vektor_options['twitter'] ); ?>">
 <!-- /twitter card -->
 <?php endif; ?>
