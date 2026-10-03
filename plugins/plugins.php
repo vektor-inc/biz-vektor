@@ -25,7 +25,7 @@ function biz_vektor_footerCopyRight() 		{
 	$subSiteName = ($options['sub_sitename']);
 	print '<div id="copy">Copyright &copy; <a href="'.home_url( '/' ).'" rel="home">';
 	if ($subSiteName) {
-		print $subSiteName;
+		echo wp_kses_post( $subSiteName );
 	} else {
 		bloginfo( 'name' );
 	}

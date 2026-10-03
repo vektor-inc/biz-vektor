@@ -37,7 +37,7 @@
 
 <?php if ( wp_is_mobile() ) : ?>
 <li class="sb_line sb_icon">
-<a href="line://msg/text/<?php echo getHeadTitle().' '.$linkUrl; ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
+<a href="line://msg/text/<?php echo esc_attr( getHeadTitle() . ' ' . $linkUrl ); ?>"><span class="vk_icon_w_r_sns_line icon_sns"></span><span class="sns_txt">LINE</span></a>
 </li>
 <?php endif; ?>
 

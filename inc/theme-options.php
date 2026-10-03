@@ -57,8 +57,8 @@ if ( ! empty( $biz_vektor_options['postLabelName'] ) ) {
 	function biz_vektor_change_post_type_args_post( $args ) {
 		$biz_vektor_options = get_option( 'biz_vektor_theme_options' );
 		if ( isset( $args['rest_base'] ) && $args['rest_base'] == 'posts' ) {
-			$args['labels']['name_admin_bar'] = $biz_vektor_options['postLabelName'];
-			$args['labels']['name']           = $biz_vektor_options['postLabelName'];
+			$args['labels']['name_admin_bar'] = wp_strip_all_tags( $biz_vektor_options['postLabelName'] );
+			$args['labels']['name']           = wp_strip_all_tags( $biz_vektor_options['postLabelName'] );
 			// $args['labels']['edit_item']      = '';
 			// $args['labels']['add_new_item']   = '';
 		}
@@ -376,12 +376,26 @@ function biz_vektor_theme_style_oldie() {
 }
 
 /*-------------------------------------------*/
+/*	画像の alt 用テキスト
+/*-------------------------------------------*/
+/**
+ * alt 属性に入れる文字列を作る。改行タグは半角スペースにしてからタグを取り除く。
+ *
+ * @param string $text 元の文字列.
+ * @return string タグを取り除いた文字列（属性値用のエスケープは呼び出し側で行う）.
+ */
+function biz_vektor_get_alt_text( $text ) {
+	$text = preg_replace( '/<br\s*\/?>/i', ' ', (string) $text );
+	return wp_strip_all_tags( $text );
+}
+
+/*-------------------------------------------*/
 /*	Favicon
 /*-------------------------------------------*/
 function biz_vektor_favicon() {
 	$options = biz_vektor_get_theme_options();
 	if ( isset( $options['favicon'] ) && $options['favicon'] ) {
-		echo '<link rel="SHORTCUT ICON" HREF="' . $options['favicon'] . '" />';
+		echo '<link rel="SHORTCUT ICON" HREF="' . esc_url( $options['favicon'] ) . '" />';
 	}
 }
 add_action( 'wp_head', 'biz_vektor_favicon' );
@@ -438,7 +452,7 @@ if ( ! function_exists( 'biz_vektor_print_headLogo' ) ) {
 	function biz_vektor_print_headLogo() {
 		$options = biz_vektor_get_theme_options();
 		if ( isset( $options['head_logo'] ) && $options['head_logo'] ) {
-			print '<img src="' . $options['head_logo'] . '" alt="' . get_bloginfo( 'name' ) . '" />';
+			print '<img src="' . esc_url( $options['head_logo'] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />';
 		} else {
 			bloginfo( 'name' );
 		}
@@ -458,18 +472,18 @@ function biz_vektor_print_headContact() {
 		$headContact = '<div id="headContact" class="itemClose" onclick="showHide(\'headContact\');"><div id="headContactInner">' . "\n";
 		if ( $contact_txt ) {
 			// contact_txt
-			$headContact .= '<div id="headContactTxt">' . $contact_txt . '</div>' . "\n";
+			$headContact .= '<div id="headContactTxt">' . wp_kses_post( $contact_txt ) . '</div>' . "\n";
 		}
 			// mobile
 		if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
-			$headContact .= '<div id="headContactTel">TEL <a href="tel:' . $options['tel_number'] . '">' . $options['tel_number'] . '</a></div>' . "\n";
+			$headContact .= '<div id="headContactTel">TEL <a href="tel:' . esc_attr( wp_strip_all_tags( $options['tel_number'] ) ) . '">' . wp_kses_post( $options['tel_number'] ) . '</a></div>' . "\n";
 			// not mobile
 		} else {
-			$headContact .= '<div id="headContactTel">TEL ' . $options['tel_number'] . '</div>' . "\n";
+			$headContact .= '<div id="headContactTel">TEL ' . wp_kses_post( $options['tel_number'] ) . '</div>' . "\n";
 		}
 		if ( $contact_time ) {
 			// contact_time
-			$headContact .= '<div id="headContactTime">' . $contact_time . '</div>' . "\n";
+			$headContact .= '<div id="headContactTime">' . wp_kses_post( $contact_time ) . '</div>' . "\n";
 		}
 		$headContact .= '</div></div>';
 	}
@@ -568,18 +582,18 @@ function biz_vektor_mainfootContact() {
 	$contact_txt  = $options['contact_txt'];
 	$contact_time = nl2br( $options['contact_time'] );
 	if ( $contact_txt ) {
-		print '<span class="mainFootCatch">' . $contact_txt . '</span>' . "\n";
+		print '<span class="mainFootCatch">' . wp_kses_post( $contact_txt ) . '</span>' . "\n";
 	}
 	if ( $options['tel_number'] ) {
 		// mobile
 		if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
-			echo '<span class="mainFootTel">TEL <a href="tel:' . $options['tel_number'] . '">' . $options['tel_number'] . '</a></span>' . "\n";
+			echo '<span class="mainFootTel">TEL <a href="tel:' . esc_attr( wp_strip_all_tags( $options['tel_number'] ) ) . '">' . wp_kses_post( $options['tel_number'] ) . '</a></span>' . "\n";
 			// not mobile
 		} else {
-			echo '<span class="mainFootTel">TEL ' . $options['tel_number'] . '</span>' . "\n";
+			echo '<span class="mainFootTel">TEL ' . wp_kses_post( $options['tel_number'] ) . '</span>' . "\n";
 		}
 		if ( $contact_time ) {
-			print '<span class="mainFootTime">' . $contact_time . '</span>' . "\n";
+			print '<span class="mainFootTime">' . wp_kses_post( $contact_time ) . '</span>' . "\n";
 		}
 	}
 }
@@ -596,9 +610,9 @@ function biz_vektor_footerSiteName() {
 		$footSiteName = get_bloginfo( 'name' );
 	}
 	if ( $options['foot_logo'] ) {
-		print '<img src="' . $options['foot_logo'] . '" alt="' . $footSiteName . '" />';
+		print '<img src="' . esc_url( $options['foot_logo'] ) . '" alt="' . esc_attr( biz_vektor_get_alt_text( $footSiteName ) ) . '" />';
 	} else {
-		echo $footSiteName;
+		echo wp_kses_post( $footSiteName );
 	}
 }
 function biz_vektor_print_footContact() {
@@ -631,7 +645,7 @@ function get_biz_vektor_slide_body( $dummy = false ) {
 	for ( $i = 1; $i <= 5; $i++ ) {
 		if ( $biz_vektor_options[ 'slide' . $i . 'image' ] && ! $biz_vektor_options[ 'slide' . $i . 'display' ] ) {
 			if ( $dummy ) {
-				return '<img id="topMainBnrDummy" src="' . $biz_vektor_options[ 'slide' . $i . 'image' ] . '" />' . "\n";
+				return '<img id="topMainBnrDummy" src="' . esc_url( $biz_vektor_options[ 'slide' . $i . 'image' ] ) . '" />' . "\n";
 			}
 			$biz_vektor_slide_body .= '<li>';
 			if ( $biz_vektor_options[ 'slide' . $i . 'link' ] ) {
@@ -639,11 +653,11 @@ function get_biz_vektor_slide_body( $dummy = false ) {
 				if ( $biz_vektor_options[ 'slide' . $i . 'blank' ] ) :
 					$blank = ' target="_blank"';
 endif;
-				$biz_vektor_slide_body .= '<a href="' . $biz_vektor_options[ 'slide' . $i . 'link' ] . '" class="slideFrame"' . $blank . '>';
+				$biz_vektor_slide_body .= '<a href="' . esc_url( $biz_vektor_options[ 'slide' . $i . 'link' ] ) . '" class="slideFrame"' . $blank . '>';
 			} else {
 				$biz_vektor_slide_body .= '<span class="slideFrame">';
 			}
-			$biz_vektor_slide_body .= '<img src="' . $biz_vektor_options[ 'slide' . $i . 'image' ] . '" alt="' . $biz_vektor_options[ 'slide' . $i . 'alt' ] . '" />';
+			$biz_vektor_slide_body .= '<img src="' . esc_url( $biz_vektor_options[ 'slide' . $i . 'image' ] ) . '" alt="' . esc_attr( biz_vektor_get_alt_text( $biz_vektor_options[ 'slide' . $i . 'alt' ] ) ) . '" />';
 			if ( $biz_vektor_options[ 'slide' . $i . 'link' ] ) {
 				$biz_vektor_slide_body .= '</a>';
 			} else {
@@ -837,7 +851,7 @@ function get_biz_vektor_contactBtn() {
 	$biz_vektor_options = biz_vektor_get_theme_options();
 	if ( $biz_vektor_options['contact_link'] ) :
 		$contactBtn          = '<ul>';
-		$contactBtn         .= '<li class="sideBnr" id="sideContact"><a href="' . $biz_vektor_options['contact_link'] . '">' . "\n";
+		$contactBtn         .= '<li class="sideBnr" id="sideContact"><a href="' . esc_url( $biz_vektor_options['contact_link'] ) . '">' . "\n";
 		$sideContactBtnImage = '<img src="' . get_template_directory_uri() . '/images/' . __( 'bnr_contact.png', 'biz-vektor' ) . '" alt="' . __( 'Contact us by e-mail', 'biz-vektor' ) . '">';
 		$sideContactBtnImage = apply_filters( 'bizvektor_side_contact_btn_image', $sideContactBtnImage );
 		$contactBtn         .= $sideContactBtnImage . "\n";
