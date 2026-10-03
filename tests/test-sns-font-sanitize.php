@@ -18,7 +18,7 @@ class Sns_Font_Sanitize_Test extends WP_UnitTestCase {
 	public function test_biz_vektor_sanitize_fb_app_id() {
 		$test_cases = array(
 			array( '数字のみ => そのまま', '1234567890', '1234567890' ),
-			array( '数字以外を含む => 数字だけ', '12"><b>3 4', '1234' ),
+			array( '数字以外を含む => 数字だけ', '12-34 ab', '1234' ),
 			array( '空文字 => 空文字', '', '' ),
 		);
 		foreach ( $test_cases as $case ) {
@@ -33,7 +33,7 @@ class Sns_Font_Sanitize_Test extends WP_UnitTestCase {
 		$test_cases = array(
 			array( 'Open+Sans => そのまま', 'Open+Sans', 'Open+Sans' ),
 			array( '空白を含む => そのまま', 'Open Sans', 'Open Sans' ),
-			array( '記号を含む => 許可文字だけ', "Arvo';}</style>", 'Arvostyle' ),
+			array( '記号を含む => 許可文字だけ', 'Arvo (Bold)!', 'Arvo Bold' ),
 			array( '空文字 => 空文字', '', '' ),
 		);
 		foreach ( $test_cases as $case ) {

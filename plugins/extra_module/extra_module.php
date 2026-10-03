@@ -142,7 +142,7 @@ function displays_global_css() {
 	<?php
 
 	//Google Web Fonts import 
-	if ( isset( $font ) ) { ?>
+	if ( '' !== $font ) { ?>
 		@import url(http://fonts.googleapis.com/css?family=<?php echo esc_attr( $font ); ?>:400,700,700italic,300,300italic,400italic);
 
 		body {font-family: '<?php echo esc_attr( str_replace( "+", " ", $font ) ); ?>', sans-serif;}

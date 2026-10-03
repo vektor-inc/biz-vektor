@@ -60,7 +60,7 @@ function biz_vektor_ogp() {
 	$bizVektorOGP .= '<meta property="og:site_name" content="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
 	$bizVektorOGP .= '<meta property="og:url" content="' . esc_url( $linkUrl ) . '" />' . "\n";
 	if ( isset( $options['fbAppId'] ) ) {
-		$bizVektorOGP = $bizVektorOGP . '<meta property="fb:app_id" content="' . esc_attr( $options['fbAppId'] ) . '" />' . "\n";
+		$bizVektorOGP = $bizVektorOGP . '<meta property="fb:app_id" content="' . esc_attr( biz_vektor_sanitize_fb_app_id( $options['fbAppId'] ) ) . '" />' . "\n";
 	}
 	if ( is_front_page() || is_home() ) {
 		$bizVektorOGP .= '<meta property="og:type" content="website" />' . "\n";
@@ -282,7 +282,7 @@ function biz_vektor_fbAppId() {
 	$biz_vektor_options = biz_vektor_get_theme_options();
 	$options            = $biz_vektor_options;
 	$fbAppId            = $options['fbAppId'];
-	echo esc_attr( $fbAppId );
+	echo esc_attr( biz_vektor_sanitize_fb_app_id( $fbAppId ) );
 }
 
 /*-------------------------------------------*/
@@ -424,7 +424,7 @@ function biz_vektor_sns_config() {
 <!-- facebook application ID -->
 <tr>
 <th><?php _e( 'facebook application ID', 'biz-vektor' ); ?></th>
-<td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( $options['fbAppId'] ); ?>" />
+<td><input type="text" name="biz_vektor_theme_options[fbAppId]" id="fbAppId" value="<?php echo esc_attr( biz_vektor_sanitize_fb_app_id( $options['fbAppId'] ) ); ?>" />
 <span>[ <a href="https://developers.facebook.com/apps" target="_blank">&raquo; <?php _e( 'I will check and get the application ID', 'biz-vektor' ); ?></a> ]</span><br />
 <?php _e( '* If an application ID is not specified, neither a Like button nor the comment field displays and operates correctly.', 'biz-vektor' ); ?><br />
 <?php _e( 'Please search for terms as [get Facebook application ID] If you do not know much about how to get application ID for Facebook.', 'biz-vektor' ); ?>
@@ -641,7 +641,7 @@ if ( isset( $biz_vektor_options['fbAppId'] ) && $biz_vektor_options['fbAppId'] )
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
 	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=<?php echo esc_attr( $biz_vektor_options['fbAppId'] ); ?>";
+	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=<?php echo esc_attr( biz_vektor_sanitize_fb_app_id( $biz_vektor_options['fbAppId'] ) ); ?>";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 	<?php
