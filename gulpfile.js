@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const cssmin = require('gulp-cssmin');
 const rename = require('gulp-rename');
@@ -56,7 +57,39 @@ const watch = () => {
 exports.default = gulp.series(scripts, jsMin, cssConcatMin, gulp.parallel(watch));
 exports.compile = gulp.series(scripts, jsMin, cssConcatMin);
 
-const dist = () => {
+// dev 込みの vendor（composer install）のまま dist すると、Composer の読み込み設定が
+// 配布物に存在しないパッケージを参照してしまうため、dev でない vendor のときだけ進める。
+const distCheck = (done) => {
+  let raw;
+  try {
+    raw = fs.readFileSync('./vendor/composer/installed.json', 'utf8');
+  } catch (e) {
+    if (e.code === 'ENOENT') {
+      return done();
+    }
+    return done(new Error('vendor/composer/installed.json を読み込めません: ' + e.message));
+  }
+  let installed;
+  try {
+    installed = JSON.parse(raw);
+  } catch (e) {
+    return done(new Error('vendor/composer/installed.json を JSON として読み込めません: ' + e.message));
+  }
+  if (!installed || typeof installed !== 'object' || Array.isArray(installed) || typeof installed.dev !== 'boolean') {
+    return done(new Error('vendor/composer/installed.json の形式が想定外です（dev キーを判定できません）。'));
+  }
+  if (installed.dev === true) {
+    return done(new Error('開発用パッケージが入った vendor では dist できません。npm run dist を使ってください。'));
+  }
+  done();
+};
+
+const distClean = (done) => {
+  fs.rmSync('dist/biz-vektor', { recursive: true, force: true });
+  done();
+};
+
+const distCopy = () => {
   return gulp.src([
       './**/*.js',
       './**/*.jpeg',
@@ -67,8 +100,6 @@ const dist = () => {
       './**/*.txt',
       './**/*.css',
       './**/*.scss',
-      './**/*.bat',
-      './**/*.rb',
       './**/*.eot',
       './**/*.svg',
       './**/*.ttf',
@@ -81,9 +112,18 @@ const dist = () => {
       './libraries/**',
       "!./tests/**",
       "!./dist/**",
-      "!./node_modules/**/*.*"
+      "!./node_modules/**/*.*",
+      // 配布物に不要な開発用ファイル
+      "!./**/*.bat",
+      "!./**/*.rb",
+      "!./gulpfile.js",
+      "!./_scss/**",
+      "!./how-to-use-and-customize.md",
+      "!./module_panList_old.php",
+      "!./vendor/**/gulpfile.js",
+      "!./vendor/**/config.php"
     ], { base: './' })
     .pipe(gulp.dest('dist/biz-vektor'));
 };
 
-exports.dist = dist;
+exports.dist = gulp.series(distCheck, distClean, distCopy);
