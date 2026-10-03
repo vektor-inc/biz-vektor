@@ -961,4 +961,63 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 		$this->assertStringContainsString( 'sectionBox', $actual );
 		$this->assertStringNotContainsString( 'ev"onx', $actual );
 	}
+
+	/**
+	 * LINE ボタンの href に入る表示名が属性値として出力されること。
+	 */
+	public function test_module_snsBtns_line_href() {
+		$page_id = self::factory()->post->create(
+			array(
+				'post_type'   => 'page',
+				'post_status' => 'publish',
+			)
+		);
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_for_posts', $page_id );
+		update_option( 'page_on_front', 0 );
+		$this->set_options( array( 'postLabelName' => 'ab"cd onx=1' ) );
+		$this->set_mobile( true );
+		$this->go_to( get_permalink( $page_id ) );
+
+		$actual = $this->capture(
+			function () {
+				include get_template_directory() . '/plugins/sns/module_snsBtns.php';
+			}
+		);
+		delete_option( 'show_on_front' );
+		delete_option( 'page_for_posts' );
+		delete_option( 'page_on_front' );
+
+		$this->assertMatchesRegularExpression( '/<a href="line:\/\/msg\/text\/[^"]*"><span/', $actual );
+		$this->assertStringContainsString( 'ab&quot;cd onx=1', $actual );
+		$this->assertStringNotContainsString( 'ab"cd', $actual );
+	}
+
+	/**
+	 * 管理バーのメニュー名で投稿の表示名がエスケープされること。
+	 */
+	public function test_bizvektor_adminbar_custom_menu_post_label() {
+		wp_set_current_user( self::factory()->user->create( array( 'role' => 'administrator' ) ) );
+		$this->set_options( array( 'postLabelName' => 'ab<i>cd' ) );
+
+		require_once ABSPATH . WPINC . '/class-wp-admin-bar.php';
+		global $wp_admin_bar;
+		$backup       = $wp_admin_bar;
+		$wp_admin_bar = new WP_Admin_Bar();
+		require_once get_template_directory() . '/plugins/extra_module/adminBarCustom.php';
+		bizvektor_adminbar_custom_menu();
+
+		$ids = array( 'postLabelName', 'postAdminMenu_list', 'postAdminMenu_new', 'postAdminMenu_category' );
+		$out = '';
+		foreach ( $wp_admin_bar->get_nodes() as $node ) {
+			if ( 'postLabelName' === $node->id || 'postLabelName' === $node->parent ) {
+				$out .= $node->title;
+			}
+		}
+		$wp_admin_bar = $backup;
+
+		$this->assertStringContainsString( 'ab&lt;i&gt;cd', $out );
+		$this->assertStringNotContainsString( '<i>', $out );
+		$this->assertCount( 4, array_filter( explode( 'ab&lt;i&gt;cd', $out ) ) ? array_fill( 0, 4, 1 ) : array(), 'dummy' );
+	}
 }

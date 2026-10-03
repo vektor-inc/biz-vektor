@@ -161,26 +161,26 @@ function bizvektor_adminbar_custom_menu() {
 	// post
 	$wp_admin_bar->add_menu( array(
 		'id' => 'postLabelName',
-		'title' => sprintf( __( 'Managing %s', 'biz-vektor' ),bizVektorOptions('postLabelName') ),
+		'title' => sprintf( __( 'Managing %s', 'biz-vektor' ),esc_html( bizVektorOptions( 'postLabelName' ) ) ),
 		'href' => get_admin_url().'edit.php',
 	));
 		$wp_admin_bar->add_menu( array(
 			'parent' => 'postLabelName',
 			'id' => 'postAdminMenu_list',
-			'title' => sprintf( __( '%s - List of entries', 'biz-vektor' ),bizVektorOptions('postLabelName') ),
+			'title' => sprintf( __( '%s - List of entries', 'biz-vektor' ),esc_html( bizVektorOptions( 'postLabelName' ) ) ),
 			'href' => get_admin_url().'edit.php',
 		));
 		$wp_admin_bar->add_menu( array(
 			'parent' => 'postLabelName',
 			'id' => 'postAdminMenu_new',
-			'title' => sprintf( __( '%s - Add new', 'biz-vektor' ),bizVektorOptions('postLabelName') ),
+			'title' => sprintf( __( '%s - Add new', 'biz-vektor' ),esc_html( bizVektorOptions( 'postLabelName' ) ) ),
 			'href' => get_admin_url().'post-new.php',
 		));
 		if ( current_user_can('edit_pages') ) {
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'postLabelName',
 				'id' => 'postAdminMenu_category',
-				'title' => sprintf( __( '%s - Categories', 'biz-vektor' ),bizVektorOptions('postLabelName') ),
+				'title' => sprintf( __( '%s - Categories', 'biz-vektor' ),esc_html( bizVektorOptions( 'postLabelName' ) ) ),
 				'href' => get_admin_url().'edit-tags.php?taxonomy=category',
 			));
 		}
