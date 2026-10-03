@@ -109,4 +109,73 @@ class Keycolor_Sanitize_Test extends WP_UnitTestCase {
 		$this->assertSame( '#ff0000', $output['theme_plusKeyColorLight'] );
 		$this->assertSame( '', $output['theme_plusKeyColorDark'] );
 	}
+
+	/**
+	 * 各スキンの wp_head 出力で、保存した正しい色が CSS に出て、不正な色は既定色になること。
+	 */
+	public function test_skin_head_output() {
+		$test_cases = array(
+			array(
+				'test_condition_name' => '001 標準スキン: 保存した色が出力される',
+				'theme_style'         => 'default',
+				'option_name'         => 'biz_vektor_theme_options_default_design',
+				'output_function'     => 'biz_vektor_default_design_WpHead',
+				'saved'               => array( 'theme_plusKeyColor' => '#123456' ),
+				'expected_contains'   => 'color:#123456',
+			),
+			array(
+				'test_condition_name' => '001 標準スキン: 不正な色は既定色になる',
+				'theme_style'         => 'default',
+				'option_name'         => 'biz_vektor_theme_options_default_design',
+				'output_function'     => 'biz_vektor_default_design_WpHead',
+				'saved'               => array( 'theme_plusKeyColor' => 'notacolor' ),
+				'expected_contains'   => 'color:#c30000',
+			),
+			array(
+				'test_condition_name' => '002 calmly スキン: 保存した色が出力される',
+				'theme_style'         => 'calmly',
+				'option_name'         => 'biz_vektor_theme_options_calmly',
+				'output_function'     => 'biz_vektor_WpHead_calmly',
+				'saved'               => array( 'theme_plusKeyColor' => '#123456' ),
+				'expected_contains'   => 'color:#123456',
+			),
+			array(
+				'test_condition_name' => '002 calmly スキン: 不正な色は既定色になる',
+				'theme_style'         => 'calmly',
+				'option_name'         => 'biz_vektor_theme_options_calmly',
+				'output_function'     => 'biz_vektor_WpHead_calmly',
+				'saved'               => array( 'theme_plusKeyColor' => '#12345g' ),
+				'expected_contains'   => 'color:#5ead3c',
+			),
+			array(
+				'test_condition_name' => '003 rebuild スキン: 保存した色が出力される',
+				'theme_style'         => 'rebuild',
+				'option_name'         => 'biz_vektor_theme_options_rebuild',
+				'output_function'     => 'biz_vektor_rebuild_print_css',
+				'saved'               => array( 'theme_plusKeyColor' => '#123456' ),
+				'expected_contains'   => 'color:#123456',
+			),
+			array(
+				'test_condition_name' => '003 rebuild スキン: 不正な色は既定色になる',
+				'theme_style'         => 'rebuild',
+				'option_name'         => 'biz_vektor_theme_options_rebuild',
+				'output_function'     => 'biz_vektor_rebuild_print_css',
+				'saved'               => array( 'theme_plusKeyColor' => 'notacolor' ),
+				'expected_contains'   => 'color:#e90000',
+			),
+		);
+
+		foreach ( $test_cases as $test_case ) {
+			// スキンを切り替えて色を保存し、wp_head の出力を取得
+			update_option( 'biz_vektor_theme_options', array( 'theme_style' => $test_case['theme_style'] ) );
+			update_option( $test_case['option_name'], $test_case['saved'] );
+			ob_start();
+			call_user_func( $test_case['output_function'] );
+			$output = ob_get_clean();
+
+			$this->assertStringContainsString( $test_case['expected_contains'], $output, $test_case['test_condition_name'] );
+			$this->assertStringNotContainsString( 'notacolor', $output, $test_case['test_condition_name'] );
+			$this->assertStringNotContainsString( '12345g', $output, $test_case['test_condition_name'] );
+		}
+	}
 }

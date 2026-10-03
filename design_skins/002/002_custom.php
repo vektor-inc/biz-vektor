@@ -124,7 +124,9 @@ add_action( 'wp_head','biz_vektor_WpHead_calmly', 150);
 function biz_vektor_WpHead_calmly(){
 	if (is_calmly()){
 	$calmlyOptions = biz_vektor_get_theme_options_calmly();
-		if ( $calmlyOptions ) : ?>
+		if ( $calmlyOptions ) :
+			$calmlyKeyColor = biz_vektor_sanitize_keycolor( isset( $calmlyOptions['theme_plusKeyColor'] ) ? $calmlyOptions['theme_plusKeyColor'] : '', '#5ead3c' );
+			?>
 		<style type="text/css">
 /* FontNormal */
 a,
