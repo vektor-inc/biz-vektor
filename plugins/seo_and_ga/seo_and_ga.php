@@ -58,7 +58,7 @@ function add_custom_field_metaKeyword() {
 function insert_custom_field_metaKeyword() {
 	global $post;
 	echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="' . wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
-	echo '<label class="hidden" for="metaKeyword">' . __( 'Meta Keywords', 'biz-vektor' ) . '</label><input type="text" name="metaKeyword" size="50" value="' . get_post_meta( $post->ID, 'metaKeyword', true ) . '" />';
+	echo '<label class="hidden" for="metaKeyword">' . __( 'Meta Keywords', 'biz-vektor' ) . '</label><input type="text" name="metaKeyword" size="50" value="' . esc_attr( get_post_meta( $post->ID, 'metaKeyword', true ) ) . '" />';
 	echo '<p>' . __( 'To distinguish between individual keywords, please enter a , delimiter (optional).', 'biz-vektor' ) . '<br />';
 	$theme_option_seo_link = '<a href="' . get_admin_url() . '/themes.php?page=theme_options#seoSetting" target="_blank">' . _x( 'SEO Setting', 'link to seo setting', 'biz-vektor' ) . '</a>';
 	sprintf( __( '* keywords common to the entire site can be set from %s.', 'biz-vektor' ), $theme_option_seo_link );
@@ -80,7 +80,8 @@ function save_custom_field_metaKeyword( $post_id ) {
 		}
 	}
 
-	$data = $_POST['metaKeyword'];
+	// add_post_meta() / update_post_meta() は保存時にスラッシュを外すため、整形後に付け直す.
+	$data = isset( $_POST['metaKeyword'] ) ? wp_slash( sanitize_text_field( wp_unslash( $_POST['metaKeyword'] ) ) ) : '';
 
 	if ( get_post_meta( $post_id, 'metaKeyword' ) == '' ) {
 		add_post_meta( $post_id, 'metaKeyword', $data, true );
@@ -109,7 +110,7 @@ function biz_vektor_seo_set_HeadKeywords() {
 	// print individual keywords
 	if ( ! $key ) {
 		return; }
-	echo '<meta name="keywords" content="' . $key . '" />' . "\n";
+	echo '<meta name="keywords" content="' . esc_attr( wp_strip_all_tags( $key ) ) . '" />' . "\n";
 }
 
 /*-------------------------------------------*/
