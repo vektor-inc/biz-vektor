@@ -261,7 +261,7 @@ function dropNavSubControlLinkDelete(){
 			jQuery(this).addClass('subControlMode');
 			var linkUrl = jQuery(this).attr('href');
 			// リンクURLを # に変更 / 本当のURLは span にいれて前に出力
-			jQuery(this).attr('href','#').before('<span class="subControlLinkUrl">' + linkUrl + '</span>');
+			jQuery(this).attr('href','#').before(jQuery('<span class="subControlLinkUrl"></span>').text(linkUrl));
 			// 本当のURLを格納したspanを隠す
 			jQuery(this).prev().hide();
 		}
@@ -271,7 +271,7 @@ function dropNavSubControlLinkDelete(){
 /*----------------------------------------------------------*/
 function dropNavSubControlLinkRedo(){
 	jQuery('span.subControlLinkUrl').each(function(){
-		var linkUrl = jQuery(this).html();
+		var linkUrl = jQuery(this).text();
 		// リンクURLを元に戻す / サブコントロール識別用クラスを外す
 		jQuery(this).next().attr('href',linkUrl).removeClass('subControlMode');
 		jQuery(this).remove();
@@ -293,6 +293,58 @@ function resImgTxtChange_mode_full(){
 	resImgTxtBack_mobile_tab();
 }
 
+/*		altテキストを span に入れる
+/*		装飾用のタグ（br / span / div など）と class・id・style 属性だけ残し、それ以外のタグ・属性は取り除く
+/*----------------------------------------------------------*/
+function resBuildAltTxtSpan(className, altText){
+	var span = document.createElement('span');
+	span.className = className;
+	altText = ( typeof altText === 'string' ) ? altText : '';
+	var allowedTags = ['BR','SPAN','DIV','P','STRONG','EM','B','I','SMALL','U','S','SUP','SUB','MARK','FONT'];
+	// 残す属性（on* などのイベント属性や href は残さない）
+	var allowedAttrs = ['class','id','style'];
+	var allowedFontAttrs = ['color','size','face'];
+	// 中身ごと捨てるタグ
+	var dropTags = ['SCRIPT','STYLE','TEMPLATE','IFRAME','OBJECT','EMBED','NOSCRIPT','TEXTAREA','TITLE','SVG','MATH'];
+	var doc = null;
+	try {
+		// DOMParser で作った文書ではスクリプトやイベントは実行されない
+		doc = new DOMParser().parseFromString('<!DOCTYPE html><body>' + altText, 'text/html');
+	} catch (e) {
+		doc = null;
+	}
+	if ( ! doc || ! doc.body ) {
+		span.textContent = altText;
+		return span;
+	}
+	var copyNodes = function(src, dest){
+		for (var i = 0; i < src.childNodes.length; i++) {
+			var node = src.childNodes[i];
+			if (node.nodeType === 3) {
+				dest.appendChild(document.createTextNode(node.nodeValue));
+			} else if (node.nodeType === 1) {
+				var tagName = node.tagName.toUpperCase();
+				if (allowedTags.indexOf(tagName) !== -1) {
+					var el = document.createElement(tagName.toLowerCase());
+					var attrs = ( tagName === 'FONT' ) ? allowedAttrs.concat(allowedFontAttrs) : allowedAttrs;
+					for (var j = 0; j < attrs.length; j++) {
+						if (node.hasAttribute(attrs[j])) {
+							el.setAttribute(attrs[j], node.getAttribute(attrs[j]));
+						}
+					}
+					copyNodes(node, el);
+					dest.appendChild(el);
+				} else if (dropTags.indexOf(tagName) === -1) {
+					// 許可していないタグはタグだけ外して中の文字を残す
+					copyNodes(node, dest);
+				}
+			}
+		}
+	};
+	copyNodes(doc.body, span);
+	return span;
+}
+
 function resImgTxtChange_mobile_only(){
 	jQuery('img.resImgTxtChange-mobile-only').each(function(){
 		// ボタン画像の前に既にaltテキストがあるかどうか
@@ -300,7 +352,7 @@ function resImgTxtChange_mobile_only(){
 		// ボタン画像の前にテキストが無い場合
 		if (spanClass === false) {
 			// ボタン画像のaltの文字をspanで囲って altTxt に代入
-			var altTxt = '<span class="resTxtChange-mobile-only">'+jQuery(this).attr('alt')+'</span>';
+			var altTxt = resBuildAltTxtSpan('resTxtChange-mobile-only', jQuery(this).attr('alt'));
 			// ボタン画像の前に altTxt を出力
 			jQuery(this).before(altTxt);
 			// ボタン画像をcssで非表示に
@@ -315,7 +367,7 @@ function resImgTxtChange_mobile_tab(){
 		// ボタン画像の前にテキストが無い場合
 		if (spanClass === false) {
 			// ボタン画像のaltの文字をspanで囲って altTxt に代入
-			var altTxt = '<span class="resTxtChange-mobile-tab">'+jQuery(this).attr('alt')+'</span>';
+			var altTxt = resBuildAltTxtSpan('resTxtChange-mobile-tab', jQuery(this).attr('alt'));
 			// ボタン画像の前に altTxt を出力
 			jQuery(this).before(altTxt);
 			// ボタン画像をcssで非表示に
