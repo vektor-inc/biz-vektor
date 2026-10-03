@@ -122,6 +122,23 @@ function biz_vektor_generate_default_options() {
 }
 
 
+/**
+ * 広告タグ欄の保存値を整える
+ *
+ * unfiltered_html 権限があるユーザーは値をそのまま返し、無いユーザーは wp_kses_post() を通した値を返す。
+ *
+ * @param mixed $value 入力された広告タグ。
+ * @return string 保存する広告タグ。
+ */
+function biz_vektor_sanitize_ad_tag( $value ) {
+	$value = is_string( $value ) ? $value : '';
+	// 権限が無いユーザーの場合だけ許可タグ以外を除去
+	if ( ! current_user_can( 'unfiltered_html' ) ) {
+		$value = wp_kses_post( $value );
+	}
+	return $value;
+}
+
 /*-------------------------------------------*/
 /*	入力された値の処理
 /*-------------------------------------------*/
@@ -184,9 +201,9 @@ function biz_vektor_theme_options_validate( $input ) {
 	// $output['postTopUrl']         = $input['postTopUrl'];
 	$output['postTopCount']       = ( preg_match( '/^(\s|[ 　]*)$/', $input['postTopCount'] ) ) ? 5 : $input['postTopCount'];
 	$output['postRelatedCount']   = ( preg_match( '/^(\s|[ 　]*)$/', $input['postRelatedCount'] ) ) ? 6 : $input['postRelatedCount'];
-	$output['ad_content_moretag'] = $input['ad_content_moretag'];
-	$output['ad_content_after']   = $input['ad_content_after'];
-	$output['ad_related_after']   = $input['ad_related_after'];
+	$output['ad_content_moretag'] = biz_vektor_sanitize_ad_tag( $input['ad_content_moretag'] );
+	$output['ad_content_after']   = biz_vektor_sanitize_ad_tag( $input['ad_content_after'] );
+	$output['ad_related_after']   = biz_vektor_sanitize_ad_tag( $input['ad_related_after'] );
 	// TopPage
 	$output['topSideBarDisplay'] = ( isset( $input['topSideBarDisplay'] ) && $input['topSideBarDisplay'] == 'true' ) ? true : false;
 	// SlideShow
