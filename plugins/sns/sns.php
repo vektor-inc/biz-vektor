@@ -57,22 +57,22 @@ function biz_vektor_ogp() {
 	}
 
 	$bizVektorOGP  = '<!-- [ ' . get_biz_vektor_name() . ' OGP ] -->' . "\n";
-	$bizVektorOGP .= '<meta property="og:site_name" content="' . get_bloginfo( 'name' ) . '" />' . "\n";
+	$bizVektorOGP .= '<meta property="og:site_name" content="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
 	$bizVektorOGP .= '<meta property="og:url" content="' . esc_url( $linkUrl ) . '" />' . "\n";
 	if ( isset( $options['fbAppId'] ) ) {
-		$bizVektorOGP = $bizVektorOGP . '<meta property="fb:app_id" content="' . $options['fbAppId'] . '" />' . "\n";
+		$bizVektorOGP = $bizVektorOGP . '<meta property="fb:app_id" content="' . esc_attr( $options['fbAppId'] ) . '" />' . "\n";
 	}
 	if ( is_front_page() || is_home() ) {
 		$bizVektorOGP .= '<meta property="og:type" content="website" />' . "\n";
 		if ( $ogpimage ) {
-			$bizVektorOGP .= '<meta property="og:image" content="' . $ogpimage . '" />' . "\n";
+			$bizVektorOGP .= '<meta property="og:image" content="' . esc_url( $ogpimage ) . '" />' . "\n";
 		}
-		$bizVektorOGP .= '<meta property="og:title" content="' . get_bloginfo( 'name' ) . '" />' . "\n";
-		$bizVektorOGP .= '<meta property="og:description" content="' . get_bloginfo( 'description' ) . '" />' . "\n";
+		$bizVektorOGP .= '<meta property="og:title" content="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
+		$bizVektorOGP .= '<meta property="og:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />' . "\n";
 	} elseif ( is_category() || is_archive() ) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />' . "\n";
 		if ( $ogpimage ) {
-			$bizVektorOGP .= '<meta property="og:image" content="' . $ogpimage . '" />' . "\n";
+			$bizVektorOGP .= '<meta property="og:image" content="' . esc_url( $ogpimage ) . '" />' . "\n";
 		}
 	} elseif ( is_page() || is_single() ) {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />' . "\n";
@@ -80,9 +80,9 @@ function biz_vektor_ogp() {
 		if ( has_post_thumbnail() ) {
 			$image_id      = get_post_thumbnail_id();
 			$image_url     = wp_get_attachment_image_src( $image_id, 'large', true );
-			$bizVektorOGP .= '<meta property="og:image" content="' . $image_url[0] . '" />' . "\n";
+			$bizVektorOGP .= '<meta property="og:image" content="' . esc_url( $image_url[0] ) . '" />' . "\n";
 		} elseif ( $ogpimage ) {
-			$bizVektorOGP .= '<meta property="og:image" content="' . $ogpimage . '" />' . "\n";
+			$bizVektorOGP .= '<meta property="og:image" content="' . esc_url( $ogpimage ) . '" />' . "\n";
 		}
 		// description
 		$metaExcerpt = $post->post_excerpt;
@@ -95,12 +95,12 @@ function biz_vektor_ogp() {
 		if ( empty( $metadescription ) ) {
 			$metadescription = getHeadDescription();
 		}
-		$bizVektorOGP .= '<meta property="og:title" content="' . get_the_title() . ' | ' . get_bloginfo( 'name' ) . '" />' . "\n";
+		$bizVektorOGP .= '<meta property="og:title" content="' . esc_attr( wp_strip_all_tags( get_the_title() ) ) . ' | ' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
 		$bizVektorOGP .= '<meta property="og:description" content="' . esc_html( $metadescription ) . '" />' . "\n";
 	} else {
 		$bizVektorOGP .= '<meta property="og:type" content="article" />' . "\n";
 		if ( $options['ogpImage'] ) {
-			$bizVektorOGP .= '<meta property="og:image" content="' . $options['ogpImage'] . '" />' . "\n";
+			$bizVektorOGP .= '<meta property="og:image" content="' . esc_url( $options['ogpImage'] ) . '" />' . "\n";
 		}
 	}
 	$bizVektorOGP .= '<!-- [ /' . get_biz_vektor_name() . ' OGP ] -->' . "\n";
@@ -262,10 +262,10 @@ function biz_vektor_fbLikeBox() {
 	?>
 
 <div id="fb-like-box">
-	<div class="fb-page fb-like-box" data-href="<?php echo $biz_vektor_options['fbLikeBoxURL']; ?>" data-width="500" <?php echo $fbLikeBoxHeight; ?>data-hide-cover="<?php echo $biz_vektor_options['fbLikeBoxHideCover']; ?>" data-show-facepile="<?php echo $biz_vektor_options['fbLikeBoxFace']; ?>" data-show-posts="<?php echo $biz_vektor_options['fbLikeBoxStream']; ?>">
+	<div class="fb-page fb-like-box" data-href="<?php echo esc_url( $biz_vektor_options['fbLikeBoxURL'] ); ?>" data-width="500" <?php echo $fbLikeBoxHeight; ?>data-hide-cover="<?php echo $biz_vektor_options['fbLikeBoxHideCover']; ?>" data-show-facepile="<?php echo $biz_vektor_options['fbLikeBoxFace']; ?>" data-show-posts="<?php echo $biz_vektor_options['fbLikeBoxStream']; ?>">
 	<div class="fb-xfbml-parse-ignore">
-		<blockquote cite="<?php echo $biz_vektor_options['fbLikeBoxURL']; ?>">
-		<a href="<?php echo $biz_vektor_options['fbLikeBoxURL']; ?>">Facebook page</a>
+		<blockquote cite="<?php echo esc_url( $biz_vektor_options['fbLikeBoxURL'] ); ?>">
+		<a href="<?php echo esc_url( $biz_vektor_options['fbLikeBoxURL'] ); ?>">Facebook page</a>
 		</blockquote>
 	</div>
 </div>
@@ -282,7 +282,7 @@ function biz_vektor_fbAppId() {
 	$biz_vektor_options = biz_vektor_get_theme_options();
 	$options            = $biz_vektor_options;
 	$fbAppId            = $options['fbAppId'];
-	echo $fbAppId;
+	echo esc_attr( $fbAppId );
 }
 
 /*-------------------------------------------*/
@@ -314,15 +314,26 @@ endif;
 }
 
 
+/**
+ * Facebook アプリ ID を数字だけにする。
+ *
+ * @param mixed $value 入力値.
+ * @return string 数字だけにした値.
+ */
+function biz_vektor_sanitize_fb_app_id( $value ) {
+	return preg_replace( '/[^0-9]/', '', (string) $value );
+}
+
 add_filter( 'biz_vektor_theme_options_validate', 'biz_vektor_sns_validate', 19, 3 );
 function biz_vektor_sns_validate( $output, $input, $defaults ) {
 
 	// SNS
-	$output['fbAppId']            = $input['fbAppId'];
+	$output['fbAppId']            = biz_vektor_sanitize_fb_app_id( $input['fbAppId'] );
 	$output['fbAdminId']          = $input['fbAdminId'];
 	$output['twitter']            = $input['twitter'];
 	$output['facebook']           = $input['facebook'];
-	$output['ogpImage']           = ( preg_match( '/^.+\.(jp(e|)g|png|gif|bmp)$/i', $input['ogpImage'] ) ) ? $input['ogpImage'] : '';
+	$ogp_image                    = esc_url_raw( $input['ogpImage'] );
+	$output['ogpImage']           = ( preg_match( '/^.+\.(jp(e|)g|png|gif|bmp)$/i', $ogp_image ) ) ? $ogp_image : '';
 	$output['snsBtnsFront']       = ( isset( $input['snsBtnsFront'] ) && $input['snsBtnsFront'] == 'false' ) ? 'false' : '';
 	$output['snsBtnsPage']        = ( isset( $input['snsBtnsPage'] ) && $input['snsBtnsPage'] == 'false' ) ? 'false' : '';
 	$output['snsBtnsPost']        = ( isset( $input['snsBtnsPost'] ) && $input['snsBtnsPost'] == 'false' ) ? 'false' : '';
@@ -337,7 +348,7 @@ function biz_vektor_sns_validate( $output, $input, $defaults ) {
 	$output['fbLikeBoxPage']      = ( isset( $input['fbLikeBoxPage'] ) && $input['fbLikeBoxPage'] == 'false' ) ? 'false' : '';
 	$output['fbLikeBoxPost']      = ( isset( $input['fbLikeBoxPost'] ) && $input['fbLikeBoxPost'] == 'false' ) ? 'false' : '';
 	$output['fbLikeBoxInfo']      = ( isset( $input['fbLikeBoxInfo'] ) && $input['fbLikeBoxInfo'] == 'false' ) ? 'false' : '';
-	$output['fbLikeBoxURL']       = $input['fbLikeBoxURL'];
+	$output['fbLikeBoxURL']       = esc_url_raw( $input['fbLikeBoxURL'] );
 	$output['fbLikeBoxStream']    = ( isset( $input['fbLikeBoxStream'] ) && $input['fbLikeBoxStream'] == 'false' ) ? 'false' : '';
 	$output['fbLikeBoxFace']      = ( isset( $input['fbLikeBoxFace'] ) && $input['fbLikeBoxFace'] == 'false' ) ? 'false' : '';
 	$output['fbLikeBoxHideCover'] = ( isset( $input['fbLikeBoxHideCover'] ) && $input['fbLikeBoxHideCover'] == 'false' ) ? 'false' : '';
@@ -630,7 +641,7 @@ if ( isset( $biz_vektor_options['fbAppId'] ) && $biz_vektor_options['fbAppId'] )
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
 	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=<?php echo esc_html( $biz_vektor_options['fbAppId'] ); ?>";
+	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=<?php echo esc_attr( $biz_vektor_options['fbAppId'] ); ?>";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 	<?php

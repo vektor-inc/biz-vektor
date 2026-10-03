@@ -793,6 +793,16 @@ function biz_vektor_sanitize_keycolor( $color, $default = '' ) {
 	return $sanitized ? $sanitized : $default;
 }
 
+/**
+ * 海外向けフォント名を、英数字・+・空白だけにする。
+ *
+ * @param mixed $font 入力値.
+ * @return string 許可した文字だけにした値.
+ */
+function biz_vektor_sanitize_global_font( $font ) {
+	return preg_replace( '/[^A-Za-z0-9+ ]/', '', (string) $font );
+}
+
 add_action( 'wp_head', 'biz_vektor_output_keycolorcss', 5 );
 function biz_vektor_output_keycolorcss() {
 	echo '<style type="text/css">';
