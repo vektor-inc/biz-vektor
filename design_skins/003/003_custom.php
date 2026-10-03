@@ -80,11 +80,11 @@ function bizvektor_rebuild_customize_register($wp_customize) {
     ) );
 
 	$wp_customize->add_setting( 'biz_vektor_theme_options_rebuild[theme_plusKeyColor]',
-		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'sanitize_hex_color' ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_rebuild[theme_plusKeyColorLight]',
-		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'sanitize_hex_color' ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_rebuild[theme_plusKeyColorVeryLight]',
-		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback' => 'sanitize_hex_color' ) );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),
@@ -119,7 +119,7 @@ add_filter( 'biz_vektor_keycolors', 'biz_vektor_rebuild_set_keycolor' );
 function biz_vektor_rebuild_set_keycolor($colors){
 	if(is_rebuild()){
 		$options = biz_vektor_get_theme_options_rebuild();
-		$colors['keyColor'] = (isset($options['theme_plusKeyColor']) and $options['theme_plusKeyColor'])? $options['theme_plusKeyColor'] : '#e90000';
+		$colors['keyColor'] = biz_vektor_sanitize_keycolor( isset( $options['theme_plusKeyColor'] ) ? $options['theme_plusKeyColor'] : '', '#e90000' );
 	}
 	return $colors;
 }
@@ -151,13 +151,8 @@ function biz_vektor_rebuild_print_css(){
 		);
 	// 設定項目をループする
 	foreach ($rebuild_array as $key => $value) {
-		if (isset($rebuildOptions[$value['key']]) && $rebuildOptions[$value['key']] ) {
-			// 保存されている配列の中に ループ中の項目が保存されていれば $color_key に代入
-			$color_key[$value['key']] = esc_html($rebuildOptions[$value['key']]);
-		} else {
-			// 保存されている配列の中に ループ中の項目が保存されていなければ 初期値を代入
-			$color_key[$value['key']] = $value['default'];
-		}
+		// 保存値が正しいカラーコードならそのまま、空や不正な形式なら初期値を代入
+		$color_key[$value['key']] = biz_vektor_sanitize_keycolor( isset( $rebuildOptions[$value['key']] ) ? $rebuildOptions[$value['key']] : '', $value['default'] );
 	}
 		if ( $rebuildOptions ) : ?>
 		<style type="text/css">

@@ -767,6 +767,18 @@ function biz_vektor_sideChildDisplay() {
 }
 
 
+/**
+ * キーカラーの値を検証し、正しいカラーコードだけを返す。
+ *
+ * @param mixed  $color   検証する値（#rrggbb または #rgb 形式のみ有効）。
+ * @param string $default 値が空または不正な形式のときに返す値。
+ * @return string 正しいカラーコード。無効な場合は $default。
+ */
+function biz_vektor_sanitize_keycolor( $color, $default = '' ) {
+	$sanitized = is_string( $color ) ? sanitize_hex_color( $color ) : '';
+	return $sanitized ? $sanitized : $default;
+}
+
 add_action( 'wp_head', 'biz_vektor_output_keycolorcss', 5 );
 function biz_vektor_output_keycolorcss() {
 	echo '<style type="text/css">';
@@ -789,6 +801,11 @@ function biz_vektor_output_keycolorcss() {
 
 	reset( $colors );
 	foreach ($colors as $k => $v) {
+		// フィルターで渡された値も検証し、不正な値の色は出力しない
+		$v = biz_vektor_sanitize_keycolor( $v );
+		if ( '' === $v ) {
+			continue;
+		}
 		foreach ($types as $kk => $vv) {
 			// .keyColorBG,.keyColorBGh:hover,
 			// .keyColor_bg,.keyColor_bg_hover:hover
