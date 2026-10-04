@@ -32,6 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+== 1.14.0 ==
 * [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.5.0 から 0.8.1 にアップデート
 * [ 不具合修正 ] テーマオプションの設定初期化処理に nonce と権限の確認を追加
 * [ 不具合修正 ] キーカラー設定で、#rrggbb / #rgb 形式以外の値（rgba() や色名など）を保存・出力しないよう修正。以前これらの値を設定していた場合は、各デザインスキンの既定色に戻ります
