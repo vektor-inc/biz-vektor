@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@wordpress/env": "^11.16.0",
-    "sass": "^1.105.0"
+    "sass": "^1.105.1"
   }
 }
