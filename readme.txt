@@ -32,6 +32,8 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ 開発環境 ] Node.js のバージョンを 20.14.0 から 24.22.1 にアップデート。GitHub Actions のバージョン指定を .node-version に統一
+
 == 1.14.0 ==
 * [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.5.0 から 0.8.1 にアップデート
 * [ 不具合修正 ] テーマオプションの設定初期化処理に nonce と権限の確認を追加

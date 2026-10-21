@@ -1,6 +1,5 @@
 const fs = require('fs');
 const gulp = require('gulp');
-const cssmin = require('gulp-cssmin');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const jsmin = require('gulp-jsmin');
@@ -29,7 +28,7 @@ const sassTask = () => {
 const cssConcatMin = () => {
   return gulp.src(['css/bizvektor_common.css', 'js/res-vektor/res-vektor.css', 'js/FlexSlider/flexslider.css'])
     .pipe(concat('bizvektor_common.css'))
-    .pipe(cssmin())
+    .pipe(cleanCss())
     .pipe(rename({ suffix: '_min' }))
     .pipe(gulp.dest('./css/'));
 };
