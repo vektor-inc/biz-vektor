@@ -28,7 +28,7 @@ const sassTask = () => {
 const cssConcatMin = () => {
   return gulp.src(['css/bizvektor_common.css', 'js/res-vektor/res-vektor.css', 'js/FlexSlider/flexslider.css'])
     .pipe(concat('bizvektor_common.css'))
-    .pipe(cleanCss())
+    .pipe(cleanCss({ compatibility: { properties: { ieFilters: true } } }))
     .pipe(rename({ suffix: '_min' }))
     .pipe(gulp.dest('./css/'));
 };
