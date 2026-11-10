@@ -1,4 +1,5 @@
 <?php 
+defined( 'ABSPATH' ) || exit;
 /*	To use text area at customizer
 /*-------------------------------------------*/
 if(class_exists('WP_Customize_Control')):

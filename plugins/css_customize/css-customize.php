@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 add_filter('biz_vektor_is_css_customize_widgets', 'biz_vektor_csscustom_beacon', 10, 1 );
 function biz_vektor_csscustom_beacon($flag){

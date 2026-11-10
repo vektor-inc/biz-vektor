@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
 <head>

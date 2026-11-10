@@ -1,4 +1,6 @@
-<?php if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
+<?php
+defined( 'ABSPATH' ) || exit;
+if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
 <?php
 if ( is_active_sidebar( 'post-widget-area' ) ) :
 	dynamic_sidebar( 'post-widget-area' );

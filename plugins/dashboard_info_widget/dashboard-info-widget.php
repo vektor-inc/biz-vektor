@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 use VektorInc\VK_Admin\VkAdmin;
 
 // vendor ディレクトリ無しで誤配信された場合など VkAdmin クラスが読み込めない環境では

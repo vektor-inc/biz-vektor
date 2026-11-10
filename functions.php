@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 $theme_opt = wp_get_theme( 'biz-vektor' );
 define( 'BizVektor_Theme_Version', $theme_opt->Version );

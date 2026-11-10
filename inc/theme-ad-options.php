@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 
 add_action( 'admin_menu', array('Biz_Vektor_Advanced_Options', 'init') );

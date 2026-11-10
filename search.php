@@ -1,4 +1,6 @@
-<?php /* If search null ,redirect to top */
+<?php
+defined( 'ABSPATH' ) || exit;
+/* If search null ,redirect to top */
 if (isset($_GET['s']) && empty($_GET['s'])) {
 	header("Location: ".home_url());
 	exit;

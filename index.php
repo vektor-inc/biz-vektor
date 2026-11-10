@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+defined( 'ABSPATH' ) || exit;
+get_header(); ?>
 <?php $postType = get_post_type();
 if ( !$postType ) {
   global $wp_query;

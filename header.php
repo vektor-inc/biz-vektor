@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <!DOCTYPE html>
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">

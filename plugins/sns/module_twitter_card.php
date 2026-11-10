@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 $biz_vektor_options = biz_vektor_get_theme_options();
 // url
 $linkUrl = (is_front_page()) ? home_url():get_permalink();
