@@ -82,7 +82,12 @@ function mobileImageBack(){jQuery('img.resImage-mobile').each(function(){if(jQue
 function dropNavFunctions(){jQuery('.dropNavControl').each(function(){var dropNavUnit=jQuery(this).next();jQuery(this).click(function(){if(jQuery(this).hasClass('dropNavOpen')){jQuery(this).removeClass('dropNavOpen');dropNavUnit.animate({height:"0"});}else{jQuery(this).removeClass('dropNavOpen');dropNavUnit.css({"position":"absolute","opacity":"0","height":"auto"});var subMenuHeight=dropNavUnit.height();dropNavUnit.css({"position":"relative","opacity":"1","height":"0","display":"block"});dropNavUnit.animate({height:subMenuHeight},function(){jQuery(this).css({"height":"auto"});});jQuery(this).addClass('dropNavOpen');}});});}
 function dropNavReset(){jQuery('a.dropNavControl.dropNavSubControl').each(function(){jQuery(this).next().hide();});}
 function dropNavSubControlLinkDelete(){jQuery('a.dropNavControl.dropNavSubControl').each(function(){if(jQuery(this).hasClass('subControlMode')!==true){jQuery(this).addClass('subControlMode');var linkUrl=jQuery(this).attr('href');jQuery(this).attr('href','#').before(jQuery('<span class="subControlLinkUrl"></span>').text(linkUrl));jQuery(this).prev().hide();}});}
-function dropNavSubControlLinkRedo(){jQuery('span.subControlLinkUrl').each(function(){var linkUrl=jQuery(this).text();jQuery(this).next().attr('href',linkUrl).removeClass('subControlMode');jQuery(this).remove();});}
+function resIsSafeLinkUrl(url){if(typeof url!=='string'||!url){return false;}
+var cleaned=url.replace(/[\u0000-\u0020\u007f-\u009f\u200b-\u200d\ufeff]/g,'');if(!cleaned){return false;}
+var match=cleaned.match(/^([^\/?#:]*):/);if(!match){return true;}
+return/^(https?|mailto|tel)$/i.test(match[1]);}
+function dropNavSubControlLinkRedo(){jQuery('span.subControlLinkUrl').each(function(){var linkUrl=jQuery(this).text();if(resIsSafeLinkUrl(linkUrl)){jQuery(this).next().attr('href',linkUrl);}
+jQuery(this).next().removeClass('subControlMode');jQuery(this).remove();});}
 function resImgTxtChange_mode_mobile(){resImgTxtChange_mobile_only();resImgTxtChange_mobile_tab();}
 function resImgTxtChange_mode_tab(){resImgTxtChange_mobile_tab();resImgTxtBack_mobile_only();}
 function resImgTxtChange_mode_full(){resImgTxtBack_mobile_tab();}

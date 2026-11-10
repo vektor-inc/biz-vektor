@@ -1113,13 +1113,34 @@ function dropNavSubControlLinkDelete(){
 		}
 	});
 }
+/*		リンクURLのスキームが http / https / mailto / tel / 相対URL かを判定する
+/*----------------------------------------------------------*/
+function resIsSafeLinkUrl(url){
+	if ( typeof url !== 'string' || ! url ) {
+		return false;
+	}
+	// 制御文字・空白を除去してからスキームを判定する
+	var cleaned = url.replace(/[\u0000-\u0020\u007f-\u009f\u200b-\u200d\ufeff]/g, '');
+	if ( ! cleaned ) {
+		return false;
+	}
+	var match = cleaned.match(/^([^\/?#:]*):/);
+	if ( ! match ) {
+		// スキームなし（相対URL・#・?）
+		return true;
+	}
+	return /^(https?|mailto|tel)$/i.test(match[1]);
+}
 /*		サブドロップダウンボタンのaタグのURLを戻す
 /*----------------------------------------------------------*/
 function dropNavSubControlLinkRedo(){
 	jQuery('span.subControlLinkUrl').each(function(){
 		var linkUrl = jQuery(this).text();
-		// リンクURLを元に戻す / サブコントロール識別用クラスを外す
-		jQuery(this).next().attr('href',linkUrl).removeClass('subControlMode');
+		// 許可したスキームのURLだけ元に戻す（それ以外は # のまま）/ サブコントロール識別用クラスを外す
+		if ( resIsSafeLinkUrl(linkUrl) ) {
+			jQuery(this).next().attr('href',linkUrl);
+		}
+		jQuery(this).next().removeClass('subControlMode');
 		jQuery(this).remove();
 	});
 }
