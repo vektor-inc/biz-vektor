@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 add_action( 'widgets_init', 'biz_vektor_info_register_widgets' );
 

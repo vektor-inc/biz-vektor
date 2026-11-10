@@ -1,4 +1,6 @@
-<?php $biz_vektor_options = biz_vektor_get_theme_options(); ?>
+<?php
+defined( 'ABSPATH' ) || exit;
+$biz_vektor_options = biz_vektor_get_theme_options(); ?>
 <div class="optionNav" style="display:none;">
 <ul>
     <li id="btn_design"><a href="#design"><?php echo __( 'Design', 'biz-vektor' ); ?></a></li>

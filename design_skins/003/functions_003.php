@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 /*-------------------------------------------*/
 /*  Print header menu to head contact area

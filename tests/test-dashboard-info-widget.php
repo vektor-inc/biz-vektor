@@ -85,6 +85,8 @@ class Dashboard_Info_Widget_Test extends WP_UnitTestCase {
 			$runner .= "namespace {\n";
 			// 全てのエラーを出力対象にして Fatal を確実に検知できるようにする.
 			$runner .= "\terror_reporting(E_ALL);\n";
+			// 対象ファイル先頭のチェックを通過させ、ファイル本体を実行する.
+			$runner .= "\tdefine( 'ABSPATH', true );\n";
 			for ( $i = 0; $i < $case['include_count']; $i++ ) {
 				$runner .= "\tinclude " . var_export( $target, true ) . ";\n";
 			}

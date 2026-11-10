@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /*
  * Template Name: Don't show contact at the bottom of the page
  */

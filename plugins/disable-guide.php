@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /**
  * VkExUnit disable_guide.php
  * hide admin button.

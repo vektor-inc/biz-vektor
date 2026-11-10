@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div class="wrap biz_vektor_options">
 
 	<h2><?php echo get_biz_vektor_name(); ?> <?php _e('Advanced Options', 'biz-vektor') ?></h2>

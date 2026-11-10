@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div class="wrap">
 	<h2><?php echo get_biz_vektor_name(); ?> <?php _e( 'CSS Customize', 'biz-vektor' ) ?></h2>
 	<div class="fileedit-sub"></div>

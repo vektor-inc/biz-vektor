@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <!-- [ .socialSet ] -->
 <?php if (is_home() || is_front_page()) {
 	$linkUrl = home_url();

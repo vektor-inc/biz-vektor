@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 get_template_part('plugins/seo_and_ga/seo_and_ga');
 if (is_admin()) get_template_part('plugins/seo_and_ga/seo_and_ga_edit');
 

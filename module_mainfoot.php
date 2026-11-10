@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 $options = biz_vektor_get_theme_options();
 if ($options['contact_link'] || $options['tel_number']) :?>
 <div class="mainFoot">

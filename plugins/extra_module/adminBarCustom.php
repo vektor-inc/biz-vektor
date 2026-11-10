@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 function bizvektor_adminbar_custom_menu() {
 
 	global $wp_admin_bar;

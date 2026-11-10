@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 $postType = get_post_type();
 if ($postType == 'post') {
 	$taxonomySlug = 'category';

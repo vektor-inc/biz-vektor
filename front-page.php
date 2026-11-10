@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+defined( 'ABSPATH' ) || exit;
+get_header(); ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 

@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div id="comments">
 <?php if ( post_password_required() ) : ?>
 <?php // No Passwords comment ?>
