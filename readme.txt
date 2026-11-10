@@ -32,6 +32,8 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ 不具合修正 ] PHP 8.4 以降でテーマの更新確認・更新情報の表示時に非推奨（Deprecated）の警告が出る問題を修正
+
 == 1.14.0 ==
 * [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.5.0 から 0.8.1 にアップデート
 * [ 不具合修正 ] テーマオプションの設定初期化処理に nonce と権限の確認を追加
