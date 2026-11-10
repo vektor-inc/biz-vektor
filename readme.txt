@@ -32,6 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+== 1.14.1 ==
 * [ 不具合修正 ] PHP 8.4 以降でテーマの更新確認・更新情報の表示時に非推奨（Deprecated）の警告が出る問題を修正
 * [ 不具合修正 ] レスポンシブ表示のサブメニューリンクの復元時に、URL の検証を追加
 * [ 不具合修正 ] テーマの PHP に、WordPress 経由以外では処理を止める記述を追加
