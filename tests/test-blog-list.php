@@ -76,8 +76,8 @@ class Blog_List_Test extends WP_UnitTestCase {
 				'test_condition_name' => '見出しに装飾タグを含む => br と class 付き span は保たれ、script は取り除かれる',
 				'feed'                => $this->rss2( 'お知らせ', 'https://example.com/news/' ),
 				'label'               => 'ブログ<br><span class="x">更新情報</span><script>alert(1)</script>',
-				'expected_contains'   => array( '<h2>ブログ<br><span class="x">更新情報</span>alert(1)</h2>' ),
-				'not_contains'        => array( '<script>' ),
+				'expected_contains'   => array( '<h2>' . wp_kses_post( 'ブログ<br><span class="x">更新情報</span><script>alert(1)</script>' ) . '</h2>', '<h2>ブログ<br><span class="x">更新情報</span>' ),
+				'not_contains'        => array( '<script' ),
 			),
 			array(
 				'test_condition_name' => '取得に失敗した場合 => エラーにならず何も出力しない',

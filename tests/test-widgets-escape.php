@@ -184,7 +184,7 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 					'label'    => '<script>alert(1)</script><span class="x">A</span>',
 					'hide'     => '',
 				),
-				'expected'            => 'alert(1)<span class="x">A</span>',
+				'expected'            => wp_kses_post( '<script>alert(1)</script><span class="x">A</span>' ),
 			),
 			array(
 				'test_condition_name' => 'タクソノミー一覧で見出しが空 => hide の値になる',
@@ -201,6 +201,8 @@ class Widgets_Escape_Test extends WP_UnitTestCase {
 		foreach ( $test_cases as $case ) {
 			$instance = $case['widget']->update( $case['new_instance'], array() );
 			$this->assertSame( $case['expected'], $instance['label'], $case['test_condition_name'] );
+			// script タグが残らない事を、WordPress のバージョンによらず別に確認する.
+			$this->assertStringNotContainsString( '<script', $instance['label'], $case['test_condition_name'] );
 		}
 	}
 
