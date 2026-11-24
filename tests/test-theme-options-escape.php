@@ -108,10 +108,10 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 					'head_logo'    => '',
 					'foot_logo'    => '',
 					'favicon'      => '',
-					'contact_txt'  => 'Aalert(1)<b>B</b>',
-					'tel_number'   => '03alert(1)',
+					'contact_txt'  => wp_kses_post( 'A<script>alert(1)</script><b onclick="x()">B</b>' ),
+					'tel_number'   => wp_kses_post( '03<script>alert(1)</script>' ),
 					'contact_time' => '9:00<img src="x">',
-					'sub_sitename' => 'Salert(1)',
+					'sub_sitename' => wp_kses_post( 'S<script>alert(1)</script>' ),
 					'contact_link' => '',
 					'slide1link'   => '',
 					'slide1image'  => '',
@@ -141,6 +141,8 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 			$output = biz_vektor_theme_options_validate( $input );
 			foreach ( $case['expected'] as $key => $expected ) {
 				$this->assertSame( $expected, $output[ $key ], $case['test_condition_name'] . ' [' . $key . ']' );
+				// script タグが残らない事を、WordPress のバージョンによらず別に確認する.
+				$this->assertStringNotContainsString( '<script', (string) $output[ $key ], $case['test_condition_name'] . ' [' . $key . ']' );
 			}
 		}
 	}
@@ -190,12 +192,17 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 			array(
 				'test_condition_name' => 'script とイベント属性の場合 => 取り除かれる',
 				'value'               => 'A<script>alert(1)</script><b onclick="x()">B</b>',
-				'expected'            => 'Aalert(1)<b>B</b>',
+				'expected'            => wp_kses_post( 'A<script>alert(1)</script><b onclick="x()">B</b>' ),
 			),
 		);
 
 		foreach ( $test_cases as $case ) {
-			$this->assertSame( $case['expected'], biz_vektor_sanitize_customizer_html( $case['value'] ), $case['test_condition_name'] );
+			$actual = biz_vektor_sanitize_customizer_html( $case['value'] );
+			$this->assertSame( $case['expected'], $actual, $case['test_condition_name'] );
+			// script タグが残らない事を、WordPress のバージョンによらず別に確認する.
+			$this->assertStringNotContainsString( '<script', $actual, $case['test_condition_name'] );
+			// イベント属性（onclick）が残らない事を、固定の文字列で確認する.
+			$this->assertStringNotContainsString( 'onclick', $actual, $case['test_condition_name'] );
 		}
 	}
 
@@ -234,7 +241,7 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 				'test_condition_name' => 'contact_txt に script と装飾の場合 => 装飾だけ残る',
 				'id'                  => 'contact_txt',
 				'value'               => 'A<br><script>alert(1)</script><span class="x">B</span>',
-				'expected'            => 'A<br>alert(1)<span class="x">B</span>',
+				'expected'            => wp_kses_post( 'A<br><script>alert(1)</script><span class="x">B</span>' ),
 			),
 			array(
 				'test_condition_name' => 'pr1_title に装飾の場合 => 残る',
@@ -247,7 +254,10 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 		foreach ( $test_cases as $case ) {
 			$setting = $wp_customize->get_setting( 'biz_vektor_theme_options[' . $case['id'] . ']' );
 			$this->assertNotNull( $setting, $case['test_condition_name'] );
-			$this->assertSame( $case['expected'], $setting->sanitize( $case['value'] ), $case['test_condition_name'] );
+			$actual = $setting->sanitize( $case['value'] );
+			$this->assertSame( $case['expected'], $actual, $case['test_condition_name'] );
+			// script タグが残らない事を、WordPress のバージョンによらず別に確認する.
+			$this->assertStringNotContainsString( '<script', (string) $actual, $case['test_condition_name'] );
 		}
 	}
 
