@@ -201,6 +201,8 @@ class Theme_Options_Escape_Test extends WP_UnitTestCase {
 			$this->assertSame( $case['expected'], $actual, $case['test_condition_name'] );
 			// script タグが残らない事を、WordPress のバージョンによらず別に確認する.
 			$this->assertStringNotContainsString( '<script', $actual, $case['test_condition_name'] );
+			// イベント属性（onclick）が残らない事を、固定の文字列で確認する.
+			$this->assertStringNotContainsString( 'onclick', $actual, $case['test_condition_name'] );
 		}
 	}
 
