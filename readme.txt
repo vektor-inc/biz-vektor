@@ -33,6 +33,7 @@ http://bizvektor.com/contact/
 https://github.com/kurudrive/biz-vektor/commits/master
 
 * [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.8.1 から 0.8.2 にアップデート
+* [ 仕様変更 ][ パンくず ] 読み上げソフトでパンくずへ直接移動でき、今いるページの項目も伝わるよう変更
 
 == 1.14.1 ==
 * [ 不具合修正 ] PHP 8.4 以降でテーマの更新確認・更新情報の表示時に非推奨（Deprecated）の警告が出る問題を修正
