@@ -32,6 +32,8 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
+* [ 仕様変更 ][ パンくず ] 読み上げソフトでパンくずへ直接移動でき、今いるページの項目も伝わるよう変更
+
 == 1.14.1 ==
 * [ 不具合修正 ] PHP 8.4 以降でテーマの更新確認・更新情報の表示時に非推奨（Deprecated）の警告が出る問題を修正
 * [ 不具合修正 ] レスポンシブ表示のサブメニューリンクの復元時に、URL の検証を追加

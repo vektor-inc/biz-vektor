@@ -272,25 +272,48 @@ if ( is_date() ) {
 
 $breadcrumb_array = apply_filters( 'bizvektor_panList_array', $breadcrumb_array );
 
+// フィルターが配列を返さなかった場合（return 忘れなど）は、項目なしとして扱い PHP の警告を出さない
+if ( ! is_array( $breadcrumb_array ) ) {
+	$breadcrumb_array = array();
+}
+
+// 現在ページの項目を決める（リンクの無い項目のうち最後のもの）
+// 作者アーカイブでは現在ページ（作者名）の後ろに投稿一覧へのリンクが続くため、単純に最後の項目にはしない
+$current_key = null;
+foreach ( $breadcrumb_array as $key => $value ) {
+	if ( is_array( $value ) && empty( $value['url'] ) ) {
+		$current_key = $key;
+	}
+}
+
+// 読み上げソフトがナビゲーション領域として扱えるよう、パンくずを nav で囲む
+// nav は #panList の内側に置く。#panList ごと非表示にしたとき（印刷用 CSS など）に、中身の無い nav だけが残らないようにするため
 $breadcrumb_html = '<!-- [ #panList ] -->
 <div id="panList">
+<nav aria-label="' . esc_attr__( 'Breadcrumb', 'biz-vektor' ) . '">
 <div id="panListInner" class="innerBox"><ul>';
 foreach ( $breadcrumb_array as $key => $value ) {
-	$id = ( $value['id'] ) ? ' id="' . esc_attr( $value['id'] ) . '"' : '';
+	$id = ( ! empty( $value['id'] ) ) ? ' id="' . esc_attr( $value['id'] ) . '"' : '';
 	if ( $value == 'HOME' ) {
 		$microdata_li        = '';
 		$microdata_li_a      = '';
 		$microdata_li_a_span = '';
 	}
-	$breadcrumb_html .= '<li' . $id . $microdata_li . '>';
 
-	if ( $value['url'] ) {
+	// 現在ページの項目に、読み上げソフトへ「今いるページ」と伝える属性を付ける
+	$aria_current = ( $key === $current_key ) ? ' aria-current="page"' : '';
+
+	$breadcrumb_html .= '<li' . $id . $microdata_li . $aria_current . '>';
+
+	if ( ! empty( $value['url'] ) ) {
 		$breadcrumb_html .= '<a href="' . esc_url( $value['url'] ) . '"' . $microdata_li_a . '>';
 	}
 
-	$breadcrumb_html .= '<span' . $microdata_li_a_span . '>' . esc_html( $value['name'] ) . '</span>';
+	$item_name = isset( $value['name'] ) ? $value['name'] : '';
 
-	if ( $value['url'] ) {
+	$breadcrumb_html .= '<span' . $microdata_li_a_span . '>' . esc_html( $item_name ) . '</span>';
+
+	if ( ! empty( $value['url'] ) ) {
 		$breadcrumb_html .= '</a> &raquo; ';
 	}
 
@@ -298,6 +321,7 @@ foreach ( $breadcrumb_array as $key => $value ) {
 }
 $breadcrumb_html .= '</ul>';
 $breadcrumb_html .= '</div>
+</nav>
 </div>
 <!-- [ /#panList ] -->
 ';
