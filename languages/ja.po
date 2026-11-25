@@ -2349,3 +2349,7 @@ msgstr "確認のチェックボックスにチェックを入れてください
 #: inc/theme-options-edit.php
 msgid "With your user permissions, some HTML tags such as script tags will be removed when saved."
 msgstr "お使いの権限では、script タグなど一部の HTML タグは保存時に削除されます。"
+
+#: module_panList.php
+msgid "Breadcrumb"
+msgstr "パンくず"
