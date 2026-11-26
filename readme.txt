@@ -32,7 +32,7 @@ http://bizvektor.com/contact/
 == Changelog ==
 https://github.com/kurudrive/biz-vektor/commits/master
 
-* [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.8.1 から 0.8.2 にアップデート
+* [ 仕様変更 ] 管理画面の共通ライブラリ vektor-inc/vk-admin を 0.8.1 から 0.8.3 にアップデート
 * [ 仕様変更 ][ パンくず ] 読み上げソフトでパンくずへ直接移動でき、今いるページの項目も伝わるよう変更
 
 == 1.14.1 ==
